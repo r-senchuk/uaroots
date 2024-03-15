@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "bulma/css/bulma.css";
+import "./App.css";
+// import TransporterRow from "./components/TransporterRow";
+// import HeaderRow from "./components/HeaderRow";
+import SearchBar from "./components/SearchBar";
+import searchImages from "./api";
 
 function App() {
+
+  const handleSearchSubmit = async (term) => {
+    const result = await searchImages(term);
+
+    console.log(result);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <SearchBar onSubmit={handleSearchSubmit}></SearchBar>
+      {/* <HeaderRow></HeaderRow>
+      <TransporterRow isPrimary={true}></TransporterRow>
+      <TransporterRow></TransporterRow>
+      <TransporterRow isPrimary={true}></TransporterRow>
+      <TransporterRow></TransporterRow> */}
     </div>
   );
 }
