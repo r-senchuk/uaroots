@@ -1,7 +1,7 @@
+import "./SearchBar.css";
 import { useState } from "react";
-export default function SearchBar({onSubmit}) {
-
-  const [term, setTerm] = useState('');
+export default function SearchBar({ onSubmit }) {
+  const [term, setTerm] = useState("");
   const handleChange = (e) => {
     setTerm(e.target.value);
   };
@@ -18,5 +18,4 @@ export default function SearchBar({onSubmit}) {
       </form>
     </div>
   );
-
 }

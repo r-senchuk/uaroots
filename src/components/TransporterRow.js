@@ -5,9 +5,10 @@ function TransporterRow({ image }) {
   // }
 
   return (
-    <section className={className} key={image.id}>
+    <section className={className} >
       <div className="hero-body ">
-        <p className="subtitle">{image.id}</p>
+        <img src={image.urls.small} alt={image.alt_description} />
+        <p className="subtitle">{image.description}</p>
         <p >Приватний перевізник</p>
       </div>
     </section>
