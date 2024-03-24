@@ -1,25 +1,36 @@
 import "bulma/css/bulma.css";
 import "./App.css";
 import TransporterList from "./components/TransporterList";
-// import HeaderRow from "./components/HeaderRow";
+import BookCreate from "./components/BookCreate";
 import SearchBar from "./components/SearchBar";
+import TransporterContext from "./context/transporter";
 import searchImages from "./api";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 
 function App() {
+  const { fetchTransporters } = useContext(TransporterContext);
+
+  useEffect(() => {
+    fetchTransporters();
+  }, []);
+
   const [images, setImage] = useState();
+
+  const createBook = (title) => {
+    console.log("create book:", title);
+  };
 
   const handleSearchSubmit = async (term) => {
     const result = await searchImages(term);
 
     setImage(result);
-  }
+  };
 
   return (
     <div className="container">
       <SearchBar onSubmit={handleSearchSubmit}></SearchBar>
-      {/* {/* <HeaderRow></HeaderRow> */}
-      <TransporterList images={images}></TransporterList>
+      <TransporterList></TransporterList>
+      <BookCreate></BookCreate>
     </div>
   );
 }

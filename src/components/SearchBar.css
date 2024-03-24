@@ -5,5 +5,7 @@
 }
 
 .search-bar form{
+    display: flex;
+    flex-direction: column;
 
 }
