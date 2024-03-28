@@ -1,14 +1,18 @@
-import TransporterRow from './TransporterRow'
+import { useContext, useEffect } from "react";
+import TransporterRow from "./TransporterRow";
+import TransporterContext from "../context/transporter";
 
-function TransporterList({images}) {
-    let renderedTransporters;
-    if(images){
-        renderedTransporters = images.map((image)=>{
-            return <TransporterRow image={image} key={image.id}></TransporterRow>
-        });
-    }
-     
-    return <div>{renderedTransporters}</div>
+function TransporterList() {
+  const { transportersList, fetchCall } = useContext(TransporterContext);
+
+  useEffect(() => {
+    fetchCall();
+  }, [fetchCall]);
+
+  const renderedContext = transportersList.map((tp) => {
+    return <TransporterRow key={tp.id} transporter={tp}></TransporterRow>;
+  });
+  return <div>{renderedContext}</div>;
 }
 
-export default TransporterList
+export default TransporterList;

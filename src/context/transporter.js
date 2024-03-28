@@ -1,31 +1,33 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useCallback } from "react";
+import data from "transporters.json";
 
 const TransporterContext = createContext();
+// const TRANSPORTERS_ADDRESS = "https://s3.eu-central-1.amazonaws.com/uaroute.com/transporter.json";
 
 function Provider({ children }) {
-  const [transporter, setTransporter] = useState([]);
+  const [transporters, setTransporter] = useState([]);
+  const [transportersList, setTransporterList] = useState(transporters);
 
   const fetchTransporters = () => {
-    console.log("fetchTransporters");
-    setTransporter([]);
+    // const resp = fetch(TRANSPORTERS_ADDRESS)
+    setTransporter(data);
+    setTransporterList(data);
   };
+  const fetchCall = useCallback(()=>fetchTransporters(), []);
 
-  const editTransporters = () => {
-    console.log("editTransporters");
-    setTransporter([]);
-  };
-
-  const createTransporters = () => {
+  const createTransporters = (transporterObj) => {
     console.log("createTransporters");
-    setTransporter([]);
+    console.log(transporterObj);
+    setTransporter([ ...transporters, transporterObj]);
   };
 
   return (
     <TransporterContext.Provider
       value={{
-        transporter,
-        fetchTransporters,
-        editTransporters,
+        transporters,
+        transportersList,
+        fetchCall,
+        setTransporterList,
         createTransporters,
       }}
     >

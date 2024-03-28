@@ -1,0 +1,16 @@
+[
+  {
+    "id": 12,
+    "name": "4k-koval",
+    "logo": "https://www.4k-koval.com/d/logo.svg",
+    "url": "https://www.4k-koval.com",
+    "phone": "+38 (050) 978-63-30",
+    "destination": "Ганновер",
+    "departure": "Долина",
+    "description": "Перевезення пасажирів та посилок з Івано-Франківська, Львова до Ганновера",
+    "price": "від 100€",
+    "schedule": "щотижня",
+    "type": "автобус",
+    "rating": 4.5
+  }
+]
