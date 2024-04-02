@@ -12,7 +12,7 @@ function TransporterList() {
   const renderedContext = transportersList.map((tp) => {
     return <TransporterRow key={tp.id} transporter={tp}></TransporterRow>;
   });
-  return <div>{renderedContext}</div>;
+  return <div className="container">{renderedContext}</div>;
 }
 
 export default TransporterList;

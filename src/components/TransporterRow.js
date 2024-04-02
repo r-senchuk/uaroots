@@ -1,21 +1,27 @@
+import "./TransporterRow.css";
 function TransporterRow({ transporter }) {
-  let className = "hero is-small";
-  // if (isPrimary) {
-  //   className += " is-primary";
-  // }
-
   return (
-    <section className={className} >
-      <div className="hero-body ">
-        <img src={transporter.logo} alt="перевізник" />
-        <p className="subtitle">{transporter.name}</p>
-        <p >{transporter.description}</p>
-      </div>
-      <div className="hero-foot">
-        <p > До: {transporter.departure}</p>
-        <p >Виїзд з м. {transporter.destination}</p>
+    <a href="https://www.4k-koval.com/" title="сайт компанії">
+    <div className="box">
+      <div className="level">
+        <div class="level-left">
+          <figure className="image is-64x64">
+            <img src={transporter.logo} alt="перевізник" />
+          </figure>
+          <div className="level-item">
+            <p className="block subtitle px-3 has-text-primary">{transporter.name}</p>
+            <p>{transporter.description}</p>
+          </div>
         </div>
-    </section>
+        <div className="level-item">
+          <div className="content">
+            <p>Виїзд з м. {transporter.departure}</p>
+            <p>Прямує до {transporter.destination}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </a>
   );
 }
 
