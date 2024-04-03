@@ -4,7 +4,7 @@ function TransporterRow({ transporter }) {
     <a href="https://www.4k-koval.com/" title="сайт компанії">
     <div className="box">
       <div className="level">
-        <div class="level-left">
+        <div className="level-left">
           <figure className="image is-64x64">
             <img src={transporter.logo} alt="перевізник" />
           </figure>

@@ -1,9 +1,9 @@
 function HeaderRow() {
   return (
-    <section class="hero is-medium">
-      <div class="hero-body ">
-        <p class="title">Рейтинг приватних перевізників</p>
-        <p class="subtitle">в Німеччину</p>
+    <section className="hero is-medium">
+      <div className="hero-body ">
+        <p className="title">Рейтинг приватних перевізників</p>
+        <p className="subtitle">в Німеччину</p>
       </div>
     </section>
   );
