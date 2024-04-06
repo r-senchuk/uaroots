@@ -2,17 +2,16 @@ import { useState, createContext, useCallback } from "react";
 import data from "transporters.json";
 
 // const TRANSPORTERS_ADDRESS = "https://s3.eu-central-1.amazonaws.com/uaroute.com/transporter.json";
-const NAV_SETUP_DEFAULT = {
-  title: "Пасажирські перевезення",
-  subtl: "Список перевізників",
-};
 
 const TransporterContext = createContext();
 
 function Provider({ children }) {
   const [transporters, setTransporter] = useState([]);
   const [transportersList, setTransporterList] = useState(transporters);
-  const [navigationConf, setNavigationConf] = useState(NAV_SETUP_DEFAULT);
+  const [navigationConf, setNavigationConf] = useState({
+    title: "Пасажирські перевезення",
+    subtl: "Список перевізників",
+  });
 
   const fetchTransporters = () => {
     // const resp = fetch(TRANSPORTERS_ADDRESS)
