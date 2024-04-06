@@ -1,20 +1,31 @@
 import { useState } from "react";
 
 function ContactUs() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""),
+    [name, setName] = useState(""),
+    namePlaceholder = "Ім'я",
+    [phone, setPhone] = useState(""),
+    phonePlaceholder = "Телефон",
+    [department, setDepartment] = useState(""),
+    [member, setMember] = useState(""),
+    [subject, setSubject] = useState(""),
+    [question, setQuestion] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-  }
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
 
   return (
     <div className="container">
-      <div className="content has-text-centered pt-6" id="contactus">
-        <h2 className="title">Напишіть нам</h2>
-        <p className="subtitle ml-4">
-          
-        </p>
-      </div>
+
       <form
         className="block"
         method="put"
@@ -27,7 +38,13 @@ function ContactUs() {
           <div className="field-body">
             <div className="field">
               <p className="control is-expanded has-icons-left">
-                <input className="input" type="text" placeholder="Name" />
+                <input
+                  className="input"
+                  type="text"
+                  value={name}
+                  onChange={handleNameChange}
+                  placeholder={namePlaceholder}
+                />
                 <span className="icon is-small is-left">
                   <i className="fas fa-user"></i>
                 </span>
@@ -39,7 +56,7 @@ function ContactUs() {
                   className="input is-success"
                   type="email"
                   onChange={handleEmailChange}
-                  placeholder="Email"
+                  placeholder="E-mail"
                   value={email}
                 />
                 <span className="icon is-small is-left">
@@ -58,56 +75,18 @@ function ContactUs() {
           <div className="field-body">
             <div className="field is-expanded">
               <div className="field has-addons">
-                <p className="control">
-                </p>
+                <p className="control"></p>
                 <p className="control is-expanded">
                   <input
                     className="input"
                     type="tel"
-                    placeholder="Your phone number"
+                    value={phone}
+                    onChange={handlePhoneChange}
+                    placeholder={phonePlaceholder}
                   />
                 </p>
               </div>
               <p className="help">Do not enter the first zero</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="field is-horizontal">
-          <div className="field-label is-normal">
-            <label className="label">Department</label>
-          </div>
-          <div className="field-body">
-            <div className="field is-narrow">
-              <div className="control">
-                <div className="select is-fullwidth">
-                  <select>
-                    <option>Business development</option>
-                    <option>Marketing</option>
-                    <option>Sales</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="field is-horizontal">
-          <div className="field-label">
-            <label className="label">Already a member?</label>
-          </div>
-          <div className="field-body">
-            <div className="field is-narrow">
-              <div className="control">
-                <label className="radio">
-                  <input type="radio" name="member" />
-                  Yes
-                </label>
-                <label className="radio">
-                  <input type="radio" name="member" />
-                  No
-                </label>
-              </div>
             </div>
           </div>
         </div>
