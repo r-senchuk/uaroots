@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import SearchBar from "./SearchBar";
+import TransporterContext from "../context/transporter";
 
 function Navigation() {
   const navBarRef = useRef();
   const navMenuRef = useRef();
+  const { navigationConf } = useContext(TransporterContext);
 
   const handleNavBarClick = () => {
     navBarRef.current.classList.toggle("is-active");
@@ -57,8 +59,8 @@ function Navigation() {
 
       <div className="hero-body">
         <div className="container has-text-centered">
-          <p className="title">Пасажирські перевезення</p>
-          <p className="subtitle">Список перевізників</p>
+          <p className="title">{navigationConf.title}</p>
+          <p className="subtitle">{navigationConf.subtl}</p>
         </div>
       </div>
 
