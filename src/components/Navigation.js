@@ -71,12 +71,12 @@ function Navigation() {
               <li className="is-active">
                 <Link to="/">Список перевізників</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/contact">Перевізникам</Link>
               </li>
               <li>
                 <Link to="/contact">Умови</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>
