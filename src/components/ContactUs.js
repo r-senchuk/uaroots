@@ -1,42 +1,88 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function ContactUs() {
   const [email, setEmail] = useState(""),
     emailInput = useRef(),
+    emailCheckMark = useRef(),
     isValidEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
     [name, setName] = useState(""),
+    nameRef = useRef(),
     namePlaceholder = "Ім'я",
     [phone, setPhone] = useState(""),
+    phoneInpRef = useRef(),
     phonePlaceholder = "Телефон",
-    [question, setQuestion] = useState("");
+    [question, setQuestion] = useState(""),
+    [isSubmitDisabled, setSubmitDisabled] = useState(true);
+
+  useEffect(() => {
+    console.log("checkIfSubmDisabled");
+    if (
+      nameRef.current.valid &&
+      (emailInput.current.valid || phoneInpRef.current.valid) &&
+      question.length > 10
+    ) {
+      setSubmitDisabled(false);
+    } else {
+      setSubmitDisabled(true);
+    }
+  }, [name, email, phone, question]);
 
   const handleEmailChange = (e) => {
     if (e.target?.value) {
       e.target.value.match(isValidEmail)
-        ? showNoValidEmail(false)
-        : showNoValidEmail(true);
-      setEmail(e.target.value);
+        ? showEmailNotValid(false)
+        : showEmailNotValid(true);
+    } else {
+      showEmailNotValid(false);
     }
+    setEmail(e.target.value);
   };
 
-  const showNoValidEmail = (show) => {
+  const showEmailNotValid = (show) => {
     if (show) {
+      emailInput.current.valid = false;
       emailInput.current.classList.add("is-danger");
+      emailCheckMark.current.classList.add("is-hidden");
     } else {
+      emailInput.current.valid = true;
       emailInput.current.classList.remove("is-danger");
+      emailCheckMark.current.classList.remove("is-hidden");
     }
   };
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    let name = e.target.value;
+    if (name.match(/\p{Letter}/gu) && name.length > 2) {
+      nameRef.current.valid = true;
+      nameRef.current.classList.remove("is-danger");
+    } else {
+      nameRef.current.classList.add("is-danger");
+      nameRef.current.valid = false;
+    }
+    setName(name);
   };
 
   const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
+    let phone = e.target.value;
+    setPhone(phone);
+    if (phone.match(/^[\d\s+]{8,}$/)) {
+      e.target.classList.remove("is-danger");
+      phoneInpRef.current.valid = true;
+    } else {
+      e.target.classList.add("is-danger");
+      phoneInpRef.current.valid = false;
+    }
   };
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
+    if (e.target.value.length > 10) {
+      e.target.classList.remove("is-danger");
+      e.target.valid = true;
+    } else {
+      e.target.classList.add("is-danger");
+      e.target.valid = false;
+    }
   };
 
   return (
@@ -58,6 +104,7 @@ function ContactUs() {
                   className="input"
                   type="text"
                   value={name}
+                  ref={nameRef}
                   onChange={handleNameChange}
                   placeholder={namePlaceholder}
                 />
@@ -80,6 +127,7 @@ function ContactUs() {
                     className="input"
                     type="tel"
                     value={phone}
+                    ref={phoneInpRef}
                     onChange={handlePhoneChange}
                     placeholder={phonePlaceholder}
                   />
@@ -92,7 +140,7 @@ function ContactUs() {
             <div className="field">
               <p className="control is-expanded has-icons-left has-icons-right">
                 <input
-                  className="input is-success"
+                  className="input"
                   type="email"
                   ref={emailInput}
                   onChange={handleEmailChange}
@@ -102,7 +150,7 @@ function ContactUs() {
                 <span className="icon is-small is-left">
                   <i className="fas fa-envelope"></i>
                 </span>
-                <span className="icon is-small is-right">
+                <span ref={emailCheckMark} className="icon is-small">
                   <i className="fas fa-check"></i>
                 </span>
               </p>
@@ -133,7 +181,13 @@ function ContactUs() {
           <div className="field-body">
             <div className="field">
               <div className="control">
-                <button className="button is-primary">Надіслати</button>
+                <button
+                  type="submit"
+                  disabled={isSubmitDisabled}
+                  className="button is-primary"
+                >
+                  Надіслати
+                </button>
               </div>
             </div>
           </div>
