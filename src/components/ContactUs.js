@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 
 function ContactUs() {
-  const [email, setEmail] = useState(""),
+  const API_URL =
+      "https://4jtzwjgt99.execute-api.eu-central-1.amazonaws.com/prod/contactcrew",
+    [email, setEmail] = useState(""),
     emailInput = useRef(),
     emailCheckMark = useRef(),
     isValidEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
@@ -85,13 +87,38 @@ function ContactUs() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let data = {
+      name,
+      email,
+      phone,
+      question,
+    };
+    fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "success") {
+          alert("Повідомлення надіслано!");
+          setEmail("");
+          setName("");
+          setPhone("");
+          setQuestion("");
+        } else {
+          alert("Виникла помилка. Спробуйте пізніше.");
+        }
+      });
+  }
+
   return (
     <div className="container">
       <br />
       <form
         className="block"
-        method="put"
-        action="https://4jtzwjgt99.execute-api.eu-central-1.amazonaws.com/prod/contactcrew"
+        onSubmit={handleSubmit}
       >
         <div className="field is-horizontal">
           <div className="field-label">
