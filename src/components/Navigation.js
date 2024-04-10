@@ -19,7 +19,6 @@ function Navigation() {
         <nav className="navbar">
           <div className="container">
             <div className="navbar-brand">
-              <SearchBar></SearchBar>
               <Link to="/" className="navbar-item title">
                 UAROUTE
               </Link>
@@ -67,17 +66,18 @@ function Navigation() {
       <div className="hero-foot">
         <nav className="tabs">
           <div className="container">
-            <ul>
+            {/* <ul>
               <li className="is-active">
                 <Link to="/">Список перевізників</Link>
               </li>
-              {/* <li>
+              
+              <li>
                 <Link to="/contact">Перевізникам</Link>
               </li>
               <li>
                 <Link to="/contact">Умови</Link>
-              </li> */}
-            </ul>
+              </li>
+            </ul> */}
           </div>
         </nav>
       </div>

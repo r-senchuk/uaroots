@@ -9,7 +9,6 @@ export default function Root() {
     <div>
       <Navigation />
       <Outlet />
-      <br />
     </div>
   );
 }

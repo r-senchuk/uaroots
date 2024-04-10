@@ -10,17 +10,28 @@ export default function SearchBar({ onSubmit }) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setTransporterList(
-      transporters.filter((tp) => tp.name.includes(term))
-    );
+    setTransporterList(transporters.filter((tp) => tp.name.includes(term)));
   };
 
   return (
     <div className="search-bar">
       <form onSubmit={handleFormSubmit}>
-        <label>Пошук перевізника</label>
-        <input value={term} type="text" onChange={handleChange} />
-        <button type="submit">Знайти</button>
+        <div className="field has-addons">
+          <div className="control">
+            <input
+              className="input"
+              value={term}
+              onChange={handleChange}
+              type="text"
+              placeholder="Пошук перевізника"
+            />
+          </div>
+          <div className="control">
+            <button type="submit" className="button is-primary">
+              Знайти
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
