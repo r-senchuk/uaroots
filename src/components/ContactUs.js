@@ -96,7 +96,8 @@ function ContactUs() {
       question,
     };
     fetch(API_URL, {
-      method: "POST",
+      method: "PUT",
+      mode: "cors",
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
