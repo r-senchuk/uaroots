@@ -17,7 +17,6 @@ function ContactUs() {
     [isSubmitDisabled, setSubmitDisabled] = useState(true);
 
   useEffect(() => {
-    console.log("checkIfSubmDisabled");
     if (
       nameRef.current.valid &&
       (emailInput.current.valid || phoneInpRef.current.valid) &&
@@ -108,19 +107,18 @@ function ContactUs() {
           setName("");
           setPhone("");
           setQuestion("");
-        } else {
-          alert("Виникла помилка. Спробуйте пізніше.");
         }
+      })
+      .catch((err) => {
+        alert("Помилка надсилання повідомлення");
+        console.log(err);
       });
-  }
+  };
 
   return (
     <div className="container">
       <br />
-      <form
-        className="block"
-        onSubmit={handleSubmit}
-      >
+      <form className="block" onSubmit={handleSubmit}>
         <div className="field is-horizontal">
           <div className="field-label">
             <label className="label">Від</label>
