@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 import "./TransporterRow.css";
 function TransporterRow({ transporter }) {
   return (
-    <a href="https://www.4k-koval.com/" title="сайт компанії">
+    <Link to={transporter.url} title="сайт компанії">
       <div className="box">
         <div className="level">
           <div className="level-left">
-            <figure className="image is-64x64">
-              <img src={transporter.logo} alt="перевізник" />
-            </figure>
             <div className="level-item">
+              <figure className="image is-64x64">
+                <img src={transporter.logo} alt="перевізник" />
+              </figure>
               <p className="block subtitle px-3 has-text-primary">
                 {transporter.name}
               </p>
@@ -23,7 +24,7 @@ function TransporterRow({ transporter }) {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

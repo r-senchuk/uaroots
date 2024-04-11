@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useContext, useRef } from "react";
-import SearchBar from "./SearchBar";
 import TransporterContext from "../context/transporter";
 
 function Navigation() {
@@ -36,7 +35,7 @@ function Navigation() {
             </div>
             <div id="navbarMenuHeroA" ref={navMenuRef} className="navbar-menu">
               <div className="navbar-end">
-                <Link to="/" className="navbar-item is-active">
+                <Link to="/" className="navbar-item">
                   Головна
                 </Link>
                 <Link to="/contact" className="navbar-item">
