@@ -1,0 +1,4 @@
+.wrap {
+  word-break: break-word;
+  flex-basis: 75%;
+}

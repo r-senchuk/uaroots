@@ -7,19 +7,31 @@ function TransporterRow({ transporter }) {
         <div className="level">
           <div className="level-left">
             <div className="level-item">
-              <figure className="image is-64x64">
-                <img src={transporter.logo} alt="перевізник" />
-              </figure>
-              <p className="block subtitle px-3 has-text-primary">
-                {transporter.name}
-              </p>
-              <p>{transporter.description}</p>
+              <div className="level-item">
+                <figure className="image is-64x64">
+                  <img src={transporter.logo} alt="перевізник" />
+                </figure>
+              </div>
+              <div className="level-item">
+                <p className="block subtitle px-2 has-text-primary">
+                  {transporter.name}
+                </p>
+              </div>
             </div>
           </div>
           <div className="level-item">
+            <p className="px-3 is-italic wrap">{transporter.description}</p>
+          </div>
+          <div className="level-item">
             <div className="content">
-              <p>Виїзд з м. {transporter.departure}</p>
-              <p>Прямує до {transporter.destination}</p>
+              <p>
+                Виїзд з <br />
+                <span className="tag is-dark">{transporter.departure}</span>
+              </p>
+              <p>
+                Прямує до <br />
+                <span className="tag is-dark">{transporter.destination}</span>
+              </p>
             </div>
           </div>
         </div>
