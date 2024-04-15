@@ -2,3 +2,7 @@
   word-break: break-word;
   flex-basis: 75%;
 }
+
+.w90 {
+  width: 90%;
+}

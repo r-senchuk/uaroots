@@ -10,7 +10,21 @@
     "description": "Перевезення пасажирів та посилок з Івано-Франківська, Львова до Ганновера",
     "price": "від 100€",
     "schedule": "щотижня",
-    "type": "автобус",
+    "type": "мікроавтобус",
+    "rating": 4.5
+  },
+  {
+    "id": 13,
+    "name": "vektor24",
+    "logo": "https://vektor24.com.ua/img/logo.png",
+    "url": "https://vektor24.com.ua",
+    "phone": "+38 (068) 910-10-13",
+    "destination": "Вроцлав",
+    "departure": "Умань",
+    "description": "Перевезення пасажирів та посилок з Умані до Вроцлава",
+    "schedule": "щодня",
+    "price": "від 50€",
+    "type": "мікроавтобус",
     "rating": 4.5
   }
 ]

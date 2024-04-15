@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./TransporterRow.css";
 function TransporterRow({ transporter }) {
   return (
-    <Link to={transporter.url} title="сайт компанії">
+    <Link to={transporter.url} className="w90 my-2" title="сайт компанії">
       <div className="box">
         <div className="level">
           <div className="level-left">
@@ -22,7 +22,7 @@ function TransporterRow({ transporter }) {
           <div className="level-item">
             <p className="px-3 is-italic wrap">{transporter.description}</p>
           </div>
-          <div className="level-item">
+          <div className="level-right">
             <div className="content">
               <p>
                 Виїзд з <br />
