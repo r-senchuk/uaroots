@@ -38,7 +38,7 @@ function Navigation() {
                 <Link to="/" className="navbar-item">
                   Головна
                 </Link>
-                <Link to="/contact" className="navbar-item">
+                <Link to="/about" className="navbar-item">
                   Про нас
                 </Link>
                 <span className="navbar-item">

@@ -116,10 +116,10 @@ function ContactUs() {
   };
 
   return (
-    <div className="container">
+    <div className="container" >
       <br />
-      <form className="block" onSubmit={handleSubmit}>
-        <div className="field is-horizontal">
+      <form className="block" onSubmit={handleSubmit} style={{ maxWidth: '80%', margin: 'auto' }} >
+        <div className="field is-horizontal" >
           <div className="field-label">
             <label className="label">Від</label>
           </div>

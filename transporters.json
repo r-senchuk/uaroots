@@ -26,5 +26,18 @@
     "price": "від 50€",
     "type": "мікроавтобус",
     "rating": 4.5
+  }, {
+    "id": 14,
+    "name": "Vobus",
+    "logo": "https://s3.eu-central-1.amazonaws.com/uaroute.com/imgs/vobus.jpg",
+    "url": "https://t.me/poshta_de_ua",
+    "phone": "+38 (068) 008-2400",
+    "destination": "Швебиш-Халль",
+    "departure": "Надвірна",
+    "description": "Перевезення пасажирів та посилок в Німеччину",
+    "schedule": "Щосуботи",
+    "price": "від 50€",
+    "type": "мікроавтобус",
+    "rating": 4.5
   }
 ]
