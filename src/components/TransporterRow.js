@@ -22,7 +22,7 @@ function TransporterRow({ transporter }) {
           <div className="level-item">
             <p className="px-3 is-italic wrap">{transporter.description}</p>
           </div>
-          <div className="level-right">
+          <div className="level-right destination">
             <div className="content">
               <p>
                 Виїзд з <br />
