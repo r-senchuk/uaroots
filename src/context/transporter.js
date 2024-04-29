@@ -1,5 +1,5 @@
 import { useState, createContext, useCallback } from "react";
-import data from "transporters.json";
+import data from "../json/transporters.json";
 
 // const TRANSPORTERS_ADDRESS = "https://s3.eu-central-1.amazonaws.com/uaroute.com/transporter.json";
 
