@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import TransporterContext from "../context/transporter";
-import content from "content.json";
+import content from "../json/content.json";
 import AboutUs from "../components/about/AboutUs";
 
 function AboutPage() {
