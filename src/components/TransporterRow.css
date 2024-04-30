@@ -6,3 +6,8 @@
 .w90 {
   width: 90%;
 }
+
+.destination {
+  min-width: 120px;
+  justify-content: flex-start;
+}
