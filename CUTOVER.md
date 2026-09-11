@@ -20,11 +20,13 @@ These paths still exist as HTML pages (meta refresh + `location.replace`). Add C
 make deploy
 ```
 
-That runs `npm run check` (typecheck, lint, test, catalog validate, `next build`, inspect `./out`) then [`scripts/deploy.sh`](scripts/deploy.sh):
+That runs `npm run check` (typecheck, lint, test, catalog validate, `next build`, inspect `./out`) then [`scripts/deploy.sh`](scripts/deploy.sh). The script matches Next.js 16 production cache headers on a static host (RSC HTML + flight `.txt` at build time; no Node `next start`):
 
-1. `aws s3 sync ./out/ s3://uaroute.com --delete` with `Cache-Control: public, max-age=0, must-revalidate` (except hashed assets)
-2. `_next/static` with `Cache-Control: public, max-age=31536000, immutable`
-3. CloudFront invalidation `/*`
+1. Upload new hashed `/_next/static` first (`Cache-Control: public, max-age=31536000, immutable`) so HTML never references missing chunks
+2. Sync the rest with `--delete` and `Cache-Control: public, max-age=0, must-revalidate` (HTML, RSC `.txt`, sitemap, robots). Long-caching those files mixes two builds and can surface raw `.txt` on client navigations
+3. Re-upload `*.html` as `text/html; charset=utf-8`
+4. Delete hashed files from previous builds
+5. CloudFront invalidation `/*` (directory indexes and `.txt` are separate keys from `*.html` when `trailingSlash: true`)
 
 Required environment:
 
@@ -33,7 +35,7 @@ Required environment:
 
 `--delete` removes leftover CRA `/static/js` and old hashed chunks. `inspect-out` must pass first so an empty `out/` cannot wipe production.
 
-Push to `main` deploys the CI artifact the same way. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in the environment (or GitHub Actions secret) before that production build if GA4 should receive `track()` events.
+Push to `main` deploys the CI artifact the same way (GitHub Actions `production` environment). Optional later: switch the workflow to AWS OIDC (`role-to-assume`) instead of long-lived access keys. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in the environment (or GitHub Actions secret) before that production build if GA4 should receive `track()` events.
 
 Former-URL pages are HTML redirects (meta refresh + `location.replace`). They are not `next.config.ts` `redirects()` — static export cannot emit HTTP 301s. Add CloudFront Functions or S3 routing rules for real 301s when you are ready.
 

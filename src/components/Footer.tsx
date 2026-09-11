@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { Logo } from "@/components/brand/Logo";
@@ -59,8 +60,26 @@ export function Footer() {
         </nav>
       </div>
 
-      <div className="container-page relative border-t border-border py-6">
+      <div className="container-page relative flex flex-col gap-4 border-t border-border py-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="type-caption">UA → EU · Інформаційний атлас маршрутів</p>
+        <p className="flex items-center gap-2 type-caption">
+          Розроблено{" "}
+          <a
+            href="https://crewbravo.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center"
+            aria-label="CrewBravo"
+          >
+            <Image
+              src="/crewbravo-logo.svg"
+              alt="CrewBravo"
+              width={54}
+              height={18}
+              className="h-[18px] w-auto"
+            />
+          </a>
+        </p>
       </div>
     </footer>
   );

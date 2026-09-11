@@ -1,44 +1,67 @@
-# UARoute (uaroots)
+# UARoute
 
-Canonical project map: [README.md](README.md). Product docs start at [docs/00-project-constitution.md](docs/00-project-constitution.md).
+Passenger-route atlas (Ukraine → Europe). **UARoute owns discovery and travel intent; Koval owns booking.**
 
-Passenger-route atlas for journeys **from Ukraine to Europe**. Product name: **UARoute**. UARoute owns discovery and travel intent; Koval owns the transaction and booking. Production [uaroute.com](https://uaroute.com) is still the legacy CRA catalog until cutover.
+Human map: [README.md](README.md). Do not dump the whole `docs/` tree into context.
 
-## Stack
+Production [uaroute.com](https://uaroute.com) is still the CRA catalog (`legacy/`) until `./out` is deployed.
 
-- Next.js 16 App Router, TypeScript, React 19
-- Tailwind CSS v4 (`src/app/globals.css`)
-- Static export to `./out` for S3 + CloudFront (`output: "export"`, `trailingSlash: true`)
-- Typed content: `src/data/` (cities, routes, carriers)
-- WhatsApp inquiry: `src/lib/whatsapp.ts`
-- Catalog check: `src/lib/validate-catalog.ts`
-- Analytics façade: `src/lib/analytics.ts` → GA4 when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set
+## Start here
 
-## Layout
+| Task | Read first |
+| --- | --- |
+| Product / copy / SEO | [docs/00-project-constitution.md](docs/00-project-constitution.md), then the relevant `docs/0N-*.md` |
+| Catalog (cities, routes, carriers, desks, claims) | [src/data/AGENTS.md](src/data/AGENTS.md) |
+| Inquiry / WhatsApp / desks | `src/lib/whatsapp.ts`, [docs/07-koval-integration-and-conversion.md](docs/07-koval-integration-and-conversion.md) |
+| Analytics | `src/lib/analytics.ts` (do not invent `ctaLocation` values) |
+| Stack / hosting | [docs/decisions/0001-nextjs-static-export.md](docs/decisions/0001-nextjs-static-export.md) |
+| Cutover / old URLs | [CUTOVER.md](CUTOVER.md) |
+| UI verification | skill `verify-pages` |
 
-- `src/app/` — routes (`layout.tsx` = header + main + footer)
-- `src/components/` — product UI; `src/components/brand/` for atlas graphics
-- Routes: `/`, `/routes/`, `/routes/[slug]/`, `/about/`
-- HTML redirects for former URLs: `/contact/`, `/contacts/`, `/carriers/`, `/packages/`, `/gallery/`
+If a lower-level doc conflicts with the constitution, stop. Do not silently override Level 1.
 
 ## Commands
 
 ```bash
-npm run dev
+npm run dev          # http://localhost:3000
 npm test
-npm run lint       # eslint . (Next 16 has no next lint)
-npm run check      # typecheck, lint, test, validate, build, inspect ./out
-make deploy        # npm run check && scripts/deploy.sh (needs CLOUDFRONT_DISTRIBUTION_ID)
+npm run lint         # eslint .  (Next 16 has no next lint)
+npm run typecheck
+npm run check        # typecheck, lint, test, validate, build, inspect ./out
+make deploy          # npm run check && scripts/deploy.sh (CLOUDFRONT_DISTRIBUTION_ID)
 ```
 
-## Product rules
+Need Node ≥ 20.9. Run the smallest check that covers the edit; `npm run check` before calling a slice done.
+
+## Layout
+
+- Owned app: `src/app/`, `src/components/`, `src/data/`, `src/lib/`, `src/config/`
+- Frozen CRA: `legacy/` — do not restyle or “port” it
+- `new_design/` and `Route Planner Pro/` — gitignored Lovable specs; not a source of truth; do not deploy
+
+Public URLs: `/`, `/routes/`, `/routes/[slug]/`, `/about/`. HTML redirects: `/contact/`, `/contacts/` → `/about/`; `/carriers/` → `/routes/`; `/packages/` → `/about/`; `/gallery/` → `/`.
+
+## Hard rules
 
 - User-facing copy is **Ukrainian**.
-- No invented prices, ratings, timetables or durations.
-- Commercial routes only in the index, sitemap, and search navigation; editorial routes are `noindex`.
-- Client components only where there is UI state (search, inquiry, header, tracking clicks).
-- Do not add Lovable packages, `__lovableEvents`, or the unused shadcn `components/ui` dump.
-- After UI changes, verify in the browser (home search, route inquiry, about) and check view-source for the Ukrainian H1 on route pages.
+- Do not invent prices, ratings, timetables, durations, stop lists, or availability.
+- Only `commercial` routes belong in the index, sitemap, and search navigation. Editorial pages are `noindex`.
+- Search uses `findRouteByCities(..., { commercialOnly: true })`.
+- Do not store names, phones, or travel dates. Do not send phones or names through `track()`.
+- Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump.
+- Default to Server Components. `"use client"` only for UI state, effects, or click tracking.
+- Internal hrefs end with `/` except home `/`. Static export: `output: "export"`, `trailingSlash: true` — no Node SSR host, no `redirects()` in `next.config.ts`.
+- Keep modules server-safe. Request-time SSR needs a new ADR.
+
+## Skills
+
+[`.agents/skills/`](.agents/skills/) — Cursor, Codex, and OpenCode.
+
+## Code review
+
+Flag invented operational facts, English UI copy, editorial routes in index/sitemap/search, phones in `track()`, and unnecessary `"use client"`. Do not require restyling `legacy/` or a Node host.
+
+When corrected, update this file (or [src/data/AGENTS.md](src/data/AGENTS.md) for catalog).
 
 <!-- BEGIN:nextjs-agent-rules -->
 

@@ -15,3 +15,6 @@ yarn-error.log*
 new_design
 Route Planner Pro
 Route Planner Pro/
+
+# Local agent overrides (Codex / OpenCode). Do not commit.
+AGENTS.override.md

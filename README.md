@@ -92,7 +92,7 @@ Treat the docs as a hierarchy. A lower-level file must not silently override a h
 - [ADR 0001 — Next.js static export](docs/decisions/0001-nextjs-static-export.md)
 - [M1 implementation checklist](docs/m1-implementation-checklist.md)
 - [CUTOVER.md](CUTOVER.md) — deploy and legacy URL map
-- [AGENTS.md](AGENTS.md) — compact conventions for coding agents
+- [AGENTS.md](AGENTS.md) — instructions for Cursor, Codex, OpenCode, and other coding agents (skills in `.agents/skills/`)
 
 ---
 
@@ -129,7 +129,7 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 - Tests: Vitest (`src/data/queries.test.ts`, `src/lib/whatsapp.test.ts`, `src/lib/validate-catalog.test.ts`)
 - Lint: `eslint .` (Next.js 16 no longer ships `next lint`)
 - Quality gate: `npm run check` (typecheck, lint, test, validate, build, inspect `./out`)
-- Deploy: `scripts/deploy.sh` (`aws s3 sync --delete`, cache headers, CloudFront invalidation)
+- Deploy: `scripts/deploy.sh` (hashed assets first, revalidate HTML/RSC `.txt`, CloudFront invalidation)
 
 ---
 
@@ -169,7 +169,7 @@ Local `make deploy` and GitHub Actions on `main` both call `scripts/deploy.sh`. 
 - AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`)
 - `CLOUDFRONT_DISTRIBUTION_ID`
 
-The script syncs `./out` to `s3://uaroute.com` with `--delete`, long-cache hashed `_next/static` assets, and `must-revalidate` for HTML, then invalidates CloudFront `/*`. Push to `main` runs the same path after CI; pull requests only run `npm run check`.
+The script matches Next.js 16 production caching on S3: hashed `/_next/static` is immutable; HTML and RSC `.txt` payloads always revalidate; new chunks upload before HTML; CloudFront `/*` is invalidated. Push to `main` runs the same path after CI; pull requests only run `npm run check`.
 
 After UI changes, verify home search, a route inquiry, and `/about/` in the browser, and check view-source for the Ukrainian H1 on a route page.
 

@@ -19,7 +19,7 @@ Before changing product behavior, architecture, UX, visual design, content rules
 
 This document should remain relatively stable. Detailed implementation decisions belong in the other project documents and Architecture Decision Records.
 
-**Implementation snapshot (2026-09-11):** the owned M1 app is Next.js 16 App Router with static export ([ADR 0001](decisions/0001-nextjs-static-export.md)). One commercial route (`lviv-hannover`); Hamburg and Berlin stay editorial. Production uaroute.com is still the legacy CRA catalog until cutover. Canonical map: [README.md](../README.md).
+**Implementation snapshot (2026-09-11):** the owned M1 app is Next.js 16 App Router with static export ([ADR 0001](decisions/0001-nextjs-static-export.md)). One commercial route (`lviv-hannover`); Hamburg and Berlin stay editorial. Production uaroute.com is still the legacy CRA catalog until cutover. Canonical maps: [README.md](../README.md) (humans), [AGENTS.md](../AGENTS.md) (coding agents).
 
 ---
 

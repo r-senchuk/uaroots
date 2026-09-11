@@ -1,26 +1,6 @@
 ---
-description: UARoute product context, stack, and workflow
+description: Cursor-only UI verification (product rules live in AGENTS.md)
 alwaysApply: true
 ---
 
-# UARoute
-
-Ukrainian-language **route atlas** (Ukraine → Europe). Brand: **UARoute**. Stack: Next.js 16 App Router + Tailwind v4, static export to S3. Production uaroute.com is still the CRA catalog until cutover.
-
-## Do
-
-- Keep user-visible strings in Ukrainian.
-- Put catalog facts in `src/data/` (`types.ts`, `cities.ts`, `routes.ts`, `carriers.ts`).
-- Put inquiry logic in `src/lib/whatsapp.ts` and events in `src/lib/analytics.ts`.
-- Use existing editorial utilities (`type-display`, `container-page`, `rule-strong`) before adding CSS.
-- After UI changes, verify in the browser and check view-source on a route page for the H1.
-
-## Don't
-
-- Don't invent timetables, prices, ratings, durations or availability.
-- Don't add Lovable (`@lovable.dev`, `__lovableEvents`) or a shadcn `components/ui` dump.
-- Don't send phone numbers or names through `track()`.
-
-## Deploy
-
-`npm run build` writes `./out`. `make deploy` uploads that directory to `s3://uaroute.com`. True request-time SSR needs a later host change; keep modules server-safe either way.
+After UI changes: browser tools + view-source for the Ukrainian H1. Skill: `verify-pages`.

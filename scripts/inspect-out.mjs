@@ -5,8 +5,11 @@ const root = join(process.cwd(), "out");
 
 const requiredFiles = [
   "index.html",
+  "index.txt",
+  "404.html",
   "routes/index.html",
   "routes/lviv-hannover/index.html",
+  "routes/lviv-hannover/index.txt",
   "sitemap.xml",
   "robots.txt",
 ];
