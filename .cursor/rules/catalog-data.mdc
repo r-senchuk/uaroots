@@ -8,11 +8,11 @@ alwaysApply: false
 
 Keep existing field names in `types.ts`. Routes reference `originCityId`, `destinationCityId`, `carrierIds[]` and optional `deskId` — never infer a desk from UI copy.
 
-`status: "commercial"` — listed on `/routes/`, homepage index, and the sitemap.
-`status: "editorial"` — page may exist, `noindex`, not in the public index.
+`status: "commercial"` — listed on `/routes/`, homepage index, sitemap, and homepage search navigation.
+`status: "editorial"` — page may exist, `noindex`, not in the public index or search results (`findRouteByCities(..., { commercialOnly: true })`).
 
 Forbidden on a route record: duration, timetable, stops-as-itinerary, trip distance, departure times, price, availability, ratings. Unverified details go in `whatToConfirm`.
 
-Carrier `claims[]` must include `sourceUrl` and `lastVerifiedAt`. An empty list is correct until verified.
+Carrier `claims[]` must include `sourceUrl` and `lastVerifiedAt`. An empty list is correct until verified. Current Koval claims are the matrix-approved set dated 2026-09-11.
 
 City `aliases` are search-only — never URLs.

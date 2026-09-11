@@ -57,10 +57,13 @@ export function searchCities(query: string, limit = 6): City[] {
 export function findRouteByCities(
   originId: string,
   destinationId: string,
+  options?: { commercialOnly?: boolean },
 ): ResolvedRoute | undefined {
   const route = routes.find(
     (candidate) =>
-      candidate.originCityId === originId && candidate.destinationCityId === destinationId,
+      candidate.originCityId === originId &&
+      candidate.destinationCityId === destinationId &&
+      (options?.commercialOnly ? candidate.status === "commercial" : true),
   );
   return route ? resolve(route) : undefined;
 }

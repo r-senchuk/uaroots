@@ -1,8 +1,11 @@
 import Link from "next/link";
 
 import { BrokenRouteGraphic } from "@/components/brand/states";
+import { listResolvedRoutes } from "@/data/queries";
 
 export default function NotFound() {
+  const commercial = listResolvedRoutes("commercial");
+
   return (
     <div className="container-page section-band">
       <p className="type-label text-muted-foreground">404 · Маршрут не знайдено</p>
@@ -19,6 +22,19 @@ export default function NotFound() {
       >
         Усі маршрути
       </Link>
+
+      {commercial.length > 0 ? (
+        <ul className="mt-16 space-y-3">
+          <li className="type-label text-muted-foreground">Підтверджені напрямки</li>
+          {commercial.map((route) => (
+            <li key={route.slug}>
+              <Link href={`/routes/${route.slug}/`} className="type-body link-underline">
+                {route.origin.name} → {route.destination.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }

@@ -25,6 +25,13 @@ export function validateInquiry(input: {
 
   if (!input.travelDate) {
     errors.travelDate = "Вкажіть дату поїздки.";
+  } else {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const travel = new Date(`${input.travelDate}T00:00:00`);
+    if (Number.isNaN(travel.getTime()) || travel < today) {
+      errors.travelDate = "Дата не може бути в минулому.";
+    }
   }
 
   const digits = input.phone.replace(/\D/g, "");
@@ -75,7 +82,7 @@ export function buildInquiryMessage(input: InquiryInput, leadId: string): string
     `Телефон: ${phone.trim()}`,
     "",
     "Джерело: UARoute",
-    `Сторінка: ${absoluteUrl(`/routes/${route.slug}`)}`,
+    `Сторінка: ${absoluteUrl(`/routes/${route.slug}/`)}`,
     `Код: ${leadId}`,
   ];
   return lines.join("\n");

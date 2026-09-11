@@ -4,7 +4,8 @@
 **Product:** UARoute  
 **Domain:** https://uaroute.com/  
 **Language:** Ukrainian  
-**Current milestone:** Milestone 1 — Route Discovery & Koval Inquiry MVP
+**Current milestone:** Milestone 1 — Route Discovery & Koval Inquiry MVP  
+**Implementation snapshot (2026-09-11):** Search, commercial index, flagship inquiry widget, PRD empty-state copy, and legacy HTML redirects are in the Next.js tree. Search does not treat editorial corridors as bookable.
 
 ---
 

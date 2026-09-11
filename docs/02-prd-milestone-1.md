@@ -1,12 +1,14 @@
 # UARoute — Product Requirements Document
 ## Milestone 1 — Route Discovery & Koval Inquiry MVP
 
-**Status:** Approved / implementation baseline  
+**Status:** Approved / M1 implemented in the repo (2026-09-11)  
 **Product:** UARoute  
 **Domain:** https://uaroute.com/  
 **Language:** Ukrainian  
 **Current partner:** Koval / 4K Koval  
 **Milestone objective:** Turn route-intent traffic into a truthful, measurable Koval WhatsApp inquiry.
+
+Production uaroute.com is still the legacy CRA catalog until cutover. Tracker: [M1 implementation checklist](m1-implementation-checklist.md). Route publication: [verification matrix](research/m1-route-verification-matrix.md).
 
 ---
 
@@ -1084,12 +1086,12 @@ Primary:
 
 - Львів → Ганновер
 
-Potential related routes:
+Potential related routes (remain **editorial** until the matrix has stronger evidence than a destination list):
 
 - Львів → Гамбург
 - Львів → Берлін
 
-Only publish as commercial when sufficiently supported.
+Only publish as commercial when sufficiently supported. The 2026-09-11 matrix keeps Hamburg and Berlin editorial.
 
 Do not publish as commercial M1 routes:
 

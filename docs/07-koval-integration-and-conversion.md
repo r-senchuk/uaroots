@@ -358,14 +358,14 @@ Example:
 Route:
 lviv-hannover
 deskId:
-germany-default
+koval-de
 ```
 
 An Austrian route may reference:
 
 ```text
 deskId:
-austria-liechtenstein
+koval-at
 ```
 
 Do not infer a desk using arbitrary text rules.
@@ -609,15 +609,16 @@ Do not include phone number.
 
 Track where the inquiry came from.
 
-Possible values:
+Possible values (M1 TypeScript union):
 
 ```text
 hero
 booking_widget
 partner_card
-sticky_mobile
-article
 related_route
+sticky_mobile
+footer
+route_index
 ```
 
 M1 primarily uses:
@@ -625,6 +626,8 @@ M1 primarily uses:
 - booking_widget,
 - partner_card,
 - sticky_mobile.
+
+`article` is not an M1 `ctaLocation`. Do not emit it.
 
 This allows future conversion-rate optimization.
 

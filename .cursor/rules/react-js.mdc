@@ -13,7 +13,7 @@ alwaysApply: false
 - Trailing slashes are on — internal hrefs should end with `/` except the home `/`.
 
 ```tsx
-// ❌ BAD — client page, invented price, TanStack Link
+// ❌ BAD — client page, invented price, non-Next Link
 "use client";
 <Link to="/routes/$slug" params={{ slug }}>{price}€</Link>
 

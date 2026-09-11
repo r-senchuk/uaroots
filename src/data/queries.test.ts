@@ -27,4 +27,9 @@ describe("findRouteByCities", () => {
   it("returns undefined when no corridor exists", () => {
     expect(findRouteByCities("hannover", "lviv")).toBeUndefined();
   });
+
+  it("omits editorial corridors when commercialOnly is set", () => {
+    expect(findRouteByCities("lviv", "hamburg")).toBeDefined();
+    expect(findRouteByCities("lviv", "hamburg", { commercialOnly: true })).toBeUndefined();
+  });
 });

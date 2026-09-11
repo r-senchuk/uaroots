@@ -29,6 +29,9 @@ describe("validateInquiry", () => {
     expect(
       validateInquiry({ travelDate: "2026-09-18", phone: "+380961234567", passengers: 2 }).ok,
     ).toBe(true);
+    expect(
+      validateInquiry({ travelDate: "2020-01-01", phone: "+380961234567", passengers: 1 }).ok,
+    ).toBe(false);
   });
 });
 
@@ -40,7 +43,7 @@ describe("buildInquiryMessage", () => {
     expect(message).toContain("Пасажирів: 2");
     expect(message).toContain("Телефон: +38 096 123 45 67");
     expect(message).toContain("Джерело: UARoute");
-    expect(message).toContain("https://uaroute.com/routes/lviv-hannover");
+    expect(message).toContain("https://uaroute.com/routes/lviv-hannover/");
     expect(message).toContain("Код: UR-8F3K");
     expect(message).not.toContain("utm_");
   });

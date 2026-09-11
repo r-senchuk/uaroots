@@ -777,7 +777,7 @@ As of **11 September 2026**, the safest frozen interpretation is:
 9. **Passenger pricing:** no ordinary fare table discovered; a €0.8/km individual-transfer claim exists, but its commercial scope is not fully specified.
 10. **Live availability:** not publicly verified.
 11. **Operational contact:** current root provides country-grouped WhatsApp/Viber/Telegram contacts; Czech routing is ambiguous.
-12. **Legacy page:** `/index.html` contains older/different operational information and must not be treated as automatically current.
+12. **`/index.html`:** on 11 September 2026 it served the **same SPA shell as `/`**. Older “2024 HTML roster” notes are historical. Parcel JS still lists Ivan `+38 (050) 978-63-30` and Mykola `+38 (063) 079-20-00`. Passenger `bookingPhoneDigits` was not recovered as plaintext. JSON-LD `telephone` is `+380956094357`. Czech routing remains unresolved.
 
 This baseline is sufficient for UARoute to build **route-discovery and lead-generation content**, but not sufficient to claim **live bookability** without a Koval confirmation layer.
 
@@ -905,4 +905,53 @@ cancellation_policy
 refund_policy
 response_time
 ```
+
+---
+
+## Appendix C — Direct HTTP re-verification (11 September 2026)
+
+Fetched with `curl` (not a headless browser). HTML-only facts are **Verified**. Facts recovered from hashed JS chunks loaded by that HTML are **Verified from Koval JS**. Anything not in HTML or those chunks remains **Unknown**.
+
+### Technical surface (was previously Unknown)
+
+| Artifact | Result |
+| --- | --- |
+| `GET https://www.4k-koval.com/` | 200, 7045 bytes, `lang="uk"`, Vite SPA (`<div id="root">` + `/assets/index-CupA02eI.js`) |
+| `GET https://www.4k-koval.com/index.html` | 200, **same 7045-byte body** as `/` — no longer a distinct 2024 HTML document |
+| `robots.txt` | `User-agent: *` / `Allow: /` / `Sitemap: https://www.4k-koval.com/sitemap.xml` |
+| `sitemap.xml` | `/`, `/about`, `/packages`, `/gallery`, `/contacts` (lastmod 2026-09-02) |
+| JSON-LD in HTML | `BusCompany` name «Коваль Експресс», `alternateName` «Коваль», `areaServed` UA/DE/PL/CZ/AT/LI, `telephone` `+380956094357`; parcel `FAQPage` |
+| Analytics | GA4 `G-VQ03HJP16H` in HTML |
+| Deploy comment in HTML | `cf2412e9c9de5f2d1b115381a8c7781d9ccaec63` |
+
+The earlier finding that `/index.html` exposed a materially older contact roster is **not confirmed on this fetch**: both URLs serve the same SPA shell. Treat older `/index.html` notes as historical unless a cached copy is produced.
+
+### Geography in JS (`Home-*.js`, `RegionsSection-*.js`)
+
+Lviv is a named origin hub with satellites (Стрий, Дрогобич, Борислав, Самбір, Трускавець, Городок). Destination groups include **Ганновер**, **Гамбург**, and **Берлін**. That is published geography, not dated availability.
+
+Footer corridor copy also lists Belgium and the Netherlands. Those countries are **not** M1 commercial routes.
+
+### Claims in JS (safe to store as `Claim` with `sourceUrl` `https://www.4k-koval.com/` and `lastVerifiedAt` `2026-09-11`)
+
+- Прямі рейси без пересадок
+- 2 професійні водії
+- Адресна доставка пасажирів в Німеччині
+- Бронювання без передоплат
+- Мікроавтобуси Mercedes Sprinter
+
+Do not promote “близько 10 років” as an exact founding date. Do not treat €0.8/km private transfer as a passenger fare.
+
+### Desks
+
+Parcel-section JS confirms:
+
+- Коваль Іван — `+38 (050) 978-63-30` (Germany recipient)
+- Коваль Микола — `+38 (063) 079-20-00` (Austria recipient)
+
+The passenger form opens `https://wa.me/${bookingPhoneDigits}`. The digit string is not present as plaintext in the downloaded chunks; **which Ivan number the passenger form uses is Unknown from this fetch**. JSON-LD `telephone` is `+380956094357`, which is a different contact than `koval-de`. Czech routing remains **unresolved**. Do not add extra desks from this crawl.
+
+### Booking fields in JS
+
+Date, origin, destination, phone → WhatsApp message. No passenger count. Copy: «Бронювання без передоплати». UARoute must still not treat the handoff as a confirmed booking.
 

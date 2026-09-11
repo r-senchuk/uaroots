@@ -5,7 +5,7 @@ alwaysApply: true
 
 # UARoute
 
-Ukrainian-language **route atlas** (Ukraine → Europe). Brand: **UARoute** / uaroute.com. Stack: Next.js App Router + Tailwind v4, static export to S3.
+Ukrainian-language **route atlas** (Ukraine → Europe). Brand: **UARoute**. Stack: Next.js 16 App Router + Tailwind v4, static export to S3. Production uaroute.com is still the CRA catalog until cutover.
 
 ## Do
 
@@ -19,7 +19,6 @@ Ukrainian-language **route atlas** (Ukraine → Europe). Brand: **UARoute** / ua
 
 - Don't invent timetables, prices, ratings, durations or availability.
 - Don't add Lovable (`@lovable.dev`, `__lovableEvents`) or a shadcn `components/ui` dump.
-- Don't restyle or extend `legacy/` (Create React App) unless asked.
 - Don't send phone numbers or names through `track()`.
 
 ## Deploy

@@ -4,7 +4,8 @@
 **Product:** UARoute  
 **Domain:** https://uaroute.com/  
 **Language:** Ukrainian  
-**Current milestone:** Milestone 1
+**Current milestone:** Milestone 1  
+**Implementation snapshot (2026-09-11):** Shipped UI fonts are Playfair Display + IBM Plex Sans/Mono via `next/font` in `src/app/layout.tsx`. Constitution still names Instrument Serif / Work Sans as the preferred direction; changing tokens is a visual decision, not a stack ADR. `new_design/` is a gitignored Lovable spec — do not deploy it.
 
 ---
 

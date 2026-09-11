@@ -136,7 +136,7 @@ export function RouteSearch() {
       return;
     }
 
-    const route = findRouteByCities(origin.id, destination.id);
+    const route = findRouteByCities(origin.id, destination.id, { commercialOnly: true });
     track("route_search_completed", {
       origin: origin.slug,
       destination: destination.slug,
@@ -212,8 +212,8 @@ export function RouteSearch() {
       {notFound ? (
         <div aria-live="polite" className="mt-6">
           <RouteEmptyState
-            title="Маршрут поки не знайдено"
-            description="Перевірте назву міста або оберіть напрямок з атласу."
+            title="Ми поки не маємо інформації про цей маршрут."
+            description="Це не означає, що перевізник виконує рейс. Оберіть підтверджений напрямок з атласу або уточніть поїздку у Koval через інший комерційний маршрут."
           >
             <Link
               href="/routes/"

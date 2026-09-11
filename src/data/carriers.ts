@@ -29,7 +29,33 @@ export const carriers: Carrier[] = [
         countries: ["Австрія", "Ліхтенштейн"],
       },
     ],
-    claims: [],
+    claims: [
+      {
+        text: "Прямі рейси без пересадок",
+        sourceUrl: "https://www.4k-koval.com/",
+        lastVerifiedAt: "2026-09-11",
+      },
+      {
+        text: "Два професійні водії",
+        sourceUrl: "https://www.4k-koval.com/",
+        lastVerifiedAt: "2026-09-11",
+      },
+      {
+        text: "Адресна доставка пасажирів у Німеччині",
+        sourceUrl: "https://www.4k-koval.com/",
+        lastVerifiedAt: "2026-09-11",
+      },
+      {
+        text: "Бронювання без передоплати",
+        sourceUrl: "https://www.4k-koval.com/",
+        lastVerifiedAt: "2026-09-11",
+      },
+      {
+        text: "Мікроавтобуси Mercedes Sprinter",
+        sourceUrl: "https://www.4k-koval.com/",
+        lastVerifiedAt: "2026-09-11",
+      },
+    ],
   },
 ];
 

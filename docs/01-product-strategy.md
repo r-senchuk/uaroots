@@ -4,7 +4,8 @@
 **Current product phase:** Milestone 1 — Acquisition MVP  
 **Primary market:** Ukraine → Europe passenger travel  
 **Initial commercial partner:** Koval / 4K Koval  
-**Primary product domain:** https://uaroute.com/
+**Primary product domain:** https://uaroute.com/  
+**Implementation snapshot (2026-09-11):** M1 is implemented in this repo (Next.js static export). Production uaroute.com is still the CRA catalog until cutover. Commercial flagship: Львів → Ганновер. See [README](../README.md), [matrix](research/m1-route-verification-matrix.md), [checklist](m1-implementation-checklist.md).
 
 ---
 

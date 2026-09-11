@@ -96,8 +96,8 @@ The target system is:
                                     │
                       ┌─────────────▼─────────────┐
                       │       UARoute App         │
-                      │  TanStack Start + React   │
-                      │      prerendered HTML     │
+                      │  Next.js App Router       │
+                      │  static export HTML       │
                       └─────────────┬─────────────┘
                                     │
                ┌────────────────────┼─────────────────────┐
@@ -134,18 +134,18 @@ There is deliberately no application database in this architecture.
 
 ### 4.1 Application framework
 
-**TanStack Start + React + TypeScript** is the baseline framework.
+**Next.js 16 App Router + React + TypeScript** is the baseline framework ([ADR 0001](decisions/0001-nextjs-static-export.md)).
 
 Reasons:
 
 - good fit for route-centric applications;
 - strong TypeScript support;
-- supports server rendering/prerendering patterns;
-- works well with static deployment strategies;
+- React Server Components at build time with `output: "export"`;
+- works with static deployment to S3/CloudFront;
 - suitable for SEO-oriented sites;
 - provides an extensible foundation without requiring a database.
 
-The exact TanStack package versions must be pinned in the repository.
+There is no Node SSR host in M1. Pin production dependency versions in the repository.
 
 Do not depend on “latest” package resolution during production builds.
 
@@ -1356,36 +1356,27 @@ A practical target structure:
 ```text
 /
 ├── src/
-│   ├── routes/
+│   ├── app/
 │   ├── components/
-│   ├── layouts/
-│   ├── content/
-│   │   ├── cities/
-│   │   ├── routes/
-│   │   ├── carriers/
-│   │   ├── desks/
-│   │   └── claims/
-│   ├── lib/
-│   │   ├── analytics/
-│   │   ├── routing/
-│   │   ├── whatsapp/
-│   │   ├── seo/
-│   │   └── validation/
-│   └── styles/
+│   ├── config/
+│   ├── data/
+│   │   ├── cities.ts
+│   │   ├── routes.ts
+│   │   ├── carriers.ts
+│   │   └── types.ts
+│   └── lib/
+│       ├── analytics.ts
+│       ├── whatsapp.ts
+│       └── seo.ts
 ├── public/
-│   ├── images/
-│   ├── favicon/
-│   └── ...
-├── tests/
 ├── docs/
 ├── package.json
+├── next.config.ts
 ├── tsconfig.json
 └── ...
 ```
 
-The exact file names may vary with TanStack conventions.
-
-The architectural separation should not.
+The exact file names may vary. The architectural separation (typed domain data, UI, integrations) should not.
 
 ---
 
@@ -1678,7 +1669,7 @@ The M1 technical architecture is implemented when:
 
 ### Application
 
-- [ ] TanStack Start + React + TypeScript is used consistently
+- [ ] Next.js App Router + React + TypeScript is used consistently (static export; ADR 0001)
 - [ ] public route pages are prerendered
 - [ ] route content is available in HTML
 - [ ] route URLs are deterministic

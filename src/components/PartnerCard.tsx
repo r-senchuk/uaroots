@@ -4,26 +4,24 @@ import { VerifiedMark } from "@/components/brand/Metadata";
 import { RouteLine } from "@/components/brand/RouteLine";
 import { WhatsAppIcon } from "@/components/brand/WhatsAppIcon";
 import { withUtm } from "@/config/site";
-import type { Carrier, Desk } from "@/data/types";
+import type { Carrier } from "@/data/types";
 import { track, type CtaLocation } from "@/lib/analytics";
 
 type PublicCarrier = Omit<Carrier, "desks">;
 
 export function PartnerCard({
   carrier,
-  desk,
   routeSlug,
   ctaLocation = "partner_card",
   whatsappHref,
 }: {
   carrier: PublicCarrier;
-  desk?: Desk | undefined;
   routeSlug?: string | undefined;
   ctaLocation?: CtaLocation;
   whatsappHref?: string | undefined;
 }) {
   const utmContent = `${routeSlug ?? "site"}_${ctaLocation}`;
-  const directWhatsapp = whatsappHref ?? (desk ? `https://wa.me/${desk.whatsapp}` : undefined);
+  const directWhatsapp = whatsappHref;
 
   return (
     <section className="border-t-2 border-primary pt-6">
@@ -66,7 +64,6 @@ export function PartnerCard({
             onClick={() =>
               track("whatsapp_click", {
                 ...(routeSlug ? { routeSlug } : {}),
-                ...(desk ? { deskId: desk.id } : {}),
                 ctaLocation,
                 conversionType: "whatsapp_inquiry",
               })

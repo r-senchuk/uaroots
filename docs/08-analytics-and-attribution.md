@@ -905,15 +905,19 @@ The report should eventually support slicing by:
 
 Every meaningful commercial CTA should have a recognizable `ctaLocation`.
 
-Recommended values:
+M1 values (must match `CtaLocation` in `src/lib/analytics.ts`):
 
 ```text
-inquiry_widget
-mobile_sticky
+hero
+booking_widget
 partner_card
-route_header
-route_footer
+related_route
+sticky_mobile
+footer
+route_index
 ```
+
+Do not use `inquiry_widget`, `mobile_sticky`, `route_header`, or `route_footer`.
 
 The exact vocabulary should remain small and controlled.
 
@@ -923,16 +927,14 @@ This makes it possible to answer:
 
 > Which placement actually drives handoffs?
 
-Example:
+Example (illustrative only):
 
 ```text
-mobile_sticky       42%
-inquiry_widget      38%
+sticky_mobile       42%
+booking_widget      38%
 partner_card        15%
-route_header         5%
+footer               5%
 ```
-
-These numbers are illustrative only.
 
 ---
 
@@ -946,7 +948,7 @@ Example:
 
 ```text
 deskId = koval-de
-deskId = koval-at-li
+deskId = koval-at
 ```
 
 The analytics system must never infer the desk from a hard-coded phone number.
@@ -1140,7 +1142,7 @@ Example:
 {
   routeId: "lviv-hannover",
   passengerCount: 2,
-  ctaLocation: "inquiry_widget"
+  ctaLocation: "booking_widget"
 }
 ```
 

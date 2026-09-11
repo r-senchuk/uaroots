@@ -1,22 +1,18 @@
-# UARoute — cutover from the legacy application
+# UARoute — deploy and former URLs
 
-The live site is currently a CRA SPA on S3 + CloudFront (`legacy/`). The owned replacement is Next.js static HTML in `./out`.
+Static HTML in `./out` is the Next.js M1 artifact. Upload it to S3 + CloudFront when cutting over. Until that deploy, production [uaroute.com](https://uaroute.com) remains the legacy CRA catalog (`legacy/`).
 
-## URL map
+## Former URLs
 
-| Legacy URL | Decision | New target |
-| --- | --- | --- |
-| `/` | transform | discovery homepage |
-| `/about` | keep | `/about/` |
-| `/contact`, `/contacts` | redirect | `/about/` |
-| `/carriers` | redirect | `/routes/` |
-| `/packages` | redirect | `/about/` |
-| `/gallery` | redirect | `/` |
-| `/provider/:name` | drop | 404 → `/routes/` |
+These paths still exist as HTML pages (meta refresh + `location.replace`). Add CloudFront Functions or S3 routing rules for real **301**s at deploy time. Static export cannot emit HTTP 301s.
 
-Static export cannot emit HTTP 301s. This app ships HTML redirect pages at the legacy paths (meta refresh + `location.replace`). Add CloudFront Functions or S3 routing rules for real **301**s at deploy time.
-
-`next.config.ts` also lists the same redirects for a future Node/Vercel host.
+| Path | Target |
+| --- | --- |
+| `/contact/`, `/contacts/` | `/about/` |
+| `/carriers/` | `/routes/` |
+| `/packages/` | `/about/` |
+| `/gallery/` | `/` |
+| `/provider/:name` | 404 → `/routes/` |
 
 ## Deploy
 
@@ -25,10 +21,8 @@ npm run build
 aws s3 cp ./out/ s3://uaroute.com --recursive
 ```
 
-Then invalidate CloudFront. Keep `legacy/` as a one-release rollback.
+Then invalidate CloudFront.
 
 Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` before a production build if GA4 should receive `track()` events.
 
-## Lovable
-
-`new_design/` is a frozen spec. Do not connect this git branch to lovable.dev. Do not install `@lovable.dev/*`.
+Do not install `@lovable.dev/*` or reconnect this repo to lovable.dev.

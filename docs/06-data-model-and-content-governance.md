@@ -501,6 +501,7 @@ Current known desks:
 ### Germany / default
 
 ```text
+id: koval-de
 label: Іван
 phone: +38 050 978 63 30
 whatsapp: https://wa.me/380509786330
@@ -511,6 +512,7 @@ countries:
 ### Austria / Liechtenstein
 
 ```text
+id: koval-at
 label: Микола
 phone: +380 63 079 2000
 whatsapp: https://wa.me/380630792000

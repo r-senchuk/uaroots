@@ -19,6 +19,8 @@ Before changing product behavior, architecture, UX, visual design, content rules
 
 This document should remain relatively stable. Detailed implementation decisions belong in the other project documents and Architecture Decision Records.
 
+**Implementation snapshot (2026-09-11):** the owned M1 app is Next.js 16 App Router with static export ([ADR 0001](decisions/0001-nextjs-static-export.md)). One commercial route (`lviv-hannover`); Hamburg and Berlin stay editorial. Production uaroute.com is still the legacy CRA catalog until cutover. Canonical map: [README.md](../README.md).
+
 ---
 
 # 2. What UARoute is
@@ -400,9 +402,9 @@ SEO is therefore part of the product architecture, not a marketing afterthought.
 
 Important route pages must be genuinely crawlable HTML pages.
 
-For the current architecture:
+For the current architecture ([ADR 0001](decisions/0001-nextjs-static-export.md)):
 
-- use TanStack Start;
+- use Next.js App Router with static export;
 - prerender pages at build time;
 - deploy static output to S3/CloudFront;
 - verify raw HTML;

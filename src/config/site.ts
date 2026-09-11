@@ -2,13 +2,19 @@ export const siteConfig = {
   name: "UARoute",
   domain: "https://uaroute.com",
   description:
-    "Маршрути з України до Європи — як доїхати, що потрібно знати та де забронювати поїздку.",
+    "Маршрути з України до Європи — як доїхати, що потрібно знати та де уточнити поїздку.",
   campaign: "m1",
 } as const;
 
 /** Absolute URL for canonical / og:url / WhatsApp message links. */
 export function absoluteUrl(path: string): string {
-  return `${siteConfig.domain}${path.startsWith("/") ? path : `/${path}`}`;
+  const withSlash = path.startsWith("/") ? path : `/${path}`;
+  if (withSlash === "/") return `${siteConfig.domain}/`;
+  if (/\.[a-z0-9]+$/i.test(withSlash)) {
+    return `${siteConfig.domain}${withSlash}`;
+  }
+  const normalized = withSlash.endsWith("/") ? withSlash : `${withSlash}/`;
+  return `${siteConfig.domain}${normalized}`;
 }
 
 /** Programmatic UTM tagging for outbound partner links. Never used in WhatsApp text. */

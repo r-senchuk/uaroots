@@ -26,7 +26,6 @@ import { getCarrier, publicCarrier } from "@/data/carriers";
 import { getResolvedRoute, getResolvedRoutesByIds } from "@/data/queries";
 import { routes } from "@/data/routes";
 import { breadcrumbLd, buildMetadata, faqLd } from "@/lib/seo";
-import { resolveDesk } from "@/lib/whatsapp";
 
 const confirmIllustrations = [
   DocumentsIllustration,
@@ -61,7 +60,6 @@ export default async function RoutePage({ params }: PageProps) {
   if (!route) notFound();
 
   const carrier = getCarrier(route.carrierIds[0] ?? "");
-  const desk = resolveDesk(route);
   const related = getResolvedRoutesByIds(route.relatedRouteIds).filter(
     (item) => item.status === "commercial",
   );
@@ -167,7 +165,6 @@ export default async function RoutePage({ params }: PageProps) {
           {carrier ? (
             <PartnerCard
               carrier={publicCarrier(carrier)}
-              desk={desk}
               routeSlug={route.slug}
               ctaLocation="partner_card"
             />

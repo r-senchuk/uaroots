@@ -20,7 +20,7 @@ The highest migration risks are: losing the existing domain's indexed URLs; reta
 
 The recommended M1 seed should therefore be deliberately small: `City`, `Route`, `Carrier`, `Desk`, `Claim`, `sourceRef`, `lastVerifiedAt`, and related-route references. Operational numbers remain optional and **must not render when absent**.
 
-A critical evidence limitation remains: the research environment could not directly resolve `uaroute.com` over the network on 11 September 2026, and the legacy repository itself was not attached in this research turn. Current legacy implementation claims below therefore rely on the prior forensic audit artifact (which records direct production/source inspection) and are classified as historical/source-derived rather than re-verified live today. This limitation must be removed before executing the final cutover.
+A critical evidence limitation in the original draft was that `uaroute.com` could not be fetched. That limitation is **removed** as of the 11 September 2026 HTTP crawl documented in the live-verification appendix below. Carrier counts and unsafe fields are taken from `legacy/src/json/transporters.json` in this repository (three carriers), not from the unreachable four-carrier production memory.
 
 ## 2. Audit Scope and Methodology
 
@@ -34,7 +34,7 @@ Evidence is classified as:
 - **Inference** — analytical conclusion from evidence.
 - **Unknown** — cannot be established reliably from available evidence.
 
-The current Koval website was re-checked through public search results on 11 September 2026. It currently presents the Ukrainian-language passenger offering, origin hubs, German/Austrian/Liechtenstein destination lists, the booking fields, WhatsApp CTA, and parcel information. citeturn702844search0turn702844search1
+The current Koval website was re-checked by HTTP fetch on 11 September 2026 (see Koval audit Appendix C). The live UARoute hostname was fetched the same day (appendix below).
 
 The prior forensic UARoute evidence is preserved in the internal research memo `Pasted markdown(5).md`, which records inspection of the UARoute production deployment, source model, and related Koval implementation details. [Internal evidence E1]
 
@@ -63,13 +63,32 @@ The prior forensic audit reports the following production characteristics:
 | Four carrier records | Prior production/source inspection | High |
 | Koval represented as carrier | Prior production/source inspection | High |
 | Legacy `від 100€` / `4.5` | Prior JS-bundle/source inspection | High |
-| Current live UARoute status on 2026-09-11 | Direct verification unavailable | Unknown |
+| Current live UARoute status on 2026-09-11 | Direct HTTP fetch of HTML shell | High |
 
 The current Koval website remains useful as an operational comparison source, not as proof of every legacy UARoute claim. Current Koval publicly presents route/corridor information and a WhatsApp booking flow, but deliberately leaves the exact passenger schedule and fare to inquiry. citeturn702844search0
 
 ## 4. Public URL Inventory
 
 The previous forensic audit established an important distinction between the **legacy source route surface** and the **new M1 target surface**. The exact 2026 production URL set still requires a fresh crawl before cutover.
+
+### Live HTTP inventory (11 September 2026)
+
+All of the following returned **HTTP 200** and the **same 845-byte Create React App shell** (`<div id="root">`, `/static/js/main.2ee62985.js`):
+
+| URL | Notes |
+| --- | --- |
+| `https://uaroute.com/` | `lang="en"`; title `UARoutes - пасажирські перевезення в Європу`; meta description `UARoutes. Пасажирські перевезення мікроавтобусами` |
+| `/about` | same shell |
+| `/contact` | same shell (this is the CRA route; `/contacts` is not in `legacy/src/App.js`) |
+| `/packages` | same shell — **no packages page in CRA source** |
+| `/gallery` | same shell — **no gallery page in CRA source** |
+| `/sitemap.xml` | same JS shell, **not an XML sitemap** |
+
+`https://uaroute.com/robots.txt` is a real text file: `User-agent: *` / `Disallow:` (empty). It does **not** advertise a sitemap.
+
+Router in `legacy/src/App.js`: `/`, `/about`, `/contact`, `/provider/:name`. Catalog rows link to external carrier URLs, not `/provider/:name`.
+
+`legacy/src/json/transporters.json` contains **three** carriers (4k-koval, vektor24, Vobus), including unsafe Koval fields `від 100€`, `4.5`, `щотижня`. A fourth carrier (MyBus) is **not** in this repository snapshot. Whether production JS still lists four names is **Unknown** without executing the live bundle.
 
 ### Known legacy/static URL classes
 
@@ -1074,11 +1093,11 @@ Cannot be established without direct access to the current deployment/repository
 
 ## Audit Limitation
 
-This artifact is intentionally explicit about the one material gap: the current research environment could not directly resolve `uaroute.com` and did not contain the legacy repository snapshot. Accordingly, the legacy production/source claims use the earlier forensic artifact as evidence rather than pretending that a fresh live crawl occurred on 11 September 2026. The final cutover checklist should repeat the inventory against the actual repository and production deployment immediately before release.
+The 11 September 2026 crawl verified the **HTML shell**, robots.txt, and repository snapshot. It did not execute the production JavaScript, so in-app copy such as «Пошук перевізника» and the rendered carrier row count remain **Unknown** at the live DOM layer. Do not invent a fourth live carrier. Repeat a browser pass immediately before CloudFront cutover.
 
 ## Sources
 
 1. Koval. “Коваль Експресс — перевезення Україна — Німеччина.” Current public website. https://www.4k-koval.com/
-2. Koval. Legacy/index page variant. https://www.4k-koval.com/index.html
-3. Internal research artifact. `Pasted markdown(5).md` — prior forensic inspection of legacy UARoute and Koval implementation.
-4. Internal project source-of-truth documents referenced by the migration work: `00-project-constitution.md`, `01-product-strategy.md`, `07-koval-integration-and-conversion.md`.
+2. Koval. `/index.html` (same SPA shell as `/` on 2026-09-11). https://www.4k-koval.com/index.html
+3. Live `https://uaroute.com/` HTML shell, `robots.txt`, and this repository’s `legacy/` tree (11 September 2026).
+4. Internal project documents: `docs/00-project-constitution.md`, `docs/01-product-strategy.md`, `docs/07-koval-integration-and-conversion.md`.

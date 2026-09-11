@@ -1,6 +1,6 @@
 # UARoute
 
-Ukrainian-language **route atlas** for journeys from Ukraine to Europe. Live site: [uaroute.com](https://uaroute.com).
+Ukrainian-language **route atlas** for journeys from Ukraine to Europe. Production [uaroute.com](https://uaroute.com) is still the legacy CRA catalog until cutover; this repository is the Next.js M1 replacement.
 
 > UARoute owns discovery and travel intent. Koval owns the transaction and booking.
 
@@ -18,7 +18,7 @@ Travellers find a corridor, see what is known and what still needs confirmation,
 
 ## What is implemented
 
-Owned **Next.js 15 App Router** app at the repo root. `next build` writes crawlable HTML to `./out` for the existing S3 + CloudFront host (`output: "export"`, `trailingSlash: true`). There is no application database.
+Owned **Next.js 16 App Router** app at the repo root. `next build` writes crawlable HTML to `./out` for the existing S3 + CloudFront host (`output: "export"`, `trailingSlash: true`). There is no application database.
 
 | Area | Behaviour |
 | --- | --- |
@@ -42,7 +42,7 @@ Facts live in `src/data/` (`types.ts`, `cities.ts`, `routes.ts`, `carriers.ts`).
 | `lviv-hamburg` | `editorial` — page exists, `noindex` | `koval-de` |
 | `lviv-berlin` | `editorial` — page exists, `noindex` | `koval-de` |
 
-Search can still resolve editorial city pairs. Austrian desk `koval-at` is in carrier data for later AT routes; it is not a Hannover CTA.
+Homepage search only navigates `commercial` routes (`findRouteByCities(..., { commercialOnly: true })`). Editorial city pairs show the PRD empty state. Austrian desk `koval-at` is in carrier data for later AT routes; it is not a Hannover CTA. Sourced Koval `claims[]` (matrix 2026-09-11) appear on partner cards.
 
 ### Public URLs
 
@@ -85,13 +85,14 @@ Treat the docs as a hierarchy. A lower-level file must not silently override a h
 
 - [Koval Site Audit](docs/research/koval-site-audit.md)
 - [Legacy UARoute Audit](docs/research/legacy-uaroute-audit.md)
+- [M1 route verification matrix](docs/research/m1-route-verification-matrix.md)
 
 ### Execution
 
+- [ADR 0001 — Next.js static export](docs/decisions/0001-nextjs-static-export.md)
+- [M1 implementation checklist](docs/m1-implementation-checklist.md)
 - [CUTOVER.md](CUTOVER.md) — deploy and legacy URL map
 - [AGENTS.md](AGENTS.md) — compact conventions for coding agents
-
-Architecture Decision Records belong under `docs/decisions/` when they exist. The constitution still names TanStack Start in places; this repo’s owned implementation is Next.js static export. Do not introduce a Node host, booking API, or lead store in M1.
 
 ---
 
@@ -117,14 +118,16 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 
 ## Stack
 
-- Next.js 15 App Router, TypeScript, React 19
+- Next.js 16 App Router, TypeScript, React 19
 - Tailwind CSS v4 (`src/app/globals.css`); IBM Plex Sans/Mono and Playfair Display via `next/font`
 - Static export: `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`
 - Catalog: `src/data/`
 - Inquiry: `src/lib/whatsapp.ts`
 - SEO helpers: `src/lib/seo.ts`
 - Analytics façade: `src/lib/analytics.ts`
-- Tests: Vitest (`src/data/queries.test.ts`, `src/lib/whatsapp.test.ts`)
+- Catalog check: `src/lib/validate-catalog.ts` (runs from `sitemap.ts` at build)
+- Tests: Vitest (`src/data/queries.test.ts`, `src/lib/whatsapp.test.ts`, `src/lib/validate-catalog.test.ts`)
+- Lint: `eslint .` (Next.js 16 no longer ships `next lint`)
 
 ---
 
@@ -135,14 +138,12 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 | `src/app/` | App Router pages, layout, `sitemap.ts`, `robots.ts`, `globals.css` |
 | `src/components/` | Product UI; `src/components/brand/` for atlas graphics |
 | `src/data/` | Cities, routes, carriers, queries |
-| `src/lib/` | WhatsApp inquiry, SEO, analytics, `cn` |
+| `src/lib/` | WhatsApp inquiry, SEO, analytics, catalog validation, `cn` |
+| `legacy/` | Frozen CRA rollback of the live site |
 | `src/config/site.ts` | Domain, absolute URLs, UTM for partner links |
 | `docs/` | Product, architecture, and research source of truth |
-| `legacy/` | Frozen Create React App; rollback only — do not restyle or extend |
-| `new_design/` | Gitignored Lovable visual spec — do not deploy or sync git with lovable.dev |
-| `Route Planner Pro/` | Duplicate Lovable export — not a source of truth |
 
-Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump. `src/components/ui-kit.tsx` is the small owned surface kit (card, section heading), not that dump.
+Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump.
 
 ---
 
@@ -171,4 +172,3 @@ After UI changes, verify home search, a route inquiry, and `/about/` in the brow
 - Only `commercial` routes belong in the public index and sitemap.
 - Do not store names, phones, or travel dates. Do not put phones in URLs or analytics.
 - Do not hard-code Koval into generic route components; routes reference `carrierIds[]` and `deskId`.
-- Never reuse secrets from `legacy/src/api.js`.

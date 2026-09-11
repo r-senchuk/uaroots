@@ -5,7 +5,8 @@
 **Domain:** https://uaroute.com/  
 **Language:** Ukrainian in the current phase  
 **Current milestone:** Milestone 1  
-**Primary commercial partner:** Koval / 4K Koval
+**Primary commercial partner:** Koval / 4K Koval  
+**Implementation snapshot (2026-09-11):** Commercial flagship is `lviv-hannover`. Hamburg and Berlin stay editorial. See [matrix](research/m1-route-verification-matrix.md).
 
 ---
 
@@ -428,11 +429,11 @@ Do not prioritize a city solely because it appears in a dataset.
 
 Focus on a small set:
 
-1. Львів → Ганновер
-2. Львів → Гамбург, if verified
-3. Львів → Берлін, if verified
-4. `/routes`
-5. `/about`
+1. Львів → Ганновер — **commercial** (shipped)
+2. Львів → Гамбург — **editorial** until verified beyond Koval’s city list
+3. Львів → Берлін — **editorial** until verified beyond Koval’s city list
+4. `/routes/` — commercial index only
+5. `/about/`
 
 ## Next
 
