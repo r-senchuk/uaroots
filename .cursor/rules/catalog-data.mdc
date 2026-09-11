@@ -1,31 +1,18 @@
 ---
-description: Transporter catalog and Ukrainian content JSON
-globs: src/json/**/*.json
+description: Route, city and carrier typed data
+globs: src/data/**/*.ts
 alwaysApply: false
 ---
 
-# Catalog and copy
+# Catalog data
 
-## `transporters.json`
+Keep existing field names in `types.ts`. Routes reference `originCityId`, `destinationCityId`, `carrierIds[]` and optional `deskId` — never infer a desk from UI copy.
 
-Array of carriers. Keep existing field names:
+`status: "commercial"` — listed on `/routes/`, homepage index, and the sitemap.
+`status: "editorial"` — page may exist, `noindex`, not in the public index.
 
-| Field | Role |
-| --- | --- |
-| `id` | Unique number |
-| `name` | Short slug/brand shown in the list |
-| `logo` | Image URL |
-| `url` | External company site (list rows link here) |
-| `phone` | Display string, typically `+38 …` |
-| `departure` / `destination` | Ukrainian place names |
-| `description` | Ukrainian one-liner |
-| `price` | e.g. `від 50€` |
-| `schedule` | e.g. `щодня` |
-| `type` | e.g. `мікроавтобус` |
-| `rating` | Number |
+Forbidden on a route record: duration, timetable, stops-as-itinerary, trip distance, departure times, price, availability, ratings. Unverified details go in `whatToConfirm`.
 
-Add new carriers as another object with a new `id`. Do not rename keys (list/search depend on them). Search currently filters `name` with `.includes(term)` (case-sensitive substring).
+Carrier `claims[]` must include `sourceUrl` and `lastVerifiedAt`. An empty list is correct until verified.
 
-## `content.json`
-
-Nested copy under `pages.*`. `AboutPage` reads `pages.about.title`, `subtitle`, `content`, `mission[]`. Add parallel keys when adding pages; keep Ukrainian.
+City `aliases` are search-only — never URLs.

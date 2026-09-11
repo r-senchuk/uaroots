@@ -1,70 +1,174 @@
-# Getting Started with Create React App
+# UARoute
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ukrainian-language **route atlas** for journeys from Ukraine to Europe. Live site: [uaroute.com](https://uaroute.com).
 
-## Available Scripts
+> UARoute owns discovery and travel intent. Koval owns the transaction and booking.
 
-In the project directory, you can run:
+Travellers find a corridor, see what is known and what still needs confirmation, and send a WhatsApp inquiry. Koval confirms availability, price, and the booking.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Product
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **What it is** — a digital atlas of origin → destination corridors. It helps people discover routes, understand a journey, capture travel intent, and generate route-level SEO demand.
+- **What M1 is** — a static, prerendered funnel that turns route-intent traffic into a truthful, measurable Koval WhatsApp inquiry.
+- **What it is not** — the carrier, a Koval clone, a timetable, a booking engine, or a marketplace. M1 has no user accounts, CRM, lead database, payments, live seat inventory, or Node SSR host.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What is implemented
 
-### `npm run build`
+Owned **Next.js 15 App Router** app at the repo root. `next build` writes crawlable HTML to `./out` for the existing S3 + CloudFront host (`output: "export"`, `trailingSlash: true`). There is no application database.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Area | Behaviour |
+| --- | --- |
+| **Discovery** | Homepage search + commercial-only lists on `/` and `/routes/` |
+| **Route pages** | `/routes/{origin}-{destination}/` — corridor, operator, what to confirm, FAQ, inquiry |
+| **Search** | Ukrainian names, aliases, and transliterations → canonical cities. Aliases never become URLs |
+| **Inquiry** | Date and phone required; passengers 1–8 (default 1). Origin/destination come from the page |
+| **WhatsApp** | Pre-filled message with ephemeral `UR-XXXX` opens the route’s desk (`wa.me`). Not a confirmed booking |
+| **Analytics** | `track()` → `__uarouteEvents`, `dataLayer`, and GA4 when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set. Phones and names are never sent |
+| **SEO** | Unique titles/H1s, absolute canonicals, FAQ JSON-LD. Sitemap lists commercial pages only. Editorial routes are `noindex, follow` |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Client components are used only where there is UI state (search, inquiry, header, click tracking).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Catalog (data, not invented facts)
 
-### `npm run eject`
+Facts live in `src/data/` (`types.ts`, `cities.ts`, `routes.ts`, `carriers.ts`). Do not add prices, ratings, timetables, durations, or availability.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Slug | Status | Desk |
+| --- | --- | --- |
+| `lviv-hannover` | `commercial` — indexed, listed, sitemapped | `koval-de` (Іван, `380509786330`) |
+| `lviv-hamburg` | `editorial` — page exists, `noindex` | `koval-de` |
+| `lviv-berlin` | `editorial` — page exists, `noindex` | `koval-de` |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Search can still resolve editorial city pairs. Austrian desk `koval-at` is in carrier data for later AT routes; it is not a Hannover CTA.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Public URLs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Product: `/`, `/routes/`, `/routes/[slug]/`, `/about/`
+- Legacy HTML redirects (meta refresh + `location.replace`): `/contact/` and `/contacts/` → `/about/`; `/carriers/` → `/routes/`; `/packages/` → `/about/`; `/gallery/` → `/`
+- Generated: `/sitemap.xml`, `/robots.txt`
 
-## Learn More
+Static export cannot emit HTTP 301s. Real 301s belong on CloudFront at deploy time — see [CUTOVER.md](CUTOVER.md).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Documentation
 
-### Code Splitting
+Treat the docs as a hierarchy. A lower-level file must not silently override a higher one. If they conflict, stop and resolve the conflict before a consequential change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Foundation
 
-### Analyzing the Bundle Size
+- [Project Constitution](docs/00-project-constitution.md)
+- [Product Strategy](docs/01-product-strategy.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Product
 
-### Making a Progressive Web App
+- [M1 PRD](docs/02-prd-milestone-1.md)
+- [UX & Information Architecture](docs/03-ux-and-information-architecture.md)
+- [Visual Design System](docs/04-visual-design-system.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Content / Data
 
-### Advanced Configuration
+- [Content & SEO Strategy](docs/05-content-and-seo-strategy.md)
+- [Data Model & Content Governance](docs/06-data-model-and-content-governance.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Conversion / Technical
 
-### Deployment
+- [Koval Integration & Conversion](docs/07-koval-integration-and-conversion.md)
+- [Analytics & Attribution](docs/08-analytics-and-attribution.md)
+- [Technical Architecture](docs/09-technical-architecture.md)
+- [Cutover & SEO Migration](docs/10-cutover-and-seo-migration.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Research
 
-### `npm run build` fails to minify
+- [Koval Site Audit](docs/research/koval-site-audit.md)
+- [Legacy UARoute Audit](docs/research/legacy-uaroute-audit.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Execution
+
+- [CUTOVER.md](CUTOVER.md) — deploy and legacy URL map
+- [AGENTS.md](AGENTS.md) — compact conventions for coding agents
+
+Architecture Decision Records belong under `docs/decisions/` when they exist. The constitution still names TanStack Start in places; this repo’s owned implementation is Next.js static export. Do not introduce a Node host, booking API, or lead store in M1.
+
+---
+
+## Architecture at a glance
+
+```text
+Search / Social / Direct
+          ↓
+       UARoute
+          ↓
+ Route discovery / intent
+          ↓
+ WhatsApp inquiry
+          ↓
+        Koval
+          ↓
+ Booking / transaction
+```
+
+Typed route data in `src/data/` drives pages, search, desks, sitemap, and analytics context. The inquiry payload is assembled in the browser and sent by the user through WhatsApp. Koval site links carry UTM parameters (`src/config/site.ts`); WhatsApp messages do not.
+
+---
+
+## Stack
+
+- Next.js 15 App Router, TypeScript, React 19
+- Tailwind CSS v4 (`src/app/globals.css`); IBM Plex Sans/Mono and Playfair Display via `next/font`
+- Static export: `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`
+- Catalog: `src/data/`
+- Inquiry: `src/lib/whatsapp.ts`
+- SEO helpers: `src/lib/seo.ts`
+- Analytics façade: `src/lib/analytics.ts`
+- Tests: Vitest (`src/data/queries.test.ts`, `src/lib/whatsapp.test.ts`)
+
+---
+
+## Repository map
+
+| Path | Role |
+| --- | --- |
+| `src/app/` | App Router pages, layout, `sitemap.ts`, `robots.ts`, `globals.css` |
+| `src/components/` | Product UI; `src/components/brand/` for atlas graphics |
+| `src/data/` | Cities, routes, carriers, queries |
+| `src/lib/` | WhatsApp inquiry, SEO, analytics, `cn` |
+| `src/config/site.ts` | Domain, absolute URLs, UTM for partner links |
+| `docs/` | Product, architecture, and research source of truth |
+| `legacy/` | Frozen Create React App; rollback only — do not restyle or extend |
+| `new_design/` | Gitignored Lovable visual spec — do not deploy or sync git with lovable.dev |
+| `Route Planner Pro/` | Duplicate Lovable export — not a source of truth |
+
+Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump. `src/components/ui-kit.tsx` is the small owned surface kit (card, section heading), not that dump.
+
+---
+
+## Local development
+
+```bash
+npm install
+npm run dev          # http://localhost:3000
+npm test
+npm run lint
+npm run build        # static HTML in ./out
+npm start            # serve ./out (same files S3 would get)
+make deploy          # npm run build && aws s3 cp ./out/ s3://uaroute.com --recursive
+```
+
+Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` (see `.env.example`) before a production build if GA4 should receive `track()` events. Then invalidate CloudFront after deploy.
+
+After UI changes, verify home search, a route inquiry, and `/about/` in the browser, and check view-source for the Ukrainian H1 on a route page.
+
+---
+
+## Constraints
+
+- User-facing copy is Ukrainian.
+- Do not invent prices, ratings, timetables, durations, stop lists, or availability. Unknown facts are omitted or listed under “what to confirm”.
+- Only `commercial` routes belong in the public index and sitemap.
+- Do not store names, phones, or travel dates. Do not put phones in URLs or analytics.
+- Do not hard-code Koval into generic route components; routes reference `carrierIds[]` and `deskId`.
+- Never reuse secrets from `legacy/src/api.js`.

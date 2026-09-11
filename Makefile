@@ -1,4 +1,7 @@
-.PHONY: deploy
+.PHONY: build deploy
 
-deploy: 
-	aws s3 cp ./build/ s3://uaroute.com --recursive
+build:
+	npm run build
+
+deploy: build
+	aws s3 cp ./out/ s3://uaroute.com --recursive

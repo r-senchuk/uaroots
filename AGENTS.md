@@ -1,34 +1,40 @@
 # UARoute (uaroots)
 
-Passenger-transport directory for journeys **from Ukraine to Europe** (minibuses / coaches). Live site: [uaroute.com](https://uaroute.com). Repo name is `uaroots`; product name in the UI is **UAROUTE**.
+Canonical project map: [README.md](README.md). Product docs start at [docs/00-project-constitution.md](docs/00-project-constitution.md).
+
+Passenger-route atlas for journeys **from Ukraine to Europe**. Live site: [uaroute.com](https://uaroute.com). Product name: **UARoute**. UARoute owns discovery and travel intent; Koval owns the transaction and booking.
 
 ## Stack
 
-- Create React App 5 (`react-scripts`), React 18, JavaScript (no TypeScript)
-- `react-router-dom` v6 (`createBrowserRouter` in `src/App.js`)
-- Bulma CSS + Font Awesome 5 (CDN in `public/index.html`)
-- Global state: `TransporterContext` in `src/context/transporter.js` wrapping the app in `src/index.js`
-- Static data: `src/json/transporters.json`, copy in `src/json/content.json`
-- Contact form POSTs via `PUT` to an AWS API Gateway URL in `src/components/ContactUs.js`
+- Next.js 15 App Router, TypeScript, React 19
+- Tailwind CSS v4 (`src/app/globals.css`)
+- Static export to `./out` for S3 + CloudFront (`output: "export"`, `trailingSlash: true`)
+- Typed content: `src/data/` (cities, routes, carriers)
+- WhatsApp inquiry: `src/lib/whatsapp.ts`
+- Analytics façade: `src/lib/analytics.ts` → GA4 when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set
 
 ## Layout
 
-- `src/pages/` — route screens (`Root` = nav + outlet + footer)
-- `src/components/` — UI; colocate `*.css` next to the component
-- Routes: `/` providers list, `/about`, `/contact`, `/provider/:name` (stub — `ProvDetailsPage`)
+- `src/app/` — routes (`layout.tsx` = header + main + footer)
+- `src/components/` — product UI; `src/components/brand/` for atlas graphics
+- Routes: `/`, `/routes/`, `/routes/[slug]/`, `/about/`
+- Legacy HTML redirects: `/contact/`, `/contacts/`, `/carriers/`, `/packages/`, `/gallery/`
+- CRA rollback: `legacy/`. Lovable spec: `new_design/` (gitignored, do not deploy)
 
 ## Commands
 
 ```bash
-npm start          # http://localhost:3000
+npm run dev
 npm test
-npm run build      # output: ./build
-make deploy        # aws s3 cp ./build/ s3://uaroute.com --recursive
+npm run build      # ./out
+make deploy
 ```
 
 ## Product rules
 
-- User-facing copy is **Ukrainian**. Keep new UI strings in Ukrainian unless asked otherwise.
-- Catalog rows currently link to the carrier’s own `url`, not the in-app `/provider/:name` route.
-- Do not treat unused CRA leftovers (`BookCreate`, `BookEdit`, `src/api.js` Unsplash helper) as the source of truth for architecture.
-- Never commit or copy secrets. `src/api.js` contains a hardcoded Unsplash client id — do not reuse or expand it; prefer env vars if image search is needed later.
+- User-facing copy is **Ukrainian**.
+- No invented prices, ratings, timetables or durations.
+- Commercial routes only in the index and sitemap; editorial routes are `noindex`.
+- Client components only where there is UI state (search, inquiry, header, tracking clicks).
+- Do not add Lovable packages, `__lovableEvents`, or the unused shadcn `components/ui` dump.
+- After UI changes, verify in the browser (home search, route inquiry, about) and check view-source for the Ukrainian H1 on route pages.

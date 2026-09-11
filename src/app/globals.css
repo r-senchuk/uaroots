@@ -1,0 +1,431 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * UARoute — Digital European Route Atlas.
+ * Warm paper, ink, deep navy, scarce yellow signal.
+ * Editorial serif display (Cyrillic-capable) + IBM Plex Sans + IBM Plex Mono metadata.
+ */
+
+@theme inline {
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-3xl: 10px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --shadow-subtle: none;
+  --shadow-raised: 0 1px 0 var(--border-strong);
+  --shadow-lifted: 0 12px 40px -32px oklch(0.2 0.02 270 / 45%);
+
+  --spacing-gutter: 1.5rem;
+  --spacing-section: 5rem;
+}
+
+:root {
+  --radius: 4px;
+
+  --background: oklch(0.951 0.014 89);
+  --foreground: oklch(0.212 0.009 275);
+  --surface: oklch(0.972 0.011 89);
+  --surface-foreground: oklch(0.212 0.009 275);
+  --card: oklch(0.985 0.007 89);
+  --card-foreground: oklch(0.212 0.009 275);
+  --popover: oklch(0.985 0.007 89);
+  --popover-foreground: oklch(0.212 0.009 275);
+
+  --primary: oklch(0.318 0.062 264);
+  --primary-foreground: oklch(0.968 0.013 89);
+  --primary-hover: oklch(0.252 0.052 264);
+
+  --secondary: oklch(0.925 0.015 88);
+  --secondary-foreground: oklch(0.28 0.02 270);
+
+  --muted: oklch(0.932 0.013 88);
+  --muted-foreground: oklch(0.487 0.014 272);
+
+  --accent: oklch(0.812 0.148 87);
+  --accent-foreground: oklch(0.26 0.05 80);
+
+  --destructive: oklch(0.51 0.17 27);
+  --destructive-foreground: oklch(0.97 0.01 27);
+  --success: oklch(0.52 0.1 155);
+  --success-foreground: oklch(0.97 0.01 155);
+  --warning: oklch(0.7 0.12 75);
+  --warning-foreground: oklch(0.26 0.05 75);
+
+  --border: oklch(0.868 0.014 86);
+  --border-strong: oklch(0.735 0.018 86);
+  --input: oklch(0.79 0.016 86);
+  --ring: oklch(0.318 0.062 264);
+
+  --route-stroke: 1.5;
+  --route-node: 5px;
+  --route-dash: 2 6;
+  --route-draw-duration: 1100ms;
+  --route-pulse-duration: 1800ms;
+  --contour-opacity: 0.14;
+  --graticule-opacity: 0.1;
+  --pattern-opacity: 0.06;
+  --grid-opacity: 0.05;
+  --illustration-stroke: 1.5;
+}
+
+.dark {
+  --background: oklch(0.19 0.014 272);
+  --foreground: oklch(0.94 0.008 88);
+  --surface: oklch(0.23 0.016 270);
+  --surface-foreground: oklch(0.94 0.008 88);
+  --card: oklch(0.23 0.016 270);
+  --card-foreground: oklch(0.94 0.008 88);
+  --popover: oklch(0.23 0.016 270);
+  --popover-foreground: oklch(0.94 0.008 88);
+  --primary: oklch(0.82 0.05 88);
+  --primary-foreground: oklch(0.2 0.015 270);
+  --primary-hover: oklch(0.9 0.04 88);
+  --secondary: oklch(0.27 0.018 270);
+  --secondary-foreground: oklch(0.94 0.008 88);
+  --muted: oklch(0.27 0.018 270);
+  --muted-foreground: oklch(0.71 0.012 88);
+  --accent: oklch(0.812 0.148 87);
+  --accent-foreground: oklch(0.2 0.03 80);
+  --border: oklch(1 0 0 / 14%);
+  --border-strong: oklch(1 0 0 / 26%);
+  --input: oklch(1 0 0 / 24%);
+  --ring: oklch(0.82 0.05 88);
+  --contour-opacity: 0.16;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 78rem;
+  padding-inline: 1.25rem;
+}
+
+@utility container-reading {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 42rem;
+}
+
+@utility prose-editorial {
+  & p {
+    line-height: 1.75;
+    font-size: 1.0625rem;
+  }
+}
+
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.75rem, 1.2rem + 7vw, 6.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+
+@utility type-h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.022em;
+}
+
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+}
+
+@utility type-h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.35;
+}
+
+@utility type-route {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.375rem, 0.9rem + 2vw, 2.375rem);
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+@utility type-lead {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+}
+
+@utility type-body {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@utility type-body-small {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+@utility type-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@utility type-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--color-muted-foreground);
+}
+
+@utility type-index {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility type-button {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+@utility type-caption {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  letter-spacing: 0.1em;
+  color: var(--color-muted-foreground);
+}
+
+@utility rule-hair {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility rule-strong {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+@utility section-band {
+  padding-block: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+@utility field-rule {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-input);
+  border-radius: 0;
+  padding: 0.5rem 0 0.625rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  color: var(--color-foreground);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+
+  &::placeholder {
+    color: var(--color-muted-foreground);
+    opacity: 0.55;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom-color: var(--color-primary);
+  }
+}
+
+@utility link-underline {
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-border-strong);
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+@utility graticule {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 72px 72px;
+  color: var(--color-primary);
+  opacity: var(--graticule-opacity);
+}
+
+@utility route-pattern {
+  background-image:
+    repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 8px),
+    radial-gradient(currentColor 1.1px, transparent 1.1px);
+  background-size: 100% 1px, 40px 40px;
+  background-position: 0 24px, 0 0;
+  background-repeat: repeat-x, repeat;
+  color: var(--color-primary);
+  opacity: var(--pattern-opacity);
+}
+
+@utility topo-pattern {
+  background-image: repeating-radial-gradient(
+    circle at 20% 120%,
+    transparent 0 26px,
+    currentColor 26px 27px
+  );
+  color: var(--color-primary);
+  opacity: var(--contour-opacity);
+}
+
+@utility graphic-grid {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--color-primary);
+  opacity: var(--grid-opacity);
+}
+
+@utility photo-atlas {
+  filter: saturate(0.82) contrast(1.04);
+}
+
+@keyframes route-draw {
+  from {
+    stroke-dashoffset: 900;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes route-node-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.route-line-draw {
+  animation: route-draw var(--route-draw-duration) cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.route-node-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: route-node-pulse var(--route-pulse-duration) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-line-draw,
+  .route-node-pulse {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

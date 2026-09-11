@@ -5,22 +5,23 @@ alwaysApply: true
 
 # UARoute
 
-This app is a **Ukrainian-language catalog of passenger carriers** (Ukraine → Europe). Brand: **UAROUTE** / uaroute.com. Repo: `uaroots`.
+Ukrainian-language **route atlas** (Ukraine → Europe). Brand: **UARoute** / uaroute.com. Stack: Next.js App Router + Tailwind v4, static export to S3.
 
 ## Do
 
 - Keep user-visible strings in Ukrainian.
-- Use existing Bulma classes (`button is-primary`, `hero is-primary`, `box`, `level`, `field`) before adding custom CSS.
-- Put catalog data in `src/json/transporters.json` and page copy in `src/json/content.json`.
-- Wire new global list/filter state through `TransporterContext` (`src/context/transporter.js`).
-- After UI changes, verify in the browser (list, search, about, contact), not only by screenshot.
+- Put catalog facts in `src/data/` (`types.ts`, `cities.ts`, `routes.ts`, `carriers.ts`).
+- Put inquiry logic in `src/lib/whatsapp.ts` and events in `src/lib/analytics.ts`.
+- Use existing editorial utilities (`type-display`, `container-page`, `rule-strong`) before adding CSS.
+- After UI changes, verify in the browser and check view-source on a route page for the H1.
 
 ## Don't
 
-- Don't introduce TypeScript, Redux, or a CSS framework other than Bulma unless asked.
-- Don't point list rows at `/provider/:name` unless that page is actually implemented (it is a stub today).
-- Don't add secrets to source. Ignore the Unsplash key in `src/api.js`; that helper is unused by the main app.
+- Don't invent timetables, prices, ratings, durations or availability.
+- Don't add Lovable (`@lovable.dev`, `__lovableEvents`) or a shadcn `components/ui` dump.
+- Don't restyle or extend `legacy/` (Create React App) unless asked.
+- Don't send phone numbers or names through `track()`.
 
 ## Deploy
 
-Production is a static CRA build on S3 (`make deploy` after `npm run build`). There is no app server.
+`npm run build` writes `./out`. `make deploy` uploads that directory to `s3://uaroute.com`. True request-time SSR needs a later host change; keep modules server-safe either way.
