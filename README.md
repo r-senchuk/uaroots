@@ -125,9 +125,11 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 - Inquiry: `src/lib/whatsapp.ts`
 - SEO helpers: `src/lib/seo.ts`
 - Analytics façade: `src/lib/analytics.ts`
-- Catalog check: `src/lib/validate-catalog.ts` (runs from `sitemap.ts` at build)
+- Catalog check: `src/lib/validate-catalog.ts` (Vitest + `sitemap.ts` at build)
 - Tests: Vitest (`src/data/queries.test.ts`, `src/lib/whatsapp.test.ts`, `src/lib/validate-catalog.test.ts`)
 - Lint: `eslint .` (Next.js 16 no longer ships `next lint`)
+- Quality gate: `npm run check` (typecheck, lint, test, validate, build, inspect `./out`)
+- Deploy: `scripts/deploy.sh` (`aws s3 sync --delete`, cache headers, CloudFront invalidation)
 
 ---
 
@@ -154,12 +156,20 @@ npm install
 npm run dev          # http://localhost:3000
 npm test
 npm run lint
-npm run build        # static HTML in ./out
+npm run typecheck
+npm run check        # typecheck, lint, test, validate, build, inspect ./out
 npm start            # serve ./out (same files S3 would get)
-make deploy          # npm run build && aws s3 cp ./out/ s3://uaroute.com --recursive
+make deploy          # npm run check && ./scripts/deploy.sh
 ```
 
-Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` (see `.env.example`) before a production build if GA4 should receive `track()` events. Then invalidate CloudFront after deploy.
+Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` (see `.env.example`) before a production build if GA4 should receive `track()` events.
+
+Local `make deploy` and GitHub Actions on `main` both call `scripts/deploy.sh`. Required for upload:
+
+- AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`)
+- `CLOUDFRONT_DISTRIBUTION_ID`
+
+The script syncs `./out` to `s3://uaroute.com` with `--delete`, long-cache hashed `_next/static` assets, and `must-revalidate` for HTML, then invalidates CloudFront `/*`. Push to `main` runs the same path after CI; pull requests only run `npm run check`.
 
 After UI changes, verify home search, a route inquiry, and `/about/` in the browser, and check view-source for the Ukrainian H1 on a route page.
 

@@ -17,12 +17,24 @@ These paths still exist as HTML pages (meta refresh + `location.replace`). Add C
 ## Deploy
 
 ```bash
-npm run build
-aws s3 cp ./out/ s3://uaroute.com --recursive
+make deploy
 ```
 
-Then invalidate CloudFront.
+That runs `npm run check` (typecheck, lint, test, catalog validate, `next build`, inspect `./out`) then [`scripts/deploy.sh`](scripts/deploy.sh):
 
-Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` before a production build if GA4 should receive `track()` events.
+1. `aws s3 sync ./out/ s3://uaroute.com --delete` with `Cache-Control: public, max-age=0, must-revalidate` (except hashed assets)
+2. `_next/static` with `Cache-Control: public, max-age=31536000, immutable`
+3. CloudFront invalidation `/*`
+
+Required environment:
+
+- `CLOUDFRONT_DISTRIBUTION_ID`
+- AWS credentials that can write the bucket and create invalidations (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`)
+
+`--delete` removes leftover CRA `/static/js` and old hashed chunks. `inspect-out` must pass first so an empty `out/` cannot wipe production.
+
+Push to `main` deploys the CI artifact the same way. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in the environment (or GitHub Actions secret) before that production build if GA4 should receive `track()` events.
+
+Former-URL pages are HTML redirects (meta refresh + `location.replace`). They are not `next.config.ts` `redirects()` — static export cannot emit HTTP 301s. Add CloudFront Functions or S3 routing rules for real 301s when you are ready.
 
 Do not install `@lovable.dev/*` or reconnect this repo to lovable.dev.

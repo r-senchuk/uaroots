@@ -2,13 +2,20 @@
   "name": "uaroute",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "npx --yes serve out",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "validate": "vitest run src/lib/validate-catalog.test.ts",
+    "inspect-out": "node scripts/inspect-out.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run validate && npm run build && npm run inspect-out"
   },
   "dependencies": {
     "clsx": "^2.1.1",

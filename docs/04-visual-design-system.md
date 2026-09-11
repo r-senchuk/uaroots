@@ -19,11 +19,12 @@ It does **not** invent additional brand rules, final token values, detailed comp
 
 The purpose is to provide a stable visual reference for:
 
-- Lovable,
 - coding agents,
 - future UI work,
 - future graphic work,
 - future content templates.
+
+`new_design/` (Lovable) is inspiration only and must not be deployed.
 
 ---
 

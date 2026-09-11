@@ -25,6 +25,7 @@ M1 ships as:
 - **URLs:** `trailingSlash: true`. Canonical form: `https://uaroute.com/routes/lviv-hannover/` (trailing slash). Older documentation examples without a slash refer to the same resource
 - **Artifact:** `npm run build` writes `./out`; `make deploy` uploads that directory to `s3://uaroute.com`, then CloudFront is invalidated
 - **Layout:** `src/app/`, `src/components/`, `src/data/`, `src/lib/`, `src/config/` — not `src/routes/` + `src/content/`
+- **Lint:** `eslint .` via `eslint-config-next` (Next.js 16 removed `next lint`)
 
 This supersedes “use TanStack Start” in constitution §17 and the TanStack baseline, diagram, repository sketch, and first Definition-of-Done checkbox in docs/09.
 

@@ -3,7 +3,8 @@
 **Status:** Approved working specification  
 **Scope:** UARoute Milestone 1 and the measurement foundation for later conversion attribution  
 **Audience:** Product, engineering, analytics, SEO/content, growth, and coding agents  
-**Primary relationship:** UARoute generates route discovery and travel intent; Koval owns the transaction and booking process.
+**Primary relationship:** UARoute generates route discovery and travel intent; Koval owns the transaction and booking process.  
+**Implementation snapshot (2026-09-11):** `ctaLocation` union in `src/lib/analytics.ts` is `hero | booking_widget | partner_card | related_route | sticky_mobile | footer | route_index`. Do not emit `inquiry_widget`, `mobile_sticky`, `route_header`, or `route_footer`. GA4 is optional via `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
 
 ---
 

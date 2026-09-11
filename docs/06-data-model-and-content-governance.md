@@ -5,7 +5,8 @@
 **Domain:** https://uaroute.com/  
 **Language:** Ukrainian in the current phase  
 **Current milestone:** Milestone 1  
-**Primary commercial partner:** Koval / 4K Koval
+**Primary commercial partner:** Koval / 4K Koval  
+**Implementation snapshot (2026-09-11):** Desks in code are `koval-de` and `koval-at`. Koval `claims[]` hold the matrix-approved statements sourced to `https://www.4k-koval.com/` on 2026-09-11. `validateCatalog()` runs at build via `src/app/sitemap.ts`.
 
 ---
 

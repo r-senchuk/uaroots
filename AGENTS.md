@@ -27,8 +27,8 @@ Passenger-route atlas for journeys **from Ukraine to Europe**. Product name: **U
 npm run dev
 npm test
 npm run lint       # eslint . (Next 16 has no next lint)
-npm run build      # ./out
-make deploy
+npm run check      # typecheck, lint, test, validate, build, inspect ./out
+make deploy        # npm run check && scripts/deploy.sh (needs CLOUDFRONT_DISTRIBUTION_ID)
 ```
 
 ## Product rules
@@ -39,3 +39,13 @@ make deploy
 - Client components only where there is UI state (search, inquiry, header, tracking clicks).
 - Do not add Lovable packages, `__lovableEvents`, or the unused shadcn `components/ui` dump.
 - After UI changes, verify in the browser (home search, route inquiry, about) and check view-source for the Ukrainian H1 on route pages.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

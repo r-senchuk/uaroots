@@ -2,7 +2,8 @@
 
 **Status:** Approved working specification  
 **Scope:** Migration from the legacy UARoute implementation to the new route-first UARoute M1 architecture  
-**Primary objective:** Launch the new UARoute without unnecessarily losing useful search equity, while removing unsupported legacy content and making the new site the authoritative route-discovery experience.
+**Primary objective:** Launch the new UARoute without unnecessarily losing useful search equity, while removing unsupported legacy content and making the new site the authoritative route-discovery experience.  
+**Implementation snapshot (2026-09-11):** Next.js `./out` is ready in this repo. Live uaroute.com is still a CRA JS shell (`/`, `/about`, `/contact`; `/contacts` is not the CRA route). HTML redirect pages exist for both `/contact/` and `/contacts/` → `/about/`. Real HTTP 301s remain a CloudFront deploy-time task. See [CUTOVER.md](../CUTOVER.md) and [legacy audit](research/legacy-uaroute-audit.md).
 
 ---
 
@@ -48,9 +49,8 @@ Known legacy characteristics include:
 - existing public URLs such as:
   - `/`
   - `/about`
-  - `/packages`
-  - `/gallery`
-  - `/contacts`
+  - `/contact` (CRA router; `/contacts` is not in `legacy/src/App.js`)
+  - `/packages` and `/gallery` (reachable as the same JS shell; not CRA source routes)
 - legacy assets and content that may be reusable selectively;
 - metadata/branding inconsistencies;
 - unsupported or insufficiently sourced route attributes;

@@ -4,7 +4,9 @@
 
 This audit captures the public Koval website as observed on **11 September 2026** and is intended as a frozen evidence base for the UARoute integration.
 
-The currently indexed Koval web presence is centered on **`https://www.4k-koval.com/`**, with **`https://www.4k-koval.com/index.html`** also publicly indexed and exposing a materially different, older information set. The root page appears to be the newer public presentation: it identifies Koval as an international passenger/parcel carrier, presents Ukraine departure hubs, names five destination countries, provides a WhatsApp-oriented booking form, and lists a large German/Austrian/Liechtenstein destination geography. The `/index.html` version contains additional, more detailed route/parcel information and a larger contact roster, but it is internally inconsistent with the newer root page in several respects.
+**Re-verification (Appendix C, 11 September 2026):** `https://www.4k-koval.com/` and `/index.html` returned the **same 7045-byte Vite SPA shell**. Older notes that treated `/index.html` as a distinct 2024 HTML roster are **historical** unless a cached copy is produced. Geography and claims used for M1 come from that SPA’s JS chunks. The root URL remains the primary truth surface.
+
+The currently indexed Koval web presence is centered on **`https://www.4k-koval.com/`**. It identifies Koval as an international passenger/parcel carrier, presents Ukraine departure hubs, names destination countries, provides a WhatsApp-oriented booking form, and lists a large German/Austrian/Liechtenstein destination geography.
 
 For UARoute, the most important operational conclusion is:
 
@@ -27,8 +29,8 @@ The safest integration pattern is therefore **discovery → qualified inquiry �
 
 ### Primary source
 
-- **Koval live root:** https://www.4k-koval.com/ — the current indexed root page, crawled by search infrastructure within the last week at the time of research.[1]
-- **Koval `/index.html`:** https://www.4k-koval.com/index.html — an alternate indexed page containing an older/different content set.[2]
+- **Koval live root:** https://www.4k-koval.com/ — primary truth surface (Appendix C, 11 September 2026).
+- **Koval `/index.html`:** same SPA body as `/` on that fetch. Older “distinct 2024 HTML” notes are historical.
 
 ### Secondary corroboration used sparingly
 
@@ -44,7 +46,7 @@ External sources were used only to identify historical/independent corroboration
 
 The root page currently brands the service as **KOVAL / International Transport • Parcels & Passengers** and uses the title/presentation “Пасажирські перевезення Україна — Німеччина”.[1]
 
-**Important:** `/index.html` is also publicly accessible/indexed and materially differs from `/`. This should be treated as an information-governance issue for UARoute because different crawl surfaces can expose different operational data.[2]
+**Important (updated 11 September 2026):** `/` and `/index.html` served the same Vite SPA. Do not ingest a historical `/index.html` contact roster as current. See Appendix C.
 
 ### 2.2 Public pages discovered
 

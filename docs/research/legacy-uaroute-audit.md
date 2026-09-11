@@ -2,9 +2,9 @@
 
 ## 1. Executive Summary
 
-The legacy UARoute application should be treated as a **live legacy acquisition/catalog product and migration source**, not as the source of truth for current transport operations. A prior forensic inspection of the production site and repository established that `uaroute.com` was a JavaScript-only carrier catalog hosted on S3/CloudFront, with four carrier records and Koval among them; the same inspection identified legacy Koval values such as `від 100€`, `4.5`, and `щотижня` that were not supported by current Koval operational evidence. Those values are migration hazards, not reusable commercial facts. [Internal evidence E1]
+The legacy UARoute application should be treated as a **live legacy acquisition/catalog product and migration source**, not as the source of truth for current transport operations. The 11 September 2026 HTTP crawl (live-verification appendix) found a JavaScript-only carrier catalog on S3/CloudFront. Repository JSON has **three** carriers (4k-koval, vektor24, Vobus), including unsafe Koval fields `від 100€`, `4.5`, and `щотижня` that must be **DELETE**d. A fourth carrier from earlier memory is **Unknown** without executing the live bundle.
 
-The current Koval site confirms the core operational model needed for the migration: the carrier publishes origins/hub clusters, destination regions/cities, service claims, and a booking form that collects **travel date, contact phone, origin, and destination**, then opens WhatsApp with a prepared message. It does **not** publish a passenger timetable, public trip duration, passenger fare table, stop sequence, or seat inventory. citeturn702844search0turn702844search1
+The current Koval site confirms the core operational model needed for the migration: the carrier publishes origins/hub clusters, destination regions/cities, service claims, and a booking form that collects **travel date, contact phone, origin, and destination**, then opens WhatsApp with a prepared message. It does **not** publish a passenger timetable, public trip duration, passenger fare table, stop sequence, or seat inventory.
 
 Therefore the correct migration is not a field-for-field copy. The legacy system contains five kinds of value:
 
@@ -36,7 +36,7 @@ Evidence is classified as:
 
 The current Koval website was re-checked by HTTP fetch on 11 September 2026 (see Koval audit Appendix C). The live UARoute hostname was fetched the same day (appendix below).
 
-The prior forensic UARoute evidence is preserved in the internal research memo `Pasted markdown(5).md`, which records inspection of the UARoute production deployment, source model, and related Koval implementation details. [Internal evidence E1]
+The prior forensic UARoute evidence is superseded by the live-verification appendix in this file (11 September 2026 HTTP crawl) plus `legacy/src/` in this repository.
 
 ## 3. Production Overview
 
@@ -65,7 +65,7 @@ The prior forensic audit reports the following production characteristics:
 | Legacy `від 100€` / `4.5` | Prior JS-bundle/source inspection | High |
 | Current live UARoute status on 2026-09-11 | Direct HTTP fetch of HTML shell | High |
 
-The current Koval website remains useful as an operational comparison source, not as proof of every legacy UARoute claim. Current Koval publicly presents route/corridor information and a WhatsApp booking flow, but deliberately leaves the exact passenger schedule and fare to inquiry. citeturn702844search0
+The current Koval website remains useful as an operational comparison source, not as proof of every legacy UARoute claim. Current Koval publicly presents route/corridor information and a WhatsApp booking flow, but deliberately leaves the exact passenger schedule and fare to inquiry.
 
 ## 4. Public URL Inventory
 
@@ -243,7 +243,7 @@ The prior audit explicitly recommended this shape and advised against a persiste
 
 ## 8. Carrier Inventory
 
-The legacy application was identified as multi-carrier rather than inherently single-carrier. Prior source evidence names Koval plus **MyBus, vektor24 and Vobus** as carrier records in the legacy catalog. [Internal evidence E1]
+The legacy application was identified as multi-carrier rather than inherently single-carrier. Repository JSON names **4k-koval, vektor24 and Vobus**. A fourth name (MyBus) is not in this snapshot.
 
 | Carrier | Legacy presence | M1 UI | Migration action |
 |---|---:|---:|---|
@@ -277,9 +277,9 @@ The legacy site represented Koval in a way that mixed identity, marketing, and u
 
 ### Current Koval evidence
 
-Koval's current site identifies passenger transport between Ukraine and Germany as its primary offering, lists Ukraine origin hubs in Chernivtsi, Ivano-Frankivsk and Lviv clusters, lists destination regions in Germany plus Austria/Liechtenstein, and provides a booking form with date, phone, origin and destination followed by WhatsApp. citeturn702844search0turn702844search1
+Koval's current site identifies passenger transport between Ukraine and Germany as its primary offering, lists Ukraine origin hubs in Chernivtsi, Ivano-Frankivsk and Lviv clusters, lists destination regions in Germany plus Austria/Liechtenstein, and provides a booking form with date, phone, origin and destination followed by WhatsApp.
 
-The current site also publishes operational contacts split by geography. Germany/Poland/Czechia includes an Ivan booking WhatsApp number, while Austria/Czechia/Liechtenstein uses Mykola. citeturn702844search0
+The current site also publishes operational contacts split by geography. Germany/Poland/Czechia includes an Ivan booking WhatsApp number, while Austria/Czechia/Liechtenstein uses Mykola.
 
 This is materially different from a single global WhatsApp number.
 
@@ -312,7 +312,7 @@ The prior research supports these strongest initial route candidates:
 - live availability
 - guaranteed frequency
 
-Current Koval evidence supports regional/city service claims and direct/address-delivery claims, but the public site does not publish a passenger timetable or fare table. citeturn702844search0
+Current Koval evidence supports regional/city service claims and direct/address-delivery claims, but the public site does not publish a passenger timetable or fare table.
 
 ## 11. City / Geography Inventory
 
@@ -322,7 +322,7 @@ The strongest current evidence is a hub-and-satellite model:
 
 - **Chernivtsi**: Zablotiv, Sniatyn.
 - **Ivano-Frankivsk**: Kolomyia, Otyniia, Burshtyn, Rohatyn, Kalush, Rozhniativ, Broshniv, Dolyna, Bolekhiv.
-- **Lviv**: Stryi, Drohobych, Boryslav, Sambir, Truskavets, Horodok. citeturn702844search0
+- **Lviv**: Stryi, Drohobych, Boryslav, Sambir, Truskavets, Horodok.
 
 These should be modelled as pickup clusters, not as a published stop-by-stop route timeline.
 
@@ -338,7 +338,7 @@ These should be modelled as pickup clusters, not as a published stop-by-stop rou
 | Belgium | Marketing claim weaker than city-level service evidence |
 | Netherlands | Marketing claim weaker than city-level service evidence |
 
-Koval's current site lists Germany, Poland, Czechia, Austria and Liechtenstein in its main travel corridor and gives extensive Germany/Austria/Liechtenstein city lists; Belgium and Netherlands are not part of the current search result's main corridor list. citeturn702844search0
+Koval's current site lists Germany, Poland, Czechia, Austria and Liechtenstein in its main travel corridor and gives extensive Germany/Austria/Liechtenstein city lists; Belgium and Netherlands are not part of the current search result's main corridor list.
 
 ### Geography rule
 
@@ -414,7 +414,7 @@ Koval dispatcher
 
 ### Why this is the correct transformation
 
-Koval's own production form collects date, phone, origin and destination and opens WhatsApp with a prepared message; it does not itself expose a public schedule or online booking engine. citeturn702844search0
+Koval's own production form collects date, phone, origin and destination and opens WhatsApp with a prepared message; it does not itself expose a public schedule or online booking engine.
 
 The UARoute route page should therefore **reduce uncertainty before handoff**, not imitate a booking engine.
 
@@ -428,7 +428,7 @@ or
 
 > **Уточнити поїздку в WhatsApp**
 
-Avoid “book now” wording unless Koval confirms that the click can actually complete a booking. The user still must send the WhatsApp message and receive human confirmation. citeturn702844search0
+Avoid “book now” wording unless Koval confirms that the click can actually complete a booking. The user still must send the WhatsApp message and receive human confirmation.
 
 ## 14. Analytics
 
@@ -548,7 +548,7 @@ The old domain must be treated as an existing SEO asset. The migration is theref
 
 ### Current Koval content useful to UARoute
 
-Koval currently publishes passenger transport positioning, two-driver minibuses, address delivery in Germany, direct trips without transfers, and a broad destination list. These can seed factual claims provided they are clearly attributed to Koval and date-stamped in the new content model. citeturn702844search0
+Koval currently publishes passenger transport positioning, two-driver minibuses, address delivery in Germany, direct trips without transfers, and a broad destination list. These can seed factual claims provided they are clearly attributed to Koval and date-stamped in the new content model.
 
 ## 17. Unsupported / High-Risk Legacy Claims
 
@@ -568,7 +568,7 @@ This is the most important deletion list.
 | broad city list as bookable SKU | Datalist/marketing list is not a product catalogue | **VERIFY** |
 | parcel intake time as passenger departure | Different service | **DELETE as passenger field** |
 
-Current Koval explicitly separates its passenger booking form from parcel collection times, which reinforces the need not to transform parcel hours into passenger timetables. citeturn702844search0
+Current Koval explicitly separates its passenger booking form from parcel collection times, which reinforces the need not to transform parcel hours into passenger timetables.
 
 ## 18. Asset Inventory
 
@@ -593,7 +593,7 @@ No licensing ownership was independently verified. Every reusable asset must be 
 
 ### Migration recommendation
 
-Prefer fewer authentic assets over a large imported media directory. Current Koval itself publishes vehicle and interior imagery, so there is a plausible source of authentic material, but reuse permission remains a separate question. citeturn702844search0
+Prefer fewer authentic assets over a large imported media directory. Current Koval itself publishes vehicle and interior imagery, so there is a plausible source of authentic material, but reuse permission remains a separate question.
 
 ## 19. Component Inventory
 
@@ -898,7 +898,7 @@ Example:
 }
 ```
 
-The exact claim wording should be generated from current Koval source, not copied from the legacy UARoute text. Current Koval explicitly advertises direct trips without transfers and address delivery in Germany. citeturn702844search0
+The exact claim wording should be generated from current Koval source, not copied from the legacy UARoute text. Current Koval explicitly advertises direct trips without transfers and address delivery in Germany.
 
 ## 29. Reusable Legacy Value
 
@@ -956,7 +956,7 @@ The following should not survive the migration merely because it exists:
 - duplicated/obsolete brand tokens such as UARoutes/UARoots where they survive production
 - legacy UI components whose only purpose is presenting deleted commercial claims
 
-The current Koval site does not publish a public passenger price table or timetable, so adding those fields in UARoute would make the discovery layer less trustworthy than the carrier source. citeturn702844search0
+The current Koval site does not publish a public passenger price table or timetable, so adding those fields in UARoute would make the discovery layer less trustworthy than the carrier source.
 
 ## 31. Open Questions
 
@@ -964,7 +964,7 @@ The current Koval site does not publish a public passenger price table or timeta
 2. What exact URLs are indexed in Google/Bing/Search Console today?
 3. Is `uaroute.com` still the production hostname, and which CloudFront distribution currently serves it?
 4. What exact legacy repository commit corresponds to the currently deployed site?
-5. What are the exact four carrier records and all carrier-specific public URLs in the current deployment?
+5. What are the exact carrier records and all carrier-specific public URLs in the current deployment? (This repo has three; live bundle count is Unknown without executing production JS.)
 6. Which legacy routes have measurable organic traffic or backlinks and therefore deserve dedicated redirect targets?
 7. Which Koval origin cluster should be the canonical model for the Lviv/Hannover flagship?
 8. Which Germany cities are confirmed as passenger-service destinations rather than broad regional marketing lists?
@@ -992,11 +992,11 @@ Do not render MyBus, vektor24 or Vobus in M1 until their current offerings are i
 
 ### 4. Delete unsupported legacy commercial values.
 
-In particular, do not migrate `від 100€`, `4.5`, fabricated schedules, duration, stops, seat counts or availability. Current Koval evidence does not support such a public passenger product table. citeturn702844search0
+In particular, do not migrate `від 100€`, `4.5`, fabricated schedules, duration, stops, seat counts or availability. Current Koval evidence does not support such a public passenger product table.
 
 ### 5. Make Koval desk routing explicit in the data model.
 
-At minimum, M1 needs a Germany/PL/CZ desk mapping and a separate Austria/LI mapping. Current Koval publicly exposes different booking contacts for those territories. citeturn702844search0
+At minimum, M1 needs a Germany/PL/CZ desk mapping and a separate Austria/LI mapping. Current Koval publicly exposes different booking contacts for those territories.
 
 ### 6. Make WhatsApp an inquiry handoff, not a fake booking engine.
 
@@ -1012,7 +1012,7 @@ Before replacing production, build the exact inventory of legacy URLs, classify 
 
 ### 9. Separate passenger and parcel semantics.
 
-Current Koval content contains substantial parcel operations and parcel pickup times. Those times are not passenger schedules and must not be rendered as transport itinerary data. citeturn702844search0
+Current Koval content contains substantial parcel operations and parcel pickup times. Those times are not passenger schedules and must not be rendered as transport itinerary data.
 
 ### 10. Use claims with provenance.
 
@@ -1046,16 +1046,16 @@ The new UARoute should emerge from the old system as a **truthful route-discover
 
 ## Evidence E1 — Prior forensic UARoute/Koval research artifact
 
-Internal source: `Pasted markdown(5).md` (Library artifact; prior direct inspection of UARoute production/source and Koval production/source). Key findings include:
+Internal source: superseded by the live-verification appendix in this file and `legacy/` in the repository. Historical notes (not current carrier count):
 
 - UARoute domain live on S3 + CloudFront and legacy carrier catalog behavior.
-- Four carrier records including Koval; MyBus, vektor24 and Vobus retained in the legacy abstraction.
+- Three carrier records in `legacy/src/json/transporters.json` (4k-koval, vektor24, Vobus); MyBus not in this snapshot.
 - Legacy Koval `від 100€`, `4.5`, `щотижня` values identified as unsafe/unsupported.
 - Legacy carrier-first search and client-rendered architecture.
 - Koval booking field mismatch and geography-specific WhatsApp desks.
 - M1 route/data/analytics migration recommendations.
 
-File evidence: fileciteturn7file4L207-L218 fileciteturn7file8L412-L431 fileciteturn7file2L113-L142
+File evidence:
 
 ## Evidence E2 — Current Koval public website
 
@@ -1071,7 +1071,7 @@ Current public evidence includes:
 - Direct passenger trips, two drivers, address delivery in Germany.
 - Parcel-specific intake hours and separate parcel contacts.
 
-Source: current Koval public site. citeturn702844search0turn702844search1
+Source: current Koval public site.
 
 ## Confidence Framework
 

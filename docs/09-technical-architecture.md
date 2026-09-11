@@ -3,7 +3,8 @@
 **Status:** Approved working specification  
 **Scope:** UARoute Milestone 1 and the technical foundation for subsequent route/content growth  
 **Primary deployment target:** Static/prerendered application delivered through S3 + CloudFront  
-**Application model:** Route-discovery website with Koval as the downstream transaction owner
+**Application model:** Route-discovery website with Koval as the downstream transaction owner  
+**Implementation snapshot (2026-09-11):** Next.js 16 App Router, `output: "export"`, `trailingSlash: true`, artifact `./out` ([ADR 0001](decisions/0001-nextjs-static-export.md)). Lint is `eslint .` (the Next CLI no longer has `next lint`). Catalog validation: `src/lib/validate-catalog.ts`. Production uaroute.com is still CRA until cutover.
 
 ---
 
@@ -1363,9 +1364,11 @@ A practical target structure:
 │   │   ├── cities.ts
 │   │   ├── routes.ts
 │   │   ├── carriers.ts
+│   │   ├── queries.ts
 │   │   └── types.ts
 │   └── lib/
 │       ├── analytics.ts
+│       ├── validate-catalog.ts
 │       ├── whatsapp.ts
 │       └── seo.ts
 ├── public/
@@ -1665,69 +1668,69 @@ When choosing between two implementations, prefer the option that:
 
 ## 56. Definition of Done
 
-The M1 technical architecture is implemented when:
+The M1 technical architecture is implemented in the **repository** when the items below are true. Checkboxes reflect 2026-09-11. Production cutover of `./out` to uaroute.com is still outstanding.
 
 ### Application
 
-- [ ] Next.js App Router + React + TypeScript is used consistently (static export; ADR 0001)
-- [ ] public route pages are prerendered
-- [ ] route content is available in HTML
-- [ ] route URLs are deterministic
-- [ ] 404 handling works
+- [x] Next.js App Router + React + TypeScript is used consistently (static export; ADR 0001)
+- [x] public route pages are prerendered
+- [x] route content is available in HTML
+- [x] route URLs are deterministic
+- [x] 404 handling works
 
 ### Domain data
 
-- [ ] cities are typed
-- [ ] routes are typed
-- [ ] carriers are typed
-- [ ] desks are typed
-- [ ] route → desk resolution is centralized
-- [ ] provenance is represented
-- [ ] build validation catches broken relationships
+- [x] cities are typed
+- [x] routes are typed
+- [x] carriers are typed
+- [x] desks are typed
+- [x] route → desk resolution is centralized
+- [x] provenance is represented
+- [x] build validation catches broken relationships
 
 ### Conversion
 
-- [ ] inquiry widget is client-side
-- [ ] date/phone/passenger count validation works
-- [ ] lead ID is generated
-- [ ] correct Koval desk is selected
-- [ ] WhatsApp message is encoded safely
-- [ ] no lead database exists
+- [x] inquiry widget is client-side
+- [x] date/phone/passenger count validation works
+- [x] lead ID is generated
+- [x] correct Koval desk is selected
+- [x] WhatsApp message is encoded safely
+- [x] no lead database exists
 
 ### Analytics
 
-- [ ] analytics adapter is centralized
-- [ ] M1 event contract is implemented
-- [ ] no phone/name/message content is transmitted
-- [ ] UTM attribution works
-- [ ] Koval outbound links include UTM parameters
+- [x] analytics adapter is centralized
+- [x] M1 event contract is implemented
+- [x] no phone/name/message content is transmitted
+- [x] UTM attribution works
+- [x] Koval outbound links include UTM parameters
 
 ### SEO
 
-- [ ] absolute canonicals
-- [ ] deterministic metadata
-- [ ] sitemap generation
-- [ ] robots.txt
-- [ ] structured data
-- [ ] route pages are crawlable without client-side API fetching
+- [x] absolute canonicals
+- [x] deterministic metadata
+- [x] sitemap generation
+- [x] robots.txt
+- [x] structured data
+- [x] route pages are crawlable without client-side API fetching
 
 ### Infrastructure
 
-- [ ] production build produces deployable static artifacts
-- [ ] S3/CloudFront deployment works
-- [ ] HTTPS works
-- [ ] cache strategy is defined
-- [ ] rollback is possible
+- [x] production build produces deployable static artifacts
+- [ ] S3/CloudFront deployment of this Next export (live site is still CRA)
+- [x] HTTPS works (existing CloudFront)
+- [x] cache strategy is defined
+- [x] rollback is possible (`legacy/` + previous `./out`)
 
 ### Quality
 
-- [ ] typecheck passes
-- [ ] lint passes
-- [ ] domain validation passes
-- [ ] test suite passes
-- [ ] critical end-to-end journeys pass
-- [ ] mobile layout works
-- [ ] accessibility checks pass at the agreed M1 level
+- [x] typecheck passes
+- [x] lint passes (`eslint .`)
+- [x] domain validation passes
+- [x] test suite passes
+- [x] critical end-to-end journeys pass (local 2026-09-11)
+- [x] mobile layout works
+- [ ] accessibility checks pass at the agreed M1 level (ongoing)
 
 ---
 

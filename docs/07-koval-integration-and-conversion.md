@@ -5,7 +5,8 @@
 **Domain:** https://uaroute.com/  
 **Language:** Ukrainian in the current phase  
 **Current milestone:** Milestone 1  
-**Primary commercial partner:** Koval / 4K Koval
+**Primary commercial partner:** Koval / 4K Koval  
+**Implementation snapshot (2026-09-11):** Inquiry WhatsApp is owned by the route widget (`BookingWidget` + `validateInquiry`). Homepage `PartnerCard` is website + sourced claims, not a second `wa.me` conversion path. Desks: `koval-de` (Іван), `koval-at` (Микола, unused on current commercial routes).
 
 ---
 
@@ -692,13 +693,15 @@ Then:
 
 > **Перевезення виконує Koval; UARoute допомагає знайти маршрут та підготувати запит.**
 
-Actions:
+Actions on the **route inquiry widget** (not a second homepage WhatsApp):
 
 > **Написати Koval у WhatsApp**
 
+On the homepage partner card:
+
 > **Сайт Koval**
 
-The module should be visually subordinate to the route information but clearly actionable.
+plus sourced claims. The homepage must not open a desk `wa.me` without date, phone, and lead code.
 
 ---
 

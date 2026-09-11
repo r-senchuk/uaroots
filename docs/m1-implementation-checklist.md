@@ -1,8 +1,8 @@
 # M1 implementation checklist
 
-Mapped to [PRD §38–39](02-prd-milestone-1.md) and the owned Next.js tree. Status as of 2026-09-11.
+Mapped to [PRD §38–39](02-prd-milestone-1.md) and the owned Next.js 16 tree. Status as of 2026-09-11.
 
-Legend: **done** / **partial** / **missing**.
+Legend: **done** / **partial** / **missing**. Production uaroute.com is still CRA until `make deploy` of `./out`.
 
 ## Product
 
@@ -50,12 +50,14 @@ Legend: **done** / **partial** / **missing**.
 | HTML redirects for legacy paths | done |
 | CloudFront 301s | deploy-time — document only |
 | Domain validation at build | done (`validateCatalog` in sitemap + tests) |
+| Lint | done (`eslint .`; Next 16 has no `next lint`) |
 | Leftover CRA under `src/` | done (none remaining; `legacy/` only) |
 | `Route Planner Pro/` | gitignored |
+| View-source / browser QA | done 2026-09-11 (home search miss, flagship H1 HTML, inquiry fields, `/about/`, `/contact/` → `/about/`) |
 
 ## Mobile / a11y
 
-Sticky CTA, labels, combobox keyboard: **done** (verify in browser).
+Sticky CTA, labels, combobox keyboard: **done** (verified in browser 2026-09-11).
 
 ## Implementation queue (closed 2026-09-11)
 
