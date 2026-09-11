@@ -1,0 +1,26 @@
+---
+description: UARoute product context, stack, and workflow
+alwaysApply: true
+---
+
+# UARoute
+
+This app is a **Ukrainian-language catalog of passenger carriers** (Ukraine → Europe). Brand: **UAROUTE** / uaroute.com. Repo: `uaroots`.
+
+## Do
+
+- Keep user-visible strings in Ukrainian.
+- Use existing Bulma classes (`button is-primary`, `hero is-primary`, `box`, `level`, `field`) before adding custom CSS.
+- Put catalog data in `src/json/transporters.json` and page copy in `src/json/content.json`.
+- Wire new global list/filter state through `TransporterContext` (`src/context/transporter.js`).
+- After UI changes, verify in the browser (list, search, about, contact), not only by screenshot.
+
+## Don't
+
+- Don't introduce TypeScript, Redux, or a CSS framework other than Bulma unless asked.
+- Don't point list rows at `/provider/:name` unless that page is actually implemented (it is a stub today).
+- Don't add secrets to source. Ignore the Unsplash key in `src/api.js`; that helper is unused by the main app.
+
+## Deploy
+
+Production is a static CRA build on S3 (`make deploy` after `npm run build`). There is no app server.

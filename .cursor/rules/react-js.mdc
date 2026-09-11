@@ -1,0 +1,28 @@
+---
+description: React + CRA conventions for this JS codebase
+globs: src/**/*.{js,jsx,css}
+alwaysApply: false
+---
+
+# React conventions
+
+- Functional components and default exports, matching existing files.
+- Pages live in `src/pages/`. Shared UI in `src/components/` (nested folders only when already used, e.g. `footer/`, `about/`).
+- Colocate component CSS (`TransporterRow.css` next to `TransporterRow.js`).
+- Read/write transporter list and hero titles via `useContext(TransporterContext)`. Pages set `navigationConf` in `useEffect` (see `AboutPage`, `ContactPage`).
+- Router: add routes in `src/App.js` as children of `Root`. Use `Link` from `react-router-dom`.
+
+```javascript
+// ❌ BAD — new global store, English UI, unused route
+const [carriers, setCarriers] = useState([]);
+<button>Search</button>
+<Link to={`/provider/${name}`}>...</Link>
+
+// ✅ GOOD — context + existing Ukrainian copy + real destination
+const { transportersList } = useContext(TransporterContext);
+<button className="button is-primary">Знайти</button>
+<Link to={transporter.url} title="сайт компанії">...</Link>
+```
+
+- Prefer small, local `useState`/`useRef` for forms (`ContactUs`). Keep validation in the component unless it is reused.
+- `BookCreate.js` / `BookEdit.js` are unused stubs; do not extend them for catalog features.
