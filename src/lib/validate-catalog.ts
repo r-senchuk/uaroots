@@ -1,5 +1,6 @@
 import { carriers, getCarrier, getDesk } from "@/data/carriers";
 import { cities } from "@/data/cities";
+import { selectedCandidatePairs } from "@/data/discovery";
 import { routes } from "@/data/routes";
 
 function duplicateValues(values: string[]): string[] {
@@ -30,6 +31,12 @@ export function validateCatalog(): string[] {
   }
 
   const routeSlugs = new Set<string>();
+  const expectedCandidatePairs = new Map<string, readonly string[]>(
+    selectedCandidatePairs.map(({ slug, originCityId, destinationCityId }) => [
+      slug,
+      [originCityId, destinationCityId] as const,
+    ]),
+  );
   for (const route of routes) {
     if (routeSlugs.has(route.slug)) errors.push(`Duplicate route slug: ${route.slug}`);
     routeSlugs.add(route.slug);
@@ -62,6 +69,46 @@ export function validateCatalog(): string[] {
         errors.push(`Commercial route ${route.slug} has no resolvable desk`);
       }
     }
+    if (route.serviceMode === "candidate_inquiry") {
+      const expectedPair = expectedCandidatePairs.get(route.slug);
+      if (!expectedPair || route.originCityId !== expectedPair[0] || route.destinationCityId !== expectedPair[1]) {
+        errors.push(`Candidate inquiry ${route.slug} is outside the owner-selected pilot pairs`);
+      }
+      const origin = cities.find((city) => city.id === route.originCityId);
+      const destination = cities.find((city) => city.id === route.destinationCityId);
+      if (route.status !== "commercial") errors.push(`Candidate inquiry ${route.slug} is not commercial`);
+      if (origin?.countryCode === destination?.countryCode || !origin || !destination) {
+        errors.push(`Candidate inquiry ${route.slug} must connect two countries`);
+      }
+      if (route.corridor.length !== 2 || route.corridor[0] !== origin?.country || route.corridor[1] !== destination?.country) {
+        errors.push(`Candidate inquiry ${route.slug} corridor must contain only its endpoints`);
+      }
+      if (route.faq.length < 4) errors.push(`Candidate inquiry ${route.slug} needs at least four FAQs`);
+      if (!route.practicalContent?.length) errors.push(`Candidate inquiry ${route.slug} has no city-specific practical content`);
+      for (const item of route.practicalContent ?? []) {
+        if (Boolean(item.sourceUrl) !== Boolean(item.lastVerifiedAt)) {
+          errors.push(`Candidate inquiry ${route.slug} has incomplete practical content provenance`);
+        }
+      }
+      if (route.carrierIds.length !== 1 || route.carrierIds[0] !== "koval" || route.deskId !== "koval-de") {
+        errors.push(`Candidate inquiry ${route.slug} must use the existing Koval Germany desk`);
+      }
+    } else if (route.serviceMode) {
+      errors.push(`Route ${route.slug} has an unsupported service mode`);
+    }
+  }
+
+  const expectedCandidateRouteIds = new Set(selectedCandidatePairs.map(({ slug }) => slug));
+  const actualCandidateSlugs = new Set(routes.filter((route) => route.serviceMode === "candidate_inquiry").map(({ slug }) => slug));
+  if (actualCandidateSlugs.size !== expectedCandidateRouteIds.size || [...expectedCandidateRouteIds].some((slug) => !actualCandidateSlugs.has(slug))) {
+    errors.push("Candidate inquiry catalog must contain only the ten explicitly selected pilot pages");
+  }
+  const mykolaiv = cities.find((city) => city.id === "mykolaiv-lviv");
+  if (mykolaiv && /^(миколаїв|миколаев|nikolaev)$/iu.test(mykolaiv.name)) {
+    errors.push("Mykolaiv in Lviv Oblast must be disambiguated in its display name");
+  }
+  if (mykolaiv && mykolaiv.aliases.some((alias) => /^(миколаїв|миколаев|nikolaev)$/iu.test(alias.trim()))) {
+    errors.push("Mykolaiv in Lviv Oblast must not have an ambiguous naked alias");
   }
 
   for (const carrier of carriers) {

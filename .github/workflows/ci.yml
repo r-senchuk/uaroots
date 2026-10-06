@@ -27,15 +27,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-        env:
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
       - uses: actions/upload-artifact@v4
         with:
           name: static-out
           path: out/
           retention-days: 7
 
-  deploy:
+  release-preflight:
     needs: check
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -47,12 +45,14 @@ jobs:
         with:
           name: static-out
           path: out
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - uses: actions/setup-node@v4
         with:
-          aws-region: ${{ secrets.AWS_REGION }}
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - run: chmod +x scripts/deploy.sh && ./scripts/deploy.sh
-        env:
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          node-version-file: .nvmrc
+      - name: Build release manifest and run local dry-run
+        run: chmod +x scripts/deploy.sh && ./scripts/deploy.sh --dry-run --manifest release-manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-preflight-${{ github.sha }}
+          path: release-manifest.json
+          if-no-files-found: error
+          retention-days: 30

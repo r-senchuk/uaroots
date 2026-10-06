@@ -3,41 +3,42 @@ import Image from "next/image";
 import Link from "next/link";
 
 import atlasRoad from "@/assets/atlas-road.jpg";
-import { AtlasComposition } from "@/components/brand/AtlasComposition";
-import { CoordinateTexture, Graticule, TopoPattern } from "@/components/brand/graphics";
+import { TopoPattern } from "@/components/brand/graphics";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerCard } from "@/components/PartnerCard";
 import { RouteList } from "@/components/RouteList";
 import { RouteSearch } from "@/components/RouteSearch";
 import { getCarrier, publicCarrier } from "@/data/carriers";
+import { priorityOriginCityIds, pilotGermanCityIds } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
-import { organizationLd, websiteLd, buildMetadata } from "@/lib/seo";
+import { organizationLd, websiteLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
-const title = "UARoute — маршрути з України до Європи";
+const title = "UARoute — поїздки між Україною та Німеччиною";
 const description =
-  "Знайдіть маршрут з України до Європи, дізнайтеся, що варто уточнити перед поїздкою, і надішліть запит перевізнику у WhatsApp.";
+  "Поїздки зі Львова, Івано-Франківська та інших міст до Німеччини й назад. Оберіть напрямок, перегляньте питання про посадку й багаж та зверніться до перевізника Коваль.";
 
-export const metadata: Metadata = buildMetadata({ title, description, path: "/" });
+export const metadata: Metadata = buildMetadata({ title, description, path: "/", socialImage: travelPreviewImage });
 
 const steps = [
   {
-    title: "Знайдіть напрямок",
-    text: "Оберіть місто відправлення та місто призначення — відкриється сторінка маршруту.",
+    title: "Оберіть міста",
+    text: "Укажіть, звідки й куди хочете їхати. Для повернення перемкніть напрямок — вибрані міста збережуться.",
   },
   {
-    title: "Дізнайтеся важливе",
-    text: "Що відомо про коридор, хто виконує перевезення і що варто уточнити перед поїздкою.",
+    title: "Додайте деталі",
+    text: "Зазначте бажану дату, кількість пасажирів і телефон для зв’язку. UARoute складе повідомлення з вашим напрямком та цими деталями.",
   },
   {
-    title: "Напишіть перевізнику",
-    text: "Дата, телефон і кількість пасажирів — готове повідомлення відкриється у WhatsApp.",
+    title: "Надішліть у WhatsApp",
+    text: "Перевірте підготовлений текст, додайте свої запитання й надішліть його перевізнику Коваль.",
   },
 ];
 
 export default function HomePage() {
   const routes = listResolvedRoutes("commercial");
   const koval = getCarrier("koval");
-  const lead = routes[0];
+  const featured = routes.filter((route) => pilotGermanCityIds.some((id) => id === route.origin.id || id === route.destination.id) && priorityOriginCityIds.some((id) => id === route.origin.id || id === route.destination.id));
+  const additional = routes.filter((route) => !featured.some((item) => item.id === route.id));
 
   return (
     <>
@@ -45,42 +46,42 @@ export default function HomePage() {
       <JsonLd data={organizationLd()} />
 
       <section className="relative border-b border-border-strong">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          <Graticule />
-        </div>
-        <div className="container-page relative z-10 grid items-end gap-12 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-24 lg:pt-20">
+        <div className="container-page relative grid items-center gap-8 py-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:py-12">
           <div>
-            <p className="type-label text-muted-foreground">UA → EU · Атлас маршрутів</p>
-            <h1 className="mt-8 type-display">
-              Маршрути
+            <p className="type-label text-muted-foreground">Сплануйте наступну поїздку</p>
+            <h1 className="mt-4 font-display text-[clamp(2.5rem,4.5vw,4rem)] font-medium leading-[1.08] tracking-tight">
+              Поїздки між Україною
               <br />
-              з України
-              <br />
-              <span className="italic text-primary">до Європи</span>
+              <span className="italic text-primary">та Німеччиною</span>
             </h1>
-            <p className="mt-8 max-w-md type-lead text-muted-foreground">
-              UARoute — незалежний атлас напрямків. Ми не перевозимо пасажирів: ми допомагаємо
-              зрозуміти маршрут і зв&apos;язатися з перевізником.
+            <p className="mt-5 max-w-lg type-body text-muted-foreground">
+              Зі Львова, Івано-Франківська та інших міст — і назад.
+              Оберіть міста, дізнайтеся, що запитати про посадку, ціну й багаж,
+              та зверніться до перевізника Коваль.
             </p>
 
-            <div className="mt-12 border-t border-border-strong pt-8">
-              <RouteSearch />
+            <div className="mt-7 border-t border-border-strong pt-5">
+              <RouteSearch showPilotChoices />
             </div>
           </div>
 
-          <div className="relative">
-            {lead ? (
-              <AtlasComposition
-                originLabel={lead.origin.name}
-                destinationLabel={lead.destination.name}
-                corridor={lead.corridor}
-                className="mx-auto max-w-md lg:max-w-none"
+          <div className="mx-auto w-full max-w-sm lg:max-w-none">
+            <picture>
+              <source
+                media="(max-width: 639px)"
+                srcSet="/arrival-560.webp"
+                type="image/webp"
               />
-            ) : null}
-            <CoordinateTexture
-              className="absolute bottom-0 right-0 hidden text-right lg:block"
-              labels={["52.37 N / 09.73 E", "Схема, а не мапа"]}
-            />
+              <Image
+                src="/arrival-1120.webp"
+                alt="Ілюстрація: мандрівник із валізою на тихій вулиці європейського містечка"
+                width={1120}
+                height={1400}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 384px, 480px"
+                loading="eager"
+                className="h-auto w-full hero-arrival"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -88,21 +89,29 @@ export default function HomePage() {
       <section className="container-page section-band" aria-labelledby="routes-heading">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="type-label text-muted-foreground">Індекс напрямків</p>
+            <p className="type-label text-muted-foreground">Знайдіть свій напрямок</p>
             <h2 id="routes-heading" className="mt-4 type-h1">
-              Напрямки
+              Зі Львова та Івано-Франківська — і назад
             </h2>
           </div>
           <p className="max-w-sm type-body-small text-muted-foreground">
-            Кожна сторінка маршруту показує коридор, перевізника і перелік того, що варто уточнити
-            перед поїздкою.
+            Перегляньте поради для потрібного напрямку: як описати місце зустрічі,
+            що запитати про прибуття та як спланувати подальшу дорогу.
           </p>
         </div>
 
-        <RouteList routes={routes} ctaLocation="route_index" className="mt-12" />
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link href="/cities/lviv/" className="inline-flex min-h-11 items-center border border-border-strong px-4 py-2 type-button hover:bg-secondary">Львів ↔ Німеччина</Link>
+          <Link href="/cities/ivano-frankivsk/" className="inline-flex min-h-11 items-center border border-border-strong px-4 py-2 type-button hover:bg-secondary">Івано-Франківськ ↔ Німеччина</Link>
+        </div>
+        <RouteList routes={featured} ctaLocation="route_index" className="mt-8" />
+        <details className="mt-8 border-t border-border-strong pt-5">
+          <summary className="min-h-11 cursor-pointer type-button text-primary">Додаткові міста й напрямки</summary>
+          <RouteList routes={additional} ctaLocation="route_index" className="mt-5" />
+        </details>
 
         <Link href="/routes/" className="mt-8 inline-flex type-label text-primary link-underline">
-          Усі маршрути →
+          Усі напрямки →
         </Link>
       </section>
 
@@ -115,11 +124,14 @@ export default function HomePage() {
           />
           <div className="relative flex flex-col justify-center overflow-hidden bg-surface p-8 lg:p-14">
             <TopoPattern />
-            <p className="relative type-label text-muted-foreground">Дорога</p>
-            <p className="relative mt-6 max-w-sm font-display text-2xl leading-snug lg:text-3xl">
-              Кожна подорож — це лінія, що з&apos;єднує два місця. Ми описуємо цю лінію чесно: без
-              вигаданих розкладів, цін і обіцянок.
-            </p>
+            <p className="relative type-label text-muted-foreground">Перед поїздкою</p>
+            <h2 className="relative mt-6 max-w-sm type-h2">Що запитати у перевізника</h2>
+            <ul className="relative mt-6 max-w-md space-y-4 type-body-small text-muted-foreground">
+              <li><strong className="text-foreground">Виїзд і прибуття.</strong> Де зустрічаєтеся, о котрій виїзд і де буде висадка?</li>
+              <li><strong className="text-foreground">Вартість.</strong> Яка загальна ціна та як оплатити поїздку?</li>
+              <li><strong className="text-foreground">Багаж.</strong> Скільки валіз можна взяти та чи потрібна доплата?</li>
+              <li><strong className="text-foreground">Ваші потреби.</strong> Чи можна їхати з дитиною, взяти великий багаж або погодити зручне місце зустрічі?</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -127,7 +139,7 @@ export default function HomePage() {
       <section className="container-page section-band" aria-labelledby="how-heading">
         <p className="type-label text-muted-foreground">Як це працює</p>
         <h2 id="how-heading" className="mt-4 max-w-2xl type-h1">
-          Від пошуку напрямку до розмови з перевізником
+          Від вибору міст до розмови про поїздку
         </h2>
 
         <ol className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
@@ -141,19 +153,22 @@ export default function HomePage() {
             </li>
           ))}
         </ol>
+
+        <p className="mt-10 max-w-2xl type-body-small text-muted-foreground">
+          Можливість поїздки на вашу дату, наявність місць та умови підтверджує перевізник Коваль.
+          Надсилання повідомлення ще не резервує місце.{" "}
+          Перегляньте{" "}
+          <Link href="/about/#pilot-heading" className="text-primary link-underline">
+            міста для виїзду й повернення
+          </Link>
+          .
+        </p>
       </section>
 
       {koval ? (
         <section className="container-page pb-24">
           <div className="max-w-2xl">
-            <PartnerCard carrier={publicCarrier(koval)} ctaLocation="partner_card" />
-            <p className="mt-6 type-body-small text-muted-foreground">
-              Цікавить пересилання посилок? Це окремий напрямок обслуговування —{" "}
-              <Link href="/about/" className="link-underline">
-                дізнайтеся, як працює UARoute
-              </Link>
-              , і зверніться до перевізника окремо.
-            </p>
+            <PartnerCard carrier={publicCarrier(koval)} ctaLocation="partner_card" inquiryOnly />
           </div>
         </section>
       ) : null}

@@ -1,7 +1,9 @@
 import { absoluteUrl, withUtm } from "@/config/site";
 import { getCarrier, getDesk } from "@/data/carriers";
+import { citiesById } from "@/data/cities";
 import type { ResolvedRoute } from "@/data/queries";
-import type { Desk } from "@/data/types";
+import type { City, Desk } from "@/data/types";
+import { canonicalLandingPath } from "@/lib/analytics";
 
 export type InquiryInput = {
   route: ResolvedRoute;
@@ -16,6 +18,25 @@ export type InquiryValidation =
   | { ok: true }
   | { ok: false; errors: { travelDate?: string; phone?: string; passengers?: string } };
 
+export function localTodayISO(): string {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function isCalendarDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return (
+    date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day
+  );
+}
+
 export function validateInquiry(input: {
   travelDate: string;
   phone: string;
@@ -25,20 +46,21 @@ export function validateInquiry(input: {
 
   if (!input.travelDate) {
     errors.travelDate = "Вкажіть дату поїздки.";
-  } else {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const travel = new Date(`${input.travelDate}T00:00:00`);
-    if (Number.isNaN(travel.getTime()) || travel < today) {
-      errors.travelDate = "Дата не може бути в минулому.";
-    }
+  } else if (!isCalendarDate(input.travelDate)) {
+    errors.travelDate = "Вкажіть коректну дату.";
+  } else if (input.travelDate < localTodayISO()) {
+    errors.travelDate = "Дата не може бути в минулому.";
   }
 
   const digits = input.phone.replace(/\D/g, "");
   if (!input.phone.trim()) {
     errors.phone = "Вкажіть номер телефону для зв'язку.";
+  } else if (!/^[+\d\s().-]+$/.test(input.phone)) {
+    errors.phone = "Перевірте формат номера телефону.";
   } else if (digits.length < 9) {
     errors.phone = "Схоже, номер неповний. Перевірте, будь ласка.";
+  } else if (digits.length > 15) {
+    errors.phone = "У номері забагато цифр. Перевірте, будь ласка.";
   }
 
   if (!Number.isInteger(input.passengers) || input.passengers < 1 || input.passengers > 8) {
@@ -51,10 +73,9 @@ export function validateInquiry(input: {
 /** Ephemeral inquiry code. Not persisted anywhere — no lead database exists. */
 export function createLeadId(): string {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
-  for (let i = 0; i < 4; i += 1) {
-    code += alphabet[Math.floor(Math.random() * alphabet.length)];
-  }
+  const bytes = new Uint8Array(10);
+  globalThis.crypto.getRandomValues(bytes);
+  const code = Array.from(bytes, (byte) => alphabet[byte & 31]).join("");
   return `UR-${code}`;
 }
 
@@ -73,14 +94,30 @@ export function formatTravelDate(isoDate: string): string {
 
 export function buildInquiryMessage(input: InquiryInput, leadId: string): string {
   const { route, travelDate, phone, passengers } = input;
+  if (route.serviceMode === "candidate_inquiry") {
+    return buildCandidateInquiryMessage(
+      {
+        origin: route.origin,
+        destination: route.destination,
+        deskId: route.deskId ?? "",
+        sourcePath: `/routes/${route.slug}/`,
+        travelDate,
+        phone,
+        passengers,
+      },
+      leadId,
+    );
+  }
   const lines = [
-    "Добрий день! Хочу уточнити поїздку (заявка, не підтверджене бронювання).",
+    "Добрий день! Хочу уточнити поїздку.",
     "",
     `Маршрут: ${route.origin.name} → ${route.destination.name}`,
     `Дата: ${formatTravelDate(travelDate)}`,
     `Пасажирів: ${passengers}`,
     `Телефон: ${phone.trim()}`,
     "",
+    "Будь ласка, повідомте, чи можлива поїздка на цю дату, яка вартість, де можна погодити посадку й висадку та чи є місця.",
+    "Це запит про поїздку, а не бронювання.",
     "Джерело: UARoute",
     `Сторінка: ${absoluteUrl(`/routes/${route.slug}/`)}`,
     `Код: ${leadId}`,
@@ -98,6 +135,21 @@ export type InquiryTarget =
  * broken wa.me link.
  */
 export function buildInquiryTarget(input: InquiryInput, leadId: string): InquiryTarget {
+  if (input.route.serviceMode === "candidate_inquiry") {
+    return buildCandidateInquiryTarget(
+      {
+        origin: input.route.origin,
+        destination: input.route.destination,
+        deskId: input.route.deskId ?? "",
+        sourcePath: `/routes/${input.route.slug}/`,
+        travelDate: input.travelDate,
+        phone: input.phone,
+        passengers: input.passengers,
+      },
+      leadId,
+    );
+  }
+
   const desk = resolveDesk(input.route);
   if (desk && /^\d{8,15}$/.test(desk.whatsapp)) {
     const message = buildInquiryMessage(input, leadId);
@@ -112,7 +164,91 @@ export function buildInquiryTarget(input: InquiryInput, leadId: string): Inquiry
   const carrier = getCarrier(input.route.carrierIds[0] ?? "");
   return {
     kind: "website",
-    url: carrier ? withUtm(carrier.website, `${input.route.slug}_inquiry_fallback`) : "/",
+    url: carrier
+      ? withUtm(carrier.website, `${input.route.slug}_inquiry_fallback`, {
+          requestCode: leadId,
+          originCityId: input.route.origin.id,
+          destinationCityId: input.route.destination.id,
+        })
+      : "/",
+    leadId,
+  };
+}
+
+export type CandidateInquiryInput = {
+  origin: City;
+  destination: City;
+  deskId: string;
+  sourcePath: string;
+  travelDate: string;
+  phone: string;
+  passengers: number;
+};
+
+function catalogCity(city: City): City | undefined {
+  const canonical = citiesById.get(city.id);
+  return canonical?.slug === city.slug ? canonical : undefined;
+}
+
+function candidateSourcePath(path: string): string {
+  return canonicalLandingPath(path) ?? "/routes/";
+}
+
+export function buildCandidateInquiryMessage(
+  input: CandidateInquiryInput,
+  leadId: string,
+): string {
+  const origin = catalogCity(input.origin);
+  const destination = catalogCity(input.destination);
+  if (!origin || !destination) throw new Error("Candidate inquiry requires catalog cities");
+  const sourcePath = candidateSourcePath(input.sourcePath);
+  const lines = [
+    "Добрий день! Хочу уточнити можливість поїздки.",
+    "",
+    `Маршрут: ${origin.name} → ${destination.name}`,
+    `Дата: ${formatTravelDate(input.travelDate)}`,
+    `Пасажирів: ${input.passengers}`,
+    `Телефон: ${input.phone.trim()}`,
+    "",
+    "Будь ласка, підтвердьте можливість поїздки на цю дату та погодьте місця посадки й висадки, вартість і наявність місць.",
+    "Це запит про поїздку, а не бронювання.",
+    "Джерело: UARoute",
+    `Сторінка: ${absoluteUrl(sourcePath)}`,
+    `Код: ${leadId}`,
+  ];
+  return lines.join("\n");
+}
+
+export function buildCandidateInquiryTarget(
+  input: CandidateInquiryInput,
+  leadId: string,
+): InquiryTarget {
+  const origin = catalogCity(input.origin);
+  const destination = catalogCity(input.destination);
+  if (!origin || !destination) throw new Error("Candidate inquiry requires catalog cities");
+
+  // Candidate discovery currently has one explicitly approved operator desk.
+  const desk = input.deskId === "koval-de" ? getDesk("koval", input.deskId) : undefined;
+  if (desk && /^\d{8,15}$/.test(desk.whatsapp)) {
+    const message = buildCandidateInquiryMessage(input, leadId);
+    return {
+      kind: "whatsapp",
+      url: `https://wa.me/${desk.whatsapp}?text=${encodeURIComponent(message)}`,
+      desk,
+      leadId,
+    };
+  }
+
+  const carrier = getCarrier("koval");
+  return {
+    kind: "website",
+    url: carrier
+      ? withUtm(carrier.website, "candidate_inquiry", {
+          requestCode: leadId,
+          originCityId: origin.id,
+          destinationCityId: destination.id,
+        })
+      : "/",
     leadId,
   };
 }

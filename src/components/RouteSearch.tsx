@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 
 import { RouteEmptyState } from "@/components/brand/states";
-import { findRouteByCities, searchCities } from "@/data/queries";
+import { CandidateInquiry } from "@/components/CandidateInquiry";
+import { pilotGermanCityIds, pilotUkrainianCityIds, priorityOriginCityIds } from "@/data/discovery";
+import { getCity } from "@/data/cities";
+import { findRouteByCities, isCandidateInquiryEligiblePair, searchCities } from "@/data/queries";
 import type { City } from "@/data/types";
-import { track } from "@/lib/analytics";
+import { track, type CtaLocation } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type FieldProps = {
@@ -15,11 +18,13 @@ type FieldProps = {
   placeholder: string;
   value: string;
   city: City | null;
+  country?: string;
+  excludedCountry?: string;
   onChange: (value: string) => void;
   onSelect: (city: City) => void;
 };
 
-function CityField({ label, placeholder, value, city, onChange, onSelect }: FieldProps) {
+function CityField({ label, placeholder, value, city, country, excludedCountry, onChange, onSelect }: FieldProps) {
   const inputId = useId();
   const listId = `${inputId}-list`;
   const [open, setOpen] = useState(false);
@@ -27,8 +32,8 @@ function CityField({ label, placeholder, value, city, onChange, onSelect }: Fiel
   const blurTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const suggestions = useMemo(
-    () => (city && city.name === value ? [] : searchCities(value)),
-    [value, city],
+    () => (city && city.name === value ? [] : searchCities(value, country || excludedCountry ? Number.MAX_SAFE_INTEGER : 6).filter((item) => (!country || item.country === country) && item.country !== excludedCountry).slice(0, 6)),
+    [value, city, country, excludedCountry],
   );
   const isOpen = open && suggestions.length > 0;
 
@@ -40,7 +45,7 @@ function CityField({ label, placeholder, value, city, onChange, onSelect }: Fiel
 
   return (
     <div className="relative flex-1">
-      <label htmlFor={inputId} className="type-label text-muted-foreground">
+      <label htmlFor={inputId} className="text-sm font-medium text-muted-foreground">
         {label}
       </label>
       <input
@@ -54,7 +59,7 @@ function CityField({ label, placeholder, value, city, onChange, onSelect }: Fiel
         autoComplete="off"
         placeholder={placeholder}
         value={value}
-        className="field-rule mt-2"
+        className="field-rule search-field mt-2"
         onChange={(event) => {
           onChange(event.target.value);
           setOpen(true);
@@ -120,19 +125,99 @@ function CityField({ label, placeholder, value, city, onChange, onSelect }: Fiel
   );
 }
 
-export function RouteSearch() {
+type RouteSearchProps = {
+  sourcePath?: string;
+  ctaLocation?: CtaLocation;
+  initialOriginId?: string;
+  initialDestinationId?: string;
+  showPilotChoices?: boolean;
+};
+
+export function RouteSearch({
+  sourcePath = "/",
+  ctaLocation = "hero",
+  initialOriginId,
+  initialDestinationId,
+  showPilotChoices = false,
+}: RouteSearchProps) {
   const router = useRouter();
-  const [originText, setOriginText] = useState("");
-  const [destinationText, setDestinationText] = useState("");
-  const [origin, setOrigin] = useState<City | null>(null);
-  const [destination, setDestination] = useState<City | null>(null);
+  const initialOrigin = initialOriginId ? getCity(initialOriginId) ?? null : null;
+  const initialDestination = initialDestinationId ? getCity(initialDestinationId) ?? null : null;
+  const [originText, setOriginText] = useState(initialOrigin?.name ?? "");
+  const [destinationText, setDestinationText] = useState(initialDestination?.name ?? "");
+  const [origin, setOrigin] = useState<City | null>(initialOrigin);
+  const [destination, setDestination] = useState<City | null>(initialDestination);
+  const [direction, setDirection] = useState<"to-germany" | "to-ukraine">(initialOrigin?.country === "Німеччина" || initialDestination?.country === "Україна" ? "to-ukraine" : "to-germany");
   const [message, setMessage] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
+  const [candidatePair, setCandidatePair] = useState<{ origin: City; destination: City } | null>(null);
+
+  const resultRef = useRef<HTMLDivElement>(null);
+  const selectedRoute = origin && destination ? findRouteByCities(origin.id, destination.id, { commercialOnly: true }) : undefined;
+
+  useEffect(() => {
+    if (!candidatePair) return;
+    resultRef.current?.focus({ preventScroll: true });
+    resultRef.current?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  }, [candidatePair]);
+
+  function resetResult() {
+    setMessage(null);
+    setNotFound(false);
+    setCandidatePair(null);
+  }
+
+  function chooseCity(side: "origin" | "destination", city: City | null) {
+    resetResult();
+    if (side === "origin") {
+      setOrigin(city);
+      setOriginText(city?.name ?? "");
+    } else {
+      setDestination(city);
+      setDestinationText(city?.name ?? "");
+    }
+  }
+
+  const ukrainianCities = pilotUkrainianCityIds.map((id) => getCity(id)).filter((city): city is City => Boolean(city));
+  const germanCities = pilotGermanCityIds.map((id) => getCity(id)).filter((city): city is City => Boolean(city));
+  const priorityCities = priorityOriginCityIds.map((id) => getCity(id)).filter((city): city is City => Boolean(city));
+  const selectedUkrainian = (direction === "to-germany" ? origin : destination)?.country === "Україна"
+    ? (direction === "to-germany" ? origin : destination) : null;
+  const selectedGerman = (direction === "to-germany" ? destination : origin)?.country === "Німеччина"
+    ? (direction === "to-germany" ? destination : origin) : null;
+
+  function selectPilotCity(city: City) {
+    const isGerman = city.country === "Німеччина";
+    const isOrigin = direction === "to-germany" ? !isGerman : isGerman;
+    chooseCity(isOrigin ? "origin" : "destination", city);
+  }
+
+  function changeDirection(next: "to-germany" | "to-ukraine") {
+    if (next === direction) return;
+    resetResult();
+    setDirection(next);
+    const currentCities = [origin, destination].filter((city): city is City => Boolean(city));
+    const ukrainianCity = currentCities.find((city) => city.country === "Україна") ?? null;
+    const germanCity = currentCities.find((city) => city.country === "Німеччина") ?? null;
+    const nextOrigin = next === "to-germany" ? ukrainianCity : germanCity;
+    const nextDestination = next === "to-germany" ? germanCity : ukrainianCity;
+    setOrigin(nextOrigin);
+    setOriginText(nextOrigin?.name ?? "");
+    setDestination(nextDestination);
+    setDestinationText(nextDestination?.name ?? "");
+  }
 
   function submit() {
     if (!origin || !destination) {
       setNotFound(false);
+      setCandidatePair(null);
       setMessage("Оберіть місто відправлення та місто призначення.");
+      return;
+    }
+
+    if (origin.country === destination.country) {
+      resetResult();
+      setMessage("Оберіть міста в різних країнах: одне в Україні, інше — у Німеччині.");
       return;
     }
 
@@ -142,17 +227,21 @@ export function RouteSearch() {
       destination: destination.slug,
       destinationCountry: destination.country,
       ...(route ? { routeSlug: route.slug } : {}),
-      ctaLocation: "hero",
+      targetPath: sourcePath,
+      ctaLocation,
     });
 
     if (!route) {
       setMessage(null);
-      setNotFound(true);
+      const eligible = isCandidateInquiryEligiblePair(origin, destination);
+      setCandidatePair(eligible ? { origin, destination } : null);
+      setNotFound(!eligible);
       return;
     }
 
     setMessage(null);
     setNotFound(false);
+    setCandidatePair(null);
     router.push(`/routes/${route.slug}/`);
   }
 
@@ -164,44 +253,143 @@ export function RouteSearch() {
           submit();
         }}
       >
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-8">
-          <CityField
-            label="Звідки"
-            placeholder="Львів"
-            value={originText}
-            city={origin}
-            onChange={(value) => {
-              setOriginText(value);
-              setOrigin(null);
-            }}
-            onSelect={(city) => {
-              setOrigin(city);
-              setOriginText(city.name);
-            }}
-          />
-          <span aria-hidden className="hidden pb-4 font-mono text-sm text-muted-foreground sm:block">
-            →
-          </span>
-          <CityField
-            label="Куди"
-            placeholder="Ганновер"
-            value={destinationText}
-            city={destination}
-            onChange={(value) => {
-              setDestinationText(value);
-              setDestination(null);
-            }}
-            onSelect={(city) => {
-              setDestination(city);
-              setDestinationText(city.name);
-            }}
-          />
+        <div className={showPilotChoices ? "flex flex-col gap-3" : "flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-8"}>
+          {showPilotChoices ? (
+            <div className="sm:col-span-2">
+              <fieldset>
+                <legend className="text-sm font-medium text-muted-foreground">Напрямок: {direction === "to-germany" ? "Україна → Німеччина" : "Німеччина → Україна"}</legend>
+                <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Напрямок поїздки">
+                  <button type="button" aria-pressed={direction === "to-germany"}
+                    onClick={() => changeDirection("to-germany")}
+                    className="min-h-11 border border-border-strong px-4 type-button transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
+                    До Німеччини
+                  </button>
+                  <button type="button" aria-pressed={direction === "to-ukraine"}
+                    onClick={() => changeDirection("to-ukraine")}
+                    className="min-h-11 border border-border-strong px-4 type-button transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
+                    До України
+                  </button>
+                </div>
+              </fieldset>
+              <p className="mt-3 text-sm font-medium text-muted-foreground">Швидкий вибір міста {direction === "to-germany" ? "відправлення" : "прибуття"}</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {priorityCities.map((city) => (
+                  <button key={city.id} type="button" onClick={() => selectPilotCity(city)}
+                    className="min-h-11 border border-border-strong px-4 type-button hover:bg-secondary">
+                    {city.name}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {(direction === "to-germany" ? ["ukraine", "germany"] : ["germany", "ukraine"]).map((country, index) => {
+                  const isUkrainian = country === "ukraine";
+                  const selected = isUkrainian ? selectedUkrainian : selectedGerman;
+                  const cities = isUkrainian ? ukrainianCities : germanCities;
+                  const countryLabel = isUkrainian ? "Українське місто" : "Місто в Німеччині";
+                  return (
+                    <label key={country} className="text-sm font-medium text-muted-foreground">
+                      {index === 0 ? "Звідки" : "Куди"} · {isUkrainian ? "Україна" : "Німеччина"}
+                      <select
+                        value={selected?.id ?? ""}
+                        onChange={(event) => chooseCity(index === 0 ? "origin" : "destination", event.target.value ? getCity(event.target.value) ?? null : null)}
+                        className="field-rule search-field mt-2"
+                        aria-label={countryLabel}
+                      >
+                        <option value="">Оберіть місто</option>
+                        {selected && !cities.some((city) => city.id === selected.id) ? <option value={selected.id}>{selected.name} · вибрано через пошук</option> : null}
+                        {cities.map((city) => <option key={city.id} value={city.id}>{city.name}</option>)}
+                      </select>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+          {showPilotChoices ? null : (
+            <>
+              <CityField
+                label="Звідки"
+                placeholder="Львів"
+                excludedCountry={destination?.country}
+                value={originText}
+                city={origin}
+                onChange={(value) => {
+                  resetResult();
+                  setOriginText(value);
+                  setOrigin(null);
+                }}
+                onSelect={(city) => {
+                  setOrigin(city);
+                  setOriginText(city.name);
+                }}
+              />
+              <span aria-hidden className="hidden pb-4 font-mono text-sm text-muted-foreground sm:block">
+                →
+              </span>
+              <CityField
+                label="Куди"
+                placeholder="Ганновер"
+                excludedCountry={origin?.country}
+                value={destinationText}
+                city={destination}
+                onChange={(value) => {
+                  resetResult();
+                  setDestinationText(value);
+                  setDestination(null);
+                }}
+                onSelect={(city) => {
+                  setDestination(city);
+                  setDestinationText(city.name);
+                }}
+              />
+            </>
+          )}
+          {showPilotChoices && origin && destination && (selectedRoute || isCandidateInquiryEligiblePair(origin, destination)) ? (
+            <p className="text-sm text-muted-foreground">
+              {selectedRoute
+                ? "Далі — інформація про напрямок і запит перевізнику Коваль."
+                : "Для цього напрямку можна одразу підготувати запит перевізнику Коваль нижче."}
+            </p>
+          ) : null}
           <button
             type="submit"
             className="inline-flex h-12 shrink-0 items-center justify-center bg-primary px-7 type-button text-primary-foreground transition-colors hover:bg-primary-hover"
           >
             Знайти маршрут
           </button>
+          {showPilotChoices ? (
+            <details>
+              <summary className="min-h-11 cursor-pointer py-3 type-button">Пошук за іншою назвою міста</summary>
+              <div className="mt-3 grid gap-4 sm:grid-cols-2">
+                <CityField
+                  label="Звідки"
+                  placeholder={direction === "to-germany" ? "Львів або Lviv" : "Целле або Celle"}
+                  country={direction === "to-germany" ? "Україна" : "Німеччина"}
+                  value={originText}
+                  city={origin}
+                  onChange={(value) => {
+                    resetResult();
+                    setOriginText(value);
+                    setOrigin(null);
+                  }}
+                  onSelect={(city) => chooseCity("origin", city)}
+                />
+                <CityField
+                  label="Куди"
+                  placeholder={direction === "to-germany" ? "Целле або Celle" : "Львів або Lviv"}
+                  country={direction === "to-germany" ? "Німеччина" : "Україна"}
+                  value={destinationText}
+                  city={destination}
+                  onChange={(value) => {
+                    resetResult();
+                    setDestinationText(value);
+                    setDestination(null);
+                  }}
+                  onSelect={(city) => chooseCity("destination", city)}
+                />
+              </div>
+            </details>
+          ) : null}
         </div>
 
         <p aria-live="polite" className="mt-4 min-h-5 type-meta">
@@ -209,11 +397,17 @@ export function RouteSearch() {
         </p>
       </form>
 
+      {candidatePair ? (
+        <div ref={resultRef} tabIndex={-1} className="mt-6 scroll-mt-24" key={`${candidatePair.origin.id}-${candidatePair.destination.id}`}>
+          <CandidateInquiry origin={candidatePair.origin} destination={candidatePair.destination} sourcePath={sourcePath} ctaLocation={ctaLocation} />
+        </div>
+      ) : null}
+
       {notFound ? (
         <div aria-live="polite" className="mt-6">
           <RouteEmptyState
             title="Ми поки не маємо інформації про цей маршрут."
-            description="Це не означає, що перевізник виконує рейс. Оберіть підтверджений напрямок з атласу або уточніть поїздку у Koval через інший комерційний маршрут."
+            description="Спробуйте іншу пару міст або запитайте перевізника Коваль через його сайт про можливість поїздки на вашу дату."
           >
             <Link
               href="/routes/"

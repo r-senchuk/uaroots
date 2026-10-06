@@ -1,15 +1,13 @@
-import { countryCode } from "@/components/brand/RouteCapsule";
 import { cn } from "@/lib/utils";
 
 /**
  * The atlas plate: graticule, abstract European landmasses, a drawn corridor
- * between two waypoints, country abbreviations and editorial coordinates.
+ * between two waypoints, city labels and editorial coordinates.
  * Decorative and deliberately schematic — it never claims real geometry.
  */
 export function AtlasComposition({
   originLabel,
   destinationLabel,
-  corridor,
   className,
   animate = true,
 }: {
@@ -19,8 +17,6 @@ export function AtlasComposition({
   className?: string;
   animate?: boolean;
 }) {
-  const codes = corridor.map(countryCode);
-
   return (
     <div aria-hidden className={cn("relative select-none", className)}>
       <svg viewBox="0 0 520 560" className="h-auto w-full text-primary">
@@ -102,7 +98,7 @@ export function AtlasComposition({
             49.84 N / 24.03 E
           </text>
           <text x="290" y="262">
-            {codes.join(" · ")}
+            {originLabel} → {destinationLabel}
           </text>
         </g>
       </svg>

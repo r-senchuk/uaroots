@@ -57,11 +57,10 @@ export function InquiryProvider({
       const target = buildInquiryTarget({ route, travelDate, phone, passengers }, leadId);
 
       const context = {
-        routeSlug: route.slug,
-        origin: route.origin.slug,
-        destination: route.destination.slug,
+        routeId: route.id,
+        origin: route.origin.id,
+        destination: route.destination.id,
         destinationCountry: route.destination.country,
-        travelDate,
         passengerCount: passengers,
         ctaLocation,
         leadId,

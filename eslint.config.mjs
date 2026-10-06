@@ -8,6 +8,7 @@ const eslintConfig = defineConfig([
   globalIgnores([
     ".next/**",
     "out/**",
+    "output/**", // Preserved release/QA artifacts contain generated bundles.
     "build/**",
     "next-env.d.ts",
     "legacy/**",

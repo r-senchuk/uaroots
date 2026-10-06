@@ -3,7 +3,7 @@
 import { VerifiedMark } from "@/components/brand/Metadata";
 import { RouteLine } from "@/components/brand/RouteLine";
 import { WhatsAppIcon } from "@/components/brand/WhatsAppIcon";
-import { withUtm } from "@/config/site";
+import { KovalReferralLink, type KovalReferralContext } from "@/components/KovalReferralLink";
 import type { Carrier } from "@/data/types";
 import { track, type CtaLocation } from "@/lib/analytics";
 
@@ -14,29 +14,40 @@ export function PartnerCard({
   routeSlug,
   ctaLocation = "partner_card",
   whatsappHref,
+  referralContext,
+  inquiryOnly = false,
 }: {
   carrier: PublicCarrier;
   routeSlug?: string | undefined;
   ctaLocation?: CtaLocation;
   whatsappHref?: string | undefined;
+  referralContext?: KovalReferralContext;
+  inquiryOnly?: boolean;
 }) {
   const utmContent = `${routeSlug ?? "site"}_${ctaLocation}`;
   const directWhatsapp = whatsappHref;
 
   return (
     <section className="border-t-2 border-primary pt-6">
-      <p className="type-label text-muted-foreground">Хто виконує перевезення</p>
+      <p className="type-label text-muted-foreground">
+        {inquiryOnly ? "Зв’язок із перевізником" : "Хто виконує перевезення"}
+      </p>
       <h2 className="mt-3 type-h2">{carrier.name}</h2>
-      <p className="mt-3 type-body-small text-muted-foreground">{carrier.serviceDescription}</p>
+      <p className="mt-3 type-body-small text-muted-foreground">
+        {inquiryOnly
+          ? `Запитайте перевізника ${carrier.name} про можливість поїздки на вашу дату, вартість, посадку й багаж. На його сайті можна знайти контакт і продовжити звернення.`
+          : carrier.serviceDescription}
+      </p>
 
       <RouteLine variant="minimal" className="mt-5 max-w-[240px]" />
 
-      <p className="mt-5 max-w-md type-body-small text-muted-foreground">
-        Далі ви залишаєте UARoute і спілкуєтеся напряму з перевізником. Ми допомагаємо знайти
-        маршрут і підготувати запит.
-      </p>
+      {!inquiryOnly ? (
+        <p className="mt-5 max-w-md type-body-small text-muted-foreground">
+          Перегляньте інформацію перевізника та запитайте про умови для вашої поїздки.
+        </p>
+      ) : null}
 
-      {carrier.claims.length > 0 ? (
+      {!inquiryOnly && carrier.claims.length > 0 ? (
         <ul className="mt-5 space-y-3">
           {carrier.claims.map((claim) => (
             <li key={claim.text} className="border-t border-border pt-3">
@@ -63,7 +74,7 @@ export function PartnerCard({
             rel="noopener noreferrer nofollow"
             onClick={() =>
               track("whatsapp_click", {
-                ...(routeSlug ? { routeSlug } : {}),
+              ...(routeSlug ? { routeId: routeSlug } : {}),
                 ctaLocation,
                 conversionType: "whatsapp_inquiry",
               })
@@ -71,25 +82,20 @@ export function PartnerCard({
             className="inline-flex h-12 items-center justify-center gap-2 bg-primary px-6 type-button text-primary-foreground transition-colors hover:bg-primary-hover"
           >
             <WhatsAppIcon />
-            Написати Koval у WhatsApp
+            Уточнити поїздку в WhatsApp
           </a>
         ) : null}
 
-        <a
-          href={withUtm(carrier.website, utmContent)}
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          onClick={() =>
-            track("koval_site_click", {
-              ...(routeSlug ? { routeSlug } : {}),
-              ctaLocation,
-              conversionType: "koval_site",
-            })
-          }
+        <KovalReferralLink
+          href={carrier.website}
+          content={utmContent}
+          ctaLocation={ctaLocation}
+          routeSlug={routeSlug}
+          referralContext={referralContext}
           className="inline-flex h-12 items-center justify-center border border-border-strong px-6 type-button hover:bg-secondary"
         >
-          Сайт Koval ↗
-        </a>
+          Сайт {carrier.name} ↗
+        </KovalReferralLink>
       </div>
     </section>
   );

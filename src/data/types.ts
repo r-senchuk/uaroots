@@ -56,11 +56,21 @@ export type FaqItem = {
  * editorial  — the corridor may be discussed, but is not a confirmed bookable route.
  */
 export type RouteStatus = "commercial" | "editorial";
+export type RouteServiceMode = "candidate_inquiry";
+
+export type PracticalContent = {
+  heading: string;
+  body: string;
+  sourceUrl?: string;
+  lastVerifiedAt?: string;
+};
 
 export type Route = {
   id: string;
   slug: string;
   status: RouteStatus;
+  /** Published inquiry eligibility without a verified operating service. */
+  serviceMode?: RouteServiceMode;
   originCityId: string;
   destinationCityId: string;
   title: string;
@@ -76,4 +86,6 @@ export type Route = {
   faq: FaqItem[];
   /** Questions the traveller should ask the carrier. Never presented as known facts. */
   whatToConfirm: string[];
+  /** City-specific geography and arrival orientation, never operator stops. */
+  practicalContent?: PracticalContent[];
 };

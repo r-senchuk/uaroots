@@ -1,0 +1,20 @@
+# UARoute CloudFront SEO function v1
+
+`seo-viewer-request.v1.js` is a candidate viewer-request function for a CloudFront Function using JavaScript runtime 2.0. It uses `request.rawQueryString()` to preserve the incoming query byte-for-byte. It is a deployable artifact; it has **not** been associated with a distribution or tested against the production edge. The current CDN configuration remains unknown because read-only AWS credential discovery failed on 2026-10-07.
+
+Regenerate its explicit document map from `out/sitemap.xml` plus the two approved editorial documents:
+
+```sh
+node scripts/seo-http-generate.mjs
+node scripts/seo-http-generate.mjs --check
+```
+
+The generator accepts an optional export directory as its first non-option argument. It requires the 18 reviewed sitemap paths, local HTML with one self-canonical per public document, `noindex, follow` on Hamburg/Berlin editorial HTML, the five legacy redirect files, and a useful Ukrainian `404.html`. It writes only the function artifact. The function includes 20 known HTML documents; editorial documents remain directly addressable and are neither redirected nor added to the sitemap.
+
+The function redirects only GET/HEAD requests on `uaroute.com` and `www.uaroute.com`. It never builds a Location from an untrusted Host. Assets, `/_next/`, and `.txt` payloads pass through untouched. A known HTML page is internally rewritten to its static `index.html`, or to `index.txt` when `rsc`, `_rsc`, or the `rsc: 1` request header is present. Unknown extensionless documents and unknown `.html` paths receive a generated Ukrainian 404 response. Unknown hosts and non-GET/HEAD methods pass unchanged.
+
+Before association, the deployment owner must inspect every behavior and origin, preserve compatible existing function/Lambda associations, confirm the viewer protocol policy redirects HTTP to HTTPS, validate TLS for both host aliases, and confirm the S3 key layout and allowed methods. The function URI rewrite does not select an origin or behavior. Remove any generic missing-object fallback that rewrites 403/404 to `/index.html` or changes them to 200. Do not add a blanket S3 403-to-404 mapping: private-origin access failures and absent objects must first be distinguished. A viewer-request-generated 404 bypasses origin custom error handling, so the response body is supplied directly by this function. Missing assets and `.txt` Flight keys pass to the configured origin unchanged; their HTTP status remains unverified until the actual origin/error configuration is inspected and tested.
+
+The raw-query helper preserves repeated keys, ordering, percent-escape case, `+`, and the difference between a bare key and an empty value. A fixture fallback covers CloudFront's parsed `multiValue` object. The local contract checks `utm_source`, repeated `tag`, `%2f`, `%26`, `+`, and empty values. CloudFront has not been available for runtime verification; exact deployed `Location` behavior remains a release gate. AWS references: [rawQueryString](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/general-helper-methods.html), [viewer event structure](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html), and [runtime 2.0](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-javascript-runtime-20.html).
+
+`node scripts/seo-http.mjs [origin] [--output report.json]` performs bounded, read-only GET/HEAD checks against `https://uaroute.com` (or a supplied origin URL). Its JS/CSS/font URLs come from the current local export, so those checks describe that build's required objects rather than prove those exact new hashes are already published. It follows at most six same-site responses manually, reports raw first-hop `Location`, and makes no authenticated requests or contact submissions. Network/evaluator failures are `unknown` and exit nonzero. A successful local function fixture or export check is not live proof.

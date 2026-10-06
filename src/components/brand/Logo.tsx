@@ -31,7 +31,7 @@ export function Logo({
         </span>
         <RouteMark aria-hidden className="mb-[0.12em] h-[0.62em] w-[2.1em] shrink-0 text-primary" />
       </span>
-      {showTagline ? <span className="mt-2 type-caption">Атлас маршрутів UA → EU</span> : null}
+      {showTagline ? <span className="mt-2 type-caption">Атлас напрямків · Україна ↔ Європа</span> : null}
     </span>
   );
 }

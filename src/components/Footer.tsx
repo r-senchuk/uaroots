@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Logo } from "@/components/brand/Logo";
+import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { RoutePattern } from "@/components/brand/graphics";
 import { withUtm } from "@/config/site";
 import { getCarrier } from "@/data/carriers";
@@ -20,8 +21,9 @@ export function Footer() {
         <div className="max-w-md">
           <Logo showTagline />
           <p className="mt-6 type-body-small text-muted-foreground">
-            UARoute — інформаційна платформа про маршрути з України до Європи. Ми не є перевізником:
-            перевезення виконують партнери, а ми допомагаємо знайти напрямок і підготувати запит.
+            UARoute допомагає вибрати міста, підготуватися до дороги й скласти повідомлення
+            перевізнику. Організацію перевезення, можливість поїздки на вашу дату та умови
+            ви погоджуєте з перевізником Коваль.
           </p>
         </div>
 
@@ -38,6 +40,12 @@ export function Footer() {
                 Про UARoute
               </Link>
             </li>
+            <li className="rule-hair">
+              <Link href="/imprint/" className="block py-3 text-sm hover:text-primary">Відомості про оператора</Link>
+            </li>
+            <li className="rule-hair">
+              <Link href="/privacy/" className="block py-3 text-sm hover:text-primary">Приватність</Link>
+            </li>
             {koval ? (
               <li className="rule-hair">
                 <a
@@ -52,7 +60,7 @@ export function Footer() {
                     })
                   }
                 >
-                  Сайт перевізника Koval ↗
+                  Сайт перевізника Коваль ↗
                 </a>
               </li>
             ) : null}
@@ -60,8 +68,9 @@ export function Footer() {
         </nav>
       </div>
 
+      <AnalyticsConsent />
       <div className="container-page relative flex flex-col gap-4 border-t border-border py-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="type-caption">UA → EU · Інформаційний атлас маршрутів</p>
+        <p className="type-caption">Україна ↔ Європа · Атлас напрямків</p>
         <p className="flex items-center gap-2 type-caption">
           Розроблено{" "}
           <a

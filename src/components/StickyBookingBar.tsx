@@ -12,14 +12,36 @@ export function StickyBookingBar({ anchorId }: { anchorId: string }) {
   useEffect(() => {
     const anchor = document.getElementById(anchorId);
     if (!anchor) return;
+    const observedAnchor = anchor;
+
+    let animationFrame: number | null = null;
+
+    function updateVisibility() {
+      animationFrame = null;
+      setVisible(observedAnchor.getBoundingClientRect().bottom <= 0);
+    }
+
+    function scheduleUpdate() {
+      if (animationFrame !== null) return;
+      animationFrame = window.requestAnimationFrame(updateVisibility);
+    }
 
     const observer = new IntersectionObserver(
-      ([entry]) =>
-        setVisible(Boolean(entry && !entry.isIntersecting && entry.boundingClientRect.top < 0)),
+      () => scheduleUpdate(),
       { threshold: 0 },
     );
-    observer.observe(anchor);
-    return () => observer.disconnect();
+    observer.observe(observedAnchor);
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+    };
   }, [anchorId]);
 
   useEffect(() => {
@@ -54,7 +76,7 @@ export function StickyBookingBar({ anchorId }: { anchorId: string }) {
           onClick={() => submit("sticky_mobile")}
           className="inline-flex h-11 shrink-0 items-center justify-center bg-primary px-5 type-button text-primary-foreground"
         >
-          Написати Koval
+          Уточнити поїздку
         </button>
       </div>
     </div>

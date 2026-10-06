@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../assets/fonts/fonts.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -57,6 +58,9 @@
 }
 
 :root {
+  --font-plex-sans: "IBM Plex Sans";
+  --font-plex-mono: "IBM Plex Mono";
+  --font-playfair: "Playfair Display";
   --radius: 4px;
 
   --background: oklch(0.951 0.014 89);
@@ -428,4 +432,21 @@
   *::after {
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Functional search values stay distinct from editorial headlines. */
+.search-field {
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Blend the illustration's paper edges into the page without cropping the scene. */
+.hero-arrival {
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 92%, transparent),
+    linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-composite: intersect;
 }
