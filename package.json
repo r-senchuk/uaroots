@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx --yes serve out",
+    "start": "serve out",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -34,6 +34,7 @@
     "eslint-config-next": "^16.3.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "serve": "14.2.6"
   }
 }

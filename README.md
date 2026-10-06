@@ -162,6 +162,8 @@ npm start            # serve ./out (same files S3 would get)
 make deploy          # npm run check && ./scripts/deploy.sh
 ```
 
+`npm start` uses the pinned local `serve` development dependency after `npm ci`; it does not download an executable at startup. Build `out/` first with `npm run build`.
+
 Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` (see `.env.example`) before a production build if GA4 should receive `track()` events.
 
 Local `make deploy` and GitHub Actions on `main` both call `scripts/deploy.sh`. Required for upload:
