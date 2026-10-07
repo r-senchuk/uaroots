@@ -44,7 +44,7 @@ jobs:
         if: always()
         run: |
           mkdir -p public-evidence
-          for name in success.json recovery-receipt.json invalidation-created.json invalidation-completed.json; do
+          for name in success.json recovery-receipt.json invalidation-created.json invalidation-completed.json live-http.json; do
             if test -f "private-evidence/$name"; then cp "private-evidence/$name" public-evidence/; fi
           done
           printf 'Recovery prefix: `%s`\n\nResult: `%s`\n' "$PREFIX" "${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
