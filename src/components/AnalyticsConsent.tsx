@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
 const consentKey = "uaroute:analytics-choice:v1";
-const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const configured = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true" && /^G-[A-Z0-9]{6,}$/.test(measurementId ?? "");
+import { applyAnalyticsConsent } from "@/lib/analytics-consent";
+import { analyticsConfiguration } from "@/config/analytics";
+
+const { enabled: configured } = analyticsConfiguration();
 let sessionChoice: string | null = null;
 
 function getChoice() {
@@ -29,20 +31,12 @@ function subscribe(callback: () => void) {
   };
 }
 
-function applyChoice(accepted: boolean) {
-  window.__uarouteAnalyticsConsent = accepted;
-  if (measurementId) {
-    (window as unknown as Record<string, unknown>)[`ga-disable-${measurementId}`] = !accepted;
-  }
-  window.dispatchEvent(new CustomEvent("uaroute:analytics-consent", { detail: accepted }));
-}
-
 export function AnalyticsConsent() {
   const choice = useSyncExternalStore(subscribe, getChoice, () => null);
   const [showChoices, setShowChoices] = useState(false);
 
   useEffect(() => {
-    applyChoice(configured && choice === "accepted");
+    applyAnalyticsConsent(configured && choice === "accepted");
   }, [choice]);
 
   function choose(accepted: boolean) {
@@ -53,7 +47,7 @@ export function AnalyticsConsent() {
     } catch {
       // The choice still applies for this page if the browser disallows storage.
     }
-    applyChoice(accepted);
+    applyAnalyticsConsent(configured && accepted);
     window.dispatchEvent(new Event("uaroute:privacy-choice"));
     setShowChoices(false);
   }

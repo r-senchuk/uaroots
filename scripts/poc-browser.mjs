@@ -561,9 +561,9 @@ async function run() {
         await consentPage.getByRole("button", { name: "Без аналітики" }).click();
         ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === false, "Consent refusal did not disable analytics");
         ensure(uarouteAnalyticsRequests().length === googleRequestStart, "A Google analytics script was requested after consent refusal");
-        await consentPage.getByRole("button", { name: "Змінити вибір приватності" }).click();
+        await consentPage.getByRole("button", { name: "Налаштувати аналітику" }).click();
         await consentPage.getByRole("button", { name: "Дозволити аналітику" }).click();
-        await consentPage.waitForFunction(() => typeof window.gtag === "function");
+        await consentPage.waitForFunction(() => window.__uarouteAnalyticsProviderReady === true);
         ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === true, "Reaccepted consent was not applied");
         await consentPage.waitForFunction(() => [...document.scripts].some((script) => /googletagmanager\.com/i.test(script.src)));
         ensure(uarouteAnalyticsRequests().length > googleRequestStart, "No Google analytics script request was attempted after consent was accepted");
@@ -572,18 +572,21 @@ async function run() {
         await selectCity(consentPage, "Куди", "Celle", "Целле");
         await consentPage.getByRole("button", { name: "Знайти маршрут" }).click();
         await consentPage.waitForURL("**/routes/dolyna-celle/");
-        await consentPage.waitForFunction(() => Array.isArray(window.dataLayer) && window.dataLayer.some((item) => item?.[0] === "event" && item?.[1] === "route_view"), undefined, { timeout: 8000 });
-        const viewsBeforeRevoke = await consentPage.evaluate(() => window.dataLayer.filter((item) => item?.[0] === "event" && item?.[1] === "route_view").length);
-        const gtagPageLocation = await consentPage.evaluate(() => window.dataLayer.find((item) => item?.[0] === "event" && item?.[1] === "route_view")?.[2]?.page_location);
+        await consentPage.waitForFunction(() => Array.isArray(window.dataLayer) && window.dataLayer.some((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")), undefined, { timeout: 8000 });
+        const viewsBeforeRevoke = await consentPage.evaluate(() => (window.dataLayer ?? []).filter((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")).length);
+        const gtagPageLocation = await consentPage.evaluate(() => { const view = window.dataLayer.find((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")); return view?.uaroute?.parameters?.page_location ?? view?.[2]?.page_location; });
         ensure(gtagPageLocation === "https://uaroute.com/routes/dolyna-celle/", `gtag route view has wrong page_location: ${gtagPageLocation}`);
 
-        await consentPage.getByRole("button", { name: "Змінити вибір приватності" }).click();
+        await consentPage.getByRole("button", { name: "Налаштувати аналітику" }).click();
         await consentPage.getByRole("button", { name: "Без аналітики" }).click();
-        ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === false, "Consent revocation did not disable analytics");
+        await consentPage.waitForLoadState("domcontentloaded");
+        await consentPage.waitForFunction(() => window.__uarouteAnalyticsConsent === false);
+        const revokedRequestStart = uarouteAnalyticsRequests().length;
         await consentPage.locator('a[href="/routes/celle-dolyna/"]').first().click();
         await consentPage.waitForURL("**/routes/celle-dolyna/");
-        const viewsAfterRevoke = await consentPage.evaluate(() => window.dataLayer.filter((item) => item?.[0] === "event" && item?.[1] === "route_view").length);
-        ensure(viewsAfterRevoke === viewsBeforeRevoke, "gtag received a route view after consent was revoked");
+        const viewsAfterRevoke = await consentPage.evaluate(() => (window.dataLayer ?? []).filter((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")).length);
+        ensure(viewsAfterRevoke === 0, "Analytics received a route view after withdrawal reload");
+        ensure(uarouteAnalyticsRequests().length === revokedRequestStart, "Google was requested after withdrawal reload");
         return { gtagPageLocation, routeViewsBeforeRevocation: viewsBeforeRevoke, routeViewsAfterRevocation: viewsAfterRevoke };
       });
     } else {

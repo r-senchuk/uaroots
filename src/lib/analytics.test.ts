@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
   captureAttribution,
@@ -10,6 +10,10 @@ import {
 } from "./analytics";
 
 describe("analytics privacy boundary", () => {
+  beforeEach(() => {
+    vi.stubEnv("NEXT_PUBLIC_GTM_CONTAINER_ID", "GTM-TEST123");
+    vi.stubEnv("NEXT_PUBLIC_GA_MEASUREMENT_ID", "G-TEST123456");
+  });
   afterEach(() => {
     resetAttributionForTests();
     vi.unstubAllGlobals();
@@ -121,16 +125,15 @@ describe("analytics privacy boundary", () => {
     });
     track("route_view", { routeSlug: "lviv-hannover", travelDate: "2030-01-01" } as never);
 
-    expect(dataLayer).toHaveLength(1);
-    expect(dataLayer[0]).toMatchObject({
-      event: "route_view",
+    expect(dataLayer).toHaveLength(2);
+    expect((dataLayer[1] as { uaroute: { parameters: unknown } }).uaroute.parameters).toMatchObject({
       source: "google",
       medium: "organic",
       campaign: "m1",
       landingPage: "/routes/lviv-hannover/",
     });
-    expect(JSON.stringify(dataLayer[0])).not.toContain("2030-01-01");
-    expect(JSON.stringify(dataLayer[0])).not.toContain("utm_content");
+    expect(JSON.stringify(dataLayer[1])).not.toContain("2030-01-01");
+    expect(JSON.stringify(dataLayer[1])).not.toContain("utm_content");
   });
 
   it("maps only approved referrer families and labels unknown sources without storing URLs", () => {
@@ -190,14 +193,13 @@ describe("analytics privacy boundary", () => {
     flushCurrentRouteView();
     flushCurrentRouteView();
 
-    expect(dataLayer).toHaveLength(1);
-    expect(dataLayer[0]).toMatchObject({
-      event: "route_view",
+    expect(dataLayer).toHaveLength(2);
+    expect((dataLayer[1] as { uaroute: { parameters: unknown } }).uaroute.parameters).toMatchObject({
       routeId: "dolyna-celle",
     });
-    expect((dataLayer[0] as { routeId?: string }).routeId).not.toBe("lviv-hannover");
-    expect(gtag).toHaveBeenCalledOnce();
-    expect(gtag.mock.calls[0]?.[2]).toMatchObject({
+    expect((dataLayer[1] as { uaroute: { parameters: { routeId?: string } } }).uaroute.parameters.routeId).not.toBe("lviv-hannover");
+    expect(gtag).not.toHaveBeenCalled();
+    expect((dataLayer[1] as { uaroute: { parameters: unknown } }).uaroute.parameters).toMatchObject({
       page_location: "https://uaroute.com/routes/dolyna-celle/",
       page_referrer: "",
     });
@@ -224,14 +226,14 @@ describe("analytics privacy boundary", () => {
       track("route_view", { routeId: "lviv-hannover", origin: "lviv", destination: "hannover" }),
     ).not.toThrow();
     flushCurrentRouteView();
-    expect(dataLayer).toHaveLength(1);
-    expect(gtag).toHaveBeenCalledOnce();
+    expect(dataLayer).toHaveLength(2);
+    expect(gtag).not.toHaveBeenCalled();
 
     location.pathname = "/about/";
     location.pathname = "/routes/lviv-hannover/";
     track("route_view", { routeId: "lviv-hannover", origin: "lviv", destination: "hannover" });
-    expect(dataLayer).toHaveLength(2);
-    expect(gtag).toHaveBeenCalledTimes(2);
+    expect(dataLayer).toHaveLength(4);
+    expect(gtag).not.toHaveBeenCalled();
 
     const deniedDataLayer: unknown[] = [];
     const deniedGtag = vi.fn();
@@ -255,7 +257,8 @@ describe("analytics privacy boundary", () => {
       throw new Error("sink failure");
     });
     const dataLayer = {
-      push: vi.fn(() => {
+      push: vi.fn((payload: unknown) => {
+        void payload;
         throw new Error("sink failure");
       }),
     };
@@ -279,13 +282,11 @@ describe("analytics privacy boundary", () => {
       gtag,
       __uarouteEvents: localEvents,
       __uarouteAnalyticsConsent: true,
+      __uarouteAnalyticsProviderReady: true,
     });
     expect(() => track("booking_intent", { leadId: "UR-ABCDEFGHJK" })).not.toThrow();
     expect(dataLayer.push).toHaveBeenCalledOnce();
-    expect(gtag).toHaveBeenCalledOnce();
-    expect(gtag.mock.calls[0]?.[2]).toMatchObject({
-      page_location: "https://uaroute.com/",
-      page_referrer: "",
-    });
+    expect(dataLayer.push.mock.calls[0]?.[0]).toEqual({ uaroute: null });
+    expect(gtag).not.toHaveBeenCalled();
   });
 });

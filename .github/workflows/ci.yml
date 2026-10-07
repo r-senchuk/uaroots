@@ -14,6 +14,11 @@ permissions:
 
 env:
   NEXT_TELEMETRY_DISABLED: "1"
+  # Public build-time settings travel with the immutable CI artifact.
+  # Missing repository variables keep measurement disabled.
+  NEXT_PUBLIC_ANALYTICS_ENABLED: ${{ vars.NEXT_PUBLIC_ANALYTICS_ENABLED || 'false' }}
+  NEXT_PUBLIC_GTM_CONTAINER_ID: ${{ vars.NEXT_PUBLIC_GTM_CONTAINER_ID }}
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
 
 jobs:
   check:
