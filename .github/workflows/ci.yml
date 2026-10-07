@@ -31,14 +31,15 @@ jobs:
         with:
           name: static-out
           path: out/
-          retention-days: 7
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
 
   release-preflight:
     needs: check
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment: production
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -50,9 +51,16 @@ jobs:
           node-version-file: .nvmrc
       - name: Build release manifest and run local dry-run
         run: chmod +x scripts/deploy.sh && ./scripts/deploy.sh --dry-run --manifest release-manifest.json
+      - name: Package immutable release candidate
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          CI_RUN_ID: ${{ github.run_id }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+        run: node scripts/release-bundle.mjs pack --out out --edge infra/cloudfront/seo-viewer-request.v1.js --to release-bundle --sha "$SOURCE_SHA" --runId "$CI_RUN_ID" --repository "$SOURCE_REPOSITORY"
       - uses: actions/upload-artifact@v4
         with:
-          name: release-preflight-${{ github.sha }}
-          path: release-manifest.json
+          name: release-candidate-${{ github.sha }}
+          path: release-bundle/
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 30

@@ -14,6 +14,14 @@ The exported former-URL pages are fallback HTML redirects, not HTTP redirects. T
 | `/gallery/` | `/` |
 | Unknown `/provider/:name` | Target after edge fix: 404 page with a `/routes/` link |
 
+## Planned GitHub Actions production deployment
+
+The [Actions deployment plan](docs/Operations/github-actions-production-deployment-plan-2026-10-07.md) records the October 7 read-only readiness review and implementation/evaluation steps. Current Actions only runs checks and preflight; production deployment/rollback workflows and a scoped UARoute OIDC role are not implemented. The manual production release is separate evidence.
+
+## Local Actions tooling increment
+
+See [tracked artifact/recovery commands](infra/github-actions-release.md). CI candidate packaging and local verification/rehearsal tooling are implemented; remote deployment and schema 2 recovery integration remain pending. Existing manual apply gates are unchanged.
+
 ## Release preflight and publication
 
 The main-branch GitHub workflow runs checks and a local release preflight. It does not have AWS credentials and does not publish. `make release-preflight` runs the same local checks and prints a dry-run plan. The manifest includes every exported file's byte count and SHA-256 and a fingerprint of the complete manifest.
@@ -67,5 +75,11 @@ aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_I
 ```
 
 The CloudFront update uses the matching distribution config captured by the bundle; it retains the function's unqualified ARN association after restoring code to LIVE. Do not restore HTML alone: stale browser tabs may still request the old RSC payloads and hashed chunks. This is a code-level restore procedure, not evidence that a durable backup or rollback rehearsal currently exists.
+
+### Initial distribution without a function
+
+The October 7 authenticated capture found no CloudFront Function association. Such a recovery bundle explicitly records `cloudFront.mode: "no-function"`, `function: null`, and an empty `documentAssociations` list. The verifier checks the complete artifact, matching bucket origin, distribution configuration fingerprint, and zero function associations across all behaviors. Missing metadata is not treated as absence. Restore the captured distribution config with a fresh ETag and invalidate; do not publish a nonexistent previous function. The newly created release function can remain unattached after recovery.
+
+Recovery resolves percent-encoded HTML asset URLs to actual S3 keys (for example `[slug]`). Next's static `404/index.html` has no required RSC sibling; ordinary document siblings remain mandatory. The regional `s3-website.REGION.amazonaws.com` origin form is accepted with an exact bucket match. Regression tests cover these production layouts.
 
 Do not install `@lovable.dev/*` or reconnect this repo to lovable.dev.

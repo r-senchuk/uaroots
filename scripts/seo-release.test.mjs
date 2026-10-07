@@ -79,6 +79,40 @@ test('verified recovery source accepts complete matching artifact and versioned 
   }
 });
 
+test('initial no-function recovery accepts captured absence and rejects hidden associations or missing verification', async () => {
+  const fixture = await recoveryFixture();
+  try {
+    const configPath = path.join(fixture.root, fixture.recovery.cloudFront.distributionConfig.path);
+    const config = JSON.parse(await readFile(configPath, 'utf8'));
+    config.Origins.Items[0].DomainName = 'uaroute.com.s3-website.eu-central-1.amazonaws.com';
+    config.DefaultCacheBehavior.FunctionAssociations = { Quantity: 0 };
+    const configEntry = await put(fixture.root, fixture.recovery.cloudFront.distributionConfig.path, canonical(config));
+    const recovery = { ...fixture.recovery, cloudFront: { distributionConfigVersion: 'INITIAL-ETAG', mode: 'no-function', distributionConfig: configEntry, function: null, documentAssociations: [] } };
+    const manifestPath = path.join(fixture.root, 'recovery-manifest.json');
+    await writeFile(manifestPath, canonical(recovery));
+    assert.equal((await verifyRecoveryBundle(fixture.root)).functionVersion, 'none (restore captured distribution associations)');
+    await writeFile(manifestPath, canonical({ ...recovery, verification: { retrievalVerified: false } }));
+    await assert.rejects(verifyRecoveryBundle(fixture.root), /verified retrieval/);
+    config.DefaultCacheBehavior.FunctionAssociations = { Quantity: 1, Items: [{ EventType: 'viewer-request', FunctionARN: 'arn:aws:cloudfront::123456789012:function/seo' }] };
+    const changedEntry = await put(fixture.root, configEntry.path, canonical(config));
+    await writeFile(manifestPath, canonical({ ...recovery, cloudFront: { ...recovery.cloudFront, distributionConfig: changedEntry } }));
+    await assert.rejects(verifyRecoveryBundle(fixture.root), /zero function associations/);
+  } finally { await rm(fixture.root, { recursive: true, force: true }); }
+});
+
+test('recovery resolves encoded Next chunk keys and preserves static 404 without inventing RSC', async () => {
+  const fixture = await recoveryFixture();
+  try {
+    const html = await put(fixture.root, 'artifact/index.html', '<script src="/_next/static/chunks/%5Bslug%5D/page.js"></script>');
+    const chunk = await put(fixture.root, 'artifact/_next/static/chunks/[slug]/page.js', 'chunk');
+    const error = await put(fixture.root, 'artifact/404/index.html', '<html>404</html>');
+    const files = fixture.recovery.artifact.files.map((entry) => entry.path === html.path ? html : entry).concat(chunk, error);
+    const core = { schemaVersion: 1, files };
+    await writeFile(path.join(fixture.root, 'recovery-manifest.json'), canonical({ ...fixture.recovery, artifact: { ...core, releaseSha256: sha256(canonical(core)) } }));
+    assert.equal((await verifyRecoveryBundle(fixture.root)).artifactFiles, 6);
+  } finally { await rm(fixture.root, { recursive: true, force: true }); }
+});
+
 test('recovery gate fails closed for missing prerequisites, tampering, and incomplete manifests', async () => {
   const fixture = await recoveryFixture();
   try {

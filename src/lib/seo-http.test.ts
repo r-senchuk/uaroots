@@ -115,6 +115,8 @@ describe("CloudFront SEO viewer request policy v1", () => {
     expect(rawResponse.headers.location.value).toBe(`https://uaroute.com/routes/?${rawQuery}`);
     const emptyQuery = handler({ request: request("/routes", { rawQueryString: "" }) });
     expect(emptyQuery.headers.location.value).toBe("https://uaroute.com/routes/?");
+    const syntheticQuery = handler({ request: request("/routes", { rawQueryString: "", querystring }) });
+    expect(syntheticQuery.headers.location.value).toBe("https://uaroute.com/routes/?utm_source=seo_qa&tag=a&tag=b&encoded=%2F%26+&blank=");
     const unknown = handler({ request: request("/random-unknown", { querystring }) });
     expect(unknown.statusCode).toBe(404);
   });
