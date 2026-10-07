@@ -183,6 +183,48 @@ async function run() {
       await route.abort("blockedbyclient");
     });
 
+    await runCheck("UTM acquisition survives SPA navigation and stays separate from footer referral", async () => {
+      const page = await context.newPage();
+      await page.goto(`${uarouteOrigin}/cities/lviv/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch&utm_content=ignored_private_text`, { waitUntil: "domcontentloaded" });
+      await page.waitForLoadState("networkidle");
+      await page.locator('a[href="/routes/lviv-celle/"]').first().click();
+      await page.waitForURL("**/routes/lviv-celle/");
+      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true });
+      await footer.focus();
+      const [popup] = await Promise.all([page.waitForEvent("popup"), footer.press("Enter")]);
+      const url = new URL(await footer.getAttribute("href"));
+      ensure(url.searchParams.get("utm_source") === "uaroute" && url.searchParams.get("utm_campaign") === "koval_poc", "Footer forwarded acquisition instead of referral labels");
+      ensure(/^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(url.searchParams.get("ref_code") ?? ""), "Keyboard footer handoff lacks sender code");
+      const event = await page.evaluate(() => window.__uarouteEvents?.filter((event) => event.event === "koval_site_click").at(-1));
+      ensure(event?.source === "telegram" && event?.medium === "social" && event?.campaign === "route_launch" && event?.landingPage === "/cities/lviv/" && event?.targetPath === "/routes/lviv-celle/", "SPA acquisition/current target was overwritten");
+      ensure(!JSON.stringify(event).includes("ignored_private_text"), "Raw acquisition content leaked into events");
+      await popup.close(); await page.close();
+      return { firstLanding: "/cities/lviv/", acquisition: "telegram/social/route_launch", partner: "uaroute/referral/koval_poc", keyboard: true };
+    });
+
+    await runCheck("candidate secondary website link carries sender code and cities on middle click", async () => {
+      const page = await context.newPage();
+      await page.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
+      await page.waitForLoadState("networkidle");
+      await selectCity(page, "Звідки", "Lviv", "Львів");
+      await selectCity(page, "Куди", "Celle", "Целле");
+      // Use an unpublished pair to display CandidateInquiry rather than a route-page result.
+      await selectCity(page, "Куди", "Lubeck", "Любек");
+      await page.getByRole("button", { name: "Знайти маршрут" }).click();
+      const link = page.getByRole("link", { name: "Перейдіть на сайт Коваль", exact: true });
+      await link.waitFor({ state: "visible" });
+      await link.click({ button: "middle" });
+      const href = await link.getAttribute("href");
+      const opened = await page.evaluate(() => window.__pocOpenedUrls.at(-1));
+      ensure(opened === href, "Middle-click did not open the prepared referral URL");
+      const url = new URL(href);
+      ensure(/^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(url.searchParams.get("ref_code") ?? ""), "Secondary middle-click lacks sender code");
+      ensure(url.searchParams.get("origin_city_id") === "lviv" && url.searchParams.get("destination_city_id") === "luebeck", "Secondary link lost selected cities");
+      ensure(url.searchParams.get("utm_content") === "candidate_inquiry", "Secondary link placement changed");
+      await page.close();
+      return { origin: "lviv", destination: "luebeck", middleClick: true, handoffIntercepted: true };
+    });
+
     const mobile = await context.newPage();
     await mobile.setViewportSize({ width: 375, height: 812 });
     await mobile.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });

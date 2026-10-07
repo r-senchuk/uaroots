@@ -6,9 +6,8 @@ import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { RoutePattern } from "@/components/brand/graphics";
-import { withUtm } from "@/config/site";
+import { KovalReferralLink } from "@/components/KovalReferralLink";
 import { getCarrier } from "@/data/carriers";
-import { track } from "@/lib/analytics";
 
 export function Footer() {
   const koval = getCarrier("koval");
@@ -48,20 +47,14 @@ export function Footer() {
             </li>
             {koval ? (
               <li className="rule-hair">
-                <a
-                  href={withUtm(koval.website, "footer")}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                <KovalReferralLink
+                  href={koval.website}
+                  content="footer"
+                  ctaLocation="footer"
                   className="block py-3 text-sm hover:text-primary"
-                  onClick={() =>
-                    track("koval_site_click", {
-                      ctaLocation: "footer",
-                      conversionType: "koval_site",
-                    })
-                  }
                 >
                   Сайт перевізника Коваль ↗
-                </a>
+                </KovalReferralLink>
               </li>
             ) : null}
           </ul>

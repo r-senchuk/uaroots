@@ -7,6 +7,7 @@ import { cities } from "@/data/cities";
 import { cityHubPaths } from "@/data/discovery";
 import { routes } from "@/data/routes";
 import { siteConfig } from "@/config/site";
+import { acquisitionChannels, acquisitionCampaigns, ctaLocations, parseAcquisitionTags } from "@/config/utm";
 
 export type AnalyticsEvent =
   | "route_search_completed"
@@ -25,14 +26,7 @@ const approvedEvents = new Set<AnalyticsEvent>([
   "related_route_click",
 ]);
 
-export type CtaLocation =
-  | "hero"
-  | "booking_widget"
-  | "partner_card"
-  | "related_route"
-  | "sticky_mobile"
-  | "footer"
-  | "route_index";
+export type CtaLocation = (typeof ctaLocations)[number];
 
 export type ConversionType = "whatsapp_inquiry" | "koval_site";
 
@@ -78,27 +72,10 @@ declare global {
   }
 }
 
-const approvedSources = new Set([
-  "google",
-  "facebook",
-  "koval",
-  "bing",
-  "chatgpt",
-  "telegram",
-  "direct",
-  "unknown",
-]);
-const approvedMediums = new Set(["organic", "social", "referral", "direct"]);
-const approvedCampaigns = new Set(["route_launch", "m1", "koval_poc"]);
-const approvedCtaLocations = new Set<CtaLocation>([
-  "hero",
-  "booking_widget",
-  "partner_card",
-  "related_route",
-  "sticky_mobile",
-  "footer",
-  "route_index",
-]);
+const approvedSources = new Set(Object.keys(acquisitionChannels));
+const approvedMediums = new Set<string>(Object.values(acquisitionChannels));
+const approvedCampaigns = new Set<string>(acquisitionCampaigns);
+const approvedCtaLocations = new Set<CtaLocation>(ctaLocations);
 const approvedConversionTypes = new Set<ConversionType>(["whatsapp_inquiry", "koval_site"]);
 const cityIds = new Set(cities.map((city) => city.id));
 const routeSlugs = new Set(routes.map((route) => route.slug));
@@ -191,14 +168,10 @@ export function captureLandingAttribution(): Attribution {
 
   const landingPage = canonicalLandingPath(window.location.pathname);
   const params = new URLSearchParams(window.location.search);
-  const source = params.get("utm_source") ?? undefined;
-  const medium = params.get("utm_medium") ?? undefined;
-  const campaign = params.get("utm_campaign") ?? undefined;
+  const tags = parseAcquisitionTags(params);
   const referral = referralAttribution(typeof document === "undefined" ? "" : document.referrer);
   firstTouch = {
-    ...(source && approvedSources.has(source) ? { source } : { source: referral.source }),
-    ...(medium && approvedMediums.has(medium) ? { medium } : { medium: referral.medium }),
-    ...(campaign && approvedCampaigns.has(campaign) ? { campaign } : {}),
+    ...(tags ?? referral),
     ...(landingPage ? { landingPage } : {}),
   };
   window.__uarouteAnalyticsPageLocation = currentPageLocation();
