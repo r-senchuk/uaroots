@@ -24,7 +24,7 @@
     "seo:generate": "node scripts/seo-http-generate.mjs",
     "seo:http": "node scripts/seo-http.mjs",
     "release:preflight": "bash scripts/deploy.sh --dry-run",
-    "test:seo-release": "node --test scripts/seo-release.test.mjs scripts/release-tooling.test.mjs",
+    "test:seo-release": "node --test scripts/seo-release.test.mjs scripts/release-tooling.test.mjs scripts/production-release.test.mjs",
     "seo:verify-artifact": "node scripts/seo-http-generate.mjs --check",
     "docs:index": "node scripts/okf.mjs --write",
     "test:okf": "node --test scripts/okf.test.mjs",
