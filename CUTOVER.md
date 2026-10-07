@@ -14,13 +14,15 @@ The exported former-URL pages are fallback HTML redirects, not HTTP redirects. T
 | `/gallery/` | `/` |
 | Unknown `/provider/:name` | Target after edge fix: 404 page with a `/routes/` link |
 
-## Planned GitHub Actions production deployment
+## GitHub Actions production deployment
 
-The [Actions deployment plan](docs/Operations/github-actions-production-deployment-plan-2026-10-07.md) records the October 7 read-only readiness review and implementation/evaluation steps. Current Actions only runs checks and preflight; production deployment/rollback workflows and a scoped UARoute OIDC role are not implemented. The manual production release is separate evidence.
+The [Actions deployment plan](docs/Operations/github-actions-production-deployment-plan-2026-10-07.md) records the October 7 read-only readiness review and implementation/evaluation steps. Manual deploy/rollback workflows and a dedicated scoped OIDC role are implemented. Promotion requires a successful main CI run plus reviewed full SHA and static/edge hashes. The first production run and remaining recovery limits are recorded in the [dated Actions acceptance](docs/Operations/github-actions-production-acceptance-2026-10-07.md); implementation alone is not production proof.
+
+Use `gh workflow run deploy-production.yml --ref main` with `ci_run_id`, `source_sha`, `release_hash`, and `edge_hash`. Review the independently downloaded candidate first. Run `rollback-production.yml` with `recovery_prefix` and its externally recorded `recovery_hash`; obtain both from the deployment recovery receipt. Both workflows use the same writer lock, retrieve a fresh durable current-state backup before writes, retain old S3 keys, and wait for invalidation. Rollback refuses infrastructure drift; use reviewed manual recovery if distribution configuration changed. See [tracked contracts](infra/github-actions-release.md) for retention, identity checks and private evidence boundaries.
 
 ## Local Actions tooling increment
 
-See [tracked artifact/recovery commands](infra/github-actions-release.md). CI candidate packaging and local verification/rehearsal tooling are implemented; remote deployment and schema 2 recovery integration remain pending. Existing manual apply gates are unchanged.
+See [tracked artifact/recovery commands](infra/github-actions-release.md). CI candidate packaging, remote Actions deployment and schema 2 recovery integration are implemented; full isolated CloudFront rollback rehearsal remains open. Existing manual apply gates are unchanged.
 
 ## Release preflight and publication
 
