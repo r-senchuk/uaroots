@@ -12,13 +12,20 @@ export function AnalyticsScripts() {
     const sync = () => setConsented(window.__uarouteAnalyticsConsent === true);
     sync();
     window.addEventListener("uaroute:analytics-consent", sync);
-    return () => window.removeEventListener("uaroute:analytics-consent", sync);
+    window.addEventListener("uaroute:google-consent-ready", ready);
+    return () => {
+      window.removeEventListener("uaroute:analytics-consent", sync);
+      window.removeEventListener("uaroute:google-consent-ready", ready);
+    };
   }, []);
 
   if (!config.enabled || !consented) return null;
 
   function ready() {
     if (window.__uarouteAnalyticsConsent !== true) return;
+    // Refuse app events if the GTM container lacks the reviewed consent bridge.
+    if (config.provider === "gtm" && (window.__uarouteGoogleConsentReady !== true || window.__uarouteGtmLoaded !== true)) return;
+    if (window.__uarouteAnalyticsProviderReady === true) return;
     window.__uarouteAnalyticsProviderReady = true;
     window.dispatchEvent(new Event("uaroute:analytics-provider-ready"));
   }
@@ -33,7 +40,8 @@ window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js',
       </Script>
       <Script id="uaroute-gtm" strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtm.js?id=${config.containerId}`}
-        onLoad={ready} onError={() => { window.__uarouteAnalyticsProviderReady = false; }} />
+        onLoad={() => { window.__uarouteGtmLoaded = true; ready(); }}
+        onError={() => { window.__uarouteGtmLoaded = false; window.__uarouteAnalyticsProviderReady = false; }} />
     </>;
   }
 

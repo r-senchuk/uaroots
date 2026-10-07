@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { applyAnalyticsConsent } from "./analytics-consent";
+import { applyAnalyticsConsent, removeAnalyticsCookies } from "./analytics-consent";
 
 describe("analytics withdrawal", () => {
   beforeEach(() => {
@@ -27,5 +27,17 @@ describe("analytics withdrawal", () => {
     vi.stubEnv("NEXT_PUBLIC_ANALYTICS_ENABLED", "false");
     applyAnalyticsConsent(true);
     expect(window.__uarouteAnalyticsConsent).toBe(false);
+  });
+  it("clears GA4 cookies on host, parent domains and route paths without clearing other cookies", () => {
+    const writes: string[] = [];
+    vi.stubGlobal("document", {
+      get cookie() { return "_ga=one; _ga_TEST=two; essential=keep; _garden=keep"; },
+      set cookie(value: string) { writes.push(value); },
+    });
+    Object.assign(window.location, { hostname: "www.uaroute.com", pathname: "/routes/lviv-celle/" });
+    removeAnalyticsCookies();
+    expect(writes.some((value) => value.includes("domain=.uaroute.com"))).toBe(true);
+    expect(writes.some((value) => value.includes("path=/routes/lviv-celle/"))).toBe(true);
+    expect(writes.every((value) => /^_ga(?:=|_TEST=)/.test(value) && value.includes("Max-Age=0"))).toBe(true);
   });
 });

@@ -43,7 +43,7 @@ export function Footer() {
               <Link href="/imprint/" className="block py-3 text-sm hover:text-primary">Відомості про оператора</Link>
             </li>
             <li className="rule-hair">
-              <Link href="/privacy/" className="block py-3 text-sm hover:text-primary">Приватність</Link>
+              <Link href="/privacy/" className="block py-3 text-sm hover:text-primary">Приватність і файли cookie</Link>
             </li>
             {koval ? (
               <li className="rule-hair">
