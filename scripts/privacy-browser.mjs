@@ -77,6 +77,22 @@ try {
     await ctx.close();
   });
   if (enabled) {
+    await check("Celle hub consent refusal, mocked acceptance and withdrawal", async () => {
+      const { ctx, page, requests } = await context();
+      await load(page, "/cities/celle/");
+      ensure(requests.length === 0, "Celle hub requested a provider before consent");
+      await page.getByRole("button", { name: "Без аналітики", exact: true }).click();
+      ensure(requests.length === 0 && await page.evaluate(() => window.__uarouteAnalyticsConsent) === false, "Celle refusal did not keep providers disabled");
+      await settings(page).click();
+      await page.getByRole("button", { name: "Дозволити аналітику", exact: true }).click();
+      await page.waitForFunction(() => window.__uarouteAnalyticsProviderReady === true);
+      ensure(requests.length === 1 && requests[0] === "www.googletagmanager.com", "Celle acceptance did not use only the mocked GTM fixture");
+      await page.getByRole("button", { name: "Вимкнути аналітику", exact: true }).click();
+      await page.waitForFunction(() => window.__uarouteAnalyticsConsent === false);
+      await page.waitForLoadState("networkidle");
+      ensure(requests.length === 1, "Celle withdrawal requested another provider");
+      await ctx.close();
+    });
     await check("refusal, return visit, acceptance and one-click withdrawal", async () => {
       const { ctx, page, requests, consentStates } = await context();
       await load(page, "/");

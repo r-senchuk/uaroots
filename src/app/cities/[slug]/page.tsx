@@ -8,11 +8,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { KovalReferralLink } from "@/components/KovalReferralLink";
 import { NearbyPlaces } from "@/components/NearbyPlaces";
 import { RouteSearch } from "@/components/RouteSearch";
-import { cities, getCity } from "@/data/cities";
-import { cityHubPaths, pilotGermanCityIds } from "@/data/discovery";
+import { getCity } from "@/data/cities";
+import { cityHubPaths } from "@/data/discovery";
 import { getCityHubContent } from "@/data/city-hubs";
-import { findRouteByCities, getResolvedRoute } from "@/data/queries";
-import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
+import { getCityHubPresentation } from "@/lib/city-hub-presentation";
+import { breadcrumbLd, buildMetadata, cityHubCollectionLd, travelPreviewImage } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -39,24 +39,22 @@ export default async function CityHubPage({ params }: PageProps) {
   const city = getCity(slug);
   const details = city && isSelectedHubSlug(slug) ? getCityHubContent(city.id) : undefined;
   if (!city || !details) notFound();
+  const presentation = getCityHubPresentation(city, details.fromName, details.toName, details.routeSlugs);
+  if (!presentation) notFound();
 
   const crumbs = [
     { name: "Головна", path: "/" },
     { name: "Маршрути", path: "/routes/" },
     { name: city.name, path: `/cities/${city.slug}/` },
   ];
-  const germanCities = pilotGermanCityIds.map((id) => cities.find((candidate) => candidate.id === id)!).filter(Boolean);
-  const routeCards = details.routeSlugs
-    .map((routeSlug) => getResolvedRoute(routeSlug))
-    .filter((route) => route?.status === "commercial");
-
   return (
     <>
       <JsonLd data={breadcrumbLd(crumbs)} />
+      <JsonLd data={cityHubCollectionLd(city, details, presentation.routeCards)} />
       <section className="border-b border-border-strong">
         <div className="container-page pb-8 pt-8 sm:pb-10">
           <Breadcrumbs items={crumbs} />
-          <p className="mt-6 type-label text-muted-foreground">Виїзд і повернення</p>
+          <p className="mt-6 type-label text-muted-foreground">{presentation.departureLabel} · {presentation.arrivalLabel}</p>
           <h1 className="mt-3 max-w-4xl type-h1">{details.heading}</h1>
           <p className="mt-4 max-w-3xl type-body text-muted-foreground">{details.intro}</p>
         </div>
@@ -66,13 +64,13 @@ export default async function CityHubPage({ params }: PageProps) {
         <p className="type-label text-muted-foreground">Вибір напрямку</p>
         <h2 id="search-heading" tabIndex={-1} className="mt-3 scroll-mt-24 type-h2">Куди хочете їхати?</h2>
         <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
-          {details.cityName} вже вибрано. Додайте місто в Німеччині, а для повернення натисніть «До України» — вибрана пара міст збережеться.
+          {presentation.searchDescription}
         </p>
         <p className="mt-5 max-w-3xl border-l-2 border-primary pl-4 type-body-small text-muted-foreground">
           Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.
         </p>
         <div className="mt-8 max-w-5xl border border-border-strong p-5 sm:p-8">
-          <RouteSearch key={city.id} sourcePath={`/cities/${city.slug}/`} ctaLocation="route_index" initialOriginId={city.id} showPilotChoices />
+          <RouteSearch key={city.id} sourcePath={`/cities/${city.slug}/`} ctaLocation="route_index" initialOriginId={presentation.initialOriginId} showPilotChoices />
         </div>
       </section>
 
@@ -86,13 +84,13 @@ export default async function CityHubPage({ params }: PageProps) {
       <section className="border-y border-border-strong bg-secondary/40">
         <div className="container-page grid gap-10 py-12 sm:py-16 lg:grid-cols-2">
           <div>
-            <p className="type-label text-muted-foreground">Як їхати {details.fromName}</p>
-            <h2 className="mt-3 type-h2">Підготуйте виїзд</h2>
+            <p className="type-label text-muted-foreground">{presentation.departureLabel}</p>
+            <h2 className="mt-3 type-h2">{presentation.departureHeading}</h2>
             <p className="mt-4 max-w-xl type-body text-muted-foreground">{details.outbound}</p>
           </div>
           <div>
-            <p className="type-label text-muted-foreground">Як повертатися {details.toName}</p>
-            <h2 className="mt-3 type-h2">Підготуйте повернення</h2>
+            <p className="type-label text-muted-foreground">{presentation.arrivalLabel}</p>
+            <h2 className="mt-3 type-h2">{presentation.arrivalHeading}</h2>
             <p className="mt-4 max-w-xl type-body text-muted-foreground">{details.returning}</p>
           </div>
           {details.planningResources.length > 0 ? (
@@ -121,21 +119,19 @@ export default async function CityHubPage({ params }: PageProps) {
 
       <section className="container-page py-12 sm:py-16">
         <p className="type-label text-muted-foreground">Міста для поїздки</p>
-        <h2 className="mt-3 type-h2">Шість міст Німеччини</h2>
+        <h2 className="mt-3 type-h2">{presentation.choiceHeading}</h2>
         <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
           Якщо вже знаєте місто, виберіть його в пошуку. Посилання нижче ведуть до порад для окремих напрямків.
         </p>
         <ul className="mt-7 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-          {germanCities.map((destination) => {
-            const outward = findRouteByCities(city.id, destination.id, { commercialOnly: true });
-            const inward = findRouteByCities(destination.id, city.id, { commercialOnly: true });
+          {presentation.choiceDirections.map(({ city: destination, departureRoute, returnRoute }) => {
             return (
               <li key={destination.id} className="border-t border-border-strong py-4">
-                <h3 className="font-display text-xl">{destination.name} <span className="type-body-small text-muted-foreground">({destination.aliases[0]})</span></h3>
-                {outward || inward ? (
+                <h3 className="font-display text-xl">{destination.name}{!presentation.isGerman && destination.aliases[0] ? <span className="type-body-small text-muted-foreground"> ({destination.aliases[0]})</span> : null}</h3>
+                {departureRoute || returnRoute ? (
                   <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                    {outward ? <Link className="inline-flex min-h-11 items-center link-underline" href={`/routes/${outward.slug}/`}>{city.name} → {destination.name}</Link> : null}
-                    {inward ? <Link className="inline-flex min-h-11 items-center link-underline" href={`/routes/${inward.slug}/`}>{destination.name} → {city.name}</Link> : null}
+                    {departureRoute ? <Link className="inline-flex min-h-11 items-center link-underline" href={`/routes/${departureRoute.slug}/`}>{city.name} → {destination.name}</Link> : null}
+                    {returnRoute ? <Link className="inline-flex min-h-11 items-center link-underline" href={`/routes/${returnRoute.slug}/`}>{destination.name} → {city.name}</Link> : null}
                   </div>
                 ) : <a href="#search-heading" className="mt-1 inline-flex min-h-11 items-center type-body-small link-underline">Обрати місто в пошуку ↑</a>}
               </li>
@@ -152,11 +148,11 @@ export default async function CityHubPage({ params }: PageProps) {
             Перегляньте поради для потрібної пари міст, перш ніж писати перевізнику. Вони допоможуть описати зручне місце зустрічі та продумати подальшу дорогу.
           </p>
           <ul className="mt-7 grid gap-4 md:grid-cols-2">
-            {routeCards.map((route) => (
-              <li key={route!.slug} className="border border-border-strong p-5">
-                <h3 className="font-display text-xl">{route!.title}</h3>
-                <p className="mt-2 type-body-small text-muted-foreground">{route!.description}</p>
-                <Link className="mt-4 inline-flex min-h-11 items-center link-underline" href={`/routes/${route!.slug}/`}>Поради: {route!.title}</Link>
+            {presentation.routeCards.map((route) => (
+              <li key={route.slug} className="border border-border-strong p-5">
+                <h3 className="font-display text-xl">{route.title}</h3>
+                <p className="mt-2 type-body-small text-muted-foreground">{route.description}</p>
+                <Link className="mt-4 inline-flex min-h-11 items-center link-underline" href={`/routes/${route.slug}/`}>Поради: {route.title}</Link>
               </li>
             ))}
           </ul>
@@ -175,11 +171,13 @@ export default async function CityHubPage({ params }: PageProps) {
             Контакти перевізника Коваль на його сайті ↗
           </KovalReferralLink>
           <p className="mt-2 type-caption text-muted-foreground">Відкриється сайт перевізника.</p>
-          <p className="mt-6 border-t border-border-strong pt-5 type-body-small">
-            <Link className="link-underline" href={city.id === "lviv" ? "/cities/ivano-frankivsk/" : "/cities/lviv/"}>
-              Напрямки {city.id === "lviv" ? "з Івано-Франківська" : "зі Львова"} →
-            </Link>
-          </p>
+          <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-strong pt-5 type-body-small" aria-label="Інші міські огляди">
+            {presentation.relatedHubs.map(({ city: relatedCity, label }) => (
+              <Link key={relatedCity.id} className="inline-flex min-h-11 items-center link-underline" href={`/cities/${relatedCity.slug}/`}>
+                {label} →
+              </Link>
+            ))}
+          </nav>
         </div>
       </section>
     </>

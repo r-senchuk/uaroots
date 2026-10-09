@@ -20,11 +20,13 @@ describe("analytics privacy boundary", () => {
     vi.unstubAllEnvs();
   });
 
-  it("allows only the two published city hub landing paths", () => {
+  it("allows only the three published city hub landing paths", () => {
     expect(canonicalLandingPath("/cities/lviv")).toBe("/cities/lviv/");
     expect(canonicalLandingPath("/cities/lviv/")).toBe("/cities/lviv/");
     expect(canonicalLandingPath("/cities/ivano-frankivsk/")).toBe("/cities/ivano-frankivsk/");
+    expect(canonicalLandingPath("/cities/celle")).toBe("/cities/celle/");
     expect(canonicalLandingPath("/cities/unknown/")).toBeUndefined();
+    expect(canonicalLandingPath("/cities/stryi/")).toBeUndefined();
     expect(canonicalLandingPath("/cities/lviv/?phone=123")).toBeUndefined();
     expect(canonicalLandingPath("/cities/lviv/extra/")).toBeUndefined();
   });
@@ -62,6 +64,31 @@ describe("analytics privacy boundary", () => {
     });
     expect(JSON.stringify(window.__uarouteEvents?.[0])).not.toContain("2030-01-01");
     expect(JSON.stringify(window.__uarouteEvents?.[0])).not.toContain("+380501234567");
+  });
+
+  it("accepts Celle as a landing page while keeping an existing route as the inquiry target", () => {
+    const location = { origin: "https://uaroute.com", pathname: "/cities/celle/", search: "?utm_source=google&utm_medium=organic&utm_content=private-copy" };
+    vi.stubGlobal("window", { location, __uarouteEvents: [], __uarouteAnalyticsConsent: false });
+    captureAttribution();
+    location.pathname = "/routes/celle-lviv/";
+    location.search = "";
+    track("booking_intent", {
+      origin: "celle",
+      destination: "lviv",
+      landingPage: "/cities/celle/",
+      targetPath: "/routes/celle-lviv/",
+      source: "google",
+      medium: "organic",
+      ctaLocation: "route_index",
+    } as never);
+
+    expect(window.__uarouteEvents?.[0]).toMatchObject({
+      landingPage: "/cities/celle/",
+      targetPath: "/routes/celle-lviv/",
+      origin: "celle",
+      destination: "lviv",
+    });
+    expect(JSON.stringify(window.__uarouteEvents?.[0])).not.toContain("private-copy");
   });
 
   it("drops travel dates, contact data, arbitrary context, and unapproved UTM values", () => {

@@ -21,8 +21,9 @@ const routes = [
 const mainPages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const editorialRoutes = ["lviv-hamburg", "lviv-berlin"] as const;
 const hubs = [
-  ["lviv", "зі Львова", "Львів Львова", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["lviv-hannover", "lviv-celle", "celle-lviv"], "/cities/ivano-frankivsk/"],
-  ["ivano-frankivsk", "з Івано-Франківська", "Івано-Франківськ Івано-Франківська", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], "/cities/lviv/"],
+  ["lviv", "зі Львова", "Поїздки зі Львова до Німеччини та назад", "Поїздки зі Львова до Німеччини та назад", "Львів Львова", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["lviv-hannover", "lviv-celle", "celle-lviv"], ["/cities/ivano-frankivsk/", "/cities/celle/"]],
+  ["ivano-frankivsk", "з Івано-Франківська", "Поїздки з Івано-Франківська до Німеччини та назад", "Поїздки з Івано-Франківська до Німеччини та назад", "Івано-Франківськ Івано-Франківська", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], ["/cities/lviv/", "/cities/celle/"]],
+  ["celle", "із Целле", "Поїздки з Целле до України та назад", "Поїздки з Целле до України та назад", "Целле", [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]], ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], ["/cities/lviv/", "/cities/ivano-frankivsk/"]],
 ] as const;
 const temporaryRoots: string[] = [];
 
@@ -32,8 +33,31 @@ function write(root: string, path: string, content = "") {
   writeFileSync(file, content);
 }
 
-function page(path: string, title: string, body: string, links: string[] = []) {
-  return `<!doctype html><html lang="uk"><head><title>${title}</title><meta name="description" content="Унікальний опис ${title}"><link rel="canonical" href="https://uaroute.com${path}"></head><body>${body}${links.map((href) => `<a href="${href}">Відкрити</a>`).join("")}</body></html>`;
+function page(path: string, title: string, body: string, links: string[] = [], description = `Унікальний опис ${title}`) {
+  return `<!doctype html><html lang="uk"><head><title>${title}</title><meta name="description" content="${description}"><link rel="canonical" href="https://uaroute.com${path}"></head><body>${body}${links.map((href) => `<a href="${href}">Відкрити</a>`).join("")}</body></html>`;
+}
+
+function cityHubJsonLd(slug: string, name: string, cardSlugs: readonly string[]) {
+  const canonical = `https://uaroute.com/cities/${slug}/`;
+  const websiteId = "https://uaroute.com/#website";
+  const operatorId = "https://crewbravo.com/#operator";
+  const placeId = `${canonical}#place`;
+  const listId = `${canonical}#directions`;
+  const routeNodes = cardSlugs.map((routeSlug) => ({
+    "@type": "WebPage", "@id": `https://uaroute.com/routes/${routeSlug}/#webpage`,
+    url: `https://uaroute.com/routes/${routeSlug}/`, name: routeSlug, description: "Поради для поїздки", inLanguage: "uk",
+  }));
+  return [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Головна", item: "https://uaroute.com/" }, { "@type": "ListItem", position: 2, name, item: canonical }] },
+    { "@context": "https://schema.org", "@graph": [
+      { "@type": "WebSite", "@id": websiteId, name: "UARoute", url: "https://uaroute.com", publisher: { "@id": operatorId } },
+      { "@type": "Person", "@id": operatorId, name: "Roman Senchuk", url: "https://crewbravo.com" },
+      { "@type": "CollectionPage", "@id": `${canonical}#webpage`, url: canonical, name, description: "Оберіть напрямок", inLanguage: "uk", isPartOf: { "@id": websiteId }, publisher: { "@id": operatorId }, about: { "@id": placeId }, mainEntity: { "@id": listId } },
+      { "@type": "Place", "@id": placeId, name },
+      { "@type": "ItemList", "@id": listId, name: `Напрямки ${name}`, itemListOrder: "https://schema.org/ItemListOrderAscending", numberOfItems: cardSlugs.length, itemListElement: cardSlugs.map((routeSlug, index) => ({ "@type": "ListItem", position: index + 1, item: { "@id": `https://uaroute.com/routes/${routeSlug}/#webpage` } })) },
+      ...routeNodes,
+    ] },
+  ].map((value) => `<script type="application/ld+json">${JSON.stringify(value)}</script>`).join("");
 }
 
 function fixture() {
@@ -47,7 +71,8 @@ function fixture() {
     const heading = path === "/" || path === "/routes/"
       ? "Поїздки між Україною та Німеччиною"
       : path === "/imprint/" ? "Вихідні дані" : path === "/privacy/" ? "Політика конфіденційності" : name;
-    const body = `<h1>${heading}</h1><p>${path === "/imprint/" || path === "/privacy/" ? legal : "UARoute"}</p>`;
+    const homeStructuredData = path === "/" ? '<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://uaroute.com/#website","url":"https://uaroute.com","publisher":{"@id":"https://crewbravo.com/#operator"}}</script>' : "";
+    const body = `<h1>${heading}</h1><p>${path === "/imprint/" || path === "/privacy/" ? legal : "UARoute"}</p>${homeStructuredData}`;
     const links = path === "/routes/"
       ? [...candidates, ...hubs.map(([slug]) => `/cities/${slug}/`)]
       : path === "/" ? candidates : ["/routes/"];
@@ -81,23 +106,46 @@ function fixture() {
     }
   }
 
-  for (const [slug, headingCity, cityForms, destinations, linkedRoutes, crossHub] of hubs) {
+  for (const [slug, headingCity, heading, h1, cityForms, destinations, linkedRoutes, crossHubs] of hubs) {
     const path = `/cities/${slug}/`;
     const resource = slug === "lviv"
       ? ["https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom", "Офіційний довідник громадського транспорту Львова"]
-      : ["https://booking.uz.gov.ua/", "Офіційний пошук квитків Укрзалізниці"];
+      : slug === "ivano-frankivsk"
+        ? ["https://booking.uz.gov.ua/", "Офіційний пошук квитків Укрзалізниці"]
+        : ["https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", "Офіційний довідник доїзду до Целле"];
     const role = slug === "lviv"
       ? "UARoute допомагає знайти напрямок зі Львова до потрібного міста Німеччини або назад"
-      : "UARoute допомагає знайти напрямок з Івано-Франківська до потрібного міста Німеччини або назад";
-    const purpose = slug === "lviv" ? "Перевірити актуальні правила доїзду в місті" : "Окремо перевірити потрібну попередню або подальшу ділянку";
+      : slug === "ivano-frankivsk"
+        ? "UARoute допомагає знайти напрямок з Івано-Франківська до потрібного міста Німеччини або назад"
+        : "UARoute допомагає знайти потрібний напрямок і підготувати звернення до перевізника Коваль";
+    const purpose = slug === "lviv" ? "Перевірити актуальні правила доїзду в місті" : slug === "ivano-frankivsk" ? "Окремо перевірити потрібну попередню або подальшу ділянку" : "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою";
     const outbound = slug === "lviv"
       ? "Якщо спочатку добираєтеся до Львова, погодьте точку та час зустрічі."
-      : "Якщо до міста плануєте їхати потягом, перевірте варіанти після погодження зустрічі.";
+      : slug === "ivano-frankivsk"
+        ? "Якщо до міста плануєте їхати потягом, перевірте варіанти після погодження зустрічі."
+        : "Якщо плануєте виїзд із Целле, заздалегідь уточніть місце й час зустрічі.";
     const returning = slug === "lviv"
       ? "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою."
-      : "Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до Коваль.";
-    const body = `<h1>Поїздки ${headingCity} до Німеччини та назад</h1><p>${role}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">Якщо ви живете неподалік</h2><p>У приватному повідомленні WhatsApp назвіть своє фактичне місце. Вибір міста не означає посадку у вашому населеному пункті.</p><a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>Підготуйте виїзд</h2><p>${outbound}</p><h2>Підготуйте повернення</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="2026-10-09">2026-10-09</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="2026-10-09">2026-10-09</time></p></section><p>${cityForms} ${destinations.flat().join(" ")}</p>`;
-    write(root, `cities/${slug}/index.html`, page(path, `Поїздки ${headingCity} | UARoute`, body, [...linkedRoutes.map((routeSlug) => `/routes/${routeSlug}/`), crossHub]));
+      : slug === "ivano-frankivsk"
+        ? "Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до Коваль."
+        : "Для прибуття до Целле заздалегідь погодьте місце висадки та спосіб отримати повідомлення про зміну часу.";
+    const departureHeading = slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд";
+    const arrivalHeading = slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення";
+    const introduction = slug === "celle"
+      ? "UARoute допомагає знайти потрібний напрямок і підготувати звернення до перевізника Коваль. Оберіть українське місто для поїздки із Целле або до Целле та скористайтеся порадами для підготовки дороги."
+      : role;
+    const choicesHeading = slug === "celle" ? "Міста України" : "Шість міст Німеччини";
+    const nearbyCopy = slug === "celle"
+      ? "Якщо живете поруч із Целле й розглядаєте зустріч у місті, оберіть Целле в пошуку, а в приватному повідомленні назвіть своє фактичне місце. Окремо погодьте точку зустрічі та умови конкретної поїздки: вибір Целле не означає посадку у вашому населеному пункті."
+      : "У приватному повідомленні WhatsApp назвіть своє фактичне місце. Вибір міста не означає посадку у вашому населеному пункті.";
+    const body = `<h1>${h1}</h1><p>${introduction}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">Якщо ви живете неподалік</h2><p>${nearbyCopy}</p><a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>${departureHeading}</h2><p>${outbound}</p><h2>${arrivalHeading}</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="2026-10-09">2026-10-09</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="2026-10-09">2026-10-09</time></p></section><section><h2>${choicesHeading}</h2><p>${destinations.map(([destination, localName]) => `${destination} ${localName}`).join(" ")}</p></section><section><h2>Поради для вашого напрямку</h2><ul>${linkedRoutes.map((routeSlug) => `<li><h3>${routeSlug}</h3><a href="/routes/${routeSlug}/">Поради</a></li>`).join("")}</ul></section>${cityHubJsonLd(slug, slug === "celle" ? "Целле" : slug === "lviv" ? "Львів" : "Івано-Франківськ", linkedRoutes)}<p>${cityForms}</p>`;
+    const exactTitle = slug === "celle" ? "Поїздки з Целле до України та назад | UARoute" : slug === "lviv" ? "Поїздки зі Львова до Німеччини та назад | UARoute" : "Поїздки з Івано-Франківська до Німеччини та назад | UARoute";
+    const description = slug === "celle"
+      ? "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник Коваль."
+      : slug === "lviv"
+        ? "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника Коваль."
+        : "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником Коваль.";
+    write(root, `cities/${slug}/index.html`, page(path, exactTitle, body, [...crossHubs], description));
     for (const file of ["index.txt", "__next._tree.txt", "__next._full.txt", "__next.cities.$d$slug.__PAGE__.txt"]) {
       write(root, `cities/${slug}/${file}`, "RSC");
     }
@@ -155,7 +203,7 @@ describe("inspectExport", () => {
     expect(errors.some((error) => error.includes("requests Google Fonts"))).toBe(true);
   });
 
-  it("requires both city hubs to expose all six cities, inflected headings, manual context, discovery links, and correct canonicals", () => {
+  it("requires city hubs to expose their selected cities, inflected headings, manual context, discovery links, and correct canonicals", () => {
     const root = fixture();
     write(root, "cities/lviv/index.html", page(
       "/cities/ivano-frankivsk/",
@@ -229,6 +277,25 @@ describe("inspectExport", () => {
     expect(inspectExport(root)).toContain("/cities/lviv/ includes an unsupported service guarantee: гарантуємо місце");
   });
 
+  it("independently rejects unresolved route references and operational city-hub JSON-LD", () => {
+    const unresolved = fixture();
+    const cellePath = "cities/celle/index.html";
+    const celleHtml = readFileSync(join(unresolved, cellePath), "utf8");
+    write(unresolved, cellePath, celleHtml.replace(
+      "https://uaroute.com/routes/celle-lviv/#webpage",
+      "https://uaroute.com/routes/missing/#webpage",
+    ));
+    expect(inspectExport(unresolved).some((error) => error.includes("ItemList has an unresolved visible route reference"))).toBe(true);
+
+    const operational = fixture();
+    const operationalHtml = readFileSync(join(operational, cellePath), "utf8").replace(
+      '"@type":"CollectionPage"',
+      '"@type":"Offer","@id":"https://uaroute.com/cities/celle/#offer"},{"@type":"CollectionPage"',
+    );
+    write(operational, cellePath, operationalHtml);
+    expect(inspectExport(operational).some((error) => error.includes("unsupported operational structured data: Offer"))).toBe(true);
+  });
+
   it("continues to reject a real visible section-order regression", () => {
     const root = fixture();
     const path = "cities/lviv/index.html";
@@ -240,7 +307,7 @@ describe("inspectExport", () => {
     expect(inspectExport(root)).toContain("/cities/lviv/ must focus the search heading and order search, nearby guidance, then preparation");
   });
 
-  it("requires lastmod only on the two reviewed city hubs with exact editorial dates", () => {
+  it("requires lastmod only on the three reviewed city hubs with exact editorial dates", () => {
     const missingHubDate = fixture();
     const sitemapPath = "sitemap.xml";
     const missingXml = readFileSync(join(missingHubDate, sitemapPath), "utf8").replace("<lastmod>2026-10-09</lastmod>", "");

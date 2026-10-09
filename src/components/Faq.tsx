@@ -7,7 +7,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
     <div className="rule-strong">
       {items.map((item) => (
         <details key={item.question} className="group rule-hair py-5 first:border-t-0">
-          <summary className="cursor-pointer list-none marker:hidden">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center marker:hidden">
             <span className="flex items-start justify-between gap-6">
               <span className="font-display text-xl leading-snug">{item.question}</span>
               <span

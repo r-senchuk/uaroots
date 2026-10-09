@@ -9,6 +9,7 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "output/**", // Preserved release/QA artifacts contain generated bundles.
+    "docs/Operations/security-evidence-2026-10-09/**", // Frozen audit fixtures are evidence, not application source.
     "build/**",
     "next-env.d.ts",
     "legacy/**",

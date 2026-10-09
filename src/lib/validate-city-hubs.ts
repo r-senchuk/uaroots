@@ -2,6 +2,7 @@ import { cityHubContents, type CityHubContent } from "@/data/city-hubs";
 import { cities } from "@/data/cities";
 import { cityHubPaths } from "@/data/discovery";
 import { routes } from "@/data/routes";
+import type { City, Route } from "@/data/types";
 
 const contentKeys = [
   "cityId", "cityName", "fromName", "toName", "title", "heading", "description", "intro",
@@ -19,6 +20,11 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function isNonEmptyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
+}
+
+function hasSupportedCountryIdentity(city: City): boolean {
+  return (city.countryCode === "UA" && city.country === "Україна") ||
+    (city.countryCode === "DE" && city.country === "Німеччина");
 }
 
 function unexpectedKeys(value: Record<string, unknown>, allowed: readonly string[]): string[] {
@@ -61,16 +67,27 @@ function isCleanPlanningResourceUrl(value: unknown): value is string {
 export function validateCityHubContent(
   contents: readonly CityHubContent[] = cityHubContents,
   today = new Date().toISOString().slice(0, 10),
+  options: { hubPaths?: readonly string[]; cityCatalog?: readonly City[]; routeCatalog?: readonly Route[] } = {},
 ): string[] {
   const errors: string[] = [];
-  const selectedSlugs = cityHubPaths.map((path) => path.split("/")[2]!).filter(Boolean);
-  const selectedCities = selectedSlugs.map((slug) => cities.find((city) => city.slug === slug));
+  const selectedPaths = options.hubPaths ?? cityHubPaths;
+  const cityRecords = options.cityCatalog ?? cities;
+  const routeRecords = options.routeCatalog ?? routes;
+  const selectedPathSet = new Set<string>();
+  for (const path of selectedPaths) {
+    if (typeof path !== "string" || !/^\/cities\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(path)) errors.push(`Malformed selected city hub path: ${String(path)}`);
+    else if (selectedPathSet.has(path)) errors.push(`Duplicate selected city hub path: ${path}`);
+    else selectedPathSet.add(path);
+  }
+  const selectedSlugs = selectedPaths.flatMap((path) => typeof path === "string" && /^\/cities\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(path) ? [path.split("/")[2]!] : []);
+  const selectedCities = selectedSlugs.map((slug) => cityRecords.find((city) => city.slug === slug));
   for (const [index, city] of selectedCities.entries()) {
     if (!city) errors.push(`Selected city hub path has unknown city slug: ${selectedSlugs[index]}`);
+    else if (!hasSupportedCountryIdentity(city)) errors.push(`Selected city hub has unsupported country: ${city.id}`);
   }
   const expectedCityIds = new Set(selectedCities.flatMap((city) => city ? [city.id] : []));
-  const cityById = new Map(cities.map((city) => [city.id, city]));
-  const routeBySlug = new Map(routes.map((route) => [route.slug, route]));
+  const cityById = new Map(cityRecords.map((city) => [city.id, city]));
+  const routeBySlug = new Map(routeRecords.map((route) => [route.slug, route]));
   if (!isIsoCalendarDate(today)) errors.push(`City hub validator has an invalid reference date: ${today}`);
   if (!Array.isArray(contents)) return [...errors, "City hub content must be an array"];
 
@@ -114,10 +131,25 @@ export function validateCityHubContent(
     if (!Array.isArray(rawContent.routeSlugs) || rawContent.routeSlugs.length === 0) {
       errors.push(`City hub content ${cityId} must link to commercial routes`);
     } else {
+      const routeSlugs = new Set<string>();
       for (const routeSlug of rawContent.routeSlugs) {
         const route = typeof routeSlug === "string" ? routeBySlug.get(routeSlug) : undefined;
         if (!route) errors.push(`City hub content ${cityId} has unknown route slug: ${String(routeSlug)}`);
         else if (route.status !== "commercial") errors.push(`City hub content ${cityId} links to a non-commercial route: ${routeSlug}`);
+        else if (routeSlugs.has(routeSlug)) errors.push(`City hub content ${cityId} has duplicate route card slug: ${routeSlug}`);
+        else if (route.originCityId !== cityId && route.destinationCityId !== cityId) errors.push(`City hub content ${cityId} links to an unrelated route: ${routeSlug}`);
+        else {
+          routeSlugs.add(routeSlug);
+          const hubCity = cityById.get(cityId);
+          const origin = cityById.get(route.originCityId);
+          const destination = cityById.get(route.destinationCityId);
+          const otherCity = route.originCityId === cityId ? destination : origin;
+          if (!origin || !destination) errors.push(`City hub content ${cityId} route ${routeSlug} has an unknown endpoint city`);
+          else if (hubCity && otherCity && (!hasSupportedCountryIdentity(origin) || !hasSupportedCountryIdentity(destination) ||
+            !((hubCity.countryCode === "UA" && otherCity.countryCode === "DE") || (hubCity.countryCode === "DE" && otherCity.countryCode === "UA")))) {
+            errors.push(`City hub content ${cityId} links to a route with an unsupported country pair: ${routeSlug}`);
+          }
+        }
       }
     }
 

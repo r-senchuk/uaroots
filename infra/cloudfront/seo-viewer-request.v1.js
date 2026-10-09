@@ -39,6 +39,7 @@ var SEO_DOCUMENTS = {
   "/routes/wolfsburg-ivano-frankivsk/": "/routes/wolfsburg-ivano-frankivsk/index.html",
   "/cities/lviv/": "/cities/lviv/index.html",
   "/cities/ivano-frankivsk/": "/cities/ivano-frankivsk/index.html",
+  "/cities/celle/": "/cities/celle/index.html",
   "/routes/lviv-hamburg/": "/routes/lviv-hamburg/index.html",
   "/routes/lviv-berlin/": "/routes/lviv-berlin/index.html"
 };

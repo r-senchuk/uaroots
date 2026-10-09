@@ -31,11 +31,11 @@ const documents = [
   "/routes/dolyna-celle/", "/routes/celle-dolyna/", "/routes/dolyna-wolfsburg/",
   "/routes/wolfsburg-dolyna/", "/routes/dolyna-braunschweig/", "/routes/braunschweig-dolyna/",
   "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/", "/cities/lviv/",
-  "/cities/ivano-frankivsk/", "/routes/lviv-hamburg/", "/routes/lviv-berlin/",
+  "/cities/ivano-frankivsk/", "/cities/celle/", "/routes/lviv-hamburg/", "/routes/lviv-berlin/",
 ];
 
 describe("CloudFront SEO viewer request policy v1", () => {
-  it("contains only the 18 public sitemap documents and two known editorial documents", () => {
+  it("contains only the 19 public sitemap documents and two known editorial documents", () => {
     const block = artifact.match(/var SEO_DOCUMENTS = \{([\s\S]*?)\n\};/)?.[1] ?? "";
     const keys = [...block.matchAll(/^\s*"([^"]+)":/gm)].map(([, path]) => path);
     expect(keys).toEqual(documents);
@@ -50,7 +50,7 @@ describe("CloudFront SEO viewer request policy v1", () => {
   });
 
   it.each(["GET", "HEAD"]) ("serves an unknown nested/provider document as a generated 404 for %s", (method) => {
-    for (const path of ["/random-unknown/", "/routes/a-never-exported-slug/", "/provider/unknown/", "/unknown/index.html", "/unknown.html"]) {
+    for (const path of ["/random-unknown/", "/routes/a-never-exported-slug/", "/cities/stryi/", "/provider/unknown/", "/unknown/index.html", "/unknown.html"]) {
       const response = handler({ request: request(path, { method }) });
       expect(response.statusCode, path).toBe(404);
       expect(response.headers.location, path).toBeUndefined();
@@ -81,6 +81,10 @@ describe("CloudFront SEO viewer request policy v1", () => {
       expect(response.uri).toBe("/routes/lviv-celle/index.txt");
       expect(response.querystring).toBe(original.querystring);
     }
+    const celleFlight = request("/cities/celle/", { querystring: { _rsc: { value: "celle123" }, keep: { value: "yes" } } });
+    const celleResponse = handler({ request: celleFlight });
+    expect(celleResponse.uri).toBe("/cities/celle/index.txt");
+    expect(celleResponse.querystring).toBe(celleFlight.querystring);
   });
 
   it("redirects the five legacy paths and their slash, index, GET, and HEAD variants exactly", () => {
@@ -105,10 +109,12 @@ describe("CloudFront SEO viewer request policy v1", () => {
       encoded: { value: "%2F%26+" },
       blank: { value: "" },
     };
-    for (const path of ["/routes", "/routes/index.html", "/contact"]) {
-      const response = handler({ request: request(path, { querystring }) });
-      const base = path === "/contact" ? "https://uaroute.com/about/" : "https://uaroute.com/routes/";
-      expect(response.headers.location.value).toBe(`${base}?utm_source=seo_qa&tag=a&tag=b&encoded=%2F%26+&blank=`);
+    for (const path of ["/routes", "/routes/index.html", "/cities/celle", "/contact"]) {
+      for (const method of ["GET", "HEAD"]) {
+        const response = handler({ request: request(path, { method, querystring }) });
+        const base = path === "/contact" ? "https://uaroute.com/about/" : path.startsWith("/cities/") ? "https://uaroute.com/cities/celle/" : "https://uaroute.com/routes/";
+        expect(response.headers.location.value).toBe(`${base}?utm_source=seo_qa&tag=a&tag=b&encoded=%2F%26+&blank=`);
+      }
     }
     const rawQuery = "tag=b&tag=a&encoded=%2f%26+&flag&blank=";
     const rawResponse = handler({ request: request("/routes", { rawQueryString: rawQuery }) });

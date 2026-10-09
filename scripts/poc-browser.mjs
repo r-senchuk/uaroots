@@ -7,17 +7,30 @@ const uarouteOrigin = "http://uaroute.test";
 const kovalHost = "www.4k-koval.com";
 const kovalDist = process.env.KOVAL_DIST_PATH ? resolve(process.env.KOVAL_DIST_PATH) : undefined;
 const analyticsExpected = process.env.POC_ANALYTICS_EXPECTED === "enabled";
-const analyticsScriptHost = /googletagmanager\.com|google-analytics\.com/i;
+const googleHost = /(?:^|\.)(?:google[a-z0-9-]*\.[a-z.]+|gstatic\.com|doubleclick\.net)$/i;
 const result = {
   generatedAt: new Date().toISOString(),
   uarouteOut: outDir,
   kovalDist: kovalDist ?? null,
   viewportChecks: [],
+  targetSizeChecks: [],
   flows: [],
   interceptedPartnerUrls: [],
   interceptedWhatsAppUrls: [],
   blockedExternalRequests: [],
   blockedExternalRequestContexts: [],
+  googleRequestAttempts: [],
+  consentBridgeStates: [],
+  runtimeErrors: [],
+  consoleErrors: [],
+  requestCounts: {
+    mode: analyticsExpected ? "enabled-mock" : "disabled",
+    mockedGtmRequests: 0,
+    blockedGoogleRequests: 0,
+    blockedNonlocalRequests: 0,
+    locallyServedPartnerRequests: 0,
+  },
+  externalRequestPolicy: { serviceWorkers: "blocked", nonlocal: "local-fixture-or-abort", realGoogleNetwork: "prevented by routing; not an independently measured counter" },
   errors: [],
   screenshots: [],
 };
@@ -87,7 +100,7 @@ async function runCheck(name, fn) {
     const detail = await fn();
     result.flows.push({ name, passed: true, ...(detail === undefined ? {} : { detail }) });
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
+    const message = sanitizeDiagnostic(error instanceof Error ? error.message : String(error));
     result.flows.push({ name, passed: false, error: message });
     result.errors.push(`${name}: ${message}`);
   }
@@ -97,9 +110,28 @@ function ensure(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-function uarouteAnalyticsRequests() {
-  return result.blockedExternalRequestContexts.filter(({ url, initiatedBy }) =>
-    analyticsScriptHost.test(url) && new URL(initiatedBy).hostname === "uaroute.test",
+function sanitizeDiagnostic(value) {
+  return String(value)
+    .replace(/https?:\/\/[^\s"']+/g, (url) => {
+      try { const parsed = new URL(url); return `${parsed.origin}${parsed.pathname}`; } catch { return "[url]"; }
+    })
+    .replace(/UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/g, "[request-code]")
+    .replace(/\+?\d[\d ()-]{7,}\d/g, "[phone]")
+    .replace(/\b\d{4}-\d{2}-\d{2}\b/g, "[date]");
+}
+
+function sanitizeUrl(value) {
+  try {
+    const parsed = new URL(value);
+    return `${parsed.origin}${parsed.pathname}`;
+  } catch {
+    return sanitizeDiagnostic(value);
+  }
+}
+
+function uarouteGoogleRequests() {
+  return result.googleRequestAttempts.filter(({ initiatedBy }) =>
+    new URL(initiatedBy).origin === uarouteOrigin,
   );
 }
 
@@ -124,6 +156,21 @@ async function assertNoHorizontalOverflow(page, label, result) {
   ensure(metrics.documentWidth <= metrics.viewportWidth + 1, `${label} overflows horizontally (${metrics.documentWidth}px wide)`);
 }
 
+async function assertMinimumTouchTargets(page, label, result) {
+  const targetSizes = await page.locator('a[href], button, input:not([type="hidden"]), select, textarea, summary, [role="button"], [role="link"], [role="combobox"]').evaluateAll((elements) => elements
+    .filter((element) => {
+      const style = getComputedStyle(element);
+      return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity) !== 0 && element.getClientRects().length > 0;
+    })
+    .map((element) => {
+      const rect = element.getBoundingClientRect();
+      return { width: rect.width, height: rect.height };
+    }));
+  const undersizedCount = targetSizes.filter(({ width, height }) => width < 44 || height < 44).length;
+  result.targetSizeChecks.push({ label, checked: targetSizes.length, undersized: undersizedCount, passed: targetSizes.length > 0 && undersizedCount === 0 });
+  ensure(targetSizes.length > 0 && undersizedCount === 0, `${label} has ${undersizedCount} visible interactive targets below 44px`);
+}
+
 async function captureOpenedUrl(page) {
   return page.evaluate(() => window.__pocOpenedUrls?.at(-1) ?? null);
 }
@@ -140,47 +187,98 @@ async function run() {
   const browser = await chromium.launch(launchOptions);
 
   try {
-    const context = await browser.newContext({ locale: "uk-UA", reducedMotion: "reduce" });
-    context.setDefaultTimeout(8000);
-    context.setDefaultNavigationTimeout(10000);
-    await context.addInitScript(() => {
-      window.__pocOpenedUrls = [];
-      window.open = (url) => {
-        window.__pocOpenedUrls.push(String(url));
-        return null;
-      };
-    });
+    async function createContext() {
+      const context = await browser.newContext({ locale: "uk-UA", reducedMotion: "reduce", serviceWorkers: "block", hasTouch: true });
+      context.setDefaultTimeout(8000);
+      context.setDefaultNavigationTimeout(10000);
+      context.on("page", (page) => {
+        page.on("pageerror", (error) => result.runtimeErrors.push(sanitizeDiagnostic(error.message)));
+        page.on("console", (message) => {
+          if (message.type() === "error") result.consoleErrors.push(sanitizeDiagnostic(message.text()));
+        });
+      });
+      await context.exposeBinding("__pocCaptureConsentState", (_source, state) => {
+        result.consentBridgeStates.push(state);
+      });
+      await context.addInitScript(() => {
+        window.__pocOpenedUrls = [];
+        window.__pocConsentBridgeCalls = [];
+        window.__pocConsentBridgeCapturedCount = 0;
+        window.open = (url) => {
+          window.__pocOpenedUrls.push(String(url));
+          return null;
+        };
+      });
 
-    await context.route("**/*", async (route) => {
-      const url = new URL(route.request().url());
-      if (url.hostname === "uaroute.test") {
-        await fulfillFromExport(route, outDir, url);
-        return;
-      }
-      if ((url.hostname === kovalHost || url.hostname === "4k-koval.com") && kovalDist) {
-        if (url.searchParams.has("utm_source") || url.searchParams.has("ref_code")) {
-          result.interceptedPartnerUrls.push(url.toString());
+      await context.route("**/*", async (route) => {
+        const url = new URL(route.request().url());
+        if (url.origin === uarouteOrigin) {
+          await fulfillFromExport(route, outDir, url);
+          return;
         }
-        await fulfillFromExport(route, kovalDist, url, true);
-        return;
-      }
-      if (url.hostname === kovalHost || url.hostname === "4k-koval.com") {
-        if (url.searchParams.has("utm_source") || url.searchParams.has("ref_code")) {
-          result.interceptedPartnerUrls.push(url.toString());
+        if ([`https://${kovalHost}`, "https://4k-koval.com"].includes(url.origin) && kovalDist) {
+          result.requestCounts.locallyServedPartnerRequests += 1;
+          if (url.searchParams.has("utm_source") || url.searchParams.has("ref_code")) {
+            result.interceptedPartnerUrls.push(url.toString());
+          }
+          // The staged operator export is also served locally; no partner request leaves this harness.
+          await fulfillFromExport(route, kovalDist, url, true);
+          return;
         }
-      } else if (url.hostname === "wa.me") {
-        result.interceptedWhatsAppUrls.push(url.toString());
-      } else if (url.hostname !== "uaroute.test") {
-        result.blockedExternalRequests.push(url.toString());
+
         let initiatedBy = "about:blank";
         try {
           initiatedBy = route.request().frame().url();
         } catch {
           // A browser-owned request may not have an initiating frame.
         }
-        result.blockedExternalRequestContexts.push({ url: url.toString(), initiatedBy });
+        const isGoogle = googleHost.test(url.hostname);
+        if (analyticsExpected && url.origin === "https://www.googletagmanager.com" && url.pathname === "/gtm.js") {
+          result.requestCounts.mockedGtmRequests += 1;
+          result.googleRequestAttempts.push({ url: url.toString(), initiatedBy, outcome: "mocked-gtm" });
+          const consentTemplate = readFileSync(join(process.cwd(), "infra/analytics/uaroute-basic-consent.txt"), "utf8");
+          await route.fulfill({
+            contentType: "text/javascript; charset=utf-8",
+            body: `(function(require,data){${consentTemplate}\n})(function(name){function record(state){window.__pocConsentBridgeCalls.push(state);return window.__pocCaptureConsentState(state).then(function(){window.__pocConsentBridgeCapturedCount+=1;});}return {setDefaultConsentState:record,updateConsentState:record,callInWindow:function(name,callback){window[name](callback);}}[name];},{gtmOnSuccess:function(){}});`,
+          });
+          return;
+        }
+
+        result.requestCounts.blockedNonlocalRequests += 1;
+        if (isGoogle) {
+          result.requestCounts.blockedGoogleRequests += 1;
+          result.googleRequestAttempts.push({ url: url.toString(), initiatedBy, outcome: "blocked" });
+        }
+        if (url.hostname === kovalHost || url.hostname === "4k-koval.com") {
+          if (url.searchParams.has("utm_source") || url.searchParams.has("ref_code")) result.interceptedPartnerUrls.push(url.toString());
+        } else if (url.hostname === "wa.me") {
+          result.interceptedWhatsAppUrls.push(url.toString());
+        } else {
+          result.blockedExternalRequests.push(url.toString());
+          result.blockedExternalRequestContexts.push({ url: url.toString(), initiatedBy });
+        }
+        await route.abort("blockedbyclient");
+      });
+      return context;
+    }
+
+    const context = await createContext();
+
+    await runCheck("general browsing records an explicit analytics refusal", async () => {
+      const page = await context.newPage();
+      const googleAttemptsBeforeChoice = result.googleRequestAttempts.length;
+      await page.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
+      if (analyticsExpected) {
+        await page.getByRole("button", { name: "Без аналітики", exact: true }).waitFor({ state: "visible" });
+        await page.getByRole("button", { name: "Без аналітики", exact: true }).click();
+      } else {
+        await page.getByRole("button", { name: "Налаштування приватності", exact: true }).click();
+        await page.getByRole("button", { name: "Зберегти без аналітики", exact: true }).click();
       }
-      await route.abort("blockedbyclient");
+      ensure(await page.evaluate(() => window.__uarouteAnalyticsConsent) === false, "General browsing did not record an explicit refusal");
+      ensure(result.googleRequestAttempts.length === googleAttemptsBeforeChoice, "General browsing made a Google request before or after refusal");
+      await page.close();
+      return { choice: "refused", mode: result.requestCounts.mode };
     });
 
     await runCheck("UTM acquisition survives SPA navigation and stays separate from footer referral", async () => {
@@ -251,6 +349,125 @@ async function run() {
         await field.fill("");
       }
       return { aliasesChecked: examples.length };
+    });
+
+    await runCheck("Celle hub defaults, fourteen Ukrainian choices, route directions and responsive navigation", async () => {
+      const cellePage = await context.newPage();
+      await context.tracing.start({ screenshots: true, snapshots: true, sources: false });
+      await cellePage.setViewportSize({ width: 360, height: 800 });
+      await cellePage.goto(`${uarouteOrigin}/cities/celle/`, { waitUntil: "networkidle" });
+      await cellePage.getByRole("heading", { level: 1, name: "Поїздки з Целле до України та назад" }).waitFor();
+      await cellePage.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+      ensure(await cellePage.getByRole("button", { name: "До України", exact: true }).getAttribute("aria-pressed") === "true", "Celle hub did not default to Germany → Ukraine");
+      ensure(await cellePage.getByRole("combobox", { name: "Звідки" }).inputValue() === "Целле", "Celle was not selected as the departure city");
+
+      const ukrainianChoices = ["Львів", "Івано-Франківськ", "Долина", "Калуш", "Стрий", "Галич", "Бурштин", "Пустомити", "Брюховичі", "Городок (Львівська область)", "Миколаїв (Львівська область)", "Новий Розділ", "Надвірна", "Жидачів"];
+      const choices = await cellePage.getByLabel("Українське місто").locator("option").allTextContents();
+      ensure(JSON.stringify(choices.slice(1)) === JSON.stringify(ukrainianChoices), "Celle hub Ukrainian choices or order changed");
+
+      for (const width of [360, 375, 1440]) {
+        await cellePage.setViewportSize({ width, height: width === 1440 ? 1000 : 812 });
+        await assertNoHorizontalOverflow(cellePage, `Celle hub ${width}px`, result);
+        const buttonSizes = await cellePage.getByRole("group", { name: "Напрямок поїздки" }).getByRole("button").evaluateAll((buttons) => buttons.map((button) => button.getBoundingClientRect().height));
+        const searchButtonSize = await cellePage.getByRole("button", { name: "Знайти маршрут" }).evaluate((button) => button.getBoundingClientRect().height);
+        ensure(buttonSizes.every((height) => height >= 44) && searchButtonSize >= 44, `Celle primary search actions are smaller than 44px at ${width}px`);
+        await assertMinimumTouchTargets(cellePage, `Celle hub ${width}px`, result);
+        const shot = join(qaDir, `celle-hub-${width}.png`);
+        await cellePage.screenshot({ path: shot, fullPage: true });
+        result.screenshots.push(shot);
+      }
+
+      await cellePage.setViewportSize({ width: 375, height: 812 });
+      const ukrainianDestination = cellePage.getByRole("combobox", { name: "Куди" });
+      await ukrainianDestination.fill("Celle");
+      ensure(await cellePage.getByRole("listbox").getByRole("option").count() === 0, "German Celle alias appeared in the Ukrainian destination suggestions");
+      await ukrainianDestination.fill("");
+      await cellePage.getByLabel("Українське місто").selectOption("lviv");
+      await cellePage.getByRole("button", { name: "Знайти маршрут" }).click();
+      await cellePage.waitForURL("**/routes/celle-lviv/");
+      ensure(await cellePage.locator('link[rel="canonical"]').getAttribute("href") === "https://uaroute.com/routes/celle-lviv/", "Celle → Lviv did not use the existing route page");
+      await cellePage.goto(`${uarouteOrigin}/cities/celle/`, { waitUntil: "networkidle" });
+      await selectCity(cellePage, "Куди", "Lviv", "Львів");
+      const reverseButton = cellePage.getByRole("button", { name: "До Німеччини", exact: true });
+      await reverseButton.tap();
+      await cellePage.waitForFunction(() => {
+        const fields = [...document.querySelectorAll('input[role="combobox"]')];
+        return document.querySelector('button[aria-pressed="true"]')?.textContent?.includes("До Німеччини") &&
+          fields[0]?.value === "Львів" && fields[1]?.value === "Целле";
+      });
+      ensure(await cellePage.getByRole("combobox", { name: "Звідки" }).inputValue() === "Львів" && await cellePage.getByRole("combobox", { name: "Куди" }).inputValue() === "Целле", "Direction switch did not preserve and reverse the selected city pair");
+      await cellePage.getByRole("button", { name: "Знайти маршрут" }).click();
+      await cellePage.waitForURL("**/routes/lviv-celle/");
+
+      await cellePage.goto(`${uarouteOrigin}/cities/celle/`, { waitUntil: "networkidle" });
+      await cellePage.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+      await selectCity(cellePage, "Куди", "Stryi", "Стрий");
+      await cellePage.getByRole("button", { name: "Знайти маршрут" }).click();
+      await cellePage.locator('section[aria-labelledby$="-candidate-inquiry-title"]').waitFor({ state: "visible" });
+      ensure(new URL(cellePage.url()).pathname === "/cities/celle/", "Celle → Stryi created an unselected public route URL");
+
+      const nearbyLink = cellePage.locator('section[aria-labelledby="nearby-places-heading"] a[href="#search-heading"]');
+      await nearbyLink.focus();
+      await nearbyLink.press("Enter");
+      ensure(await cellePage.evaluate(() => document.activeElement?.id) === "search-heading", "Nearby return link did not restore keyboard focus to search");
+      ensure(await cellePage.locator('a[href="/cities/lviv/"]').count() > 0 && await cellePage.locator('a[href="/cities/ivano-frankivsk/"]').count() > 0, "Celle hub related-hub HTML links are missing");
+      const footerHref = await cellePage.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true }).getAttribute("href");
+      const footerUrl = new URL(footerHref);
+      ensure(!footerUrl.searchParams.has("origin_city_id") && !footerUrl.searchParams.has("destination_city_id"), "Incomplete Celle footer handoff included only part of a city pair");
+
+      const trace = join(qaDir, "celle-ui-trace.zip");
+      await context.tracing.stop({ path: trace });
+      result.traces = [trace];
+
+      const dateCanary = "2030-12-31";
+      const formattedDateCanary = "31.12.2030";
+      const phoneCanary = "+48111222333";
+      const beforeForm = await cellePage.evaluate(() => JSON.stringify({
+        events: window.__uarouteEvents ?? [], dataLayer: window.dataLayer ?? [],
+        local: Object.keys(localStorage).map((key) => [key, localStorage.getItem(key)]),
+        session: Object.keys(sessionStorage).map((key) => [key, sessionStorage.getItem(key)]),
+      }));
+      ensure(!beforeForm.includes(dateCanary) && !beforeForm.includes(phoneCanary), "Celle browser state already contains a synthetic form canary");
+      await cellePage.getByLabel("Бажана дата поїздки", { exact: true }).fill(dateCanary);
+      await cellePage.getByLabel("Телефон для зв’язку", { exact: true }).fill(phoneCanary);
+      await cellePage.getByLabel("Пасажирів", { exact: true }).selectOption("2");
+      await cellePage.getByRole("button", { name: "Уточнити поїздку в WhatsApp" }).click();
+      const handoff = new URL(await captureOpenedUrl(cellePage));
+      ensure(handoff.hostname === "wa.me", "Celle inline inquiry did not use the intercepted WhatsApp handoff");
+      const generatedMessage = handoff.searchParams.get("text") ?? "";
+      ensure(generatedMessage.includes(formattedDateCanary) && generatedMessage.includes(phoneCanary), "Intercepted Celle handoff omitted its formatted synthetic form canaries");
+      const afterForm = await cellePage.evaluate(() => JSON.stringify({
+        events: window.__uarouteEvents ?? [], dataLayer: window.dataLayer ?? [],
+        local: Object.keys(localStorage).map((key) => [key, localStorage.getItem(key)]),
+        session: Object.keys(sessionStorage).map((key) => [key, sessionStorage.getItem(key)]),
+      }));
+      ensure(!afterForm.includes(dateCanary) && !afterForm.includes(formattedDateCanary) && !afterForm.includes(phoneCanary) && !afterForm.includes(generatedMessage), "Celle form canaries leaked into analytics or browser storage");
+      return { choices: ukrainianChoices.length, outboundRoute: "celle-lviv", reversedRoute: "lviv-celle", unselectedPair: "inline inquiry", trace: "celle-ui-trace.zip" };
+    });
+
+    await runCheck("Celle first-touch acquisition survives an existing route navigation", async () => {
+      const page = await context.newPage();
+      const privateContentCanary = "celle-private-utm-content";
+      await page.goto(`${uarouteOrigin}/cities/celle/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch&utm_content=${privateContentCanary}`, { waitUntil: "networkidle" });
+      await selectCity(page, "Куди", "Lviv", "Львів");
+      await page.getByRole("button", { name: "Знайти маршрут" }).click();
+      await page.waitForURL("**/routes/celle-lviv/");
+      const events = await page.evaluate(() => window.__uarouteEvents ?? []);
+      const search = events.find((event) => event.event === "route_search_completed");
+      const routeView = events.find((event) => event.event === "route_view" && event.routeId === "celle-lviv");
+      ensure(search?.landingPage === "/cities/celle/" && search?.targetPath === "/cities/celle/", "Celle route search lost its first landing or current search path");
+      ensure(routeView?.landingPage === "/cities/celle/" && routeView?.source === "telegram" && routeView?.medium === "social" && routeView?.campaign === "route_launch", "Celle route view lost its first-touch acquisition");
+      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true });
+      const [popup] = await Promise.all([page.waitForEvent("popup"), footer.click()]);
+      const contactEvent = await page.evaluate(() => window.__uarouteEvents?.filter((event) => event.event === "koval_site_click").at(-1));
+      ensure(contactEvent?.landingPage === "/cities/celle/" && contactEvent?.targetPath === "/routes/celle-lviv/", "Celle operator contact event did not separate first landing from current route target");
+      ensure(contactEvent?.source === "telegram" && contactEvent?.medium === "social" && contactEvent?.campaign === "route_launch", "Celle operator contact event lost approved acquisition fields");
+      await popup.close();
+      ensure(JSON.stringify(events).includes("telegram") && JSON.stringify(events).includes("route_launch"), "Celle approved acquisition fields were not retained");
+      const serializedEvents = JSON.stringify(await page.evaluate(() => window.__uarouteEvents ?? []));
+      ensure(!serializedEvents.includes(privateContentCanary), "Celle raw utm_content leaked into analytics");
+      await page.close();
+      return { landingPage: "/cities/celle/", targetPath: "/routes/celle-lviv/", route: "celle-lviv", contactEvent: true, rawUtmContentStored: false };
     });
 
     await runCheck("keyboard autocomplete selects route endpoints", async () => {
@@ -551,22 +768,39 @@ async function run() {
 
     if (analyticsExpected) {
       await runCheck("analytics refusal, reacceptance, revocation, and current view location", async () => {
-        const consentPage = await context.newPage();
+        // This isolated context starts without a stored choice; general route checks keep their explicit refusal.
+        const analyticsContext = await createContext();
+        const consentPage = await analyticsContext.newPage();
         await consentPage.setViewportSize({ width: 1440, height: 1000 });
+        const googleAttemptsAtFreshContext = result.googleRequestAttempts.length;
         await consentPage.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
         await consentPage.waitForLoadState("networkidle");
         await consentPage.getByRole("button", { name: "Без аналітики" }).waitFor({ state: "visible" });
-        ensure(await consentPage.locator("script[src]").evaluateAll((scripts) => scripts.every((script) => !/googletagmanager\.com|google-analytics\.com/i.test(script.src))), "Google analytics scripts loaded before consent choice");
-        const googleRequestStart = uarouteAnalyticsRequests().length;
+        const beforeChoiceCount = result.googleRequestAttempts.length - googleAttemptsAtFreshContext;
+        ensure(beforeChoiceCount === 0, "A Google request occurred before the first consent choice");
+        ensure(await consentPage.locator("script[src]").evaluateAll((scripts) => scripts.every((script) => {
+          const host = new URL(script.src).hostname;
+          return !/(?:^|\.)(?:google[a-z0-9-]*\.[a-z.]+|gstatic\.com|doubleclick\.net)$/i.test(host);
+        })), "A Google-hosted script element exists before consent choice");
         await consentPage.getByRole("button", { name: "Без аналітики" }).click();
         ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === false, "Consent refusal did not disable analytics");
-        ensure(uarouteAnalyticsRequests().length === googleRequestStart, "A Google analytics script was requested after consent refusal");
-        await consentPage.getByRole("button", { name: "Налаштувати аналітику" }).click();
+        const afterRefusalCount = result.googleRequestAttempts.length - googleAttemptsAtFreshContext;
+        ensure(afterRefusalCount === beforeChoiceCount, "A Google request occurred after consent refusal");
+        await consentPage.reload({ waitUntil: "networkidle" });
+        const acceptButtonsAfterReturn = await consentPage.getByRole("button", { name: "Дозволити аналітику", exact: true }).count();
+        ensure(acceptButtonsAfterReturn === 0, "Refusal was not remembered in the isolated context");
+        await consentPage.getByRole("button", { name: "Налаштування приватності", exact: true }).click();
+        const googleAttemptsBeforeAccept = result.googleRequestAttempts.length;
         await consentPage.getByRole("button", { name: "Дозволити аналітику" }).click();
         await consentPage.waitForFunction(() => window.__uarouteAnalyticsProviderReady === true);
         ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === true, "Reaccepted consent was not applied");
         await consentPage.waitForFunction(() => [...document.scripts].some((script) => /googletagmanager\.com/i.test(script.src)));
-        ensure(uarouteAnalyticsRequests().length > googleRequestStart, "No Google analytics script request was attempted after consent was accepted");
+        await consentPage.waitForFunction(() => window.__pocConsentBridgeCalls.length >= 2 && window.__pocConsentBridgeCapturedCount === window.__pocConsentBridgeCalls.length);
+        const googleAttemptsAfterAccept = result.googleRequestAttempts.slice(googleAttemptsBeforeAccept);
+        ensure(googleAttemptsAfterAccept.length === 1 && googleAttemptsAfterAccept[0].outcome === "mocked-gtm", "Acceptance must load only the mocked GTM script and no Google collection endpoints");
+        const statesAfterAccept = result.consentBridgeStates.slice();
+        ensure(statesAfterAccept[0]?.analytics_storage === "denied" && statesAfterAccept.at(-1)?.analytics_storage === "granted", "Mock consent bridge did not apply denied then granted at acceptance");
+        ensure(statesAfterAccept.every((state) => state.ad_storage === "denied" && state.ad_user_data === "denied" && state.ad_personalization === "denied"), "The consent bridge granted advertising consent");
 
         await selectCity(consentPage, "Звідки", "Dolina", "Долина");
         await selectCity(consentPage, "Куди", "Celle", "Целле");
@@ -577,23 +811,33 @@ async function run() {
         const gtagPageLocation = await consentPage.evaluate(() => { const view = window.dataLayer.find((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")); return view?.uaroute?.parameters?.page_location ?? view?.[2]?.page_location; });
         ensure(gtagPageLocation === "https://uaroute.com/routes/dolyna-celle/", `gtag route view has wrong page_location: ${gtagPageLocation}`);
 
-        await consentPage.getByRole("button", { name: "Налаштувати аналітику" }).click();
+        await consentPage.getByRole("button", { name: "Налаштування приватності", exact: true }).click();
+        const googleAttemptsBeforeWithdrawal = result.googleRequestAttempts.length;
+        const bridgeStatesBeforeWithdrawal = result.consentBridgeStates.length;
+        const withdrawalNavigation = consentPage.waitForNavigation({ waitUntil: "networkidle" });
         await consentPage.getByRole("button", { name: "Без аналітики" }).click();
-        await consentPage.waitForLoadState("domcontentloaded");
+        await withdrawalNavigation;
+        await consentPage.waitForLoadState("networkidle");
         await consentPage.waitForFunction(() => window.__uarouteAnalyticsConsent === false);
-        const revokedRequestStart = uarouteAnalyticsRequests().length;
+        ensure(result.consentBridgeStates.length > bridgeStatesBeforeWithdrawal, "Withdrawal reload did not capture a consent bridge update");
+        const statesAfterWithdrawal = result.consentBridgeStates.slice();
+        ensure(statesAfterWithdrawal.at(-1)?.analytics_storage === "denied", "Withdrawal did not send denied consent to the bridge");
+        ensure(statesAfterWithdrawal.every((state) => state.ad_storage === "denied" && state.ad_user_data === "denied" && state.ad_personalization === "denied"), "The consent bridge granted advertising consent");
         await consentPage.locator('a[href="/routes/celle-dolyna/"]').first().click();
         await consentPage.waitForURL("**/routes/celle-dolyna/");
         const viewsAfterRevoke = await consentPage.evaluate(() => (window.dataLayer ?? []).filter((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")).length);
         ensure(viewsAfterRevoke === 0, "Analytics received a route view after withdrawal reload");
-        ensure(uarouteAnalyticsRequests().length === revokedRequestStart, "Google was requested after withdrawal reload");
-        return { gtagPageLocation, routeViewsBeforeRevocation: viewsBeforeRevoke, routeViewsAfterRevocation: viewsAfterRevoke };
+        const afterWithdrawalCount = result.googleRequestAttempts.length - googleAttemptsBeforeWithdrawal;
+        ensure(afterWithdrawalCount === 0, "A Google request occurred after withdrawal");
+        ensure(statesAfterAccept[0]?.analytics_storage === "denied" && statesAfterAccept.at(-1)?.analytics_storage === "granted" && statesAfterWithdrawal.at(-1)?.analytics_storage === "denied", "Consent bridge did not apply denied → granted → denied at the corresponding user choices");
+        await analyticsContext.close();
+        return { gtagPageLocation, routeViewsBeforeRevocation: viewsBeforeRevoke, routeViewsAfterRevocation: viewsAfterRevoke, googleRequestPhases: { beforeChoice: beforeChoiceCount, afterRefusal: afterRefusalCount, afterAcceptance: googleAttemptsAfterAccept.length, afterWithdrawal: afterWithdrawalCount }, mockedGtmRequests: result.requestCounts.mockedGtmRequests };
       });
     } else {
       await runCheck("Google analytics scripts stay absent without consent", async () => {
         const page = desktop;
         const googleScripts = await page.locator("script[src]").evaluateAll((scripts) => scripts.map((script) => script.src).filter((src) => /googletagmanager\.com|google-analytics\.com/i.test(src)));
-        const googleRequests = uarouteAnalyticsRequests();
+        const googleRequests = uarouteGoogleRequests();
         ensure(googleScripts.length === 0, "Google script element exists without consent");
         ensure(googleRequests.length === 0, `Google script requested without consent: ${googleRequests[0]}`);
         return { googleScripts: 0, googleRequests: 0 };
@@ -620,11 +864,20 @@ try {
   await run();
 } catch (error) {
   const message = error instanceof Error ? error.stack ?? error.message : String(error);
-  result.errors.push(message);
+  result.errors.push(sanitizeDiagnostic(message));
 }
 
-result.passed = result.errors.length === 0 && result.flows.every((flow) => flow.passed) && result.viewportChecks.every((check) => check.passed);
+result.passed = result.errors.length === 0 && result.runtimeErrors.length === 0 && result.flows.every((flow) => flow.passed) && result.viewportChecks.every((check) => check.passed) && result.targetSizeChecks.every((check) => check.passed);
 const resultPath = join(qaDir, "results.json");
-writeFileSync(resultPath, `${JSON.stringify(result, null, 2)}\n`);
-console.log(JSON.stringify({ passed: result.passed, results: resultPath, flows: result.flows, viewportChecks: result.viewportChecks, blockedExternalRequests: result.blockedExternalRequests.length }, null, 2));
+const safeResult = {
+  ...result,
+  interceptedPartnerUrls: result.interceptedPartnerUrls.map(sanitizeUrl),
+  interceptedWhatsAppUrls: result.interceptedWhatsAppUrls.map(sanitizeUrl),
+  blockedExternalRequests: result.blockedExternalRequests.map(sanitizeUrl),
+  blockedExternalRequestContexts: result.blockedExternalRequestContexts.map(({ url, initiatedBy }) => ({ url: sanitizeUrl(url), initiatedBy: sanitizeUrl(initiatedBy) })),
+  googleRequestAttempts: result.googleRequestAttempts.map(({ url, initiatedBy, ...rest }) => ({ url: sanitizeUrl(url), initiatedBy: sanitizeUrl(initiatedBy), ...rest })),
+  flows: result.flows.map((flow) => flow.error ? { ...flow, error: sanitizeDiagnostic(flow.error) } : flow),
+};
+writeFileSync(resultPath, `${JSON.stringify(safeResult, null, 2)}\n`);
+console.log(JSON.stringify({ passed: result.passed, results: resultPath, flows: safeResult.flows, viewportChecks: result.viewportChecks, blockedExternalRequests: result.blockedExternalRequests.length, requestCounts: result.requestCounts, externalRequestPolicy: result.externalRequestPolicy }, null, 2));
 if (!result.passed) process.exitCode = 1;

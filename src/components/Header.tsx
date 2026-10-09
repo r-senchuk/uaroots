@@ -20,7 +20,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border-strong bg-background/95 backdrop-blur">
       <div className="container-page flex h-[4.5rem] items-center justify-between gap-6">
-        <Link href="/" aria-label="UARoute — на головну">
+        <Link href="/" aria-label="UARoute — на головну" className="inline-flex min-h-11 items-center">
           <Logo />
         </Link>
 
@@ -30,7 +30,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "type-label transition-colors hover:text-foreground",
+                "inline-flex min-h-11 items-center type-label transition-colors hover:text-foreground",
                 pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground",
               )}
             >
@@ -41,7 +41,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex size-10 items-center justify-center border border-border-strong sm:hidden"
+          className="inline-flex size-11 items-center justify-center border border-border-strong sm:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Закрити меню" : "Відкрити меню"}
@@ -63,7 +63,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block py-4 font-display text-xl text-foreground"
+                  className="inline-flex min-h-11 items-center py-4 font-display text-xl text-foreground"
                 >
                   {item.label}
                 </Link>

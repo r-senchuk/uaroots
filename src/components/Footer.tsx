@@ -70,7 +70,7 @@ export function Footer() {
             href="https://crewbravo.com"
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center"
+            className="inline-flex min-h-11 items-center"
             aria-label="CrewBravo"
           >
             <Image

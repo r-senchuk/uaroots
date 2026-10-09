@@ -4,9 +4,10 @@ import sharp from "sharp";
 import { describe, expect, it } from "vitest";
 
 import { cities } from "@/data/cities";
+import { cityHubContents } from "@/data/city-hubs";
 import { getResolvedRoute } from "@/data/queries";
 import sitemap from "@/app/sitemap";
-import { buildMetadata, travelPreviewImage } from "@/lib/seo";
+import { buildMetadata, cityHubCollectionLd, travelPreviewImage, websiteLd } from "@/lib/seo";
 
 const priorityPairs = [
   ["lviv", "celle", "lviv-celle"],
@@ -48,6 +49,56 @@ describe("SEO metadata", () => {
   });
 });
 
+describe("city hub structured data", () => {
+  it("uses the shared WebSite identity and resolves the ordered visible route graph", () => {
+    const city = cities.find(({ id }) => id === "celle")!;
+    const content = cityHubContents.find(({ cityId }) => cityId === city.id)!;
+    const visibleRoutes = content.routeSlugs.flatMap((slug) => {
+      const route = getResolvedRoute(slug);
+      return route?.status === "commercial" ? [route] : [];
+    });
+    const graph = cityHubCollectionLd(city, content, visibleRoutes);
+    const nodes = graph["@graph"] as Array<Record<string, unknown>>;
+    const byId = new Map(nodes.flatMap((node) => "@id" in node ? [[node["@id"], node] as const] : []));
+    const website = nodes.find((node) => node["@type"] === "WebSite")!;
+    const page = nodes.find((node) => node["@type"] === "CollectionPage")!;
+    const place = nodes.find((node) => node["@type"] === "Place")!;
+    const list = nodes.find((node) => node["@type"] === "ItemList")!;
+    const operatorId = "https://crewbravo.com/#operator";
+    const { ["@context"]: websiteContext, ...expectedWebsite } = websiteLd();
+
+    expect(websiteContext).toBe("https://schema.org");
+    expect(website).toEqual(expectedWebsite);
+    expect(website).toMatchObject({ "@id": "https://uaroute.com/#website", url: "https://uaroute.com" });
+    expect(page).toMatchObject({
+      "@id": "https://uaroute.com/cities/celle/#webpage",
+      url: "https://uaroute.com/cities/celle/",
+      "@type": "CollectionPage",
+      about: { "@id": place["@id"] },
+      mainEntity: { "@id": list["@id"] },
+      isPartOf: { "@id": website["@id"] },
+      publisher: { "@id": operatorId },
+    });
+    expect(place).toMatchObject({ "@type": "Place", name: "Целле" });
+    expect(list["itemListElement"]).toEqual(visibleRoutes.map((route, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: { "@id": `https://uaroute.com/routes/${route!.slug}/#webpage` },
+    })));
+    expect(visibleRoutes.map((route) => route!.slug)).toEqual(["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"]);
+    expect([...byId.keys()]).toContain(operatorId);
+    for (const entry of list["itemListElement"] as Array<{ item: { "@id": string } }>) {
+      expect(byId.has(entry.item["@id"])).toBe(true);
+    }
+    for (const node of nodes) {
+      const references = [node["isPartOf"], node["about"], node["mainEntity"], node["publisher"]]
+        .flatMap((value) => value && typeof value === "object" && "@id" in value ? [value["@id"]] : []);
+      for (const reference of references) expect(byId.has(String(reference))).toBe(true);
+    }
+    expect(JSON.stringify(graph)).not.toMatch(/Offer|BusTrip|ReserveAction|availability|areaServed|4k-koval\.com\/(?:contact|contacts)/i);
+  });
+});
+
 describe("priority route entities and sitemap", () => {
   it.each(priorityPairs)("keeps the selected %s → %s candidate directional and sourceable", (originId, destinationId, slug) => {
     const route = getResolvedRoute(slug);
@@ -84,7 +135,7 @@ describe("priority route entities and sitemap", () => {
     }
   });
 
-  it("keeps the 18 approved sitemap URLs and omits ineffective hints", () => {
+  it("keeps the 19 approved sitemap URLs and omits ineffective hints", () => {
     const entries = sitemap();
     const expectedUrls = [
       "https://uaroute.com/",
@@ -94,6 +145,7 @@ describe("priority route entities and sitemap", () => {
       "https://uaroute.com/privacy/",
       "https://uaroute.com/cities/lviv/",
       "https://uaroute.com/cities/ivano-frankivsk/",
+      "https://uaroute.com/cities/celle/",
       ...[
         "dolyna-celle",
         "celle-dolyna",
@@ -109,12 +161,13 @@ describe("priority route entities and sitemap", () => {
       ].map((slug) => `https://uaroute.com/routes/${slug}/`),
     ].sort();
 
-    expect(entries).toHaveLength(18);
+    expect(entries).toHaveLength(19);
     expect(entries.map(({ url }) => url).sort()).toEqual(expectedUrls);
     const hubDates = new Map(entries.filter(({ url }) => url.includes("/cities/")).map(({ url, lastModified }) => [url, lastModified]));
     expect(hubDates).toEqual(new Map([
       ["https://uaroute.com/cities/lviv/", "2026-10-09"],
       ["https://uaroute.com/cities/ivano-frankivsk/", "2026-10-09"],
+      ["https://uaroute.com/cities/celle/", "2026-10-09"],
     ]));
     expect(entries.filter(({ url }) => !url.includes("/cities/")).every((entry) => !("lastModified" in entry))).toBe(true);
     expect(entries.every((entry) => !("changeFrequency" in entry) && !("priority" in entry))).toBe(true);

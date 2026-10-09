@@ -9,7 +9,7 @@ Read `types.ts` first. Field names stay as they are.
 - Route copy describes confirmation of a specific trip and its terms, not denial of a selected direction. Use «Коваль» in public names and Ukrainian text; keep IDs/source URLs unchanged.
 - `claims[]`: `sourceUrl` + `lastVerifiedAt`, or leave empty
 - City `aliases`: search-only, never URLs
-- Acquisition priority is Lviv/Ivano-Frankivsk, with every supplied Ukrainian city selectable. `discovery.ts` holds fourteen Ukrainian IDs, six German IDs, two explicit city hubs and ten selected candidate pairs; expand this bounded selection only with dated matrix evidence and useful content. Priority and inquiry eligibility do not establish operational service or stops.
+- Acquisition priority is Lviv/Ivano-Frankivsk, with every supplied Ukrainian city selectable. `discovery.ts` holds fourteen Ukrainian IDs, six German IDs, three explicit city hubs (Lviv, Ivano-Frankivsk, Celle) and ten selected candidate pairs. Celle is the owner-selected return-entry experiment recorded in [the dated decision](../../docs/Marketing/Content/celle-hub-decision-and-brief-2026-10-09.md); Celle → Stryi remains inline inquiry. Expand this bounded selection only with dated selection evidence and useful content; new direction pages require matrix evidence. Priority and inquiry eligibility do not establish operational service or stops.
 
 Then `npm run validate`.
 

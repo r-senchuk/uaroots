@@ -15,7 +15,7 @@ const sitemapExpected = [
   "/routes/dolyna-celle/", "/routes/celle-dolyna/", "/routes/dolyna-wolfsburg/",
   "/routes/wolfsburg-dolyna/", "/routes/dolyna-braunschweig/", "/routes/braunschweig-dolyna/",
   "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/",
-  "/cities/lviv/", "/cities/ivano-frankivsk/",
+  "/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/",
 ];
 const editorialDocuments = ["/routes/lviv-hamburg/", "/routes/lviv-berlin/"];
 const legacyRedirects = {
@@ -46,7 +46,7 @@ function sitemapPaths() {
       `sitemap has an unexpected URL: ${url}`);
     return parsed.pathname;
   });
-  assert(paths.length === 18, `expected the reviewed 18 sitemap URLs; found ${paths.length}`);
+  assert(paths.length === 19, `expected the reviewed 19 sitemap URLs; found ${paths.length}`);
   assert(new Set(paths).size === paths.length, "sitemap contains duplicate document paths");
   assert([...paths].sort().join("\n") === [...sitemapExpected].sort().join("\n"),
     "sitemap paths differ from the reviewed commercial/export document set");
@@ -97,7 +97,7 @@ function generate() {
   if (checkOnly) assert(current === source, "CloudFront viewer function is stale; run npm run seo:generate");
   else writeFileSync(functionPath, source);
   const hash = createHash("sha256").update(source).digest("hex");
-  console.log(`seo-http-generate${checkOnly ? " --check" : ""}: ${documents.length} HTML documents (18 indexed + 2 editorial), SHA-256 ${hash}`);
+  console.log(`seo-http-generate${checkOnly ? " --check" : ""}: ${documents.length} HTML documents (19 indexed + 2 editorial), SHA-256 ${hash}`);
 }
 
 generate();

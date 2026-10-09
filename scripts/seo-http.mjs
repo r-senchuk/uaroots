@@ -10,7 +10,7 @@ const commercialSlugs = [
   "celle-lviv", "wolfsburg-ivano-frankivsk",
 ];
 const editorialSlugs = ["lviv-hamburg", "lviv-berlin"];
-const citySlugs = ["lviv", "ivano-frankivsk"];
+const citySlugs = ["lviv", "ivano-frankivsk", "celle"];
 const legacy = [["contact", "/about/"], ["contacts", "/about/"], ["carriers", "/routes/"], ["packages", "/about/"], ["gallery", "/"]];
 const maxBodyBytes = 512 * 1024;
 
@@ -204,10 +204,12 @@ export async function evaluate(origin = "https://uaroute.com") {
   }
 
   const syntheticQuery = "?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=";
-  for (const [path, target] of [["/routes", "/routes/"], ["/routes/index.html", "/routes/"], ["/contact", "/about/"]]) {
+  for (const [path, target] of [["/routes", "/routes/"], ["/routes/index.html", "/routes/"], ["/cities/celle", "/cities/celle/"], ["/contact", "/about/"]]) {
     const queryExpected = `https://uaroute.com${target}${syntheticQuery}`;
-    schedule({ label: `query preservation ${path}`, url: new URL(path + syntheticQuery, base), method: "GET",
-      expect: { redirectTo: queryExpected, maxRedirects: 1, finalStatus: 200, finalUrl: queryExpected } });
+    for (const method of ["GET", "HEAD"]) {
+      schedule({ label: `query preservation ${path}`, url: new URL(path + syntheticQuery, base), method,
+        expect: { redirectTo: queryExpected, maxRedirects: 1, finalStatus: 200, finalUrl: queryExpected } });
+    }
   }
 
   schedule({ label: "www canonical host", url: new URL("https://www.uaroute.com/routes/", base),
@@ -218,7 +220,7 @@ export async function evaluate(origin = "https://uaroute.com") {
   schedule({ label: "HTTP www legacy normalization", url: new URL("http://www.uaroute.com/contact/", base),
     expect: { maxRedirects: 2, finalStatus: 200, firstStatuses: [301, 308], finalUrl: "https://uaroute.com/about/" } });
 
-  for (const path of ["/seo-http-missing-document-20261007/", "/routes/unknown-nested-slug/", "/provider/unknown/"]) {
+  for (const path of ["/seo-http-missing-document-20261007/", "/routes/unknown-nested-slug/", "/cities/stryi/", "/provider/unknown/"]) {
     for (const method of ["GET", "HEAD"]) {
       schedule({ label: `unknown document ${path}`, url: new URL(path, base), method,
         expect: { finalStatus: 404, maxRedirects: 0 },

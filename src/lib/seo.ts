@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 
 import { absoluteUrl, siteConfig } from "@/config/site";
 import { business } from "@/config/business";
+import type { CityHubContent } from "@/data/city-hubs";
+import type { City } from "@/data/types";
+import type { ResolvedRoute } from "@/data/queries";
 
 export const travelPreviewImage = {
   path: "/arrival-social.webp",
@@ -69,15 +72,74 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
   };
 }
 
-export function websiteLd() {
+function websiteLdNode() {
   return {
-    "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteConfig.domain}/#website`,
     name: siteConfig.name,
     url: siteConfig.domain,
     description: siteConfig.description,
     inLanguage: "uk",
     publisher: { "@id": `${business.website}#operator` },
+  };
+}
+
+export function websiteLd() {
+  return { "@context": "https://schema.org", ...websiteLdNode() };
+}
+
+/** Structured data for only the selected directions visibly linked from a city hub. */
+export function cityHubCollectionLd(city: City, content: CityHubContent, visibleRoutes: readonly ResolvedRoute[]) {
+  const canonical = absoluteUrl(`/cities/${city.slug}/`);
+  const websiteId = `${siteConfig.domain}/#website`;
+  const operatorId = `${business.website}#operator`;
+  const placeId = `${canonical}#place`;
+  const pageId = `${canonical}#webpage`;
+  const listId = `${canonical}#directions`;
+  const routeNodes = visibleRoutes.map((route) => {
+    const url = absoluteUrl(`/routes/${route.slug}/`);
+    return {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: route.title,
+      description: route.description,
+      inLanguage: "uk",
+    };
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      websiteLdNode(),
+      { "@type": "Person", "@id": operatorId, name: business.operatorName, url: business.website },
+      {
+        "@type": "CollectionPage",
+        "@id": pageId,
+        url: canonical,
+        name: content.title,
+        description: content.description,
+        inLanguage: "uk",
+        isPartOf: { "@id": websiteId },
+        publisher: { "@id": operatorId },
+        about: { "@id": placeId },
+        mainEntity: { "@id": listId },
+      },
+      { "@type": "Place", "@id": placeId, name: city.name },
+      {
+        "@type": "ItemList",
+        "@id": listId,
+        name: `Напрямки ${content.cityName}`,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        numberOfItems: visibleRoutes.length,
+        itemListElement: visibleRoutes.map((route, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: { "@id": `${absoluteUrl(`/routes/${route.slug}/`)}#webpage` },
+        })),
+      },
+      ...routeNodes,
+    ],
   };
 }
 

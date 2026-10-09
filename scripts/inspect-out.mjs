@@ -18,10 +18,11 @@ export const pilotRoutes = [
 
 const sitePages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const cityHubs = [
-  { slug: "lviv", name: "Львів", headingCity: "зі Львова", cityForms: ["Львів", "Львова"], crossHub: "/cities/ivano-frankivsk/", destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
-  { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHub: "/cities/lviv/", destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "lviv", name: "Львів", headingCity: "зі Львова", heading: "Поїздки зі Львова до Німеччини та назад", cityForms: ["Львів", "Львова"], crossHubs: ["/cities/ivano-frankivsk/", "/cities/celle/"], title: "Поїздки зі Львова до Німеччини та назад | UARoute", description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника Коваль.", cardSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", heading: "Поїздки з Івано-Франківська до Німеччини та назад", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHubs: ["/cities/lviv/", "/cities/celle/"], title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute", description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником Коваль.", cardSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "celle", name: "Целле", headingCity: "із Целле", heading: "Поїздки з Целле до України та назад", cityForms: ["Целле"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/"], title: "Поїздки з Целле до України та назад | UARoute", description: "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник Коваль.", cardSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], destinations: [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]] },
 ];
-const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/"];
+const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"];
 const cityHubResources = {
   lviv: {
     url: "https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom",
@@ -41,6 +42,17 @@ const cityHubResources = {
     outbound: "Якщо до міста плануєте їхати потягом",
     returning: "пересування містом і стиковка не гарантуються зверненням до Коваль",
     purpose: "Окремо перевірити потрібну попередню або подальшу ділянку",
+    checkedAt: "2026-10-09",
+    reviewedAt: "2026-10-09",
+    contentUpdatedAt: "2026-10-09",
+  },
+  celle: {
+    url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+    label: "Офіційний довідник доїзду до Целле",
+    role: "UARoute допомагає знайти потрібний напрямок і підготувати звернення до перевізника Коваль",
+    outbound: "Якщо плануєте виїзд із Целле",
+    returning: "Для прибуття до Целле заздалегідь погодьте місце висадки",
+    purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою",
     checkedAt: "2026-10-09",
     reviewedAt: "2026-10-09",
     contentUpdatedAt: "2026-10-09",
@@ -133,6 +145,66 @@ function pageMetadata(html) {
     description: descriptionTag?.content?.trim() ?? "",
     canonicals,
   };
+}
+
+function jsonLdDocuments(html) {
+  return [...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+    .flatMap(([, source]) => {
+      try { return [JSON.parse(source ?? "")]; } catch { return []; }
+    });
+}
+
+function graphNodes(documents) {
+  return documents.flatMap((document) => Array.isArray(document?.["@graph"]) ? document["@graph"] : [document]);
+}
+
+function checkCityHubStructuredData(pagePath, html, expectedCards, name, errors) {
+  const documents = jsonLdDocuments(html);
+  const nodes = graphNodes(documents);
+  const byId = new Map(nodes.filter((node) => typeof node?.["@id"] === "string").map((node) => [node["@id"], node]));
+  const website = nodes.find((node) => node?.["@type"] === "WebSite");
+  const page = nodes.find((node) => node?.["@type"] === "CollectionPage");
+  const place = nodes.find((node) => node?.["@type"] === "Place");
+  const list = nodes.find((node) => node?.["@type"] === "ItemList");
+  const websiteId = "https://uaroute.com/#website";
+  const pageId = `${canonicalUrl(pagePath)}#webpage`;
+  const placeId = `${canonicalUrl(pagePath)}#place`;
+  const listId = `${canonicalUrl(pagePath)}#directions`;
+  const operatorId = "https://crewbravo.com/#operator";
+
+  if (!website || website["@id"] !== websiteId || website.url !== "https://uaroute.com" || website.publisher?.["@id"] !== operatorId) {
+    errors.push(`${pagePath} has a mismatched WebSite identity or publisher`);
+  }
+  if (!page || page["@id"] !== pageId || page.url !== canonicalUrl(pagePath) || page.isPartOf?.["@id"] !== websiteId ||
+    page.about?.["@id"] !== placeId || page.mainEntity?.["@id"] !== listId || page.publisher?.["@id"] !== operatorId) {
+    errors.push(`${pagePath} has an incomplete or unresolved CollectionPage graph`);
+  }
+  if (!place || place["@type"] !== "Place" || place["@id"] !== placeId || place.name !== name) {
+    errors.push(`${pagePath} has no matching visible Place entity`);
+  }
+  const actualCards = list?.itemListElement?.map((entry) => entry?.item?.["@id"]?.match(/^https:\/\/uaroute\.com\/routes\/([^/]+)\/#webpage$/)?.[1]);
+  if (list?.["@id"] !== listId || list?.itemListOrder !== "https://schema.org/ItemListOrderAscending" ||
+    JSON.stringify(actualCards) !== JSON.stringify(expectedCards) ||
+    list?.itemListElement?.some((entry, index) => entry?.["@type"] !== "ListItem" || entry.position !== index + 1)) {
+    errors.push(`${pagePath} ItemList differs from the exact visible commercial card order`);
+  }
+  for (const node of nodes) {
+    for (const key of ["isPartOf", "about", "mainEntity", "publisher"]) {
+      const reference = node?.[key]?.["@id"];
+      if (reference && !byId.has(reference)) errors.push(`${pagePath} structured data has an unresolved ${key} reference`);
+    }
+    if (["Offer", "BusTrip", "BusReservation", "Trip", "Product", "ReserveAction"].includes(node?.["@type"])) {
+      errors.push(`${pagePath} includes unsupported operational structured data: ${node["@type"]}`);
+    }
+  }
+  for (const entry of list?.itemListElement ?? []) {
+    const reference = entry?.item?.["@id"];
+    if (!reference || !byId.has(reference)) errors.push(`${pagePath} ItemList has an unresolved visible route reference`);
+  }
+  const breadcrumb = documents.find((document) => document?.["@type"] === "BreadcrumbList");
+  if (!breadcrumb || !breadcrumb.itemListElement?.some((entry) => entry.item === canonicalUrl(pagePath))) {
+    errors.push(`${pagePath} is missing its matching breadcrumb structured data`);
+  }
 }
 
 function htmlFilesUnder(directory) {
@@ -269,6 +341,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
 
   const homeHtml = pages.get("/") ?? "";
   const routeIndexHtml = pages.get("/routes/") ?? "";
+  const homeWebsite = graphNodes(jsonLdDocuments(homeHtml)).find((node) => node?.["@type"] === "WebSite");
+  if (homeWebsite?.["@id"] !== "https://uaroute.com/#website") errors.push("home page WebSite identity must match selected city hub graphs");
   const homeHeading = plainText(homeHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "");
   const routeIndexHeading = plainText(routeIndexHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "");
   if (!homeHeading.includes("Поїздки між Україною та Німеччиною")) {
@@ -339,15 +413,18 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     }
   }
 
-  for (const { slug, name, headingCity, cityForms, crossHub, destinations } of cityHubs) {
+  for (const { slug, name, heading, cityForms, crossHubs, title, description, cardSlugs, destinations } of cityHubs) {
     const pagePath = `/cities/${slug}/`;
     const html = pages.get(pagePath);
     if (!html) continue;
     const text = plainText(html);
     const headingTexts = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map(([, heading]) => plainText(heading ?? ""));
-    if (headingTexts.length !== 1 || !headingTexts[0]?.includes(headingCity) || !headingTexts[0]?.includes("Німеччини")) {
-      errors.push(`${pagePath} must have one Ukrainian H1 naming ${name} and Germany`);
+    if (headingTexts.length !== 1 || headingTexts[0] !== heading) {
+      errors.push(`${pagePath} must have its exact reviewed Ukrainian H1`);
     }
+    const metadata = pageMetadata(html);
+    if (title && metadata.title !== title) errors.push(`${pagePath} has a different title from the reviewed content`);
+    if (description && metadata.description !== description) errors.push(`${pagePath} has a different description from the reviewed content`);
     if (!cityForms.some((form) => text.includes(form))) {
       errors.push(`${pagePath} is missing the Ukrainian city name in server-rendered content`);
     }
@@ -373,7 +450,9 @@ export function inspectExport(root = join(process.cwd(), "out")) {
           .some(([, doubleDate, singleDate, value]) => (doubleDate ?? singleDate) === expectedResource.reviewedAt && plainText(value ?? "") === expectedResource.reviewedAt);
       });
     if (!editorialDateParagraph) errors.push(`${pagePath} is missing the editorial review date and scope`);
-    if (!text.includes("Підготуйте виїзд") || !text.includes("Підготуйте повернення") ||
+    const hasDepartureHeading = text.includes(slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд");
+    const hasArrivalHeading = text.includes(slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення");
+    if (!hasDepartureHeading || !hasArrivalHeading ||
       !text.includes("Можливість поїздки на вашу дату") || !text.includes("підтверджує перевізник Коваль")) {
       errors.push(`${pagePath} is missing direction guidance or manual-confirmation context`);
     }
@@ -382,7 +461,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     }
     const nearbySection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="nearby-places-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
     const nearbyText = plainText(nearbySection);
-    if (!nearbyText.includes("фактичне місце") || !nearbyText.includes("приватному повідомленні WhatsApp") ||
+    const privateContactContext = slug === "celle" ? "приватному повідомленні" : "приватному повідомленні WhatsApp";
+    if (!nearbyText.includes("фактичне місце") || !nearbyText.includes(privateContactContext) ||
       !nearbyText.includes("не означає посадку у вашому населеному пункті")) {
       errors.push(`${pagePath} is missing useful nearby guidance and the pickup boundary`);
     }
@@ -405,9 +485,15 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     if (!nearbySection || !anchorHrefs(nearbySection).includes("#search-heading")) {
       errors.push(`${pagePath} nearby guidance must link back to the search heading`);
     }
+    let previousDestinationIndex = -1;
     for (const [destination, localName] of destinations) {
       if (!text.includes(destination) || !text.includes(localName)) {
         errors.push(`${pagePath} is missing German pilot city ${destination} (${localName}) in server-rendered content`);
+      }
+      if (slug === "celle") {
+        const position = text.indexOf(destination, previousDestinationIndex + 1);
+        if (position < 0 || position < previousDestinationIndex) errors.push(`${pagePath} does not preserve the ordered Ukrainian choice list`);
+        previousDestinationIndex = position;
       }
     }
     for (const href of anchorHrefs(html).filter((value) => /^\/routes\/[^/]+\/$/.test(value))) {
@@ -417,12 +503,19 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     }
     const routeLinks = anchorHrefs(html).filter((value) => /^\/routes\/[^/]+\/$/.test(value));
     if (routeLinks.length === 0) errors.push(`${pagePath} must link to at least one existing commercial route`);
+    const routeCardHeading = visibleHtml.indexOf("Поради для вашого напрямку");
+    const routeCardListStart = routeCardHeading < 0 ? -1 : visibleHtml.indexOf("<ul", routeCardHeading);
+    const routeCardListEnd = routeCardListStart < 0 ? -1 : visibleHtml.indexOf("</ul>", routeCardListStart);
+    const visibleCardSlugs = routeCardListStart < 0 || routeCardListEnd < 0 ? [] :
+      anchorHrefs(visibleHtml.slice(routeCardListStart, routeCardListEnd)).filter((href) => /^\/routes\/[^/]+\/$/.test(href)).map((href) => href.split("/")[2]);
+    if (JSON.stringify(visibleCardSlugs) !== JSON.stringify(cardSlugs)) errors.push(`${pagePath} visible commercial route cards differ from the reviewed order`);
     if (!anchorHrefs(routeIndexHtml).includes(pagePath)) {
       errors.push(`${pagePath} is missing from route index discovery links`);
     }
-    if (!anchorHrefs(html).includes(crossHub)) {
-      errors.push(`${pagePath} is missing its link to the other selected city hub`);
+    for (const crossHub of crossHubs ?? []) {
+      if (!anchorHrefs(html).includes(crossHub)) errors.push(`${pagePath} is missing its related selected city hub link: ${crossHub}`);
     }
+    checkCityHubStructuredData(pagePath, html, cardSlugs ?? [], name, errors);
   }
 
   const sitemapPath = join(root, "sitemap.xml");
@@ -438,7 +531,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       .sort();
     const actual = [...locations].sort();
     if (actual.length !== expected.length || actual.some((location, index) => location !== expected[index])) {
-      errors.push("sitemap.xml must contain exactly the five public pages, two selected city hubs, and eleven commercial routes");
+      errors.push("sitemap.xml must contain exactly the five public pages, three selected city hubs, and eleven commercial routes");
     }
     const expectedLastmod = new Map(Object.entries(cityHubResources).map(([slug, content]) => [canonicalUrl(`/cities/${slug}/`), content.contentUpdatedAt]));
     for (const entry of entries) {

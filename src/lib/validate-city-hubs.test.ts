@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { cityHubContents, type CityHubContent } from "@/data/city-hubs";
 import { cities } from "@/data/cities";
 import { cityHubPaths, pilotUkrainianCityIds, selectedCandidatePairs } from "@/data/discovery";
+import { routes } from "@/data/routes";
 import { validateCityHubContent } from "./validate-city-hubs";
 
 const fixtureReferenceDate = "2035-10-09";
@@ -23,7 +24,13 @@ function syntheticDateFixture(reviewedAt: string, contentUpdatedAt: string, chec
     planningResources: [{ label: "Synthetic planning resource", url: `https://${cityId}.example.gov/guide`, checkedAt, purpose: "Перевірити потрібну ділянку." }],
     contentReview: { reviewedAt, contentUpdatedAt, reviewScope: "editorial_guidance" },
   });
-  return [record("lviv", "Fixture City A", "lviv-hannover"), record("ivano-frankivsk", "Fixture City B", "ivano-frankivsk-wolfsburg")];
+  const celle = record("celle", "Fixture City C", "celle-lviv");
+  return [record("lviv", "Fixture City A", "lviv-hannover"), record("ivano-frankivsk", "Fixture City B", "ivano-frankivsk-wolfsburg"), {
+    ...celle,
+    routeSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"],
+    planningResources: [{ label: "Офіційний довідник доїзду до Целле", url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", checkedAt: "2026-10-09", purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою." }],
+    contentReview: { reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" },
+  }];
 }
 
 function addNamedTestPlace(contents = cloneContents()) {
@@ -40,7 +47,7 @@ function addNamedTestPlace(contents = cloneContents()) {
 
 describe("validateCityHubContent", () => {
   it("accepts the selected hub data and permits empty named-place lists", () => {
-    expect(validateCityHubContent(cityHubContents)).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-09")).toEqual([]);
   });
 
   it("accepts a source-backed synthetic nearby-place fixture", () => {
@@ -84,6 +91,17 @@ describe("validateCityHubContent", () => {
     expect(validateCityHubContent(duplicate, fixtureReferenceDate).join(" ")).toContain("Duplicate city hub content city id: lviv");
   });
 
+  it("rejects malformed or duplicate selected paths and unsupported hub countries", () => {
+    const malformed = validateCityHubContent(cityHubContents, fixtureReferenceDate, { hubPaths: ["/cities/Celle/"] }).join(" ");
+    expect(malformed).toContain("Malformed selected city hub path");
+
+    const duplicate = validateCityHubContent(cityHubContents, fixtureReferenceDate, { hubPaths: ["/cities/celle/", "/cities/celle/"] }).join(" ");
+    expect(duplicate).toContain("Duplicate selected city hub path");
+
+    const unsupportedCatalog = cities.map((city) => city.id === "celle" ? { ...city, country: "Austria" } : city);
+    expect(validateCityHubContent(cityHubContents, fixtureReferenceDate, { cityCatalog: unsupportedCatalog }).join(" ")).toContain("unsupported country: celle");
+  });
+
   it("requires known commercial route links and complete FAQ content", () => {
     const unknownRoute = cloneContents();
     unknownRoute[0] = { ...unknownRoute[0]!, routeSlugs: ["not-a-route"] };
@@ -96,6 +114,45 @@ describe("validateCityHubContent", () => {
     const emptyFaq = cloneContents();
     emptyFaq[0] = { ...emptyFaq[0]!, faq: [] };
     expect(validateCityHubContent(emptyFaq, fixtureReferenceDate).join(" ")).toContain("must have FAQ items");
+
+    const duplicateCards = cloneContents();
+    const celle = duplicateCards.find((content) => content.cityId === "celle")!;
+    duplicateCards[duplicateCards.indexOf(celle)] = { ...celle, routeSlugs: ["celle-lviv", "celle-lviv"] };
+    expect(validateCityHubContent(duplicateCards, fixtureReferenceDate).join(" ")).toContain("duplicate route card slug: celle-lviv");
+
+    const unrelated = cloneContents();
+    const lviv = unrelated.find((content) => content.cityId === "lviv")!;
+    unrelated[unrelated.indexOf(lviv)] = { ...lviv, routeSlugs: ["celle-dolyna"] };
+    expect(validateCityHubContent(unrelated, fixtureReferenceDate).join(" ")).toContain("unrelated route: celle-dolyna");
+
+    const sameCountryRoutes = structuredClone(routes);
+    const celleLviv = sameCountryRoutes.find((route) => route.slug === "celle-lviv")!;
+    celleLviv.destinationCityId = "braunschweig";
+    expect(validateCityHubContent(cloneContents(), fixtureReferenceDate, { routeCatalog: sameCountryRoutes }).join(" ")).toContain("unsupported country pair: celle-lviv");
+
+    const mismatchedEndpointCatalog = cities.map((city) => city.id === "celle" ? { ...city, country: "Austria" } : city);
+    const lvivOnly = cloneContents().filter((content) => content.cityId === "lviv").map((content) => ({ ...content, routeSlugs: ["lviv-celle"] }));
+    expect(validateCityHubContent(lvivOnly, fixtureReferenceDate, {
+      hubPaths: ["/cities/lviv/"],
+      cityCatalog: mismatchedEndpointCatalog,
+    }).join(" ")).toContain("unsupported country pair: lviv-celle");
+
+    const missingEndpointRoutes = structuredClone(routes);
+    missingEndpointRoutes.find((route) => route.slug === "celle-lviv")!.destinationCityId = "missing-city";
+    expect(validateCityHubContent(cloneContents(), fixtureReferenceDate, { routeCatalog: missingEndpointRoutes }).join(" ")).toContain("unknown endpoint city");
+  });
+
+  it("keeps Celle's selected directions, source, and editorial dates in the reviewed content", () => {
+    const celle = cityHubContents.find((content) => content.cityId === "celle")!;
+    expect(celle.routeSlugs).toEqual(["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"]);
+    expect(celle.planningResources).toEqual([{
+      label: "Офіційний довідник доїзду до Целле",
+      url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+      checkedAt: "2026-10-09",
+      purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою.",
+    }]);
+    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" });
+    expect(validateCityHubContent(cityHubContents, "2026-10-09")).toEqual([]);
   });
 
   it("requires unique nearby keys and complete source-backed context", () => {

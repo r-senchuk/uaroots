@@ -62,6 +62,10 @@ export default function RoutesIndexPage() {
               <span className="block font-display text-3xl">Івано-Франківськ ↔ Німеччина</span>
               <span className="mt-3 block type-button text-primary">Напрямки та підготовка поїздки →</span>
             </Link>
+            <Link href="/cities/celle/" className="border border-border-strong p-5 hover:bg-secondary focus-visible:outline-2 focus-visible:outline-primary">
+              <span className="block font-display text-3xl">Целле ↔ Україна</span>
+              <span className="mt-3 block type-button text-primary">Міста, напрямки та підготовка поїздки →</span>
+            </Link>
           </div>
         </section>
 

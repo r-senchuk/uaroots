@@ -27,7 +27,7 @@ export const pilotGermanCityIds = [
 
 export const priorityOriginCityIds = ["lviv", "ivano-frankivsk"] as const;
 
-export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/"] as const;
+export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"] as const;
 
 /** Explicitly selected pages only; do not derive route slugs from these pairs. */
 export const selectedCandidatePairs = [
