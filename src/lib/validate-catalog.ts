@@ -2,6 +2,7 @@ import { carriers, getCarrier, getDesk } from "@/data/carriers";
 import { cities } from "@/data/cities";
 import { selectedCandidatePairs } from "@/data/discovery";
 import { routes } from "@/data/routes";
+import { validateCityHubContent } from "@/lib/validate-city-hubs";
 
 function duplicateValues(values: string[]): string[] {
   const seen = new Set<string>();
@@ -14,7 +15,7 @@ function duplicateValues(values: string[]): string[] {
 }
 
 export function validateCatalog(): string[] {
-  const errors: string[] = [];
+  const errors: string[] = [...validateCityHubContent()];
   const cityIds = new Set(cities.map((city) => city.id));
 
   for (const id of duplicateValues(cities.map((city) => city.id))) {

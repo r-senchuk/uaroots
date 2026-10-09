@@ -22,6 +22,30 @@ const cityHubs = [
   { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHub: "/cities/lviv/", destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
 ];
 const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/"];
+const cityHubResources = {
+  lviv: {
+    url: "https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom",
+    label: "Офіційний довідник громадського транспорту Львова",
+    role: "UARoute допомагає знайти напрямок зі Львова до потрібного міста Німеччини або назад",
+    outbound: "Якщо спочатку добираєтеся до Львова",
+    returning: "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою",
+    purpose: "Перевірити актуальні правила доїзду в місті",
+    checkedAt: "2026-10-09",
+    reviewedAt: "2026-10-09",
+    contentUpdatedAt: "2026-10-09",
+  },
+  "ivano-frankivsk": {
+    url: "https://booking.uz.gov.ua/",
+    label: "Офіційний пошук квитків Укрзалізниці",
+    role: "UARoute допомагає знайти напрямок з Івано-Франківська до потрібного міста Німеччини або назад",
+    outbound: "Якщо до міста плануєте їхати потягом",
+    returning: "пересування містом і стиковка не гарантуються зверненням до Коваль",
+    purpose: "Окремо перевірити потрібну попередню або подальшу ділянку",
+    checkedAt: "2026-10-09",
+    reviewedAt: "2026-10-09",
+    contentUpdatedAt: "2026-10-09",
+  },
+};
 const editorialRouteSlugs = ["lviv-hamburg", "lviv-berlin"];
 const legacyRedirects = [
   ["contact", "/about/"],
@@ -61,6 +85,13 @@ const forbiddenCandidateClaims = [
   "Адресна доставка пасажирів у Німеччині",
   "Бронювання без передоплати",
   "Мікроавтобуси Mercedes Sprinter",
+];
+const forbiddenCityHubClaims = [
+  "гарантуємо місце",
+  "гарантуємо посадку",
+  "гарантована стиковка",
+  "пересадка гарантована",
+  "без пересадок",
 ];
 
 function decodeHtml(value) {
@@ -320,9 +351,59 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     if (!cityForms.some((form) => text.includes(form))) {
       errors.push(`${pagePath} is missing the Ukrainian city name in server-rendered content`);
     }
+    const expectedResource = cityHubResources[slug];
+    if (!text.includes(expectedResource.role)) errors.push(`${pagePath} is missing its concise UARoute discovery role`);
+    if (!text.includes(expectedResource.outbound) || !text.includes(expectedResource.returning)) errors.push(`${pagePath} is missing outbound or return planning guidance`);
+    const visibleHtml = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ");
+    const resourceAnchor = [...visibleHtml.matchAll(/<a\b[^>]*href=(?:"([^"]*)"|'([^']*)')[^>]*>([\s\S]*?)<\/a>/gi)]
+      .find(([, doubleHref, singleHref]) => (doubleHref ?? singleHref) === expectedResource.url);
+    if (!resourceAnchor || !plainText(resourceAnchor[3] ?? "").includes(expectedResource.label)) {
+      errors.push(`${pagePath} is missing the expected visible city planning resource`);
+    }
+    const resourceCard = resourceAnchor ? visibleHtml.slice(visibleHtml.lastIndexOf("<li", resourceAnchor.index), visibleHtml.indexOf("</li>", resourceAnchor.index) + 5) : "";
+    if (!plainText(resourceCard).includes(expectedResource.purpose)) errors.push(`${pagePath} is missing the passenger action for its planning resource`);
+    const resourceTime = [...resourceCard.matchAll(/<time\b[^>]*datetime=(?:"([^"]*)"|'([^']*)')[^>]*>([\s\S]*?)<\/time>/gi)]
+      .find(([, doubleDate, singleDate, value]) => (doubleDate ?? singleDate) === expectedResource.checkedAt && plainText(value ?? "") === expectedResource.checkedAt);
+    if (!resourceTime || !plainText(resourceCard).includes("Довідник переглянуто")) errors.push(`${pagePath} is missing a visible reviewed resource date`);
+    const editorialDateParagraph = [...visibleHtml.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map(([, paragraph]) => paragraph ?? "")
+      .find((paragraph) => {
+        if (!plainText(paragraph).includes("Редакційні поради переглянуто")) return false;
+        return [...paragraph.matchAll(/<time\b[^>]*datetime=(?:"([^"]*)"|'([^']*)')[^>]*>([\s\S]*?)<\/time>/gi)]
+          .some(([, doubleDate, singleDate, value]) => (doubleDate ?? singleDate) === expectedResource.reviewedAt && plainText(value ?? "") === expectedResource.reviewedAt);
+      });
+    if (!editorialDateParagraph) errors.push(`${pagePath} is missing the editorial review date and scope`);
     if (!text.includes("Підготуйте виїзд") || !text.includes("Підготуйте повернення") ||
       !text.includes("Можливість поїздки на вашу дату") || !text.includes("підтверджує перевізник Коваль")) {
       errors.push(`${pagePath} is missing direction guidance or manual-confirmation context`);
+    }
+    for (const claim of forbiddenCityHubClaims) {
+      if (text.toLocaleLowerCase().includes(claim)) errors.push(`${pagePath} includes an unsupported service guarantee: ${claim}`);
+    }
+    const nearbySection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="nearby-places-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
+    const nearbyText = plainText(nearbySection);
+    if (!nearbyText.includes("фактичне місце") || !nearbyText.includes("приватному повідомленні WhatsApp") ||
+      !nearbyText.includes("не означає посадку у вашому населеному пункті")) {
+      errors.push(`${pagePath} is missing useful nearby guidance and the pickup boundary`);
+    }
+    const searchSection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="search-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
+    const confirmationNotice = "Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.";
+    if (!searchSection.includes(confirmationNotice)) {
+      errors.push(`${pagePath} must place the trip confirmation notice in the search section`);
+    }
+    const searchHeading = visibleHtml.match(/<h2\b[^>]*\bid="search-heading"[^>]*>/i);
+    const nearbyHeading = visibleHtml.match(/<h2\b[^>]*\bid="nearby-places-heading"[^>]*>/i);
+    const preparation = visibleHtml.indexOf("Підготуйте виїзд");
+    if (!searchHeading || !/\btabindex="-1"/i.test(searchHeading[0]) || !nearbyHeading ||
+      searchHeading.index >= nearbyHeading.index || nearbyHeading.index >= preparation) {
+      errors.push(`${pagePath} must focus the search heading and order search, nearby guidance, then preparation`);
+    }
+    const returningGuidance = visibleHtml.indexOf(expectedResource.returning);
+    if (resourceAnchor && (resourceAnchor.index < preparation || returningGuidance < 0 || resourceAnchor.index < returningGuidance)) {
+      errors.push(`${pagePath} planning resource must follow the outbound and return preparation guidance`);
+    }
+    if (!nearbySection || !anchorHrefs(nearbySection).includes("#search-heading")) {
+      errors.push(`${pagePath} nearby guidance must link back to the search heading`);
     }
     for (const [destination, localName] of destinations) {
       if (!text.includes(destination) || !text.includes(localName)) {
@@ -346,14 +427,27 @@ export function inspectExport(root = join(process.cwd(), "out")) {
 
   const sitemapPath = join(root, "sitemap.xml");
   if (existsSync(sitemapPath)) {
-    const locations = [...readFileSync(sitemapPath, "utf8").matchAll(/<loc>([\s\S]*?)<\/loc>/gi)]
-      .map(([, loc]) => decodeHtml(loc.trim()));
+    const sitemapXml = readFileSync(sitemapPath, "utf8");
+    const entries = [...sitemapXml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi)].map(([, entry]) => ({
+      url: decodeHtml(entry.match(/<loc>([\s\S]*?)<\/loc>/i)?.[1]?.trim() ?? ""),
+      lastmod: entry.match(/<lastmod>([\s\S]*?)<\/lastmod>/i)?.[1]?.trim(),
+    }));
+    const locations = entries.map(({ url }) => url);
     const expected = [...sitePages, ...cityHubPaths, ...pilotRoutes.map(({ slug }) => `/routes/${slug}/`)]
       .map(canonicalUrl)
       .sort();
     const actual = [...locations].sort();
     if (actual.length !== expected.length || actual.some((location, index) => location !== expected[index])) {
       errors.push("sitemap.xml must contain exactly the five public pages, two selected city hubs, and eleven commercial routes");
+    }
+    const expectedLastmod = new Map(Object.entries(cityHubResources).map(([slug, content]) => [canonicalUrl(`/cities/${slug}/`), content.contentUpdatedAt]));
+    for (const entry of entries) {
+      const expectedDate = expectedLastmod.get(entry.url);
+      if (expectedDate) {
+        if (entry.lastmod !== expectedDate) errors.push(`sitemap.xml ${entry.url} must have lastmod ${expectedDate}`);
+      } else if (entry.lastmod) {
+        errors.push(`sitemap.xml ${entry.url} must not have an unverified lastmod`);
+      }
     }
     for (const pagePath of editorialPaths) {
       if (locations.includes(canonicalUrl(pagePath))) errors.push(`${pagePath} is editorial and must not appear in sitemap.xml`);
@@ -405,6 +499,13 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     }
   }
   inspectCss(root);
+
+  for (const htmlPath of htmlFilesUnder(root)) {
+    const text = plainText(readFileSync(htmlPath, "utf8"));
+    if (text.toLocaleLowerCase().includes("прямі рейси без пересадок".toLocaleLowerCase())) {
+      errors.push(`${relative(root, htmlPath).split(sep).join("/")} includes the removed no-transfer claim`);
+    }
+  }
 
   return errors;
 }

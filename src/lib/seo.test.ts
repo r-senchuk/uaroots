@@ -111,7 +111,12 @@ describe("priority route entities and sitemap", () => {
 
     expect(entries).toHaveLength(18);
     expect(entries.map(({ url }) => url).sort()).toEqual(expectedUrls);
-    expect(entries.every((entry) => !("lastModified" in entry))).toBe(true);
+    const hubDates = new Map(entries.filter(({ url }) => url.includes("/cities/")).map(({ url, lastModified }) => [url, lastModified]));
+    expect(hubDates).toEqual(new Map([
+      ["https://uaroute.com/cities/lviv/", "2026-10-09"],
+      ["https://uaroute.com/cities/ivano-frankivsk/", "2026-10-09"],
+    ]));
+    expect(entries.filter(({ url }) => !url.includes("/cities/")).every((entry) => !("lastModified" in entry))).toBe(true);
     expect(entries.every((entry) => !("changeFrequency" in entry) && !("priority" in entry))).toBe(true);
   });
 });

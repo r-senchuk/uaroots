@@ -6,51 +6,21 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { KovalReferralLink } from "@/components/KovalReferralLink";
+import { NearbyPlaces } from "@/components/NearbyPlaces";
 import { RouteSearch } from "@/components/RouteSearch";
 import { cities, getCity } from "@/data/cities";
-import { cityHubPaths, pilotGermanCityIds, priorityOriginCityIds } from "@/data/discovery";
+import { cityHubPaths, pilotGermanCityIds } from "@/data/discovery";
+import { getCityHubContent } from "@/data/city-hubs";
 import { findRouteByCities, getResolvedRoute } from "@/data/queries";
 import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
 const hubs = cityHubPaths.map((path) => path.split("/")[2]!);
-const hubDetails = {
-  lviv: {
-    cityName: "Львів",
-    fromName: "зі Львова",
-    toName: "до Львова",
-    title: "Поїздки зі Львова до Німеччини та назад | UARoute",
-    heading: "Поїздки зі Львова до Німеччини та назад",
-    description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника Коваль.",
-    intro: "Плануєте виїзд зі Львова чи поїздку до Львова з Німеччини? Оберіть німецьке місто та перегляньте, як описати місце зустрічі, врахувати доїзд до посадки й продумати дорогу після прибуття.",
-    outbound: "Зазначте зручний район, адресу чи орієнтир у Львові й запитайте про точне місце та час посадки. Якщо добираєтеся до Львова з іншого міста, повідомте про це перевізнику: так ви зможете обговорити час на дорогу до місця зустрічі.",
-    returning: "Для виїзду з Німеччини додайте до повідомлення адресу або район зустрічі. Погодьте місце висадки у Львові. Якщо звідти їдете далі, уточніть очікуваний час прибуття й закладіть запас перед наступною поїздкою.",
-    faq: [
-      { question: "Що написати, якщо до Львова ще потрібно доїхати?", answer: "Повідомте, звідки добираєтеся та коли плануєте бути у Львові. Погодьте місце й час зустрічі, перш ніж купувати квитки на попередню ділянку шляху." },
-      { question: "Чи потрібно одразу знати дату повернення?", answer: "Можна підготувати звернення лише для виїзду. Коли визначите дату повернення, перемкніть пошук на «До України» й складіть окреме повідомлення. Якщо хочете обговорити обидві поїздки одразу, додайте дату повернення в текст WhatsApp." },
-      { question: "Що запитати, якщо подорожую з дитиною?", answer: "Укажіть вік дитини й запитайте про вартість, дитяче крісло, багаж та потрібні для перевезення умови. Перевізник має підтвердити, що можна організувати саме для вашої поїздки." },
-    ],
-    routeSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"],
-  },
-  "ivano-frankivsk": {
-    cityName: "Івано-Франківськ",
-    fromName: "з Івано-Франківська",
-    toName: "до Івано-Франківська",
-    title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute",
-    heading: "Поїздки з Івано-Франківська до Німеччини та назад",
-    description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником Коваль.",
-    intro: "Куди в Німеччині хочете поїхати з Івано-Франківська — або звідки вирушаєте до нього? Оберіть місто й перегляньте, що запитати про посадку, великий багаж та зустріч після прибуття.",
-    outbound: "Опишіть, де вам зручно сісти в Івано-Франківську: район, адресу або орієнтир. Запитайте про точне місце й час зустрічі. Заздалегідь повідомте кількість валіз та про великий багаж, щоб обговорити умови й вартість його перевезення.",
-    returning: "Укажіть місто відправлення в Німеччині та бажаний район зустрічі. Запитайте про місце висадки в Івано-Франківську. Якщо вас зустрічатимуть або ви плануєте їхати далі, з’ясуйте очікуваний час прибуття та як підтримувати зв’язок у дорозі.",
-    faq: [
-      { question: "Як зазначити дату, якщо можу виїхати в різні дні?", answer: "Виберіть бажану дату у формі, а в повідомленні WhatsApp додайте інші дні, які вам підходять. Запитайте перевізника, на яку з цих дат можна погодити поїздку." },
-      { question: "Як описати великий багаж?", answer: "Напишіть кількість валіз і приблизні розміри великої речі. Запитайте, чи можна взяти її з собою та скільки коштуватиме перевезення. Погодьте ці умови до виїзду." },
-      { question: "Як спланувати зустріч після повернення до Івано-Франківська?", answer: "Погодьте місце висадки й очікуваний час прибуття. Запитайте, як дізнатися про зміну часу в дорозі, та передайте ці деталі тим, хто вас зустрічає." },
-    ],
-    routeSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"],
-  },
-} as const;
+
+function isSelectedHubSlug(slug: string) {
+  return cityHubPaths.some((path) => path === `/cities/${slug}/`);
+}
 
 export function generateStaticParams() {
   return hubs.map((slug) => ({ slug }));
@@ -58,7 +28,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const details = hubDetails[slug as keyof typeof hubDetails];
+  const city = getCity(slug);
+  const details = city && isSelectedHubSlug(slug) ? getCityHubContent(city.id) : undefined;
   if (!details) return { title: "Місто не знайдено | UARoute", robots: { index: false } };
   return buildMetadata({ title: details.title, description: details.description, path: `/cities/${slug}/`, socialImage: travelPreviewImage });
 }
@@ -66,8 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CityHubPage({ params }: PageProps) {
   const { slug } = await params;
   const city = getCity(slug);
-  const details = hubDetails[slug as keyof typeof hubDetails];
-  if (!city || !details || !priorityOriginCityIds.includes(city.id as (typeof priorityOriginCityIds)[number])) notFound();
+  const details = city && isSelectedHubSlug(slug) ? getCityHubContent(city.id) : undefined;
+  if (!city || !details) notFound();
 
   const crumbs = [
     { name: "Головна", path: "/" },
@@ -88,22 +59,29 @@ export default async function CityHubPage({ params }: PageProps) {
           <p className="mt-6 type-label text-muted-foreground">Виїзд і повернення</p>
           <h1 className="mt-3 max-w-4xl type-h1">{details.heading}</h1>
           <p className="mt-4 max-w-3xl type-body text-muted-foreground">{details.intro}</p>
-          <div className="mt-6 max-w-3xl border-l-2 border-primary pl-4">
-            <p className="type-body-small text-muted-foreground">Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.</p>
-          </div>
         </div>
       </section>
 
       <section className="container-page py-8 sm:py-10" aria-labelledby="search-heading">
         <p className="type-label text-muted-foreground">Вибір напрямку</p>
-        <h2 id="search-heading" className="mt-3 type-h2">Куди хочете їхати?</h2>
+        <h2 id="search-heading" tabIndex={-1} className="mt-3 scroll-mt-24 type-h2">Куди хочете їхати?</h2>
         <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
           {details.cityName} вже вибрано. Додайте місто в Німеччині, а для повернення натисніть «До України» — вибрана пара міст збережеться.
+        </p>
+        <p className="mt-5 max-w-3xl border-l-2 border-primary pl-4 type-body-small text-muted-foreground">
+          Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.
         </p>
         <div className="mt-8 max-w-5xl border border-border-strong p-5 sm:p-8">
           <RouteSearch key={city.id} sourcePath={`/cities/${city.slug}/`} ctaLocation="route_index" initialOriginId={city.id} showPilotChoices />
         </div>
       </section>
+
+      <NearbyPlaces
+        heading={details.nearbyHeading}
+        intro={details.nearbyIntro}
+        actionText={details.nearbyActionText}
+        places={details.nearbyPlaces}
+      />
 
       <section className="border-y border-border-strong bg-secondary/40">
         <div className="container-page grid gap-10 py-12 sm:py-16 lg:grid-cols-2">
@@ -117,6 +95,27 @@ export default async function CityHubPage({ params }: PageProps) {
             <h2 className="mt-3 type-h2">Підготуйте повернення</h2>
             <p className="mt-4 max-w-xl type-body text-muted-foreground">{details.returning}</p>
           </div>
+          {details.planningResources.length > 0 ? (
+            <div className="lg:col-span-2">
+              <h3 className="type-h3">Корисний довідник</h3>
+              <ul className="mt-3 grid gap-4 sm:grid-cols-2">
+                {details.planningResources.map((resource) => (
+                  <li key={resource.url} className="border border-border-strong p-5">
+                    <a className="inline-flex min-h-11 items-center link-underline" href={resource.url}>
+                      {resource.label} ↗
+                    </a>
+                    <p className="mt-2 type-body-small text-muted-foreground">{resource.purpose}</p>
+                    <p className="mt-2 type-caption text-muted-foreground">
+                      Довідник переглянуто <time dateTime={resource.checkedAt}>{resource.checkedAt}</time>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          <p className="type-caption text-muted-foreground lg:col-span-2">
+            Редакційні поради переглянуто <time dateTime={details.contentReview.reviewedAt}>{details.contentReview.reviewedAt}</time>
+          </p>
         </div>
       </section>
 

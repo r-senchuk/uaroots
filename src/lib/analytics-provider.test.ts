@@ -39,6 +39,16 @@ describe("single consented analytics transport", () => {
     expect(dataLayer[3]).toMatchObject({ event: "uaroute_analytics", uaroute: { event_name: "page_view", parameters: { page_location: "https://uaroute.com/", page_referrer: "" } } });
     expect((dataLayer[3] as { uaroute: { parameters: object } }).uaroute.parameters).not.toHaveProperty("destination");
   });
+  it("sends only the bounded Gemini label and medium to an enabled provider", () => {
+    const { dataLayer } = browser();
+    vi.stubGlobal("document", { referrer: "https://gemini.google.com/app/private?prompt=private" });
+    track("page_view");
+    const serialized = JSON.stringify(dataLayer);
+    expect(serialized).toContain('"source":"gemini"');
+    expect(serialized).toContain('"medium":"referral"');
+    expect(serialized).not.toContain("gemini.google.com");
+    expect(serialized).not.toContain("private");
+  });
   it("keeps actions before consent or provider readiness local without replay", () => {
     const { dataLayer } = browser(false, false);
     track("whatsapp_click");

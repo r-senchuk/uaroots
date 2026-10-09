@@ -145,8 +145,43 @@ describe("analytics privacy boundary", () => {
     expect(JSON.stringify(captureAttribution())).not.toContain("private-query");
 
     resetAttributionForTests();
+    vi.stubGlobal("document", { referrer: "https://gemini.google.com/app/private?q=private-query" });
+    expect(captureAttribution()).toMatchObject({ source: "gemini", medium: "referral" });
+    expect(JSON.stringify(captureAttribution())).not.toContain("private-query");
+
+    resetAttributionForTests();
+    for (const referrer of ["https://accounts.gemini.google.com/", "https://GEMINI.GOOGLE.COM/"]) {
+      resetAttributionForTests();
+      vi.stubGlobal("document", { referrer });
+      expect(captureAttribution()).toMatchObject({ source: "gemini", medium: "referral" });
+    }
+
+    for (const referrer of [
+      "https://google.com.example.org/",
+      "https://gemini.google.com.example.org/",
+      "https://gemini.google.com@evil.example/",
+      "not a url",
+    ]) {
+      resetAttributionForTests();
+      vi.stubGlobal("document", { referrer });
+      expect(captureAttribution()).toMatchObject({ source: "unknown", medium: "referral" });
+      expect(JSON.stringify(captureAttribution())).not.toContain(referrer);
+    }
+
+    resetAttributionForTests();
     vi.stubGlobal("document", { referrer: "https://chatgpt.com/c/secret-path" });
     expect(captureAttribution()).toMatchObject({ source: "chatgpt", medium: "referral" });
+
+    for (const [referrer, source, medium] of [
+      ["https://www.bing.com/search?q=private", "bing", "organic"],
+      ["https://www.4k-koval.com/path", "koval", "referral"],
+      ["https://www.facebook.com/path", "facebook", "social"],
+      ["https://t.me/path", "telegram", "social"],
+    ]) {
+      resetAttributionForTests();
+      vi.stubGlobal("document", { referrer });
+      expect(captureAttribution()).toMatchObject({ source, medium });
+    }
 
     resetAttributionForTests();
     vi.stubGlobal("document", { referrer: "https://unexpected.example/path?email=person" });

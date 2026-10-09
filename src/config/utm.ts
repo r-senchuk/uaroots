@@ -5,6 +5,7 @@ export const acquisitionChannels = {
   facebook: "social",
   telegram: "social",
   chatgpt: "referral",
+  gemini: "referral",
   koval: "referral",
   direct: "direct",
   unknown: "referral",

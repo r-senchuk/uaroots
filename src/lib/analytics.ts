@@ -101,6 +101,7 @@ let latestRouteView: RouteViewSnapshot | null = null;
 let latestPageView: RouteViewSnapshot | null = null;
 
 const referrerFamilies: Array<{ source: string; medium: string; domains: string[] }> = [
+  { source: "gemini", medium: "referral", domains: ["gemini.google.com"] },
   {
     source: "google",
     medium: "organic",

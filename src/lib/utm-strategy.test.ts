@@ -95,6 +95,16 @@ describe("UTM acquisition and partner separation", () => {
     ).toEqual({ source: "telegram", medium: "social" });
   });
 
+  it("accepts only the coherent Gemini referral pair and preserves malformed or duplicate fallback", () => {
+    expect(parseAcquisitionTags(new URLSearchParams("utm_source=gemini&utm_medium=referral"))).toEqual({ source: "gemini", medium: "referral" });
+    expect(parseAcquisitionTags(new URLSearchParams("utm_source=gemini&utm_medium=organic"))).toBeUndefined();
+    expect(parseAcquisitionTags(new URLSearchParams("utm_source=gemini&utm_medium=referral&utm_source=google"))).toBeUndefined();
+
+    vi.stubGlobal("window", { location: { pathname: "/", search: "?utm_source=gemini&utm_medium=organic" } });
+    vi.stubGlobal("document", { referrer: "https://gemini.google.com/" });
+    expect(captureAttribution()).toEqual({ source: "gemini", medium: "referral", landingPage: "/" });
+  });
+
   it("builds clean external campaign links but rejects SEO, private query text and editorial targets", () => {
     expect(buildCampaignLink("/cities/lviv", "telegram", "route_launch")).toBe(
       "https://uaroute.com/cities/lviv/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch",
