@@ -41,6 +41,8 @@ async function intercept(route) {
 
 async function load(page, path) {
   await page.goto(`${origin}${path}`, { waitUntil: "networkidle" });
+  const refusal = page.getByRole("button", { name: "Без аналітики", exact: true });
+  if (await refusal.isVisible()) await refusal.click();
 }
 
 async function choose(page, uk, de, backwards = false) {

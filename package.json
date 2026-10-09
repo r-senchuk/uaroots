@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=20.9.0"
+    "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -24,10 +24,11 @@
     "seo:generate": "node scripts/seo-http-generate.mjs",
     "seo:http": "node scripts/seo-http.mjs",
     "release:preflight": "bash scripts/deploy.sh --dry-run",
-    "test:seo-release": "node --test scripts/seo-release.test.mjs",
+    "test:seo-release": "node --test scripts/seo-release.test.mjs scripts/release-tooling.test.mjs scripts/production-release.test.mjs",
     "seo:verify-artifact": "node scripts/seo-http-generate.mjs --check",
     "docs:index": "node scripts/okf.mjs --write",
-    "test:okf": "node --test scripts/okf.test.mjs"
+    "test:okf": "node --test scripts/okf.test.mjs",
+    "attribution:browser": "node scripts/attribution-browser.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -47,7 +48,7 @@
     "js-yaml": "^4.3.2",
     "serve": "14.2.6",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.2",
+    "typescript": "^6.0.3",
     "vitest": "^5.0.3"
   }
 }

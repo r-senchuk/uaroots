@@ -1,11 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
-import { captureAttribution, flushCurrentRouteView } from "@/lib/analytics";
+import { captureAttribution, canonicalLandingPath, flushCurrentRouteView, track } from "@/lib/analytics";
 
 /** Captures the first canonical landing and bounded UTMs before SPA navigation. */
 export function AnalyticsAttribution() {
+  const pathname = usePathname();
+  const previousPath = useRef<string | null>(null);
+  useEffect(() => {
+    if (previousPath.current === pathname) return;
+    previousPath.current = pathname;
+    if (canonicalLandingPath(pathname)) track("page_view");
+  }, [pathname]);
   useEffect(() => {
     captureAttribution();
     const flush = () => flushCurrentRouteView();

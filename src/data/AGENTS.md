@@ -12,3 +12,11 @@ Read `types.ts` first. Field names stay as they are.
 - Acquisition priority is Lviv/Ivano-Frankivsk, with every supplied Ukrainian city selectable. `discovery.ts` holds fourteen Ukrainian IDs, six German IDs, two explicit city hubs and ten selected candidate pairs; expand this bounded selection only with dated matrix evidence and useful content. Priority and inquiry eligibility do not establish operational service or stops.
 
 Then `npm run validate`.
+
+## Analytics (GA4)
+
+When querying Google Analytics via the GA4 MCP for this project, always use the following designated UARoute production property. Do not query other accounts or properties you may have access to.
+- **Account ID**: `411128490`
+- **Property ID**: `557859031`
+- **Stream ID**: `16060537484`
+- **Measurement ID**: `G-PMXHF9YT7V`

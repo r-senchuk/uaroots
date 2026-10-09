@@ -1,0 +1,71 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SiteReadWrite",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::uaroute.com/*"
+    },
+    {
+      "Sid": "SiteInventory",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::uaroute.com"
+    },
+    {
+      "Sid": "PrivateRecoveryObjects",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::uaroute-recovery-863809951348-eu-central-1/releases/*",
+        "arn:aws:s3:::uaroute-recovery-863809951348-eu-central-1/rehearsals/*"
+      ]
+    },
+    {
+      "Sid": "RecoveryInventory",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetBucketVersioning",
+        "s3:GetBucketPublicAccessBlock"
+      ],
+      "Resource": "arn:aws:s3:::uaroute-recovery-863809951348-eu-central-1"
+    },
+    {
+      "Sid": "OwnDistribution",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:GetDistribution",
+        "cloudfront:GetDistributionConfig",
+        "cloudfront:CreateInvalidation",
+        "cloudfront:GetInvalidation"
+      ],
+      "Resource": "arn:aws:cloudfront::863809951348:distribution/E3L95CZFIU6533"
+    },
+    {
+      "Sid": "OwnEdge",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:DescribeFunction",
+        "cloudfront:GetFunction",
+        "cloudfront:UpdateFunction",
+        "cloudfront:TestFunction",
+        "cloudfront:PublishFunction"
+      ],
+      "Resource": "arn:aws:cloudfront::863809951348:function/uaroute-seo-viewer-request-v1"
+    },
+    {
+      "Sid": "VerifyEdgeBlastRadius",
+      "Effect": "Allow",
+      "Action": "cloudfront:ListDistributions",
+      "Resource": "*"
+    }
+  ]
+}

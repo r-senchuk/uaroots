@@ -23,3 +23,10 @@ AGENTS.override.md
 /docs/
 /output/
 *.tsbuildinfo
+
+# Native test reports and editor/system temporary files.
+*.log
+*.tmp
+*.swp
+*.swo
+*~

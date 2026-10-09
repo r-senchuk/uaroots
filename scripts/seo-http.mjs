@@ -1,5 +1,5 @@
 import { dirname, resolve } from "node:path";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -88,12 +88,12 @@ function canonicalOf(html) {
   return html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*\bhref=["']([^"']+)["']/i)?.[1] ?? null;
 }
 
-function currentExportAssets() {
-  const html = readFileSync(resolve(root, "out/index.html"), "utf8");
+export function currentExportAssets(exportDir = resolve(root, "out")) {
+  const html = readFileSync(resolve(exportDir, "index.html"), "utf8");
   const script = html.match(/\bsrc=["'](\/_next\/static\/chunks\/[^"']+\.js)["']/i)?.[1];
   const css = html.match(/\bhref=["'](\/_next\/static\/css\/[^"']+\.css)["']/i)?.[1];
   assert(script && css, "current export must expose a JavaScript chunk and stylesheet");
-  const cssText = readFileSync(resolve(root, "out", css.slice(1)), "utf8");
+  const cssText = readFileSync(resolve(exportDir, css.slice(1)), "utf8");
   const font = cssText.match(/url\(["']?(\/_next\/static\/media\/[^)"']+\.woff2)["']?\)/i)?.[1];
   assert(font, "current export stylesheet must reference a WOFF2 font");
   return { script, css, font };

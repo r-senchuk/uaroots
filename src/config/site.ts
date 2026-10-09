@@ -1,12 +1,13 @@
 import { cities } from "@/data/cities";
 import { routes } from "@/data/routes";
+import { ctaLocations, partnerUtm } from "@/config/utm";
 
 export const siteConfig = {
   name: "UARoute",
   domain: "https://uaroute.com",
   description:
     "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику Коваль. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
-  campaign: "koval_poc",
+  campaign: partnerUtm.campaign,
 } as const;
 
 /** Absolute URL for canonical / og:url / WhatsApp message links. */
@@ -27,19 +28,9 @@ export type ReferralContext = {
   destinationCityId?: string;
 };
 
-const cityIdPattern = /^[a-z0-9-]{1,40}$/;
 const requestCodePattern = /^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{8,16}$/;
-const approvedCityIds = new Set(cities.map((city) => city.id));
 const approvedPartnerHosts = new Set(["4k-koval.com", "www.4k-koval.com"]);
-const approvedPlacements = [
-  "hero",
-  "booking_widget",
-  "partner_card",
-  "related_route",
-  "sticky_mobile",
-  "footer",
-  "route_index",
-] as const;
+const approvedPlacements = ctaLocations;
 const approvedUtmContent = new Set([
   "candidate_inquiry",
   "footer",
@@ -60,8 +51,8 @@ export function withUtm(url: string, content: string, referral?: ReferralContext
   }
   parsed.search = "";
   parsed.hash = "";
-  parsed.searchParams.set("utm_source", "uaroute");
-  parsed.searchParams.set("utm_medium", "referral");
+  parsed.searchParams.set("utm_source", partnerUtm.source);
+  parsed.searchParams.set("utm_medium", partnerUtm.medium);
   parsed.searchParams.set("utm_campaign", siteConfig.campaign);
   const safeContent = approvedUtmContent.has(content) ? content : "partner_referral";
   parsed.searchParams.set("utm_content", safeContent);
@@ -71,19 +62,28 @@ export function withUtm(url: string, content: string, referral?: ReferralContext
   if (referral?.requestCode && requestCodePattern.test(referral.requestCode)) {
     parsed.searchParams.set("ref_code", referral.requestCode);
   }
-  if (
-    referral?.originCityId &&
-    cityIdPattern.test(referral.originCityId) &&
-    approvedCityIds.has(referral.originCityId)
-  ) {
-    parsed.searchParams.set("origin_city_id", referral.originCityId);
-  }
-  if (
-    referral?.destinationCityId &&
-    cityIdPattern.test(referral.destinationCityId) &&
-    approvedCityIds.has(referral.destinationCityId)
-  ) {
-    parsed.searchParams.set("destination_city_id", referral.destinationCityId);
+  const origin = cities.find((city) => city.id === referral?.originCityId);
+  const destination = cities.find((city) => city.id === referral?.destinationCityId);
+  if (origin && destination && origin.country !== destination.country) {
+    parsed.searchParams.set("origin_city_id", origin.id);
+    parsed.searchParams.set("destination_city_id", destination.id);
   }
   return parsed.toString();
+}
+
+/** Build-time handoff artifact: safe public enums, no visitor data or identity. */
+export function getReferralContract() {
+  return {
+    version: 1,
+    service: "passenger_inquiry",
+    utm: partnerUtm,
+    approvedContent: [...approvedUtmContent].sort(),
+    approvedHosts: [...approvedPartnerHosts].sort(),
+    codePattern: requestCodePattern.source,
+    cities: cities.map(({ id, country }) => ({ id, country })),
+    cityPairRule: "complete_known_opposite_countries",
+    supportedReceiverPaths: ["/", "/about", "/contacts", "/gallery"],
+    retention: "current_visit_memory_and_validated_tagged_navigation",
+    excludedReceiverPaths: ["/packages"],
+  };
 }

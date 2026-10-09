@@ -183,6 +183,48 @@ async function run() {
       await route.abort("blockedbyclient");
     });
 
+    await runCheck("UTM acquisition survives SPA navigation and stays separate from footer referral", async () => {
+      const page = await context.newPage();
+      await page.goto(`${uarouteOrigin}/cities/lviv/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch&utm_content=ignored_private_text`, { waitUntil: "domcontentloaded" });
+      await page.waitForLoadState("networkidle");
+      await page.locator('a[href="/routes/lviv-celle/"]').first().click();
+      await page.waitForURL("**/routes/lviv-celle/");
+      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true });
+      await footer.focus();
+      const [popup] = await Promise.all([page.waitForEvent("popup"), footer.press("Enter")]);
+      const url = new URL(await footer.getAttribute("href"));
+      ensure(url.searchParams.get("utm_source") === "uaroute" && url.searchParams.get("utm_campaign") === "koval_poc", "Footer forwarded acquisition instead of referral labels");
+      ensure(/^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(url.searchParams.get("ref_code") ?? ""), "Keyboard footer handoff lacks sender code");
+      const event = await page.evaluate(() => window.__uarouteEvents?.filter((event) => event.event === "koval_site_click").at(-1));
+      ensure(event?.source === "telegram" && event?.medium === "social" && event?.campaign === "route_launch" && event?.landingPage === "/cities/lviv/" && event?.targetPath === "/routes/lviv-celle/", "SPA acquisition/current target was overwritten");
+      ensure(!JSON.stringify(event).includes("ignored_private_text"), "Raw acquisition content leaked into events");
+      await popup.close(); await page.close();
+      return { firstLanding: "/cities/lviv/", acquisition: "telegram/social/route_launch", partner: "uaroute/referral/koval_poc", keyboard: true };
+    });
+
+    await runCheck("candidate secondary website link carries sender code and cities on middle click", async () => {
+      const page = await context.newPage();
+      await page.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
+      await page.waitForLoadState("networkidle");
+      await selectCity(page, "Звідки", "Lviv", "Львів");
+      await selectCity(page, "Куди", "Celle", "Целле");
+      // Use an unpublished pair to display CandidateInquiry rather than a route-page result.
+      await selectCity(page, "Куди", "Lubeck", "Любек");
+      await page.getByRole("button", { name: "Знайти маршрут" }).click();
+      const link = page.getByRole("link", { name: "Перейдіть на сайт Коваль", exact: true });
+      await link.waitFor({ state: "visible" });
+      await link.click({ button: "middle" });
+      const href = await link.getAttribute("href");
+      const opened = await page.evaluate(() => window.__pocOpenedUrls.at(-1));
+      ensure(opened === href, "Middle-click did not open the prepared referral URL");
+      const url = new URL(href);
+      ensure(/^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(url.searchParams.get("ref_code") ?? ""), "Secondary middle-click lacks sender code");
+      ensure(url.searchParams.get("origin_city_id") === "lviv" && url.searchParams.get("destination_city_id") === "luebeck", "Secondary link lost selected cities");
+      ensure(url.searchParams.get("utm_content") === "candidate_inquiry", "Secondary link placement changed");
+      await page.close();
+      return { origin: "lviv", destination: "luebeck", middleClick: true, handoffIntercepted: true };
+    });
+
     const mobile = await context.newPage();
     await mobile.setViewportSize({ width: 375, height: 812 });
     await mobile.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
@@ -519,9 +561,9 @@ async function run() {
         await consentPage.getByRole("button", { name: "Без аналітики" }).click();
         ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === false, "Consent refusal did not disable analytics");
         ensure(uarouteAnalyticsRequests().length === googleRequestStart, "A Google analytics script was requested after consent refusal");
-        await consentPage.getByRole("button", { name: "Змінити вибір приватності" }).click();
+        await consentPage.getByRole("button", { name: "Налаштувати аналітику" }).click();
         await consentPage.getByRole("button", { name: "Дозволити аналітику" }).click();
-        await consentPage.waitForFunction(() => typeof window.gtag === "function");
+        await consentPage.waitForFunction(() => window.__uarouteAnalyticsProviderReady === true);
         ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === true, "Reaccepted consent was not applied");
         await consentPage.waitForFunction(() => [...document.scripts].some((script) => /googletagmanager\.com/i.test(script.src)));
         ensure(uarouteAnalyticsRequests().length > googleRequestStart, "No Google analytics script request was attempted after consent was accepted");
@@ -530,18 +572,21 @@ async function run() {
         await selectCity(consentPage, "Куди", "Celle", "Целле");
         await consentPage.getByRole("button", { name: "Знайти маршрут" }).click();
         await consentPage.waitForURL("**/routes/dolyna-celle/");
-        await consentPage.waitForFunction(() => Array.isArray(window.dataLayer) && window.dataLayer.some((item) => item?.[0] === "event" && item?.[1] === "route_view"), undefined, { timeout: 8000 });
-        const viewsBeforeRevoke = await consentPage.evaluate(() => window.dataLayer.filter((item) => item?.[0] === "event" && item?.[1] === "route_view").length);
-        const gtagPageLocation = await consentPage.evaluate(() => window.dataLayer.find((item) => item?.[0] === "event" && item?.[1] === "route_view")?.[2]?.page_location);
+        await consentPage.waitForFunction(() => Array.isArray(window.dataLayer) && window.dataLayer.some((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")), undefined, { timeout: 8000 });
+        const viewsBeforeRevoke = await consentPage.evaluate(() => (window.dataLayer ?? []).filter((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")).length);
+        const gtagPageLocation = await consentPage.evaluate(() => { const view = window.dataLayer.find((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")); return view?.uaroute?.parameters?.page_location ?? view?.[2]?.page_location; });
         ensure(gtagPageLocation === "https://uaroute.com/routes/dolyna-celle/", `gtag route view has wrong page_location: ${gtagPageLocation}`);
 
-        await consentPage.getByRole("button", { name: "Змінити вибір приватності" }).click();
+        await consentPage.getByRole("button", { name: "Налаштувати аналітику" }).click();
         await consentPage.getByRole("button", { name: "Без аналітики" }).click();
-        ensure(await consentPage.evaluate(() => window.__uarouteAnalyticsConsent) === false, "Consent revocation did not disable analytics");
+        await consentPage.waitForLoadState("domcontentloaded");
+        await consentPage.waitForFunction(() => window.__uarouteAnalyticsConsent === false);
+        const revokedRequestStart = uarouteAnalyticsRequests().length;
         await consentPage.locator('a[href="/routes/celle-dolyna/"]').first().click();
         await consentPage.waitForURL("**/routes/celle-dolyna/");
-        const viewsAfterRevoke = await consentPage.evaluate(() => window.dataLayer.filter((item) => item?.[0] === "event" && item?.[1] === "route_view").length);
-        ensure(viewsAfterRevoke === viewsBeforeRevoke, "gtag received a route view after consent was revoked");
+        const viewsAfterRevoke = await consentPage.evaluate(() => (window.dataLayer ?? []).filter((item) => (item?.[0] === "event" && item?.[1] === "route_view") || (item?.event === "uaroute_analytics" && item?.uaroute?.event_name === "route_view")).length);
+        ensure(viewsAfterRevoke === 0, "Analytics received a route view after withdrawal reload");
+        ensure(uarouteAnalyticsRequests().length === revokedRequestStart, "Google was requested after withdrawal reload");
         return { gtagPageLocation, routeViewsBeforeRevocation: viewsBeforeRevoke, routeViewsAfterRevocation: viewsAfterRevoke };
       });
     } else {

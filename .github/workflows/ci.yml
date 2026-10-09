@@ -14,45 +14,58 @@ permissions:
 
 env:
   NEXT_TELEMETRY_DISABLED: "1"
+  # Public build-time settings travel with the immutable CI artifact.
+  # Missing repository variables keep measurement disabled.
+  NEXT_PUBLIC_ANALYTICS_ENABLED: ${{ vars.NEXT_PUBLIC_ANALYTICS_ENABLED || 'false' }}
+  NEXT_PUBLIC_GTM_CONTAINER_ID: ${{ vars.NEXT_PUBLIC_GTM_CONTAINER_ID }}
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
 
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
       - run: npm run check
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: static-out
           path: out/
-          retention-days: 7
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
 
   release-preflight:
     needs: check
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment: production
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           name: static-out
           path: out
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
       - name: Build release manifest and run local dry-run
         run: chmod +x scripts/deploy.sh && ./scripts/deploy.sh --dry-run --manifest release-manifest.json
-      - uses: actions/upload-artifact@v4
+      - name: Package immutable release candidate
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          CI_RUN_ID: ${{ github.run_id }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+        run: node scripts/release-bundle.mjs pack --out out --edge infra/cloudfront/seo-viewer-request.v1.js --to release-bundle --sha "$SOURCE_SHA" --runId "$CI_RUN_ID" --repository "$SOURCE_REPOSITORY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: release-preflight-${{ github.sha }}
-          path: release-manifest.json
+          name: release-candidate-${{ github.sha }}
+          path: release-bundle/
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 30

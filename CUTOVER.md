@@ -14,6 +14,16 @@ The exported former-URL pages are fallback HTML redirects, not HTTP redirects. T
 | `/gallery/` | `/` |
 | Unknown `/provider/:name` | Target after edge fix: 404 page with a `/routes/` link |
 
+## GitHub Actions production deployment
+
+The [Actions deployment plan](docs/Operations/github-actions-production-deployment-plan-2026-10-07.md) records the October 7 read-only readiness review and implementation/evaluation steps. Manual deploy/rollback workflows and a dedicated scoped OIDC role are implemented. Promotion requires a successful main CI run plus reviewed full SHA and static/edge hashes. The first production run and remaining recovery limits are recorded in the [dated Actions acceptance](docs/Operations/github-actions-production-acceptance-2026-10-07.md); implementation alone is not production proof.
+
+Use `gh workflow run deploy-production.yml --ref main` with `ci_run_id`, `source_sha`, `release_hash`, and `edge_hash`. Review the independently downloaded candidate first. Run `rollback-production.yml` with `recovery_prefix` and its externally recorded `recovery_hash`; obtain both from the deployment recovery receipt. Both workflows use the same writer lock, retrieve a fresh durable current-state backup before writes, retain old S3 keys, and wait for invalidation. Rollback refuses infrastructure drift; use reviewed manual recovery if distribution configuration changed. See [tracked contracts](infra/github-actions-release.md) for retention, identity checks and private evidence boundaries.
+
+## Local Actions tooling increment
+
+See [tracked artifact/recovery commands](infra/github-actions-release.md). CI candidate packaging, remote Actions deployment and schema 2 recovery integration are implemented; full isolated CloudFront rollback rehearsal remains open. Existing manual apply gates are unchanged.
+
 ## Release preflight and publication
 
 The main-branch GitHub workflow runs checks and a local release preflight. It does not have AWS credentials and does not publish. `make release-preflight` runs the same local checks and prints a dry-run plan. The manifest includes every exported file's byte count and SHA-256 and a fingerprint of the complete manifest.
@@ -35,7 +45,7 @@ Production writes require a separately prepared and retrieved recovery bundle, a
 
 The bundle's `recovery-manifest.json` must hash-check the full prior HTML/RSC/assets artifact, identify the matching S3 bucket and CloudFront distribution, include the distribution config and CloudFront Function's unqualified ARN, `LIVE` stage ETag, code, captured function config, a synthetic test event, and expected viewer-request document behaviors, and record retrieval/checksum verification. The verifier checks that the config contains the declared S3 bucket origin and each declared viewer-request association. Missing files, changed hashes, target mismatch, incomplete artifact inventory, or a manifest mismatch stop before AWS writes. Use the output of `node scripts/seo-release.mjs verify-recovery --bundle DIR --bucket uaroute.com --distribution DISTRIBUTION_ID` to inspect that gate. The 2026-10-06 POC backups were verified locally but are not durable/offsite recovery and have no versioning; do not call them release-ready without rechecking retrieval and completeness for this release.
 
-GitHub main pushes only create preflight artifacts; they do not publish. The manual `make deploy RELEASE_MODE=apply RELEASE_MANIFEST=/path/to/reviewed-release-manifest.json ROLLBACK_DIR=/path/to/verified-recovery-bundle` applies the already-built `./out` without rebuilding it. Run checks and create/review the manifest first. If `./out` changes after review, repeat preflight and review the new manifest before applying. UARoute vendor analytics stays disabled: do not pass `NEXT_PUBLIC_GA_MEASUREMENT_ID` or enable analytics through a release environment.
+GitHub main pushes only create preflight artifacts; they do not publish. The manual `make deploy RELEASE_MODE=apply RELEASE_MANIFEST=/path/to/reviewed-release-manifest.json ROLLBACK_DIR=/path/to/verified-recovery-bundle` applies the already-built `./out` without rebuilding it. Run checks and create/review the manifest first. If `./out` changes after review, repeat preflight and review the new manifest before applying. Public analytics IDs may be supplied at build time: `NEXT_PUBLIC_GTM_CONTAINER_ID=GTM-WD2F63V5` and `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-PMXHF9YT7V`. Keep `NEXT_PUBLIC_ANALYTICS_ENABLED=false` until the documented measurement activation gates pass. Deployment cannot enable collection by substituting environment variables into an existing artifact; activation requires a separately reviewed build. See the [activation specification](docs/Product/gtm-ga4-activation-spec-2026-10-07.md).
 
 ## Recovery procedure
 
@@ -67,5 +77,11 @@ aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_I
 ```
 
 The CloudFront update uses the matching distribution config captured by the bundle; it retains the function's unqualified ARN association after restoring code to LIVE. Do not restore HTML alone: stale browser tabs may still request the old RSC payloads and hashed chunks. This is a code-level restore procedure, not evidence that a durable backup or rollback rehearsal currently exists.
+
+### Initial distribution without a function
+
+The October 7 authenticated capture found no CloudFront Function association. Such a recovery bundle explicitly records `cloudFront.mode: "no-function"`, `function: null`, and an empty `documentAssociations` list. The verifier checks the complete artifact, matching bucket origin, distribution configuration fingerprint, and zero function associations across all behaviors. Missing metadata is not treated as absence. Restore the captured distribution config with a fresh ETag and invalidate; do not publish a nonexistent previous function. The newly created release function can remain unattached after recovery.
+
+Recovery resolves percent-encoded HTML asset URLs to actual S3 keys (for example `[slug]`). Next's static `404/index.html` has no required RSC sibling; ordinary document siblings remain mandatory. The regional `s3-website.REGION.amazonaws.com` origin form is accepted with an exact bucket match. Regression tests cover these production layouts.
 
 Do not install `@lovable.dev/*` or reconnect this repo to lovable.dev.

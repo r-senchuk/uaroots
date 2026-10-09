@@ -30,11 +30,7 @@ export const carriers: Carrier[] = [
       },
     ],
     claims: [
-      {
-        text: "Прямі рейси без пересадок",
-        sourceUrl: "https://www.4k-koval.com/",
-        lastVerifiedAt: "2026-09-11",
-      },
+      // Removed 2026-10-09 following the owner's 2026-10-08 correction. Do not replace with a new public guarantee, fare, or departure day.
       {
         text: "Два професійні водії",
         sourceUrl: "https://www.4k-koval.com/",

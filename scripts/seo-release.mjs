@@ -96,7 +96,7 @@ async function verifyFile(bundleRoot, entry, label) {
 
 function matchesS3Origin(domainName, bucket) {
   const escaped = bucket.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`^${escaped}\\.s3(?:\\.dualstack)?(?:\\.[a-z0-9-]+|-website-[a-z0-9-]+)?\\.amazonaws\\.com$`).test(domainName ?? '');
+  return new RegExp(`^${escaped}\\.s3(?:\\.dualstack)?(?:\\.[a-z0-9-]+|-website[.-][a-z0-9-]+)?\\.amazonaws\\.com$`).test(domainName ?? '');
 }
 
 export async function verifyRecoveryBundle(bundleDir) {
@@ -123,13 +123,13 @@ export async function verifyRecoveryBundle(bundleDir) {
   if (!artifactPaths.has('artifact/index.html')) throw new Error('recovery artifact is missing artifact/index.html');
   if (![...artifactPaths].some((file) => file.endsWith('.txt'))) throw new Error('recovery artifact has no RSC .txt payload');
   if (![...artifactPaths].some((file) => file.startsWith('artifact/_next/static/'))) throw new Error('recovery artifact has no hashed Next assets');
-  for (const htmlPath of [...artifactPaths].filter((file) => file.endsWith('/index.html') || file === 'artifact/index.html')) {
+  for (const htmlPath of [...artifactPaths].filter((file) => file !== 'artifact/404/index.html' && (file.endsWith('/index.html') || file === 'artifact/index.html'))) {
     const directory = path.posix.dirname(htmlPath);
     const rscPath = `${directory === '.' ? '' : `${directory}/`}index.txt`;
     if (!artifactPaths.has(rscPath)) throw new Error(`recovery artifact is missing matching RSC payload for ${htmlPath}`);
     const html = await readFile(path.join(root, ...htmlPath.split('/')), 'utf8');
     for (const match of html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g)) {
-      const assetPath = `artifact${match[1]}`;
+      const assetPath = safeRelativePath(`artifact${decodeURIComponent(match[1])}`, 'HTML-referenced asset');
       if (!artifactPaths.has(assetPath)) throw new Error(`recovery artifact is missing HTML-referenced asset ${assetPath}`);
     }
   }
@@ -139,6 +139,18 @@ export async function verifyRecoveryBundle(bundleDir) {
   const cloudFront = recovery.cloudFront;
   if (!cloudFront || typeof cloudFront.distributionConfigVersion !== 'string' || !cloudFront.distributionConfigVersion.trim()) {
     throw new Error('recovery manifest needs cloudFront.distributionConfigVersion');
+  }
+  if (cloudFront.mode === 'no-function') {
+    const config = await verifyFile(root, cloudFront.distributionConfig, 'CloudFront distribution config');
+    const configData = JSON.parse(await readFile(path.join(root, config.path), 'utf8'));
+    const behaviors = [configData.DefaultCacheBehavior, ...(configData.CacheBehaviors?.Items ?? [])];
+    if (cloudFront.function !== null || !Array.isArray(cloudFront.documentAssociations) || cloudFront.documentAssociations.length !== 0 || behaviors.some((behavior) => (behavior?.FunctionAssociations?.Quantity ?? 0) !== 0 || (behavior?.FunctionAssociations?.Items ?? []).length !== 0)) {
+      throw new Error('no-function recovery must capture zero function associations');
+    }
+    if (!configData.Origins?.Items?.some((origin) => matchesS3Origin(origin.DomainName, recovery.target?.bucket ?? ''))) throw new Error('CloudFront config does not contain the declared target bucket origin');
+    if (!recovery.target?.bucket || !recovery.target?.distributionId) throw new Error('recovery manifest must identify its target bucket and distribution');
+    if (recovery.verification?.retrievalVerified !== true || recovery.verification?.checksumsVerified !== true || !recovery.verification?.retrievedAt) throw new Error('recovery bundle must record verified retrieval and checksum comparison');
+    return { artifactFiles: artifact.files.length, distributionConfigVersion: cloudFront.distributionConfigVersion, functionVersion: 'none (restore captured distribution associations)', verifiedHashes: artifact.files.length + 1, config };
   }
   if (!cloudFront.function || !/^arn:aws:cloudfront::\d{12}:function\/[A-Za-z0-9_-]+$/.test(cloudFront.function.arn ?? '')) {
     throw new Error('recovery manifest needs a valid unqualified CloudFront function ARN');

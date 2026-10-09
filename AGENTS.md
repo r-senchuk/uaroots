@@ -47,13 +47,13 @@ npm run check        # docs, typecheck, lint, test, validate, build, inspect ./o
 make deploy          # apply reviewed artifact, no rebuild; explicit manifest/recovery gates in CUTOVER.md
 ```
 
-Need Node ≥ 20.9. Run the smallest check that covers the edit; `npm run check` before calling a slice done.
+Need Node 22.12+ (Node 22 line), Node 24, or Node 26+; CI follows `.nvmrc`. TypeScript 6 provides the shared compiler/API for typecheck, Next.js and ESLint; the TS7 experiment was superseded. Run the smallest check that covers the edit; `npm run check` before calling a slice done.
 
 ## Layout
 
 - Vault: OKF v0.2 concepts under `docs/`; Marketing owns acquisition/content/SEO/commercial plans, Operations owns runbooks/outcomes/release evidence, Product owns requirements and implementation contracts. Research belongs in its owning domain; decisions in `docs/Decisions/`. Regenerate indexes/maps with `npm run docs:index`, then validate. Preserve historical evidence and do not invent verified metadata. No private contracts or passenger records in Git; completion needs dated evidence.
 - Owned app: `src/app/`, `src/components/`, `src/data/`, `src/lib/`, `src/config/`
-- Frozen CRA: `legacy/` — do not restyle or “port” it
+- Historical CRA source is absent from this checkout; do not recreate `legacy/` during routine work. Any recovered rollback source stays frozen.
 - `new_design/` and `Route Planner Pro/` — gitignored Lovable specs; not a source of truth; do not deploy
 
 Public URLs: `/`, `/routes/`, `/routes/[slug]/`, `/about/`. HTML redirects: `/contact/`, `/contacts/` → `/about/`; `/carriers/` → `/routes/`; `/packages/` → `/about/`; `/gallery/` → `/`.
@@ -67,9 +67,11 @@ Public URLs: `/`, `/routes/`, `/routes/[slug]/`, `/about/`. HTML redirects: `/co
 - Only `commercial` routes belong in the index, sitemap, and search navigation. Editorial pages are `noindex`.
 - Search uses `findRouteByCities(..., { commercialOnly: true })`.
 - Directional search renders departure before arrival, preserves the selected city pair when reversing, and restricts alias suggestions to the country expected by each field. Country-only labels must not conceal the return direction.
+- Attribution: retain random `ref_code` / `koval_poc` contracts. Codes identify inquiries, not unique people or journeys. Partner attribution uses current-visit memory and validated tagged navigation; no 30-day browser persistence. Elapsed travel dates without operator evidence remain unknown, never completed journeys or billing facts. Outcome admin needs its own scoped decision; it is distinct from M2 inventory.
 - M1 inquiry: do not store names, phones, or travel dates. M2 enrolled reservations may store only necessary private booking data under ADR 0002 and a defined retention/deletion policy. Never send names, phones, selected travel dates, receipt credentials, or messages through `track()`.
 - Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump.
 - Default to Server Components. `"use client"` only for UI state, effects, or click tracking.
+- UTM policy: `src/config/utm.ts` owns coherent acquisition pairs/campaigns/CTA locations. `src/config/site.ts` exports the fixed partner referral tuple and generated `/referral-contract.json`; keep receiver allowlists synchronized via reviewed artifact snapshots. Do not forward acquisition tags to Коваль, tag internal UARoute links, or collect raw `utm_content`/`utm_term`. Referral cities must be a complete opposite-country pair.
 - Internal hrefs end with `/` except home `/`. Static export: `output: "export"`, `trailingSlash: true` — no Node SSR host, no `redirects()` in `next.config.ts`.
 - Keep modules server-safe. Request-time SSR needs a new ADR.
 

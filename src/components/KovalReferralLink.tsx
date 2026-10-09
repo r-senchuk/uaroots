@@ -4,7 +4,7 @@ import type { MouseEvent, ReactNode } from "react";
 
 import { withUtm } from "@/config/site";
 import { createLeadId } from "@/lib/whatsapp";
-import { track, type CtaLocation } from "@/lib/analytics";
+import { canonicalLandingPath, track, type CtaLocation } from "@/lib/analytics";
 
 export type KovalReferralContext = {
   originCityId?: string;
@@ -31,7 +31,7 @@ export function KovalReferralLink({
   className: string;
   children: ReactNode;
 }) {
-  const baselineHref = withUtm(href, content);
+  const baselineHref = withUtm(href, content, referralContext);
 
   function prepareReferral(event: MouseEvent<HTMLAnchorElement>) {
     let requestCode: string | undefined;
@@ -50,13 +50,14 @@ export function KovalReferralLink({
     }
 
     try {
+      const targetPath = canonicalLandingPath(window.location.pathname) ?? referralContext?.sourcePath;
       track("koval_site_click", {
         ...((routeId ?? routeSlug) ? { routeId: routeId ?? routeSlug } : {}),
         ...(referralContext?.originCityId ? { origin: referralContext.originCityId } : {}),
         ...(referralContext?.destinationCityId
           ? { destination: referralContext.destinationCityId }
           : {}),
-        ...(referralContext?.sourcePath ? { targetPath: referralContext.sourcePath } : {}),
+        ...(targetPath ? { targetPath } : {}),
         ctaLocation,
         conversionType: "koval_site",
         ...(requestCode ? { leadId: requestCode } : {}),
@@ -72,6 +73,12 @@ export function KovalReferralLink({
       target="_blank"
       rel="noopener noreferrer nofollow"
       onClick={prepareReferral}
+      onAuxClick={(event) => {
+        if (event.button !== 1) return;
+        event.preventDefault();
+        prepareReferral(event);
+        window.open(event.currentTarget.href, "_blank", "noopener,noreferrer");
+      }}
       className={className}
     >
       {children}

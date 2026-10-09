@@ -53,7 +53,10 @@ function seoQueryString(request) {
   var i;
   if (typeof request.rawQueryString === 'function') {
     raw = request.rawQueryString();
-    return raw === undefined ? '' : '?' + raw;
+    // AWS synthetic events can expose an empty helper despite populated parsed query fields.
+    if (raw || !request.querystring || Object.keys(request.querystring).length === 0) {
+      return raw === undefined ? '' : '?' + raw;
+    }
   }
   if (!request.querystring) return '';
   if (typeof request.querystring === 'string') return request.querystring ? '?' + request.querystring : '';

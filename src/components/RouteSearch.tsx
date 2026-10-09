@@ -226,6 +226,8 @@ export function RouteSearch({
       origin: origin.slug,
       destination: destination.slug,
       destinationCountry: destination.country,
+      resultCount: route ? 1 : 0,
+      matchedRouteId: route?.id,
       ...(route ? { routeSlug: route.slug } : {}),
       targetPath: sourcePath,
       ctaLocation,

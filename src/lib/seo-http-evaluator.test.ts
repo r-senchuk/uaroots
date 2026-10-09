@@ -1,10 +1,29 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { evaluateOne, requestChain } from "../../scripts/seo-http.mjs";
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
+
+import { currentExportAssets, evaluateOne, requestChain } from "../../scripts/seo-http.mjs";
 
 afterEach(() => vi.unstubAllGlobals());
 
 describe("read-only SEO HTTP evaluator", () => {
+  it("discovers the current export's hashed script, stylesheet and font before network checks", () => {
+    const directory = mkdtempSync(join(tmpdir(), "uaroute-http-assets-"));
+    try {
+      mkdirSync(join(directory, "_next/static/css"), { recursive: true });
+      writeFileSync(join(directory, "index.html"), '<script src="/_next/static/chunks/app.js"></script><link href="/_next/static/css/app.css" rel="stylesheet">');
+      writeFileSync(join(directory, "_next/static/css/app.css"), '@font-face{src:url(/_next/static/media/font.woff2)}');
+      expect(currentExportAssets(directory)).toEqual({
+        script: "/_next/static/chunks/app.js",
+        css: "/_next/static/css/app.css",
+        font: "/_next/static/media/font.woff2",
+      });
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
   it("fails when an allegedly missing object resolves to 200", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => new Response("home", { status: 200 })));
     const results: Array<{ state: string }> = [];

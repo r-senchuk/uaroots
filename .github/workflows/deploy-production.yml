@@ -1,0 +1,81 @@
+name: Deploy production
+on:
+  workflow_dispatch:
+    inputs:
+      ci_run_id:
+        description: Successful main CI run ID
+        required: true
+      source_sha:
+        description: Reviewed full source SHA
+        required: true
+      release_hash:
+        description: Reviewed static manifest SHA256
+        required: true
+      edge_hash:
+        description: Reviewed edge SHA256
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: uaroute-production-writer
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      CI_RUN_ID: ${{ inputs.ci_run_id }}
+      SOURCE_SHA: ${{ inputs.source_sha }}
+      RELEASE_HASH: ${{ inputs.release_hash }}
+      EDGE_HASH: ${{ inputs.edge_hash }}
+      RECOVERY_PREFIX: releases/${{ github.run_id }}-${{ github.run_attempt }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Validate candidate run before downloading
+        run: |
+          node -e 'if(!/^\d+$/.test(process.env.CI_RUN_ID)||!/^[a-f0-9]{40}$/.test(process.env.SOURCE_SHA)||![process.env.RELEASE_HASH,process.env.EDGE_HASH].every(x=>/^[a-f0-9]{64}$/.test(x)))process.exit(1)'
+          gh api "repos/r-senchuk/uaroots/actions/runs/$CI_RUN_ID" > ci-run.json
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: release-candidate-${{ inputs.source_sha }}
+          path: candidate
+          run-id: ${{ inputs.ci_run_id }}
+          github-token: ${{ github.token }}
+      - name: Verify candidate before AWS credentials
+        run: node scripts/release-bundle.mjs verify --bundle candidate --sha "$SOURCE_SHA" --runId "$CI_RUN_ID" --expectedHash "$RELEASE_HASH" --expectedEdgeHash "$EDGE_HASH" --run ci-run.json
+      - uses: aws-actions/configure-aws-credentials@ff717079ee2060e4bcee96c4779b553acc87447c
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: eu-central-1
+          allowed-account-ids: '863809951348'
+          role-session-name: uaroute-${{ github.run_id }}
+      - name: Recoverable publication and live acceptance
+        run: node scripts/production-release.mjs deploy --bundle candidate --sha "$SOURCE_SHA" --runId "$CI_RUN_ID" --expectedHash "$RELEASE_HASH" --expectedEdgeHash "$EDGE_HASH" --run ci-run.json --prefix "$RECOVERY_PREFIX" --evidence private-evidence
+      - name: Publish sanitized result
+        if: always()
+        run: |
+          mkdir -p public-evidence
+          for name in success.json recovery-receipt.json invalidation-created.json invalidation-completed.json live-http.json; do
+            if test -f "private-evidence/$name"; then cp "private-evidence/$name" public-evidence/; fi
+          done
+          printf 'Recovery prefix: `%s`\n\nDeployment stage: `%s`\n' "$RECOVERY_PREFIX" "${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: production-evidence-${{ github.run_id }}
+          path: public-evidence/
+          if-no-files-found: warn
+          retention-days: 30

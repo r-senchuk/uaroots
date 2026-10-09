@@ -3,12 +3,15 @@
  * nonpersonal fields can leave this module. Inquiry dates and contact details
  * are intentionally absent from the runtime event allowlist.
  */
+import { analyticsConfiguration } from "@/config/analytics";
 import { cities } from "@/data/cities";
 import { cityHubPaths } from "@/data/discovery";
 import { routes } from "@/data/routes";
 import { siteConfig } from "@/config/site";
+import { acquisitionChannels, acquisitionCampaigns, ctaLocations, parseAcquisitionTags } from "@/config/utm";
 
 export type AnalyticsEvent =
+  | "page_view"
   | "route_search_completed"
   | "route_view"
   | "booking_intent"
@@ -17,6 +20,7 @@ export type AnalyticsEvent =
   | "related_route_click";
 
 const approvedEvents = new Set<AnalyticsEvent>([
+  "page_view",
   "route_search_completed",
   "route_view",
   "booking_intent",
@@ -25,14 +29,7 @@ const approvedEvents = new Set<AnalyticsEvent>([
   "related_route_click",
 ]);
 
-export type CtaLocation =
-  | "hero"
-  | "booking_widget"
-  | "partner_card"
-  | "related_route"
-  | "sticky_mobile"
-  | "footer"
-  | "route_index";
+export type CtaLocation = (typeof ctaLocations)[number];
 
 export type ConversionType = "whatsapp_inquiry" | "koval_site";
 
@@ -78,27 +75,10 @@ declare global {
   }
 }
 
-const approvedSources = new Set([
-  "google",
-  "facebook",
-  "koval",
-  "bing",
-  "chatgpt",
-  "telegram",
-  "direct",
-  "unknown",
-]);
-const approvedMediums = new Set(["organic", "social", "referral", "direct"]);
-const approvedCampaigns = new Set(["route_launch", "m1", "koval_poc"]);
-const approvedCtaLocations = new Set<CtaLocation>([
-  "hero",
-  "booking_widget",
-  "partner_card",
-  "related_route",
-  "sticky_mobile",
-  "footer",
-  "route_index",
-]);
+const approvedSources = new Set(Object.keys(acquisitionChannels));
+const approvedMediums = new Set<string>(Object.values(acquisitionChannels));
+const approvedCampaigns = new Set<string>(acquisitionCampaigns);
+const approvedCtaLocations = new Set<CtaLocation>(ctaLocations);
 const approvedConversionTypes = new Set<ConversionType>(["whatsapp_inquiry", "koval_site"]);
 const cityIds = new Set(cities.map((city) => city.id));
 const routeSlugs = new Set(routes.map((route) => route.slug));
@@ -106,7 +86,7 @@ const routeIds = new Set(routes.map((route) => route.id));
 const cityCountries = new Set(cities.map((city) => city.country));
 const deskIds = new Set(["koval-de", "koval-at"]);
 function analyticsIsEnabled(): boolean {
-  return process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
+  return analyticsConfiguration().enabled;
 }
 
 type Attribution = Pick<AnalyticsContext, "source" | "medium" | "campaign" | "landingPage">;
@@ -118,8 +98,10 @@ type RouteViewSnapshot = {
   delivered: boolean;
 };
 let latestRouteView: RouteViewSnapshot | null = null;
+let latestPageView: RouteViewSnapshot | null = null;
 
 const referrerFamilies: Array<{ source: string; medium: string; domains: string[] }> = [
+  { source: "gemini", medium: "referral", domains: ["gemini.google.com"] },
   {
     source: "google",
     medium: "organic",
@@ -191,14 +173,10 @@ export function captureLandingAttribution(): Attribution {
 
   const landingPage = canonicalLandingPath(window.location.pathname);
   const params = new URLSearchParams(window.location.search);
-  const source = params.get("utm_source") ?? undefined;
-  const medium = params.get("utm_medium") ?? undefined;
-  const campaign = params.get("utm_campaign") ?? undefined;
+  const tags = parseAcquisitionTags(params);
   const referral = referralAttribution(typeof document === "undefined" ? "" : document.referrer);
   firstTouch = {
-    ...(source && approvedSources.has(source) ? { source } : { source: referral.source }),
-    ...(medium && approvedMediums.has(medium) ? { medium } : { medium: referral.medium }),
-    ...(campaign && approvedCampaigns.has(campaign) ? { campaign } : {}),
+    ...(tags ?? referral),
     ...(landingPage ? { landingPage } : {}),
   };
   window.__uarouteAnalyticsPageLocation = currentPageLocation();
@@ -294,29 +272,29 @@ function emitToLocalBuffer(payload: TrackedEvent): void {
   }
 }
 
-function emitToDataLayer(payload: TrackedEvent): void {
-  if (!analyticsIsEnabled() || window.__uarouteAnalyticsConsent !== true) return;
+/** Exactly one vendor path, with no request IDs or raw URLs outside local QA. */
+function emitToProvider(payload: TrackedEvent): void {
+  const config = analyticsConfiguration();
+  if (!config.enabled || window.__uarouteAnalyticsConsent !== true || window.__uarouteAnalyticsProviderReady !== true) return;
+  const { event, timestamp, leadId, ...context } = payload;
+  void leadId;
+  const parameters = {
+    ...context,
+    event_timestamp: timestamp,
+    page_location: currentPageLocation(),
+    page_referrer: "",
+  };
   try {
-    window.dataLayer?.push(payload);
-  } catch {
-    // Analytics sinks are optional and must not break the user flow.
-  }
-}
-
-function emitToGtag(payload: TrackedEvent): void {
-  if (!analyticsIsEnabled() || window.__uarouteAnalyticsConsent !== true) return;
-  try {
-    if (typeof window.gtag === "function") {
-      const { event, timestamp, ...context } = payload;
-      window.gtag("event", event, {
-        ...context,
-        event_timestamp: timestamp,
-        page_location: window.__uarouteAnalyticsPageLocation ?? currentPageLocation(),
-        page_referrer: "",
-      });
+    if (config.provider === "gtm") {
+      // Clear the previous envelope before the event so Version 2 nested GTM
+      // variables cannot inherit parameters from an earlier sparse event.
+      window.dataLayer?.push({ uaroute: null });
+      window.dataLayer?.push({ event: "uaroute_analytics", uaroute: { event_name: event, parameters } });
+    } else {
+      window.gtag?.("event", event, parameters);
     }
   } catch {
-    // Analytics sinks are optional and must not break the user flow.
+    // Optional measurement must never interrupt navigation or an inquiry.
   }
 }
 
@@ -334,14 +312,14 @@ function emitRouteView(snapshot: RouteViewSnapshot): void {
   // Claim delivery before calling optional sinks so repeated readiness signals
   // cannot duplicate a route view, even if an adapter throws or re-enters.
   snapshot.delivered = true;
-  emitToDataLayer(snapshot.payload);
-  emitToGtag(snapshot.payload);
+  emitToProvider(snapshot.payload);
 }
 
 /** Deliver only the latest route view when consent and the provider are ready. */
 export function flushCurrentRouteView(): void {
-  if (typeof window === "undefined" || !latestRouteView) return;
-  emitRouteView(latestRouteView);
+  if (typeof window === "undefined") return;
+  if (latestPageView) emitRouteView(latestPageView);
+  if (latestRouteView) emitRouteView(latestRouteView);
 }
 
 export function track(event: AnalyticsEvent, context: AnalyticsContext = {}): void {
@@ -359,21 +337,23 @@ export function track(event: AnalyticsEvent, context: AnalyticsContext = {}): vo
   };
 
   emitToLocalBuffer(payload);
-  if (event === "route_view") {
-    latestRouteView = {
+  if (event === "route_view" || event === "page_view") {
+    const snapshot = {
       payload,
       pageLocation,
       delivered: false,
     };
-    emitRouteView(latestRouteView);
+    if (event === "page_view") latestPageView = snapshot;
+    else latestRouteView = snapshot;
+    emitRouteView(snapshot);
     return;
   }
-  emitToDataLayer(payload);
-  emitToGtag(payload);
+  emitToProvider(payload);
 }
 
 /** Test helper; attribution itself remains memory-only during normal use. */
 export function resetAttributionForTests(): void {
   firstTouch = null;
   latestRouteView = null;
+  latestPageView = null;
 }

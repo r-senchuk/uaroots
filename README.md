@@ -54,7 +54,7 @@ All 14 Ukrainian × 6 German city choices work in both directions: ten candidate
 
 - Product: `/`, `/routes/`, `/routes/[slug]/`, `/cities/lviv/`, `/cities/ivano-frankivsk/`, `/about/`, `/privacy/`, `/imprint/`
 - Legacy HTML redirects (meta refresh + `location.replace`): `/contact/` and `/contacts/` → `/about/`; `/carriers/` → `/routes/`; `/packages/` → `/about/`; `/gallery/` → `/`
-- Generated: `/sitemap.xml`, `/robots.txt`
+- Generated: `/sitemap.xml`, `/robots.txt`, `/referral-contract.json`
 
 Static export cannot emit HTTP 301s. Real 301s belong on CloudFront at deploy time — see [CUTOVER.md](CUTOVER.md).
 
@@ -138,7 +138,8 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 
 ## Stack
 
-- Next.js 16 App Router, TypeScript, React 19
+- Next.js 16 App Router, TypeScript 6, React 19
+- `npm run typecheck` runs `tsc --noEmit`; Next.js build checks and ESLint use the same TypeScript 6 API. Next-generated `**/*.mts` coverage is retained.
 - Tailwind CSS v4 (`src/app/globals.css`); self-hosted licensed IBM Plex Sans/Mono and Playfair Display subsets
 - Static export: `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`
 - Catalog: `src/data/`
@@ -146,7 +147,7 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 - SEO helpers: `src/lib/seo.ts`
 - Analytics façade: `src/lib/analytics.ts`
 - Catalog check: `src/lib/validate-catalog.ts` (Vitest + `sitemap.ts` at build)
-- Tests: Vitest (`src/data/queries.test.ts`, `src/lib/whatsapp.test.ts`, `src/lib/validate-catalog.test.ts`)
+- Tests: Vitest 5, configured as ESM in `vitest.config.mts`; colocated `src/**/*.test.ts` plus native script regression suites
 - Lint: `eslint .` (Next.js 16 no longer ships `next lint`)
 - Quality gate: `npm run check` (documentation links, typecheck, lint, test, validate, build, inspect `./out`)
 - Deploy: `scripts/deploy.sh` (hashed assets first, revalidate HTML/RSC `.txt`, CloudFront invalidation)
@@ -161,13 +162,14 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 | `src/components/` | Product UI; `src/components/brand/` for atlas graphics |
 | `src/data/` | Cities, routes, carriers, queries |
 | `src/lib/` | WhatsApp inquiry, SEO, analytics, catalog validation, `cn` |
-| `legacy/` | Frozen CRA rollback of the live site |
-| `src/config/site.ts` | Domain, absolute URLs, UTM for partner links |
+| `src/config/` | Domain/business settings, bounded acquisition policy, fixed partner referral contract |
 | `docs/` | [Knowledge map](docs/README.md), stable numbered plans, research and accepted decisions |
 | `docs/Product/Booking/` | Planned M2 domain/API, implementation tasks, experiments and release procedures |
 | `docs/Templates/` | Evidence-note template; no passenger/private business records |
 | `output/` | Preserved local release/rollback/QA artifacts and manual QA PDF; generated bundles excluded from lint, not runtime source |
-| `scripts/check-docs.mjs` | Dependency-free local Markdown file-link checks |
+| `scripts/` | Documentation/OKF checks, synthetic browser QA, SEO evaluation and release/recovery tools |
+| `infra/` | Reviewed CloudFront function and release-tooling runbook |
+| `.github/workflows/ci.yml` | Checks, static export and immutable candidate packaging; no production writes |
 
 Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump.
 
@@ -184,21 +186,21 @@ npm run typecheck
 npm run docs:check   # local documentation file links
 npm run check        # docs, typecheck, lint, test, validate, build, inspect ./out
 npm start            # serve ./out (same files S3 would get)
-make deploy          # npm run check && ./scripts/deploy.sh
+make release-preflight # checks and reviewed artifact preparation
+make deploy          # apply existing artifact; requires explicit release/recovery gates
 ```
 
 `npm start` uses the pinned local `serve` development dependency after `npm ci`; it does not download an executable at startup. Build `out/` first with `npm run build`.
 
-Optional GA requires `NEXT_PUBLIC_ANALYTICS_ENABLED=true`, a valid `NEXT_PUBLIC_GA_MEASUREMENT_ID` and explicit visitor consent. It defaults off. Before enabling production collection, audit the GA property’s Enhanced Measurement settings (especially outbound clicks/form events) so automatic Google events cannot collect the WhatsApp message URL, phone or selected date; inspect real network payloads separately from local facade tests.
+Analytics uses public build-time settings from `.env` locally and GitHub Actions repository Variables in CI: `NEXT_PUBLIC_GTM_CONTAINER_ID=GTM-WD2F63V5`, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-PMXHF9YT7V`, and `NEXT_PUBLIC_ANALYTICS_ENABLED=false`. These IDs are public identifiers, not Secrets. `.env.example` provides the same defaults. A valid GTM container takes precedence over direct GA4 so the two providers do not load together; direct GA4 is the fallback when the container ID is absent. Collection requires the activation flag to be `true` and explicit visitor consent. Keep the flag `false` until the measurement release gates pass and the reviewed container is published. Changing Actions Variables affects the next build, not an existing immutable artifact. Before enabling production collection, audit the GA property's Enhanced Measurement settings (especially outbound clicks/form events) so automatic Google events cannot collect the WhatsApp message URL, phone or selected date; inspect real network payloads separately from local facade tests.
 
 The supported production build uses Webpack. Turbopack's CSS worker needs a loopback port that this execution sandbox forbids (including the escalated attempt); `npm run build:turbopack` remains available to retest it. Fonts require no remote build fetch. Run `npm run poc:browser` with Playwright available via `PLAYWRIGHT_MODULE_PATH` and optionally `PLAYWRIGHT_EXECUTABLE_PATH`; the harness fulfills exported files locally without opening WhatsApp. Outcome input and counting rules: [operator feedback](docs/Operations/POC/operator-feedback.md).
 
-Local `make deploy` and GitHub Actions on `main` both call `scripts/deploy.sh`. Required for upload:
+Use Node 22.12+ on the Node 22 line (CI follows `.nvmrc`), Node 24, or Node 26+. The package engine range matches Vitest 5. Run `npm ci` after pulling dependency changes.
 
-- AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`)
-- `CLOUDFRONT_DISTRIBUTION_ID`
+Local `make deploy` applies an already-built, reviewed artifact; it does not rebuild. Set `RELEASE_MODE=apply`, `RELEASE_MANIFEST` and `ROLLBACK_DIR` as described in [CUTOVER.md](CUTOVER.md), with authenticated AWS access and the exact CloudFront distribution. GitHub Actions on `main` runs checks, a dry-run preflight and immutable candidate packaging. Separate manual production deploy/rollback workflows verify candidate identity and retrieved recovery before writing through the scoped OIDC role. See [release tooling](infra/github-actions-release.md).
 
-The script matches Next.js 16 production caching on S3: hashed `/_next/static` is immutable; HTML and RSC `.txt` payloads always revalidate; new chunks upload before HTML; CloudFront `/*` is invalidated. Push to `main` runs the same path after CI; pull requests only run `npm run check`.
+The script matches Next.js 16 production caching on S3: hashed `/_next/static` is immutable; HTML and RSC `.txt` payloads always revalidate; new chunks upload before HTML; CloudFront `/*` is invalidated. Push to `main` produces a reviewable candidate after CI; pull requests only run `npm run check`.
 
 After UI changes, verify home search, a route inquiry, and `/about/` in the browser, and check view-source for the Ukrainian H1 on a route page.
 
@@ -211,3 +213,19 @@ After UI changes, verify home search, a route inquiry, and `/about/` in the brow
 - Only `commercial` routes belong in the public index and sitemap.
 - M1 inquiry details stay transient. M2 may store necessary private reservation records only under ADR 0002 and an exact retention/deletion policy. No names, phones, selected dates, or receipt credentials in public URLs or analytics.
 - Do not hard-code Koval into generic route components; routes reference `carrierIds[]` and `deskId`.
+
+### Partner attribution QA
+
+`npm run attribution:browser` checks the local Коваль receiver's tagged navigation, reload/new-tab behavior, current-visit privacy, direct visitors and WhatsApp drafts. Supply `KOVAL_DIST_PATH` for its built `dist/` and `PLAYWRIGHT_MODULE_PATH` for the available Playwright runtime. All external requests are blocked. The existing `poc:browser` command accepts the same partner build for cross-site checks. Local passing results do not verify partner deployment or operator receipt.
+
+### UTM policy and partner contract
+
+`src/config/utm.ts` defines acquisition channels/campaigns and CTA placements. Keep first UARoute acquisition separate from the fixed `uaroute/referral/koval_poc` partner touch. `buildCampaignLink` in `src/lib/campaign-links.ts` generates bounded external acquisition links; internal navigation, canonical URLs and sitemap entries stay untagged.
+
+A build generates `out/referral-contract.json` from the same outbound allowlist. Give the Коваль maintainer a reviewed snapshot for receiver compatibility checks; the live `/referral-contract.json` is available only after publication. This is a static configuration file, not a lead API. Current-visit attribution adds no browser retention or analytics activation.
+
+### Working tree and local artifacts
+
+Commit application/configuration changes, tests, reusable scripts and repository runbooks together with their dependencies. Keep secrets, passenger records, the local `docs/` vault and generated `output/` evidence out of Git. Those local directories contain useful plans and recovery/QA history; an ignored path is not automatically disposable.
+
+`.next/`, `out/`, `coverage/` and `*.tsbuildinfo` are reproducible build/test output. Remove these when resetting local generated state, then rebuild before preview, artifact inspection or release preparation. Preserve a reviewed release under `output/` before replacing `out/`; preserved recovery bundles must survive cache cleanup. `node_modules/` is the installed development environment, rebuilt with `npm ci`, not source to commit. No frozen CRA `legacy/` directory is present in this checkout; recover historical source from Git only if an explicit rollback requires it.

@@ -1,0 +1,57 @@
+name: Rollback production
+on:
+  workflow_dispatch:
+    inputs:
+      recovery_prefix:
+        description: Private recovery prefix (releases/run-attempt)
+        required: true
+      recovery_hash:
+        description: Recorded recovery manifest SHA256
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: uaroute-production-writer
+  cancel-in-progress: false
+jobs:
+  rollback:
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      CURRENT_PREFIX: releases/${{ github.run_id }}-${{ github.run_attempt }}
+      PREFIX: ${{ inputs.recovery_prefix }}
+      RECOVERY_HASH: ${{ inputs.recovery_hash }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+      - name: Validate recovery selection
+        run: node -e 'if(!/^releases\/[0-9]+-[0-9]+$/.test(process.env.PREFIX)||!/^[a-f0-9]{64}$/.test(process.env.RECOVERY_HASH))process.exit(1)'
+      - uses: aws-actions/configure-aws-credentials@ff717079ee2060e4bcee96c4779b553acc87447c
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: eu-central-1
+          allowed-account-ids: '863809951348'
+          role-session-name: uaroute-rollback-${{ github.run_id }}
+      - run: node scripts/production-release.mjs rollback --currentPrefix "$CURRENT_PREFIX" --prefix "$PREFIX" --expectedHash "$RECOVERY_HASH" --evidence private-evidence
+      - name: Sanitize rollback evidence
+        if: always()
+        run: |
+          mkdir -p public-evidence
+          for name in success.json recovery-receipt.json invalidation-created.json invalidation-completed.json live-http.json; do
+            if test -f "private-evidence/$name"; then cp "private-evidence/$name" public-evidence/; fi
+          done
+          printf 'Recovery prefix: `%s`\n\nResult: `%s`\n' "$PREFIX" "${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rollback-evidence-${{ github.run_id }}
+          path: public-evidence/
+          if-no-files-found: warn
+          retention-days: 30

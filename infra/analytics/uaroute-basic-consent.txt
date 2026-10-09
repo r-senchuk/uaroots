@@ -1,0 +1,21 @@
+// GTM sandboxed template code, not a website script.
+// Trigger: Consent Initialization — All Pages.
+// Permissions: execute __uarouteRegisterConsentListener; write the four consent types.
+const setDefaultConsentState = require('setDefaultConsentState');
+const updateConsentState = require('updateConsentState');
+const callInWindow = require('callInWindow');
+setDefaultConsentState({
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+callInWindow('__uarouteRegisterConsentListener', (choice) => {
+  updateConsentState({
+    analytics_storage: choice.analytics_storage === 'granted' ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+});
+data.gtmOnSuccess();

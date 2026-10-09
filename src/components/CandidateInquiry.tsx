@@ -6,7 +6,7 @@ import { WhatsAppIcon } from "@/components/brand/WhatsAppIcon";
 import { track, type CtaLocation } from "@/lib/analytics";
 import type { City } from "@/data/types";
 import { getCarrier } from "@/data/carriers";
-import { withUtm } from "@/config/site";
+import { KovalReferralLink } from "@/components/KovalReferralLink";
 import { buildCandidateInquiryTarget, createLeadId, localTodayISO, validateInquiry } from "@/lib/whatsapp";
 
 export function CandidateInquiry({
@@ -59,9 +59,6 @@ export function CandidateInquiry({
   }
 
   const koval = getCarrier("koval");
-  const fallbackHref = koval
-    ? withUtm(koval.website, "candidate_inquiry", { originCityId: origin.id, destinationCityId: destination.id })
-    : undefined;
 
   return (
     <section className="border border-border-strong bg-card p-6" aria-labelledby={`${idPrefix}-candidate-inquiry-title`}>
@@ -100,9 +97,13 @@ export function CandidateInquiry({
         className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-5 type-button text-primary-foreground transition-colors hover:bg-primary-hover sm:w-auto">
         <WhatsAppIcon /> Уточнити поїздку в WhatsApp
       </button>
-      {fallbackHref ? (
+      {koval ? (
         <p className="mt-4 type-caption">
-          Зручніше звернутися через сайт? <a className="underline underline-offset-2" href={fallbackHref} target="_blank" rel="noreferrer">Перейдіть на сайт Коваль</a>.
+          Зручніше звернутися через сайт? <KovalReferralLink className="underline underline-offset-2" href={koval.website}
+            content="candidate_inquiry" ctaLocation={ctaLocation}
+            referralContext={{ originCityId: origin.id, destinationCityId: destination.id, sourcePath }}>
+            Перейдіть на сайт Коваль
+          </KovalReferralLink>.
         </p>
       ) : null}
       <p className="mt-4 type-caption leading-relaxed">У WhatsApp перевірте повідомлення, додайте запитання про зустріч або багаж і надішліть його. Коваль перевірить можливість поїздки на вашу дату. Запит не резервує місце.</p>
