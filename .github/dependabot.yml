@@ -4,3 +4,16 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # TS 6 provides the compiler API used by Next.js and typescript-eslint.
+      # Revisit when both support the TS 7 toolchain (see PR #5).
+      - dependency-name: typescript
+        versions: [">=7.0.0"]
+      # Next.js React/import/accessibility lint plugins need ESLint 10 support.
+      # Revisit after the plugin stack is compatible (see PR #7).
+      - dependency-name: eslint
+        versions: [">=10.0.0"]
+      # Match the oldest supported runtime and CI baseline in .nvmrc (Node 22).
+      # Revisit alongside a runtime baseline upgrade (see PR #4).
+      - dependency-name: "@types/node"
+        versions: [">=23.0.0"]
