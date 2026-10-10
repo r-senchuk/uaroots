@@ -1,0 +1,6 @@
+{
+  "date": "2026-10-10",
+  "manifest": "../output/kb-migration-2026-10-10/migration-manifest.json",
+  "kb_manifest": "ops/migration/migration-manifest.json",
+  "note": "Migration evidence local; canonical contracts remain at original paths."
+}

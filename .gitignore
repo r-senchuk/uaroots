@@ -19,8 +19,7 @@ Route Planner Pro/
 # Local agent overrides (Codex / OpenCode). Do not commit.
 AGENTS.override.md
 
-# Local knowledge vault and generated evaluation artifacts.
-/docs/
+# Generated evaluation artifacts (documentation is version-control eligible).
 /output/
 *.tsbuildinfo
 

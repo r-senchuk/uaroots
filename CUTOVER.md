@@ -1,6 +1,6 @@
 # UARoute — deploy and former URLs
 
-`./out` is the static Next.js artifact. The dated [POC release record](docs/Operations/POC/poc-status.md) says `uaroute.com` was published and its live attribution path verified on 2026-10-06. That record does not verify operator receipt or completed journeys. Do not infer outage or a need for another cutover from older fetch failures; record new production evidence before claiming a later release.
+`./out` is the static Next.js artifact. The dated [POC release record](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/poc-status.md`) says `uaroute.com` was published and its live attribution path verified on 2026-10-06. That record does not verify operator receipt or completed journeys. Do not infer outage or a need for another cutover from older fetch failures; record new production evidence before claiming a later release.
 
 ## Former URLs
 
@@ -16,7 +16,7 @@ The exported former-URL pages are fallback HTML redirects, not HTTP redirects. T
 
 ## GitHub Actions production deployment
 
-The [Actions deployment plan](docs/Operations/github-actions-production-deployment-plan-2026-10-07.md) records the October 7 read-only readiness review and implementation/evaluation steps. Manual deploy/rollback workflows and a dedicated scoped OIDC role are implemented. Promotion requires a successful main CI run plus reviewed full SHA and static/edge hashes. The first production run and remaining recovery limits are recorded in the [dated Actions acceptance](docs/Operations/github-actions-production-acceptance-2026-10-07.md); implementation alone is not production proof.
+The [Actions deployment plan](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/github-actions-production-deployment-plan-2026-10-07.md`) records the October 7 read-only readiness review and implementation/evaluation steps. Manual deploy/rollback workflows and a dedicated scoped OIDC role are implemented. Promotion requires a successful main CI run plus reviewed full SHA and static/edge hashes. The first production run and remaining recovery limits are recorded in the [dated Actions acceptance](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/github-actions-production-acceptance-2026-10-07.md`); implementation alone is not production proof.
 
 Use `gh workflow run deploy-production.yml --ref main` with `ci_run_id`, `source_sha`, `release_hash`, and `edge_hash`. Review the independently downloaded candidate first. Run `rollback-production.yml` with `recovery_prefix` and its externally recorded `recovery_hash`; obtain both from the deployment recovery receipt. Both workflows use the same writer lock, retrieve a fresh durable current-state backup before writes, retain old S3 keys, and wait for invalidation. Rollback refuses infrastructure drift; use reviewed manual recovery if distribution configuration changed. See [tracked contracts](infra/github-actions-release.md) for retention, identity checks and private evidence boundaries.
 

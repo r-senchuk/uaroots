@@ -1,93 +1,35 @@
 # UARoute
 
-Passenger-route atlas (Ukraine → Europe). **M1: UARoute owns discovery and travel intent; Koval owns booking. M2: a gated operator booking pilot is approved as development direction, not released.**
+Ukrainian passenger discovery atlas. **M1: UARoute owns discovery/intent; Коваль owns booking.** M2 is a gated development direction, not a released reservation service.
 
-**POC scope (2026-10-06):** The owner's demand test includes Ukraine ↔ six German cities and manual confirmation by Koval. Read [POC goal](docs/Operations/POC/poc-goal.md). `commercial` means eligible published inquiry discovery, not proof of an operated/scheduled service. Selected `serviceMode: "candidate_inquiry"` pages may be indexed under constitution §40, with explicit feasibility-first copy and evidence of owner selection in the route matrix. Do not generate all candidate pairs or show carrier service claims on candidate pages. Editorial remains excluded.
+## Non-negotiable
 
-**Acquisition correction (2026-10-06):** The owner prioritizes **Lviv and Ivano-Frankivsk** for passenger acquisition; Dolyna is a secondary origin, not the default marketing center. The six Dolyna pages are the initial snapshot, not an expansion constraint or evidence of higher demand. Read the [routes SEO/marketing review](docs/Marketing/Research/routes-seo-marketing-review-2026-10-06.md) and current [release evidence](docs/Operations/POC/poc-status.md). The approved increment adds two city hubs and four explicit candidates (Lviv ↔ Celle; Ivano-Frankivsk ↔ Wolfsburg); all 14×6 city pairs are selectable in both directions without automatic page generation. `src/data/discovery.ts` controls the explicit selection. City suggestions do not establish served routes or stops; use useful direction/action/context instead of country-code decoration or invented stop chains. Current contact `targetPath` is distinct from first-touch `landingPage`; do not overwrite acquisition on internal navigation.
+- Ukrainian public copy; carrier name «Коваль». Never invent service, prices, schedules, stops or availability. `commercial` means published inquiry eligibility, not proof of operated service; editorial pages are `noindex` and excluded from search/index/sitemap.
+- Keep Lviv/Ivano-Frankivsk acquisition priority. City-pair selection is not automatic page publication. Nearby settlements may be actual origins/destinations represented by the nearest selectable city; passengers privately specify the exact place, and Коваль confirms feasibility. Names are not aliases or coverage promises.
+- Preserve city/route IDs, desks, classifications, referral allowlists and security changes. Search uses `findRouteByCities(..., { commercialOnly: true })`; reversing preserves the pair and expected countries.
+- M1 stores no passenger names, phones or travel dates; never send those, credentials or messages to `track()`. Preserve first-touch acquisition separately from current `targetPath`, complete opposite-country referral pairs, and current-visit attribution.
+- npm, TypeScript 6, Next.js static export to S3/CloudFront; no Node production server. Server Components by default; internal hrefs end in `/` except home. No dependency upgrades, account/global configuration changes or publication implied by a local edit.
+- Preserve unrelated dirty files. Local tests use disposable fixtures; external collectors/handoffs must be intercepted. Commit/push/deployment require user authorization, which persists within its stated scope. Prefer GitHub Actions/OIDC for authorized deployment; follow [CUTOVER.md](CUTOVER.md).
 
-**Acquisition clarification (2026-10-09):** Dolyna is an established local market for Koval according to the owner and is not a priority for new UARoute acquisition; do not plan a new Dolyna promo hub/campaign as the next increment. Keep useful existing pages/selection. Vyhoda/Hoshiv/Lachendorf are examples of nearby-settlement context, not a fixed coverage list. Apply useful local catchment guidance to each selected UA/DE city hub without claiming universal pickup or aliasing distinct places. First strengthen existing Lviv/Ivano-Frankivsk hubs; new Stryi/Celle/pair pages require marketing rationale, not automatic publication from an example. Read [intent, goals and requirements MR01–MR14](docs/Marketing/Content/acquisition-intent-and-requirements-2026-10-09.md).
+## Read only what applies
 
-Read [ADR 0002](docs/Decisions/0002-gated-operator-booking-pilot.md), [booking development strategy](docs/Product/13-booking-pilot-development-strategy.md), and [site details](docs/Product/14-booking-pilot-site-details.md) for booking work. Do not enable reservations before the documented gates pass; do not present planned APIs or inventory as implemented.
+Use the [expanded contract](docs/Operations/Agentic/Operational/repository-contract.md) for the relevant product/domain section, not every linked document. For product, content, SEO, inquiry, analytics or architecture changes, read [the constitution](docs/00-project-constitution.md) and the relevant domain contract; report contradictions rather than silently overriding Level 1.
 
-**Operator-model clarification (2026-10-08):** The owner describes one flexible Dolyna–Germany corridor with coordinated vehicles, pickup/distribution branches and regular transfers among Koval vehicles. Rare transfers to another carrier are arranged individually. The owner states a uniform per-seat fare independent of distance, currently about EUR 170; do not describe it as distance-based or a "from" price. Friday outbound is owner-reported; Tuesday return retains the initial uncertainty. Passenger city pairs (e.g. Celle → Stryi) are discovery intents, not separate fixed operated lines. See [flexible-corridor SEO research](docs/Marketing/Research/flexible-corridor-seo-2026-10-08.md) and [development strategy](docs/Product/18-flexible-corridor-development-strategy.md). Owner-reported fleet, departure days, approximate fare and uncertain terminal/return details are planning context, not verified public timetable/fare/availability. Do not promise the same vehicle or no transfers. City hubs may use useful nearby-settlement context (Dolyna: Vyhoda/Hoshiv; Celle: Lachendorf), without implying stops or pickup. Nearby settlements are distinct places, not hub aliases. Celle → Stryi remains an illustrative candidate; the October 9 acquisition clarification governs sequencing, with explicit selection/provenance and FC01–FC10 before publication; this does not automatically expand the six-city POC or publish every pair. Regular vehicle redistribution is not verified fit for the current whole-trip M2 model: BK-01 must select a genuinely stable allocation or keep inquiry-only/pivot; multi-vehicle/leg inventory requires separate scope/ADR before build.
-
-`docs/` is a local, Git-ignored vault, not included in a fresh checkout. Consult it when available; do not infer deployment or completed gates when evidence is absent. Repository checks skip vault validation only when `docs/` is absent.
-
-Human map: [README.md](README.md); OKF discovery: [docs/index.md](docs/index.md), [document map](docs/map.md), [format profile](docs/okf-profile.md); human guide: [docs/README.md](docs/README.md). Read the relevant section index first; do not dump the whole `docs/` tree into context.
-
-The demand POC for [uaroute.com](https://uaroute.com) and Koval was published and its live attribution path verified on 2026-10-06; dated artifact fingerprints and evidence are in [docs/Operations/POC/poc-status.md](docs/Operations/POC/poc-status.md). Operator receipt and completed journeys remain unverified. Use the [M1 status register](docs/Operations/m1-implementation-checklist.md) for other readiness dimensions; do not infer an outage from a failed fetch or assume a later repository build is deployed.
-
-## Start here
-
-| Task | Read first |
+| Task | Entry point |
 | --- | --- |
-| Current demand strategy / outcome review | [docs/Operations/POC/next-steps.md](docs/Operations/POC/next-steps.md), [POC status](docs/Operations/POC/poc-status.md), [operator feedback](docs/Operations/POC/operator-feedback.md) |
-| SEO implementation / evaluation | [SEO upgrade plan](docs/Marketing/SEO/upgrade-plan-2026-10-06.md), [EDD criteria](docs/Marketing/SEO/evaluation-contract-2026-10-06.md); local pass is distinct from live evidence |
-| Product / copy / SEO | [docs/00-project-constitution.md](docs/00-project-constitution.md), then [Product](docs/Product/index.md) or [Marketing](docs/Marketing/index.md) |
-| Catalog (cities, routes, carriers, desks, claims) | [src/data/AGENTS.md](src/data/AGENTS.md) |
-| Inquiry / WhatsApp / desks | `src/lib/whatsapp.ts`, [docs/Operations/07-koval-integration-and-conversion.md](docs/Operations/07-koval-integration-and-conversion.md) |
-| Parcel idea / development | [docs/Marketing/16-parcel-service-development-strategy.md](docs/Marketing/16-parcel-service-development-strategy.md); secondary referral fits M1, dedicated page/form needs scope update; no parcels in passenger forms, outcome schema or M2 seat inventory |
-| Analytics | `src/lib/analytics.ts` (do not invent `ctaLocation` values) |
-| Booking pilot / development strategy | [docs/Product/13-booking-pilot-development-strategy.md](docs/Product/13-booking-pilot-development-strategy.md), [docs/Product/14-booking-pilot-site-details.md](docs/Product/14-booking-pilot-site-details.md), [ADR 0002](docs/Decisions/0002-gated-operator-booking-pilot.md) |
-| Booking implementation / safety | [docs/Product/Booking/domain-and-api.md](docs/Product/Booking/domain-and-api.md), [implementation backlog](docs/Product/Booking/implementation-backlog.md) |
-| Booking validation / operations | [pilot experiment](docs/Operations/Booking/pilot-experiment.md), [operations/release](docs/Operations/Booking/operations-and-release.md) |
-| Stack / hosting | [docs/Decisions/0001-nextjs-static-export.md](docs/Decisions/0001-nextjs-static-export.md) |
-| Cutover / old URLs | [CUTOVER.md](CUTOVER.md) |
-| UI verification | skill `verify-pages` |
+| Agent workflow, verification, delegation | [Operational agreement](docs/Operations/Agentic/Operational/working-agreement.md) |
+| Known pitfalls / prior session evidence | [Memory guide](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Agentic/Memory/README.md`), only relevant records |
+| Platform setup/version compatibility | [Codex/Vibe/Antigravity/OpenCode](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Agentic/Operational/platform-guidance-2026-10.md`) |
+| Catalog | [src/data/AGENTS.md](src/data/AGENTS.md), skill `edit-catalog` |
+| UI/search/inquiry | skill `verify-pages`, `src/lib/whatsapp.ts` |
+| SEO/acquisition, booking, analytics | Relevant section of [expanded contract](docs/Operations/Agentic/Operational/repository-contract.md) |
+| Current demand / live state | [POC next steps](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/next-steps.md`), [dated status](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/poc-status.md`) |
 
-If a lower-level doc conflicts with the constitution, stop. Do not silently override Level 1.
+## Checks and documentation
 
-## Commands
+Node 22 follows `.nvmrc`; Node 24 is compatibility coverage when runtime/release scope requires it. `npm run dev`, `npm test`, `npm run typecheck`, `npm run lint`, `npm run validate`. During edits run focused checks; run `npm run check` once on the stable application candidate. Documentation/instruction-only work: `npm run docs:index`, `npm run docs:check` and relevant instruction/tooling checks. Repeat broader tests only after affected changes/failures or explicit release requirements.
 
-```bash
-npm run dev          # http://localhost:3000
-npm test
-npm run lint         # eslint .  (Next 16 has no next lint)
-npm run typecheck
-npm run docs:check   # Markdown links, OKF structure and navigation freshness
-npm run docs:index   # regenerate OKF indexes and document map
-npm run check        # docs, typecheck, lint, test, validate, build, inspect ./out
-make deploy          # apply reviewed artifact, no rebuild; explicit manifest/recovery gates in CUTOVER.md
-```
-
-Need Node 22.12+ (Node 22 line), Node 24, or Node 26+; CI follows `.nvmrc`. TypeScript 6 provides the shared compiler/API for typecheck, Next.js and ESLint; the TS7 experiment was superseded. Run the smallest check that covers the edit; `npm run check` before calling a slice done.
-
-## Layout
-
-- Vault: OKF v0.2 concepts under `docs/`; Marketing owns acquisition/content/SEO/commercial plans, Operations owns runbooks/outcomes/release evidence, Product owns requirements and implementation contracts. Research belongs in its owning domain; decisions in `docs/Decisions/`. Regenerate indexes/maps with `npm run docs:index`, then validate. Preserve historical evidence and do not invent verified metadata. No private contracts or passenger records in Git; completion needs dated evidence.
-- Owned app: `src/app/`, `src/components/`, `src/data/`, `src/lib/`, `src/config/`
-- Historical CRA source is absent from this checkout; do not recreate `legacy/` during routine work. Any recovered rollback source stays frozen.
-- `new_design/` and `Route Planner Pro/` — gitignored Lovable specs; not a source of truth; do not deploy
-
-Public URLs: `/`, `/routes/`, `/routes/[slug]/`, `/about/`. HTML redirects: `/contact/`, `/contacts/` → `/about/`; `/carriers/` → `/routes/`; `/packages/` → `/about/`; `/gallery/` → `/`.
-
-## Hard rules
-
-- User-facing copy is **Ukrainian**.
-- Public carrier naming: **Коваль** or **перевізник Коваль**. Keep technical IDs and real URLs unchanged. For selected discovery directions, explain that the specific trip, date, places and terms require operator confirmation; do not describe the direction itself as «маршрут не підтверджено».
-- A full content review must assess passenger needs, page purpose, information order, repetition and useful next steps across the site, not just replace terminology. Each section should answer a distinct visitor question; keep trip-confirmation notices near the inquiry action and use FAQs for practical planning questions.
-- Do not invent prices, ratings, timetables, durations, stop lists, or availability.
-- Only `commercial` routes belong in the index, sitemap, and search navigation. Editorial pages are `noindex`.
-- Search uses `findRouteByCities(..., { commercialOnly: true })`.
-- Directional search renders departure before arrival, preserves the selected city pair when reversing, and restricts alias suggestions to the country expected by each field. Country-only labels must not conceal the return direction.
-- Attribution: retain random `ref_code` / `koval_poc` contracts. Codes identify inquiries, not unique people or journeys. Partner attribution uses current-visit memory and validated tagged navigation; no 30-day browser persistence. Elapsed travel dates without operator evidence remain unknown, never completed journeys or billing facts. Outcome admin needs its own scoped decision; it is distinct from M2 inventory.
-- M1 inquiry: do not store names, phones, or travel dates. M2 enrolled reservations may store only necessary private booking data under ADR 0002 and a defined retention/deletion policy. Never send names, phones, selected travel dates, receipt credentials, or messages through `track()`.
-- Do not add Lovable packages, `__lovableEvents`, or a shadcn `components/ui` dump.
-- Default to Server Components. `"use client"` only for UI state, effects, or click tracking.
-- UTM policy: `src/config/utm.ts` owns coherent acquisition pairs/campaigns/CTA locations. `src/config/site.ts` exports the fixed partner referral tuple and generated `/referral-contract.json`; keep receiver allowlists synchronized via reviewed artifact snapshots. Do not forward acquisition tags to Коваль, tag internal UARoute links, or collect raw `utm_content`/`utm_term`. Referral cities must be a complete opposite-country pair.
-- Internal hrefs end with `/` except home `/`. Static export: `output: "export"`, `trailingSlash: true` — no Node SSR host, no `redirects()` in `next.config.ts`.
-- Keep modules server-safe. Request-time SSR needs a new ADR.
-
-## Skills
-
-[`.agents/skills/`](.agents/skills) — Cursor, Codex, and OpenCode.
-
-## Code review
-
-Flag invented operational facts, English UI copy, editorial routes in index/sitemap/search, phones in `track()`, and unnecessary `"use client"`. Do not require restyling `legacy/` or a Node host.
-
-When corrected, update this file (or [src/data/AGENTS.md](src/data/AGENTS.md) for catalog).
+`docs/` contains Git-versioned canonical contracts; Project KB is a separate local vault (see [KB guide](docs/knowledge-base.md#knowledge-base)). `npm run check` never depends on that vault; `output/` and secrets/passenger data remain excluded. Generated indexes/maps come from `docs:index`. Memory is dated evidence, never new authority, authorization or proof of deployment. Record lessons there and promote accepted rules to Operational/scoped instructions. Keep this file a lean router. If a required contract is missing, report it; do not reconstruct it from memory.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { basename, dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import yaml from "js-yaml";
+import { resolveDocumentationRoots } from "./documentation-roots.mjs";
 
 const posix = (path) => path.replaceAll("\\", "/");
 const reserved = new Set(["index.md", "log.md"]);
@@ -73,6 +74,7 @@ function collect(root) {
   function visit(directory) {
     directories.push(directory);
     for (const entry of readdirSync(directory, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name, "en"))) {
+      if (entry.name === ".DS_Store") continue; // OS metadata is not shared knowledge/evidence.
       const path = join(directory, entry.name);
       if (entry.isSymbolicLink()) throw new Error(`${path}: symlinks are outside this bundle profile`);
       if (entry.isDirectory()) visit(path);
@@ -83,7 +85,7 @@ function collect(root) {
   return { files, directories };
 }
 
-export function buildNavigation(root) {
+export function buildNavigation(root, { kb = false } = {}) {
   const { files, directories } = collect(root);
   const records = new Map();
   for (const path of files.filter((file) => file.endsWith(".md"))) {
@@ -93,7 +95,7 @@ export function buildNavigation(root) {
   for (const directory of directories) {
     const name = directory === root ? "UARoute knowledge bundle" : posix(relative(root, directory));
     let content = `${directory === root ? '---\nokf_version: "0.2"\n---\n\n' : ""}# ${name}\n\n`;
-    if (directory === root) content += "Start with the [human navigation](README.md), [knowledge map](map.md) and [OKF profile](okf-profile.md). Generated listing: run `npm run docs:index` after document changes.\n\n";
+    if (directory === root) content += `Start with the [human navigation](README.md), [knowledge map](map.md) and [OKF profile](okf-profile.md). Generated listing: run \`npm run ${kb ? "kb:index" : "docs:index"}\` after document changes.\n\n`;
     else content += `Parent: [${basename(dirname(directory))}](../index.md).\n\n`;
     const children = directories.filter((child) => dirname(child) === directory);
     if (children.length) {
@@ -142,11 +144,11 @@ export function buildNavigation(root) {
   return { expected, concepts: [...records.values()].filter((record) => record.metadata?.type).length, directories: directories.length };
 }
 
-export function run(root, write = false) {
-  const result = buildNavigation(root), errors = [];
+export function run(root, write = false, options = {}) {
+  const result = buildNavigation(root, options), errors = [];
   for (const [file, content] of result.expected) {
     if (write) writeFileSync(file, content);
-    else if (!existsSync(file) || readFileSync(file, "utf8") !== content) errors.push(`${posix(relative(root, file))}: missing or stale; run npm run docs:index`);
+    else if (!existsSync(file) || readFileSync(file, "utf8") !== content) errors.push(`${posix(relative(root, file))}: missing or stale; run npm run ${options.kb ? "kb:index" : "docs:index"}`);
   }
   if (errors.length) throw new Error(errors.join("\n"));
   return result;
@@ -154,13 +156,9 @@ export function run(root, write = false) {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   try {
-    const root = resolve("docs");
-    if (!existsSync(root) && !process.argv.includes("--write")) {
-      console.log("okf: local ignored docs/ vault absent; bundle validation skipped");
-      process.exit(0);
-    }
-    const result = run(root, process.argv.includes("--write"));
-    console.log(`okf: ${result.concepts} concepts, ${result.directories} directory indexes and document map ${process.argv.includes("--write") ? "generated" : "pass"} (v0.2 + UARoute profile; no fact verification implied)`);
+    const roots = resolveDocumentationRoots();
+    const result = run(roots.bundleRoot, roots.write, { kb: roots.kb });
+    console.log(`okf: ${result.concepts} concepts, ${result.directories} directory indexes and document map ${roots.write ? "generated" : "pass"} (v0.2 + UARoute profile; no fact verification implied)`);
   } catch (error) {
     console.error(`okf: ${error.message}`);
     process.exitCode = 1;
