@@ -49,13 +49,24 @@ const cityHubResources = {
   celle: {
     url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
     label: "Офіційний довідник доїзду до Целле",
-    role: "UARoute допомагає знайти потрібний напрямок і підготувати звернення до перевізника Коваль",
-    outbound: "Якщо плануєте виїзд із Целле",
-    returning: "Для прибуття до Целле заздалегідь погодьте місце висадки",
+    role: "UARoute допомагає знайти напрямок з Целле та навколишніх населених пунктів до України або назад",
+    outbound: "Якщо вирушаєте з Целле або сусіднього населеного пункту",
+    returning: "Якщо вам потрібно приїхати до Целле чи сусіднього населеного пункту",
+    nearbyHeading: "Населені пункти поблизу Целле",
+    nearbyChoiceCue: "найближче доступне для вашої поїздки місто в пошуку",
+    nearbyAddressCue: "точну адресу або орієнтир",
+    nearbyConfirmationCue: "чи можлива там посадка або висадка",
+    nearbyGroups: [
+      { name: "Лахендорф і сусідні громади", localName: "Samtgemeinde Lachendorf", places: ["Lachendorf", "Ahnsbeck", "Beedenbostel", "Eldingen", "Hohne"] },
+      { name: "Гамбурен та навколишні поселення", localName: "Hambühren", places: ["Hambühren", "Hambühren I", "Hambühren II", "Oldau", "Ovelgönne", "Schönhop"] },
+      { name: "Вінзен (Аллер) та поселення громади", localName: "Winsen (Aller)", places: ["Winsen (Aller)", "Bannetze", "Meißendorf", "Stedden", "Südwinsen", "Thören", "Walle", "Wolthausen"] },
+      { name: "Вітце та сусідні поселення", localName: "Wietze", places: ["Wietze", "Steinförde", "Wieckenberg", "Jeversen", "Hornbostel"] },
+      { name: "Громади й поселення Флотведеля", localName: "Samtgemeinde Flotwedel", places: ["Wienhausen", "Eicklingen", "Langlingen", "Bröckel", "Offensen", "Oppershausen", "Bockelskamp", "Nienhof"] },
+    ],
     purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою",
     checkedAt: "2026-10-09",
-    reviewedAt: "2026-10-09",
-    contentUpdatedAt: "2026-10-09",
+    reviewedAt: "2026-10-10",
+    contentUpdatedAt: "2026-10-10",
   },
 };
 const editorialRouteSlugs = ["lviv-hamburg", "lviv-berlin"];
@@ -460,11 +471,31 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       if (text.toLocaleLowerCase().includes(claim)) errors.push(`${pagePath} includes an unsupported service guarantee: ${claim}`);
     }
     const nearbySection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="nearby-places-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
-    const nearbyText = plainText(nearbySection);
-    const privateContactContext = slug === "celle" ? "приватному повідомленні" : "приватному повідомленні WhatsApp";
-    if (!nearbyText.includes("фактичне місце") || !nearbyText.includes(privateContactContext) ||
+    const nearbyText = plainText(nearbySection).replace(/\(\s+/g, "(").replace(/\s+\)/g, ")");
+    if (slug === "celle") {
+      const nearbyHeadings = [...nearbySection.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi)].map(([, value]) => plainText(value ?? "").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")"));
+      if (!nearbyText.includes(expectedResource.nearbyHeading) ||
+        !nearbyText.includes(expectedResource.nearbyChoiceCue) ||
+        !nearbyText.includes(expectedResource.nearbyAddressCue) ||
+        !nearbyText.includes(expectedResource.nearbyConfirmationCue)) {
+        errors.push(pagePath + " is missing the Celle search choice, actual address, or trip-specific feasibility guidance");
+      }
+      const expectedNearbyHeadings = expectedResource.nearbyGroups.map((group) => group.name + " (" + group.localName + ")");
+      if (JSON.stringify(nearbyHeadings) !== JSON.stringify(expectedNearbyHeadings)) {
+        errors.push(pagePath + " must render exactly five source-backed Celle locality groups in the reviewed order");
+      }
+      for (const group of expectedResource.nearbyGroups) {
+        if (!nearbyText.includes(group.name + " (" + group.localName + ")") ||
+          !group.places.every((place) => nearbyText.includes(place))) {
+          errors.push(pagePath + " is missing the expected Celle locality group or named places: " + group.localName);
+        }
+      }
+      if (nearbyText.includes("не означає посадку у вашому населеному пункті")) {
+        errors.push(pagePath + " retains the obsolete instruction to come to Celle for boarding");
+      }
+    } else if (!nearbyText.includes("фактичне місце") || !nearbyText.includes("приватному повідомленні WhatsApp") ||
       !nearbyText.includes("не означає посадку у вашому населеному пункті")) {
-      errors.push(`${pagePath} is missing useful nearby guidance and the pickup boundary`);
+      errors.push(pagePath + " is missing useful nearby guidance and the pickup boundary");
     }
     const searchSection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="search-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
     const confirmationNotice = "Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.";

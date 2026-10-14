@@ -47,7 +47,7 @@ function addNamedTestPlace(contents = cloneContents()) {
 
 describe("validateCityHubContent", () => {
   it("accepts the selected hub data and permits empty named-place lists", () => {
-    expect(validateCityHubContent(cityHubContents, "2026-10-09")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-10")).toEqual([]);
   });
 
   it("accepts a source-backed synthetic nearby-place fixture", () => {
@@ -151,8 +151,33 @@ describe("validateCityHubContent", () => {
       checkedAt: "2026-10-09",
       purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою.",
     }]);
-    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" });
-    expect(validateCityHubContent(cityHubContents, "2026-10-09")).toEqual([]);
+    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-10", contentUpdatedAt: "2026-10-10", reviewScope: "editorial_guidance" });
+    expect(celle.nearbyPlaces.map((place) => place.localName)).toEqual([
+      "Samtgemeinde Lachendorf",
+      "Hambühren",
+      "Winsen (Aller)",
+      "Wietze",
+      "Samtgemeinde Flotwedel",
+    ]);
+    const expectedLocalities = [
+      ["Lachendorf", "Ahnsbeck", "Beedenbostel", "Eldingen", "Hohne"],
+      ["Hambühren", "Hambühren I", "Hambühren II", "Oldau", "Ovelgönne", "Schönhop"],
+      ["Winsen (Aller)", "Bannetze", "Meißendorf", "Stedden", "Südwinsen", "Thören", "Walle", "Wolthausen"],
+      ["Wietze", "Steinförde", "Wieckenberg", "Jeversen", "Hornbostel"],
+      ["Wienhausen", "Eicklingen", "Langlingen", "Bröckel", "Offensen", "Oppershausen", "Bockelskamp", "Nienhof"],
+    ];
+    expect(celle.nearbyPlaces).toHaveLength(5);
+    for (const [index, places] of expectedLocalities.entries()) {
+      expect(places.every((place) => celle.nearbyPlaces[index]!.guidance.includes(place))).toBe(true);
+      expect(celle.nearbyPlaces[index]!.geographySource.checkedAt).toBe("2026-10-10");
+      expect(celle.nearbyPlaces[index]!).not.toHaveProperty("cityId");
+      expect(celle.nearbyPlaces[index]!).not.toHaveProperty("aliases");
+      expect(celle.nearbyPlaces[index]!).not.toHaveProperty("url");
+    }
+    expect(celle.nearbyIntro).toContain("найближче доступне для вашої поїздки місто в пошуку");
+    expect(celle.nearbyIntro).toContain("точну адресу або орієнтир");
+    expect(celle.nearbyIntro).toContain("чи можлива там посадка або висадка");
+    expect(validateCityHubContent(cityHubContents, "2026-10-10")).toEqual([]);
   });
 
   it("requires unique nearby keys and complete source-backed context", () => {

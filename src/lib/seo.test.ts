@@ -167,7 +167,7 @@ describe("priority route entities and sitemap", () => {
     expect(hubDates).toEqual(new Map([
       ["https://uaroute.com/cities/lviv/", "2026-10-09"],
       ["https://uaroute.com/cities/ivano-frankivsk/", "2026-10-09"],
-      ["https://uaroute.com/cities/celle/", "2026-10-09"],
+      ["https://uaroute.com/cities/celle/", "2026-10-10"],
     ]));
     expect(entries.filter(({ url }) => !url.includes("/cities/")).every((entry) => !("lastModified" in entry))).toBe(true);
     expect(entries.every((entry) => !("changeFrequency" in entry) && !("priority" in entry))).toBe(true);
