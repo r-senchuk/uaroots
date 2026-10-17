@@ -27,7 +27,7 @@ export const pilotGermanCityIds = [
 
 export const priorityOriginCityIds = ["lviv", "ivano-frankivsk"] as const;
 
-export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"] as const;
+export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"] as const;
 
 /** Explicitly selected pages only; do not derive route slugs from these pairs. */
 export const selectedCandidatePairs = [
@@ -41,4 +41,5 @@ export const selectedCandidatePairs = [
   { slug: "celle-lviv", originCityId: "celle", destinationCityId: "lviv" },
   { slug: "ivano-frankivsk-wolfsburg", originCityId: "ivano-frankivsk", destinationCityId: "wolfsburg" },
   { slug: "wolfsburg-ivano-frankivsk", originCityId: "wolfsburg", destinationCityId: "ivano-frankivsk" },
+  { slug: "celle-stryi", originCityId: "celle", destinationCityId: "stryi" },
 ] as const;

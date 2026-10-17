@@ -135,7 +135,7 @@ describe("priority route entities and sitemap", () => {
     }
   });
 
-  it("keeps the 19 approved sitemap URLs and omits ineffective hints", () => {
+  it("keeps the 21 approved sitemap URLs and omits ineffective hints", () => {
     const entries = sitemap();
     const expectedUrls = [
       "https://uaroute.com/",
@@ -146,6 +146,7 @@ describe("priority route entities and sitemap", () => {
       "https://uaroute.com/cities/lviv/",
       "https://uaroute.com/cities/ivano-frankivsk/",
       "https://uaroute.com/cities/celle/",
+      "https://uaroute.com/cities/stryi/",
       ...[
         "dolyna-celle",
         "celle-dolyna",
@@ -158,16 +159,18 @@ describe("priority route entities and sitemap", () => {
         "celle-lviv",
         "ivano-frankivsk-wolfsburg",
         "wolfsburg-ivano-frankivsk",
+        "celle-stryi",
       ].map((slug) => `https://uaroute.com/routes/${slug}/`),
     ].sort();
 
-    expect(entries).toHaveLength(19);
+    expect(entries).toHaveLength(21);
     expect(entries.map(({ url }) => url).sort()).toEqual(expectedUrls);
     const hubDates = new Map(entries.filter(({ url }) => url.includes("/cities/")).map(({ url, lastModified }) => [url, lastModified]));
     expect(hubDates).toEqual(new Map([
       ["https://uaroute.com/cities/lviv/", "2026-10-09"],
       ["https://uaroute.com/cities/ivano-frankivsk/", "2026-10-09"],
       ["https://uaroute.com/cities/celle/", "2026-10-10"],
+      ["https://uaroute.com/cities/stryi/", "2026-10-17"],
     ]));
     expect(entries.filter(({ url }) => !url.includes("/cities/")).every((entry) => !("lastModified" in entry))).toBe(true);
     expect(entries.every((entry) => !("changeFrequency" in entry) && !("priority" in entry))).toBe(true);

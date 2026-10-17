@@ -20,13 +20,15 @@ describe("analytics privacy boundary", () => {
     vi.unstubAllEnvs();
   });
 
-  it("allows only the three published city hub landing paths", () => {
+  it("allows only the published city hub landing paths", () => {
     expect(canonicalLandingPath("/cities/lviv")).toBe("/cities/lviv/");
     expect(canonicalLandingPath("/cities/lviv/")).toBe("/cities/lviv/");
     expect(canonicalLandingPath("/cities/ivano-frankivsk/")).toBe("/cities/ivano-frankivsk/");
     expect(canonicalLandingPath("/cities/celle")).toBe("/cities/celle/");
+    expect(canonicalLandingPath("/cities/stryi")).toBe("/cities/stryi/");
+    expect(canonicalLandingPath("/cities/stryi/")).toBe("/cities/stryi/");
     expect(canonicalLandingPath("/cities/unknown/")).toBeUndefined();
-    expect(canonicalLandingPath("/cities/stryi/")).toBeUndefined();
+    expect(canonicalLandingPath("/cities/kalush/")).toBeUndefined();
     expect(canonicalLandingPath("/cities/lviv/?phone=123")).toBeUndefined();
     expect(canonicalLandingPath("/cities/lviv/extra/")).toBeUndefined();
   });

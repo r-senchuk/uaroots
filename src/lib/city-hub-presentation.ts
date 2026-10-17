@@ -65,7 +65,13 @@ export function getCityHubPresentation(city: City, fromName: string, toName: str
       .filter((candidate) => candidate.id !== city.id)
       .map((candidate) => ({
         city: candidate,
-        label: candidate.id === "lviv" ? "Напрямки зі Львова" : candidate.id === "ivano-frankivsk" ? "Напрямки з Івано-Франківська" : "Напрямки із Целле",
+        label: candidate.id === "lviv"
+          ? "Напрямки зі Львова"
+          : candidate.id === "ivano-frankivsk"
+            ? "Напрямки з Івано-Франківська"
+            : candidate.id === "stryi"
+              ? "Напрямки зі Стрия"
+              : "Напрямки із Целле",
       })),
   };
 }
