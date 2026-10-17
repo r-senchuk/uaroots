@@ -26,6 +26,7 @@ var SEO_DOCUMENTS = {
   "/about/": "/about/index.html",
   "/imprint/": "/imprint/index.html",
   "/privacy/": "/privacy/index.html",
+  "/guides/perevezennya-velosypeda/": "/guides/perevezennya-velosypeda/index.html",
   "/routes/lviv-hannover/": "/routes/lviv-hannover/index.html",
   "/routes/lviv-celle/": "/routes/lviv-celle/index.html",
   "/routes/ivano-frankivsk-wolfsburg/": "/routes/ivano-frankivsk-wolfsburg/index.html",

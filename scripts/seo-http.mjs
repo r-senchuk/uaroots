@@ -4,6 +4,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const mainDocuments = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
+const guideDocuments = ["/guides/perevezennya-velosypeda/"];
 const commercialSlugs = [
   "lviv-hannover", "lviv-celle", "ivano-frankivsk-wolfsburg", "dolyna-celle", "celle-dolyna",
   "dolyna-wolfsburg", "wolfsburg-dolyna", "dolyna-braunschweig", "braunschweig-dolyna",
@@ -163,7 +164,7 @@ export async function evaluate(origin = "https://uaroute.com") {
   const jobs = [];
   const schedule = (options) => jobs.push(() => evaluateOne(results, options));
   const exportAssets = currentExportAssets();
-  const urls = [...mainDocuments, ...commercialSlugs.map((slug) => `/routes/${slug}/`),
+  const urls = [...mainDocuments, ...guideDocuments, ...commercialSlugs.map((slug) => `/routes/${slug}/`),
     ...citySlugs.map((slug) => `/cities/${slug}/`), ...editorialSlugs.map((slug) => `/routes/${slug}/`)];
 
   for (const path of urls) {

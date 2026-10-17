@@ -18,6 +18,7 @@ export const pilotRoutes = [
 ];
 
 const sitePages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
+const guidePages = ["/guides/perevezennya-velosypeda/"];
 const cityHubs = [
   { slug: "lviv", name: "Львів", headingCity: "зі Львова", heading: "Поїздки зі Львова до Німеччини та назад", cityForms: ["Львів", "Львова"], crossHubs: ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки зі Львова до Німеччини та назад | UARoute", description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника Коваль.", cardSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
   { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", heading: "Поїздки з Івано-Франківська до Німеччини та назад", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHubs: ["/cities/lviv/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute", description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником Коваль.", cardSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
@@ -299,6 +300,17 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       const segment = path.replace(/^\/+|\/+$/g, "");
       return [`${segment}/__next._tree.txt`, `${segment}/__next._full.txt`, `${segment}/__next.${segment}.__PAGE__.txt`];
     }),
+    ...guidePages.flatMap((path) => {
+      const segment = path.replace(/^\/+|\/+$/g, "");
+      const pageKey = segment.replace(/\//g, ".");
+      return [
+        `${segment}/index.html`,
+        `${segment}/index.txt`,
+        `${segment}/__next._tree.txt`,
+        `${segment}/__next._full.txt`,
+        `${segment}/__next.${pageKey}.__PAGE__.txt`,
+      ];
+    }),
     ...pilotRoutes.flatMap(({ slug }) => [
       `routes/${slug}/index.html`,
       `routes/${slug}/index.txt`,
@@ -327,6 +339,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
 
   const requiredPagePaths = [
     ...sitePages,
+    ...guidePages,
     ...pilotRoutes.map(({ slug }) => `/routes/${slug}/`),
     ...cityHubPaths,
   ];
@@ -572,12 +585,12 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       lastmod: entry.match(/<lastmod>([\s\S]*?)<\/lastmod>/i)?.[1]?.trim(),
     }));
     const locations = entries.map(({ url }) => url);
-    const expected = [...sitePages, ...cityHubPaths, ...pilotRoutes.map(({ slug }) => `/routes/${slug}/`)]
+    const expected = [...sitePages, ...guidePages, ...cityHubPaths, ...pilotRoutes.map(({ slug }) => `/routes/${slug}/`)]
       .map(canonicalUrl)
       .sort();
     const actual = [...locations].sort();
     if (actual.length !== expected.length || actual.some((location, index) => location !== expected[index])) {
-      errors.push("sitemap.xml must contain exactly the five public pages, four selected city hubs, and twelve commercial routes");
+      errors.push("sitemap.xml must contain exactly the five public pages, dedicated bicycle guide, four selected city hubs, and twelve commercial routes");
     }
     const expectedLastmod = new Map(Object.entries(cityHubResources).map(([slug, content]) => [canonicalUrl(`/cities/${slug}/`), content.contentUpdatedAt]));
     for (const entry of entries) {

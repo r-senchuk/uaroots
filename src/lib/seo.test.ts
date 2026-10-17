@@ -135,7 +135,7 @@ describe("priority route entities and sitemap", () => {
     }
   });
 
-  it("keeps the 21 approved sitemap URLs and omits ineffective hints", () => {
+  it("keeps the 22 approved sitemap URLs and omits ineffective hints", () => {
     const entries = sitemap();
     const expectedUrls = [
       "https://uaroute.com/",
@@ -143,6 +143,7 @@ describe("priority route entities and sitemap", () => {
       "https://uaroute.com/about/",
       "https://uaroute.com/imprint/",
       "https://uaroute.com/privacy/",
+      "https://uaroute.com/guides/perevezennya-velosypeda/",
       "https://uaroute.com/cities/lviv/",
       "https://uaroute.com/cities/ivano-frankivsk/",
       "https://uaroute.com/cities/celle/",
@@ -163,7 +164,7 @@ describe("priority route entities and sitemap", () => {
       ].map((slug) => `https://uaroute.com/routes/${slug}/`),
     ].sort();
 
-    expect(entries).toHaveLength(21);
+    expect(entries).toHaveLength(22);
     expect(entries.map(({ url }) => url).sort()).toEqual(expectedUrls);
     const hubDates = new Map(entries.filter(({ url }) => url.includes("/cities/")).map(({ url, lastModified }) => [url, lastModified]));
     expect(hubDates).toEqual(new Map([

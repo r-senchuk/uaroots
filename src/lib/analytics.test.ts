@@ -27,6 +27,9 @@ describe("analytics privacy boundary", () => {
     expect(canonicalLandingPath("/cities/celle")).toBe("/cities/celle/");
     expect(canonicalLandingPath("/cities/stryi")).toBe("/cities/stryi/");
     expect(canonicalLandingPath("/cities/stryi/")).toBe("/cities/stryi/");
+    expect(canonicalLandingPath("/guides/perevezennya-velosypeda")).toBe("/guides/perevezennya-velosypeda/");
+    expect(canonicalLandingPath("/guides/perevezennya-velosypeda/")).toBe("/guides/perevezennya-velosypeda/");
+    expect(canonicalLandingPath("/guides/unknown/")).toBeUndefined();
     expect(canonicalLandingPath("/cities/unknown/")).toBeUndefined();
     expect(canonicalLandingPath("/cities/kalush/")).toBeUndefined();
     expect(canonicalLandingPath("/cities/lviv/?phone=123")).toBeUndefined();
