@@ -30,7 +30,7 @@ export function buildCampaignLink(
   url.searchParams.set("utm_source", source);
   url.searchParams.set(
     "utm_medium",
-    acquisitionChannels[source as keyof typeof acquisitionChannels],
+    acquisitionChannels[source as keyof typeof acquisitionChannels][0],
   );
   url.searchParams.set("utm_campaign", campaign);
   return url.toString();

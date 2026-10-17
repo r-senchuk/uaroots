@@ -353,4 +353,78 @@ describe("analytics privacy boundary", () => {
     expect(dataLayer.push.mock.calls[0]?.[0]).toEqual({ uaroute: null });
     expect(gtag).not.toHaveBeenCalled();
   });
+
+  it("captures google / cpc attribution from a valid click ID on landing and includes it in page_location", () => {
+    const location = {
+      pathname: "/routes/lviv-hannover/",
+      search: "?gclid=Cj0KCQj_ValidClickId-123",
+    };
+    vi.stubGlobal("window", {
+      location,
+      __uarouteEvents: [],
+      __uarouteAnalyticsConsent: true,
+      __uarouteAnalyticsProviderReady: true,
+    });
+    const attribution = captureAttribution();
+    expect(attribution).toEqual({
+      source: "google",
+      medium: "cpc",
+      landingPage: "/routes/lviv-hannover/",
+    });
+    expect(window.__uarouteAnalyticsPageLocation).toBe(
+      "https://uaroute.com/routes/lviv-hannover/?gclid=Cj0KCQj_ValidClickId-123",
+    );
+  });
+
+  it("strictly strips personal queries and unknown parameters from page_location while preserving click ID", () => {
+    const location = {
+      pathname: "/routes/lviv-hannover/",
+      search:
+        "?gclid=Cj0KCQj_ValidClickId-123&phone=%2B380501234567&email=traveller%40test.com&name=Ivan&search=secret",
+    };
+    const events: unknown[] = [];
+    vi.stubGlobal("window", {
+      location,
+      __uarouteEvents: events,
+      __uarouteAnalyticsConsent: true,
+      __uarouteAnalyticsProviderReady: true,
+    });
+    captureAttribution();
+    track("page_view");
+    expect(window.__uarouteAnalyticsPageLocation).toBe(
+      "https://uaroute.com/routes/lviv-hannover/?gclid=Cj0KCQj_ValidClickId-123",
+    );
+    const pageLocJson = JSON.stringify(window.__uarouteAnalyticsPageLocation);
+    expect(pageLocJson).not.toContain("+380501234567");
+    expect(pageLocJson).not.toContain("traveller");
+    expect(pageLocJson).not.toContain("Ivan");
+    expect(pageLocJson).not.toContain("secret");
+
+    const eventsJson = JSON.stringify(events);
+    expect(eventsJson).not.toContain("Cj0KCQj_ValidClickId-123");
+    expect(eventsJson).not.toContain("+380501234567");
+  });
+
+  it("drops click ID from page_location upon subsequent internal SPA navigations", () => {
+    const location = {
+      pathname: "/routes/lviv-hannover/",
+      search: "?gclid=Cj0KCQj_ValidClickId-123",
+    };
+    vi.stubGlobal("window", {
+      location,
+      __uarouteEvents: [],
+      __uarouteAnalyticsConsent: true,
+      __uarouteAnalyticsProviderReady: true,
+    });
+    captureAttribution();
+    expect(window.__uarouteAnalyticsPageLocation).toBe(
+      "https://uaroute.com/routes/lviv-hannover/?gclid=Cj0KCQj_ValidClickId-123",
+    );
+
+    // Simulate internal SPA navigation to /about/
+    location.pathname = "/about/";
+    location.search = "";
+    track("page_view");
+    expect(window.__uarouteAnalyticsPageLocation).toBe("https://uaroute.com/about/");
+  });
 });

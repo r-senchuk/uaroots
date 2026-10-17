@@ -7,6 +7,22 @@ tags: ["uaroute", "marketing"]
 
 # 08 — Analytics and Attribution
 
+## Pilot budget approval — 2026-10-16
+
+The owner subsequently approved the proposed **5 PLN/day for 3 days** test, superseding the zero-budget restriction for this pilot only. The local campaign package now records this amount. Google signup displays PLN 5.00, but Next does not advance; remote campaign/account creation remains incomplete. Billing setup, the actual start/end dates, required targeting, tracking and conversion verification remain pending. This is budget authorization, not evidence of an active campaign, a saved remote budget, payment profile or production tracking readiness. The three-day daily-budget estimate is not a hard 15 PLN lifetime cap; daily overdelivery rules still apply.
+
+## UARoute advertiser setup — 2026-10-16
+
+Approved target: separate **UARoute — Production** client under Crew Bravo MCC `127-345-5194`, Poland / PLN / Europe/Warsaw, no payment profile or paid activation. UI signup currently shows provisional Customer ID `720-679-0527`; account creation, immutable settings and MCP access are **not yet verified**. The prior unnamed draft `698-735-0182` was not repurposed. Do not create further duplicates.
+
+The new advertiser must link directly to GA4 `557859031` with personalization and Analytics editing from Ads off. Import `whatsapp_click` and `koval_site_click` separately as Contact / Secondary / ONE / no monetary value, named `UARoute WhatsApp contact intent` and `UARoute partner site contact intent`. Do not assume MCC inheritance. Preserve the old `555-591-9935` link, MCC conversion settings and Garnebo configuration.
+
+The owner clicked the displayed Google terms step and reloaded after a Google save error. Retry reached the budget screen: Polish Zloty (PLN) selected; `0.00` rejected with “Enter a budget”. Per the approved fallback, leave the remote signup/Search-1 draft unfinished; no positive amount or payment profile was entered. This onboarding offers default Clicks bidding but not Manual CPC; the approved Manual CPC configuration remains in the local package only. Ads API reports customer `7206790527` not enabled. Country/timezone, final account settings, GA4 link and conversion imports remain unverified. The local `Search_UA_LWO_DE_Pilot` package contains two city-pair groups, Manual CPC 1.50 PLN and budget **0**. If Google requires a positive budget, retain an unfinished remote draft and the local package; do not substitute a positive amount. Account readiness, conversion readback, tracking/consent readiness and paid-launch approval are separate gates. No advertising-consent, GTM or site publication change is authorized by this account setup.
+
+## Google Ads attribution amendment — 2026-10-16
+
+Впроваджено підтримку Google Ads auto-tagging (`gclid`, `gbraid`, `wbraid`) та ручного каналу `google / cpc` у `src/config/utm.ts` і `src/lib/analytics.ts`. Валідований click ID додається до `page_location` виключно для початкового узгодженого перегляду цільової сторінки (landing page) і повністю очищається від будь-яких сторонніх чи персональних query-параметрів. При наступних внутрішніх переходах (SPA navigation) та у зовнішніх посиланнях на перевізника Коваль (`withUtm`) чи WhatsApp click ID ніколи не зберігається і не передається. Прапорці рекламної згоди (`ad_storage`, `ad_user_data`, `ad_personalization`) залишаються суворо `denied` згідно з базовим режимом згоди (Basic Consent Mode).
+
 ## Ads preparation amendment — 2026-10-09
 
 [Crew Bravo / UARoute Ads strategy](../knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/google-ads-preparation-strategy-2026-10-09.md`) визначає next configuration slice: UARoute property 557859031 може бути напряму linked до advertiser 555-591-9935, з personalization/audiences off; виконання ще не verified. Це вузьке уточнення старої заборони Ads link, не дозвіл на tracking до consent, remarketing/Signals/user-provided data або зміну advertising denials. Separate campaign goals зберігають BMS generate_lead і UARoute whatsapp_click/koval_site_click contact intent; booking_intent не дублює conversion. Secondary імпорт та paid attribution потребують своїх actual readback/consent gates; raw click IDs/PII не стають custom analytics payload. Account configuration, code/GTM delta і paid launch — окремі evidence рівні.
