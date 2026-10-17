@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/about/") },
     { url: absoluteUrl("/imprint/") },
     { url: absoluteUrl("/privacy/") },
+    { url: absoluteUrl("/guides/perevezennya-velosypeda/") },
     ...commercial.map((route) => ({
       url: absoluteUrl(`/routes/${route.slug}/`),
     })),

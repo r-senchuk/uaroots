@@ -166,6 +166,9 @@ export function canonicalLandingPath(pathname: string): string | undefined {
   if (pathname === "/imprint" || pathname === "/imprint/") return "/imprint/";
   if (pathname === "/privacy" || pathname === "/privacy/") return "/privacy/";
   if (pathname === "/routes" || pathname === "/routes/") return "/routes/";
+  if (pathname === "/guides/perevezennya-velosypeda" || pathname === "/guides/perevezennya-velosypeda/") {
+    return "/guides/perevezennya-velosypeda/";
+  }
   if ((cityHubPaths as readonly string[]).includes(pathname)) return pathname;
   const hubPath = cityHubPaths.find((path) => path.slice(0, -1) === pathname);
   if (hubPath) return hubPath;

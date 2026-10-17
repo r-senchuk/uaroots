@@ -20,6 +20,7 @@ const routes = [
   ["celle-stryi", "Целле", "Стрий", true, "вокзал старе місто"],
 ] as const;
 const mainPages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
+const guidePages = ["/guides/perevezennya-velosypeda/"];
 const editorialRoutes = ["lviv-hamburg", "lviv-berlin"] as const;
 const hubs = [
   ["lviv", "зі Львова", "Поїздки зі Львова до Німеччини та назад", "Поїздки зі Львова до Німеччини та назад", "Львів Львова", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["lviv-hannover", "lviv-celle", "celle-lviv"], ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"]],
@@ -86,6 +87,17 @@ function fixture() {
         write(root, `${path.slice(1)}${file}`, "RSC");
       }
     }
+  }
+
+  for (const path of guidePages) {
+    const segment = path.replace(/^\/+|\/+$/g, "");
+    const pageKey = segment.replace(/\//g, ".");
+    const body = "<h1>Перевезення велосипеда в мікроавтобусі</h1><p>Гайд</p>";
+    write(root, `${segment}/index.html`, page(path, "Перевезення велосипеда в мікроавтобусі | UARoute", body, ["/about/"]));
+    write(root, `${segment}/index.txt`, "RSC");
+    write(root, `${segment}/__next._tree.txt`, "RSC");
+    write(root, `${segment}/__next._full.txt`, "RSC");
+    write(root, `${segment}/__next.${pageKey}.__PAGE__.txt`, "RSC");
   }
 
   for (const [slug, origin, destination, candidate, practical] of routes) {
@@ -191,7 +203,7 @@ function fixture() {
   write(root, "index.txt", "RSC");
   write(root, "404.html", "<h1>Цю сторінку не знайдено</h1>");
   write(root, "robots.txt", "User-agent: *");
-  const sitemapPaths = [...mainPages, ...hubs.map(([slug]) => `/cities/${slug}/`), ...routes.map(([slug]) => `/routes/${slug}/`)];
+  const sitemapPaths = [...mainPages, ...guidePages, ...hubs.map(([slug]) => `/cities/${slug}/`), ...routes.map(([slug]) => `/routes/${slug}/`)];
   write(root, "sitemap.xml", `<urlset>${sitemapPaths.map((path) => `<url><loc>https://uaroute.com${path}</loc>${path === "/cities/celle/" ? "<lastmod>2026-10-10</lastmod>" : path === "/cities/stryi/" ? "<lastmod>2026-10-17</lastmod>" : path.startsWith("/cities/") ? "<lastmod>2026-10-09</lastmod>" : ""}</url>`).join("")}</urlset>`);
   write(root, "assets/site.css", "body { color: black; }");
   for (const asset of ["arrival-560.webp", "arrival-1120.webp", "crewbravo-logo.svg", "icon.svg", "_next/static/media/font.woff2"]) {

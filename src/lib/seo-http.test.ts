@@ -27,6 +27,7 @@ function request(uri: string, options: {
 
 const documents = [
   "/", "/routes/", "/about/", "/imprint/", "/privacy/",
+  "/guides/perevezennya-velosypeda/",
   "/routes/lviv-hannover/", "/routes/lviv-celle/", "/routes/ivano-frankivsk-wolfsburg/",
   "/routes/dolyna-celle/", "/routes/celle-dolyna/", "/routes/dolyna-wolfsburg/",
   "/routes/wolfsburg-dolyna/", "/routes/dolyna-braunschweig/", "/routes/braunschweig-dolyna/",
@@ -35,7 +36,7 @@ const documents = [
 ];
 
 describe("CloudFront SEO viewer request policy v1", () => {
-  it("contains only the 21 public sitemap documents and two known editorial documents", () => {
+  it("contains only the 22 public sitemap documents and two known editorial documents", () => {
     const block = artifact.match(/var SEO_DOCUMENTS = \{([\s\S]*?)\n\};/)?.[1] ?? "";
     const keys = [...block.matchAll(/^\s*"([^"]+)":/gm)].map(([, path]) => path);
     expect(keys).toEqual(documents);
