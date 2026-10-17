@@ -7,10 +7,10 @@ const mainDocuments = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const commercialSlugs = [
   "lviv-hannover", "lviv-celle", "ivano-frankivsk-wolfsburg", "dolyna-celle", "celle-dolyna",
   "dolyna-wolfsburg", "wolfsburg-dolyna", "dolyna-braunschweig", "braunschweig-dolyna",
-  "celle-lviv", "wolfsburg-ivano-frankivsk",
+  "celle-lviv", "wolfsburg-ivano-frankivsk", "celle-stryi",
 ];
 const editorialSlugs = ["lviv-hamburg", "lviv-berlin"];
-const citySlugs = ["lviv", "ivano-frankivsk", "celle"];
+const citySlugs = ["lviv", "ivano-frankivsk", "celle", "stryi"];
 const legacy = [["contact", "/about/"], ["contacts", "/about/"], ["carriers", "/routes/"], ["packages", "/about/"], ["gallery", "/"]];
 const maxBodyBytes = 512 * 1024;
 
@@ -220,7 +220,7 @@ export async function evaluate(origin = "https://uaroute.com") {
   schedule({ label: "HTTP www legacy normalization", url: new URL("http://www.uaroute.com/contact/", base),
     expect: { maxRedirects: 2, finalStatus: 200, firstStatuses: [301, 308], finalUrl: "https://uaroute.com/about/" } });
 
-  for (const path of ["/seo-http-missing-document-20261007/", "/routes/unknown-nested-slug/", "/cities/stryi/", "/provider/unknown/"]) {
+  for (const path of ["/seo-http-missing-document-20261007/", "/routes/unknown-nested-slug/", "/cities/unknown-nested-slug/", "/provider/unknown/"]) {
     for (const method of ["GET", "HEAD"]) {
       schedule({ label: `unknown document ${path}`, url: new URL(path, base), method,
         expect: { finalStatus: 404, maxRedirects: 0 },
