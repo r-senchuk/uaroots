@@ -37,9 +37,11 @@ var SEO_DOCUMENTS = {
   "/routes/braunschweig-dolyna/": "/routes/braunschweig-dolyna/index.html",
   "/routes/celle-lviv/": "/routes/celle-lviv/index.html",
   "/routes/wolfsburg-ivano-frankivsk/": "/routes/wolfsburg-ivano-frankivsk/index.html",
+  "/routes/celle-stryi/": "/routes/celle-stryi/index.html",
   "/cities/lviv/": "/cities/lviv/index.html",
   "/cities/ivano-frankivsk/": "/cities/ivano-frankivsk/index.html",
   "/cities/celle/": "/cities/celle/index.html",
+  "/cities/stryi/": "/cities/stryi/index.html",
   "/routes/lviv-hamburg/": "/routes/lviv-hamburg/index.html",
   "/routes/lviv-berlin/": "/routes/lviv-berlin/index.html"
 };

@@ -30,12 +30,12 @@ const documents = [
   "/routes/lviv-hannover/", "/routes/lviv-celle/", "/routes/ivano-frankivsk-wolfsburg/",
   "/routes/dolyna-celle/", "/routes/celle-dolyna/", "/routes/dolyna-wolfsburg/",
   "/routes/wolfsburg-dolyna/", "/routes/dolyna-braunschweig/", "/routes/braunschweig-dolyna/",
-  "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/", "/cities/lviv/",
-  "/cities/ivano-frankivsk/", "/cities/celle/", "/routes/lviv-hamburg/", "/routes/lviv-berlin/",
+  "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/", "/routes/celle-stryi/", "/cities/lviv/",
+  "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/routes/lviv-hamburg/", "/routes/lviv-berlin/",
 ];
 
 describe("CloudFront SEO viewer request policy v1", () => {
-  it("contains only the 19 public sitemap documents and two known editorial documents", () => {
+  it("contains only the 21 public sitemap documents and two known editorial documents", () => {
     const block = artifact.match(/var SEO_DOCUMENTS = \{([\s\S]*?)\n\};/)?.[1] ?? "";
     const keys = [...block.matchAll(/^\s*"([^"]+)":/gm)].map(([, path]) => path);
     expect(keys).toEqual(documents);
@@ -50,7 +50,7 @@ describe("CloudFront SEO viewer request policy v1", () => {
   });
 
   it.each(["GET", "HEAD"]) ("serves an unknown nested/provider document as a generated 404 for %s", (method) => {
-    for (const path of ["/random-unknown/", "/routes/a-never-exported-slug/", "/cities/stryi/", "/provider/unknown/", "/unknown/index.html", "/unknown.html"]) {
+    for (const path of ["/random-unknown/", "/routes/a-never-exported-slug/", "/cities/random-unknown/", "/provider/unknown/", "/unknown/index.html", "/unknown.html"]) {
       const response = handler({ request: request(path, { method }) });
       expect(response.statusCode, path).toBe(404);
       expect(response.headers.location, path).toBeUndefined();
