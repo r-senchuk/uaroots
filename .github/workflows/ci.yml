@@ -14,6 +14,9 @@ permissions:
 
 env:
   NEXT_TELEMETRY_DISABLED: "1"
+  # Git-eligible docs reference local, ignored evidence absent from CI.
+  # Only missing output/ references are UNVERIFIED; source/docs links remain strict.
+  DOCS_ALLOW_MISSING_EVIDENCE: "1"
   # Public build-time settings travel with the immutable CI artifact.
   # Missing repository variables keep measurement disabled.
   NEXT_PUBLIC_ANALYTICS_ENABLED: ${{ vars.NEXT_PUBLIC_ANALYTICS_ENABLED || 'false' }}

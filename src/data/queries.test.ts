@@ -42,11 +42,11 @@ describe("findRouteByCities", () => {
     expect(route?.destination.name).toBe("Ганновер");
   });
 
-  it("resolves only the ten explicitly selected candidate pages", () => {
+  it("resolves only the eleven explicitly selected candidate pages", () => {
     for (const { originCityId, destinationCityId, slug } of selectedCandidatePairs) {
       expect(findRouteByCities(originCityId, destinationCityId, { commercialOnly: true })?.slug).toBe(slug);
     }
-    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(10);
+    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(11);
     expect(findRouteByCities("kalush", "schwerin", { commercialOnly: true })).toBeUndefined();
   });
 
@@ -82,6 +82,6 @@ describe("isCandidateInquiryEligiblePair", () => {
         expect(isCandidateInquiryEligiblePair(destination, origin), `${destinationId} → ${originId}`).toBe(true);
       }
     }
-    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(10);
+    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(11);
   });
 });

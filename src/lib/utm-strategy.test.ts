@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { getReferralContract, withUtm } from "@/config/site";
-import { parseAcquisitionTags } from "@/config/utm";
+import { parseAcquisitionTags, parseGoogleClickId } from "@/config/utm";
 import { buildCampaignLink } from "./campaign-links";
 import {
   captureAttribution,
@@ -151,5 +151,81 @@ describe("UTM acquisition and partner separation", () => {
     );
     expect(url.searchParams.get("origin_city_id")).toBe("celle");
     expect(url.searchParams.get("destination_city_id")).toBe("lviv");
+  });
+
+  it("accepts google cpc alongside organic and rejects incoherent paid channels", () => {
+    expect(
+      parseAcquisitionTags(
+        new URLSearchParams("utm_source=google&utm_medium=cpc"),
+      ),
+    ).toEqual({ source: "google", medium: "cpc" });
+
+    expect(
+      parseAcquisitionTags(
+        new URLSearchParams("utm_source=google&utm_medium=cpc&utm_campaign=route_launch"),
+      ),
+    ).toEqual({ source: "google", medium: "cpc", campaign: "route_launch" });
+
+    expect(
+      parseAcquisitionTags(
+        new URLSearchParams("utm_source=google&utm_medium=organic"),
+      ),
+    ).toEqual({ source: "google", medium: "organic" });
+
+    expect(
+      parseAcquisitionTags(
+        new URLSearchParams("utm_source=facebook&utm_medium=cpc"),
+      ),
+    ).toBeUndefined();
+
+    expect(
+      parseAcquisitionTags(
+        new URLSearchParams("utm_source=bing&utm_medium=cpc"),
+      ),
+    ).toBeUndefined();
+  });
+
+  it("validates and extracts authorized Google click IDs while rejecting duplicates and malformed values", () => {
+    expect(
+      parseGoogleClickId(new URLSearchParams("gclid=Cj0KCQj_123-abc_XYZ")),
+    ).toEqual({ key: "gclid", value: "Cj0KCQj_123-abc_XYZ" });
+
+    expect(
+      parseGoogleClickId(new URLSearchParams("gbraid=12345_abc-XYZ")),
+    ).toEqual({ key: "gbraid", value: "12345_abc-XYZ" });
+
+    expect(
+      parseGoogleClickId(new URLSearchParams("wbraid=67890_def-UVW")),
+    ).toEqual({ key: "wbraid", value: "67890_def-UVW" });
+
+    // Duplicates and collisions rejected
+    expect(
+      parseGoogleClickId(new URLSearchParams("gclid=abc12345&gclid=def67890")),
+    ).toBeUndefined();
+    expect(
+      parseGoogleClickId(new URLSearchParams("gclid=abc12345&wbraid=def67890")),
+    ).toBeUndefined();
+
+    // Length boundary checks: min 5, max 256
+    expect(parseGoogleClickId(new URLSearchParams("gclid=1234"))).toBeUndefined();
+    const valid256 = "a".repeat(256);
+    expect(parseGoogleClickId(new URLSearchParams(`gclid=${valid256}`))).toEqual({
+      key: "gclid",
+      value: valid256,
+    });
+    expect(
+      parseGoogleClickId(new URLSearchParams(`gclid=${"a".repeat(257)}`)),
+    ).toBeUndefined();
+
+    // Character set rejection
+    expect(
+      parseGoogleClickId(new URLSearchParams("gclid=abc<script>")),
+    ).toBeUndefined();
+    expect(
+      parseGoogleClickId(new URLSearchParams("gclid=abc def")),
+    ).toBeUndefined();
+    expect(
+      parseGoogleClickId(new URLSearchParams("gclid=abc!@#$")),
+    ).toBeUndefined();
   });
 });

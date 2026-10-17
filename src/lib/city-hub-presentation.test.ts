@@ -24,7 +24,7 @@ describe("getCityHubPresentation", () => {
     expect(presentation.choiceDirections.find((item) => item.city.id === "lviv")?.returnRoute?.slug).toBe("lviv-celle");
     expect(presentation.choiceDirections.find((item) => item.city.id === "dolyna")?.departureRoute?.slug).toBe("celle-dolyna");
     expect(presentation.choiceDirections.find((item) => item.city.id === "dolyna")?.returnRoute?.slug).toBe("dolyna-celle");
-    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk"]);
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "stryi"]);
   });
 
   it("keeps Ukrainian hubs outbound by default with six German choices", () => {
@@ -36,7 +36,24 @@ describe("getCityHubPresentation", () => {
     expect(presentation.choiceCities.map((city) => city.id)).toEqual(["schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig"]);
     expect(presentation.departureLabel).toBe("Як їхати зі Львова");
     expect(presentation.arrivalHeading).toBe("Підготуйте повернення");
-    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["ivano-frankivsk", "celle"]);
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["ivano-frankivsk", "celle", "stryi"]);
+  });
+
+  it("presents Stryi as an outbound Ukrainian hub with German choices and reverse candidate card", () => {
+    const details = cityHubContents.find((content) => content.cityId === "stryi")!;
+    const presentation = getCityHubPresentation(getCity("stryi")!, details.fromName, details.toName, details.routeSlugs)!;
+
+    expect(presentation.initialOriginId).toBe("stryi");
+    expect(presentation.initialDirection).toBe("to-germany");
+    expect(presentation.choiceCities.map((city) => city.id)).toEqual(["schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig"]);
+    expect(presentation.departureLabel).toBe("Як їхати зі Стрия");
+    expect(presentation.departureHeading).toBe("Підготуйте виїзд");
+    expect(presentation.arrivalHeading).toBe("Підготуйте повернення");
+    expect(presentation.routeCards.map((route) => route.slug)).toEqual(["celle-stryi"]);
+    expect(presentation.choiceDirections.find((item) => item.city.id === "celle")?.returnRoute?.slug).toBe("celle-stryi");
+    expect(presentation.choiceDirections.find((item) => item.city.id === "celle")?.departureRoute).toBeUndefined();
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "celle"]);
+    expect(presentation.relatedHubs.find((h) => h.city.id === "celle")?.label).toBe("Напрямки із Целле");
   });
 
   it("does not present a city when country and country code are unsupported or inconsistent", () => {

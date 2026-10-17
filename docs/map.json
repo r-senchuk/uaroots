@@ -1,0 +1,1146 @@
+{
+  "okf_version": "0.2",
+  "extension": "uaroute-document-map-v1",
+  "directories": [
+    ".",
+    "Decisions",
+    "Marketing",
+    "Marketing/SEO",
+    "Operations",
+    "Operations/Agentic",
+    "Operations/Agentic/Operational",
+    "Product",
+    "Product/Booking"
+  ],
+  "nodes": [
+    {
+      "path": "00-project-constitution.md",
+      "id": "00-project-constitution",
+      "type": "Strategy",
+      "title": "UARoute — Project Constitution",
+      "description": "Product authority, truthful service boundaries, privacy and approved development gates."
+    },
+    {
+      "path": "Decisions/0001-nextjs-static-export.md",
+      "id": "Decisions/0001-nextjs-static-export",
+      "type": "Decision",
+      "title": "ADR 0001 — Next.js App Router static export",
+      "description": "Architectural decision, scope and consequences; migration does not change its accepted status."
+    },
+    {
+      "path": "Decisions/0002-gated-operator-booking-pilot.md",
+      "id": "Decisions/0002-gated-operator-booking-pilot",
+      "type": "Decision",
+      "title": "ADR 0002 — Gated operator booking pilot",
+      "description": "Architectural decision, scope and consequences; migration does not change its accepted status."
+    },
+    {
+      "path": "Decisions/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Marketing/08-analytics-and-attribution.md",
+      "id": "Marketing/08-analytics-and-attribution",
+      "type": "Specification",
+      "title": "08 — Analytics and Attribution",
+      "description": "Nonpersonal measurement, source attribution, consent and privacy limits."
+    },
+    {
+      "path": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "id": "Marketing/SEO/evaluation-contract-2026-10-06",
+      "type": "Evaluation",
+      "title": "EDD: критерії оцінювання SEO-оновлення",
+      "description": "Evaluation criteria or dated evidence; local results do not establish deployment or commercial outcomes."
+    },
+    {
+      "path": "Marketing/SEO/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Marketing/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Operations/07-koval-integration-and-conversion.md",
+      "id": "Operations/07-koval-integration-and-conversion",
+      "type": "Playbook",
+      "title": "UARoute — Koval Integration & Conversion",
+      "description": "Operator handoff, desks, conversion rules and passenger/parcel separation."
+    },
+    {
+      "path": "Operations/Agentic/Operational/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Operations/Agentic/Operational/repository-contract.md",
+      "id": "Operations/Agentic/Operational/repository-contract",
+      "type": "Operational",
+      "title": "UARoute expanded repository contract",
+      "description": "Preserved product constraints and task-specific navigation extracted from root AGENTS.md."
+    },
+    {
+      "path": "Operations/Agentic/Operational/working-agreement.md",
+      "id": "Operations/Agentic/Operational/working-agreement",
+      "type": "Operational",
+      "title": "Agent working agreement — proportional execution",
+      "description": "Scope-based context, delegation, verification, evidence and completion policy."
+    },
+    {
+      "path": "Operations/Agentic/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Operations/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Operations/security-advisory-register-2026-10-09.md",
+      "id": "Operations/security-advisory-register-2026-10-09",
+      "type": "Report",
+      "title": "Security advisory and disposition register",
+      "description": "Verified advisory ranges, installed paths, exposure and compatible fixes."
+    },
+    {
+      "path": "Product/02-prd-milestone-1.md",
+      "id": "Product/02-prd-milestone-1",
+      "type": "Specification",
+      "title": "UARoute — Product Requirements Document",
+      "description": "M1 product requirements and acceptance criteria, with separately gated future work."
+    },
+    {
+      "path": "Product/03-ux-and-information-architecture.md",
+      "id": "Product/03-ux-and-information-architecture",
+      "type": "Specification",
+      "title": "UARoute — UX & Information Architecture",
+      "description": "Page structure, navigation and passenger interaction design."
+    },
+    {
+      "path": "Product/04-visual-design-system.md",
+      "id": "Product/04-visual-design-system",
+      "type": "Specification",
+      "title": "UARoute — Visual Design System",
+      "description": "Brand, typography, colors, layout and visual implementation rules."
+    },
+    {
+      "path": "Product/06-data-model-and-content-governance.md",
+      "id": "Product/06-data-model-and-content-governance",
+      "type": "Specification",
+      "title": "UARoute — Data Model & Content Governance",
+      "description": "Typed catalog, service claims, evidence and content-maintenance contracts."
+    },
+    {
+      "path": "Product/09-technical-architecture.md",
+      "id": "Product/09-technical-architecture",
+      "type": "Specification",
+      "title": "09 — Technical Architecture",
+      "description": "Static application architecture and technical implementation boundaries."
+    },
+    {
+      "path": "Product/Booking/domain-and-api.md",
+      "id": "Product/Booking/domain-and-api",
+      "type": "Specification",
+      "title": "M2 booking domain and API contract",
+      "description": "Requirements, boundaries and implementation context for M2 booking domain and API contract."
+    },
+    {
+      "path": "Product/Booking/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "id": "Product/gtm-ga4-activation-spec-2026-10-07",
+      "type": "Specification",
+      "title": "GTM and GA4 activation — implementation and release gates",
+      "description": "Digital-marketing implementation task: event fidelity, consented GTM/GA4 activation, key events, six reports, EDD and recoverable release."
+    },
+    {
+      "path": "Product/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "id": "Product/inquiry-handoff-development-spec-2026-10-07",
+      "type": "Specification",
+      "title": "Пасажирський запит: перевірка переходу до Коваль",
+      "description": "Baseline, умовні мінімальні виправлення та критерії приймання пошуку, форми і WhatsApp без нових функцій звітності."
+    },
+    {
+      "path": "Product/pre-consent-measurement-plan-2026-10-07.md",
+      "id": "Product/pre-consent-measurement-plan-2026-10-07",
+      "type": "Plan",
+      "title": "UARoute — pre-consent measurement options and execution gates",
+      "description": "Dated assessment of GA4 cookieless measurement, EU/Polish constraints, aggregate alternatives and conditional EDD implementation."
+    },
+    {
+      "path": "README.md",
+      "id": "README",
+      "type": "Reference",
+      "title": "Site documentation",
+      "description": "Canonical contracts versioned with application code."
+    },
+    {
+      "path": "index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "knowledge-base.md",
+      "id": "knowledge-base",
+      "type": "Operational",
+      "title": "Local knowledge base",
+      "description": "How to use the optional local UARoute knowledge vault and its checked wiki bundle."
+    },
+    {
+      "path": "log.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "map.json",
+      "kind": "artifact"
+    },
+    {
+      "path": "map.md",
+      "id": "map",
+      "type": "Reference",
+      "title": "Site contract map",
+      "description": "Minimal implementation and governance navigation."
+    },
+    {
+      "path": "migration-map.json",
+      "kind": "artifact"
+    },
+    {
+      "path": "okf-profile.md",
+      "id": "okf-profile",
+      "type": "Specification",
+      "title": "Site documentation profile",
+      "description": "OKF structural conventions for canonical repository contracts."
+    }
+  ],
+  "links": [
+    {
+      "from": "00-project-constitution.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Decisions/0001-nextjs-static-export.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "../README.md",
+      "scope": "repository"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "../AGENTS.md",
+      "scope": "repository"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Decisions/0001-nextjs-static-export.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "README.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Decisions/0002-gated-operator-booking-pilot.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Decisions/0002-gated-operator-booking-pilot.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Decisions/index.md",
+      "to": "index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Decisions/index.md",
+      "to": "Decisions/0001-nextjs-static-export.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Decisions/index.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "Product/pre-consent-measurement-plan-2026-10-07.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/index.md",
+      "to": "Marketing/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/index.md",
+      "to": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/index.md",
+      "to": "index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/index.md",
+      "to": "Marketing/SEO/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/index.md",
+      "to": "Marketing/08-analytics-and-attribution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/07-koval-integration-and-conversion.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/07-koval-integration-and-conversion.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/07-koval-integration-and-conversion.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/07-koval-integration-and-conversion.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/07-koval-integration-and-conversion.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/index.md",
+      "to": "Operations/Agentic/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/index.md",
+      "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/index.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "../README.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "map.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "okf-profile.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "README.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Product/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Marketing/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "../src/data/AGENTS.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Operations/07-koval-integration-and-conversion.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Product/Booking/domain-and-api.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "Decisions/0001-nextjs-static-export.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "../CUTOVER.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/repository-contract.md",
+      "to": "../.agents/skills",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/working-agreement.md",
+      "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/working-agreement.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/working-agreement.md",
+      "to": "../CUTOVER.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/index.md",
+      "to": "Operations/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/index.md",
+      "to": "Operations/Agentic/Operational/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/index.md",
+      "to": "index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/index.md",
+      "to": "Operations/Agentic/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/index.md",
+      "to": "Operations/07-koval-integration-and-conversion.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/index.md",
+      "to": "Operations/security-advisory-register-2026-10-09.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/security-advisory-register-2026-10-09.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/security-advisory-register-2026-10-09.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/security-advisory-register-2026-10-09.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/security-advisory-register-2026-10-09.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/02-prd-milestone-1.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/03-ux-and-information-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/03-ux-and-information-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/03-ux-and-information-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/06-data-model-and-content-governance.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/06-data-model-and-content-governance.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/06-data-model-and-content-governance.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/06-data-model-and-content-governance.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "Decisions/0001-nextjs-static-export.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "Decisions/0001-nextjs-static-export.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/09-technical-architecture.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/domain-and-api.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/index.md",
+      "to": "Product/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/Booking/index.md",
+      "to": "Product/Booking/domain-and-api.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/Booking/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/02-prd-milestone-1.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/03-ux-and-information-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/04-visual-design-system.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/06-data-model-and-content-governance.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/09-technical-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/pre-consent-measurement-plan-2026-10-07.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "../src/components/BookingWidget.tsx",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "../src/components/CandidateInquiry.tsx",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "../src/lib/whatsapp.ts",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "../src/components/inquiry.tsx",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "../src/components/KovalReferralLink.tsx",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
+      "to": "../.agents/skills/verify-pages/SKILL.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/pre-consent-measurement-plan-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/pre-consent-measurement-plan-2026-10-07.md",
+      "to": "Product/gtm-ga4-activation-spec-2026-10-07.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/pre-consent-measurement-plan-2026-10-07.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "README.md",
+      "to": "index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "README.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "README.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "map.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "okf-profile.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "Decisions/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "Marketing/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "Operations/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "Product/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "map.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "okf-profile.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "README.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "migration-map.json",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "log.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "index.md",
+      "to": "map.json",
+      "scope": "bundle"
+    },
+    {
+      "from": "knowledge-base.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "knowledge-base.md",
+      "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "knowledge-base.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "map.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "map.md",
+      "to": "map.json",
+      "scope": "bundle"
+    }
+  ]
+}

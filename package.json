@@ -27,7 +27,9 @@
     "test:seo-release": "node --test scripts/seo-release.test.mjs scripts/release-tooling.test.mjs scripts/production-release.test.mjs",
     "seo:verify-artifact": "node scripts/seo-http-generate.mjs --check",
     "docs:index": "node scripts/okf.mjs --write",
-    "test:okf": "node --test scripts/okf.test.mjs",
+    "test:okf": "node --test scripts/okf.test.mjs scripts/check-docs.test.mjs",
+    "kb:check": "node scripts/check-docs.mjs --kb && node scripts/okf.mjs --kb --check",
+    "kb:index": "node scripts/okf.mjs --kb --write",
     "attribution:browser": "node scripts/attribution-browser.mjs"
   },
   "dependencies": {

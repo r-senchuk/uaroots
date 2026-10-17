@@ -25,12 +25,17 @@ function syntheticDateFixture(reviewedAt: string, contentUpdatedAt: string, chec
     contentReview: { reviewedAt, contentUpdatedAt, reviewScope: "editorial_guidance" },
   });
   const celle = record("celle", "Fixture City C", "celle-lviv");
-  return [record("lviv", "Fixture City A", "lviv-hannover"), record("ivano-frankivsk", "Fixture City B", "ivano-frankivsk-wolfsburg"), {
-    ...celle,
-    routeSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"],
-    planningResources: [{ label: "Офіційний довідник доїзду до Целле", url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", checkedAt: "2026-10-09", purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою." }],
-    contentReview: { reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" },
-  }];
+  return [
+    record("lviv", "Fixture City A", "lviv-hannover"),
+    record("ivano-frankivsk", "Fixture City B", "ivano-frankivsk-wolfsburg"),
+    record("stryi", "Fixture City D", "celle-stryi"),
+    {
+      ...celle,
+      routeSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"],
+      planningResources: [{ label: "Офіційний довідник доїзду до Целле", url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", checkedAt: "2026-10-09", purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою." }],
+      contentReview: { reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" },
+    },
+  ];
 }
 
 function addNamedTestPlace(contents = cloneContents()) {
@@ -47,7 +52,7 @@ function addNamedTestPlace(contents = cloneContents()) {
 
 describe("validateCityHubContent", () => {
   it("accepts the selected hub data and permits empty named-place lists", () => {
-    expect(validateCityHubContent(cityHubContents, "2026-10-09")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-17")).toEqual([]);
   });
 
   it("accepts a source-backed synthetic nearby-place fixture", () => {
@@ -151,8 +156,69 @@ describe("validateCityHubContent", () => {
       checkedAt: "2026-10-09",
       purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою.",
     }]);
-    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" });
-    expect(validateCityHubContent(cityHubContents, "2026-10-09")).toEqual([]);
+    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-10", contentUpdatedAt: "2026-10-10", reviewScope: "editorial_guidance" });
+    expect(celle.nearbyPlaces.map((place) => place.localName)).toEqual([
+      "Samtgemeinde Lachendorf",
+      "Hambühren",
+      "Winsen (Aller)",
+      "Wietze",
+      "Samtgemeinde Flotwedel",
+    ]);
+    const expectedLocalities = [
+      ["Lachendorf", "Ahnsbeck", "Beedenbostel", "Eldingen", "Hohne"],
+      ["Hambühren", "Hambühren I", "Hambühren II", "Oldau", "Ovelgönne", "Schönhop"],
+      ["Winsen (Aller)", "Bannetze", "Meißendorf", "Stedden", "Südwinsen", "Thören", "Walle", "Wolthausen"],
+      ["Wietze", "Steinförde", "Wieckenberg", "Jeversen", "Hornbostel"],
+      ["Wienhausen", "Eicklingen", "Langlingen", "Bröckel", "Offensen", "Oppershausen", "Bockelskamp", "Nienhof"],
+    ];
+    expect(celle.nearbyPlaces).toHaveLength(5);
+    for (const [index, places] of expectedLocalities.entries()) {
+      expect(places.every((place) => celle.nearbyPlaces[index]!.guidance.includes(place))).toBe(true);
+      expect(celle.nearbyPlaces[index]!.geographySource.checkedAt).toBe("2026-10-10");
+      expect(celle.nearbyPlaces[index]!).not.toHaveProperty("cityId");
+      expect(celle.nearbyPlaces[index]!).not.toHaveProperty("aliases");
+      expect(celle.nearbyPlaces[index]!).not.toHaveProperty("url");
+    }
+    expect(celle.nearbyIntro).toContain("найближче доступне для вашої поїздки місто в пошуку");
+    expect(celle.nearbyIntro).toContain("точну адресу або орієнтир");
+    expect(celle.nearbyIntro).toContain("чи можлива там посадка або висадка");
+    expect(validateCityHubContent(cityHubContents, "2026-10-17")).toEqual([]);
+  });
+
+  it("keeps Stryi's selected directions, source, and editorial dates in the reviewed content", () => {
+    const stryi = cityHubContents.find((content) => content.cityId === "stryi")!;
+    expect(stryi).toBeDefined();
+    expect(stryi.routeSlugs).toEqual(["celle-stryi"]);
+    expect(stryi.planningResources).toEqual([
+      {
+        label: "Офіційний пошук квитків Укрзалізниці",
+        url: "https://booking.uz.gov.ua/",
+        checkedAt: "2026-10-17",
+        purpose: "Окремо перевірити розклад приміських потягів та поїздів до станції Стрий.",
+      },
+    ]);
+    expect(stryi.contentReview).toEqual({
+      reviewedAt: "2026-10-17",
+      contentUpdatedAt: "2026-10-17",
+      reviewScope: "editorial_guidance",
+    });
+    expect(stryi.nearbyPlaces).toHaveLength(6);
+    expect(stryi.nearbyPlaces.map((place) => place.name)).toEqual([
+      "Моршин і громада",
+      "Дрогобич",
+      "Трускавець",
+      "Сколе та Сколівщина",
+      "Болехів і прилеглі громади",
+      "Стебник",
+    ]);
+    for (const place of stryi.nearbyPlaces) {
+      expect(place.geographySource.url).toMatch(/^https:\/\/[a-z0-9.-]+(?:\.gov\.ua|\.ua)\//);
+      expect(place.geographySource.checkedAt).toBe("2026-10-17");
+    }
+    expect(stryi.nearbyIntro).toContain("фактичне місце");
+    expect(stryi.nearbyIntro).toContain("приватному повідомленні WhatsApp");
+    expect(stryi.nearbyIntro).toContain("не означає посадку у вашому населеному пункті");
+    expect(validateCityHubContent(cityHubContents, "2026-10-17")).toEqual([]);
   });
 
   it("requires unique nearby keys and complete source-backed context", () => {

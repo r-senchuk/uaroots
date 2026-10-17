@@ -8,7 +8,13 @@ import { cities } from "@/data/cities";
 import { cityHubPaths } from "@/data/discovery";
 import { routes } from "@/data/routes";
 import { siteConfig } from "@/config/site";
-import { acquisitionChannels, acquisitionCampaigns, ctaLocations, parseAcquisitionTags } from "@/config/utm";
+import {
+  acquisitionChannels,
+  acquisitionCampaigns,
+  ctaLocations,
+  parseAcquisitionTags,
+  parseGoogleClickId,
+} from "@/config/utm";
 
 export type AnalyticsEvent =
   | "page_view"
@@ -76,7 +82,9 @@ declare global {
 }
 
 const approvedSources = new Set(Object.keys(acquisitionChannels));
-const approvedMediums = new Set<string>(Object.values(acquisitionChannels));
+const approvedMediums = new Set<string>(
+  Object.values(acquisitionChannels).flat(),
+);
 const approvedCampaigns = new Set<string>(acquisitionCampaigns);
 const approvedCtaLocations = new Set<CtaLocation>(ctaLocations);
 const approvedConversionTypes = new Set<ConversionType>(["whatsapp_inquiry", "koval_site"]);
@@ -174,9 +182,12 @@ export function captureLandingAttribution(): Attribution {
   const landingPage = canonicalLandingPath(window.location.pathname);
   const params = new URLSearchParams(window.location.search);
   const tags = parseAcquisitionTags(params);
+  const clickId = parseGoogleClickId(params);
   const referral = referralAttribution(typeof document === "undefined" ? "" : document.referrer);
+  const paidSearchAttribution =
+    clickId && !tags ? ({ source: "google", medium: "cpc" } as const) : undefined;
   firstTouch = {
-    ...(tags ?? referral),
+    ...(tags ?? paidSearchAttribution ?? referral),
     ...(landingPage ? { landingPage } : {}),
   };
   window.__uarouteAnalyticsPageLocation = currentPageLocation();
@@ -193,7 +204,16 @@ function isSafePath(value: unknown): value is string {
 function currentPageLocation(): string {
   const path =
     typeof window === "undefined" ? undefined : canonicalLandingPath(window.location.pathname);
-  return `${siteConfig.domain}${path ?? "/"}`;
+  const base = `${siteConfig.domain}${path ?? "/"}`;
+  if (typeof window === "undefined" || !path) return base;
+
+  if (firstTouch && path === firstTouch.landingPage && window.location.search) {
+    const clickId = parseGoogleClickId(new URLSearchParams(window.location.search));
+    if (clickId) {
+      return `${base}?${clickId.key}=${clickId.value}`;
+    }
+  }
+  return base;
 }
 
 function isSafeRoute(value: unknown): value is string {
@@ -356,4 +376,7 @@ export function resetAttributionForTests(): void {
   firstTouch = null;
   latestRouteView = null;
   latestPageView = null;
+  if (typeof window !== "undefined") {
+    window.__uarouteAnalyticsPageLocation = undefined;
+  }
 }

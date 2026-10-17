@@ -1,12 +1,12 @@
 # UARoute
 
-Ukrainian-language **route atlas** for journeys from Ukraine to Europe. The demand POC was published on UARoute and Koval on 2026-10-06; the live search/contact attribution path passed browser checks. Dated deployment fingerprints and limitations are in [POC status](docs/Operations/POC/poc-status.md). Operator-received inquiries and completed passenger journeys remain unverified; commercial readiness is tracked separately in the [M1 status register](docs/Operations/m1-implementation-checklist.md).
+Ukrainian-language **route atlas** for journeys from Ukraine to Europe. The demand POC was published on UARoute and Koval on 2026-10-06; the live search/contact attribution path passed browser checks. Dated deployment fingerprints and limitations are in [POC status](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/poc-status.md`). Operator-received inquiries and completed passenger journeys remain unverified; commercial readiness is tracked separately in the [M1 status register](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/m1-implementation-checklist.md`).
 
 > M1: UARoute owns discovery and travel intent; Koval owns booking. M2: an operator-controlled reservation pilot is approved as the next gated development direction.
 
-The [booking development strategy](docs/Product/13-booking-pilot-development-strategy.md), [site details](docs/Product/14-booking-pilot-site-details.md), and [ADR 0002](docs/Decisions/0002-gated-operator-booking-pilot.md) define that pilot. The booking API, live inventory, and driver login are planned, not released. Next.js static export and S3/CloudFront remain; Lambda and DynamoDB are introduced only for real reservations after operator/safety/privacy gates.
+The [booking development strategy](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/13-booking-pilot-development-strategy.md`), [site details](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/14-booking-pilot-site-details.md`), and [ADR 0002](docs/Decisions/0002-gated-operator-booking-pilot.md) define that pilot. The booking API, live inventory, and driver login are planned, not released. Next.js static export and S3/CloudFront remain; Lambda and DynamoDB are introduced only for real reservations after operator/safety/privacy gates.
 
-Travellers select either direction, see sourced corridor information or a labelled candidate feasibility inquiry, and contact Koval. Koval first confirms feasibility and then conditions such as date, pickup, price and seats. Completed passenger journeys are the immediate demand-test outcome, still unverified. Follow the [current next-step strategy](docs/Operations/POC/next-steps.md).
+Travellers select either direction, see sourced corridor information or a labelled candidate feasibility inquiry, and contact Koval. Koval first confirms feasibility and then conditions such as date, pickup, price and seats. Completed passenger journeys are the immediate demand-test outcome, still unverified. Follow the [current next-step strategy](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/next-steps.md`).
 
 ---
 
@@ -20,7 +20,7 @@ Travellers select either direction, see sourced corridor information or a labell
 
 ## Repository implementation snapshot
 
-The feature descriptions below document the repository implementation. Production acceptance is scoped to the dated [POC evidence](docs/Operations/POC/poc-status.md); it does not establish commercial readiness. The historical implementation review is dated 2026-09-11; other readiness dimensions remain in the [M1 status register](docs/Operations/m1-implementation-checklist.md) and [First-Income Development Backlog](docs/Marketing/12-first-income-development-backlog.md).
+The feature descriptions below document the repository implementation. Production acceptance is scoped to the dated [POC evidence](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/poc-status.md`); it does not establish commercial readiness. The historical implementation review is dated 2026-09-11; other readiness dimensions remain in the [M1 status register](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/m1-implementation-checklist.md`) and [First-Income Development Backlog](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/12-first-income-development-backlog.md`).
 
 Owned **Next.js 16 App Router** app at the repo root. `next build` writes crawlable HTML to `./out` for the existing S3 + CloudFront host (`output: "export"`, `trailingSlash: true`). There is no application database.
 
@@ -32,7 +32,7 @@ Owned **Next.js 16 App Router** app at the repo root. `next build` writes crawla
 | **Search** | Ukrainian names, aliases, and transliterations → canonical cities. Aliases never become URLs |
 | **Inquiry** | Date and phone required; passengers 1–8 (default 1). Origin/destination come from the page |
 | **WhatsApp** | Pre-filled message with ephemeral random `UR-…` opens the route’s desk (`wa.me`). Not a confirmed booking |
-| **Analytics** | `track()` supports `__uarouteEvents`, `dataLayer`, and optional GA4. Runtime allowlist, failure isolation and initial-source capture verified locally; external GA delivery remains unverified. See [POC status](docs/Operations/POC/poc-status.md) |
+| **Analytics** | `track()` supports `__uarouteEvents`, `dataLayer`, and optional GA4. Runtime allowlist, failure isolation and initial-source capture verified locally; external GA delivery remains unverified. See [POC status](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/poc-status.md`) |
 | **SEO** | Unique titles/H1s, absolute canonicals and page structured data. Visible FAQs do not claim FAQ rich results. Sitemap lists commercial pages only. Editorial routes are `noindex, follow` |
 
 Client components are used only where there is UI state (search, inquiry, header, click tracking).
@@ -44,7 +44,7 @@ Facts live in `src/data/` (`types.ts`, `cities.ts`, `routes.ts`, `carriers.ts`).
 | Published group | Discovery / indexing eligibility | Evidence |
 | --- | --- | --- |
 | Existing `lviv-hannover` | Commercial sourced inquiry page, listed and in sitemap. | Catalog and route verification matrix; no live seat inventory. |
-| Ten selected candidate pages | Commercial `candidate_inquiry`, explicitly feasibility-first; listed and in sitemap. | [Explicit selection](src/data/discovery.ts) and [release record](docs/Operations/POC/releases/discovery-2026-10-06.json). |
+| Ten selected candidate pages | Commercial `candidate_inquiry`, explicitly feasibility-first; listed and in sitemap. | [Explicit selection](src/data/discovery.ts) and [release record](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/releases/discovery-2026-10-06.json`). |
 | Lviv/Ivano-Frankivsk city hubs | Useful origin/direction pages, published and in sitemap. | Same dated release record. |
 | Hamburg/Berlin editorial pages | `noindex`, excluded from search navigation/index/sitemap. | Catalog/inspector rules. |
 
@@ -62,18 +62,18 @@ Static export cannot emit HTTP 301s. Real 301s belong on CloudFront at deploy ti
 
 ## Documentation
 
-`docs/` is a local, unversioned knowledge vault. Links into it require the local vault; a Git checkout does not include those documents. CI checks the repository and validates the vault only when it is present. Generated reports in `output/` are also local.
+`docs/` contains canonical implementation contracts. The separate local Project KB holds strategy, research, history and agent memory; consult the [KB guide](docs/knowledge-base.md#knowledge-base). Agent execution policy remains in site contracts; dated memory lives in the KB (see [Agentic guide](docs/knowledge-base.md#knowledge-base), `wiki/Operations/Agentic/README.md`). Generated `output/` evidence stays local; CI reports unavailable artifact links separately from broken source/document links.
 
-For immediate execution use [Demand POC next steps](docs/Operations/POC/next-steps.md): outcome feedback, search evidence, durable release preservation and one acquisition cohort.
+For immediate execution use [Demand POC next steps](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/next-steps.md`): outcome feedback, search evidence, durable release preservation and one acquisition cohort.
 
-Start with the [OKF bundle index](docs/index.md), [section map](docs/map.md) and [human guide](docs/README.md): they separate Marketing, Operations, Product, architectural decisions, plans and evidence. For M2, use the [domain/API contract](docs/Product/Booking/domain-and-api.md), [implementation backlog](docs/Product/Booking/implementation-backlog.md), [pilot scorecard](docs/Operations/Booking/pilot-experiment.md), and [release runbook](docs/Operations/Booking/operations-and-release.md). All M2 tasks remain open.
+Start with the [OKF bundle index](docs/index.md), [section map](docs/map.md) and [human guide](docs/README.md): they list the retained implementation contracts; broader plans and evidence live in the Project KB. For M2, use the [domain/API contract](docs/Product/Booking/domain-and-api.md), [implementation backlog](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/Booking/implementation-backlog.md`), [pilot scorecard](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Booking/pilot-experiment.md`), and [release runbook](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Booking/operations-and-release.md`). All M2 tasks remain open.
 
 Treat the docs as a hierarchy. A lower-level file must not silently override a higher one. If they conflict, stop and resolve the conflict before a consequential change.
 
 ### Foundation
 
 - [Project Constitution](docs/00-project-constitution.md)
-- [Product Strategy](docs/Product/01-product-strategy.md)
+- [Product Strategy](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/01-product-strategy.md`)
 
 ### Product
 
@@ -83,8 +83,8 @@ Treat the docs as a hierarchy. A lower-level file must not silently override a h
 
 ### Content / Data
 
-- [Content & SEO Strategy](docs/Marketing/05-content-and-seo-strategy.md)
-- [Marketing Development Strategy](docs/Marketing/15-marketing-development-strategy.md) — passenger/provider audiences, messages, SEO campaigns, tools and a phased acquisition plan
+- [Content & SEO Strategy](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/05-content-and-seo-strategy.md`)
+- [Marketing Development Strategy](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/15-marketing-development-strategy.md`) — passenger/provider audiences, messages, SEO campaigns, tools and a phased acquisition plan
 - [Data Model & Content Governance](docs/Product/06-data-model-and-content-governance.md)
 
 ### Conversion / Technical
@@ -92,25 +92,25 @@ Treat the docs as a hierarchy. A lower-level file must not silently override a h
 - [Koval Integration & Conversion](docs/Operations/07-koval-integration-and-conversion.md)
 - [Analytics & Attribution](docs/Marketing/08-analytics-and-attribution.md)
 - [Technical Architecture](docs/Product/09-technical-architecture.md)
-- [Cutover & SEO Migration](docs/Operations/10-cutover-and-seo-migration.md)
+- [Cutover & SEO Migration](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/10-cutover-and-seo-migration.md`)
 
 ### Research
 
-- [Koval Site Audit](docs/Operations/Research/koval-site-audit.md)
-- [Legacy UARoute Audit](docs/Operations/Research/legacy-uaroute-audit.md)
-- [M1 route verification matrix](docs/Operations/Research/m1-route-verification-matrix.md)
-- [Booking strategy investigation](docs/Product/Research/booking-pilot-strategy-review.md) — both supplied plans, Booksy lessons, sources and unresolved assumptions
-- [Marketing development-plan review](docs/Marketing/Research/marketing-development-plan-review-2026-10-06.md) — acquisition priorities, plan gaps and source evidence
+- [Koval Site Audit](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Research/koval-site-audit.md`)
+- [Legacy UARoute Audit](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Research/legacy-uaroute-audit.md`)
+- [M1 route verification matrix](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/Research/m1-route-verification-matrix.md`)
+- [Booking strategy investigation](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/Research/booking-pilot-strategy-review.md`) — both supplied plans, Booksy lessons, sources and unresolved assumptions
+- [Marketing development-plan review](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/Research/marketing-development-plan-review-2026-10-06.md`) — acquisition priorities, plan gaps and source evidence
 
 ### Execution
 
-- [Revenue Validation and Provider Expansion Plan](docs/Marketing/11-revenue-validation-plan.md) — commercial sequence and first-payment criteria
-- [First-Income Development Backlog](docs/Marketing/12-first-income-development-backlog.md) — conditional commercial tasks and historical engineering acceptance; current demand work follows DP-01–DP-08
-- [Gated Booking Pilot Development Strategy](docs/Product/13-booking-pilot-development-strategy.md) — phases, AWS architecture, economics, and stop/pivot rules
-- [Booking Pilot Site Details](docs/Product/14-booking-pilot-site-details.md) — guest/driver journeys, URLs, and truthful release states
+- [Revenue Validation and Provider Expansion Plan](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/11-revenue-validation-plan.md`) — commercial sequence and first-payment criteria
+- [First-Income Development Backlog](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Marketing/12-first-income-development-backlog.md`) — conditional commercial tasks and historical engineering acceptance; current demand work follows DP-01–DP-08
+- [Gated Booking Pilot Development Strategy](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/13-booking-pilot-development-strategy.md`) — phases, AWS architecture, economics, and stop/pivot rules
+- [Booking Pilot Site Details](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Product/14-booking-pilot-site-details.md`) — guest/driver journeys, URLs, and truthful release states
 - [ADR 0002 — Gated operator booking pilot](docs/Decisions/0002-gated-operator-booking-pilot.md)
 - [ADR 0001 — Next.js static export](docs/Decisions/0001-nextjs-static-export.md)
-- [M1 implementation checklist](docs/Operations/m1-implementation-checklist.md)
+- [M1 implementation checklist](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/m1-implementation-checklist.md`)
 - [CUTOVER.md](CUTOVER.md) — deploy and legacy URL map
 - [AGENTS.md](AGENTS.md) — instructions for Cursor, Codex, OpenCode, and other coding agents (skills in `.agents/skills/`)
 
@@ -163,9 +163,9 @@ Typed route data in `src/data/` drives pages, search, desks, sitemap, and analyt
 | `src/data/` | Cities, routes, carriers, queries |
 | `src/lib/` | WhatsApp inquiry, SEO, analytics, catalog validation, `cn` |
 | `src/config/` | Domain/business settings, bounded acquisition policy, fixed partner referral contract |
-| `docs/` | [Knowledge map](docs/README.md), stable numbered plans, research and accepted decisions |
-| `docs/Product/Booking/` | Planned M2 domain/API, implementation tasks, experiments and release procedures |
-| `docs/Templates/` | Evidence-note template; no passenger/private business records |
+| `docs/` | [Contract map](docs/README.md), canonical implementation contracts and accepted decisions |
+| `docs/Product/Booking/` | Canonical planned M2 domain/API contract; supporting plans live in Project KB |
+| Project KB `wiki/Templates/` | Evidence-note template; no passenger/private business records |
 | `output/` | Preserved local release/rollback/QA artifacts and manual QA PDF; generated bundles excluded from lint, not runtime source |
 | `scripts/` | Documentation/OKF checks, synthetic browser QA, SEO evaluation and release/recovery tools |
 | `infra/` | Reviewed CloudFront function and release-tooling runbook |
@@ -194,7 +194,7 @@ make deploy          # apply existing artifact; requires explicit release/recove
 
 Analytics uses public build-time settings from `.env` locally and GitHub Actions repository Variables in CI: `NEXT_PUBLIC_GTM_CONTAINER_ID=GTM-WD2F63V5`, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-PMXHF9YT7V`, and `NEXT_PUBLIC_ANALYTICS_ENABLED=false`. These IDs are public identifiers, not Secrets. `.env.example` provides the same defaults. A valid GTM container takes precedence over direct GA4 so the two providers do not load together; direct GA4 is the fallback when the container ID is absent. Collection requires the activation flag to be `true` and explicit visitor consent. Keep the flag `false` until the measurement release gates pass and the reviewed container is published. Changing Actions Variables affects the next build, not an existing immutable artifact. Before enabling production collection, audit the GA property's Enhanced Measurement settings (especially outbound clicks/form events) so automatic Google events cannot collect the WhatsApp message URL, phone or selected date; inspect real network payloads separately from local facade tests.
 
-The supported production build uses Webpack. Turbopack's CSS worker needs a loopback port that this execution sandbox forbids (including the escalated attempt); `npm run build:turbopack` remains available to retest it. Fonts require no remote build fetch. Run `npm run poc:browser` with Playwright available via `PLAYWRIGHT_MODULE_PATH` and optionally `PLAYWRIGHT_EXECUTABLE_PATH`; the harness fulfills exported files locally without opening WhatsApp. Outcome input and counting rules: [operator feedback](docs/Operations/POC/operator-feedback.md).
+The supported production build uses Webpack. Turbopack's CSS worker needs a loopback port that this execution sandbox forbids (including the escalated attempt); `npm run build:turbopack` remains available to retest it. Fonts require no remote build fetch. Run `npm run poc:browser` with Playwright available via `PLAYWRIGHT_MODULE_PATH` and optionally `PLAYWRIGHT_EXECUTABLE_PATH`; the harness fulfills exported files locally without opening WhatsApp. Outcome input and counting rules: [operator feedback](docs/knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/operator-feedback.md`).
 
 Use Node 22.12+ on the Node 22 line (CI follows `.nvmrc`), Node 24, or Node 26+. The package engine range matches Vitest 5. Run `npm ci` after pulling dependency changes.
 
@@ -226,6 +226,6 @@ A build generates `out/referral-contract.json` from the same outbound allowlist.
 
 ### Working tree and local artifacts
 
-Commit application/configuration changes, tests, reusable scripts and repository runbooks together with their dependencies. Keep secrets, passenger records, the local `docs/` vault and generated `output/` evidence out of Git. Those local directories contain useful plans and recovery/QA history; an ignored path is not automatically disposable.
+Commit application/configuration changes, tests, reusable scripts and repository runbooks together with their dependencies. Keep secrets, passenger records and generated `output/` evidence out of Git. Review the Git-eligible `docs/` bundle before staging; historical artifact links may require separately retained evidence. Ignored recovery/QA artifacts are not automatically disposable.
 
 `.next/`, `out/`, `coverage/` and `*.tsbuildinfo` are reproducible build/test output. Remove these when resetting local generated state, then rebuild before preview, artifact inspection or release preparation. Preserve a reviewed release under `output/` before replacing `out/`; preserved recovery bundles must survive cache cleanup. `node_modules/` is the installed development environment, rebuilt with `npm ci`, not source to commit. No frozen CRA `legacy/` directory is present in this checkout; recover historical source from Git only if an explicit rollback requires it.
