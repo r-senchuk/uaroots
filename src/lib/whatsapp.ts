@@ -252,3 +252,26 @@ export function buildCandidateInquiryTarget(
     leadId,
   };
 }
+
+export function buildBicycleInquiryMessage(leadId?: string): string {
+  const lines = [
+    "Доброго дня! Хочу уточнити перевезення велосипеда в мікроавтобусі.",
+    "",
+    "Підкажіть, будь ласка, наявність вільного місця в багажнику на мою дату, вартість та умови перевезення.",
+    "Велосипед буде частково розібраний та упакований.",
+    "Це запит про поїздку, а не бронювання.",
+    "",
+    "Джерело: UARoute",
+    `Сторінка: ${absoluteUrl("/guides/perevezennya-velosypeda/")}`,
+  ];
+  if (leadId) {
+    lines.push(`Код: ${leadId}`);
+  }
+  return lines.join("\n");
+}
+
+export function buildBicycleInquiryUrl(whatsappNumber: string, leadId?: string): string {
+  const message = buildBicycleInquiryMessage(leadId);
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+

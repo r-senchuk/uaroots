@@ -179,7 +179,16 @@ async function run() {
   if (!existsSync(join(outDir, "index.html"))) throw new Error(`Static export not found at ${outDir}; build UARoute before running this evaluator.`);
   if (kovalDist && !existsSync(join(kovalDist, "index.html"))) throw new Error(`KOVAL_DIST_PATH has no index.html: ${kovalDist}`);
 
-  const playwrightModule = process.env.PLAYWRIGHT_MODULE_PATH ?? "playwright";
+  let playwrightModule = process.env.PLAYWRIGHT_MODULE_PATH;
+  if (!playwrightModule) {
+    try {
+      await import("playwright");
+      playwrightModule = "playwright";
+    } catch {
+      const fallback = "/Users/roman/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.mjs";
+      playwrightModule = existsSync(fallback) ? fallback : "playwright";
+    }
+  }
   const { chromium } = await import(playwrightModule);
   const chromePath = process.env.PLAYWRIGHT_EXECUTABLE_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
   const launchOptions = { headless: true };
@@ -401,10 +410,10 @@ async function run() {
 
       await cellePage.goto(`${uarouteOrigin}/cities/celle/`, { waitUntil: "networkidle" });
       await cellePage.getByText("Пошук за іншою назвою міста", { exact: true }).click();
-      await selectCity(cellePage, "Куди", "Stryi", "Стрий");
+      await selectCity(cellePage, "Куди", "Ivano-Frankivsk", "Івано-Франківськ");
       await cellePage.getByRole("button", { name: "Знайти маршрут" }).click();
       await cellePage.locator('section[aria-labelledby$="-candidate-inquiry-title"]').waitFor({ state: "visible" });
-      ensure(new URL(cellePage.url()).pathname === "/cities/celle/", "Celle → Stryi created an unselected public route URL");
+      ensure(new URL(cellePage.url()).pathname === "/cities/celle/", "Celle → Ivano-Frankivsk created an unselected public route URL");
 
       const nearbyLink = cellePage.locator('section[aria-labelledby="nearby-places-heading"] a[href="#search-heading"]');
       await nearbyLink.focus();
@@ -502,6 +511,63 @@ async function run() {
         await mobile.waitForURL(`**${to}`);
       }
       return { legalPages: 2, redirects: redirects.length };
+    });
+
+    await runCheck("bicycle guide page customs copy, uncoded baseline, mouse/keyboard CTA interaction, and zero PII", async () => {
+      await mobile.goto(`${uarouteOrigin}/guides/perevezennya-velosypeda/`, { waitUntil: "domcontentloaded" });
+      await mobile.waitForLoadState("networkidle");
+      await mobile.getByRole("heading", { level: 1, name: /Перевезення велосипеда/ }).waitFor({ state: "visible" });
+
+      const bodyText = await mobile.locator("body").innerText();
+      ensure(bodyText.includes("50 євро"), "Guide is missing 50 euro customs threshold");
+      ensure(!bodyText.includes("20 кг"), "Guide contains unsupported 20 kg claim");
+      ensure(!bodyText.includes("підлягає затриманню"), "Guide contains unqualified detention absolute");
+      ensure(bodyText.includes("може привернути підвищену увагу"), "Guide is missing qualified border check statement");
+
+      const cta = mobile.getByRole("link", { name: "Уточнити перевезення велосипеда в WhatsApp" });
+      await cta.waitFor({ state: "visible" });
+
+      // 1. Baseline link before interaction: uncoded, no UR-INQUIRY, no "Код:"
+      const initialHref = await cta.getAttribute("href");
+      ensure(initialHref && initialHref.startsWith("https://wa.me/380509786330?text="), "CTA does not link to WhatsApp");
+      ensure(!initialHref.includes("UR-INQUIRY"), "CTA contains fabricated UR-INQUIRY code");
+      ensure(!decodeURIComponent(initialHref).includes("Код:"), "Baseline CTA contains inquiry code before interaction");
+
+      // 2. Keyboard interaction (focus and press Space or Enter) generates valid random code
+      await cta.focus();
+      await cta.press("Space");
+      const keyboardHref = await cta.getAttribute("href");
+      ensure(keyboardHref && /Код: UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/.test(decodeURIComponent(keyboardHref)), "Keyboard interaction did not attach valid opaque code");
+
+      // 3. Mouse click captures opened handoff and records zero-PII telemetry
+      const [popup] = await Promise.all([mobile.waitForEvent("popup"), cta.click()]);
+      await popup.close();
+      const opened = result.interceptedWhatsAppUrls.at(-1);
+      ensure(opened && /Код: UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/.test(decodeURIComponent(opened)), "Click did not open handoff with valid code");
+
+      const events = await mobile.evaluate(() => window.__uarouteEvents ?? []);
+      const clickEvent = events.find((e) => e.event === "whatsapp_click" && e.targetPath === "/guides/perevezennya-velosypeda/");
+      ensure(clickEvent, "whatsapp_click event was not recorded for guide CTA");
+      ensure(clickEvent?.ctaLocation === "partner_card", "whatsapp_click has incorrect ctaLocation");
+      ensure(clickEvent?.conversionType === "whatsapp_inquiry", "whatsapp_click has incorrect conversionType");
+      ensure(typeof clickEvent?.leadId === "string" && /^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(clickEvent.leadId), "whatsapp_click is missing valid leadId");
+
+      const serializedEvents = JSON.stringify(events);
+      ensure(!serializedEvents.includes("phone"), "Analytics events contain phone field");
+      ensure(!serializedEvents.includes("travelDate"), "Analytics events contain travelDate field");
+
+      await assertNoHorizontalOverflow(mobile, "mobile bicycle guide 375px", result);
+      const screenshot = join(qaDir, "mobile-guide-bicycle-375.png");
+      await mobile.screenshot({ path: screenshot, fullPage: true });
+      result.screenshots.push(screenshot);
+
+      return {
+        guideUrl: "/guides/perevezennya-velosypeda/",
+        baselineUncoded: true,
+        keyboardCodeAttached: true,
+        mouseHandoffOpened: true,
+        zeroPiiVerified: true,
+      };
     });
 
     await runCheck("all six candidate detail pages link to their reverse route and fit mobile", async () => {
