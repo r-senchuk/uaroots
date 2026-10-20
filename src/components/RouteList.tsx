@@ -55,7 +55,7 @@ export function RouteList({
               <span className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1">
                 {"serviceMode" in route && route.serviceMode === "candidate_inquiry" ? (
                   <span className="type-meta text-primary">Уточніть можливість поїздки на вашу дату</span>
-                ) : <span className="type-meta">Умови погоджує перевізник Коваль</span>}
+                ) : <span className="type-meta">Умови погоджує перевізник</span>}
                 <span className="type-meta text-primary underline underline-offset-4 sm:ml-auto">
                   Переглянути напрямок →
                 </span>

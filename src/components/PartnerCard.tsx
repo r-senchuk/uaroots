@@ -35,7 +35,7 @@ export function PartnerCard({
       <h2 className="mt-3 type-h2">{carrier.name}</h2>
       <p className="mt-3 type-body-small text-muted-foreground">
         {inquiryOnly
-          ? `Запитайте перевізника ${carrier.name} про можливість поїздки на вашу дату, вартість, посадку й багаж. На його сайті можна знайти контакт і продовжити звернення.`
+          ? `Запитайте перевізника про можливість поїздки на вашу дату, вартість, посадку й багаж. На його сайті можна знайти контакт і продовжити звернення.`
           : carrier.serviceDescription}
       </p>
 
@@ -94,7 +94,7 @@ export function PartnerCard({
           referralContext={referralContext}
           className="inline-flex h-12 items-center justify-center border border-border-strong px-6 type-button hover:bg-secondary"
         >
-          Сайт {carrier.name} ↗
+          Сайт перевізника ↗
         </KovalReferralLink>
       </div>
     </section>

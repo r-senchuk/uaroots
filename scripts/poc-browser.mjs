@@ -296,7 +296,7 @@ async function run() {
       await page.waitForLoadState("networkidle");
       await page.locator('a[href="/routes/lviv-celle/"]').first().click();
       await page.waitForURL("**/routes/lviv-celle/");
-      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true });
+      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника ↗", exact: true });
       await footer.focus();
       const [popup] = await Promise.all([page.waitForEvent("popup"), footer.press("Enter")]);
       const url = new URL(await footer.getAttribute("href"));
@@ -318,7 +318,7 @@ async function run() {
       // Use an unpublished pair to display CandidateInquiry rather than a route-page result.
       await selectCity(page, "Куди", "Lubeck", "Любек");
       await page.getByRole("button", { name: "Знайти маршрут" }).click();
-      const link = page.getByRole("link", { name: "Перейдіть на сайт Коваль", exact: true });
+      const link = page.getByRole("link", { name: "Перейдіть на сайт перевізника", exact: true });
       await link.waitFor({ state: "visible" });
       await link.click({ button: "middle" });
       const href = await link.getAttribute("href");
@@ -420,7 +420,7 @@ async function run() {
       await nearbyLink.press("Enter");
       ensure(await cellePage.evaluate(() => document.activeElement?.id) === "search-heading", "Nearby return link did not restore keyboard focus to search");
       ensure(await cellePage.locator('a[href="/cities/lviv/"]').count() > 0 && await cellePage.locator('a[href="/cities/ivano-frankivsk/"]').count() > 0, "Celle hub related-hub HTML links are missing");
-      const footerHref = await cellePage.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true }).getAttribute("href");
+      const footerHref = await cellePage.locator("footer").getByRole("link", { name: "Сайт перевізника ↗", exact: true }).getAttribute("href");
       const footerUrl = new URL(footerHref);
       ensure(!footerUrl.searchParams.has("origin_city_id") && !footerUrl.searchParams.has("destination_city_id"), "Incomplete Celle footer handoff included only part of a city pair");
 
@@ -466,7 +466,7 @@ async function run() {
       const routeView = events.find((event) => event.event === "route_view" && event.routeId === "celle-lviv");
       ensure(search?.landingPage === "/cities/celle/" && search?.targetPath === "/cities/celle/", "Celle route search lost its first landing or current search path");
       ensure(routeView?.landingPage === "/cities/celle/" && routeView?.source === "telegram" && routeView?.medium === "social" && routeView?.campaign === "route_launch", "Celle route view lost its first-touch acquisition");
-      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника Коваль ↗", exact: true });
+      const footer = page.locator("footer").getByRole("link", { name: "Сайт перевізника ↗", exact: true });
       const [popup] = await Promise.all([page.waitForEvent("popup"), footer.click()]);
       const contactEvent = await page.evaluate(() => window.__uarouteEvents?.filter((event) => event.event === "koval_site_click").at(-1));
       ensure(contactEvent?.landingPage === "/cities/celle/" && contactEvent?.targetPath === "/routes/celle-lviv/", "Celle operator contact event did not separate first landing from current route target");
@@ -671,7 +671,7 @@ async function run() {
       ensure(message.includes("Це запит про поїздку, а не бронювання."), "Candidate message implies a confirmed booking");
       ensure(/Код: UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/.test(message), "Candidate inquiry has no valid opaque code");
       const text = await mobile.locator("body").innerText();
-      ensure(text.includes("Коваль перевірить можливість поїздки на вашу дату"), "Candidate form does not explain trip feasibility confirmation");
+      ensure(text.includes("Перевізник перевірить можливість поїздки на вашу дату"), "Candidate form does not explain trip feasibility confirmation");
       const events = await mobile.evaluate(() => window.__uarouteEvents ?? []);
       const serializedEvents = JSON.stringify(events);
       ensure(!serializedEvents.includes("2030-12-31"), "Analytics buffer contains the candidate travel date");
@@ -700,7 +700,7 @@ async function run() {
         await mobile.goto(`${uarouteOrigin}/routes/${slug}/`, { waitUntil: "domcontentloaded" });
         await mobile.waitForLoadState("networkidle");
         ensure(await mobile.locator("#inquiry-date, #inquiry-phone, #inquiry-anchor").count() === 0, `${slug} shows an inquiry form despite its editorial notice`);
-        await mobile.getByRole("link", { name: /Сайт Коваль/ }).waitFor({ state: "visible" });
+        await mobile.getByRole("complementary").getByRole("link", { name: "Сайт перевізника ↗", exact: true }).waitFor({ state: "visible" });
         await mobile.getByText("Довідка про напрямок", { exact: false }).waitFor({ state: "visible" });
         await mobile.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
         ensure(await mobile.locator("div.fixed button").count() === 0, `${slug} shows a sticky inquiry action`);
@@ -755,7 +755,7 @@ async function run() {
     await runCheck("Koval referral keeps UARoute code and selected city IDs", async () => {
       await desktop.goto(`${uarouteOrigin}/routes/dolyna-celle/`, { waitUntil: "domcontentloaded" });
       await desktop.waitForLoadState("networkidle");
-      const kovalLink = desktop.getByRole("link", { name: /Сайт Коваль/ }).first();
+      const kovalLink = desktop.getByRole("link", { name: /Сайт перевізника/ }).first();
       const [popup] = await Promise.all([desktop.waitForEvent("popup"), kovalLink.click()]);
       if (kovalDist) await popup.waitForLoadState("domcontentloaded");
       const candidate = result.interceptedPartnerUrls.at(-1);
@@ -808,7 +808,7 @@ async function run() {
         for (const [slug, originId, destinationId, from, to] of pairs) {
           await desktop.goto(`${uarouteOrigin}/routes/${slug}/`, { waitUntil: "networkidle" });
           const [koval] = await Promise.all([
-            desktop.waitForEvent("popup"), desktop.getByRole("link", { name: /Сайт Коваль/ }).first().click(),
+            desktop.waitForEvent("popup"), desktop.getByRole("link", { name: /Сайт перевізника/ }).first().click(),
           ]);
           await koval.waitForLoadState("networkidle");
           const referralUrl = result.interceptedPartnerUrls.at(-1);

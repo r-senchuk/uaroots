@@ -20,7 +20,7 @@ describe("SEO metadata", () => {
   it("builds absolute canonical and social image metadata with the image dimensions and alt text", async () => {
     const metadata = buildMetadata({
       title: "Львів → Целле: як уточнити поїздку | UARoute",
-      description: "Підготуйте запит перевізнику Коваль.",
+      description: "Підготуйте запит перевізнику.",
       path: "/routes/lviv-celle/",
       type: "article",
       socialImage: travelPreviewImage,
@@ -111,7 +111,7 @@ describe("priority route entities and sitemap", () => {
     });
     expect(route!.title).toBe(`${route!.origin.name} → ${route!.destination.name}`);
     expect(route!.seo.title).toContain(route!.title);
-    expect(route!.seo.description).toContain("Коваль");
+    expect(route!.seo.description).toContain("перевізнику");
     expect(route!.whatToConfirm).toContain("Можливість поїздки на бажану дату");
   });
 

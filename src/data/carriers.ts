@@ -10,7 +10,7 @@ export const carriers: Carrier[] = [
   {
     id: "koval",
     slug: "koval",
-    name: "Коваль",
+    name: "Перевізник",
     website: "https://www.4k-koval.com/",
     serviceDescription: "Пасажирські перевезення та посилки між Україною та Європою.",
     desks: [

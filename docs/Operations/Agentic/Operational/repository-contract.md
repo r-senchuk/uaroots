@@ -7,7 +7,7 @@ tags: [uaroute, agentic, operational, contract]
 
 # UARoute — expanded repository contract
 
-Passenger-route atlas (Ukraine → Europe). **M1: UARoute owns discovery and travel intent; Koval owns booking. M2: a gated operator booking pilot is approved as development direction, not released.**
+Passenger-route atlas (Ukraine → Europe). **M1: UARoute owns discovery and travel intent; the carrier owns booking. M2: a gated operator booking pilot is approved as development direction, not released.**
 
 **POC scope (2026-10-06):** The owner's demand test includes Ukraine ↔ six German cities and manual confirmation by Koval. Read [POC goal](../../../knowledge-base.md#knowledge-base) (KB: `wiki/Operations/POC/poc-goal.md`). `commercial` means eligible published inquiry discovery, not proof of an operated/scheduled service. Selected `serviceMode: "candidate_inquiry"` pages may be indexed under constitution §40, with explicit feasibility-first copy and evidence of owner selection in the route matrix. Do not generate all candidate pairs or show carrier service claims on candidate pages. Editorial remains excluded.
 
@@ -74,7 +74,7 @@ Public URLs: `/`, `/routes/`, `/routes/[slug]/`, `/about/`. HTML redirects: `/co
 ## Hard rules
 
 - User-facing copy is **Ukrainian**.
-- Public carrier naming: **Коваль** or **перевізник Коваль**. Keep technical IDs and real URLs unchanged. For selected discovery directions, explain that the specific trip, date, places and terms require operator confirmation; do not describe the direction itself as «маршрут не підтверджено».
+- Public carrier naming (owner decision 2026-10-20): use **перевізник**; omit surnames and carrier branding in visible copy, metadata, structured data and inquiry messages. Preserve existing technical IDs, desks, contacts, event names, referral allowlists and real destination URLs. This prepares neutral presentation; it does not establish additional connected carriers. Historical/internal partner evidence may retain actual names. For selected discovery directions, explain that the specific trip, date, places and terms require operator confirmation; do not describe the direction itself as «маршрут не підтверджено».
 - A full content review must assess passenger needs, page purpose, information order, repetition and useful next steps across the site, not just replace terminology. Each section should answer a distinct visitor question; keep trip-confirmation notices near the inquiry action and use FAQs for practical planning questions.
 - Do not invent prices, ratings, timetables, durations, stop lists, or availability.
 - Only `commercial` routes belong in the index, sitemap, and search navigation. Editorial pages are `noindex`.

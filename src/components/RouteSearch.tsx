@@ -349,8 +349,8 @@ export function RouteSearch({
           {showPilotChoices && origin && destination && (selectedRoute || isCandidateInquiryEligiblePair(origin, destination)) ? (
             <p className="text-sm text-muted-foreground">
               {selectedRoute
-                ? "Далі — інформація про напрямок і запит перевізнику Коваль."
-                : "Для цього напрямку можна одразу підготувати запит перевізнику Коваль нижче."}
+                ? "Далі — інформація про напрямок і запит перевізнику."
+                : "Для цього напрямку можна одразу підготувати запит перевізнику нижче."}
             </p>
           ) : null}
           <button
@@ -409,7 +409,7 @@ export function RouteSearch({
         <div aria-live="polite" className="mt-6">
           <RouteEmptyState
             title="Ми поки не маємо інформації про цей маршрут."
-            description="Спробуйте іншу пару міст або запитайте перевізника Коваль через його сайт про можливість поїздки на вашу дату."
+            description="Спробуйте іншу пару міст або запитайте перевізника через його сайт про можливість поїздки на вашу дату."
           >
             <Link
               href="/routes/"

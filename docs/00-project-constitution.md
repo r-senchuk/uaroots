@@ -141,9 +141,11 @@ https://www.4k-koval.com/
 
 UARoute should use Koval as the first commercial conversion destination while preserving an independent product identity and a carrier-agnostic architecture.
 
+**Owner correction — 2026-10-20:** Public presentation is carrier-neutral. Use Ukrainian «перевізник», without the surname/brand «Коваль», in visible copy, metadata, structured data and inquiry messages. This supersedes older public naming examples; internal historical partner records may retain actual names. Preserve existing carrier/desk IDs, contact destinations, event names, source URLs and referral contracts. Neutral wording does not assert that additional carriers are connected or change who receives current inquiries.
+
 The UI should make the handoff explicit:
 
-> **Перевезення виконує перевізник Коваль; UARoute допомагає знайти маршрут та підготувати запит.**
+> **Перевезення виконує перевізник; UARoute допомагає знайти маршрут та підготувати запит.**
 
 Do not claim a formal endorsement or exclusive partnership unless that relationship has actually been established.
 

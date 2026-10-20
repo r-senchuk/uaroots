@@ -62,7 +62,7 @@ export function CandidateInquiry({
 
   return (
     <section className="border border-border-strong bg-card p-6" aria-labelledby={`${idPrefix}-candidate-inquiry-title`}>
-      <p className="type-label text-muted-foreground">Запит перевізнику Коваль</p>
+      <p className="type-label text-muted-foreground">Запит перевізнику</p>
       <h2 id={`${idPrefix}-candidate-inquiry-title`} className="mt-3 type-h2">{origin.name} → {destination.name}</h2>
       <p className="mt-4 type-body-small text-muted-foreground">
         Додайте бажану дату, кількість пасажирів і телефон. У повідомленні перевізнику можна уточнити можливість поїздки, вартість, місце посадки й умови для багажу.
@@ -102,11 +102,11 @@ export function CandidateInquiry({
           Зручніше звернутися через сайт? <KovalReferralLink className="underline underline-offset-2" href={koval.website}
             content="candidate_inquiry" ctaLocation={ctaLocation}
             referralContext={{ originCityId: origin.id, destinationCityId: destination.id, sourcePath }}>
-            Перейдіть на сайт Коваль
+            Перейдіть на сайт перевізника
           </KovalReferralLink>.
         </p>
       ) : null}
-      <p className="mt-4 type-caption leading-relaxed">У WhatsApp перевірте повідомлення, додайте запитання про зустріч або багаж і надішліть його. Коваль перевірить можливість поїздки на вашу дату. Запит не резервує місце.</p>
+      <p className="mt-4 type-caption leading-relaxed">У WhatsApp перевірте повідомлення, додайте запитання про зустріч або багаж і надішліть його. Перевізник перевірить можливість поїздки на вашу дату. Запит не резервує місце.</p>
     </section>
   );
 }

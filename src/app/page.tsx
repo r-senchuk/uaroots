@@ -15,7 +15,7 @@ import { organizationLd, websiteLd, buildMetadata, travelPreviewImage } from "@/
 
 const title = "UARoute — поїздки між Україною та Німеччиною";
 const description =
-  "Поїздки зі Львова, Івано-Франківська та інших міст до Німеччини й назад. Оберіть напрямок, перегляньте питання про посадку й багаж та зверніться до перевізника Коваль.";
+  "Поїздки зі Львова, Івано-Франківська та інших міст до Німеччини й назад. Оберіть напрямок, перегляньте питання про посадку й багаж та зверніться до перевізника.";
 
 export const metadata: Metadata = buildMetadata({ title, description, path: "/", socialImage: travelPreviewImage });
 
@@ -30,7 +30,7 @@ const steps = [
   },
   {
     title: "Надішліть у WhatsApp",
-    text: "Перевірте підготовлений текст, додайте свої запитання й надішліть його перевізнику Коваль.",
+    text: "Перевірте підготовлений текст, додайте свої запитання й надішліть його перевізнику.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function HomePage() {
             <p className="mt-5 max-w-lg type-body text-muted-foreground">
               Зі Львова, Івано-Франківська та інших міст — і назад.
               Оберіть міста, дізнайтеся, що запитати про посадку, ціну й багаж,
-              та зверніться до перевізника Коваль.
+              та зверніться до перевізника.
             </p>
 
             <div className="mt-7 border-t border-border-strong pt-5">
@@ -155,7 +155,7 @@ export default function HomePage() {
         </ol>
 
         <p className="mt-10 max-w-2xl type-body-small text-muted-foreground">
-          Можливість поїздки на вашу дату, наявність місць та умови підтверджує перевізник Коваль.
+          Можливість поїздки на вашу дату, наявність місць та умови підтверджує перевізник.
           Надсилання повідомлення ще не резервує місце.{" "}
           Перегляньте{" "}
           <Link href="/about/#pilot-heading" className="text-primary link-underline">

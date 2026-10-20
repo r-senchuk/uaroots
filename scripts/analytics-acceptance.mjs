@@ -120,7 +120,7 @@ try {
     await page.locator('#inquiry-date').fill('2099-12-24');await page.locator('#inquiry-phone').fill('+48700000123');
     await page.getByRole('button',{name:'Уточнити поїздку в WhatsApp',exact:true}).click();
     ensure(await page.evaluate(()=>window.__qaOpened.length)===1,'Valid inquiry did not prepare WhatsApp');
-    await page.getByRole('link',{name:'Сайт Коваль ↗',exact:true}).first().click();await settled(page);
+    await page.getByRole('link',{name:'Сайт перевізника ↗',exact:true}).first().click();await settled(page);
     if(!blocked){await waitForHits(requests,rows=>['booking_intent','whatsapp_click','koval_site_click'].every(event=>rows.some(row=>row.event===event)));for(const event of ['booking_intent','whatsapp_click','koval_site_click'])ensure(events(requests).some(row=>row.event===event),event+' real hit missing');cleanPayload(requests);}else ensure(collects(requests).length===0,'Blocked provider sent collection');
     await page.getByRole('link',{name:'Маршрути',exact:true}).first().click();await page.waitForURL('**/routes/');
     await page.getByRole('button',{name:'До України',exact:true}).click();
@@ -134,8 +134,8 @@ try {
     await page.locator('#inquiry-date').fill('2099-12-24');await page.locator('#inquiry-phone').fill('+48700000123');await page.locator('h1').click();
     await page.setViewportSize({width:375,height:812});await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));
     await page.getByRole('button',{name:'Уточнити поїздку',exact:true}).click();
-    await page.getByRole('link',{name:'Сайт Коваль ↗',exact:true}).nth(1).click();
-    await page.getByRole('link',{name:'Сайт перевізника Коваль ↗',exact:true}).click();await settled(page);
+    await page.getByRole('link',{name:'Сайт перевізника ↗',exact:true}).nth(1).click();
+    await page.getByRole('link',{name:'Сайт перевізника ↗',exact:true}).click();await settled(page);
     await waitForHits(requests,rows=>rows.some(row=>row.event==='whatsapp_click'&&row.fields['ep.ctaLocation']==='sticky_mobile')&&['partner_card','footer'].every(placement=>rows.some(row=>row.event==='koval_site_click'&&row.fields['ep.ctaLocation']===placement)));
     cleanPayload(requests);ensure(await page.evaluate(()=>window.__qaOpened.length)===1,'Mobile inquiry not prepared');ensure(requests.every(row=>row.google),'External navigation escaped');
     evidence.placements=['sticky_mobile','partner_card','footer'];await ctx.close();
@@ -144,7 +144,7 @@ try {
     const {ctx,page,requests}=await setup();await load(page,'/?phone=QA_PRIVATE_CANARY#QA_PRIVATE_CANARY');await accept(page);
     await page.getByRole('combobox',{name:'Українське місто',exact:true}).selectOption('lviv');await page.getByRole('combobox',{name:'Місто в Німеччині',exact:true}).selectOption('luebeck');await page.getByRole('button',{name:'Знайти маршрут',exact:true}).click();
     const form=page.locator('section[aria-labelledby$="-candidate-inquiry-title"]');await form.waitFor();
-    await form.getByLabel('Бажана дата поїздки',{exact:true}).fill('2099-12-24');await form.getByLabel('Телефон для зв’язку',{exact:true}).fill('+48700000123');await form.getByRole('button',{name:'Уточнити поїздку в WhatsApp',exact:true}).click();await form.getByRole('link',{name:'Перейдіть на сайт Коваль',exact:true}).click();await settled(page);
+    await form.getByLabel('Бажана дата поїздки',{exact:true}).fill('2099-12-24');await form.getByLabel('Телефон для зв’язку',{exact:true}).fill('+48700000123');await form.getByRole('button',{name:'Уточнити поїздку в WhatsApp',exact:true}).click();await form.getByRole('link',{name:'Перейдіть на сайт перевізника',exact:true}).click();await settled(page);
     await waitForHits(requests,rows=>['route_search_completed','booking_intent','whatsapp_click','koval_site_click'].every(event=>rows.some(row=>row.event===event)));
     cleanPayload(requests);const search=events(requests).find(row=>row.event==='route_search_completed');ensure(search.fields['epn.resultCount']==='0'||search.fields['ep.resultCount']==='0','Zero-result field missing');ensure(!search.fields['ep.matchedRouteId']&&!search.fields['ep.routeId'],'Missing page inherited route');
     ensure(await page.evaluate(()=>window.__qaOpened.length)===1,'Fallback inquiry not prepared');ensure(requests.every(row=>row.google),'External navigation escaped');evidence.pageMatchResult=0;evidence.preparedInquiries=1;await ctx.close();

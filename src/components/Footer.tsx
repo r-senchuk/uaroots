@@ -22,7 +22,7 @@ export function Footer() {
           <p className="mt-6 type-body-small text-muted-foreground">
             UARoute допомагає вибрати міста, підготуватися до дороги й скласти повідомлення
             перевізнику. Організацію перевезення, можливість поїздки на вашу дату та умови
-            ви погоджуєте з перевізником Коваль.
+            ви погоджуєте з перевізником.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export function Footer() {
                   ctaLocation="footer"
                   className="block py-3 text-sm hover:text-primary"
                 >
-                  Сайт перевізника Коваль ↗
+                  Сайт перевізника ↗
                 </KovalReferralLink>
               </li>
             ) : null}

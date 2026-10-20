@@ -85,7 +85,7 @@ export default async function RoutePage({ params }: PageProps) {
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div>
-              <p className="type-label text-muted-foreground">{route.destination.country} · {route.status === "commercial" ? "Запит перевізнику Коваль" : "Довідка про напрямок"}</p>
+              <p className="type-label text-muted-foreground">{route.destination.country} · {route.status === "commercial" ? "Запит перевізнику" : "Довідка про напрямок"}</p>
               <h1 className="mt-6 break-words type-display">
                 {route.origin.name}
                 <span className="mt-2 flex items-center gap-4 text-primary">
@@ -101,7 +101,7 @@ export default async function RoutePage({ params }: PageProps) {
                 <div className="mt-6 max-w-xl border-l-2 border-primary pl-4">
                   <p className="type-body-small font-medium">Уточніть можливість поїздки на бажану дату.</p>
                   <p className="mt-2 type-body-small text-muted-foreground">
-                    Перевізник Коваль перевірить можливість поїздки та погодить з вами умови.
+                    Перевізник перевірить можливість поїздки та погодить з вами умови.
                     Повідомлення не резервує місце.
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export default async function RoutePage({ params }: PageProps) {
 
           <section>
             <p className="type-label text-muted-foreground">02 · Перед поїздкою</p>
-            <h2 className="mt-3 type-h2">Що погодити з перевізником Коваль</h2>
+            <h2 className="mt-3 type-h2">Що погодити з перевізником</h2>
             <p className="mt-3 max-w-xl type-body-small text-muted-foreground">
               Використайте цей перелік під час розмови, щоб заздалегідь обговорити важливі для вас умови.
             </p>

@@ -12,7 +12,7 @@ import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
 const title = "Поїздки Україна — Німеччина: оберіть міста | UARoute";
 const description =
-  "Знайдіть напрямок зі Львова, Івано-Франківська чи іншого українського міста до Німеччини та назад. Поради для підготовки й повідомлення перевізнику Коваль.";
+  "Знайдіть напрямок зі Львова, Івано-Франківська чи іншого українського міста до Німеччини та назад. Поради для підготовки й повідомлення перевізнику.";
 
 export const metadata: Metadata = buildMetadata({ title, description, path: "/routes/", socialImage: travelPreviewImage });
 
@@ -91,7 +91,7 @@ export default function RoutesIndexPage() {
             <li><strong className="block text-foreground">Місце зустрічі</strong> Напишіть зручний район, адресу чи орієнтир. Запитайте, де можна погодити посадку та висадку.</li>
             <li><strong className="block text-foreground">Багаж та особливі потреби</strong> Опишіть кількість валіз, великий багаж або поїздку з дитиною, щоб одразу обговорити потрібні умови.</li>
           </ol>
-          <p className="mt-5 max-w-3xl type-body-small text-muted-foreground">Можливість поїздки на вашу дату, місця, ціну та умови підтверджує перевізник Коваль у відповідь на звернення. Після заповнення форми перевірте й надішліть повідомлення у WhatsApp; саме звернення ще не резервує місце.</p>
+          <p className="mt-5 max-w-3xl type-body-small text-muted-foreground">Можливість поїздки на вашу дату, місця, ціну та умови підтверджує перевізник у відповідь на звернення. Після заповнення форми перевірте й надішліть повідомлення у WhatsApp; саме звернення ще не резервує місце.</p>
         </section>
       </div>
     </>

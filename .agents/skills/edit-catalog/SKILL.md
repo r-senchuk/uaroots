@@ -9,5 +9,5 @@ description: >-
 # Edit catalog
 
 1. Follow [src/data/AGENTS.md](../../../src/data/AGENTS.md) and `src/data/types.ts`.
-2. If changing `status`, read the matrix linked from that file.
+2. Public presentation uses neutral «перевізник», without surnames/branding (owner decision 2026-10-20). Preserve carrier IDs, desks, contact/source URLs and referral contracts; do not infer that additional carriers are connected. If changing `status`, read the matrix linked from that file.
 3. `npm run validate`. Add `npm test` only if search or inquiry behavior changed.

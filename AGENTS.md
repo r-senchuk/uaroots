@@ -1,11 +1,11 @@
 # UARoute
 
-Ukrainian passenger discovery atlas. **M1: UARoute owns discovery/intent; Коваль owns booking.** M2 is a gated development direction, not a released reservation service.
+Ukrainian passenger discovery atlas. **M1: UARoute owns discovery/intent; the carrier owns booking.** M2 is a gated development direction, not a released reservation service.
 
 ## Non-negotiable
 
-- Ukrainian public copy; carrier name «Коваль». Never invent service, prices, schedules, stops or availability. `commercial` means published inquiry eligibility, not proof of operated service; editorial pages are `noindex` and excluded from search/index/sitemap.
-- Keep Lviv/Ivano-Frankivsk acquisition priority. City-pair selection is not automatic page publication. Nearby settlements may be actual origins/destinations represented by the nearest selectable city; passengers privately specify the exact place, and Коваль confirms feasibility. Names are not aliases or coverage promises.
+- Ukrainian public copy; use neutral «перевізник», without surnames or carrier branding (owner decision 2026-10-20). Keep existing technical IDs, contacts and referral URLs; do not imply additional carriers are already connected. Never invent service, prices, schedules, stops or availability. `commercial` means published inquiry eligibility, not proof of operated service; editorial pages are `noindex` and excluded from search/index/sitemap.
+- Keep Lviv/Ivano-Frankivsk acquisition priority. City-pair selection is not automatic page publication. Nearby settlements may be actual origins/destinations represented by the nearest selectable city; passengers privately specify the exact place, and the carrier confirms feasibility. Names are not aliases or coverage promises.
 - Preserve city/route IDs, desks, classifications, referral allowlists and security changes. Search uses `findRouteByCities(..., { commercialOnly: true })`; reversing preserves the pair and expected countries.
 - M1 stores no passenger names, phones or travel dates; never send those, credentials or messages to `track()`. Preserve first-touch acquisition separately from current `targetPath`, complete opposite-country referral pairs, and current-visit attribution.
 - npm, TypeScript 6, Next.js static export to S3/CloudFront; no Node production server. Server Components by default; internal hrefs end in `/` except home. No dependency upgrades, account/global configuration changes or publication implied by a local edit.

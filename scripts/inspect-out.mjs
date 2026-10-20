@@ -20,10 +20,10 @@ export const pilotRoutes = [
 const sitePages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const guidePages = ["/guides/perevezennya-velosypeda/"];
 const cityHubs = [
-  { slug: "lviv", name: "Львів", headingCity: "зі Львова", heading: "Поїздки зі Львова до Німеччини та назад", cityForms: ["Львів", "Львова"], crossHubs: ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки зі Львова до Німеччини та назад | UARoute", description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника Коваль.", cardSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
-  { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", heading: "Поїздки з Івано-Франківська до Німеччини та назад", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHubs: ["/cities/lviv/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute", description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником Коваль.", cardSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
-  { slug: "celle", name: "Целле", headingCity: "із Целле", heading: "Поїздки з Целле до України та назад", cityForms: ["Целле"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/stryi/"], title: "Поїздки з Целле до України та назад | UARoute", description: "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник Коваль.", cardSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], destinations: [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]] },
-  { slug: "stryi", name: "Стрий", headingCity: "зі Стрия", heading: "Поїздки зі Стрия до Німеччини та назад", cityForms: ["Стрий", "Стрия"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"], title: "Поїздки зі Стрия до Німеччини та назад | UARoute", description: "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник Коваль.", cardSlugs: ["celle-stryi"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "lviv", name: "Львів", headingCity: "зі Львова", heading: "Поїздки зі Львова до Німеччини та назад", cityForms: ["Львів", "Львова"], crossHubs: ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки зі Львова до Німеччини та назад | UARoute", description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.", cardSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", heading: "Поїздки з Івано-Франківська до Німеччини та назад", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHubs: ["/cities/lviv/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute", description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.", cardSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "celle", name: "Целле", headingCity: "із Целле", heading: "Поїздки з Целле до України та назад", cityForms: ["Целле"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/stryi/"], title: "Поїздки з Целле до України та назад | UARoute", description: "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник.", cardSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], destinations: [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]] },
+  { slug: "stryi", name: "Стрий", headingCity: "зі Стрия", heading: "Поїздки зі Стрия до Німеччини та назад", cityForms: ["Стрий", "Стрия"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"], title: "Поїздки зі Стрия до Німеччини та назад | UARoute", description: "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник.", cardSlugs: ["celle-stryi"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
 ];
 const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"];
 const cityHubResources = {
@@ -43,7 +43,7 @@ const cityHubResources = {
     label: "Офіційний пошук квитків Укрзалізниці",
     role: "UARoute допомагає знайти напрямок з Івано-Франківська до потрібного міста Німеччини або назад",
     outbound: "Якщо до міста плануєте їхати потягом",
-    returning: "пересування містом і стиковка не гарантуються зверненням до Коваль",
+    returning: "пересування містом і стиковка не гарантуються зверненням до перевізника",
     purpose: "Окремо перевірити потрібну попередню або подальшу ділянку",
     checkedAt: "2026-10-09",
     reviewedAt: "2026-10-09",
@@ -403,7 +403,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     if (!candidate) continue;
     const text = plainText(html);
     if (!text.includes("Уточніть можливість поїздки на бажану дату.") ||
-      !text.includes("Перевізник Коваль перевірить можливість поїздки") || !text.includes("не резервує місце")) {
+      !text.includes("Перевізник перевірить можливість поїздки") || !text.includes("не резервує місце")) {
       errors.push(`${pagePath} is missing the feasibility-first candidate inquiry notice`);
     }
     for (const term of candidatePracticalTerms[slug] ?? []) {
@@ -492,7 +492,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     const hasDepartureHeading = text.includes(slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд");
     const hasArrivalHeading = text.includes(slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення");
     if (!hasDepartureHeading || !hasArrivalHeading ||
-      !text.includes("Можливість поїздки на вашу дату") || !text.includes("підтверджує перевізник Коваль")) {
+      !text.includes("Можливість поїздки на вашу дату") || !text.includes("підтверджує перевізник")) {
       errors.push(`${pagePath} is missing direction guidance or manual-confirmation context`);
     }
     for (const claim of forbiddenCityHubClaims) {
@@ -526,7 +526,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       errors.push(pagePath + " is missing useful nearby guidance and the pickup boundary");
     }
     const searchSection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="search-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
-    const confirmationNotice = "Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.";
+    const confirmationNotice = "Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.";
     if (!searchSection.includes(confirmationNotice)) {
       errors.push(`${pagePath} must place the trip confirmation notice in the search section`);
     }
@@ -653,7 +653,11 @@ export function inspectExport(root = join(process.cwd(), "out")) {
   inspectCss(root);
 
   for (const htmlPath of htmlFilesUnder(root)) {
-    const text = plainText(readFileSync(htmlPath, "utf8"));
+    const html = readFileSync(htmlPath, "utf8");
+    const text = plainText(html);
+    if (/ковал(?:ь|я|ю|ем)/iu.test(html)) {
+      errors.push(`${relative(root, htmlPath).split(sep).join("/")} includes a removed carrier surname; use neutral carrier copy`);
+    }
     if (text.toLocaleLowerCase().includes("прямі рейси без пересадок".toLocaleLowerCase())) {
       errors.push(`${relative(root, htmlPath).split(sep).join("/")} includes the removed no-transfer claim`);
     }

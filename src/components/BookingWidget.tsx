@@ -29,7 +29,7 @@ export function BookingWidget() {
 
   return (
     <section className="border border-border-strong bg-card p-6">
-      <p className="type-label text-muted-foreground">Запит перевізнику{carrier ? ` ${carrier.name}` : ""}</p>
+      <p className="type-label text-muted-foreground">Запит перевізнику</p>
       <h2 className="mt-3 type-h2">Уточнити поїздку</h2>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -144,7 +144,7 @@ export function BookingWidget() {
             }}
             className="inline-flex min-h-12 w-full items-center justify-center border border-border-strong px-5 py-3 text-center leading-snug type-button hover:bg-secondary"
           >
-            Сайт {carrier.name} ↗
+            Сайт перевізника ↗
           </KovalReferralLink>
         ) : null}
       </div>

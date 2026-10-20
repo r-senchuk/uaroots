@@ -67,7 +67,7 @@ export default async function CityHubPage({ params }: PageProps) {
           {presentation.searchDescription}
         </p>
         <p className="mt-5 max-w-3xl border-l-2 border-primary pl-4 type-body-small text-muted-foreground">
-          Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.
+          Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.
         </p>
         <div className="mt-8 max-w-5xl border border-border-strong p-5 sm:p-8">
           <RouteSearch key={city.id} sourcePath={`/cities/${city.slug}/`} ctaLocation="route_index" initialOriginId={presentation.initialOriginId} showPilotChoices />
@@ -168,7 +168,7 @@ export default async function CityHubPage({ params }: PageProps) {
             referralContext={{ originCityId: city.id, sourcePath: `/cities/${city.slug}/` }}
             className="mt-5 inline-flex min-h-11 items-center type-button text-primary link-underline"
           >
-            Контакти перевізника Коваль на його сайті ↗
+            Контакти перевізника на його сайті ↗
           </KovalReferralLink>
           <p className="mt-2 type-caption text-muted-foreground">Відкриється сайт перевізника.</p>
           <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-strong pt-5 type-body-small" aria-label="Інші міські огляди">

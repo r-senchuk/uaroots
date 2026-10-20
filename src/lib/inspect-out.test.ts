@@ -105,7 +105,7 @@ function fixture() {
     const counterpart = routes.find(([, reverseOrigin, reverseDestination]) => reverseOrigin === destination && reverseDestination === origin);
     const reverse = counterpart ? `/routes/${counterpart[0]}/` : "/routes/";
     const copy = candidate
-      ? `<p>Уточніть можливість поїздки на бажану дату. Перевізник Коваль перевірить можливість поїздки, чи може виконати поїздку між цими містами на обрану дату. Повідомлення не резервує місце.</p><p>${practical}</p>`
+      ? `<p>Уточніть можливість поїздки на бажану дату. Перевізник перевірить можливість поїздки, чи може виконати поїздку між цими містами на обрану дату. Повідомлення не резервує місце.</p><p>${practical}</p>`
       : "Публічна сторінка маршруту.";
     const citySource = slug.includes("celle")
       ? "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken"
@@ -147,18 +147,18 @@ function fixture() {
     const returning = slug === "lviv"
       ? "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою."
       : slug === "ivano-frankivsk"
-        ? "Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до Коваль."
+        ? "Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до перевізника."
         : slug === "stryi"
           ? "Для повернення з Німеччини оберіть місто виїзду та вкажіть Стрий як кінцевий орієнтир."
           : "Якщо вам потрібно приїхати до Целле чи сусіднього населеного пункту, оберіть напрямок до Целле в пошуку, коли окремого місця немає серед варіантів. У приватному повідомленні вкажіть фактичне місце прибуття, адресу або орієнтир. Повідомте тих, хто вас зустрічатиме, і окремо сплануйте місцеву дорогу після прибуття.";
     const departureHeading = slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд";
     const arrivalHeading = slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення";
     const introduction = slug === "celle"
-      ? "UARoute допомагає знайти напрямок з Целле та навколишніх населених пунктів до України або назад і підготувати звернення до перевізника Коваль. Оберіть українське місто для пошуку."
+      ? "UARoute допомагає знайти напрямок з Целле та навколишніх населених пунктів до України або назад і підготувати звернення до перевізника. Оберіть українське місто для пошуку."
       : role;
     const choicesHeading = slug === "celle" ? "Міста України" : "Шість міст Німеччини";
     const nearbyCopy = slug === "celle" ?
-      "Якщо вашого населеного пункту немає серед варіантів пошуку і Целле — найближче доступне для вашої поїздки місто в пошуку, оберіть його. У приватному повідомленні назвіть фактичний населений пункт і точну адресу або орієнтир. Коваль окремо підтвердить, чи можлива там посадка або висадка для конкретної поїздки."
+      "Якщо вашого населеного пункту немає серед варіантів пошуку і Целле — найближче доступне для вашої поїздки місто в пошуку, оберіть його. У приватному повідомленні назвіть фактичний населений пункт і точну адресу або орієнтир. Перевізник окремо підтвердить, чи можлива там посадка або висадка для конкретної поїздки."
       : "У приватному повідомленні WhatsApp назвіть своє фактичне місце. Вибір міста не означає посадку у вашому населеному пункті.";
     const nearbyHeading = slug === "celle" ? "Населені пункти поблизу Целле" : "Якщо ви живете неподалік";
     const nearbyGroups = slug === "celle" ? [
@@ -171,15 +171,15 @@ function fixture() {
     const nearbyCards = nearbyGroups.map((group) => `<li><h3>${group.heading.replace(/ \((.*)\)$/, "<span> (<!-- -->$1<!-- -->)</span>")}</h3><p>${group.guidance}</p><p>Географічна довідка: <a href="${group.source}">джерело</a>, перевірено 2026-10-10.</p></li>`).join("");
     const reviewDate = slug === "celle" ? "2026-10-10" : slug === "stryi" ? "2026-10-17" : "2026-10-09";
     const checkedAtDate = slug === "stryi" ? "2026-10-17" : "2026-10-09";
-    const body = `<h1>${h1}</h1><p>${introduction}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник Коваль у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">${nearbyHeading}</h2><p>${nearbyCopy}</p>${nearbyCards ? `<ul>${nearbyCards}</ul>` : ""}<a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>${departureHeading}</h2><p>${outbound}</p><h2>${arrivalHeading}</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="${checkedAtDate}">${checkedAtDate}</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="${reviewDate}">${reviewDate}</time></p></section><section><h2>${choicesHeading}</h2><p>${destinations.map(([destination, localName]) => `${destination} ${localName}`).join(" ")}</p></section><section><h2>Поради для вашого напрямку</h2><ul>${linkedRoutes.map((routeSlug) => `<li><h3>${routeSlug}</h3><a href="/routes/${routeSlug}/">Поради</a></li>`).join("")}</ul></section>${cityHubJsonLd(slug, slug === "celle" ? "Целле" : slug === "lviv" ? "Львів" : slug === "ivano-frankivsk" ? "Івано-Франківськ" : "Стрий", linkedRoutes)}<p>${cityForms}</p>`;
+    const body = `<h1>${h1}</h1><p>${introduction}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">${nearbyHeading}</h2><p>${nearbyCopy}</p>${nearbyCards ? `<ul>${nearbyCards}</ul>` : ""}<a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>${departureHeading}</h2><p>${outbound}</p><h2>${arrivalHeading}</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="${checkedAtDate}">${checkedAtDate}</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="${reviewDate}">${reviewDate}</time></p></section><section><h2>${choicesHeading}</h2><p>${destinations.map(([destination, localName]) => `${destination} ${localName}`).join(" ")}</p></section><section><h2>Поради для вашого напрямку</h2><ul>${linkedRoutes.map((routeSlug) => `<li><h3>${routeSlug}</h3><a href="/routes/${routeSlug}/">Поради</a></li>`).join("")}</ul></section>${cityHubJsonLd(slug, slug === "celle" ? "Целле" : slug === "lviv" ? "Львів" : slug === "ivano-frankivsk" ? "Івано-Франківськ" : "Стрий", linkedRoutes)}<p>${cityForms}</p>`;
     const exactTitle = slug === "celle" ? "Поїздки з Целле до України та назад | UARoute" : slug === "lviv" ? "Поїздки зі Львова до Німеччини та назад | UARoute" : slug === "ivano-frankivsk" ? "Поїздки з Івано-Франківська до Німеччини та назад | UARoute" : "Поїздки зі Стрия до Німеччини та назад | UARoute";
     const description = slug === "celle"
-      ? "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник Коваль."
+      ? "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник."
       : slug === "lviv"
-        ? "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника Коваль."
+        ? "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника."
         : slug === "ivano-frankivsk"
-          ? "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником Коваль."
-          : "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник Коваль.";
+          ? "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником."
+          : "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник.";
     write(root, `cities/${slug}/index.html`, page(path, exactTitle, body, [...crossHubs], description));
     for (const file of ["index.txt", "__next._tree.txt", "__next._full.txt", "__next.cities.$d$slug.__PAGE__.txt"]) {
       write(root, `cities/${slug}/${file}`, "RSC");
@@ -217,6 +217,16 @@ afterEach(() => {
 });
 
 describe("inspectExport", () => {
+  it.each([
+    '<p>Перевізник Коваль</p>',
+    '<meta name="description" content="Запитайте Коваля">',
+    '<script type="application/ld+json">{"name":"Коваль"}</script>',
+  ])("rejects carrier surname in public content or metadata: %s", (markup) => {
+    const root = fixture();
+    write(root, "about/index.html", page("/about/", "Про UARoute", markup, []));
+    expect(inspectExport(root)).toContain("about/index.html includes a removed carrier surname; use neutral carrier copy");
+  });
+
   it("accepts the fixed eleven-route export, selected hubs, and legal pages", () => {
     expect(inspectExport(fixture())).toEqual([]);
   });
@@ -243,7 +253,7 @@ describe("inspectExport", () => {
     write(root, "cities/lviv/index.html", page(
       "/cities/ivano-frankivsk/",
       "Поїздки з Львова | UARoute",
-      "<h1>Поїздки з Львова до Німеччини</h1><p>Поїздка в обидва боки. Перевізник Коваль перевірить.</p><p>Шверін Schwerin Люнебург Любек Целле Celle Вольфсбург Брауншвейг</p>",
+      "<h1>Поїздки з Львова до Німеччини</h1><p>Поїздка в обидва боки. Перевізник перевірить.</p><p>Шверін Schwerin Люнебург Любек Целле Celle Вольфсбург Брауншвейг</p>",
       ["/routes/lviv-hamburg/"],
     ));
     const errors = inspectExport(root);
@@ -258,7 +268,7 @@ describe("inspectExport", () => {
     write(root, "routes/dolyna-wolfsburg/index.html", page(
       "/routes/dolyna-wolfsburg/",
       "Назва dolyna-wolfsburg",
-      "<h1>Долина → Вольфсбург</h1><p>Уточніть можливість поїздки на бажану дату. Перевізник Коваль перевірить можливість поїздки на дату. Повідомлення не резервує місце.</p><p>Фаллерслебен Форсфельде</p>",
+      "<h1>Долина → Вольфсбург</h1><p>Уточніть можливість поїздки на бажану дату. Перевізник перевірить можливість поїздки на дату. Повідомлення не резервує місце.</p><p>Фаллерслебен Форсфельде</p>",
       ["/routes/dolyna-braunschweig/"],
     ));
     const errors = inspectExport(root);
