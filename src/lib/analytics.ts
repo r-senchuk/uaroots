@@ -303,6 +303,11 @@ function emitToProvider(payload: TrackedEvent): void {
   void leadId;
   const parameters = {
     ...context,
+    // Keep the local acquisition contract, but use Google's Direct vocabulary
+    // at the transport boundary. direct/direct does not match its channel rule.
+    ...(context.source === "direct" && context.medium === "direct"
+      ? { source: "(direct)", medium: "(none)" }
+      : {}),
     event_timestamp: timestamp,
     page_location: currentPageLocation(),
     page_referrer: "",

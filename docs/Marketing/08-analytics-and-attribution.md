@@ -7,6 +7,45 @@ tags: ["uaroute", "marketing"]
 
 # 08 — Analytics and Attribution
 
+## Direct transport normalization — local candidate 2026-10-21
+
+The in-memory/local QA acquisition contract remains `direct / direct`. At the
+Google provider boundary only, this complete pair becomes `(direct) / (none)`;
+approved organic, referral, social and paid pairs remain unchanged. This applies
+to both the GTM envelope and the optional direct-gtag adapter. External custom
+source/medium reports will therefore use the normalized Direct labels after
+publication; historical rows are unchanged. First-touch landing, current target,
+referral URLs, inquiry IDs and Basic consent behavior retain their contracts.
+
+Google's [default channel definition](https://support.google.com/analytics/answer/9756891?hl=en)
+requires `(direct)` with `(none)` or `(not set)`. The previous labels do not match
+that rule. Local compiled-provider checks can establish outbound serialization,
+not Google ingestion, processed session attribution or a complete causal account
+of historical Unassigned rows. No campaign/configuration/publication change is
+part of this local correction. Post-release reporting remains a separate gate.
+
+**Historical blocker found during compiled-provider QA (resolved below):** the cached official Google
+code also generated an intercepted Ads `AW-18519210828` `/ccm/collect` request
+containing a synthetic raw search-referrer query, despite advertising consent
+remaining denied. The GA4 request had an empty referrer. No collector received
+the test requests. This is not resolved by Direct normalization; investigate the
+connected Ads destination and its referrer handling before publication. Account
+or GTM changes are not authorized by this local candidate.
+
+**Authorized destination separation — 2026-10-21:** owner subsequently approved
+moving only Ads destination `AW-18519210828` to `UARoute Ads — isolated, not
+installed`, with the existing configuration and explicit tag users copied. The
+site tag retains only GA4 destination `G-PMXHF9YT7V`; tag-ID aliases are distinct
+from destinations and were not manually reassigned. No new snippet was installed.
+Direct GA4→Ads link `525-602-4115` remains present with personalization disabled.
+Both imported GA4 contact actions remain ENABLED / Secondary. Fresh compiled-code
+intercepted tests pass all eight attribution/consent scenarios and the synthetic
+phone/date inquiry handoff, with no `/ccm/collect` or Ads measurement hit observed.
+The raw-referrer reproduction no longer leaks. This closes that tested privacy
+blocker, not a claim of Google ingestion, confirmed passengers, site publication
+or complete Ads campaign readiness. No messages or calls were sent.
+
+
 ## Pilot budget approval — 2026-10-16
 
 The owner subsequently approved the proposed **5 PLN/day for 3 days** test, superseding the zero-budget restriction for this pilot only. The local campaign package now records this amount. Google signup displays PLN 5.00, but Next does not advance; remote campaign/account creation remains incomplete. Billing setup, the actual start/end dates, required targeting, tracking and conversion verification remain pending. This is budget authorization, not evidence of an active campaign, a saved remote budget, payment profile or production tracking readiness. The three-day daily-budget estimate is not a hard 15 PLN lifetime cap; daily overdelivery rules still apply.

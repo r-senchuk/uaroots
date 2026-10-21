@@ -49,6 +49,31 @@ describe("single consented analytics transport", () => {
     expect(serialized).not.toContain("gemini.google.com");
     expect(serialized).not.toContain("private");
   });
+  it("normalizes Direct only at the Google boundary, preserving local first touch", () => {
+    const { dataLayer, location } = browser();
+    track("page_view");
+    location.pathname = "/cities/celle/";
+    track("whatsapp_click", { targetPath: "/cities/celle/" });
+    for (const index of [1, 3]) {
+      expect(dataLayer[index]).toMatchObject({ uaroute: { parameters: {
+        source: "(direct)", medium: "(none)", landingPage: "/",
+      } } });
+    }
+    expect(window.__uarouteEvents?.[1]).toMatchObject({
+      source: "direct", medium: "direct", landingPage: "/", targetPath: "/cities/celle/",
+    });
+  });
+  it.each([
+    ["?utm_source=telegram&utm_medium=social&utm_campaign=m1", "telegram", "social", "m1"],
+    ["?gclid=SYNTHETIC_CLICK_ID", "google", "cpc", undefined],
+  ])("preserves approved acquisition on the provider boundary: %s", (search, source, medium, campaign) => {
+    const { dataLayer, location } = browser();
+    location.search = search;
+    track("page_view");
+    expect(dataLayer[1]).toMatchObject({ uaroute: { parameters: { source, medium } } });
+    const parameters = (dataLayer[1] as { uaroute: { parameters: Record<string, unknown> } }).uaroute.parameters;
+    expect(parameters.campaign).toBe(campaign);
+  });
   it("keeps actions before consent or provider readiness local without replay", () => {
     const { dataLayer } = browser(false, false);
     track("whatsapp_click");
@@ -82,5 +107,6 @@ describe("single consented analytics transport", () => {
     expect(gtag).toHaveBeenCalledOnce();
     expect(dataLayer).toHaveLength(0);
     expect(JSON.stringify(gtag.mock.calls)).not.toContain("UR-ABCDEFGHJK");
+    expect(gtag.mock.calls[0][2]).toMatchObject({ source: "(direct)", medium: "(none)" });
   });
 });
