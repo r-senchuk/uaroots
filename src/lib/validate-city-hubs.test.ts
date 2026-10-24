@@ -52,7 +52,7 @@ function addNamedTestPlace(contents = cloneContents()) {
 
 describe("validateCityHubContent", () => {
   it("accepts the selected hub data and permits empty named-place lists", () => {
-    expect(validateCityHubContent(cityHubContents, "2026-10-17")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-23")).toEqual([]);
   });
 
   it("accepts a source-backed synthetic nearby-place fixture", () => {
@@ -156,7 +156,7 @@ describe("validateCityHubContent", () => {
       checkedAt: "2026-10-09",
       purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою.",
     }]);
-    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-10", contentUpdatedAt: "2026-10-10", reviewScope: "editorial_guidance" });
+    expect(celle.contentReview).toEqual({ reviewedAt: "2026-10-23", contentUpdatedAt: "2026-10-23", reviewScope: "editorial_guidance" });
     expect(celle.nearbyPlaces.map((place) => place.localName)).toEqual([
       "Samtgemeinde Lachendorf",
       "Hambühren",
@@ -182,7 +182,7 @@ describe("validateCityHubContent", () => {
     expect(celle.nearbyIntro).toContain("найближче доступне для вашої поїздки місто в пошуку");
     expect(celle.nearbyIntro).toContain("точну адресу або орієнтир");
     expect(celle.nearbyIntro).toContain("чи можлива там посадка або висадка");
-    expect(validateCityHubContent(cityHubContents, "2026-10-17")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-23")).toEqual([]);
   });
 
   it("keeps Stryi's selected directions, source, and editorial dates in the reviewed content", () => {
@@ -198,8 +198,8 @@ describe("validateCityHubContent", () => {
       },
     ]);
     expect(stryi.contentReview).toEqual({
-      reviewedAt: "2026-10-17",
-      contentUpdatedAt: "2026-10-17",
+      reviewedAt: "2026-10-23",
+      contentUpdatedAt: "2026-10-23",
       reviewScope: "editorial_guidance",
     });
     expect(stryi.nearbyPlaces).toHaveLength(6);
@@ -217,8 +217,8 @@ describe("validateCityHubContent", () => {
     }
     expect(stryi.nearbyIntro).toContain("фактичне місце");
     expect(stryi.nearbyIntro).toContain("приватному повідомленні WhatsApp");
-    expect(stryi.nearbyIntro).toContain("не означає посадку у вашому населеному пункті");
-    expect(validateCityHubContent(cityHubContents, "2026-10-17")).toEqual([]);
+    expect(stryi.nearbyIntro).toContain("Перевізник підтвердить, чи можлива там посадка або висадка");
+    expect(validateCityHubContent(cityHubContents, "2026-10-23")).toEqual([]);
   });
 
   it("requires unique nearby keys and complete source-backed context", () => {

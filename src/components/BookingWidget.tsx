@@ -1,5 +1,6 @@
 "use client";
 
+import { useHydrated } from "@/lib/use-hydrated";
 import { KovalReferralLink } from "@/components/KovalReferralLink";
 import { WhatsAppIcon } from "@/components/brand/WhatsAppIcon";
 import { useInquiry } from "@/components/inquiry";
@@ -19,16 +20,15 @@ export function BookingWidget() {
     submit,
   } = useInquiry();
 
+  const hydrated = useHydrated();
   const desk = resolveDesk(route);
   const carrier = getCarrier(route.carrierIds[0] ?? "");
-  const candidateInquiry =
-    "serviceMode" in route && route.serviceMode === "candidate_inquiry";
   const today = localTodayISO();
   const fieldClass =
-    "h-12 w-full border border-input bg-background px-3 text-base text-foreground focus:border-primary";
+    "h-12 min-w-0 w-full border border-input bg-background px-3 text-base text-foreground focus:border-primary";
 
   return (
-    <section className="border border-border-strong bg-card p-6">
+    <section className="border border-border-strong bg-card p-3 sm:p-6">
       <p className="type-label text-muted-foreground">Запит перевізнику</p>
       <h2 className="mt-3 type-h2">Уточнити поїздку</h2>
 
@@ -38,13 +38,32 @@ export function BookingWidget() {
         </span>
       </div>
 
-      <p className="mt-4 type-body-small text-muted-foreground">
-        Додайте бажану дату, кількість пасажирів і телефон. У повідомленні перевізнику можна уточнити можливість поїздки, вартість, місце посадки й умови для багажу.
-      </p>
+      {desk ? (
+        <p className="mt-4 type-body-small text-muted-foreground">
+          Додайте бажану дату, кількість пасажирів і телефон. Відкриється WhatsApp із готовим текстом: перевірте його й надішліть самостійно.
+        </p>
+      ) : null}
 
-      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+      {carrier ? (
+        <KovalReferralLink
+          href={carrier.website}
+          content={`${route.slug}_booking_widget`}
+          ctaLocation="booking_widget"
+          routeId={route.id}
+          routeSlug={route.slug}
+          referralContext={{ originCityId: route.origin.id, destinationCityId: route.destination.id, sourcePath: `/routes/${route.slug}/` }}
+          className={desk
+            ? "mt-5 inline-flex min-h-11 items-center justify-center border border-border-strong px-4 text-center text-sm font-medium hover:bg-secondary"
+            : "mt-5 inline-flex min-h-12 w-full items-center justify-center bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground hover:bg-primary-hover"}
+        >
+          {desk ? "Сайт перевізника ↗" : "Перейти на сайт перевізника ↗"}
+        </KovalReferralLink>
+      ) : null}
+
+      {desk ? <form noValidate onSubmit={(event) => { event.preventDefault(); submit("booking_widget"); }}>
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="inquiry-date" className="type-label text-muted-foreground">
+          <label htmlFor="inquiry-date" className="text-sm font-medium text-muted-foreground">
             Бажана дата поїздки
           </label>
           <input
@@ -66,11 +85,12 @@ export function BookingWidget() {
         </div>
 
         <div>
-          <label htmlFor="inquiry-passengers" className="type-label text-muted-foreground">
+          <label htmlFor="inquiry-passengers" className="text-sm font-medium text-muted-foreground">
             Пасажирів
           </label>
           <select
             id="inquiry-passengers"
+            aria-invalid={Boolean(errors.passengers)} aria-describedby={errors.passengers ? "inquiry-passengers-error" : undefined}
             value={passengers}
             onChange={(event) => setPassengers(Number(event.target.value))}
             className={`mt-2 ${fieldClass}`}
@@ -81,10 +101,11 @@ export function BookingWidget() {
               </option>
             ))}
           </select>
+          {errors.passengers ? <p id={"inquiry-passengers-error"} role="alert" className="mt-2 text-sm text-destructive">{errors.passengers}</p> : null}
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="inquiry-phone" className="type-label text-muted-foreground">
+          <label htmlFor="inquiry-phone" className="text-sm font-medium text-muted-foreground">
             Телефон для зв’язку
           </label>
           <input
@@ -105,7 +126,7 @@ export function BookingWidget() {
               {errors.phone}
             </p>
           ) : (
-            <p id="inquiry-phone-hint" className="mt-2 type-caption">
+            <p id="inquiry-phone-hint" className="mt-2 text-sm text-muted-foreground">
               Телефон і дата потрібні для повідомлення перевізнику. UARoute їх не зберігає.
             </p>
           )}
@@ -114,43 +135,23 @@ export function BookingWidget() {
 
       <div className="mt-6 flex flex-col gap-3">
         <button
-          type="button"
-          onClick={() => submit("booking_widget")}
+          type="submit"
+          disabled={!hydrated}
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-5 py-3 type-button leading-snug text-primary-foreground transition-colors hover:bg-primary-hover"
         >
-          <WhatsAppIcon className="shrink-0" />
-          <span className="min-w-0 text-center whitespace-normal">
-            {candidateInquiry
-              ? desk
-                ? "Уточнити поїздку в WhatsApp"
-                : "Уточнити поїздку на сайті перевізника"
-              : desk
-                ? "Уточнити поїздку в WhatsApp"
-                : "Перейти на сайт перевізника"}
+          {desk ? <WhatsAppIcon className="shrink-0" /> : null}
+          <span className="min-w-0 text-center whitespace-normal [overflow-wrap:anywhere]">
+            Уточнити поїздку в WhatsApp
           </span>
         </button>
 
-        {carrier ? (
-          <KovalReferralLink
-            href={carrier.website}
-            content={`${route.slug}_booking_widget`}
-            ctaLocation="booking_widget"
-            routeId={route.id}
-            routeSlug={route.slug}
-            referralContext={{
-              originCityId: route.origin.id,
-              destinationCityId: route.destination.id,
-              sourcePath: `/routes/${route.slug}/`,
-            }}
-            className="inline-flex min-h-12 w-full items-center justify-center border border-border-strong px-5 py-3 text-center leading-snug type-button hover:bg-secondary"
-          >
-            Сайт перевізника ↗
-          </KovalReferralLink>
-        ) : null}
       </div>
+      </form> : null}
 
-      <p className="mt-4 type-caption leading-relaxed">
-        У WhatsApp перевірте повідомлення, додайте запитання про зустріч або багаж і надішліть його. Можливість поїздки на вашу дату та умови погодьте з перевізником. Запит не резервує місце.
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+        {desk
+          ? "Перевізник підтвердить можливість поїздки на бажану дату та її умови. Запит не резервує місце."
+          : "Перевізник підтвердить можливість поїздки та умови. Перехід на його сайт не резервує місце."}
         {desk ? ` Контакт перевізника: ${desk.label}.` : ""}
       </p>
     </section>

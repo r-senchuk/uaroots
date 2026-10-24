@@ -44,9 +44,9 @@ export function InquiryProvider({
       if (!validation.ok) {
         setErrors(validation.errors);
         const firstField = document.getElementById(
-          validation.errors.travelDate ? "inquiry-date" : "inquiry-phone",
+          validation.errors.travelDate ? "inquiry-date" : validation.errors.passengers ? "inquiry-passengers" : "inquiry-phone",
         );
-        firstField?.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstField?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "center" });
         firstField?.focus({ preventScroll: true });
         return;
       }

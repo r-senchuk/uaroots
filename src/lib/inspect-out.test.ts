@@ -105,7 +105,7 @@ function fixture() {
     const counterpart = routes.find(([, reverseOrigin, reverseDestination]) => reverseOrigin === destination && reverseDestination === origin);
     const reverse = counterpart ? `/routes/${counterpart[0]}/` : "/routes/";
     const copy = candidate
-      ? `<p>Уточніть можливість поїздки на бажану дату. Перевізник перевірить можливість поїздки, чи може виконати поїздку між цими містами на обрану дату. Повідомлення не резервує місце.</p><p>${practical}</p>`
+      ? `<p>Можливість поїздки на бажану дату Перевізник підтвердить можливість поїздки, чи може виконати поїздку між цими містами на обрану дату. Повідомлення не резервує місце.</p><p>${practical}</p>`
       : "Публічна сторінка маршруту.";
     const citySource = slug.includes("celle")
       ? "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken"
@@ -130,36 +130,36 @@ function fixture() {
           ? ["https://booking.uz.gov.ua/", "Офіційний пошук квитків Укрзалізниці"]
           : ["https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", "Офіційний довідник доїзду до Целле"];
     const role = slug === "lviv"
-      ? "UARoute допомагає знайти напрямок зі Львова до потрібного міста Німеччини або назад"
+      ? "UARoute допоможе підготувати звернення до перевізника"
       : slug === "ivano-frankivsk"
-        ? "UARoute допомагає знайти напрямок з Івано-Франківська до потрібного міста Німеччини або назад"
+        ? "UARoute допоможе підготувати звернення до перевізника"
         : slug === "stryi"
-          ? "UARoute допомагає знайти напрямок зі Стрия та навколишніх міст і курортів до Німеччини або назад"
-          : "UARoute допомагає знайти напрямок з Целле та навколишніх населених пунктів до України або назад";
+          ? "UARoute допоможе підготувати звернення до перевізника"
+          : "UARoute допоможе підготувати звернення до перевізника";
     const purpose = slug === "lviv" ? "Перевірити актуальні правила доїзду в місті" : slug === "ivano-frankivsk" ? "Окремо перевірити потрібну попередню або подальшу ділянку" : slug === "stryi" ? "Окремо перевірити розклад приміських потягів та поїздів до станції Стрий" : "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою";
     const outbound = slug === "lviv"
       ? "Якщо спочатку добираєтеся до Львова, погодьте точку та час зустрічі."
       : slug === "ivano-frankivsk"
         ? "Якщо до міста плануєте їхати потягом, перевірте варіанти після погодження зустрічі."
         : slug === "stryi"
-          ? "Стрий — зручний вузол для виїзду, якщо ви живете в місті або добираєтеся з Моршина."
+          ? "Вкажіть перевізнику фактичний населений пункт, якщо ви живете в місті або добираєтеся з Моршина."
           : "Якщо вирушаєте з Целле або сусіднього населеного пункту, якого немає в пошуку, оберіть Целле як найближче доступне в пошуку місто, коли воно відповідає вашому плану. У приватному повідомленні вкажіть фактичне місце й точну адресу або орієнтир, а також повідомте про багаж. Якщо їдете до зустрічі в Целле, уточніть місце й час до купівлі квитків на місцеву дорогу.";
     const returning = slug === "lviv"
       ? "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою."
       : slug === "ivano-frankivsk"
         ? "Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до перевізника."
         : slug === "stryi"
-          ? "Для повернення з Німеччини оберіть місто виїзду та вкажіть Стрий як кінцевий орієнтир."
+          ? "Погодьте фактичне місце висадки."
           : "Якщо вам потрібно приїхати до Целле чи сусіднього населеного пункту, оберіть напрямок до Целле в пошуку, коли окремого місця немає серед варіантів. У приватному повідомленні вкажіть фактичне місце прибуття, адресу або орієнтир. Повідомте тих, хто вас зустрічатиме, і окремо сплануйте місцеву дорогу після прибуття.";
     const departureHeading = slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд";
     const arrivalHeading = slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення";
     const introduction = slug === "celle"
-      ? "UARoute допомагає знайти напрямок з Целле та навколишніх населених пунктів до України або назад і підготувати звернення до перевізника. Оберіть українське місто для пошуку."
+      ? "UARoute допоможе підготувати звернення до перевізника і підготувати звернення до перевізника. Оберіть українське місто для пошуку."
       : role;
-    const choicesHeading = slug === "celle" ? "Міста України" : "Шість міст Німеччини";
+    const choicesHeading = slug === "celle" ? "Міста України" : "Міста Німеччини";
     const nearbyCopy = slug === "celle" ?
       "Якщо вашого населеного пункту немає серед варіантів пошуку і Целле — найближче доступне для вашої поїздки місто в пошуку, оберіть його. У приватному повідомленні назвіть фактичний населений пункт і точну адресу або орієнтир. Перевізник окремо підтвердить, чи можлива там посадка або висадка для конкретної поїздки."
-      : "У приватному повідомленні WhatsApp назвіть своє фактичне місце. Вибір міста не означає посадку у вашому населеному пункті.";
+      : "У приватному повідомленні WhatsApp назвіть своє фактичне місце. Вибір міста Перевізник підтвердить, чи можлива там посадка або висадка.";
     const nearbyHeading = slug === "celle" ? "Населені пункти поблизу Целле" : "Якщо ви живете неподалік";
     const nearbyGroups = slug === "celle" ? [
       { heading: "Лахендорф і сусідні громади (Samtgemeinde Lachendorf)", source: "https://www.lachendorf.de/Samtgemeinde-Lachendorf/?La=1", guidance: "Для Lachendorf, Ahnsbeck, Beedenbostel, Eldingen або Hohne напишіть німецьку назву населеного пункту та повну адресу з поштовим індексом. Це допоможе точно визначити вашу фактичну точку виїзду." },
@@ -169,7 +169,7 @@ function fixture() {
       { heading: "Громади й поселення Флотведеля (Samtgemeinde Flotwedel)", source: "https://www.flotwedel.de/downloads/datei/YmY3ZTdhMjczMDUzMDFmNkE0VUI3OU1vS2pXeHJlQVNqQXhESEZLTzdSSFp1NDIzZTJwZjBZNGwrbmZ0NW1XUXRqdHJqYlgxcEN4TFJjcVFnUGhXVHFQY2swTjlCTVd5K1BHc2Zvc1MyOWYwUDhma1c3dmIrV1RFSzk2M0pINE1LVmJpVVdyd2oraWl1RDlxYVJianpGOENrMkVjUHU5TFVZOUFTbWRCSldreGhtS2NUNmwrK3d1bU53cz0", guidance: "Для Wienhausen, Eicklingen, Langlingen, Bröckel, Offensen, Oppershausen, Bockelskamp або Nienhof зазначте конкретне поселення й повну адресу. Перевірте місцевий доїзд до чи від цієї точки окремо." },
     ] : [];
     const nearbyCards = nearbyGroups.map((group) => `<li><h3>${group.heading.replace(/ \((.*)\)$/, "<span> (<!-- -->$1<!-- -->)</span>")}</h3><p>${group.guidance}</p><p>Географічна довідка: <a href="${group.source}">джерело</a>, перевірено 2026-10-10.</p></li>`).join("");
-    const reviewDate = slug === "celle" ? "2026-10-10" : slug === "stryi" ? "2026-10-17" : "2026-10-09";
+    const reviewDate = "2026-10-23";
     const checkedAtDate = slug === "stryi" ? "2026-10-17" : "2026-10-09";
     const body = `<h1>${h1}</h1><p>${introduction}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">${nearbyHeading}</h2><p>${nearbyCopy}</p>${nearbyCards ? `<ul>${nearbyCards}</ul>` : ""}<a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>${departureHeading}</h2><p>${outbound}</p><h2>${arrivalHeading}</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="${checkedAtDate}">${checkedAtDate}</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="${reviewDate}">${reviewDate}</time></p></section><section><h2>${choicesHeading}</h2><p>${destinations.map(([destination, localName]) => `${destination} ${localName}`).join(" ")}</p></section><section><h2>Поради для вашого напрямку</h2><ul>${linkedRoutes.map((routeSlug) => `<li><h3>${routeSlug}</h3><a href="/routes/${routeSlug}/">Поради</a></li>`).join("")}</ul></section>${cityHubJsonLd(slug, slug === "celle" ? "Целле" : slug === "lviv" ? "Львів" : slug === "ivano-frankivsk" ? "Івано-Франківськ" : "Стрий", linkedRoutes)}<p>${cityForms}</p>`;
     const exactTitle = slug === "celle" ? "Поїздки з Целле до України та назад | UARoute" : slug === "lviv" ? "Поїздки зі Львова до Німеччини та назад | UARoute" : slug === "ivano-frankivsk" ? "Поїздки з Івано-Франківська до Німеччини та назад | UARoute" : "Поїздки зі Стрия до Німеччини та назад | UARoute";
@@ -204,7 +204,7 @@ function fixture() {
   write(root, "404.html", "<h1>Цю сторінку не знайдено</h1>");
   write(root, "robots.txt", "User-agent: *");
   const sitemapPaths = [...mainPages, ...guidePages, ...hubs.map(([slug]) => `/cities/${slug}/`), ...routes.map(([slug]) => `/routes/${slug}/`)];
-  write(root, "sitemap.xml", `<urlset>${sitemapPaths.map((path) => `<url><loc>https://uaroute.com${path}</loc>${path === "/cities/celle/" ? "<lastmod>2026-10-10</lastmod>" : path === "/cities/stryi/" ? "<lastmod>2026-10-17</lastmod>" : path.startsWith("/cities/") ? "<lastmod>2026-10-09</lastmod>" : ""}</url>`).join("")}</urlset>`);
+  write(root, "sitemap.xml", `<urlset>${sitemapPaths.map((path) => `<url><loc>https://uaroute.com${path}</loc>${path === "/cities/celle/" ? "<lastmod>2026-10-23</lastmod>" : path === "/cities/stryi/" ? "<lastmod>2026-10-23</lastmod>" : path.startsWith("/cities/") ? "<lastmod>2026-10-23</lastmod>" : ""}</url>`).join("")}</urlset>`);
   write(root, "assets/site.css", "body { color: black; }");
   for (const asset of ["arrival-560.webp", "arrival-1120.webp", "crewbravo-logo.svg", "icon.svg", "_next/static/media/font.woff2"]) {
     write(root, asset, "fixture asset");
@@ -268,7 +268,7 @@ describe("inspectExport", () => {
     write(root, "routes/dolyna-wolfsburg/index.html", page(
       "/routes/dolyna-wolfsburg/",
       "Назва dolyna-wolfsburg",
-      "<h1>Долина → Вольфсбург</h1><p>Уточніть можливість поїздки на бажану дату. Перевізник перевірить можливість поїздки на дату. Повідомлення не резервує місце.</p><p>Фаллерслебен Форсфельде</p>",
+      "<h1>Долина → Вольфсбург</h1><p>Можливість поїздки на бажану дату Перевізник підтвердить можливість поїздки на дату. Повідомлення не резервує місце.</p><p>Фаллерслебен Форсфельде</p>",
       ["/routes/dolyna-braunschweig/"],
     ));
     const errors = inspectExport(root);
@@ -355,19 +355,19 @@ describe("inspectExport", () => {
   it("requires lastmod only on the four reviewed city hubs with exact editorial dates", () => {
     const missingHubDate = fixture();
     const sitemapPath = "sitemap.xml";
-    const missingXml = readFileSync(join(missingHubDate, sitemapPath), "utf8").replace("<lastmod>2026-10-09</lastmod>", "");
+    const missingXml = readFileSync(join(missingHubDate, sitemapPath), "utf8").replace("<lastmod>2026-10-23</lastmod>", "");
     write(missingHubDate, sitemapPath, missingXml);
-    expect(inspectExport(missingHubDate)).toContain("sitemap.xml https://uaroute.com/cities/lviv/ must have lastmod 2026-10-09");
+    expect(inspectExport(missingHubDate)).toContain("sitemap.xml https://uaroute.com/cities/lviv/ must have lastmod 2026-10-23");
 
     const unrelatedDate = fixture();
-    const unrelatedXml = readFileSync(join(unrelatedDate, sitemapPath), "utf8").replace("<loc>https://uaroute.com/about/</loc>", "<loc>https://uaroute.com/about/</loc><lastmod>2026-10-09</lastmod>");
+    const unrelatedXml = readFileSync(join(unrelatedDate, sitemapPath), "utf8").replace("<loc>https://uaroute.com/about/</loc>", "<loc>https://uaroute.com/about/</loc><lastmod>2026-10-23</lastmod>");
     write(unrelatedDate, sitemapPath, unrelatedXml);
     expect(inspectExport(unrelatedDate)).toContain("sitemap.xml https://uaroute.com/about/ must not have an unverified lastmod");
 
     const wrongDate = fixture();
-    const wrongXml = readFileSync(join(wrongDate, sitemapPath), "utf8").replace("<lastmod>2026-10-09</lastmod>", "<lastmod>2035-10-09</lastmod>");
+    const wrongXml = readFileSync(join(wrongDate, sitemapPath), "utf8").replace("<lastmod>2026-10-23</lastmod>", "<lastmod>2035-10-09</lastmod>");
     write(wrongDate, sitemapPath, wrongXml);
-    expect(inspectExport(wrongDate)).toContain("sitemap.xml https://uaroute.com/cities/lviv/ must have lastmod 2026-10-09");
+    expect(inspectExport(wrongDate)).toContain("sitemap.xml https://uaroute.com/cities/lviv/ must have lastmod 2026-10-23");
   });
 
   it("rejects missing nearby navigation and a reappearing no-transfer claim", () => {

@@ -2,7 +2,59 @@ import { describe, expect, it } from "vitest";
 
 import { cities } from "./cities";
 import { pilotGermanCityIds, pilotUkrainianCityIds, selectedCandidatePairs } from "./discovery";
-import { findRouteByCities, isCandidateInquiryEligiblePair, listResolvedRoutes, searchCities } from "./queries";
+import { routes } from "./routes";
+import { findRouteByCities, isCandidateInquiryEligiblePair, listDiscoveryCities, listResolvedRoutes, searchCities } from "./queries";
+
+describe("listDiscoveryCities", () => {
+  it("returns bounded Ukrainian candidates followed by any commercial endpoints", () => {
+    expect(listDiscoveryCities("UA").map((city) => city.id)).toEqual([
+      "lviv", "ivano-frankivsk", "dolyna", "kalush", "stryi", "halych", "burshtyn",
+      "pustomyty", "briukhovychi", "horodok-lviv", "mykolaiv-lviv", "novyi-rozdil",
+      "nadvirna", "zhydachiv",
+    ]);
+  });
+
+  it("adds Hannover after the six bounded German choices and excludes editorial-only cities", () => {
+    expect(listDiscoveryCities("DE").map((city) => city.id)).toEqual([
+      "schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig", "hannover",
+    ]);
+    expect(listDiscoveryCities("DE").map((city) => city.id)).not.toContain("hamburg");
+    expect(listDiscoveryCities("DE").map((city) => city.id)).not.toContain("berlin");
+  });
+
+  it("filters by country, returns no unsupported country, and preserves source data", () => {
+    const sourceSnapshots = {
+      cities: JSON.stringify(cities),
+      routes: JSON.stringify(routes),
+      ukrainianCandidates: JSON.stringify(pilotUkrainianCityIds),
+      germanCandidates: JSON.stringify(pilotGermanCityIds),
+    };
+
+    for (const countryCode of ["UA", "DE"]) {
+      expect(listDiscoveryCities(countryCode).every((city) => city.countryCode === countryCode)).toBe(true);
+    }
+    expect(listDiscoveryCities("XX")).toEqual([]);
+    listDiscoveryCities("UA");
+    listDiscoveryCities("DE");
+
+    expect(JSON.stringify(cities)).toBe(sourceSnapshots.cities);
+    expect(JSON.stringify(routes)).toBe(sourceSnapshots.routes);
+    expect(JSON.stringify(pilotUkrainianCityIds)).toBe(sourceSnapshots.ukrainianCandidates);
+    expect(JSON.stringify(pilotGermanCityIds)).toBe(sourceSnapshots.germanCandidates);
+  });
+
+  it("exposes Hannover as commercial Lviv destination without expanding candidate eligibility", () => {
+    const lviv = cities.find((city) => city.id === "lviv")!;
+    const hannover = cities.find((city) => city.id === "hannover")!;
+    const kalush = cities.find((city) => city.id === "kalush")!;
+
+    expect(findRouteByCities("lviv", "hannover", { commercialOnly: true })?.slug).toBe("lviv-hannover");
+    expect(findRouteByCities("hannover", "lviv", { commercialOnly: true })).toBeUndefined();
+    expect(isCandidateInquiryEligiblePair(hannover, lviv)).toBe(false);
+    expect(findRouteByCities("kalush", "hannover", { commercialOnly: true })).toBeUndefined();
+    expect(isCandidateInquiryEligiblePair(kalush, hannover)).toBe(false);
+  });
+});
 
 describe("searchCities", () => {
   it("resolves every checked-in display name and search alias to its city", () => {

@@ -41,6 +41,11 @@ export default async function CityHubPage({ params }: PageProps) {
   if (!city || !details) notFound();
   const presentation = getCityHubPresentation(city, details.fromName, details.toName, details.routeSlugs);
   if (!presentation) notFound();
+  const choiceDirections = presentation.choiceDirections.map(({ city: choiceCity, departureRoute, returnRoute }) => ({
+    city: choiceCity,
+    ...(departureRoute ? { departureHref: `/routes/${departureRoute.slug}/` } : {}),
+    ...(returnRoute ? { returnHref: `/routes/${returnRoute.slug}/` } : {}),
+  }));
 
   const crumbs = [
     { name: "Головна", path: "/" },
@@ -70,7 +75,16 @@ export default async function CityHubPage({ params }: PageProps) {
           Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.
         </p>
         <div className="mt-8 max-w-5xl border border-border-strong p-5 sm:p-8">
-          <RouteSearch key={city.id} sourcePath={`/cities/${city.slug}/`} ctaLocation="route_index" initialOriginId={presentation.initialOriginId} showPilotChoices />
+          <RouteSearch
+            key={city.id}
+            sourcePath={`/cities/${city.slug}/`}
+            ctaLocation="route_index"
+            initialOriginId={presentation.initialOriginId}
+            showPilotChoices
+            overviewCity={city}
+            choiceDirections={choiceDirections}
+            choiceHeading={presentation.choiceHeading}
+          />
         </div>
       </section>
 
@@ -115,29 +129,6 @@ export default async function CityHubPage({ params }: PageProps) {
             Редакційні поради переглянуто <time dateTime={details.contentReview.reviewedAt}>{details.contentReview.reviewedAt}</time>
           </p>
         </div>
-      </section>
-
-      <section className="container-page py-12 sm:py-16">
-        <p className="type-label text-muted-foreground">Міста для поїздки</p>
-        <h2 className="mt-3 type-h2">{presentation.choiceHeading}</h2>
-        <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
-          Якщо вже знаєте місто, виберіть його в пошуку. Посилання нижче ведуть до порад для окремих напрямків.
-        </p>
-        <ul className="mt-7 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-          {presentation.choiceDirections.map(({ city: destination, departureRoute, returnRoute }) => {
-            return (
-              <li key={destination.id} className="border-t border-border-strong py-4">
-                <h3 className="font-display text-xl">{destination.name}{!presentation.isGerman && destination.aliases[0] ? <span className="type-body-small text-muted-foreground"> ({destination.aliases[0]})</span> : null}</h3>
-                {departureRoute || returnRoute ? (
-                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                    {departureRoute ? <Link className="inline-flex min-h-11 items-center link-underline" href={`/routes/${departureRoute.slug}/`}>{city.name} → {destination.name}</Link> : null}
-                    {returnRoute ? <Link className="inline-flex min-h-11 items-center link-underline" href={`/routes/${returnRoute.slug}/`}>{destination.name} → {city.name}</Link> : null}
-                  </div>
-                ) : <a href="#search-heading" className="mt-1 inline-flex min-h-11 items-center type-body-small link-underline">Обрати місто в пошуку ↑</a>}
-              </li>
-            );
-          })}
-        </ul>
       </section>
 
       <section className="border-y border-border-strong bg-secondary/40">

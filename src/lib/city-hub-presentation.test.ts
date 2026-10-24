@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import { getCity } from "@/data/cities";
 import { cityHubContents } from "@/data/city-hubs";
-import { pilotUkrainianCityIds } from "@/data/discovery";
 import { getCityHubPresentation } from "./city-hub-presentation";
 
 describe("getCityHubPresentation", () => {
@@ -13,8 +12,12 @@ describe("getCityHubPresentation", () => {
     expect(presentation.initialOriginId).toBe("celle");
     expect(presentation.initialDirection).toBe("to-ukraine");
     expect(presentation.choiceCities.map((city) => city.id)).toEqual([
-      "lviv", "ivano-frankivsk", ...pilotUkrainianCityIds.filter((id) => id !== "lviv" && id !== "ivano-frankivsk"),
+      "lviv", "ivano-frankivsk", "dolyna", "kalush", "stryi", "halych", "burshtyn",
+      "pustomyty", "briukhovychi", "horodok-lviv", "mykolaiv-lviv", "novyi-rozdil",
+      "nadvirna", "zhydachiv",
     ]);
+    expect(presentation.choiceCities).toHaveLength(14);
+    expect(presentation.choiceHeading).toBe("Міста України");
     expect(presentation.searchDescription).toContain("українське місто");
     expect(presentation.departureLabel).toBe("Як їхати із Целле");
     expect(presentation.departureHeading).toBe("Підготуйте виїзд із Целле");
@@ -27,13 +30,16 @@ describe("getCityHubPresentation", () => {
     expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "stryi"]);
   });
 
-  it("keeps Ukrainian hubs outbound by default with six German choices", () => {
+  it("keeps Ukrainian hubs outbound by default with six candidate cities and Hannover", () => {
     const details = cityHubContents.find((content) => content.cityId === "lviv")!;
     const presentation = getCityHubPresentation(getCity("lviv")!, details.fromName, details.toName, details.routeSlugs)!;
 
     expect(presentation.initialOriginId).toBe("lviv");
     expect(presentation.initialDirection).toBe("to-germany");
-    expect(presentation.choiceCities.map((city) => city.id)).toEqual(["schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig"]);
+    expect(presentation.choiceCities.map((city) => city.id)).toEqual([
+      "schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig", "hannover",
+    ]);
+    expect(presentation.choiceHeading).toBe("Міста Німеччини");
     expect(presentation.departureLabel).toBe("Як їхати зі Львова");
     expect(presentation.arrivalHeading).toBe("Підготуйте повернення");
     expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["ivano-frankivsk", "celle", "stryi"]);
@@ -45,7 +51,9 @@ describe("getCityHubPresentation", () => {
 
     expect(presentation.initialOriginId).toBe("stryi");
     expect(presentation.initialDirection).toBe("to-germany");
-    expect(presentation.choiceCities.map((city) => city.id)).toEqual(["schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig"]);
+    expect(presentation.choiceCities.map((city) => city.id)).toEqual([
+      "schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig", "hannover",
+    ]);
     expect(presentation.departureLabel).toBe("Як їхати зі Стрия");
     expect(presentation.departureHeading).toBe("Підготуйте виїзд");
     expect(presentation.arrivalHeading).toBe("Підготуйте повернення");

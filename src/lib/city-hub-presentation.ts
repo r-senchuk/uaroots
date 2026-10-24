@@ -1,7 +1,7 @@
 import { cities } from "@/data/cities";
-import { cityHubPaths, pilotGermanCityIds, pilotUkrainianCityIds, priorityOriginCityIds } from "@/data/discovery";
+import { cityHubPaths } from "@/data/discovery";
 import type { City } from "@/data/types";
-import { findRouteByCities, getResolvedRoute, type ResolvedRoute } from "@/data/queries";
+import { findRouteByCities, getResolvedRoute, listDiscoveryCities, type ResolvedRoute } from "@/data/queries";
 
 export type CityHubPresentation = {
   readonly isGerman: boolean;
@@ -28,14 +28,7 @@ export function getCityHubPresentation(city: City, fromName: string, toName: str
   if (!((city.countryCode === "UA" && city.country === "Україна") || (city.countryCode === "DE" && city.country === "Німеччина"))) return undefined;
 
   const isGerman = city.countryCode === "DE";
-  const choiceIds = isGerman ? pilotUkrainianCityIds : pilotGermanCityIds;
-  const choices = choiceIds.map((id) => cities.find((candidate) => candidate.id === id)).filter((candidate): candidate is City => Boolean(candidate));
-  if (choices.length !== choiceIds.length) return undefined;
-
-  if (isGerman) {
-    const priority = new Set<string>(priorityOriginCityIds);
-    choices.sort((a, b) => (priority.has(a.id) ? 0 : 1) - (priority.has(b.id) ? 0 : 1));
-  }
+  const choices = listDiscoveryCities(isGerman ? "UA" : "DE");
 
   const selectedHubCities = cityHubPaths
     .map((path) => cities.find((candidate) => `/cities/${candidate.slug}/` === path))
@@ -52,7 +45,7 @@ export function getCityHubPresentation(city: City, fromName: string, toName: str
     initialOriginId: city.id,
     choiceCities: choices,
     choiceDirections,
-    choiceHeading: isGerman ? "Міста України" : "Шість міст Німеччини",
+    choiceHeading: isGerman ? "Міста України" : "Міста Німеччини",
     searchDescription: isGerman
       ? `${city.name} вже вибрано. Додайте українське місто; для зворотного напрямку перемкніть пошук — пара міст збережеться.`
       : `${city.name} вже вибрано. Додайте місто в Німеччині, а для повернення натисніть «До України» — вибрана пара міст збережеться.`,

@@ -65,14 +65,14 @@ export function ShareRoute({ title, url }: { title: string; url: string }) {
           Скопіювати посилання
         </button>
       </div>
-      <p className="mt-3 type-caption">
-        Збережіть посилання для наступної поїздки або надішліть тим, з ким їдете. Нову дату й умови щоразу погоджуйте з перевізником.
+      <p className="mt-3 text-sm text-muted-foreground">
+        Збережіть посилання або надішліть тим, з ким їдете.
       </p>
-      <p role="status" className={feedback ? "mt-3 type-caption" : "sr-only"}>
+      <p role="status" className={feedback ? "mt-3 text-sm text-muted-foreground" : "sr-only"}>
         {feedback}
       </p>
       {showLink ? (
-        <label className="mt-3 block type-caption">
+        <label className="mt-3 block text-sm text-muted-foreground">
           Посилання на маршрут
           <input
             type="url"

@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import atlasRoad from "@/assets/atlas-road.jpg";
-import { TopoPattern } from "@/components/brand/graphics";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerCard } from "@/components/PartnerCard";
 import { RouteList } from "@/components/RouteList";
 import { RouteSearch } from "@/components/RouteSearch";
 import { getCarrier, publicCarrier } from "@/data/carriers";
-import { priorityOriginCityIds, pilotGermanCityIds } from "@/data/discovery";
+import { priorityOriginCityIds } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
 import { organizationLd, websiteLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
@@ -22,22 +20,26 @@ export const metadata: Metadata = buildMetadata({ title, description, path: "/",
 const steps = [
   {
     title: "Оберіть міста",
-    text: "Укажіть, звідки й куди хочете їхати. Для повернення перемкніть напрямок — вибрані міста збережуться.",
+    text: "Виберіть напрямок і перегляньте наявні поради. Сам вибір міст не підтверджує можливість поїздки.",
   },
   {
-    title: "Додайте деталі",
-    text: "Зазначте бажану дату, кількість пасажирів і телефон для зв’язку. UARoute складе повідомлення з вашим напрямком та цими деталями.",
+    title: "Підготуйте звернення",
+    text: "Додайте дату, кількість пасажирів і телефон, щоб скласти повідомлення. Сайт перевізника доступний і без цих полів.",
   },
   {
-    title: "Надішліть у WhatsApp",
-    text: "Перевірте підготовлений текст, додайте свої запитання й надішліть його перевізнику.",
+    title: "Перевірте й надішліть",
+    text: "Коли для напрямку доступний WhatsApp, це основний спосіб звернення: перевірте текст і надішліть його перевізнику самостійно.",
   },
 ];
 
 export default function HomePage() {
   const routes = listResolvedRoutes("commercial");
   const koval = getCarrier("koval");
-  const featured = routes.filter((route) => pilotGermanCityIds.some((id) => id === route.origin.id || id === route.destination.id) && priorityOriginCityIds.some((id) => id === route.origin.id || id === route.destination.id));
+  const priorityCities = new Set<string>(priorityOriginCityIds);
+  const featured = routes.filter((route) =>
+    (route.origin.countryCode === "UA" && priorityCities.has(route.origin.id) && route.destination.countryCode === "DE") ||
+    (route.destination.countryCode === "UA" && priorityCities.has(route.destination.id) && route.origin.countryCode === "DE"),
+  );
   const additional = routes.filter((route) => !featured.some((item) => item.id === route.id));
 
   return (
@@ -56,8 +58,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-5 max-w-lg type-body text-muted-foreground">
               Зі Львова, Івано-Франківська та інших міст — і назад.
-              Оберіть міста, дізнайтеся, що запитати про посадку, ціну й багаж,
-              та зверніться до перевізника.
+              Оберіть міста, щоб звернутися до перевізника.
             </p>
 
             <div className="mt-7 border-t border-border-strong pt-5">
@@ -110,30 +111,9 @@ export default function HomePage() {
           <RouteList routes={additional} ctaLocation="route_index" className="mt-5" />
         </details>
 
-        <Link href="/routes/" className="mt-8 inline-flex type-label text-primary link-underline">
+        <Link href="/routes/" className="mt-8 inline-flex min-h-11 min-w-11 items-center text-sm font-medium text-primary link-underline">
           Усі напрямки →
         </Link>
-      </section>
-
-      <section className="relative border-y border-border-strong">
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
-          <Image
-            src={atlasRoad}
-            alt="Європейська автомагістраль на світанку"
-            className="photo-atlas h-full w-full object-cover"
-          />
-          <div className="relative flex flex-col justify-center overflow-hidden bg-surface p-8 lg:p-14">
-            <TopoPattern />
-            <p className="relative type-label text-muted-foreground">Перед поїздкою</p>
-            <h2 className="relative mt-6 max-w-sm type-h2">Що запитати у перевізника</h2>
-            <ul className="relative mt-6 max-w-md space-y-4 type-body-small text-muted-foreground">
-              <li><strong className="text-foreground">Виїзд і прибуття.</strong> Де зустрічаєтеся, о котрій виїзд і де буде висадка?</li>
-              <li><strong className="text-foreground">Вартість.</strong> Яка загальна ціна та як оплатити поїздку?</li>
-              <li><strong className="text-foreground">Багаж.</strong> Скільки валіз можна взяти та чи потрібна доплата?</li>
-              <li><strong className="text-foreground">Ваші потреби.</strong> Чи можна їхати з дитиною, взяти великий багаж або погодити зручне місце зустрічі?</li>
-            </ul>
-          </div>
-        </div>
       </section>
 
       <section className="container-page section-band" aria-labelledby="how-heading">

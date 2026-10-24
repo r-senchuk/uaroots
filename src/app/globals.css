@@ -450,3 +450,15 @@
     linear-gradient(to right, transparent, black 6%, black 94%, transparent);
   mask-composite: intersect;
 }
+
+@layer base {
+  input, select, [data-search-heading] {
+    scroll-margin-top: calc(var(--header-height, 4.5rem) + 1rem);
+  }
+}
+
+@layer base {
+  body {
+    padding-bottom: var(--inquiry-sticky-height, 0px);
+  }
+}

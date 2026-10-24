@@ -40,6 +40,40 @@ export function getResolvedRoutesByIds(ids: string[]): ResolvedRoute[] {
     .filter((route): route is ResolvedRoute => Boolean(route));
 }
 
+/** Selectable discovery cities: bounded candidates followed by commercial endpoints. */
+export function listDiscoveryCities(countryCode: string): City[] {
+  const candidateIds = countryCode === "UA"
+    ? pilotUkrainianCityIds
+    : countryCode === "DE"
+      ? pilotGermanCityIds
+      : [];
+  const ids = new Set<string>();
+  const result: City[] = [];
+
+  for (const id of candidateIds) {
+    const city = getCity(id);
+    if (city?.countryCode === countryCode && !ids.has(city.id)) {
+      ids.add(city.id);
+      result.push(city);
+    }
+  }
+
+  if (countryCode !== "UA" && countryCode !== "DE") return result;
+
+  for (const route of routes) {
+    if (route.status !== "commercial") continue;
+    for (const id of [route.originCityId, route.destinationCityId]) {
+      const city = getCity(id);
+      if (city?.countryCode === countryCode && !ids.has(city.id)) {
+        ids.add(city.id);
+        result.push(city);
+      }
+    }
+  }
+
+  return result;
+}
+
 function normalize(value: string): string {
   return value
     .trim()

@@ -64,6 +64,20 @@ export function validateCatalog(): string[] {
         errors.push(`Route ${route.slug} related unknown id ${relatedId}`);
       }
     }
+    if (!Array.isArray(route.faq)) {
+      errors.push(`Route ${route.slug} FAQ must be an array`);
+    } else {
+      const questions = new Set<string>();
+      for (const item of route.faq) {
+        if (!item || typeof item.question !== "string" || !item.question.trim() || typeof item.answer !== "string" || !item.answer.trim()) {
+          errors.push(`Route ${route.slug} has an invalid FAQ item`);
+          continue;
+        }
+        const question = item.question.trim().replace(/\s+/g, " ").toLocaleLowerCase("uk");
+        if (questions.has(question)) errors.push(`Route ${route.slug} has a duplicate FAQ question`);
+        questions.add(question);
+      }
+    }
     if (route.status === "commercial") {
       const carrierId = route.carrierIds[0];
       if (!route.deskId || !carrierId || !getDesk(carrierId, route.deskId)) {
@@ -84,7 +98,6 @@ export function validateCatalog(): string[] {
       if (route.corridor.length !== 2 || route.corridor[0] !== origin?.country || route.corridor[1] !== destination?.country) {
         errors.push(`Candidate inquiry ${route.slug} corridor must contain only its endpoints`);
       }
-      if (route.faq.length < 4) errors.push(`Candidate inquiry ${route.slug} needs at least four FAQs`);
       if (!route.practicalContent?.length) errors.push(`Candidate inquiry ${route.slug} has no city-specific practical content`);
       for (const item of route.practicalContent ?? []) {
         if (Boolean(item.sourceUrl) !== Boolean(item.lastVerifiedAt)) {

@@ -1,4 +1,3 @@
-import { Check } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -26,12 +25,10 @@ export function MetaGrid({ children, className }: { children: ReactNode; classNa
 }
 
 /**
- * Verification treatment. Render ONLY when the underlying data carries real
- * provenance — never as a decorative trust badge.
+ * Self-reported metadata for claims that carry a source and review date.
  */
 export function VerifiedMark({
   date,
-  source,
   className,
 }: {
   date: string;
@@ -39,10 +36,6 @@ export function VerifiedMark({
   className?: string;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-1.5 type-caption", className)}>
-      <Check aria-hidden className="size-3.5 text-success" />
-      Перевірено · {date}
-      {source ? <span>· Джерело: {source}</span> : null}
-    </span>
+    <span className={cn("text-sm text-muted-foreground", className)}>За інформацією перевізника · переглянуто {date}</span>
   );
 }

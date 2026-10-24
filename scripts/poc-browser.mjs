@@ -95,7 +95,17 @@ async function fulfillFromExport(route, root, url, isKoval = false) {
   await route.fulfill({ status: 200, contentType, body: readFileSync(file) });
 }
 
+async function closeSafely(resource, label) {
+  result.cleanup ??= [];
+  const status = await Promise.race([
+    resource.close().then(() => "closed"),
+    new Promise((resolve) => setTimeout(() => resolve("graceful close unconfirmed after10s; no forced deletion"), 10000)),
+  ]);
+  result.cleanup.push({ label, status });
+}
+
 async function runCheck(name, fn) {
+  console.log(`START ${name}`);
   try {
     const detail = await fn();
     result.flows.push({ name, passed: true, ...(detail === undefined ? {} : { detail }) });
@@ -136,7 +146,7 @@ function uarouteGoogleRequests() {
 }
 
 async function selectCity(page, label, query, expectedName) {
-  const aliases = page.getByText("Пошук за іншою назвою міста", { exact: true });
+  const aliases = page.getByText("Пошук за назвою або латинкою", { exact: true });
   if (await aliases.count() && !await page.getByRole("combobox", { name: label, exact: true }).isVisible()) await aliases.click();
   const field = page.getByRole("combobox", { name: label });
   await field.fill(query);
@@ -286,7 +296,7 @@ async function run() {
       }
       ensure(await page.evaluate(() => window.__uarouteAnalyticsConsent) === false, "General browsing did not record an explicit refusal");
       ensure(result.googleRequestAttempts.length === googleAttemptsBeforeChoice, "General browsing made a Google request before or after refusal");
-      await page.close();
+      await closeSafely(page, "regression page");
       return { choice: "refused", mode: result.requestCounts.mode };
     });
 
@@ -305,7 +315,7 @@ async function run() {
       const event = await page.evaluate(() => window.__uarouteEvents?.filter((event) => event.event === "koval_site_click").at(-1));
       ensure(event?.source === "telegram" && event?.medium === "social" && event?.campaign === "route_launch" && event?.landingPage === "/cities/lviv/" && event?.targetPath === "/routes/lviv-celle/", "SPA acquisition/current target was overwritten");
       ensure(!JSON.stringify(event).includes("ignored_private_text"), "Raw acquisition content leaked into events");
-      await popup.close(); await page.close();
+      await closeSafely(popup, "intercepted popup"); await closeSafely(page, "regression page");
       return { firstLanding: "/cities/lviv/", acquisition: "telegram/social/route_launch", partner: "uaroute/referral/koval_poc", keyboard: true };
     });
 
@@ -318,7 +328,7 @@ async function run() {
       // Use an unpublished pair to display CandidateInquiry rather than a route-page result.
       await selectCity(page, "Куди", "Lubeck", "Любек");
       await page.getByRole("button", { name: "Знайти маршрут" }).click();
-      const link = page.getByRole("link", { name: "Перейдіть на сайт перевізника", exact: true });
+      const link = page.locator("[data-journey-actions]").getByRole("link", { name: "Сайт перевізника ↗", exact: true });
       await link.waitFor({ state: "visible" });
       await link.click({ button: "middle" });
       const href = await link.getAttribute("href");
@@ -328,7 +338,7 @@ async function run() {
       ensure(/^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(url.searchParams.get("ref_code") ?? ""), "Secondary middle-click lacks sender code");
       ensure(url.searchParams.get("origin_city_id") === "lviv" && url.searchParams.get("destination_city_id") === "luebeck", "Secondary link lost selected cities");
       ensure(url.searchParams.get("utm_content") === "candidate_inquiry", "Secondary link placement changed");
-      await page.close();
+      await closeSafely(page, "regression page");
       return { origin: "lviv", destination: "luebeck", middleClick: true, handoffIntercepted: true };
     });
 
@@ -343,7 +353,7 @@ async function run() {
     result.screenshots.push(mobileShot);
 
     await runCheck("city aliases in Ukrainian, Russian, German, Polish, and English", async () => {
-      await mobile.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+      await mobile.getByText("Пошук за назвою або латинкою", { exact: true }).click();
       const examples = [
         ["Львів", "Львів", "Звідки"],
         ["Львов", "Львів", "Звідки"],
@@ -366,7 +376,7 @@ async function run() {
       await cellePage.setViewportSize({ width: 360, height: 800 });
       await cellePage.goto(`${uarouteOrigin}/cities/celle/`, { waitUntil: "networkidle" });
       await cellePage.getByRole("heading", { level: 1, name: "Поїздки з Целле до України та назад" }).waitFor();
-      await cellePage.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+      await cellePage.getByText("Пошук за назвою або латинкою", { exact: true }).click();
       ensure(await cellePage.getByRole("button", { name: "До України", exact: true }).getAttribute("aria-pressed") === "true", "Celle hub did not default to Germany → Ukraine");
       ensure(await cellePage.getByRole("combobox", { name: "Звідки" }).inputValue() === "Целле", "Celle was not selected as the departure city");
 
@@ -409,7 +419,7 @@ async function run() {
       await cellePage.waitForURL("**/routes/lviv-celle/");
 
       await cellePage.goto(`${uarouteOrigin}/cities/celle/`, { waitUntil: "networkidle" });
-      await cellePage.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+      await cellePage.getByText("Пошук за назвою або латинкою", { exact: true }).click();
       await selectCity(cellePage, "Куди", "Ivano-Frankivsk", "Івано-Франківськ");
       await cellePage.getByRole("button", { name: "Знайти маршрут" }).click();
       await cellePage.locator('section[aria-labelledby$="-candidate-inquiry-title"]').waitFor({ state: "visible" });
@@ -471,11 +481,11 @@ async function run() {
       const contactEvent = await page.evaluate(() => window.__uarouteEvents?.filter((event) => event.event === "koval_site_click").at(-1));
       ensure(contactEvent?.landingPage === "/cities/celle/" && contactEvent?.targetPath === "/routes/celle-lviv/", "Celle operator contact event did not separate first landing from current route target");
       ensure(contactEvent?.source === "telegram" && contactEvent?.medium === "social" && contactEvent?.campaign === "route_launch", "Celle operator contact event lost approved acquisition fields");
-      await popup.close();
+      await closeSafely(popup, "intercepted popup");
       ensure(JSON.stringify(events).includes("telegram") && JSON.stringify(events).includes("route_launch"), "Celle approved acquisition fields were not retained");
       const serializedEvents = JSON.stringify(await page.evaluate(() => window.__uarouteEvents ?? []));
       ensure(!serializedEvents.includes(privateContentCanary), "Celle raw utm_content leaked into analytics");
-      await page.close();
+      await closeSafely(page, "regression page");
       return { landingPage: "/cities/celle/", targetPath: "/routes/celle-lviv/", route: "celle-lviv", contactEvent: true, rawUtmContentStored: false };
     });
 
@@ -519,10 +529,10 @@ async function run() {
       await mobile.getByRole("heading", { level: 1, name: /Перевезення велосипеда/ }).waitFor({ state: "visible" });
 
       const bodyText = await mobile.locator("body").innerText();
-      ensure(bodyText.includes("50 євро"), "Guide is missing 50 euro customs threshold");
+      ensure(await mobile.locator('a[href="https://customs.gov.ua/informatsiia-dlia-gromadian"]').count() === 1, "Guide missing official Ukraine customs link");
       ensure(!bodyText.includes("20 кг"), "Guide contains unsupported 20 kg claim");
       ensure(!bodyText.includes("підлягає затриманню"), "Guide contains unqualified detention absolute");
-      ensure(bodyText.includes("може привернути підвищену увагу"), "Guide is missing qualified border check statement");
+      ensure(!/500 €|50 євро|SIS|виключно у|Mercedes Sprinter/.test(bodyText), "Guide retains unsupported customs or service guarantees");
 
       const cta = mobile.getByRole("link", { name: "Уточнити перевезення велосипеда в WhatsApp" });
       await cta.waitFor({ state: "visible" });
@@ -541,7 +551,7 @@ async function run() {
 
       // 3. Mouse click captures opened handoff and records zero-PII telemetry
       const [popup] = await Promise.all([mobile.waitForEvent("popup"), cta.click()]);
-      await popup.close();
+      await closeSafely(popup, "intercepted popup");
       const opened = result.interceptedWhatsAppUrls.at(-1);
       ensure(opened && /Код: UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/.test(decodeURIComponent(opened)), "Click did not open handoff with valid code");
 
@@ -578,7 +588,7 @@ async function run() {
       for (const slug of candidateSlugs) {
         await mobile.goto(`${uarouteOrigin}/routes/${slug}/`, { waitUntil: "domcontentloaded" });
         await mobile.waitForLoadState("networkidle");
-        await mobile.getByText("Уточніть можливість поїздки на бажану дату.").waitFor({ state: "visible" });
+        await mobile.getByText("Можливість поїздки на бажану дату", { exact: true }).waitFor({ state: "visible" });
         const [origin, destination] = slug.split("-").reduce((parts, segment, index) => {
           const citySegments = new Set(["dolyna", "celle", "wolfsburg", "braunschweig"]);
           const candidate = citySegments.has(segment) ? segment : "";
@@ -606,7 +616,7 @@ async function run() {
       await selectCity(desktop, "Куди", "Celle", "Целле");
       await desktop.getByRole("button", { name: "Знайти маршрут" }).click();
       await desktop.waitForURL("**/routes/dolyna-celle/");
-      await desktop.getByText("Уточніть можливість поїздки на бажану дату.").waitFor({ state: "visible" });
+      await desktop.getByText("Можливість поїздки на бажану дату", { exact: true }).waitFor({ state: "visible" });
       const events = await desktop.evaluate(() => window.__uarouteEvents ?? []);
       ensure(events.some((event) => event.event === "route_search_completed"), "Route-search event was not buffered");
       ensure(events.some((event) => event.event === "route_view" && event.routeId === "dolyna-celle"), "Route-view event or route ID is missing");
@@ -671,7 +681,7 @@ async function run() {
       ensure(message.includes("Це запит про поїздку, а не бронювання."), "Candidate message implies a confirmed booking");
       ensure(/Код: UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/.test(message), "Candidate inquiry has no valid opaque code");
       const text = await mobile.locator("body").innerText();
-      ensure(text.includes("Перевізник перевірить можливість поїздки на вашу дату"), "Candidate form does not explain trip feasibility confirmation");
+      ensure(text.includes("Перевізник підтвердить можливість поїздки"), "Candidate form does not explain trip feasibility confirmation");
       const events = await mobile.evaluate(() => window.__uarouteEvents ?? []);
       const serializedEvents = JSON.stringify(events);
       ensure(!serializedEvents.includes("2030-12-31"), "Analytics buffer contains the candidate travel date");
@@ -826,7 +836,7 @@ async function run() {
           const message = new URL((await blocked).url()).searchParams.get("text") ?? "";
           ensure(message.includes("UARoute") && message.includes(code) && message.includes(`${from} → ${to}`), "New Koval handoff lost source, original code or current pair");
           ensure(message.includes("Це запит про поїздку, а не бронювання."), "New Koval handoff implies automatic confirmation");
-          await koval.close();
+          await closeSafely(koval, "snapshot receiver page");
         }
         return { newPairsChecked: pairs.length, sameCodeRetained: true, bothDirections: true, messagesBlocked: true };
       });
@@ -896,7 +906,7 @@ async function run() {
         const afterWithdrawalCount = result.googleRequestAttempts.length - googleAttemptsBeforeWithdrawal;
         ensure(afterWithdrawalCount === 0, "A Google request occurred after withdrawal");
         ensure(statesAfterAccept[0]?.analytics_storage === "denied" && statesAfterAccept.at(-1)?.analytics_storage === "granted" && statesAfterWithdrawal.at(-1)?.analytics_storage === "denied", "Consent bridge did not apply denied → granted → denied at the corresponding user choices");
-        await analyticsContext.close();
+        await closeSafely(analyticsContext, "analytics fixture context");
         return { gtagPageLocation, routeViewsBeforeRevocation: viewsBeforeRevoke, routeViewsAfterRevocation: viewsAfterRevoke, googleRequestPhases: { beforeChoice: beforeChoiceCount, afterRefusal: afterRefusalCount, afterAcceptance: googleAttemptsAfterAccept.length, afterWithdrawal: afterWithdrawalCount }, mockedGtmRequests: result.requestCounts.mockedGtmRequests };
       });
     } else {
@@ -919,9 +929,9 @@ async function run() {
       result.screenshots.push(desktopShot);
     });
 
-    await context.close();
+    await closeSafely(context, "regression context");
   } finally {
-    await browser.close();
+    await closeSafely(browser, "regression browser");
   }
 }
 
@@ -946,4 +956,4 @@ const safeResult = {
 };
 writeFileSync(resultPath, `${JSON.stringify(safeResult, null, 2)}\n`);
 console.log(JSON.stringify({ passed: result.passed, results: resultPath, flows: safeResult.flows, viewportChecks: result.viewportChecks, blockedExternalRequests: result.blockedExternalRequests.length, requestCounts: result.requestCounts, externalRequestPolicy: result.externalRequestPolicy }, null, 2));
-if (!result.passed) process.exitCode = 1;
+process.exit(result.passed ? 0 : 1);

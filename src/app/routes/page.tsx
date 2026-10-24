@@ -6,7 +6,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { RouteList } from "@/components/RouteList";
 import { RouteSearch } from "@/components/RouteSearch";
-import { pilotGermanCityIds, priorityOriginCityIds } from "@/data/discovery";
+import { priorityOriginCityIds } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
 import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
@@ -23,8 +23,9 @@ const crumbs = [
 
 export default function RoutesIndexPage() {
   const routes = listResolvedRoutes("commercial");
-  const outbound = routes.filter((route) => priorityOriginCityIds.some((id) => id === route.origin.id) && pilotGermanCityIds.some((id) => id === route.destination.id));
-  const inbound = routes.filter((route) => priorityOriginCityIds.some((id) => id === route.destination.id) && pilotGermanCityIds.some((id) => id === route.origin.id));
+  const priorityCities = new Set<string>(priorityOriginCityIds);
+  const outbound = routes.filter((route) => route.origin.countryCode === "UA" && priorityCities.has(route.origin.id) && route.destination.countryCode === "DE");
+  const inbound = routes.filter((route) => route.origin.countryCode === "DE" && route.destination.countryCode === "UA" && priorityCities.has(route.destination.id));
   const primaryIds = new Set([...outbound, ...inbound].map((route) => route.id));
   const additional = routes.filter((route) => !primaryIds.has(route.id));
 
@@ -84,15 +85,6 @@ export default function RoutesIndexPage() {
           </section>
         ))}
 
-        <section className="border-t border-border-strong pt-8" aria-labelledby="request-steps-heading">
-          <h2 id="request-steps-heading" className="type-h2">Що повідомити перевізнику</h2>
-          <ol className="mt-5 grid gap-5 type-body-small text-muted-foreground sm:grid-cols-3">
-            <li><strong className="block text-foreground">Дата та пасажири</strong> Зазначте бажану дату й кількість людей. Якщо дата гнучка, додайте можливі варіанти в повідомленні.</li>
-            <li><strong className="block text-foreground">Місце зустрічі</strong> Напишіть зручний район, адресу чи орієнтир. Запитайте, де можна погодити посадку та висадку.</li>
-            <li><strong className="block text-foreground">Багаж та особливі потреби</strong> Опишіть кількість валіз, великий багаж або поїздку з дитиною, щоб одразу обговорити потрібні умови.</li>
-          </ol>
-          <p className="mt-5 max-w-3xl type-body-small text-muted-foreground">Можливість поїздки на вашу дату, місця, ціну та умови підтверджує перевізник у відповідь на звернення. Після заповнення форми перевірте й надішліть повідомлення у WhatsApp; саме звернення ще не резервує місце.</p>
-        </section>
       </div>
     </>
   );

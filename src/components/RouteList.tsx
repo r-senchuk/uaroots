@@ -47,9 +47,9 @@ export function RouteList({
 
             <span className="min-w-0">
               <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="break-words font-display text-2xl leading-tight text-foreground sm:text-4xl">{route.origin.name}</span>
+                <span className="min-w-0 max-w-full break-words font-display text-2xl leading-tight text-foreground sm:text-4xl">{route.origin.name}</span>
                 <span className="text-xl text-primary" aria-label="до">→</span>
-                <span className="break-words font-display text-2xl leading-tight text-foreground sm:text-4xl">{route.destination.name}</span>
+                <span className="min-w-0 max-w-full break-words font-display text-2xl leading-tight text-foreground sm:text-4xl">{route.destination.name}</span>
               </span>
 
               <span className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1">

@@ -35,7 +35,7 @@ export function PartnerCard({
       <h2 className="mt-3 type-h2">{carrier.name}</h2>
       <p className="mt-3 type-body-small text-muted-foreground">
         {inquiryOnly
-          ? `Запитайте перевізника про можливість поїздки на вашу дату, вартість, посадку й багаж. На його сайті можна знайти контакт і продовжити звернення.`
+          ? "Запитайте перевізника про можливість поїздки, вартість, місце посадки й багаж. Контакт доступний на його сайті."
           : carrier.serviceDescription}
       </p>
 

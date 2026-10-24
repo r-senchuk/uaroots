@@ -5,13 +5,19 @@ import { useRouter } from "next/navigation";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 
 import { RouteEmptyState } from "@/components/brand/states";
+import { KovalReferralLink } from "@/components/KovalReferralLink";
+import { getCarrier } from "@/data/carriers";
+
 import { CandidateInquiry } from "@/components/CandidateInquiry";
-import { pilotGermanCityIds, pilotUkrainianCityIds, priorityOriginCityIds } from "@/data/discovery";
+import { priorityOriginCityIds } from "@/data/discovery";
 import { getCity } from "@/data/cities";
-import { findRouteByCities, isCandidateInquiryEligiblePair, searchCities } from "@/data/queries";
+import { findRouteByCities, isCandidateInquiryEligiblePair, listDiscoveryCities, searchCities } from "@/data/queries";
 import type { City } from "@/data/types";
 import { track, type CtaLocation } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+
+const ukrainianDiscoveryCities = listDiscoveryCities("UA");
+const germanDiscoveryCities = listDiscoveryCities("DE");
 
 type FieldProps = {
   label: string;
@@ -125,12 +131,21 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
   );
 }
 
+export type CityChoice = {
+  city: City;
+  departureHref?: string;
+  returnHref?: string;
+};
+
 type RouteSearchProps = {
   sourcePath?: string;
   ctaLocation?: CtaLocation;
   initialOriginId?: string;
   initialDestinationId?: string;
   showPilotChoices?: boolean;
+  overviewCity?: City;
+  choiceDirections?: CityChoice[];
+  choiceHeading?: string;
 };
 
 export function RouteSearch({
@@ -139,6 +154,9 @@ export function RouteSearch({
   initialOriginId,
   initialDestinationId,
   showPilotChoices = false,
+  overviewCity,
+  choiceDirections,
+  choiceHeading,
 }: RouteSearchProps) {
   const router = useRouter();
   const initialOrigin = initialOriginId ? getCity(initialOriginId) ?? null : null;
@@ -153,6 +171,8 @@ export function RouteSearch({
   const [candidatePair, setCandidatePair] = useState<{ origin: City; destination: City } | null>(null);
 
   const resultRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
   const selectedRoute = origin && destination ? findRouteByCities(origin.id, destination.id, { commercialOnly: true }) : undefined;
 
   useEffect(() => {
@@ -178,8 +198,24 @@ export function RouteSearch({
     }
   }
 
-  const ukrainianCities = pilotUkrainianCityIds.map((id) => getCity(id)).filter((city): city is City => Boolean(city));
-  const germanCities = pilotGermanCityIds.map((id) => getCity(id)).filter((city): city is City => Boolean(city));
+  function chooseOverviewCity(city: City) {
+    if (!overviewCity) return;
+    resetResult();
+    const ukrainianCity = city.countryCode === "UA" ? city : overviewCity.countryCode === "UA" ? overviewCity : null;
+    const germanCity = city.countryCode === "DE" ? city : overviewCity.countryCode === "DE" ? overviewCity : null;
+    const nextOrigin = direction === "to-germany" ? ukrainianCity : germanCity;
+    const nextDestination = direction === "to-germany" ? germanCity : ukrainianCity;
+    setOrigin(nextOrigin);
+    setOriginText(nextOrigin?.name ?? "");
+    setDestination(nextDestination);
+    setDestinationText(nextDestination?.name ?? "");
+    searchRef.current?.scrollIntoView({
+      block: "start",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+    submitRef.current?.focus({ preventScroll: true });
+  }
+
   const priorityCities = priorityOriginCityIds.map((id) => getCity(id)).filter((city): city is City => Boolean(city));
   const selectedUkrainian = (direction === "to-germany" ? origin : destination)?.country === "Україна"
     ? (direction === "to-germany" ? origin : destination) : null;
@@ -248,7 +284,7 @@ export function RouteSearch({
   }
 
   return (
-    <div>
+    <div ref={searchRef} className="scroll-mt-[calc(var(--header-height,4.5rem)+1rem)]">
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -286,7 +322,7 @@ export function RouteSearch({
                 {(direction === "to-germany" ? ["ukraine", "germany"] : ["germany", "ukraine"]).map((country, index) => {
                   const isUkrainian = country === "ukraine";
                   const selected = isUkrainian ? selectedUkrainian : selectedGerman;
-                  const cities = isUkrainian ? ukrainianCities : germanCities;
+                  const cities = isUkrainian ? ukrainianDiscoveryCities : germanDiscoveryCities;
                   const countryLabel = isUkrainian ? "Українське місто" : "Місто в Німеччині";
                   return (
                     <label key={country} className="text-sm font-medium text-muted-foreground">
@@ -321,8 +357,7 @@ export function RouteSearch({
                   setOrigin(null);
                 }}
                 onSelect={(city) => {
-                  setOrigin(city);
-                  setOriginText(city.name);
+                  chooseCity("origin", city);
                 }}
               />
               <span aria-hidden className="hidden pb-4 font-mono text-sm text-muted-foreground sm:block">
@@ -340,8 +375,7 @@ export function RouteSearch({
                   setDestination(null);
                 }}
                 onSelect={(city) => {
-                  setDestination(city);
-                  setDestinationText(city.name);
+                  chooseCity("destination", city);
                 }}
               />
             </>
@@ -354,6 +388,7 @@ export function RouteSearch({
             </p>
           ) : null}
           <button
+            ref={submitRef}
             type="submit"
             className="inline-flex h-12 shrink-0 items-center justify-center bg-primary px-7 type-button text-primary-foreground transition-colors hover:bg-primary-hover"
           >
@@ -361,7 +396,7 @@ export function RouteSearch({
           </button>
           {showPilotChoices ? (
             <details>
-              <summary className="min-h-11 cursor-pointer py-3 type-button">Пошук за іншою назвою міста</summary>
+              <summary className="min-h-11 cursor-pointer py-3 type-button">Пошук за назвою або латинкою</summary>
               <div className="mt-3 grid gap-4 sm:grid-cols-2">
                 <CityField
                   label="Звідки"
@@ -400,8 +435,15 @@ export function RouteSearch({
       </form>
 
       {candidatePair ? (
-        <div ref={resultRef} tabIndex={-1} className="mt-6 scroll-mt-24" key={`${candidatePair.origin.id}-${candidatePair.destination.id}`}>
+        <div ref={resultRef} tabIndex={-1} className="mt-6 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)]" key={`${candidatePair.origin.id}-${candidatePair.destination.id}`}>
           <CandidateInquiry origin={candidatePair.origin} destination={candidatePair.destination} sourcePath={sourcePath} ctaLocation={ctaLocation} />
+        </div>
+      ) : null}
+
+      {(notFound || (overviewCity && !candidatePair)) && getCarrier("koval") ? (
+        <div className="mt-4">
+          <KovalReferralLink href={getCarrier("koval")!.website} content={`site_${ctaLocation}`} ctaLocation={ctaLocation} className="inline-flex min-h-11 items-center border border-border-strong px-4 text-sm hover:bg-secondary">Сайт перевізника ↗</KovalReferralLink>
+          <p className="mt-2 text-sm text-muted-foreground">Загальний перехід на зовнішній сайт без вибраного маршруту. Дата й телефон не потрібні.</p>
         </div>
       ) : null}
 
@@ -419,6 +461,38 @@ export function RouteSearch({
             </Link>
           </RouteEmptyState>
         </div>
+      ) : null}
+
+      {overviewCity && choiceDirections && choiceHeading ? (
+        <section className="mt-10" aria-labelledby="discovery-city-choices-heading">
+          <h2 id="discovery-city-choices-heading" className="type-h2">{choiceHeading}</h2>
+          <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
+            Оберіть місто, щоб додати його до пошуку. Перевізник підтвердить можливість поїздки.
+          </p>
+          <ul className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+            {choiceDirections.map(({ city, departureHref, returnHref }) => (
+              <li key={city.id} className="border-t border-border-strong py-4">
+                <h3 className="font-display text-xl">
+                  {city.name}{city.countryCode === "DE" && city.aliases[0] ? <span className="type-body-small text-muted-foreground"> ({city.aliases[0]})</span> : null}
+                </h3>
+                <button
+                  type="button"
+                  aria-label={`Обрати місто ${city.name}`}
+                  onClick={() => chooseOverviewCity(city)}
+                  className="mt-1 inline-flex min-h-11 items-center type-body-small link-underline"
+                >
+                  Обрати місто в пошуку ↑
+                </button>
+                {departureHref || returnHref ? (
+                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+                    {departureHref ? <Link className="inline-flex min-h-11 items-center link-underline" href={departureHref}>{overviewCity.name} → {city.name}</Link> : null}
+                    {returnHref ? <Link className="inline-flex min-h-11 items-center link-underline" href={returnHref}>{city.name} → {overviewCity.name}</Link> : null}
+                  </div>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </section>
       ) : null}
     </div>
   );

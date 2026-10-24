@@ -30,29 +30,29 @@ const cityHubResources = {
   lviv: {
     url: "https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom",
     label: "Офіційний довідник громадського транспорту Львова",
-    role: "UARoute допомагає знайти напрямок зі Львова до потрібного міста Німеччини або назад",
+    role: "UARoute допоможе підготувати звернення до перевізника",
     outbound: "Якщо спочатку добираєтеся до Львова",
     returning: "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою",
     purpose: "Перевірити актуальні правила доїзду в місті",
     checkedAt: "2026-10-09",
-    reviewedAt: "2026-10-09",
-    contentUpdatedAt: "2026-10-09",
+    reviewedAt: "2026-10-23",
+    contentUpdatedAt: "2026-10-23",
   },
   "ivano-frankivsk": {
     url: "https://booking.uz.gov.ua/",
     label: "Офіційний пошук квитків Укрзалізниці",
-    role: "UARoute допомагає знайти напрямок з Івано-Франківська до потрібного міста Німеччини або назад",
+    role: "UARoute допоможе підготувати звернення до перевізника",
     outbound: "Якщо до міста плануєте їхати потягом",
     returning: "пересування містом і стиковка не гарантуються зверненням до перевізника",
     purpose: "Окремо перевірити потрібну попередню або подальшу ділянку",
     checkedAt: "2026-10-09",
-    reviewedAt: "2026-10-09",
-    contentUpdatedAt: "2026-10-09",
+    reviewedAt: "2026-10-23",
+    contentUpdatedAt: "2026-10-23",
   },
   celle: {
     url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
     label: "Офіційний довідник доїзду до Целле",
-    role: "UARoute допомагає знайти напрямок з Целле та навколишніх населених пунктів до України або назад",
+    role: "UARoute допоможе підготувати звернення до перевізника",
     outbound: "Якщо вирушаєте з Целле або сусіднього населеного пункту",
     returning: "Якщо вам потрібно приїхати до Целле чи сусіднього населеного пункту",
     nearbyHeading: "Населені пункти поблизу Целле",
@@ -68,19 +68,19 @@ const cityHubResources = {
     ],
     purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою",
     checkedAt: "2026-10-09",
-    reviewedAt: "2026-10-10",
-    contentUpdatedAt: "2026-10-10",
+    reviewedAt: "2026-10-23",
+    contentUpdatedAt: "2026-10-23",
   },
   stryi: {
     url: "https://booking.uz.gov.ua/",
     label: "Офіційний пошук квитків Укрзалізниці",
-    role: "UARoute допомагає знайти напрямок зі Стрия та навколишніх міст і курортів до Німеччини або назад",
-    outbound: "Стрий — зручний вузол для виїзду",
-    returning: "Для повернення з Німеччини оберіть місто виїзду та вкажіть Стрий як кінцевий орієнтир",
+    role: "UARoute допоможе підготувати звернення до перевізника",
+    outbound: "Вкажіть перевізнику фактичний населений пункт",
+    returning: "Погодьте фактичне місце висадки",
     purpose: "Окремо перевірити розклад приміських потягів та поїздів до станції Стрий",
     checkedAt: "2026-10-17",
-    reviewedAt: "2026-10-17",
-    contentUpdatedAt: "2026-10-17",
+    reviewedAt: "2026-10-23",
+    contentUpdatedAt: "2026-10-23",
   },
 };
 const editorialRouteSlugs = ["lviv-hamburg", "lviv-berlin"];
@@ -402,8 +402,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
 
     if (!candidate) continue;
     const text = plainText(html);
-    if (!text.includes("Уточніть можливість поїздки на бажану дату.") ||
-      !text.includes("Перевізник перевірить можливість поїздки") || !text.includes("не резервує місце")) {
+    if (!text.includes("Можливість поїздки на бажану дату") ||
+      !text.toLocaleLowerCase().includes("перевізник підтвердить можливість поїздки") || !text.includes("не резервує місце")) {
       errors.push(`${pagePath} is missing the feasibility-first candidate inquiry notice`);
     }
     for (const term of candidatePracticalTerms[slug] ?? []) {
@@ -518,11 +518,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
           errors.push(pagePath + " is missing the expected Celle locality group or named places: " + group.localName);
         }
       }
-      if (nearbyText.includes("не означає посадку у вашому населеному пункті")) {
-        errors.push(pagePath + " retains the obsolete instruction to come to Celle for boarding");
-      }
     } else if (!nearbyText.includes("фактичне місце") || !nearbyText.includes("приватному повідомленні WhatsApp") ||
-      !nearbyText.includes("не означає посадку у вашому населеному пункті")) {
+      !nearbyText.includes("Перевізник підтвердить, чи можлива там посадка або висадка")) {
       errors.push(pagePath + " is missing useful nearby guidance and the pickup boundary");
     }
     const searchSection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="search-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";

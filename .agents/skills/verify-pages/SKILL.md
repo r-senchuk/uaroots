@@ -19,7 +19,7 @@ Changed page/flow, exact candidate/export, build configuration and available bro
 
 Click changed behavior; a screenshot alone is not verification. For copy-only work inspect readable changed-section text, actual H1/metadata and nearby navigation. For search/inquiry work check departure/arrival order, country-restricted suggestions and reversal preserving the pair.
 
-Current core regression: `/cities/celle/` → Celle → Lviv uses `/routes/celle-lviv/`; Celle → Stryi stays inline inquiry. Outside the approved selectable pair set, retain the no-information fallback; editorial routes remain excluded. Read actual data before choosing other fixtures. Check `/about/` and `/contact/` redirect only if navigation/release scope affects them.
+Current core regression: `/cities/celle/` → Celle → Lviv uses `/routes/celle-lviv/`; Celle → Stryi uses the published `/routes/celle-stryi/` page. Lviv → Wolfsburg stays inline inquiry in both directions. Outside the approved selectable pair set, retain the no-information fallback; editorial routes remain excluded. Read actual data before choosing other fixtures. Check `/about/` and `/contact/` redirect only if navigation/release scope affects them.
 
 ### Step 2 — Use proportional browser coverage
 
