@@ -13,6 +13,7 @@ Parent: [docs](../index.md).
 - [UARoute — Visual Design System](04-visual-design-system.md) — Brand, typography, colors, layout and visual implementation rules.
 - [UARoute — Data Model & Content Governance](06-data-model-and-content-governance.md) — Typed catalog, service claims, evidence and content-maintenance contracts.
 - [09 — Technical Architecture](09-technical-architecture.md) — Static application architecture and technical implementation boundaries.
+- [UARoute — актуалізована стратегія після пасажирського релізу](development-strategy-2026-10-24.md) — Підтверджений production baseline, пріоритети залучення й перевірки реального попиту, окремі ворота реклами та M2.
 - [GTM and GA4 activation — implementation and release gates](gtm-ga4-activation-spec-2026-10-07.md) — Digital-marketing implementation task: event fidelity, consented GTM/GA4 activation, key events, six reports, EDD and recoverable release.
 - [Пасажирський запит: перевірка переходу до Коваль](inquiry-handoff-development-spec-2026-10-07.md) — Baseline, умовні мінімальні виправлення та критерії приймання пошуку, форми і WhatsApp без нових функцій звітності.
 - [Passenger content — claims and decisions 2026-10-23](passenger-content-claims-review-2026-10-23.md) — Reviewed claim boundaries and local content decisions for passenger discovery.

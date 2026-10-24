@@ -240,3 +240,8 @@ P6: Node22.13.1/Next16.4.0,168 tests, повний check/build/inspect/SEO artif
 Історичні збої збережені: stale diagnostic probe у disposable copy, переповнення довгого напису, незавершені browser-прогони. Чинні негативні перевірки не послаблено. Після останньої source-корекції повний check виконано повторно; browser acceptance стосується саме його export. Зміни журналювання/безпечного обмеження browser cleanup окремо перевірено lint.
 
 Залишаються pending: native browser zoom/реальні пристрої/screen readers поза заявленим обсягом CSS zoom,5–8-person testing, актуальний production receiver та operational outcomes. Один regression browser не підтвердив завершення graceful close за10s; context закрито, примусового видалення немає. Попередні worker worktrees не змінювалися. Технічне приймання стосується перевіреного локального обсягу, без сертифікації WCAG чи conversion uplift. Commit/push/публікації не було.
+
+
+## 9. Production checkpoint —24 жовтня2026
+
+Після локального приймання власник окремо авторизував push і deployment. Passenger baseline опубліковано як `dac7e98735eabfdda8abb7df37fb6e59428b22be`; CI40124363351 і deployment40124595922 завершилися success. Датований [портативний receipt](../../ops/evidence/production-release-2026-10-24.json) містить artifact/recovery hashes та live acceptance. Попередній local-only статус цього плану описує етап до публікації, а не поточний production. Подальший напрям — [актуалізована стратегія](development-strategy-2026-10-24.md); usability, native zoom і реальні downstream outcomes не оголошуються завершеними.

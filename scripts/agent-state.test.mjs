@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { readFileSync, mkdtempSync, writeFileSync, rmSync } from "node:fs";
-import { join } from "node:path";
+import { readFileSync, mkdtempSync, writeFileSync, rmSync, mkdirSync, copyFileSync } from "node:fs";
+import { join, dirname } from "node:path";
 import { tmpdir } from "node:os";
 import test from "node:test";
 import { validateState } from "./agent-state.mjs";
@@ -11,6 +11,13 @@ function fixture(run) {
   writeFileSync(join(root, "contract.md"), "# Disposable contract\n");
   const value = structuredClone(register);
   value.next_task.contract = "contract.md";
+  for (const observation of value.observations) {
+    const evidence = observation.evidence;
+    if (!["artifact", "raw-readback"].includes(evidence.kind)) continue;
+    const target = join(root, evidence.reference);
+    mkdirSync(dirname(target), { recursive: true });
+    copyFileSync(new URL(`../${evidence.reference}`, import.meta.url), target);
+  }
   try { run(value, root); } finally { rmSync(root, { recursive: true, force: true }); }
 }
 test("portable snapshot survives without output artifacts or a KB", () => fixture((s, r) => assert.deepEqual(validateState(s, r), [])));
@@ -48,4 +55,9 @@ test("unknown states remain explicit and malformed input fails without crashing"
   assert.ok(validateState(null, r).length);
   s.observations.push(null);
   assert.ok(validateState(s, r).length);
+}));
+
+test("a missing portable evidence receipt is rejected", () => fixture((s, r) => {
+  s.observations[0].evidence = { kind: "raw-readback", reference: "ops/missing-receipt.json", summary: "Missing fixture" };
+  assert.ok(validateState(s, r).some((error) => /evidence: missing repository reference/.test(error)));
 }));

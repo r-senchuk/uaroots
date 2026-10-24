@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-10-24",
+  "method": "HTTPS sender contract read; exact receiver source-fixture hash; public receiver HTML commit stamp; authenticated Actions run read; read-only actual TS parser check",
+  "sender_url": "https://uaroute.com/referral-contract.json",
+  "receiver_url": "https://www.4k-koval.com/",
+  "contract_sha256": "a4db35b7f7ed72d27a1ba6ea41c9dd2233edc740c7ab8b586bc9fb01e6db4108",
+  "approved_content_count": 122,
+  "cities": 23,
+  "receiver_source_commit": "c30fd376b2daddcd614026725cc19cebd86d70f4",
+  "receiver_run_url": "https://github.com/r-senchuk/4k-trans/actions/runs/39159484906",
+  "receiver_run_created_at": "2026-10-18T19:35:46Z",
+  "receiver_run_conclusion": "success",
+  "source_parser_checks": {
+    "approved_labels": 122,
+    "accepted_opposite_country_pairs": 252,
+    "rejected_same_country_pairs": 277,
+    "unknown_content_and_incomplete_pair_negative": true
+  },
+  "limits": "Compiled hosted parser and actual live sender-to-contact flow not re-exercised here; source/deployment corroboration is not operator receipt"
+}

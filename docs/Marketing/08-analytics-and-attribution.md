@@ -7,6 +7,14 @@ tags: ["uaroute", "marketing"]
 
 # 08 — Analytics and Attribution
 
+## Current strategy and release checkpoint —2026-10-24
+
+The [actualized development strategy](../Product/development-strategy-2026-10-24.md) supersedes unfinished passenger-implementation sequencing. Production dac7e98 was published 24 October; immutable CI/deployment/recovery and live checks are recorded in the [portable state register](../../ops/agent-state.json). This is technical publication, not proof of Google ingestion, operator receipt or new passengers.
+
+Fresh read-only Ads API confirmed both pinned contact actions remain ENABLED/CONTACT/Secondary, ONE_PER_CLICK, default_value 0 and always_use_default_value=true. The exact minimal readback is [saved separately](../../ops/evidence/ads-contact-actions-2026-10-24.json). The October 18 MANY_PER_CLICK/false settings below remain historical. The direct GA4 advertiser link was last observed October 20; this update does not claim a fresh GA4 link readback. The receiver deployment c30fd37 dates to October 18; its live stamp and matching122-label contract were corroborated October 24 without sending an inquiry.
+
+Budget authorization fixes the configured average daily budget at5 PLN for three days; it does not guarantee5 PLN/day billed or 15 PLN total. Most campaigns may bill up to 2× average daily budget under [Google's rules](https://support.google.com/google-ads/answer/10486637/about-spending-limits). Resolve strict actual-spend constraints before any separately authorized launch. The unfinished campaign setup observation remains dated October 22, not a new live campaign check.
+
 ## Advertiser setup readback — 2026-10-22
 
 This dated readback supersedes the October 18 finding that the client had no imported contact actions. Advertiser `525-602-4115` now contains `UARoute WhatsApp contact intent` (`7854727825`, GA4 event `whatsapp_click`) and `UARoute partner site contact intent` (`7854727828`, GA4 event `koval_site_click`). Both are `ENABLED`, `CONTACT`, secondary (`primary_for_goal=false`), `ONE_PER_CLICK`, and always use a default value of zero. The previously imported actions were updated in place; no duplicate contact actions or MCC changes were made.
@@ -86,7 +94,7 @@ Historical activation snapshot, including October 18 settings below. For the lat
 ### Оновлена стратегія розвитку платного залучення (Paid Acquisition Development Strategy)
 
 1. **Інфраструктурна готовність**: Клієнтська частина веб-атрибуції (`gclid` на узгодженому лендингу ➔ вихідний клік ➔ подія GA4) розгорнута у продакшн. Перехоплені браузерні перевірки підтвердили формування вихідних payload'ів клієнтом, але **не є підтвердженням отримання чи атрибуції конверсій на стороні Google**. Прямий зв'язок GA4 та дії-конверсії у клієнтському акаунті налаштовані, а їх фактичне серверне отримання спостерігатиметься під час живого трафіку.
-2. **Ворота безпеки (Gated Pilot)**: Специфікація пілотної кампанії зафіксована локально в пакеті кампанії. Запуск обмежено виключно авторизованим бюджетом: **рівно 5 PLN/день протягом 3 днів** (розрахунково ~15 PLN загалом з урахуванням стандартних правил денного перевитрачення Google; денний ліміт є суворим і не підлягає самостійному збільшенню) для пріоритетних коридорів (Львів ➔ Целле, Івано-Франківськ ➔ Вольфсбург) і відбудеться лише за прямою командою власника.
+2. **Ворота безпеки (Gated Pilot)**: Специфікація пілотної кампанії зафіксована локально в пакеті кампанії. Запуск обмежено виключно авторизованим бюджетом: **налаштований середній денний бюджет 5 PLN протягом 3 днів** (його не можна самостійно збільшувати;~15 PLN — орієнтир, не гарантований billed cap. Якщо потрібна сувора межа фактичних витрат, її механізм має бути узгоджено до запуску) для пріоритетних коридорів (Львів ➔ Целле, Івано-Франківськ ➔ Вольфсбург) і відбудеться лише за прямою командою власника.
 3. **Моніторинг та телеметрія**: Після запуску перевірка переходів здійснюється через нативні звіти GA4 (`ga4-report` для property `557859031`) та API Google Ads без порушення базового режиму згоди (Basic Consent Mode) і без збереження персональних даних пасажирів у вебі чи логах. Органічна індексація комерційних кандидатських сторінок регулюється §40 (наявність сторінки запиту без операційних тверджень).
 
 ## Ads preparation amendment — 2026-10-09

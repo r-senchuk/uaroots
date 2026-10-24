@@ -7,7 +7,8 @@
       "ga4:557859031",
       "ads:5256024115",
       "carrier:4k-koval.com",
-      "gsc:sc-domain:uaroute.com"
+      "gsc:sc-domain:uaroute.com",
+      "site:uaroute.com"
     ]
   },
   "observations": [
@@ -23,14 +24,19 @@
         "primary_for_goal": false,
         "counting_type": "ONE_PER_CLICK",
         "default_value": 0,
-        "always_use_default_value": true
+        "always_use_default_value": true,
+        "action_names": {
+          "7854727825": "UARoute WhatsApp contact intent",
+          "7854727828": "UARoute partner site contact intent"
+        }
       },
-      "observed_at": "2026-10-22",
+      "observed_at": "2026-10-24",
       "verification": "observed",
       "recheck": "before-dependent-action",
       "evidence": {
-        "kind": "session-transcription",
-        "summary": "Read-only Ads API query after UI edits confirmed both existing actions, their names and saved counting/value settings. This durable record is a transcription, not raw API output or a new verification."
+        "kind": "raw-readback",
+        "reference": "ops/evidence/ads-contact-actions-2026-10-24.json",
+        "summary": "Minimal connected Ads API readback saved at observation time, filtered to two pinned contact actions. No account write. Configuration only, not ingestion."
       }
     },
     {
@@ -76,12 +82,13 @@
         "exact_sender_fixture_match": true,
         "html_commit_stamp": "c30fd376b2daddcd614026725cc19cebd86d70f4"
       },
-      "observed_at": "2026-10-20",
+      "observed_at": "2026-10-24",
       "verification": "observed",
       "recheck": "before-dependent-action",
       "evidence": {
-        "kind": "session-transcription",
-        "summary": "Public sender contract exactly matched the reviewed receiver fixture; public carrier HTML exposed this commit stamp. No real inquiry was sent and runtime operator receipt was not verified."
+        "kind": "artifact",
+        "reference": "ops/evidence/carrier-contract-2026-10-24.json",
+        "summary": "Fresh sender exact-hash and public receiver deployment-stamp check; authenticated receiver run dates to October18, no new receiver deployment. Source parser positive/negative checks; no real inquiry or operator receipt."
       }
     },
     {
@@ -119,19 +126,44 @@
         "kind": "session-transcription",
         "summary": "Search Console submitted-sitemap UI showed Success and 22 discovered pages. This does not establish that each URL is indexed."
       }
+    },
+    {
+      "id": "uaroute-production-release",
+      "resource": "site:uaroute.com",
+      "claim": "production-release",
+      "value": {
+        "source_sha": "dac7e98735eabfdda8abb7df37fb6e59428b22be",
+        "ci_run_id": "40124363351",
+        "deployment_run_id": "40124595922",
+        "conclusion": "success",
+        "published_objects": 258,
+        "verified_live_documents": 24,
+        "invalidation": "Completed",
+        "recovery_retrieval_verified": true
+      },
+      "observed_at": "2026-10-24",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "artifact",
+        "reference": "ops/evidence/production-release-2026-10-24.json",
+        "summary": "Sanitized Actions success/recovery receipts and independent live document/browser verification. Exact source published; no real passenger/conversion outcome claim."
+      }
     }
   ],
   "next_task": {
-    "summary": "Review the locally verified passenger remediation; run 5–8-person usability testing. Preserve the outstanding seven-URL inspection follow-up and external receipt blockers.",
-    "contract": "docs/Product/passenger-review-remediation-plan-2026-10-24.md",
-    "publication_state": "local-only",
+    "summary": "Validate comprehension with 5–8 new users; finish the seven-URL indexing register; choose evidence-based existing-page acquisition/distribution work. Passenger baseline is deployed.",
+    "contract": "docs/Product/development-strategy-2026-10-24.md",
+    "publication_state": "deployed",
     "blockers": [
-      "Ads wizard has no inspected Manual CPC option; unfinished draft must not be launched.",
-      "Actual Google conversion ingestion and carrier inquiry receipt remain unverified."
+      "Real Google ingestion/processed conversion attribution and operator inquiry receipt remain unverified.",
+      "Ads setup readiness is dated October22, not re-certified; Manual CPC and configured budget versus actual spend cap require resolution before any launch.",
+      "Usability and native browser zoom/broader real-device accessibility checks remain pending."
     ],
     "boundaries": [
-      "No new campaign activation, spend increase, posting or release is authorized by this record.",
-      "Preserve existing dirty passenger work; obtain current git status before edits."
+      "The deployed application is dac7e98; new strategy/register edits are local documentation, not a new publication.",
+      "No advertising activation, spend change, external posting/contact, account mutation or other-repository publication is authorized by this record.",
+      "Preserve private untracked settings; selectively recheck dated provider observations before dependent actions."
     ]
   }
 }

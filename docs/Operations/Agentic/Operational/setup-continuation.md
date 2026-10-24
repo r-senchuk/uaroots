@@ -11,13 +11,17 @@ Updated 24 October 2026. Implements the owner's instruction to save results and 
 
 ## Saved implementation result
 
-- [ops/agent-state.json](../../../../ops/agent-state.json): six dated operational observations with explicit session-transcription provenance, resource scope, blockers and next task. It is version-control eligible, not yet committed by this task.
+- [ops/agent-state.json](../../../../ops/agent-state.json): dated operational observations with explicit provenance, resource scope, blockers and next task. The initial tooling/register were committed in ae2e65f and shipped with production dac7e98 on 24 October; subsequent strategy/register updates are local documentation until separately committed.
 - [State checker](../../../../scripts/agent-state.mjs): checks required fields, dates, duplicate/current claims, evidence declarations, resource membership and portable repository references; prints the next task. It makes no provider calls and cannot certify live facts or arbitrary narrative consistency.
 - [Regression tests](../../../../scripts/agent-state.test.mjs): seven cases covering portability without output/KB, conflicting records, scope/evidence failures, unknown values, date errors, bad references and malformed input. Included in the existing tooling suite.
 - [Package commands](../../../../package.json): `state:check`, `test:agent-state`; state validation is included in `docs:check`, and tests are included in `test:okf`.
 - [Working agreement](working-agreement.md): selective resume/preflight, saved-state readback after external writes, inspect-before-retry and sanitized evidence guidance. Stale present-tense conversion claims in the constitution were replaced by the state-register reference; the older analytics activation section is explicitly historical.
 
 At implementation acceptance: all 28 documentation/tooling tests passed, including seven new checker tests; docs indexing/link/state checks, JavaScript syntax checks and focused ESLint passed. No full application build was run for this tooling/documentation-only increment. No external configuration, application source, credentials, commit, push or deployment was changed.
+
+## Post-release strategy checkpoint —2026-10-24
+
+Passenger remediation is deployed; do not keep it as unfinished setup work. Follow the [actualized strategy](../../../Product/development-strategy-2026-10-24.md). Fresh Ads raw readback and sanitized production/receiver artifacts now live under ops/evidence and are referenced by the register. Existing older observations retain their dates/provenance. This advances C1 for those resources and corroborates C5 source compatibility; it does not prove Google ingestion, live operator receipt, full live receiver flow or global capability availability. The remaining rows below are bounded follow-ups, not a new mandatory platform programme.
 
 ## Remaining work, in order
 

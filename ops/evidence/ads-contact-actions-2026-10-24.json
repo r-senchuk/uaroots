@@ -1,0 +1,30 @@
+{
+  "observed_at": "2026-10-24",
+  "customer_id": "5256024115",
+  "method": "Connected Google Ads search read-only; exact two-action filter; metadata inspected first",
+  "readback": {
+    "result": [
+      {
+        "conversion_action.id": 7854727825,
+        "conversion_action.name": "UARoute WhatsApp contact intent",
+        "conversion_action.status": "ENABLED",
+        "conversion_action.category": "CONTACT",
+        "conversion_action.primary_for_goal": false,
+        "conversion_action.counting_type": "ONE_PER_CLICK",
+        "conversion_action.value_settings.default_value": 0,
+        "conversion_action.value_settings.always_use_default_value": true
+      },
+      {
+        "conversion_action.id": 7854727828,
+        "conversion_action.name": "UARoute partner site contact intent",
+        "conversion_action.status": "ENABLED",
+        "conversion_action.category": "CONTACT",
+        "conversion_action.primary_for_goal": false,
+        "conversion_action.counting_type": "ONE_PER_CLICK",
+        "conversion_action.value_settings.default_value": 0,
+        "conversion_action.value_settings.always_use_default_value": true
+      }
+    ]
+  },
+  "limits": "Configuration only; not conversion receipt, campaign status or GA4 direct-link readback"
+}

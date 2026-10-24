@@ -7,13 +7,13 @@ tags: [uaroute, marketing, seo, acquisition, implementation]
 
 # Next acquisition increment
 
-Decision date: 24 October 2026. Status: owner-requested development sequencing; implementation and publication are separate. Authority: [constitution §42](../../00-project-constitution.md#42-existing-page-acquisition-and-conversion-priority-2026-10-24). This is an execution contract, not a claim that traffic or conversions have improved.
+Decision date: 24 October 2026. Updated after production release: the first passenger package is completed and deployed as dac7e98; acquisition/measurement gates remain open. Current sequencing is consolidated in the [actualized strategy](../../Product/development-strategy-2026-10-24.md). Authority: [constitution §42](../../00-project-constitution.md#42-existing-page-acquisition-and-conversion-priority-2026-10-24). This is an execution contract, not a claim that traffic or conversions have improved.
 
 ## 1. First package: make existing discovery and contact work reliably
 
-Complete the [passenger remediation plan](../../Product/passenger-review-remediation-plan-2026-10-24.md) against the [passenger discovery specification](../../Product/passenger-discovery-conversion-spec-2026-10-22.md). Reuse the current implementation candidate; preserve unrelated dirty files. Do not restart the redesign or silently relax the existing review criteria.
+**Completed baseline:** the [passenger remediation plan](../../Product/passenger-review-remediation-plan-2026-10-24.md) against the [passenger discovery specification](../../Product/passenger-discovery-conversion-spec-2026-10-22.md) was published 24 October. See the portable production receipt in the state register. Do not repeat this package or restart the redesign without a newly reproduced issue.
 
-Development order:
+Completed development order (retained acceptance contract):
 
 1. Close the reviewed mobile/zoom reflow and navigation-target problems. Keep actions readable, reachable and unobscured; do not shrink text to force first-viewport acceptance.
 2. Correct generic referral placement mapping while preserving full current pairs, technical IDs, first-touch/current-page separation and security allowlists.
@@ -64,6 +64,6 @@ Review after four weeks from approved publication/distribution start, with longe
 
 ## 5. Separate gates and completion record
 
-The existing Ads pilot remains a separate conditional track: exactly 5 PLN/day for three days, Manual CPC 1.50 PLN, two approved city pairs and the saved targeting/privacy requirements. No substitute bidding, budget increase or activation is implied. The 22 October dated conversion readback supersedes the historical MANY_PER_CLICK description in constitution §41; do not regress verified settings to match an older snapshot. M2 gates are unchanged.
+The existing Ads pilot remains a separate conditional track: configured average daily budget 5 PLN for three days, Manual CPC 1.50 PLN, two approved city pairs and the saved targeting/privacy requirements. No substitute bidding, budget increase or activation is implied. This setting is not a billed daily hard cap: Google may bill up to 2× the average daily budget for most campaigns;~15 PLN over three days is not guaranteed. Resolve any strict actual-spend cap before launch, without silently changing the authorized setting. The 22 October dated conversion readback supersedes the historical MANY_PER_CLICK description in constitution §41; do not regress verified settings to match an older snapshot. M2 gates are unchanged.
 
 Deliver one bounded handoff: changed files and candidate identity, accepted checks, remaining unknowns, local versus published state, indexing register, and next review window. Full research and dated operational observations belong in the separate [Project KB](../../knowledge-base.md#knowledge-base) or local evidence artifacts, not duplicated as authoritative site requirements. No configured KB is required to execute this contract.
