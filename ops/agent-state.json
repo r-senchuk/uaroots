@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-24",
+  "scope": {
+    "project": "uaroute",
+    "resources": [
+      "ga4:557859031",
+      "ads:5256024115",
+      "carrier:4k-koval.com",
+      "gsc:sc-domain:uaroute.com"
+    ]
+  },
+  "observations": [
+    {
+      "id": "ads-contact-actions",
+      "resource": "ads:5256024115",
+      "claim": "contact-actions",
+      "value": {
+        "whatsapp_click": "7854727825",
+        "koval_site_click": "7854727828",
+        "status": "ENABLED",
+        "category": "CONTACT",
+        "primary_for_goal": false,
+        "counting_type": "ONE_PER_CLICK",
+        "default_value": 0,
+        "always_use_default_value": true
+      },
+      "observed_at": "2026-10-22",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "session-transcription",
+        "summary": "Read-only Ads API query after UI edits confirmed both existing actions, their names and saved counting/value settings. This durable record is a transcription, not raw API output or a new verification."
+      }
+    },
+    {
+      "id": "ads-campaigns",
+      "resource": "ads:5256024115",
+      "claim": "published-campaigns",
+      "value": {
+        "returned_rows": 0,
+        "unfinished_draft": "Search_UA_LWO_DE_Pilot",
+        "ready_to_launch": false
+      },
+      "observed_at": "2026-10-22",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "session-transcription",
+        "summary": "Unfiltered campaign API query returned no rows; UI Resume campaign draft recovered an unfinished setup whose ad fields were empty. Table draft counts were not authoritative for setup recovery."
+      }
+    },
+    {
+      "id": "ga4-direct-link",
+      "resource": "ga4:557859031",
+      "claim": "advertiser-link",
+      "value": {
+        "customer_id": "5256024115",
+        "personalized_advertising": false,
+        "linked_user_access_rows": 0
+      },
+      "observed_at": "2026-10-20",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "session-transcription",
+        "summary": "GA4 Admin UI showed the completed direct client link, disabled personalized advertising and an empty linked-user access table. This does not establish conversion receipt."
+      }
+    },
+    {
+      "id": "carrier-contract",
+      "resource": "carrier:4k-koval.com",
+      "claim": "referral-contract",
+      "value": {
+        "approved_content_count": 122,
+        "exact_sender_fixture_match": true,
+        "html_commit_stamp": "c30fd376b2daddcd614026725cc19cebd86d70f4"
+      },
+      "observed_at": "2026-10-20",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "session-transcription",
+        "summary": "Public sender contract exactly matched the reviewed receiver fixture; public carrier HTML exposed this commit stamp. No real inquiry was sent and runtime operator receipt was not verified."
+      }
+    },
+    {
+      "id": "gsc-indexing",
+      "resource": "gsc:sc-domain:uaroute.com",
+      "claim": "priority-indexing",
+      "value": {
+        "/cities/lviv/": "indexed",
+        "/cities/ivano-frankivsk/": "indexed",
+        "/routes/lviv-celle/": "discovered-not-indexed",
+        "/routes/ivano-frankivsk-wolfsburg/": "unknown-to-google"
+      },
+      "observed_at": "2026-10-24",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "session-transcription",
+        "summary": "Individual URL Inspection browser results; older aggregate indexing report dated October 16 differed. Remaining target URLs require inspection; HTTP success is not indexing proof."
+      }
+    },
+    {
+      "id": "gsc-sitemap",
+      "resource": "gsc:sc-domain:uaroute.com",
+      "claim": "sitemap",
+      "value": {
+        "url": "https://uaroute.com/sitemap.xml",
+        "status": "Success",
+        "last_read": "2026-10-23",
+        "discovered_pages": 22
+      },
+      "observed_at": "2026-10-24",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "session-transcription",
+        "summary": "Search Console submitted-sitemap UI showed Success and 22 discovered pages. This does not establish that each URL is indexed."
+      }
+    }
+  ],
+  "next_task": {
+    "summary": "Review the locally verified passenger remediation; run 5–8-person usability testing. Preserve the outstanding seven-URL inspection follow-up and external receipt blockers.",
+    "contract": "docs/Product/passenger-review-remediation-plan-2026-10-24.md",
+    "publication_state": "local-only",
+    "blockers": [
+      "Ads wizard has no inspected Manual CPC option; unfinished draft must not be launched.",
+      "Actual Google conversion ingestion and carrier inquiry receipt remain unverified."
+    ],
+    "boundaries": [
+      "No new campaign activation, spend increase, posting or release is authorized by this record.",
+      "Preserve existing dirty passenger work; obtain current git status before edits."
+    ]
+  }
+}

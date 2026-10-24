@@ -8,7 +8,7 @@ tags: ["uaroute", "governance"]
 # UARoute — Project Constitution
 
 **Document:** `00-project-constitution.md`  
-**Status:** Approved M1 baseline; gated M2 booking direction approved 2026-10-01
+**Status:** Approved M1 baseline; gated M2 booking direction approved 2026-10-01; demand attribution and paid acquisition infrastructure actualized 2026-10-17
 **Product:** UARoute  
 **Domain:** https://uaroute.com/  
 **Primary language:** Ukrainian  
@@ -938,3 +938,43 @@ The product owner's autonomous POC instruction makes completed passenger journey
 - Keep the transient user-initiated WhatsApp flow. An inquiry code links operator-reported outcomes where possible; no lead database, roster, payment, commission, or automated reservation is required. Preserve UARoute source through tagged Koval referrals without relabelling Koval's own traffic. Never put passenger contact details or selected dates into referral URLs or analytics.
 - Measure received inquiries, confirmed passengers, and completed passenger journeys separately. Production deployment, message delivery, indexing, and travelled passengers need their own observed evidence. Attribution alone does not prove an increase over existing demand.
 - Commercial pricing is deliberately deferred until demand value is demonstrated. This POC takes priority over the earlier first-income plan; M2 reservation work remains gated under ADR 0002 and is not a prerequisite.
+ 
+# 41. Demand validation, paid acquisition infrastructure and attribution (2026-10-17)
+
+Following the production deployment of Google Ads auto-tagging attribution (PR #17, commit `0b00148`), the project's development strategy is actualized around controlled demand validation, attribution integrity, and gated scaling:
+
+1. **Production Advertiser & MCC Infrastructure**:
+   - Production account **UARoute (`525-602-4115`)** is activated and linked under MCC **Crew Bravo (`127-345-5194`)** (`manager_link_id: 6682389034`, status: `ACTIVE`). Currency is PLN, timezone Europe/Warsaw, billing setup approved.
+   - Tagging destination is consolidated into the live production GA4 tag `G-PMXHF9YT7V` without code changes. Enhanced Conversions remain strictly disabled to uphold M1 zero-PII non-negotiables.
+   - Live spend is currently observed at **0.00 PLN** with 0 active campaigns; any future activation requires explicit owner launch authorization and campaigns default to `PAUSED`.
+
+2. **Gated Micro-Budget Experiment**:
+   - Authorized pilot: **5 PLN/day for three days** (with an approximate ~15 PLN total planning estimate subject to standard Google daily delivery rules; the daily limit is strictly 5 PLN/day and cannot be increased without authorization) on priority corridors (Lviv ➔ Celle `/routes/lviv-celle/`, Ivano-Frankivsk ➔ Wolfsburg `/routes/ivano-frankivsk-wolfsburg/`).
+   - Strategy: Manual CPC (1.50 PLN). Client-side telemetry isolates `gclid` to initial consented landing view; outbound WhatsApp and partner referral links strictly strip click IDs. Intercepted browser tests confirmed outgoing client payloads only; they did **not** confirm server-side receipt, ingestion, or conversion attribution by Google.
+   - Conversion/link configuration is mutable operational state. Use the [checked state register](Operations/Agentic/Operational/state-register.md) for dated resource-specific observations and evidence limits; re-read before a dependent action. The October 18 snapshot is historical: its MANY_PER_CLICK/no-fixed-value state was changed and independently read back on October 22. Do not treat imported GA4 counting as immutable merely because one API path cannot edit it. Configured conversions do not prove real Google ingestion or operator receipt.
+
+3. **Strategic Development Roadmap (M1 ➔ M2)**:
+   - **Phase 1 — Acquisition & Intent Validation (Active)**: Improve existing discovery/contact journeys and organic acquisition under §42; test permission-based distribution and, separately, the gated micro-paid experiment. Quantify travel intent through the existing carrier handoff; technical desk IDs (`koval-de`, `koval-at`) remain unchanged.
+   - **Phase 2 — Partner Economics & Qualification Loop (Near-term)**: Formalize operator feedback loop with carrier «Коваль» regarding trip feasibility confirmation rates and passenger volume.
+   - **Phase 3 — Gated Operator Booking Pilot (M2 Horizon — [ADR 0002](Decisions/0002-gated-operator-booking-pilot.md))**: Reservation APIs and driver management remain gated until real-world demand and operator-model stability (flexible corridor vehicle redistribution vs seat reservation) are proven.
+
+# 42. Existing-page acquisition and conversion priority (2026-10-24)
+
+Owner instruction: actualize development sequencing from the SEO/marketing learnings. This section sets the next M1 development priority; it does not authorize a release, outreach, account changes or advertising activation.
+
+- **First development package:** complete the already reviewed passenger discovery/contact remediation, preserving current work and its acceptance criteria. In parallel, finish a bounded seven-URL indexing register before choosing per-page SEO changes. Do not build a second conversion redesign or hold useful organic work behind the Ads setup blocker.
+- **Next content package:** improve the existing Lviv–Hannover page as the observed-search lane, and strengthen the Lviv/Ivano-Frankivsk hubs plus the four approved Lviv ↔ Celle / Ivano-Frankivsk ↔ Wolfsburg inquiry pages. Preserve URLs, eligibility and source-backed useful content. Better relevance, indexing and external visits take priority over producing more pages. Hannover visibility does not authorize a reverse page or expansion of the candidate matrix.
+- **Distribution:** prepare a small experiment of three relevant, permission-based community placements. Publishing and contacting third parties require their own authorized scope. Use existing acquisition enums; preserve the separate carrier referral touch. No purchased links, bulk outreach, passenger database or new tracking system is required.
+- **Public presentation:** Ukrainian copy uses neutral «перевізник», without carrier surnames or branding, following the owner's 2026-10-20 decision. Existing technical IDs, contacts and referral URLs remain. Do not imply multiple connected carriers. This wording supersedes older named-carrier public-copy examples; it does not alter historical provenance.
+- **Learning and gates:** distinguish indexed eligibility, search appearances/clicks, consented visits, attempted handoffs, received carrier inquiries and completed journeys. Review weekly; use a four-week initial experiment window after an approved release, allowing longer organic observation when crawling/exposure is insufficient. Do not interpret the tiny baseline or QA-contaminated events as a proven acquisition channel, ROI or a guaranteed uplift.
+- **Paid and M2:** paid launch remains separate, with exactly 5 PLN/day for three days and Manual CPC 1.50 PLN. Do not launch an unfinished draft with substitute bidding. M2 remains gated under ADR 0002; more pages, paid spend or booking infrastructure are not prerequisites for improving the current discovery product.
+
+The [next acquisition increment](Marketing/SEO/priority-acquisition-increment-2026-10-24.md) defines the bounded work order and acceptance criteria, alongside the [existing passenger remediation plan](Product/passenger-review-remediation-plan-2026-10-24.md). Detailed dated research/evidence remains separate from these canonical requirements.
+
+# 43. Agent continuity and verification development (2026-10-24)
+
+Maintain a lightweight, resource-scoped agent setup that preserves verified results across sessions. The [checked state register](Operations/Agentic/Operational/state-register.md) is the entry point for dated operational observations, evidence provenance, blockers and next-task scope. It does not replace fresh provider reads, owner authorization or deployment evidence. Requirements belong in canonical contracts; mutable settings belong in the register; dated research/history belongs in the configured Project KB.
+
+The initial local increment is implemented: portable register, structural checker, negative tests, documentation-check integration and working-agreement guidance. This establishes a validated record format, not automatic live verification. The [continuation backlog](Operations/Agentic/Operational/setup-continuation.md) distinguishes what remains: sanitized evidence capture at observation time, narrow capability preflight, saved-state browser recovery, producer/receiver compatibility checking, durable historical filing and measured evaluation on subsequent tasks.
+
+Keep this supporting work proportional. Complete the passenger remediation and acquisition sequence in §42 first; adopt the evidence/checkpoint practices during that work. Add automation only for repeated, observed failure modes. Do not introduce a new agent framework, expand credentials, buy connectors, publish another repository or activate advertising as an incidental setup repair. Each future implementation retains its own resource scope, acceptance checks and existing authorization boundaries.

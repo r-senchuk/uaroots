@@ -22,6 +22,8 @@ Do not retroactively relax an explicit acceptance contract. A small copy change 
 
 ## Context and preparation
 
+For cross-session resumption, read the [checked state-register contract](state-register.md) and run `npm run state:check`. The register is dated evidence, not live state or authorization. Recheck only the resource needed for the next dependent action; update the register after a verified change or meaningful handoff. Do not repeat the whole historical audit.
+
 1. Record path, HEAD/branch and dirty file scope. Preserve contributors' work. Read the relevant scoped instructions and current source before editing; do not load a vault tree or historic transcript.
 2. State the intended behavior in one concrete example. For nearby destinations: Ukraine → Lachendorf uses Celle in selection and the private request names Lachendorf. The same mechanism applies in reverse. A selected hub does not require boarding in that hub.
 3. Find the implementation and all dependent expectations in one search: source content, validator tests, export fixture, inspector, sitemap dates and browser scenarios. Assign the complete bounded change, including fixtures, before dispatch.
@@ -59,6 +61,8 @@ For small edits keep one review note: scope, changed files, actual provider/tool
 Memory records distinguish observations from inferences and proposed improvements from implemented controls. Promote an accepted recurring rule here or to a scoped skill; avoid appending each incident to root AGENTS.md. Existing evidence is not re-certified by indexing/Markdown checks.
 
 Before finishing, verify the exact final bytes and affected checks, account for scratch/resources, and report what is local, committed or deployed separately. Commit/push/release only within actual user authorization; never treat an old deployment as publication of a new correction. GitHub Actions/OIDC and [CUTOVER](../../../../CUTOVER.md) govern deployment/recovery.
+
+After an external write, verify saved state before claiming completion; after an uncertain timeout/interruption, read state before retrying the mutation. Save a sanitized readback or label the record as a session transcription. Do not assume a browser editor or save spinner proves persistence. Use narrow tool discovery and confirm resource scope/read-write capability once per unchanged connection; missing capability does not authorize broader credentials, subscriptions or incidental global configuration changes.
 
 ## Setup evaluation
 

@@ -57,6 +57,13 @@
       "kind": "reserved"
     },
     {
+      "path": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "id": "Marketing/SEO/priority-acquisition-increment-2026-10-24",
+      "type": "Specification",
+      "title": "Next acquisition increment — existing pages and passenger journey",
+      "description": "Bounded work order and acceptance criteria for priority SEO discovery, passenger remediation and measured distribution."
+    },
+    {
       "path": "Marketing/index.md",
       "kind": "reserved"
     },
@@ -77,6 +84,20 @@
       "type": "Operational",
       "title": "UARoute expanded repository contract",
       "description": "Preserved product constraints and task-specific navigation extracted from root AGENTS.md."
+    },
+    {
+      "path": "Operations/Agentic/Operational/setup-continuation.md",
+      "id": "Operations/Agentic/Operational/setup-continuation",
+      "type": "Operational",
+      "title": "Agent setup — completed increment and continuation backlog",
+      "description": "Saved implementation results, remaining evidence/tooling gaps and proportionate follow-up acceptance criteria."
+    },
+    {
+      "path": "Operations/Agentic/Operational/state-register.md",
+      "id": "Operations/Agentic/Operational/state-register",
+      "type": "Operational",
+      "title": "Checked state register and archive handoff",
+      "description": "Portable dated observations, evidence provenance and next-task boundaries for cross-session recovery."
     },
     {
       "path": "Operations/Agentic/Operational/working-agreement.md",
@@ -163,6 +184,27 @@
       "type": "Specification",
       "title": "Пасажирський запит: перевірка переходу до Коваль",
       "description": "Baseline, умовні мінімальні виправлення та критерії приймання пошуку, форми і WhatsApp без нових функцій звітності."
+    },
+    {
+      "path": "Product/passenger-content-claims-review-2026-10-23.md",
+      "id": "Product/passenger-content-claims-review-2026-10-23",
+      "type": "Operational",
+      "title": "Passenger content — claims and decisions 2026-10-23",
+      "description": "Reviewed claim boundaries and local content decisions for passenger discovery."
+    },
+    {
+      "path": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "id": "Product/passenger-discovery-conversion-spec-2026-10-22",
+      "type": "Specification",
+      "title": "Пошук поїздки та перехід до перевізника — технічна специфікація",
+      "description": "Цільова поведінка пошуку, маршрутних сторінок, контенту та реферального переходу з вимогами й критеріями приймання для подальшого планування."
+    },
+    {
+      "path": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "id": "Product/passenger-review-remediation-plan-2026-10-24",
+      "type": "Specification",
+      "title": "UARoute — план усунення зауважень passenger review",
+      "description": "Послідовність виправлень reflow, навігації, referral mapping, контентних контрактів і семантики форм із вимогами перевірки."
     },
     {
       "path": "Product/pre-consent-measurement-plan-2026-10-07.md",
@@ -288,6 +330,36 @@
       "scope": "bundle"
     },
     {
+      "from": "00-project-constitution.md",
+      "to": "Operations/Agentic/Operational/state-register.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Operations/Agentic/Operational/state-register.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "00-project-constitution.md",
+      "to": "Operations/Agentic/Operational/setup-continuation.md",
+      "scope": "bundle"
+    },
+    {
       "from": "Decisions/0002-gated-operator-booking-pilot.md",
       "to": "knowledge-base.md",
       "scope": "bundle"
@@ -310,6 +382,11 @@
     {
       "from": "Decisions/index.md",
       "to": "Decisions/0002-gated-operator-booking-pilot.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/08-analytics-and-attribution.md",
+      "to": "Operations/Agentic/Operational/state-register.md",
       "scope": "bundle"
     },
     {
@@ -383,6 +460,41 @@
       "scope": "bundle"
     },
     {
+      "from": "Marketing/SEO/index.md",
+      "to": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "to": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "to": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "to": "Marketing/SEO/evaluation-contract-2026-10-06.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "to": "Marketing/08-analytics-and-attribution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
       "from": "Marketing/index.md",
       "to": "index.md",
       "scope": "bundle"
@@ -430,6 +542,16 @@
     {
       "from": "Operations/Agentic/Operational/index.md",
       "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/index.md",
+      "to": "Operations/Agentic/Operational/setup-continuation.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/index.md",
+      "to": "Operations/Agentic/Operational/state-register.md",
       "scope": "bundle"
     },
     {
@@ -633,6 +755,56 @@
       "scope": "repository"
     },
     {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "../ops/agent-state.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "../scripts/agent-state.mjs",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "../scripts/agent-state.test.mjs",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "../package.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/setup-continuation.md",
+      "to": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/state-register.md",
+      "to": "../ops/agent-state.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/state-register.md",
+      "to": "knowledge-base.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/state-register.md",
+      "to": "Operations/Agentic/Operational/setup-continuation.md",
+      "scope": "bundle"
+    },
+    {
       "from": "Operations/Agentic/Operational/working-agreement.md",
       "to": "Operations/Agentic/Operational/repository-contract.md",
       "scope": "bundle"
@@ -640,6 +812,11 @@
     {
       "from": "Operations/Agentic/Operational/working-agreement.md",
       "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/working-agreement.md",
+      "to": "Operations/Agentic/Operational/state-register.md",
       "scope": "bundle"
     },
     {
@@ -954,6 +1131,21 @@
     },
     {
       "from": "Product/index.md",
+      "to": "Product/passenger-content-claims-review-2026-10-23.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
+      "to": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
       "to": "Product/pre-consent-measurement-plan-2026-10-07.md",
       "scope": "bundle"
     },
@@ -1016,6 +1208,66 @@
       "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
       "to": "../.agents/skills/verify-pages/SKILL.md",
       "scope": "repository"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "Product/03-ux-and-information-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "Product/06-data-model-and-content-governance.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "Operations/07-koval-integration-and-conversion.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "Marketing/08-analytics-and-attribution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "to": "../CUTOVER.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "to": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "to": "Product/06-data-model-and-content-governance.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/passenger-review-remediation-plan-2026-10-24.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
     },
     {
       "from": "Product/pre-consent-measurement-plan-2026-10-07.md",

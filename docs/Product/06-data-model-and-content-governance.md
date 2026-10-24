@@ -402,7 +402,9 @@ Do not copy the same paragraph and replace city names mechanically.
 
 # 14. Route FAQ
 
-`faq[]` should contain real, useful passenger questions.
+`faq[]` should contain real, useful passenger questions. Three to five is an editorial guide, not a required count: do not add filler to reach a minimum. A shorter or empty FAQ is valid when no separate useful answer remains. Each question and answer must be nonblank; normalized duplicate questions within one route are rejected. Useful questions may recur across routes. City-specific practical content and provenance remain independent publication requirements.
+
+Commercial publication still requires a resolvable verified desk. The website-first UI without a desk is a defensive fallback, not authorization to publish new website-only routes.
 
 Each FAQ item should be:
 

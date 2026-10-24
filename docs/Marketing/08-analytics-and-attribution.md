@@ -7,6 +7,14 @@ tags: ["uaroute", "marketing"]
 
 # 08 — Analytics and Attribution
 
+## Advertiser setup readback — 2026-10-22
+
+This dated readback supersedes the October 18 finding that the client had no imported contact actions. Advertiser `525-602-4115` now contains `UARoute WhatsApp contact intent` (`7854727825`, GA4 event `whatsapp_click`) and `UARoute partner site contact intent` (`7854727828`, GA4 event `koval_site_click`). Both are `ENABLED`, `CONTACT`, secondary (`primary_for_goal=false`), `ONE_PER_CLICK`, and always use a default value of zero. The previously imported actions were updated in place; no duplicate contact actions or MCC changes were made.
+
+The GA4 property `557859031` direct link to advertiser `525-602-4115` was observed in the GA4 interface on October 20 (linked October 18), with personalized advertising disabled and an empty linked-user access table. This configuration evidence does not demonstrate received or attributed conversions. The October 22 campaign API query returned no campaigns. The recoverable `Search_UA_LWO_DE_Pilot` setup remains unfinished: Manual CPC is unavailable in the inspected setup dropdown, and recovered keyword/ad fields were empty. Do not publish the default Maximize conversions configuration. The complete local review package retains exactly **5 PLN/day for three days**, Manual CPC **1.50 PLN**, two city-pair groups, neutral «перевізник» copy and the approved negative keywords; it is not an uploaded or launch-ready campaign.
+
+The carrier receiver fixture was observed on October 20 to match the live 122-label UARoute contract exactly; the public carrier HTML reported source commit `c30fd376b2daddcd614026725cc19cebd86d70f4`. This closes the earlier source-vocabulary mismatch with dated deployment-stamp evidence, without claiming that real inquiries or placement reports were received. No site or GTM publication occurred in this setup task.
+
 ## Direct transport normalization — local candidate 2026-10-21
 
 The in-memory/local QA acquisition contract remains `direct / direct`. At the
@@ -45,7 +53,6 @@ The raw-referrer reproduction no longer leaks. This closes that tested privacy
 blocker, not a claim of Google ingestion, confirmed passengers, site publication
 or complete Ads campaign readiness. No messages or calls were sent.
 
-
 ## Pilot budget approval — 2026-10-16
 
 The owner subsequently approved the proposed **5 PLN/day for 3 days** test, superseding the zero-budget restriction for this pilot only. The local campaign package now records this amount. Google signup displays PLN 5.00, but Next does not advance; remote campaign/account creation remains incomplete. Billing setup, the actual start/end dates, required targeting, tracking and conversion verification remain pending. This is budget authorization, not evidence of an active campaign, a saved remote budget, payment profile or production tracking readiness. The three-day daily-budget estimate is not a hard 15 PLN lifetime cap; daily overdelivery rules still apply.
@@ -61,6 +68,26 @@ The owner clicked the displayed Google terms step and reloaded after a Google sa
 ## Google Ads attribution production deployment — 2026-10-17
 
 Впроваджено та розгорнуто у продакшн (deploy run `39037797508`, commit `0b00148`) підтримку Google Ads auto-tagging (`gclid`, `gbraid`, `wbraid`) та каналу `google / cpc` у `src/config/utm.ts` і `src/lib/analytics.ts`. Валідований click ID додається до `page_location` виключно для початкового узгодженого перегляду цільової сторінки (landing page) і повністю очищається від будь-яких сторонніх чи персональних query-параметрів. При наступних внутрішніх переходах (SPA navigation) та у зовнішніх посиланнях на перевізника Коваль (`withUtm`) чи WhatsApp click ID ніколи не зберігається і не передається. Прапорці рекламної згоди (`ad_storage`, `ad_user_data`, `ad_personalization`) залишаються суворо `denied` згідно з базовим режимом згоди (Basic Consent Mode). Live HTTP-тести підтверджено (367/367).
+
+## UARoute advertiser production activation and MCC linkage — 2026-10-17
+
+Historical activation snapshot, including October 18 settings below. For the latest recorded operational observations use the [checked state register](../Operations/Agentic/Operational/state-register.md); the October 22 counting/value changes supersede the older settings. Historical API limitations do not establish that the UI cannot change them.
+
+Обліковий запис рекламодавця UARoute активовано під керуючим акаунтом та перевірено через Google Ads API:
+- **Customer ID**: `525-602-4115` (`customer.descriptive_name: "UARoute"`)
+- **Статус облікового запису**: `ENABLED`
+- **Валюта та часовий пояс**: `PLN` (Polish Zloty) / `Europe/Warsaw`
+- **Керуючий акаунт (MCC)**: Crew Bravo (`127-345-5194`), `customer_client_link.status: ACTIVE` (`manager_link_id: 6682389034`). Замінює попередні чернетки/незавершені реєстрації (`698-735-0182`, `720-679-0527`).
+- **Білінг / Оплата**: Billing Setup `8647326357` у статусі `APPROVED`.
+- **Тегування та збір даних**: Google Tag Destination прив'язано до наявного продакшн-тегу `UARoute web` (`G-PMXHF9YT7V` / `GT-WF8DFBPC`). Жодних змін у вихідний код сайту чи додаткових контейнерів не потрібно. Розширені конверсії (Enhanced Conversions) суворо вимкнено згідно з правилами приватності M1 (нуль збору PII у вебі/аналітиці).
+- **Спостережуваний стан витрат**: В акаунті зареєстровано `0` кампаній, зафіксовані витрати складають `0.00 PLN` (спостереження за період 2026-10-01 — 2026-10-18). Схвалений білінг технічно дозволяє майбутні списання; тому будь-яка майбутня кампанія за замовчуванням створюється в статусі `PAUSED` і вимагає явної авторизації власника.
+- **Статус конверсій та прямий зв'язок GA4 (2026-10-18)**: Прямий зв'язок між GA4 property `557859031` та клієнтським акаунтом `525-602-4115` (`properties/557859031/googleAdsLinks/16154598951`, `adsPersonalizationEnabled: false`) встановлено та підтверджено. Дії-конверсії `whatsapp_click` (`7854727825`) та `koval_site_click` (`7854727828`) налаштовано в клієнтському акаунті через Ads API: статус `ENABLED`, категорія `CONTACT`, оптимізація `Secondary` (`primary_for_goal: false`), грошова оцінка відсутня (`default_value: 0.0`, `always_use_default_value: false`). На дату цього історичного snapshot метод підрахунку — `MANY_PER_CLICK`; актуальніші налаштування збережені в реєстрі стану.
+
+### Оновлена стратегія розвитку платного залучення (Paid Acquisition Development Strategy)
+
+1. **Інфраструктурна готовність**: Клієнтська частина веб-атрибуції (`gclid` на узгодженому лендингу ➔ вихідний клік ➔ подія GA4) розгорнута у продакшн. Перехоплені браузерні перевірки підтвердили формування вихідних payload'ів клієнтом, але **не є підтвердженням отримання чи атрибуції конверсій на стороні Google**. Прямий зв'язок GA4 та дії-конверсії у клієнтському акаунті налаштовані, а їх фактичне серверне отримання спостерігатиметься під час живого трафіку.
+2. **Ворота безпеки (Gated Pilot)**: Специфікація пілотної кампанії зафіксована локально в пакеті кампанії. Запуск обмежено виключно авторизованим бюджетом: **рівно 5 PLN/день протягом 3 днів** (розрахунково ~15 PLN загалом з урахуванням стандартних правил денного перевитрачення Google; денний ліміт є суворим і не підлягає самостійному збільшенню) для пріоритетних коридорів (Львів ➔ Целле, Івано-Франківськ ➔ Вольфсбург) і відбудеться лише за прямою командою власника.
+3. **Моніторинг та телеметрія**: Після запуску перевірка переходів здійснюється через нативні звіти GA4 (`ga4-report` для property `557859031`) та API Google Ads без порушення базового режиму згоди (Basic Consent Mode) і без збереження персональних даних пасажирів у вебі чи логах. Органічна індексація комерційних кандидатських сторінок регулюється §40 (наявність сторінки запиту без операційних тверджень).
 
 ## Ads preparation amendment — 2026-10-09
 
