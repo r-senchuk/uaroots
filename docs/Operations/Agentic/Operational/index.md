@@ -4,6 +4,7 @@ Parent: [Agentic](../index.md).
 
 ## Concepts
 
+- [UARoute — передача в Manual QA та новий потік](passenger-qa-handoff-2026-10-24.md) — Збережений QA-пакет, журнал результатів, безпечні режими й наступні дії після архівування координаційного чату.
 - [UARoute expanded repository contract](repository-contract.md) — Preserved product constraints and task-specific navigation extracted from root AGENTS.md.
 - [Agent setup — completed increment and continuation backlog](setup-continuation.md) — Saved implementation results, remaining evidence/tooling gaps and proportionate follow-up acceptance criteria.
 - [Checked state register and archive handoff](state-register.md) — Portable dated observations, evidence provenance and next-task boundaries for cross-session recovery.

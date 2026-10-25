@@ -1,0 +1,25 @@
+{
+  "prepared_at": "2026-10-24",
+  "language": "ukrainian",
+  "canonical_plan": "docs/Product/manual-qa-passenger-2026-10-24.md",
+  "plan_sha256": "80cf9aba8e9ba852488938653ad131bf086fe5b41015461017abedb12dfac724",
+  "pdf": {
+    "name": "UARoute-Manual-QA-uk-2026-10-24.pdf",
+    "sha256": "5f50f62d6c8267bf979a72eb05651995c6560bddd482cdb9e9b9c49bce287b63",
+    "bytes": 341995,
+    "pages": 54,
+    "case_count": 40,
+    "visual_and_structural_review": "PASS; document preparation only, not executed Manual QA",
+    "local_copy_policy": "Deleted after owner explicitly requested cleanup including PDFs",
+    "uploaded_copy": "Owner states PDF uploaded; exact remote PDF file ID not supplied or independently located"
+  },
+  "results_folder": "https://drive.google.com/drive/folders/1qzNFQ4NiYXTNIXbTBWa8MPxho2PzBOwl",
+  "results_sheet": {
+    "id": "1nxW52uq2Jzh9AdClGrwkieLkwlksXr2EBQLJlBhtmEE",
+    "name": "execution-uaroute",
+    "url": "https://docs.google.com/spreadsheets/d/1nxW52uq2Jzh9AdClGrwkieLkwlksXr2EBQLJlBhtmEE/edit?usp=drivesdk",
+    "verification": "Drive folder metadata readback; sheet contents/results not inspected"
+  },
+  "execution_status": "NOT RUN; ready for owner sharing with QAs; no participants/results yet",
+  "handoff": "docs/Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md"
+}

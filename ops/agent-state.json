@@ -8,7 +8,8 @@
       "ads:5256024115",
       "carrier:4k-koval.com",
       "gsc:sc-domain:uaroute.com",
-      "site:uaroute.com"
+      "site:uaroute.com",
+      "qa:passenger"
     ]
   },
   "observations": [
@@ -149,11 +150,33 @@
         "reference": "ops/evidence/production-release-2026-10-24.json",
         "summary": "Sanitized Actions success/recovery receipts and independent live document/browser verification. Exact source published; no real passenger/conversion outcome claim."
       }
+    },
+    {
+      "id": "manual-qa-package",
+      "resource": "qa:passenger",
+      "claim": "manual-qa-preparation",
+      "value": {
+        "cases": 40,
+        "pdf_language": "ukrainian",
+        "pdf_pages": 54,
+        "execution_status": "NOT RUN",
+        "results_sheet_id": "1nxW52uq2Jzh9AdClGrwkieLkwlksXr2EBQLJlBhtmEE",
+        "local_pdf": "removed at owner cleanup request; owner-reported upload",
+        "owner_next_step": "share instructions with QAs and initiate a new thread"
+      },
+      "observed_at": "2026-10-24",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "artifact",
+        "reference": "ops/evidence/manual-qa-package-2026-10-24.json",
+        "summary": "Canonical plan and generated PDF structurally/visually reviewed; Drive sheet metadata readback; no manual execution or QA results claimed. Local PDFs cleaned on explicit owner instruction."
+      }
     }
   ],
   "next_task": {
-    "summary": "Validate comprehension with 5–8 new users; finish the seven-URL indexing register; choose evidence-based existing-page acquisition/distribution work. Passenger baseline is deployed.",
-    "contract": "docs/Product/development-strategy-2026-10-24.md",
+    "summary": "Continue in a new thread: collect Manual QA results from execution-uaroute or prepare isolated interactive B/F QA; reproduce, triage and retest issues. Do not restart completed implementation.",
+    "contract": "docs/Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
     "publication_state": "deployed",
     "blockers": [
       "Real Google ingestion/processed conversion attribution and operator inquiry receipt remain unverified.",
@@ -163,7 +186,8 @@
     "boundaries": [
       "The deployed application is dac7e98; new strategy/register edits are local documentation, not a new publication.",
       "No advertising activation, spend change, external posting/contact, account mutation or other-repository publication is authorized by this record.",
-      "Preserve private untracked settings; selectively recheck dated provider observations before dependent actions."
+      "Preserve private untracked settings; selectively recheck dated provider observations before dependent actions.",
+      "Owner will share uploaded PDF and initiate the new thread; this thread is to be archived. Preserve canonical QA plan/CSV and portable receipts; local PDFs/previews may be absent."
     ]
   }
 }

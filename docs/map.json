@@ -46,6 +46,13 @@
       "description": "Nonpersonal measurement, source attribution, consent and privacy limits."
     },
     {
+      "path": "Marketing/SEO/community-placements-2026-10-25.md",
+      "id": "Marketing/SEO/community-placements-2026-10-25",
+      "type": "Specification",
+      "title": "Community placements and GSC re-indexing package",
+      "description": "Targeted Ukrainian/Lower Saxony distribution briefs, compliant UTM links, and GSC URL inspection sequence for Step 4."
+    },
+    {
       "path": "Marketing/SEO/evaluation-contract-2026-10-06.md",
       "id": "Marketing/SEO/evaluation-contract-2026-10-06",
       "type": "Evaluation",
@@ -77,6 +84,13 @@
     {
       "path": "Operations/Agentic/Operational/index.md",
       "kind": "reserved"
+    },
+    {
+      "path": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "id": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24",
+      "type": "Operational",
+      "title": "UARoute — передача в Manual QA та новий потік",
+      "description": "Збережений QA-пакет, журнал результатів, безпечні режими й наступні дії після архівування координаційного чату."
     },
     {
       "path": "Operations/Agentic/Operational/repository-contract.md",
@@ -191,6 +205,13 @@
       "type": "Specification",
       "title": "Пасажирський запит: перевірка переходу до Коваль",
       "description": "Baseline, умовні мінімальні виправлення та критерії приймання пошуку, форми і WhatsApp без нових функцій звітності."
+    },
+    {
+      "path": "Product/manual-qa-passenger-2026-10-24.md",
+      "id": "Product/manual-qa-passenger-2026-10-24",
+      "type": "Specification",
+      "title": "UARoute — Manual QA та перевірка пасажирського досвіду",
+      "description": "Відтворювані ручні сценарії, browser/device matrix, безпечні contact перевірки, UX завдання й шаблон баг-репорту."
     },
     {
       "path": "Product/passenger-content-claims-review-2026-10-23.md",
@@ -467,6 +488,26 @@
       "scope": "bundle"
     },
     {
+      "from": "Marketing/SEO/community-placements-2026-10-25.md",
+      "to": "Marketing/SEO/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/community-placements-2026-10-25.md",
+      "to": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/community-placements-2026-10-25.md",
+      "to": "Marketing/SEO/priority-acquisition-increment-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/community-placements-2026-10-25.md",
+      "to": "../src/config/utm.ts",
+      "scope": "repository"
+    },
+    {
       "from": "Marketing/SEO/evaluation-contract-2026-10-06.md",
       "to": "knowledge-base.md",
       "scope": "bundle"
@@ -484,6 +525,11 @@
     {
       "from": "Marketing/SEO/index.md",
       "to": "Marketing/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/index.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
       "scope": "bundle"
     },
     {
@@ -578,6 +624,11 @@
     },
     {
       "from": "Operations/Agentic/Operational/index.md",
+      "to": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/index.md",
       "to": "Operations/Agentic/Operational/repository-contract.md",
       "scope": "bundle"
     },
@@ -595,6 +646,36 @@
       "from": "Operations/Agentic/Operational/index.md",
       "to": "Operations/Agentic/Operational/working-agreement.md",
       "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "to": "Product/manual-qa-passenger-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "to": "Product/development-strategy-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "to": "../ops/agent-state.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "to": "../ops/evidence/manual-qa-package-2026-10-24.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "to": "../ops/evidence/production-release-2026-10-24.json",
+      "scope": "repository"
     },
     {
       "from": "Operations/Agentic/Operational/repository-contract.md",
@@ -1122,6 +1203,21 @@
       "scope": "repository"
     },
     {
+      "from": "Product/development-strategy-2026-10-24.md",
+      "to": "Product/manual-qa-passenger-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/development-strategy-2026-10-24.md",
+      "to": "../ops/evidence/manual-qa-package-2026-10-24.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/development-strategy-2026-10-24.md",
+      "to": "Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
       "from": "Product/gtm-ga4-activation-spec-2026-10-07.md",
       "to": "knowledge-base.md",
       "scope": "bundle"
@@ -1213,6 +1309,11 @@
     },
     {
       "from": "Product/index.md",
+      "to": "Product/manual-qa-passenger-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/index.md",
       "to": "Product/passenger-content-claims-review-2026-10-23.md",
       "scope": "bundle"
     },
@@ -1289,6 +1390,26 @@
     {
       "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
       "to": "../.agents/skills/verify-pages/SKILL.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/manual-qa-passenger-2026-10-24.md",
+      "to": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/manual-qa-passenger-2026-10-24.md",
+      "to": "Product/development-strategy-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/manual-qa-passenger-2026-10-24.md",
+      "to": "../ops/evidence/production-release-2026-10-24.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Product/manual-qa-passenger-2026-10-24.md",
+      "to": "../ops/agent-state.json",
       "scope": "repository"
     },
     {
