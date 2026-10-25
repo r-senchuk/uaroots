@@ -1,0 +1,15 @@
+[mcp_servers.google-analytics]
+command = "/Users/roman/.local/bin/google-analytics-mcp-secure"
+args = []
+startup_timeout_sec = 20
+tool_timeout_sec = 120
+enabled_tools = [
+  "get_property_details", "list_web_data_streams", "get_custom_dimensions_and_metrics",
+  "run_report", "run_realtime_report", "run_funnel_report", "run_conversions_report",
+  "list_property_annotations", "get_account_summaries"
+]
+
+[mcp_servers.google-analytics.env]
+GA4_ENFORCE_ISOLATION = "true"
+GA4_ALLOWED_PROPERTY_IDS = "557859031"
+GA4_DEFAULT_PROPERTY_ID = "557859031"
