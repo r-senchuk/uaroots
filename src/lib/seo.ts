@@ -143,6 +143,40 @@ export function cityHubCollectionLd(city: City, content: CityHubContent, visible
   };
 }
 
+/** Structured data for individual route pages (WebPage + Place nodes; strictly zero Offer/BusTrip). */
+export function routePageLd(route: ResolvedRoute) {
+  const canonical = absoluteUrl(`/routes/${route.slug}/`);
+  const websiteId = `${siteConfig.domain}/#website`;
+  const operatorId = `${business.website}#operator`;
+  const pageId = `${canonical}#webpage`;
+  const originPlaceId = `${canonical}#origin`;
+  const destPlaceId = `${canonical}#destination`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      websiteLdNode(),
+      { "@type": "Person", "@id": operatorId, name: business.operatorName, url: business.website },
+      {
+        "@type": "WebPage",
+        "@id": pageId,
+        url: canonical,
+        name: route.title,
+        description: route.description,
+        inLanguage: "uk",
+        isPartOf: { "@id": websiteId },
+        publisher: { "@id": operatorId },
+        about: [
+          { "@id": originPlaceId },
+          { "@id": destPlaceId },
+        ],
+      },
+      { "@type": "Place", "@id": originPlaceId, name: route.origin.name },
+      { "@type": "Place", "@id": destPlaceId, name: route.destination.name },
+    ],
+  };
+}
+
 export function organizationLd() {
   return {
     "@context": "https://schema.org",

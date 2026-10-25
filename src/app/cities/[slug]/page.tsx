@@ -168,6 +168,9 @@ export default async function CityHubPage({ params }: PageProps) {
                 {label} →
               </Link>
             ))}
+            <Link className="inline-flex min-h-11 items-center link-underline" href="/guides/perevezennya-velosypeda/">
+              Поради щодо перевезення велосипеда →
+            </Link>
           </nav>
         </div>
       </section>

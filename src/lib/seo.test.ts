@@ -7,7 +7,7 @@ import { cities } from "@/data/cities";
 import { cityHubContents } from "@/data/city-hubs";
 import { getResolvedRoute } from "@/data/queries";
 import sitemap from "@/app/sitemap";
-import { buildMetadata, cityHubCollectionLd, travelPreviewImage, websiteLd } from "@/lib/seo";
+import { buildMetadata, cityHubCollectionLd, routePageLd, travelPreviewImage, websiteLd } from "@/lib/seo";
 
 const priorityPairs = [
   ["lviv", "celle", "lviv-celle"],
@@ -97,6 +97,28 @@ describe("city hub structured data", () => {
     }
     expect(JSON.stringify(graph)).not.toMatch(/Offer|BusTrip|ReserveAction|availability|areaServed|4k-koval\.com\/(?:contact|contacts)/i);
   });
+
+  it("builds route structured data without inventory or bus trip claims", () => {
+    const route = getResolvedRoute("lviv-hannover")!;
+    const ld = routePageLd(route);
+    const graph = ld["@graph"] as Array<Record<string, unknown>>;
+    const byId = new Map(graph.map((node) => [node["@id"], node]));
+
+    const canonical = "https://uaroute.com/routes/lviv-hannover/";
+    const page = byId.get(`${canonical}#webpage`) as Record<string, unknown>;
+    const originPlace = byId.get(`${canonical}#origin`) as Record<string, unknown>;
+    const destPlace = byId.get(`${canonical}#destination`) as Record<string, unknown>;
+
+    expect(page).toMatchObject({
+      "@type": "WebPage",
+      name: route.title,
+      description: route.description,
+      inLanguage: "uk",
+    });
+    expect(originPlace).toMatchObject({ "@type": "Place", name: "Львів" });
+    expect(destPlace).toMatchObject({ "@type": "Place", name: "Ганновер" });
+    expect(JSON.stringify(ld)).not.toMatch(/Offer|BusTrip|ReserveAction|Trip|Product|availability/i);
+  });
 });
 
 describe("priority route entities and sitemap", () => {
@@ -168,8 +190,8 @@ describe("priority route entities and sitemap", () => {
     expect(entries.map(({ url }) => url).sort()).toEqual(expectedUrls);
     const hubDates = new Map(entries.filter(({ url }) => url.includes("/cities/")).map(({ url, lastModified }) => [url, lastModified]));
     expect(hubDates).toEqual(new Map([
-      ["https://uaroute.com/cities/lviv/", "2026-10-23"],
-      ["https://uaroute.com/cities/ivano-frankivsk/", "2026-10-23"],
+      ["https://uaroute.com/cities/lviv/", "2026-10-25"],
+      ["https://uaroute.com/cities/ivano-frankivsk/", "2026-10-25"],
       ["https://uaroute.com/cities/celle/", "2026-10-23"],
       ["https://uaroute.com/cities/stryi/", "2026-10-23"],
     ]));

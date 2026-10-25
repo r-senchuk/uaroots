@@ -35,8 +35,8 @@ const cityHubResources = {
     returning: "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою",
     purpose: "Перевірити актуальні правила доїзду в місті",
     checkedAt: "2026-10-09",
-    reviewedAt: "2026-10-23",
-    contentUpdatedAt: "2026-10-23",
+    reviewedAt: "2026-10-25",
+    contentUpdatedAt: "2026-10-25",
   },
   "ivano-frankivsk": {
     url: "https://booking.uz.gov.ua/",
@@ -46,8 +46,8 @@ const cityHubResources = {
     returning: "пересування містом і стиковка не гарантуються зверненням до перевізника",
     purpose: "Окремо перевірити потрібну попередню або подальшу ділянку",
     checkedAt: "2026-10-09",
-    reviewedAt: "2026-10-23",
-    contentUpdatedAt: "2026-10-23",
+    reviewedAt: "2026-10-25",
+    contentUpdatedAt: "2026-10-25",
   },
   celle: {
     url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",

@@ -9,7 +9,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
         <details key={item.question} className="group rule-hair py-5 first:border-t-0">
           <summary className="flex min-h-11 cursor-pointer list-none items-center marker:hidden">
             <span className="flex items-start justify-between gap-6">
-              <span className="font-display text-xl leading-snug">{item.question}</span>
+              <h3 className="font-display text-xl leading-snug">{item.question}</h3>
               <span
                 aria-hidden
                 className="mt-1.5 shrink-0 font-mono text-sm text-muted-foreground transition-transform group-open:rotate-45"

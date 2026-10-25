@@ -51,8 +51,12 @@ function addNamedTestPlace(contents = cloneContents()) {
 }
 
 describe("validateCityHubContent", () => {
-  it("accepts the selected hub data and permits empty named-place lists", () => {
-    expect(validateCityHubContent(cityHubContents, "2026-10-23")).toEqual([]);
+  it("accepts the selected hub data with source-backed regional nearby places for Lviv and Ivano-Frankivsk", () => {
+    expect(validateCityHubContent(cityHubContents, "2026-10-25")).toEqual([]);
+    const lviv = cityHubContents.find((c) => c.cityId === "lviv")!;
+    const ifHub = cityHubContents.find((c) => c.cityId === "ivano-frankivsk")!;
+    expect(lviv.nearbyPlaces).toHaveLength(4);
+    expect(ifHub.nearbyPlaces).toHaveLength(4);
   });
 
   it("accepts a source-backed synthetic nearby-place fixture", () => {
@@ -182,7 +186,7 @@ describe("validateCityHubContent", () => {
     expect(celle.nearbyIntro).toContain("найближче доступне для вашої поїздки місто в пошуку");
     expect(celle.nearbyIntro).toContain("точну адресу або орієнтир");
     expect(celle.nearbyIntro).toContain("чи можлива там посадка або висадка");
-    expect(validateCityHubContent(cityHubContents, "2026-10-23")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-25")).toEqual([]);
   });
 
   it("keeps Stryi's selected directions, source, and editorial dates in the reviewed content", () => {
@@ -218,7 +222,7 @@ describe("validateCityHubContent", () => {
     expect(stryi.nearbyIntro).toContain("фактичне місце");
     expect(stryi.nearbyIntro).toContain("приватному повідомленні WhatsApp");
     expect(stryi.nearbyIntro).toContain("Перевізник підтвердить, чи можлива там посадка або висадка");
-    expect(validateCityHubContent(cityHubContents, "2026-10-23")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-10-25")).toEqual([]);
   });
 
   it("requires unique nearby keys and complete source-backed context", () => {

@@ -83,6 +83,14 @@ export function validateCatalog(): string[] {
       if (!route.deskId || !carrierId || !getDesk(carrierId, route.deskId)) {
         errors.push(`Commercial route ${route.slug} has no resolvable desk`);
       }
+      if (!route.practicalContent?.length) {
+        errors.push(`Commercial route ${route.slug} has no city-specific practical content`);
+      }
+      for (const item of route.practicalContent ?? []) {
+        if (Boolean(item.sourceUrl) !== Boolean(item.lastVerifiedAt)) {
+          errors.push(`Commercial route ${route.slug} has incomplete practical content provenance`);
+        }
+      }
     }
     if (route.serviceMode === "candidate_inquiry") {
       const expectedPair = expectedCandidatePairs.get(route.slug);
@@ -97,12 +105,6 @@ export function validateCatalog(): string[] {
       }
       if (route.corridor.length !== 2 || route.corridor[0] !== origin?.country || route.corridor[1] !== destination?.country) {
         errors.push(`Candidate inquiry ${route.slug} corridor must contain only its endpoints`);
-      }
-      if (!route.practicalContent?.length) errors.push(`Candidate inquiry ${route.slug} has no city-specific practical content`);
-      for (const item of route.practicalContent ?? []) {
-        if (Boolean(item.sourceUrl) !== Boolean(item.lastVerifiedAt)) {
-          errors.push(`Candidate inquiry ${route.slug} has incomplete practical content provenance`);
-        }
       }
       if (route.carrierIds.length !== 1 || route.carrierIds[0] !== "koval" || route.deskId !== "koval-de") {
         errors.push(`Candidate inquiry ${route.slug} must use the existing Koval Germany desk`);

@@ -86,7 +86,48 @@ export const cityHubContents = [
     "nearbyHeading": "Якщо ви живете неподалік",
     "nearbyIntro": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
     "nearbyActionText": "Повернутися до пошуку поїздки",
-    "nearbyPlaces": [],
+    "nearbyPlaces": [
+      {
+        "contentKey": "lviv-zhovkva",
+        "name": "Жовква",
+        "localName": "Zhovkva",
+        "guidance": "Якщо ви вирушаєте з Жовкви, зазначте назву міста та адресу виїзду в повідомленні. Перевізник повідомить, чи можлива посадка за маршрутом через північний виїзд зі Львова, або погодить зустріч у зручній точці.",
+        "geographySource": {
+          "url": "https://zhovkva-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      },
+      {
+        "contentKey": "lviv-yavoriv",
+        "name": "Яворів",
+        "localName": "Yavoriv",
+        "guidance": "Для виїзду з Яворова вкажіть населений пункт і точний орієнтир. Оскільки місто розташоване на трасі до кордону, перевізник підтвердить можливість узгодженої зупинки.",
+        "geographySource": {
+          "url": "https://yavoriv-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      },
+      {
+        "contentKey": "lviv-zolochiv",
+        "name": "Золочів",
+        "localName": "Zolochiv",
+        "guidance": "Напишіть, чи плануєте добиратися до Львова самостійно, чи шукаєте можливість посадки по дорозі із Золочева. Перевізник підкаже доцільний варіант з'єднання.",
+        "geographySource": {
+          "url": "https://zolochiv-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      },
+      {
+        "contentKey": "lviv-sambir",
+        "name": "Самбір",
+        "localName": "Sambir",
+        "guidance": "Вкажіть Самбір і бажану дату виїзду. Уточніть у перевізника, чи можливий заїзд або як найкраще спланувати стиковку з місцем посадки у Львові.",
+        "geographySource": {
+          "url": "https://sambir-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      }
+    ],
     "planningResources": [
       {
         "label": "Офіційний довідник громадського транспорту Львова",
@@ -96,8 +137,8 @@ export const cityHubContents = [
       }
     ],
     "contentReview": {
-      "reviewedAt": "2026-10-23",
-      "contentUpdatedAt": "2026-10-23",
+      "reviewedAt": "2026-10-25",
+      "contentUpdatedAt": "2026-10-25",
       "reviewScope": "editorial_guidance"
     }
   },
@@ -141,7 +182,48 @@ export const cityHubContents = [
     "nearbyHeading": "Якщо ви живете неподалік",
     "nearbyIntro": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
     "nearbyActionText": "Повернутися до пошуку поїздки",
-    "nearbyPlaces": [],
+    "nearbyPlaces": [
+      {
+        "contentKey": "if-kolomyia",
+        "name": "Коломия",
+        "localName": "Kolomyia",
+        "guidance": "Вкажіть Коломию як фактичний пункт виїзду або повернення. Перевізник уточнить, чи передбачено заїзд на вашу дату, чи доцільно зустрітися на автостанції або вокзалі в Івано-Франківську.",
+        "geographySource": {
+          "url": "https://kolomyia.org.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      },
+      {
+        "contentKey": "if-tysmenytsia",
+        "name": "Тисмениця",
+        "localName": "Tysmenytsia",
+        "guidance": "Якщо ви перебуваєте в Тисмениці, напишіть точну адресу або орієнтир на виїзді. Близькість до Івано-Франківська дозволяє узгодити найзручніший спосіб посадки.",
+        "geographySource": {
+          "url": "https://tysmenytsia-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      },
+      {
+        "contentKey": "if-rogatyn",
+        "name": "Рогатин",
+        "localName": "Rohatyn",
+        "guidance": "Для пасажирів з Рогатина вкажіть бажану ділянку вздовж львівського напрямку. Перевізник підтвердить, чи можлива посадка на трасі або біля місцевої автостанції.",
+        "geographySource": {
+          "url": "https://rogatyn-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      },
+      {
+        "contentKey": "if-bohorodchany",
+        "name": "Богородчани",
+        "localName": "Bohorodchany",
+        "guidance": "Повідомте перевізнику про поїздку з Богородчан. Запитайте про можливість підбору по дорозі або узгодьте стиковку з міським транспортом до Івано-Франківська.",
+        "geographySource": {
+          "url": "https://bohorodchany-rada.gov.ua/",
+          "checkedAt": "2026-10-25"
+        }
+      }
+    ],
     "planningResources": [
       {
         "label": "Офіційний пошук квитків Укрзалізниці",
@@ -151,8 +233,8 @@ export const cityHubContents = [
       }
     ],
     "contentReview": {
-      "reviewedAt": "2026-10-23",
-      "contentUpdatedAt": "2026-10-23",
+      "reviewedAt": "2026-10-25",
+      "contentUpdatedAt": "2026-10-25",
       "reviewScope": "editorial_guidance"
     }
   },

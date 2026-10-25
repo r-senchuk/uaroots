@@ -21,7 +21,7 @@ import { getCarrier, publicCarrier } from "@/data/carriers";
 import { cityHubPaths } from "@/data/discovery";
 import { getResolvedRoute, getResolvedRoutesByIds } from "@/data/queries";
 import { routes } from "@/data/routes";
-import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
+import { breadcrumbLd, buildMetadata, routePageLd, travelPreviewImage } from "@/lib/seo";
 import { resolveDesk } from "@/lib/whatsapp";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -65,6 +65,7 @@ export default async function RoutePage({ params }: PageProps) {
     <InquiryProvider key={route.slug} route={route}>
       <RouteViewTracker route={route} />
       <JsonLd data={breadcrumbLd(crumbs)} />
+      <JsonLd data={routePageLd(route)} />
 
       <section className="relative overflow-hidden border-b border-border-strong">
         <Graticule />
