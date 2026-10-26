@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-25",
+  "updated_at": "2026-10-26",
   "scope": {
     "project": "uaroute",
     "resources": [
@@ -99,15 +99,17 @@
       "value": {
         "/cities/lviv/": "indexed",
         "/cities/ivano-frankivsk/": "indexed",
-        "/routes/lviv-celle/": "discovered-not-indexed",
+        "/guides/perevezennya-velosypeda/": "indexed",
+        "/routes/lviv-celle/": "recrawl-requested",
+        "/routes/lviv-hannover/": "recrawl-requested",
         "/routes/ivano-frankivsk-wolfsburg/": "unknown-to-google"
       },
-      "observed_at": "2026-10-24",
+      "observed_at": "2026-10-26",
       "verification": "observed",
       "recheck": "before-dependent-action",
       "evidence": {
         "kind": "session-transcription",
-        "summary": "Individual URL Inspection browser results; older aggregate indexing report dated October 16 differed. Remaining target URLs require inspection; HTTP success is not indexing proof."
+        "summary": "Owner URL inspection in GSC web UI on 2026-10-26: lviv, ivano-frankivsk, and bicycle guide confirmed on Google (indexed); indexing requested for lviv-celle and lviv-hannover."
       }
     },
     {
