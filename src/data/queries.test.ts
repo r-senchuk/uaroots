@@ -113,6 +113,18 @@ describe("findRouteByCities", () => {
 });
 
 describe("isCandidateInquiryEligiblePair", () => {
+  it("allows the owner-selected Ivano-Frankivsk–Hannover inquiry both ways without expanding other Hannover pairs or publishing pages", () => {
+    const hannover = cities.find((city) => city.id === "hannover")!;
+    for (const cityId of pilotUkrainianCityIds) {
+      const city = cities.find((candidate) => candidate.id === cityId)!;
+      const eligible = cityId === "ivano-frankivsk";
+      expect(isCandidateInquiryEligiblePair(city, hannover)).toBe(eligible);
+      expect(isCandidateInquiryEligiblePair(hannover, city)).toBe(eligible);
+    }
+    expect(findRouteByCities("ivano-frankivsk", "hannover", { commercialOnly: true })).toBeUndefined();
+    expect(findRouteByCities("hannover", "ivano-frankivsk", { commercialOnly: true })).toBeUndefined();
+  });
+
   it("allows only pilot Ukrainian candidate cities paired with one of six German pilot cities", () => {
     const dolyna = cities.find((city) => city.id === "dolyna")!;
     const celle = cities.find((city) => city.id === "celle")!;

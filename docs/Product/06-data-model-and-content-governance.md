@@ -12,6 +12,8 @@ tags: ["uaroute", "product"]
 Production nearby lists порожні: обидва named-list statuses `unknown`, generic fallback корисний без географічних тверджень. Додавання назви потребує першоджерела й checkedAt, але не доводить pickup. Нових city IDs/aliases/routes/referral values не створено. No-transfer claim вилучено; історичні перевірки не переписані. Відомості про тариф/дні/автопарк не підвищено до public operational guarantees. Multi-leg inventory не входить у цю модель.
 
 
+**Окремий вибір власника — 2026-10-26:** за прямим запитом власника «Івано-Франківськ - Гановер, не знаходить маршрут. Давай додамо» пошук дозволяє inline-запит Івано-Франківськ ↔ Ганновер через `additionalInquiryPairs`. Це одна явно вибрана пара у двох напрямках понад чинний набір 14×6; інші пари з Ганновером не отримують такого дозволу. Можливість поїздки й умови підтверджує перевізник. Нових сторінок, route IDs, `commercial` записів чи sitemap URLs це не створює; зовнішня матриця публікації у цьому checkout недоступна й не відтворюється.
+
 # UARoute — Data Model & Content Governance
 
 **Document status:** Living data and content-governance specification  

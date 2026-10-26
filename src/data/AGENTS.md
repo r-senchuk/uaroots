@@ -12,6 +12,8 @@ Read `types.ts` first. Field names stay as they are.
 - Acquisition priority is Lviv/Ivano-Frankivsk. Preserve fourteen Ukrainian and six German candidate IDs; discovery additionally includes commercial endpoints (seven German cities including Hannover). There are four hubs and eleven published candidate-inquiry pairs. Existing Celle → Stryi page is preserved per owner clarification 2026-10-23 and current canonical catalog/tests. This does not establish operated service or authorize additional pairs. New publication requires dated selection evidence; never reconstruct the missing matrix.
 
 
+Owner selection 2026-10-26 additionally allows the single inline inquiry pair Івано-Франківськ ↔ Ганновер (`additionalInquiryPairs`), without new route pages or changes to the 14×6 pilot sets. Dated scope: [content governance](../../docs/Product/06-data-model-and-content-governance.md).
+
 Then `npm run validate`.
 
 ## Analytics (GA4)

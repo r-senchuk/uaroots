@@ -25,17 +25,14 @@ export function MetaGrid({ children, className }: { children: ReactNode; classNa
 }
 
 /**
- * Self-reported metadata for claims that carry a source and review date.
+ * Public attribution for carrier-reported claims. Review dates stay in the catalog.
  */
 export function VerifiedMark({
-  date,
   className,
 }: {
-  date: string;
-  source?: string | undefined;
   className?: string;
 }) {
   return (
-    <span className={cn("text-sm text-muted-foreground", className)}>За інформацією перевізника · переглянуто {date}</span>
+    <span className={cn("text-sm text-muted-foreground", className)}>За інформацією перевізника</span>
   );
 }

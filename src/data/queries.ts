@@ -1,5 +1,5 @@
 import { cities, getCity } from "./cities";
-import { pilotGermanCityIds, pilotUkrainianCityIds, priorityOriginCityIds } from "./discovery";
+import { additionalInquiryPairs, pilotGermanCityIds, pilotUkrainianCityIds, priorityOriginCityIds } from "./discovery";
 import { routes, routesBySlug } from "./routes";
 import type { City, Route } from "./types";
 
@@ -114,7 +114,10 @@ const pilotGermanCityIdSet = new Set<string>(pilotGermanCityIds);
 /** True only for the bounded owner-selected candidate inquiry search slice. */
 export function isCandidateInquiryEligiblePair(origin: City, destination: City): boolean {
   return (pilotUkrainianCityIdSet.has(origin.id) && pilotGermanCityIdSet.has(destination.id)) ||
-    (pilotGermanCityIdSet.has(origin.id) && pilotUkrainianCityIdSet.has(destination.id));
+    (pilotGermanCityIdSet.has(origin.id) && pilotUkrainianCityIdSet.has(destination.id)) ||
+    additionalInquiryPairs.some((pair) =>
+      (pair.originCityId === origin.id && pair.destinationCityId === destination.id) ||
+      (pair.destinationCityId === origin.id && pair.originCityId === destination.id));
 }
 
 export function findRouteByCities(

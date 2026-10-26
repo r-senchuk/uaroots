@@ -140,7 +140,11 @@ export default async function RoutePage({ params }: PageProps) {
                     {item.sourceUrl ? (
                       <p className="mt-3 type-caption">
                         <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="link-underline">Інформація про місто ↗</a>
-                        {item.lastVerifiedAt ? ` · перевірено ${item.lastVerifiedAt}` : ""}
+                        {item.lastVerifiedAt ? (
+                          <span className="ml-2 inline-block font-sans text-[10px] leading-normal tracking-normal text-muted-foreground/60">
+                            · перевірено <time dateTime={item.lastVerifiedAt}>{item.lastVerifiedAt}</time>
+                          </span>
+                        ) : null}
                       </p>
                     ) : null}
                   </div>

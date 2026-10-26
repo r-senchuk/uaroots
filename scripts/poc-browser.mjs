@@ -658,6 +658,25 @@ async function run() {
       return { route: new URL(desktop.url()).pathname };
     });
 
+    await runCheck("owner-selected Ivano-Frankivsk ↔ Hannover opens inline inquiry", async () => {
+      for (const reverse of [false, true]) {
+        await mobile.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
+        await mobile.waitForLoadState("networkidle");
+        if (reverse) await mobile.getByRole("button", { name: "До України", exact: true }).click();
+        await mobile.getByRole("combobox", { name: "Українське місто", exact: true }).selectOption("ivano-frankivsk");
+        await mobile.getByRole("combobox", { name: "Місто в Німеччині", exact: true }).selectOption("hannover");
+        await mobile.getByRole("button", { name: "Знайти маршрут", exact: true }).click();
+        const inquiry = mobile.locator('section[aria-labelledby$="-candidate-inquiry-title"]');
+        await inquiry.getByRole("heading", { name: reverse ? "Ганновер → Івано-Франківськ" : "Івано-Франківськ → Ганновер", exact: true }).waitFor({ state: "visible" });
+        const website = new URL(await inquiry.getByRole("link", { name: /Сайт перевізника/ }).getAttribute("href"));
+        ensure(website.searchParams.get("origin_city_id") === (reverse ? "hannover" : "ivano-frankivsk"), "Hannover inquiry lost its origin");
+        ensure(website.searchParams.get("destination_city_id") === (reverse ? "ivano-frankivsk" : "hannover"), "Hannover inquiry lost its destination");
+        ensure(new URL(mobile.url()).pathname === "/", "Inline Hannover inquiry unexpectedly published/navigated to a page");
+        await assertNoHorizontalOverflow(mobile, `Ivano-Frankivsk ↔ Hannover ${reverse ? "reverse" : "outbound"}`, result);
+      }
+      return { directions: 2, newRoutePages: 0 };
+    });
+
     await runCheck("bounded inline inquiry for Lviv → Lübeck", async () => {
       await mobile.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
       await mobile.waitForLoadState("networkidle");
@@ -700,8 +719,17 @@ async function run() {
       await selectCity(mobile, "Куди", "Hamburg", "Гамбург");
       await mobile.getByRole("button", { name: "Знайти маршрут" }).click();
       await mobile.getByRole("heading", { name: "Ми поки не маємо інформації про цей маршрут." }).waitFor({ state: "visible" });
+      const missingResult = mobile.locator('[aria-live="polite"][tabindex="-1"]');
+      ensure(await missingResult.evaluate((element) => document.activeElement === element), "Search miss did not receive focus");
+      ensure((await missingResult.innerText()).toLocaleLowerCase("uk-UA").includes("львів → гамбург"), "Search miss lost the selected city pair");
+      const missingHeading = mobile.getByRole("heading", { name: "Ми поки не маємо інформації про цей маршрут." });
+      const headingBox = await missingHeading.boundingBox();
+      ensure(headingBox && headingBox.y >= 0 && headingBox.y + headingBox.height <= mobile.viewportSize().height, "Search miss heading is outside the viewport after submitting");
       ensure(await mobile.locator('section[aria-labelledby$="-candidate-inquiry-title"]').count() === 0, "Editorial search miss received candidate inquiry UI");
       ensure(new URL(mobile.url()).pathname === "/", "Editorial search navigated to a route page");
+      await mobile.getByRole("button", { name: "Змінити міста" }).click();
+      ensure(await mobile.getByRole("combobox", { name: "Українське місто" }).evaluate((element) => document.activeElement === element), "Change cities did not return focus to search");
+      ensure(await missingResult.count() === 0, "Change cities left a stale search miss visible");
       return { route: new URL(mobile.url()).pathname };
     });
 

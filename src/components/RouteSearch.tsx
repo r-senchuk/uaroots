@@ -168,6 +168,7 @@ export function RouteSearch({
   const [direction, setDirection] = useState<"to-germany" | "to-ukraine">(initialOrigin?.country === "Німеччина" || initialDestination?.country === "Україна" ? "to-ukraine" : "to-germany");
   const [message, setMessage] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
+  const [searchAttempt, setSearchAttempt] = useState(0);
   const [candidatePair, setCandidatePair] = useState<{ origin: City; destination: City } | null>(null);
 
   const resultRef = useRef<HTMLDivElement>(null);
@@ -176,10 +177,10 @@ export function RouteSearch({
   const selectedRoute = origin && destination ? findRouteByCities(origin.id, destination.id, { commercialOnly: true }) : undefined;
 
   useEffect(() => {
-    if (!candidatePair) return;
+    if (!candidatePair && !notFound) return;
     resultRef.current?.focus({ preventScroll: true });
     resultRef.current?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
-  }, [candidatePair]);
+  }, [candidatePair, notFound, searchAttempt]);
 
   function resetResult() {
     setMessage(null);
@@ -270,6 +271,7 @@ export function RouteSearch({
     });
 
     if (!route) {
+      setSearchAttempt((attempt) => attempt + 1);
       setMessage(null);
       const eligible = isCandidateInquiryEligiblePair(origin, destination);
       setCandidatePair(eligible ? { origin, destination } : null);
@@ -440,7 +442,7 @@ export function RouteSearch({
         </div>
       ) : null}
 
-      {(notFound || (overviewCity && !candidatePair)) && getCarrier("koval") ? (
+      {overviewCity && !candidatePair && !notFound && getCarrier("koval") ? (
         <div className="mt-4">
           <KovalReferralLink href={getCarrier("koval")!.website} content={`site_${ctaLocation}`} ctaLocation={ctaLocation} className="inline-flex min-h-11 items-center border border-border-strong px-4 text-sm hover:bg-secondary">Сайт перевізника ↗</KovalReferralLink>
           <p className="mt-2 text-sm text-muted-foreground">Загальний перехід на зовнішній сайт без вибраного маршруту. Дата й телефон не потрібні.</p>
@@ -448,17 +450,31 @@ export function RouteSearch({
       ) : null}
 
       {notFound ? (
-        <div aria-live="polite" className="mt-6">
+        <div ref={resultRef} tabIndex={-1} aria-live="polite" className="mt-6 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)]">
+          <p className="mb-3 type-label">{origin?.name} → {destination?.name}</p>
           <RouteEmptyState
             title="Ми поки не маємо інформації про цей маршрут."
             description="Спробуйте іншу пару міст або запитайте перевізника через його сайт про можливість поїздки на вашу дату."
           >
-            <Link
-              href="/routes/"
-              className="inline-flex h-11 items-center justify-center border border-border-strong px-5 type-button hover:bg-secondary"
-            >
-              Усі маршрути
-            </Link>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => {
+                  resetResult();
+                  searchRef.current?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+                  searchRef.current?.querySelector<HTMLElement>("select, input")?.focus({ preventScroll: true });
+                }}
+                className="inline-flex min-h-11 items-center justify-center bg-primary px-5 type-button text-primary-foreground hover:bg-primary-hover"
+              >
+                Змінити міста
+              </button>
+              {getCarrier("koval") ? (
+                <KovalReferralLink href={getCarrier("koval")!.website} content={`site_${ctaLocation}`} ctaLocation={ctaLocation} className="inline-flex min-h-11 items-center justify-center border border-border-strong px-5 type-button hover:bg-secondary">
+                  Сайт перевізника ↗
+                </KovalReferralLink>
+              ) : null}
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">Перехід на сайт перевізника без вибраного маршруту. Дата й телефон не потрібні.</p>
           </RouteEmptyState>
         </div>
       ) : null}

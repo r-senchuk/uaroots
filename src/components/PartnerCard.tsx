@@ -52,12 +52,12 @@ export function PartnerCard({
           {carrier.claims.map((claim) => (
             <li key={claim.text} className="border-t border-border pt-3">
               <span className="block type-body-small text-foreground">{claim.text}</span>
-              <VerifiedMark date={claim.lastVerifiedAt} source={carrier.name} className="mt-1.5" />{" "}
+              <VerifiedMark className="mt-1.5" />{" "}
               <a
                 href={claim.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="type-caption link-underline"
+                className="type-caption link-underline text-[10px] opacity-60"
               >
                 джерело
               </a>

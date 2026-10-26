@@ -27,6 +27,11 @@ export const pilotGermanCityIds = [
 
 export const priorityOriginCityIds = ["lviv", "ivano-frankivsk"] as const;
 
+/** Owner-selected 2026-10-26: inline inquiries in both directions, without new route pages. */
+export const additionalInquiryPairs = [
+  { originCityId: "ivano-frankivsk", destinationCityId: "hannover" },
+] as const;
+
 export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"] as const;
 
 /** Explicitly selected pages only; do not derive route slugs from these pairs. */
