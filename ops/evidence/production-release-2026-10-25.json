@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-10-25",
+  "method": "Authenticated Actions run/artifact download; hash verifier; independent live HTTP document hashes/browser smoke",
+  "ci_url": "https://github.com/r-senchuk/uaroots/actions/runs/40214171020",
+  "deployment_url": "https://github.com/r-senchuk/uaroots/actions/runs/40237490500",
+  "conclusion": "success",
+  "success_receipt": {
+    "sourceSha": "87a05ca150a4b8a0f3678e420b670492c10d1bec",
+    "runId": "40214171020",
+    "releaseSha256": "cff7ae8eed40aadd934434f533e35e373c112e81fb7c01e1f29295261757ddb5",
+    "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+    "recoveryPrefix": "releases/40237490500-1",
+    "recoveryHash": "d095f95ce206bc6d08f8f3b7829f58252f417cb15051bd8bcab7dd9931980ad2",
+    "publishedObjects": 258,
+    "verifiedAt": "2026-10-25T22:20:25.695Z"
+  },
+  "recovery_receipt": {
+    "prefix": "releases/40237490500-1",
+    "bundleSha256": "d095f95ce206bc6d08f8f3b7829f58252f417cb15051bd8bcab7dd9931980ad2",
+    "bucket": "uaroute-recovery-863809951348-eu-central-1",
+    "objects": 461,
+    "retrievedAt": "2026-10-25T22:02:56.596Z",
+    "retrievalVerified": true
+  },
+  "invalidation_status": "Completed",
+  "workflow_http_checks": {
+    "pass": 373,
+    "fail": 0,
+    "unknown": 0
+  },
+  "independent_live_html_hash_matches": 24,
+  "limits": "No real inquiry; no operator receipt; no claim of uplift; full rollback rehearsal not performed"
+}

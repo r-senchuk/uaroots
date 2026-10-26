@@ -40,7 +40,7 @@ test("missing evidence and invented unknown values fail", () => fixture((s, r) =
 }));
 test("impossible dates and observations after the register date fail", () => fixture((s, r) => {
   s.observations[0].observed_at = "2026-02-30";
-  s.observations[1].observed_at = "2026-10-25";
+  s.observations[1].observed_at = "2099-01-01";
   assert.equal(validateState(s, r).filter((e) => /observation date/.test(e)).length, 2);
 }));
 test("handoff cannot depend on missing, absolute, escaping or output-only contracts", () => fixture((s, r) => {

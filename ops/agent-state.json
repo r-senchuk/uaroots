@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-24",
+  "updated_at": "2026-10-25",
   "scope": {
     "project": "uaroute",
     "resources": [
@@ -133,22 +133,22 @@
       "resource": "site:uaroute.com",
       "claim": "production-release",
       "value": {
-        "source_sha": "dac7e98735eabfdda8abb7df37fb6e59428b22be",
-        "ci_run_id": "40124363351",
-        "deployment_run_id": "40124595922",
+        "source_sha": "87a05ca150a4b8a0f3678e420b670492c10d1bec",
+        "ci_run_id": "40214171020",
+        "deployment_run_id": "40237490500",
         "conclusion": "success",
         "published_objects": 258,
         "verified_live_documents": 24,
         "invalidation": "Completed",
         "recovery_retrieval_verified": true
       },
-      "observed_at": "2026-10-24",
+      "observed_at": "2026-10-25",
       "verification": "observed",
       "recheck": "before-dependent-action",
       "evidence": {
         "kind": "artifact",
-        "reference": "ops/evidence/production-release-2026-10-24.json",
-        "summary": "Sanitized Actions success/recovery receipts and independent live document/browser verification. Exact source published; no real passenger/conversion outcome claim."
+        "reference": "ops/evidence/production-release-2026-10-25.json",
+        "summary": "Sanitized Actions success/recovery receipts and independent live document/browser verification for Step 2 release 87a05ca. Exact source published; no real passenger/conversion outcome claim."
       }
     },
     {
@@ -175,8 +175,8 @@
     }
   ],
   "next_task": {
-    "summary": "Continue in a new thread: collect Manual QA results from execution-uaroute or prepare isolated interactive B/F QA; reproduce, triage and retest issues. Do not restart completed implementation.",
-    "contract": "docs/Operations/Agentic/Operational/passenger-qa-handoff-2026-10-24.md",
+    "summary": "Submit GSC priority URL re-indexing requests for 5 updated pages, execute approved community placements, and monitor weekly GA4 telemetry (target: Oct 31).",
+    "contract": "docs/Marketing/SEO/community-placements-2026-10-25.md",
     "publication_state": "deployed",
     "blockers": [
       "Real Google ingestion/processed conversion attribution and operator inquiry receipt remain unverified.",
@@ -184,10 +184,10 @@
       "Usability and native browser zoom/broader real-device accessibility checks remain pending."
     ],
     "boundaries": [
-      "The deployed application is dac7e98; new strategy/register edits are local documentation, not a new publication.",
+      "The deployed application is 87a05ca; live site uaroute.com serves Step 2 enrichments.",
       "No advertising activation, spend change, external posting/contact, account mutation or other-repository publication is authorized by this record.",
       "Preserve private untracked settings; selectively recheck dated provider observations before dependent actions.",
-      "Owner will share uploaded PDF and initiate the new thread; this thread is to be archived. Preserve canonical QA plan/CSV and portable receipts; local PDFs/previews may be absent."
+      "Owner executes GSC URL inspections and manual community postings using approved UTM parameters."
     ]
   }
 }
