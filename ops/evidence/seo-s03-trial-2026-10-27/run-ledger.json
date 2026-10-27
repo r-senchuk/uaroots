@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "source_head": "d6bbff2a6b12a6d6f065ae00b81c11bad0ef3e74",
+  "baseline": {
+    "branch": "main",
+    "staged": [],
+    "unstaged": [],
+    "untracked": [],
+    "private_snapshot": "Retained in ignored output/seo-s03-trial-2026-10-27-private/original-preparation/baseline.json"
+  },
+  "input": {
+    "task_sha256": "e7b81b43e96c90e7a6aab7bdd72fa790f1c2839f411bbcdd9c40acee9dc690e9",
+    "request_sha256": "413543fd75d55bedfbdff225a9df4b19a71b7b42136706614b0d07a993f6a2e1",
+    "acceptance_contract_sha256": "45c75f66381dd80fcc4fcfed8af8c34ce71230d0dfff0597fbb65e7c914991f4",
+    "acceptance_contract_file_sha256": "c2b1f80e4a50185091f8911f81edc8ce25d7ac2b2860297427e774704c0b8b45",
+    "prepared_manifest_sha256": "63e5ae8be538a65d3caed24bf8701972cdfc38ee8c2f228863b239a3999ac434",
+    "overlay_sha256": "f76e3620d471fc07793a379192c84e56e8b6e5cf1182032d5d01fdee974f1d51",
+    "files": [
+      {
+        "path": "ops/evidence/seo-s03-trial-2026-10-27/context-extract.md",
+        "sha256": "2649c09dcac9508567dccabf914d5037dc5bb98d432dfff73fca9c2c6c9c1624",
+        "bytes": 65362,
+        "provenance": "untracked"
+      }
+    ],
+    "bytes": 65362,
+    "approximate_tokens": 16340,
+    "token_estimate_method": "UTF-8 bytes divided by4; coarse estimate, especially uncertain for Ukrainian; not provider tokenizer",
+    "token_count_reported": null,
+    "classification": "single coordinator-produced context-only extract; stable committed docs are delivery references",
+    "prepared": "7 URLs, headings/fields, permitted graph, dispositions,12 needs, source limits and governing boundaries",
+    "delivered_to_vibe": false,
+    "delivered_to_fallback": "task plus hash-bound prepared extract; local read access authorized",
+    "observed_vibe_reads": [],
+    "truncation": "No reported truncation; fallback actual read completeness to verify from artifact, not assumed",
+    "demonstrated": "7/7 page intents,12/12 needs, faithful dispositions, action/URL/geography/shared-source constraints retained in final output"
+  },
+  "supervisor": {
+    "candidate": "498be8a2bf42b9cc3b19a0211aea40b48c9ea4bdf2baba7c43c43d9b02e4ebc7",
+    "connected_version": "2.2.0",
+    "runtime_node": "v24.21.0",
+    "runtime_executable": "/Users/roman/.nvm/versions/node/v24.21.0/bin/node",
+    "configuration_identity": "2.2.0-flexible-498be8a2bf42/state/config.toml",
+    "policy_revision": "a0a086baf3751766f70f80640095dacd6e5bdf938c95bc425bdc4dc123555113",
+    "preparation": "passed",
+    "eligible": true,
+    "initial_slot_busy": false,
+    "restart_required": false,
+    "pinned_worker": "Mistral Vibe3.0.2; launch not performed, pin not launch-verified"
+  },
+  "execution": {
+    "state": "infrastructure-blocked",
+    "authorized_start_ceiling": 1,
+    "max_turns": 12,
+    "timeout_seconds": 180,
+    "grant_registration_attempts": 1,
+    "grant_registration_outcome": "VSUP_INTERNAL: EPERM chmod selected Supervisor state directory",
+    "safe_differing_fields": [],
+    "start_attempts": 0,
+    "created_runs": 0,
+    "run_id": null,
+    "model_calls": 0,
+    "worker_model": null,
+    "reasoning": null,
+    "duration_seconds": null,
+    "turns": 0,
+    "tool_calls": 0,
+    "denials": 0,
+    "warnings": [
+      "Initial task verify omitted --config and read an unrelated invalid default configuration; coordinator corrected to the selected configuration and verification passed. No settings changed."
+    ],
+    "stop_reason": "grant registration failure before dispatch",
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "cost": {
+      "value": null,
+      "authority": "unavailable; no worker launched"
+    },
+    "retry": false
+  },
+  "fallback": {
+    "authorized": true,
+    "requested_model": "gpt-6-luna",
+    "requested_reasoning": "high",
+    "provenance": "collaboration.spawn_agent explicit dispatch setting",
+    "actual_provider_model": null,
+    "model_calls": null,
+    "tokens": null,
+    "cost": null,
+    "status": "accepted after coordinator-requested corrections",
+    "correction_rounds": 2,
+    "coordinator_document_edits": 0,
+    "duration_seconds": null
+  },
+  "verification": {
+    "status": "passed",
+    "results": "acceptance-results.json",
+    "reconstructed_tree_checks": [
+      {
+        "check": "node scripts/okf.mjs --write",
+        "exit_code": 0,
+        "output": "okf: 42 concepts, 10 directory indexes and document map generated (v0.2 + UARoute profile; no fact verification implied)"
+      },
+      {
+        "check": "node scripts/check-docs.mjs",
+        "exit_code": 0,
+        "output": "docs:check: 428 available local file links in 57 Markdown files pass (anchors/external links not checked)"
+      },
+      {
+        "check": "node scripts/okf.mjs --check",
+        "exit_code": 0,
+        "output": "okf: 42 concepts, 10 directory indexes and document map pass (v0.2 + UARoute profile; no fact verification implied)"
+      },
+      {
+        "check": "node scripts/agent-state.mjs",
+        "exit_code": 0,
+        "output": "agent-state: 8 dated observations consistent; record updated 2026-10-27. No live-state verification performed.\nNext: S01 and S02 ready with explicit unknowns; use accepted seven-page baseline, claims ledger and passenger-needs brief for S03 intent architecture, then S04 copy recommendations. No application implementation or publication.\nScope: local-only; re-read providers before dependent action."
+      }
+    ],
+    "offline_dependencies": "Copied existing installed js-yaml and argparse into disposable tree; no install/network. Initial isolated check lacked js-yaml and failed before checks; copied existing dependency and reran.",
+    "working_tree_docs_index": "passed:43 concepts/10 indexes",
+    "working_tree_docs_check": "passed:436 local links/58 Markdown files;43 concepts/10 indexes;8 dated state observations",
+    "runtime": "Node24 available; documentation-only; no application check/build",
+    "application_build": "not run; documentation-only",
+    "kb_check": "not run; KB unchanged",
+    "coordinator_check_correction": "Initial ID parser treated three explicitly labelled prefixes as exact IDs. Parser corrected; no artifact rejection on this basis."
+  },
+  "acceptance": {
+    "decision": "accepted bounded trial document",
+    "complete_s03": "not declared complete",
+    "s04": "not started",
+    "artifact_sha256": "685fc4adfa477ea949b556fa54e9dd8a1639d5bcd2565e0071556102be05b8b7",
+    "patch_sha256": "8f70991f9f0bf575568ef6b85af3c1d36540ba22118077dc9a0d852a61bce316",
+    "originals": "assessment-history.json",
+    "required_validations_passed": 6,
+    "required_validations_total": 6
+  },
+  "research_completeness": "Frozen evidence and local source/hash/link checks complete for architecture trial; no fresh GSC/public/operational confirmation",
+  "vibe_usefulness": "Implementation usefulness untested: infrastructure blocked before start",
+  "cleanup": {
+    "supervisor_run": "none; close not applicable",
+    "worktree": "none created",
+    "private_originals": "retained under ignored output directory; temporary preparation also retained",
+    "configuration_changes": [],
+    "final_slot_busy": false,
+    "validation_tree": "Retained disposable committed-base reconstruction; generated navigation for checks; no provider worktree"
+  },
+  "corrections_attribution": "All accepted architecture changes by Luna; coordinator prepared evidence/report/navigation and verified. Original and corrected fallback artifacts retained.",
+  "final_scope": {
+    "tracked_coordinator_changes": [
+      "docs/Marketing/SEO/mitigation-2026-10/index.md",
+      "docs/log.md",
+      "docs/map.json"
+    ],
+    "fallback_changed_paths": [
+      "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md"
+    ],
+    "coordinator_new_report": "docs/Marketing/SEO/mitigation-2026-10/s03-trial-experience.md",
+    "coordinator_evidence_directory": "ops/evidence/seo-s03-trial-2026-10-27/",
+    "pre_existing_work_preserved": true,
+    "head_unchanged": true,
+    "application_changed": false,
+    "diff_whitespace_check": "passed"
+  }
+}

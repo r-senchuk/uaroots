@@ -1,0 +1,24 @@
+[
+  {
+    "revision": 1,
+    "author": "Luna fallback",
+    "artifact_sha256": "bd60fa676e762daae19aa7f420d834e0d693e4f49ba529b552f44d3167c316a3",
+    "patch_sha256": "e3679d82b0156f0c2a0e91ba434610a388f385caa2a654dccaeb61e0dac3ed31",
+    "decision": "correction-required",
+    "failures": [
+      "Intro says primary WhatsApp journey and alternative without requiring date/phone; qualify that only carrier-site alternative is date/phone-free. Preserve WhatsApp required fields.",
+      "Final handoff incorrectly says S04 does not change community content; restriction applies to this trial, while plan S04 owns corrected drafts.",
+      "Need mappings use wildcard baggage-transfer absent for Hannover/Lviv-Celle keys; replace with exact declared destinations or explicitly shared questions."
+    ]
+  },
+  {
+    "revision": 2,
+    "author": "Luna fallback after coordinator correction requests",
+    "decision": "accepted",
+    "artifact_sha256": "685fc4adfa477ea949b556fa54e9dd8a1639d5bcd2565e0071556102be05b8b7",
+    "patch_sha256": "8f70991f9f0bf575568ef6b85af3c1d36540ba22118077dc9a0d852a61bce316",
+    "corrections": "Inquiry requirement scope, S04 community ownership, exact mappings/key definitions, explicit remove disposition",
+    "coordinator_document_edits": 0,
+    "coordinator_check_correction": "Initial ID parser treated three explicitly labelled prefixes as exact IDs. Parser corrected; no artifact rejection on this basis."
+  }
+]

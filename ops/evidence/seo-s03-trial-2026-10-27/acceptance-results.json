@@ -1,0 +1,68 @@
+{
+  "artifact_sha256": "685fc4adfa477ea949b556fa54e9dd8a1639d5bcd2565e0071556102be05b8b7",
+  "patch_sha256": "8f70991f9f0bf575568ef6b85af3c1d36540ba22118077dc9a0d852a61bce316",
+  "patch_apply": "passed normal Git path checks in disposable committed-base tree",
+  "changed_paths": [
+    "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md"
+  ],
+  "priority_page_rows": {
+    "covered": 7,
+    "required": 7
+  },
+  "passenger_needs": {
+    "covered": 12,
+    "required": 12
+  },
+  "explicit_claim_references": {
+    "valid": 63,
+    "total": 63,
+    "grouped_ranges": "Independently compared to126 scoped ledger entries:95keep,22rewrite,1remove,8await; source ranges not new IDs"
+  },
+  "local_file_targets": {
+    "passed": 8,
+    "total": 8
+  },
+  "anchors": {
+    "references": 0,
+    "status": "none in architecture"
+  },
+  "external_links": {
+    "references": 0,
+    "status": "none in architecture; frozen source support reviewed; no fresh network checks"
+  },
+  "internal_destination_paths": {
+    "permitted": 13,
+    "total": 13,
+    "method": "catalog/templates/frozen plan"
+  },
+  "source_hash_preservation": "all frozen source/docs unchanged",
+  "scope": "Fallback assigned document only; coordinator evidence additions separate",
+  "semantic_review": "7/7 distinct directional/hub jobs,12/12 needs, faithful claim groups, unknowns, metadata/schema independently reviewed. No unsupported positive operational, metric, demand or new review assertions identified.",
+  "coordinator_check_correction": "Initial ID parser treated three explicitly labelled prefixes as exact IDs. Parser corrected; no artifact rejection on this basis.",
+  "validations": [
+    {
+      "id": "seven-page-architecture",
+      "status": "passed"
+    },
+    {
+      "id": "direction-and-distinctness",
+      "status": "passed"
+    },
+    {
+      "id": "claim-traceability",
+      "status": "passed"
+    },
+    {
+      "id": "passenger-needs-coverage",
+      "status": "passed"
+    },
+    {
+      "id": "existing-link-targets",
+      "status": "passed"
+    },
+    {
+      "id": "scope-and-complete-diff",
+      "status": "passed"
+    }
+  ]
+}

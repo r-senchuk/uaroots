@@ -1,0 +1,52 @@
+{
+  "source_head": "d6bbff2a6b12a6d6f065ae00b81c11bad0ef3e74",
+  "source_hashes": {
+    "docs/00-project-constitution.md": "62f4f33efb3088ccbfdb7f2e55473083adab883238ced70d8f67f56a570f7cf7",
+    "docs/Operations/Agentic/Operational/repository-contract.md": "f1e956e8a7512f830e0f0d24699c6ab19c5054ca1424b61a45f1bc74842e9d8f",
+    "docs/Product/passenger-discovery-conversion-spec-2026-10-22.md": "4d08869ba493c37963dd823a9ae54a8c3063288a2121ac7a0c8f4b569cf30641",
+    "docs/Marketing/SEO/mitigation-2026-10/s03-s04-work-plan.md": "e4507355c436a3e6c574b6d736f800f4a882f16819fa294af0fa59cda3d68419",
+    "docs/Marketing/SEO/mitigation-2026-10/search-baseline.md": "666ee8e5a21baaa994e2bd79d8166435257bc0a4341978886e223f140f9df096",
+    "docs/Marketing/SEO/mitigation-2026-10/claims-ledger.md": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b",
+    "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md": "60c763a9f43b7f0db06e5ab2279d582c1cf8a3f2e7decf11ac69e32d3828d3fd",
+    "docs/Marketing/SEO/mitigation-2026-10/passenger-evidence.md": "3498b45393d3d7715a91a1069492a037bf6b54da18c38a0157b4d2e10dfdcf0a",
+    "src/data/routes.ts": "dee967e008ef338cadccdb2343eb37ea7d4c41e5bf5c2a2c2c9d211a3635b772",
+    "src/data/city-hubs.ts": "2c3699b360c38c4421380f1ee24f211173309c4510cffc45b6d86cea92777cfc",
+    "src/app/routes/[slug]/page.tsx": "afc10b91c28e150ae8b9e3aa34d0dbf918f62c1f2df8528e7f9145a3b39d3c29",
+    "src/app/cities/[slug]/page.tsx": "47efa6024b94f812195afaadbfef371cc93c7ca0045513b2d1dd89bb2db25a3c",
+    "src/lib/seo.ts": "d43777c6b89066b5c1bd70522902a0ac03c11148985f3608fbd8d9ae6ed293bd",
+    "src/components/PartnerCard.tsx": "f6ef4651756ecfc639ece2393d647ea4ff18e985bc5e9bf8853e000fed8541fa",
+    "src/data/carriers.ts": "ee89b0a816c3f8b21d7a92fba3b7adef9cb03bc2067b67288f603ab308d2942a"
+  },
+  "plan_hash_recheck": {
+    "search-baseline.md": {
+      "planned": "666ee8e5a21baaa994e2bd79d8166435257bc0a4341978886e223f140f9df096",
+      "current": "666ee8e5a21baaa994e2bd79d8166435257bc0a4341978886e223f140f9df096"
+    },
+    "claims-ledger.md": {
+      "planned": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b",
+      "current": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b"
+    },
+    "passenger-needs.md": {
+      "planned": "60c763a9f43b7f0db06e5ab2279d582c1cf8a3f2e7decf11ac69e32d3828d3fd",
+      "current": "60c763a9f43b7f0db06e5ab2279d582c1cf8a3f2e7decf11ac69e32d3828d3fd"
+    },
+    "passenger-evidence.md": {
+      "planned": "3498b45393d3d7715a91a1069492a037bf6b54da18c38a0157b4d2e10dfdcf0a",
+      "current": "3498b45393d3d7715a91a1069492a037bf6b54da18c38a0157b4d2e10dfdcf0a"
+    },
+    "GSC inspections": {
+      "planned": "10c740b53ea08a6c876825b9367395f0b6b87b9ae2a1971d258dd48cc27f3fb1",
+      "current": "10c740b53ea08a6c876825b9367395f0b6b87b9ae2a1971d258dd48cc27f3fb1"
+    },
+    "GSC performance": {
+      "planned": "5910b69f4ffeeec3a2543c3933eff957bab9d603bafcb2f774d82c36d185262e",
+      "current": "5910b69f4ffeeec3a2543c3933eff957bab9d603bafcb2f774d82c36d185262e"
+    },
+    "Public HTTP": {
+      "planned": "6c12ef88a0cd5b563099642f457b665483165581a521bbc5f3008e79766e37ba",
+      "current": "6c12ef88a0cd5b563099642f457b665483165581a521bbc5f3008e79766e37ba"
+    }
+  },
+  "extract_sha256": "2649c09dcac9508567dccabf914d5037dc5bb98d432dfff73fca9c2c6c9c1624",
+  "condensation": "Plan sections2\u20133, all12 needs, source scopes verbatim; claim index retains ID/location/support/disposition, repetitive constraints omitted in favor of plan boundaries; current headings extracted."
+}

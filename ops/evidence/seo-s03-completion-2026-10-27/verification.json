@@ -1,0 +1,57 @@
+{
+  "seven_page_intent_rows": {
+    "passed": 7,
+    "required": 7
+  },
+  "per_page_metadata_canonical_acceptance": {
+    "passed": 7,
+    "required": 7
+  },
+  "fixed_link_rows": {
+    "passed": 7,
+    "required": 7
+  },
+  "passenger_needs": {
+    "passed": 12,
+    "required": 12
+  },
+  "exact_scoped_claim_dispositions": {
+    "passed": 126,
+    "required": 126,
+    "counts": {
+      "keep": 95,
+      "rewrite": 22,
+      "remove": 1,
+      "await evidence": 8
+    }
+  },
+  "planned_guide_links": {
+    "passed": 5,
+    "required": 5,
+    "keys": [
+      "lh-questions",
+      "lc-questions",
+      "cl-baggage-transfer",
+      "iw-baggage-transfer",
+      "wi-baggage-transfer"
+    ],
+    "target": "/guides/perevezennya-velosypeda/"
+  },
+  "architecture_local_file_links": {
+    "passed": 9,
+    "required": 9
+  },
+  "anchor_checks": "No anchor links in architecture",
+  "external_source_checks": "No fresh external checks; frozen ledger source support and limitations preserved",
+  "source_graph": "Current route relatedRouteIds, hub routeSlugs, shared hub presentation and commercial membership reviewed; reverse and hub destinations resolve",
+  "semantic_review": "Distinct primary/support jobs, introductions, sources and hypothesis labels, retain/rewrite/remove/move decisions, shared support, URLs/inline boundaries and evidence gates reviewed against SG-03/session contract. No open SEO architecture choice left to S04. S04 retains final wording/native editorial review.",
+  "frozen_source_hashes": "all unchanged",
+  "historical_provider_observations": "unchanged",
+  "head_and_staging": "unchanged",
+  "documentation_index": "PASS 43 concepts/10 indexes",
+  "documentation_checks": "PASS 439 local links/58 Markdown files, index/map/state checks",
+  "whitespace": "git diff --check PASS",
+  "application_build": "not run; documentation-only",
+  "kb_checks": "not run; KB unchanged",
+  "supervisor_dispatches": 0
+}

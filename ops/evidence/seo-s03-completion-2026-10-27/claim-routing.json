@@ -1,0 +1,1140 @@
+{
+  "source_ledger_sha256": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b",
+  "scope": "126 route/hub/nearby/guide/shared/schema entries; About/operator/community assigned by grouped IDs in architecture",
+  "rows": [
+    {
+      "claim_id": "R-lviv-hannover-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv-hannover.title",
+      "source_location": "`src/data/routes.ts:10`; `/routes/lviv-hannover/`; `title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-description",
+      "ledger_disposition": "rewrite",
+      "destination": "lh-intro",
+      "source_location": "`src/data/routes.ts:11`; `/routes/lviv-hannover/`; `description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Не створювати стандартної зупинки або гарантованої стиковки. Район/адреса — побажання для перевірки можливості; наступний транспорт планується окремо.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-seo.title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv-hannover.seo.title",
+      "source_location": "`src/data/routes.ts:25`; `/routes/lviv-hannover/`; `seo.title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-seo.description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv-hannover.seo.description",
+      "source_location": "`src/data/routes.ts:26`; `/routes/lviv-hannover/`; `seo.description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-practical1",
+      "ledger_disposition": "rewrite",
+      "destination": "lh-arrival-locality",
+      "source_location": "`src/data/routes.ts:31`; `/routes/lviv-hannover/`; `practicalContent.1`",
+      "source_support": "S1",
+      "constraints": "S1 не доводить точного зв’язку Hbf–ZOB і жодної зупинки перевізника. Зберегти посилання на міський транспорт; назви вузлів — лише після точного джерела або замінити на район/адресу.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-practical2",
+      "ledger_disposition": "keep",
+      "destination": "lh-lviv-first-leg",
+      "source_location": "`src/data/routes.ts:37`; `/routes/lviv-hannover/`; `practicalContent.2`",
+      "source_support": "K1",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-faq1",
+      "ledger_disposition": "keep",
+      "destination": "lh-arrival-locality",
+      "source_location": "`src/data/routes.ts:43`; `/routes/lviv-hannover/`; `faq.1`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-faq2",
+      "ledger_disposition": "remove",
+      "destination": "lh-lviv-first-leg",
+      "source_location": "`src/data/routes.ts:47`; `/routes/lviv-hannover/`; `faq.2`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "C01: прибрати точність 1–2 години; кандидат: «Повідомте час прибуття потяга. Узгодьте місце й очікуваний час зустрічі; оцініть запас з урахуванням можливих затримок.»",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-faq3",
+      "ledger_disposition": "rewrite",
+      "destination": "lh-actual-locality",
+      "source_location": "`src/data/routes.ts:51`; `/routes/lviv-hannover/`; `faq.3`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-faq4",
+      "ledger_disposition": "keep",
+      "destination": "lh-changed-plan",
+      "source_location": "`src/data/routes.ts:55`; `/routes/lviv-hannover/`; `faq.4`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-confirm1",
+      "ledger_disposition": "keep",
+      "destination": "lh-questions",
+      "source_location": "`src/data/routes.ts:59`; `/routes/lviv-hannover/`; `whatToConfirm.1`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-confirm2",
+      "ledger_disposition": "keep",
+      "destination": "lh-questions",
+      "source_location": "`src/data/routes.ts:60`; `/routes/lviv-hannover/`; `whatToConfirm.2`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-confirm3",
+      "ledger_disposition": "keep",
+      "destination": "lh-questions",
+      "source_location": "`src/data/routes.ts:61`; `/routes/lviv-hannover/`; `whatToConfirm.3`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-hannover-confirm4",
+      "ledger_disposition": "keep",
+      "destination": "lh-questions",
+      "source_location": "`src/data/routes.ts:62`; `/routes/lviv-hannover/`; `whatToConfirm.4`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv-celle.title",
+      "source_location": "`src/data/routes.ts:526`; `/routes/lviv-celle/`; `title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-description",
+      "ledger_disposition": "rewrite",
+      "destination": "lc-intro",
+      "source_location": "`src/data/routes.ts:527`; `/routes/lviv-celle/`; `description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Не створювати стандартної зупинки або гарантованої стиковки. Район/адреса — побажання для перевірки можливості; наступний транспорт планується окремо.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-seo.title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv-celle.seo.title",
+      "source_location": "`src/data/routes.ts:541`; `/routes/lviv-celle/`; `seo.title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-seo.description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv-celle.seo.description",
+      "source_location": "`src/data/routes.ts:542`; `/routes/lviv-celle/`; `seo.description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-practical1",
+      "ledger_disposition": "rewrite",
+      "destination": "lc-arrival-locality",
+      "source_location": "`src/data/routes.ts:547`; `/routes/lviv-celle/`; `practicalContent.1`",
+      "source_support": "S2",
+      "constraints": "S2 підтримує міську орієнтацію, не зупинку. Додати явне «чи можливе погодження тут»; не обіцяти зручності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-practical2",
+      "ledger_disposition": "keep",
+      "destination": "lc-lviv-first-leg",
+      "source_location": "`src/data/routes.ts:553`; `/routes/lviv-celle/`; `practicalContent.2`",
+      "source_support": "K1",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-faq1",
+      "ledger_disposition": "rewrite",
+      "destination": "lc-arrival-locality",
+      "source_location": "`src/data/routes.ts:559`; `/routes/lviv-celle/`; `faq.1`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-faq2",
+      "ledger_disposition": "keep",
+      "destination": "lc-lviv-first-leg",
+      "source_location": "`src/data/routes.ts:563`; `/routes/lviv-celle/`; `faq.2`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-faq3",
+      "ledger_disposition": "rewrite",
+      "destination": "lc-locality-changes",
+      "source_location": "`src/data/routes.ts:567`; `/routes/lviv-celle/`; `faq.3`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-faq4",
+      "ledger_disposition": "keep",
+      "destination": "lc-locality-changes",
+      "source_location": "`src/data/routes.ts:571`; `/routes/lviv-celle/`; `faq.4`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-confirm1",
+      "ledger_disposition": "keep",
+      "destination": "lc-questions",
+      "source_location": "`src/data/routes.ts:575`; `/routes/lviv-celle/`; `whatToConfirm.1`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-confirm2",
+      "ledger_disposition": "keep",
+      "destination": "lc-questions",
+      "source_location": "`src/data/routes.ts:576`; `/routes/lviv-celle/`; `whatToConfirm.2`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-confirm3",
+      "ledger_disposition": "keep",
+      "destination": "lc-questions",
+      "source_location": "`src/data/routes.ts:577`; `/routes/lviv-celle/`; `whatToConfirm.3`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-lviv-celle-confirm4",
+      "ledger_disposition": "keep",
+      "destination": "lc-questions",
+      "source_location": "`src/data/routes.ts:578`; `/routes/lviv-celle/`; `whatToConfirm.4`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: celle-lviv.title",
+      "source_location": "`src/data/routes.ts:588`; `/routes/celle-lviv/`; `title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-description",
+      "ledger_disposition": "rewrite",
+      "destination": "cl-intro",
+      "source_location": "`src/data/routes.ts:589`; `/routes/celle-lviv/`; `description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Не створювати стандартної зупинки або гарантованої стиковки. Район/адреса — побажання для перевірки можливості; наступний транспорт планується окремо.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-seo.title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: celle-lviv.seo.title",
+      "source_location": "`src/data/routes.ts:602`; `/routes/celle-lviv/`; `seo.title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-seo.description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: celle-lviv.seo.description",
+      "source_location": "`src/data/routes.ts:603`; `/routes/celle-lviv/`; `seo.description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-practical1",
+      "ledger_disposition": "rewrite",
+      "destination": "cl-meeting-locality",
+      "source_location": "`src/data/routes.ts:608`; `/routes/celle-lviv/`; `practicalContent.1`",
+      "source_support": "S2",
+      "constraints": "S2 підтримує міську орієнтацію, не зупинку. Додати явне «чи можливе погодження тут»; не обіцяти зручності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-practical2",
+      "ledger_disposition": "keep",
+      "destination": "cl-lviv-arrival + cl-independent-onward",
+      "source_location": "`src/data/routes.ts:614`; `/routes/celle-lviv/`; `practicalContent.2`",
+      "source_support": "K1",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-faq1",
+      "ledger_disposition": "rewrite",
+      "destination": "cl-meeting-locality",
+      "source_location": "`src/data/routes.ts:620`; `/routes/celle-lviv/`; `faq.1`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-faq2",
+      "ledger_disposition": "keep",
+      "destination": "cl-independent-onward",
+      "source_location": "`src/data/routes.ts:624`; `/routes/celle-lviv/`; `faq.2`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-faq3",
+      "ledger_disposition": "rewrite",
+      "destination": "cl-locality-changes",
+      "source_location": "`src/data/routes.ts:628`; `/routes/celle-lviv/`; `faq.3`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-faq4",
+      "ledger_disposition": "keep",
+      "destination": "cl-locality-changes",
+      "source_location": "`src/data/routes.ts:632`; `/routes/celle-lviv/`; `faq.4`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-confirm1",
+      "ledger_disposition": "keep",
+      "destination": "cl-baggage-transfer",
+      "source_location": "`src/data/routes.ts:636`; `/routes/celle-lviv/`; `whatToConfirm.1`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-confirm2",
+      "ledger_disposition": "keep",
+      "destination": "cl-baggage-transfer",
+      "source_location": "`src/data/routes.ts:637`; `/routes/celle-lviv/`; `whatToConfirm.2`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-confirm3",
+      "ledger_disposition": "keep",
+      "destination": "cl-baggage-transfer",
+      "source_location": "`src/data/routes.ts:638`; `/routes/celle-lviv/`; `whatToConfirm.3`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-celle-lviv-confirm4",
+      "ledger_disposition": "keep",
+      "destination": "cl-baggage-transfer",
+      "source_location": "`src/data/routes.ts:639`; `/routes/celle-lviv/`; `whatToConfirm.4`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: ivano-frankivsk-wolfsburg.title",
+      "source_location": "`src/data/routes.ts:649`; `/routes/ivano-frankivsk-wolfsburg/`; `title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-description",
+      "ledger_disposition": "keep",
+      "destination": "iw-intro",
+      "source_location": "`src/data/routes.ts:650`; `/routes/ivano-frankivsk-wolfsburg/`; `description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-seo.title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: ivano-frankivsk-wolfsburg.seo.title",
+      "source_location": "`src/data/routes.ts:663`; `/routes/ivano-frankivsk-wolfsburg/`; `seo.title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-seo.description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: ivano-frankivsk-wolfsburg.seo.description",
+      "source_location": "`src/data/routes.ts:664`; `/routes/ivano-frankivsk-wolfsburg/`; `seo.description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-practical1",
+      "ledger_disposition": "keep",
+      "destination": "iw-arrival-locality",
+      "source_location": "`src/data/routes.ts:669`; `/routes/ivano-frankivsk-wolfsburg/`; `practicalContent.1`",
+      "source_support": "S3",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-practical2",
+      "ledger_disposition": "keep",
+      "destination": "iw-shared-departure",
+      "source_location": "`src/data/routes.ts:675`; `/routes/ivano-frankivsk-wolfsburg/`; `practicalContent.2`",
+      "source_support": "K1",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq1",
+      "ledger_disposition": "keep",
+      "destination": "iw-arrival-locality",
+      "source_location": "`src/data/routes.ts:681`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.1`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq2",
+      "ledger_disposition": "keep",
+      "destination": "iw-shared-departure",
+      "source_location": "`src/data/routes.ts:685`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.2`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq3",
+      "ledger_disposition": "rewrite",
+      "destination": "iw-locality-changes",
+      "source_location": "`src/data/routes.ts:689`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.3`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq4",
+      "ledger_disposition": "keep",
+      "destination": "iw-locality-changes",
+      "source_location": "`src/data/routes.ts:693`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.4`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm1",
+      "ledger_disposition": "keep",
+      "destination": "iw-baggage-transfer",
+      "source_location": "`src/data/routes.ts:697`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.1`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm2",
+      "ledger_disposition": "keep",
+      "destination": "iw-baggage-transfer",
+      "source_location": "`src/data/routes.ts:698`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.2`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm3",
+      "ledger_disposition": "keep",
+      "destination": "iw-baggage-transfer",
+      "source_location": "`src/data/routes.ts:699`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.3`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm4",
+      "ledger_disposition": "keep",
+      "destination": "iw-baggage-transfer",
+      "source_location": "`src/data/routes.ts:700`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.4`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: wolfsburg-ivano-frankivsk.title",
+      "source_location": "`src/data/routes.ts:710`; `/routes/wolfsburg-ivano-frankivsk/`; `title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-description",
+      "ledger_disposition": "keep",
+      "destination": "wi-intro",
+      "source_location": "`src/data/routes.ts:711`; `/routes/wolfsburg-ivano-frankivsk/`; `description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-seo.title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: wolfsburg-ivano-frankivsk.seo.title",
+      "source_location": "`src/data/routes.ts:724`; `/routes/wolfsburg-ivano-frankivsk/`; `seo.title`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-seo.description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: wolfsburg-ivano-frankivsk.seo.description",
+      "source_location": "`src/data/routes.ts:725`; `/routes/wolfsburg-ivano-frankivsk/`; `seo.description`",
+      "source_support": "K1; local/live metadata comparison",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-practical1",
+      "ledger_disposition": "keep",
+      "destination": "wi-meeting-locality",
+      "source_location": "`src/data/routes.ts:730`; `/routes/wolfsburg-ivano-frankivsk/`; `practicalContent.1`",
+      "source_support": "S3",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-practical2",
+      "ledger_disposition": "keep",
+      "destination": "wi-arrival-coordination + wi-independent-onward",
+      "source_location": "`src/data/routes.ts:736`; `/routes/wolfsburg-ivano-frankivsk/`; `practicalContent.2`",
+      "source_support": "K1",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq1",
+      "ledger_disposition": "rewrite",
+      "destination": "wi-meeting-locality",
+      "source_location": "`src/data/routes.ts:742`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.1`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq2",
+      "ledger_disposition": "keep",
+      "destination": "wi-arrival-coordination",
+      "source_location": "`src/data/routes.ts:746`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.2`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq3",
+      "ledger_disposition": "rewrite",
+      "destination": "wi-locality-changes",
+      "source_location": "`src/data/routes.ts:750`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.3`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq4",
+      "ledger_disposition": "keep",
+      "destination": "wi-locality-changes",
+      "source_location": "`src/data/routes.ts:754`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.4`",
+      "source_support": "K1; source field; operational confirmation absent",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm1",
+      "ledger_disposition": "keep",
+      "destination": "wi-baggage-transfer",
+      "source_location": "`src/data/routes.ts:758`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.1`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm2",
+      "ledger_disposition": "keep",
+      "destination": "wi-baggage-transfer",
+      "source_location": "`src/data/routes.ts:759`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.2`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm3",
+      "ledger_disposition": "keep",
+      "destination": "wi-baggage-transfer",
+      "source_location": "`src/data/routes.ts:760`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.3`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm4",
+      "ledger_disposition": "keep",
+      "destination": "wi-baggage-transfer",
+      "source_location": "`src/data/routes.ts:761`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.4`",
+      "source_support": "K1",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv.title",
+      "source_location": "`src/data/city-hubs.ts:53`; `/cities/lviv/`; `title`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-heading",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv.heading",
+      "source_location": "`src/data/city-hubs.ts:54`; `/cities/lviv/`; `heading`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: lviv.description",
+      "source_location": "`src/data/city-hubs.ts:55`; `/cities/lviv/`; `description`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-intro",
+      "ledger_disposition": "keep",
+      "destination": "lv-intro",
+      "source_location": "`src/data/city-hubs.ts:56`; `/cities/lviv/`; `intro`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-outbound",
+      "ledger_disposition": "keep",
+      "destination": "lv-outbound-return.outbound",
+      "source_location": "`src/data/city-hubs.ts:57`; `/cities/lviv/`; `outbound`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-returning",
+      "ledger_disposition": "keep",
+      "destination": "lv-outbound-return.return",
+      "source_location": "`src/data/city-hubs.ts:58`; `/cities/lviv/`; `returning`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-nearbyIntro",
+      "ledger_disposition": "keep",
+      "destination": "lv-actual-locality",
+      "source_location": "`src/data/city-hubs.ts:87`; `/cities/lviv/`; `nearbyIntro`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-faq1",
+      "ledger_disposition": "keep",
+      "destination": "lv-faq-resources.faq1",
+      "source_location": "`src/data/city-hubs.ts:62`; `/cities/lviv/`; `faq.1`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-faq2",
+      "ledger_disposition": "keep",
+      "destination": "lv-faq-resources.faq2",
+      "source_location": "`src/data/city-hubs.ts:66`; `/cities/lviv/`; `faq.2`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-faq3",
+      "ledger_disposition": "keep",
+      "destination": "lv-faq-resources.faq3",
+      "source_location": "`src/data/city-hubs.ts:70`; `/cities/lviv/`; `faq.3`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-faq4",
+      "ledger_disposition": "keep",
+      "destination": "lv-faq-resources.faq4",
+      "source_location": "`src/data/city-hubs.ts:74`; `/cities/lviv/`; `faq.4`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-faq5",
+      "ledger_disposition": "keep",
+      "destination": "lv-faq-resources.faq5",
+      "source_location": "`src/data/city-hubs.ts:78`; `/cities/lviv/`; `faq.5`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-lviv-zhovkva",
+      "ledger_disposition": "rewrite",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "source_location": "`src/data/city-hubs.ts:94`; `/cities/lviv/`; `lviv-zhovkva`",
+      "source_support": "S6; https://zhovkva-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Жовква, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-lviv-yavoriv",
+      "ledger_disposition": "rewrite",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "source_location": "`src/data/city-hubs.ts:104`; `/cities/lviv/`; `lviv-yavoriv`",
+      "source_support": "S6; https://yavoriv-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Яворів, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-lviv-zolochiv",
+      "ledger_disposition": "rewrite",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "source_location": "`src/data/city-hubs.ts:114`; `/cities/lviv/`; `lviv-zolochiv`",
+      "source_support": "S6; https://zolochiv-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Золочів, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-lviv-sambir",
+      "ledger_disposition": "rewrite",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "source_location": "`src/data/city-hubs.ts:124`; `/cities/lviv/`; `lviv-sambir`",
+      "source_support": "S6; https://sambir-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Самбір, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-resource1",
+      "ledger_disposition": "keep",
+      "destination": "lv-faq-resources.resource1",
+      "source_location": "`src/data/city-hubs.ts:133`; `/cities/lviv/`; `planningResources`",
+      "source_support": "S4",
+      "constraints": "Окремий транспорт: перевірити актуальний ресурс; не публікувати тарифи/час без нової перевірки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-lviv-review",
+      "ledger_disposition": "await evidence",
+      "destination": "retained source field: lviv.review",
+      "source_location": "`src/data/city-hubs.ts`; `/cities/lviv/`; `contentReview`",
+      "source_support": "Existing source dates; this research does not prove prior review scope",
+      "constraints": "Зберегти історичні значення до з’ясування; не називати географічну перевірку підтвердженням роботи перевізника. Нові дати тільки після відповідної редакторської роботи.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-title",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: ivano-frankivsk.title",
+      "source_location": "`src/data/city-hubs.ts:150`; `/cities/ivano-frankivsk/`; `title`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-heading",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: ivano-frankivsk.heading",
+      "source_location": "`src/data/city-hubs.ts:151`; `/cities/ivano-frankivsk/`; `heading`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-description",
+      "ledger_disposition": "keep",
+      "destination": "retained source field: ivano-frankivsk.description",
+      "source_location": "`src/data/city-hubs.ts:152`; `/cities/ivano-frankivsk/`; `description`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-intro",
+      "ledger_disposition": "keep",
+      "destination": "if-intro",
+      "source_location": "`src/data/city-hubs.ts:153`; `/cities/ivano-frankivsk/`; `intro`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-outbound",
+      "ledger_disposition": "keep",
+      "destination": "if-outbound-return.outbound",
+      "source_location": "`src/data/city-hubs.ts:154`; `/cities/ivano-frankivsk/`; `outbound`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-returning",
+      "ledger_disposition": "keep",
+      "destination": "if-outbound-return.return",
+      "source_location": "`src/data/city-hubs.ts:155`; `/cities/ivano-frankivsk/`; `returning`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-nearbyIntro",
+      "ledger_disposition": "keep",
+      "destination": "if-actual-locality",
+      "source_location": "`src/data/city-hubs.ts:183`; `/cities/ivano-frankivsk/`; `nearbyIntro`",
+      "source_support": "K1; S4/S5 for separate transport resources",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-faq1",
+      "ledger_disposition": "keep",
+      "destination": "if-faq-resources.faq1",
+      "source_location": "`src/data/city-hubs.ts:159`; `/cities/ivano-frankivsk/`; `faq.1`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-faq2",
+      "ledger_disposition": "keep",
+      "destination": "if-faq-resources.faq2",
+      "source_location": "`src/data/city-hubs.ts:163`; `/cities/ivano-frankivsk/`; `faq.2`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-faq3",
+      "ledger_disposition": "keep",
+      "destination": "if-faq-resources.faq3",
+      "source_location": "`src/data/city-hubs.ts:167`; `/cities/ivano-frankivsk/`; `faq.3`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-faq4",
+      "ledger_disposition": "keep",
+      "destination": "if-faq-resources.faq4",
+      "source_location": "`src/data/city-hubs.ts:171`; `/cities/ivano-frankivsk/`; `faq.4`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-faq5",
+      "ledger_disposition": "keep",
+      "destination": "if-faq-resources.faq5",
+      "source_location": "`src/data/city-hubs.ts:175`; `/cities/ivano-frankivsk/`; `faq.5`",
+      "source_support": "K1",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-if-kolomyia",
+      "ledger_disposition": "rewrite",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "source_location": "`src/data/city-hubs.ts:190`; `/cities/ivano-frankivsk/`; `if-kolomyia`",
+      "source_support": "S6; https://kolomyia.org.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Коломия, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-if-tysmenytsia",
+      "ledger_disposition": "rewrite",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "source_location": "`src/data/city-hubs.ts:200`; `/cities/ivano-frankivsk/`; `if-tysmenytsia`",
+      "source_support": "S6; https://tysmenytsia-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Тисмениця, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-if-rogatyn",
+      "ledger_disposition": "rewrite",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "source_location": "`src/data/city-hubs.ts:210`; `/cities/ivano-frankivsk/`; `if-rogatyn`",
+      "source_support": "S6; https://rogatyn-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Рогатин, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "N-if-bohorodchany",
+      "ledger_disposition": "rewrite",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "source_location": "`src/data/city-hubs.ts:220`; `/cities/ivano-frankivsk/`; `if-bohorodchany`",
+      "source_support": "S6; https://bohorodchany-rada.gov.ua/",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Богородчани, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-resource1",
+      "ledger_disposition": "keep",
+      "destination": "if-faq-resources.resource1",
+      "source_location": "`src/data/city-hubs.ts:229`; `/cities/ivano-frankivsk/`; `planningResources`",
+      "source_support": "S5",
+      "constraints": "Окремий транспорт: перевірити актуальний ресурс; не публікувати тарифи/час без нової перевірки.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "H-ivano-frankivsk-review",
+      "ledger_disposition": "await evidence",
+      "destination": "retained source field: ivano-frankivsk.review",
+      "source_location": "`src/data/city-hubs.ts`; `/cities/ivano-frankivsk/`; `contentReview`",
+      "source_support": "Existing source dates; this research does not prove prior review scope",
+      "constraints": "Зберегти історичні значення до з’ясування; не називати географічну перевірку підтвердженням роботи перевізника. Нові дати тільки після відповідної редакторської роботи.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "G-title",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: title",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:11`",
+      "source_support": "K1",
+      "constraints": "Запит і підготовка, не дозвіл перевезення; metadata, OG and Article descriptions must remain aligned.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-description",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: description",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:12`",
+      "source_support": "K1",
+      "constraints": "Запит і підготовка, не дозвіл перевезення; metadata, OG and Article descriptions must remain aligned.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-faq1",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: faq1",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:16`",
+      "source_support": "K1; S7 only customs context",
+      "constraints": "Тільки питання; батарея, вага, пакування і ціна не є дозволеними умовами. Погодити можливість до витрат на пакування.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-faq2",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: faq2",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:17`",
+      "source_support": "K1; S7 only customs context",
+      "constraints": "Тільки питання; батарея, вага, пакування і ціна не є дозволеними умовами. Погодити можливість до витрат на пакування.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-faq3",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: faq3",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:18`",
+      "source_support": "K1; S7 only customs context",
+      "constraints": "Тільки питання; батарея, вага, пакування і ціна не є дозволеними умовами. Погодити можливість до витрат на пакування.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-customs",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: customs",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:29`",
+      "source_support": "S7",
+      "constraints": "Лінк до компетентних органів, не персональне рішення чи універсальне звільнення від декларації.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-handoff",
+      "ledger_disposition": "keep",
+      "destination": "existing guide field: handoff",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:30`",
+      "source_support": "K1; BicycleInquiryCta/whatsapp source",
+      "constraints": "Немає доказу отримання/відправлення; користувач надсилає сам.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "G-schema",
+      "ledger_disposition": "await evidence",
+      "destination": "existing guide field: schema",
+      "source_location": "`src/app/guides/perevezennya-velosypeda/page.tsx:24`",
+      "source_support": "Parsed live JSON-LD + local source",
+      "constraints": "No new date/expert claim. Organization is editorial brand, not a new legal entity. S04 should make genuine editorial responsibility/date visible when verified; do not relabel this research as publication update.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "OP-1",
+      "ledger_disposition": "await evidence",
+      "destination": "shared.role: excluded operational claim",
+      "source_location": "`src/data/carriers.ts:35`",
+      "source_support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "OP-2",
+      "ledger_disposition": "await evidence",
+      "destination": "shared.role: excluded operational claim",
+      "source_location": "`src/data/carriers.ts:40`",
+      "source_support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "OP-3",
+      "ledger_disposition": "await evidence",
+      "destination": "shared.role: excluded operational claim",
+      "source_location": "`src/data/carriers.ts:45`",
+      "source_support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "OP-4",
+      "ledger_disposition": "await evidence",
+      "destination": "shared.role: excluded operational claim",
+      "source_location": "`src/data/carriers.ts:50`",
+      "source_support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date.",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "OP-service",
+      "ledger_disposition": "await evidence",
+      "destination": "shared.role: excluded operational claim",
+      "source_location": "`src/data/carriers.ts:15`",
+      "source_support": "S8; live Hannover only in scoped pages",
+      "constraints": "Keep parcel promotion out of passenger flow. Recommended narrow replacement: «Уточніть можливість та умови поїздки безпосередньо у перевізника.»",
+      "evidence_status": "deferred; no new date or operation included"
+    },
+    {
+      "claim_id": "OP-desk",
+      "ledger_disposition": "keep",
+      "destination": "shared.action: existing desk identity/contact",
+      "source_location": "`src/data/carriers.ts:19`",
+      "source_support": "Local carrier desk + BookingWidget interpolation, matches live",
+      "constraints": "Not deployment drift. Preserve desk identity/contact. No surname/carrier-brand expansion; do not infer verified service coverage from label.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "SH-image",
+      "ledger_disposition": "keep",
+      "destination": "shared.caption",
+      "source_location": "`src/app/routes/[slug]/page.tsx:128`",
+      "source_support": "Source + all5 route HTML",
+      "constraints": "Image is illustrative, not vehicle/stop evidence.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "SH-candidate",
+      "ledger_disposition": "keep",
+      "destination": "shared.role",
+      "source_location": "`src/components/PartnerCard.tsx:38`",
+      "source_support": "K1; four candidate pages and About inquiryOnly",
+      "constraints": "Do not copy Hannover operational-claims panel into candidate pages.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "SC-routes",
+      "ledger_disposition": "keep",
+      "destination": "retain schema structure; propagate corrected inputs per per-page contract",
+      "source_location": "`src/lib/seo.ts:145`; all5 route pages",
+      "source_support": "K1/S9; live JSON-LD snapshot",
+      "constraints": "Route descriptions listed above also enter JSON-LD: carry corrections into that field. No BusTrip/Offer/availability/ratings; Place is geography, not pickup location.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "SC-hubs",
+      "ledger_disposition": "keep",
+      "destination": "retain schema structure; propagate corrected inputs per per-page contract",
+      "source_location": "`src/lib/seo.ts:91`; /cities/lviv/ and /cities/ivano-frankivsk/",
+      "source_support": "K1; parsed live JSON-LD",
+      "constraints": "List counts represent visible directions, not operated services. Lviv links 3 route pages; IF links 2. Keep exact eligible graph, no automatic publication.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "SC-shared",
+      "ledger_disposition": "keep",
+      "destination": "retain schema structure; propagate corrected inputs per per-page contract",
+      "source_location": "`src/lib/seo.ts:64`; scoped pages",
+      "source_support": "K1/S9; parsed live JSON-LD",
+      "constraints": "Describe actual navigation/site; no new expert, organization registration or special AI schema.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    },
+    {
+      "claim_id": "SC-meta",
+      "ledger_disposition": "keep",
+      "destination": "retain schema structure; propagate corrected inputs per per-page contract",
+      "source_location": "`src/lib/seo.ts:15`; all7 priority pages + guide/About/imprint",
+      "source_support": "Live metadata snapshots and local builder",
+      "constraints": "OG article does not mean verified transport fact. All7 titles/descriptions exact in register; no snippet experiment inferred from property averages.",
+      "evidence_status": "retained/moved coverage or constrained rewrite per ledger"
+    }
+  ]
+}
