@@ -17,7 +17,7 @@ describe("passenger conversion boundaries",()=>{
   expect(html).toContain("Перейти на сайт перевізника");expect(html).toContain('href="https://www.4k-koval.com/');
   expect(html).not.toMatch(/<(input|select|button|form)\b/);expect(html).not.toContain("inquiry-date");
   if(process.env.PASSENGER_MISSINGDESK_HTML){
-   const actions=renderToStaticMarkup(createElement(JourneyActions,{website:"https://www.4k-koval.com/",hasDesk:false,anchorId:"inquiry-anchor",dateInputId:"inquiry-date",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero",content:"lviv-hannover_hero"}));
+   const actions=renderToStaticMarkup(createElement(JourneyActions,{website:"https://www.4k-koval.com/",hasDesk:false,anchorId:"inquiry-anchor",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero",content:"lviv-hannover_hero"}));
    const css=readFileSync("out/routes/lviv-hannover/index.html","utf8").match(/<link[^>]+rel="stylesheet"[^>]*>/g)?.join("")??"";
    writeFileSync(process.env.PASSENGER_MISSINGDESK_HTML,`<!doctype html><html lang="uk"><head><meta charset="utf-8"/>${css}</head><body><main class="container-page"><h1>Перевірка стану без desk</h1>${actions}<div id="inquiry-anchor">${html}</div></main></body></html>`);
   }
@@ -30,7 +30,7 @@ describe("passenger conversion boundaries",()=>{
   for(let n=1;n<=8;n++)expect(html).toContain(`value="${n}"`);expect(html).not.toContain('value="9"');
  });
  it("early actions switch channel by verified desk and preserve the hero mapping",()=>{
-  const props={website:"https://www.4k-koval.com/",hasDesk:false,anchorId:"inquiry-anchor",dateInputId:"inquiry-date",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero" as const,content:"lviv-hannover_hero"};
+  const props={website:"https://www.4k-koval.com/",hasDesk:false,anchorId:"inquiry-anchor",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero" as const,content:"lviv-hannover_hero"};
   const website=renderToStaticMarkup(createElement(JourneyActions,props));expect(website).toContain('data-primary-channel="website"');expect(website).not.toContain('href="#inquiry-anchor"');expect(website).toContain('utm_content=lviv-hannover_hero');
   const whatsapp=renderToStaticMarkup(createElement(JourneyActions,{...props,hasDesk:true}));expect(whatsapp).toContain('data-primary-channel="whatsapp"');expect(whatsapp).toContain('href="#inquiry-anchor"');
  });

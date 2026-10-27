@@ -754,14 +754,14 @@ async function run() {
       await stickyButton.waitFor({ state: "visible" });
       await stickyButton.click();
       ensure(await mobile.locator("#inquiry-date-error").isVisible(), "Missing date was not reported");
-      ensure(await mobile.evaluate(() => document.activeElement?.id) === "inquiry-date", "Missing date did not receive focus");
+      ensure(await mobile.locator("#inquiry-anchor h2").evaluate((element) => document.activeElement === element), "Missing date did not return focus to the inquiry heading");
       ensure(await mobile.evaluate(() => window.__pocOpenedUrls.length) === 0, "An incomplete request opened a handoff");
 
       await mobile.locator("#inquiry-date").fill("2020-01-01");
       await mobile.locator("#inquiry-phone").fill("invalid-phone");
       await mobile.getByRole("button", { name: "Уточнити поїздку в WhatsApp" }).click();
       ensure(await mobile.locator("#inquiry-date-error").isVisible(), "Past date was not rejected");
-      ensure(await mobile.evaluate(() => document.activeElement?.id) === "inquiry-date", "Past date did not receive focus");
+      ensure(await mobile.locator("#inquiry-anchor h2").evaluate((element) => document.activeElement === element), "Past date did not return focus to the inquiry heading");
       ensure(await mobile.evaluate(() => window.__pocOpenedUrls.length) === 0, "A past-date request opened a handoff");
 
       await mobile.locator("#inquiry-date").fill("2030-12-31");
@@ -770,7 +770,7 @@ async function run() {
       ensure(await mobile.locator("#inquiry-phone-error").isVisible(), "Invalid phone was not reported");
       ensure(await mobile.evaluate(() => document.activeElement?.id) === "inquiry-phone", "Invalid phone did not receive focus");
       ensure(await mobile.evaluate(() => window.__pocOpenedUrls.length) === 0, "An invalid-phone request opened a handoff");
-      return { blockedSubmissions: 3, focusedFields: ["inquiry-date", "inquiry-date", "inquiry-phone"] };
+      return { blockedSubmissions: 3, focusedTargets: ["inquiry heading", "inquiry heading", "inquiry-phone"] };
     });
 
     await runCheck("route A → reverse → A counts the revisit", async () => {

@@ -43,11 +43,12 @@ export function InquiryProvider({
       const validation = validateInquiry({ travelDate, phone, passengers });
       if (!validation.ok) {
         setErrors(validation.errors);
-        const firstField = document.getElementById(
-          validation.errors.travelDate ? "inquiry-date" : validation.errors.passengers ? "inquiry-passengers" : "inquiry-phone",
-        );
-        firstField?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "center" });
-        firstField?.focus({ preventScroll: true });
+        // Date errors return to the form without programmatically opening iOS's calendar.
+        const focusTarget = validation.errors.travelDate
+          ? document.querySelector<HTMLElement>("#inquiry-anchor h2")
+          : document.getElementById(validation.errors.passengers ? "inquiry-passengers" : "inquiry-phone");
+        focusTarget?.scrollIntoView({ behavior: "instant", block: "start" });
+        focusTarget?.focus({ preventScroll: true });
         return;
       }
 

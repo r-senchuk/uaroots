@@ -41,7 +41,7 @@ export function CandidateInquiry({
     const validation = validateInquiry({ travelDate, phone, passengers });
     if (!validation.ok) {
       setErrors(validation.errors);
-      document.getElementById(validation.errors.travelDate ? dateId : validation.errors.passengers ? passengerId : phoneId)?.focus();
+      document.getElementById(validation.errors.travelDate ? `${idPrefix}-candidate-inquiry-title` : validation.errors.passengers ? passengerId : phoneId)?.focus();
       return;
     }
     setErrors({});
@@ -67,13 +67,12 @@ export function CandidateInquiry({
   return (
     <section id={anchorId} className="border border-border-strong bg-card p-3 sm:p-6" aria-labelledby={`${idPrefix}-candidate-inquiry-title`}>
       <p className="type-label text-muted-foreground">Запит перевізнику</p>
-      <h2 id={`${idPrefix}-candidate-inquiry-title`} className="mt-3 type-h2">{origin.name} → {destination.name}</h2>
+      <h2 id={`${idPrefix}-candidate-inquiry-title`} tabIndex={-1} className="mt-3 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2">{origin.name} → {destination.name}</h2>
       {koval ? (
         <JourneyActions
           website={koval.website}
           hasDesk={hasDesk}
           anchorId={anchorId}
-          dateInputId={dateId}
           originCityId={origin.id}
           destinationCityId={destination.id}
           sourcePath={sourcePath}
@@ -98,7 +97,7 @@ export function CandidateInquiry({
           <input id={dateId} type="date" required min={today} value={travelDate}
             onChange={(event) => setTravelDate(event.target.value)} aria-invalid={Boolean(errors.travelDate)} aria-describedby={errors.travelDate ? dateErrorId : undefined}
             className={`mt-2 ${fieldClass}`} />
-          {errors.travelDate ? <p id={dateErrorId} className="mt-2 text-sm text-destructive">{errors.travelDate}</p> : null}
+          {errors.travelDate ? <p id={dateErrorId} role="alert" className="mt-2 text-sm text-destructive">{errors.travelDate}</p> : null}
         </div>
         <div>
           <label htmlFor={passengerId} className="text-sm font-medium text-muted-foreground">Пасажирів</label>

@@ -10,7 +10,6 @@ export function JourneyActions({
   website,
   hasDesk,
   anchorId,
-  dateInputId,
   originCityId,
   destinationCityId,
   sourcePath,
@@ -21,7 +20,6 @@ export function JourneyActions({
   website: string;
   hasDesk: boolean;
   anchorId: string;
-  dateInputId: string;
   originCityId: string;
   destinationCityId: string;
   sourcePath: string;
@@ -31,12 +29,13 @@ export function JourneyActions({
 }) {
   function focusInquiry(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
-    const dateInput = document.getElementById(dateInputId);
-    dateInput?.scrollIntoView({
+    const heading = document.getElementById(anchorId)?.querySelector<HTMLElement>("h2");
+    // Let the passenger open the native calendar with a direct tap.
+    heading?.scrollIntoView({
       block: "start",
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      behavior: "instant",
     });
-    dateInput?.focus({ preventScroll: true });
+    heading?.focus({ preventScroll: true });
   }
 
   return (

@@ -30,7 +30,7 @@ export function BookingWidget() {
   return (
     <section className="border border-border-strong bg-card p-3 sm:p-6">
       <p className="type-label text-muted-foreground">Запит перевізнику</p>
-      <h2 className="mt-3 type-h2">Уточнити поїздку</h2>
+      <h2 tabIndex={-1} className="mt-3 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2">Уточнити поїздку</h2>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
         <span className="font-mono text-xs uppercase tracking-[0.16em] text-foreground">
@@ -78,7 +78,7 @@ export function BookingWidget() {
             className={`mt-2 ${fieldClass}`}
           />
           {errors.travelDate ? (
-            <p id="inquiry-date-error" className="mt-2 text-sm text-destructive">
+            <p id="inquiry-date-error" role="alert" className="mt-2 text-sm text-destructive">
               {errors.travelDate}
             </p>
           ) : null}

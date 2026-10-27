@@ -84,7 +84,6 @@ export default async function RoutePage({ params }: PageProps) {
                   website={carrier.website}
                   hasDesk={hasDesk}
                   anchorId="inquiry-anchor"
-                  dateInputId="inquiry-date"
                   originCityId={route.origin.id}
                   destinationCityId={route.destination.id}
                   sourcePath={`/routes/${route.slug}/`}
