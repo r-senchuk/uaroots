@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-10-27",
   "scope": {
     "project": "uaroute",
     "resources": [
@@ -177,19 +177,21 @@
     }
   ],
   "next_task": {
-    "summary": "Submit GSC priority URL re-indexing requests for 5 updated pages, execute approved community placements, and monitor weekly GA4 telemetry (target: Oct 31).",
-    "contract": "docs/Marketing/SEO/community-placements-2026-10-25.md",
-    "publication_state": "deployed",
+    "summary": "S01 and S02 ready with explicit unknowns; use accepted seven-page baseline, claims ledger and passenger-needs brief for S03 intent architecture, then S04 copy recommendations. No application implementation or publication.",
+    "contract": "docs/Marketing/SEO/mitigation-2026-10/search-baseline.md",
+    "publication_state": "local-only",
     "blockers": [
-      "Real Google ingestion/processed conversion attribution and operator inquiry receipt remain unverified.",
-      "Ads setup readiness is dated October22, not re-certified; Manual CPC and configured budget versus actual spend cap require resolution before any launch.",
-      "Usability and native browser zoom/broader real-device accessibility checks remain pending."
+      "October27 signed-in GSC inspection covered all seven URLs and property/query comparison; browser access then disabled. Page-level performance and Google AI/Bing visibility remain unknown. Obtain the smallest exports specified in search-baseline; do not retry GSC Wizard.",
+      "Community placement drafts require factual and directional correction before use; their prior reviewed label is not current acceptance.",
+      "Current post-normalization production acquisition, field performance and real operator receipt remain unverified; do not treat historical direct/direct events as proof of an unfixed defect."
     ],
     "boundaries": [
-      "The deployed application is 87a05ca; live site uaroute.com serves Step 2 enrichments.",
-      "No advertising activation, spend change, external posting/contact, account mutation or other-repository publication is authorized by this record.",
-      "Preserve private untracked settings; selectively recheck dated provider observations before dependent actions.",
-      "Owner executes GSC URL inspections and manual community postings using approved UTM parameters."
+      "The local-only state describes this mitigation specification/session package, not a rollback or new verification of the deployed website. Existing dated release observations remain unchanged.",
+      "S01/S02 documentation research used two authorized Luna/high specialists and coordinator verification. Vibe grant registration refused before start; no Vibe run. No application changes, commits, push, deployment, outreach or account mutation.",
+      "Follow constitution42: preserve Lviv-Hannover, two priority UA hubs and four priority pair pages; preserve all current IDs, eligibility, desks, inline pairs and referral/privacy contracts.",
+      "Actual implementation belongs to a later requested Next.js expert session S08 after the accepted S07 manifest. Release and distribution retain their separate authorization gates.",
+      "Preserve unrelated local KB work. Recheck only the source/provider state needed before the next dependent action.",
+      "Separate pre-existing tracks remain open: Ads readiness/spend-cap clarification and human usability/native zoom/real-device execution. This planning handoff does not complete or authorize those tracks."
     ]
   }
 }

@@ -1,0 +1,59 @@
+{
+  "observed_at": "2026-10-27",
+  "public_records": [
+    {
+      "url": "https://uaroute.com/routes/lviv-hannover/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    },
+    {
+      "url": "https://uaroute.com/cities/lviv/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    },
+    {
+      "url": "https://uaroute.com/cities/ivano-frankivsk/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    },
+    {
+      "url": "https://uaroute.com/routes/lviv-celle/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    },
+    {
+      "url": "https://uaroute.com/routes/celle-lviv/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    },
+    {
+      "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    },
+    {
+      "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+      "body_hash_title_h1_canonical": "pass",
+      "x_robots_tag": "absent",
+      "http_status_recorded": 200
+    }
+  ],
+  "preserved_preexisting_files": {
+    "docs/Marketing/SEO/community-placements-2026-10-25.md": true,
+    "docs/Marketing/SEO/priority-acquisition-increment-2026-10-24.md": true,
+    "docs/Marketing/SEO/mitigation-sessions-2026-10-27.md": true,
+    "docs/Marketing/SEO/mitigation-spec-2026-10-27.md": true
+  },
+  "historical_observations_unchanged": true,
+  "application_diff_empty": true,
+  "staging_empty": true,
+  "docs_index": "pass: 40 concepts, 10 directory indexes",
+  "docs_check": "pass: 404 local file links / 55 Markdown files; anchors and external links not checked",
+  "state_check": "pass: 8 dated observations; no live-state recertification"
+}

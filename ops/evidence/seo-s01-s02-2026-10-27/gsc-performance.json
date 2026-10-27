@@ -1,0 +1,135 @@
+{
+  "observed_at": "2026-10-27",
+  "method": "coordinator signed-in Chrome UI transcription, not raw export",
+  "property": "sc-domain:uaroute.com",
+  "search_type": "Web",
+  "current": [
+    "2026-09-27",
+    "2026-10-24"
+  ],
+  "previous": [
+    "2026-08-30",
+    "2026-09-26"
+  ],
+  "timezone": "Pacific Time; report dates retained, not converted to observer Europe/Warsaw",
+  "date_change": false,
+  "preliminary_warning_observed": false,
+  "last_update_display": "4 hours ago",
+  "totals": {
+    "current": {
+      "clicks": 0,
+      "impressions": 100,
+      "ctr_percent": 0,
+      "average_position": 54
+    },
+    "previous": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr_percent": 0,
+      "average_position": 4
+    }
+  },
+  "query_rows": [
+    {
+      "query": "львів ганновер",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 18,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 48.2,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "автобус львів ганновер",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 17,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 62.4,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "львів ганновер автобус",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 16,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 67,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "львов ганновер",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 14,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 66.6,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "автобус львов ганновер",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 11,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 67.1,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "ганновер львів",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 2,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 54.5,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "маршрути",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 1,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 36,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    },
+    {
+      "query": "львов ганновер автобус",
+      "current_clicks": 0,
+      "previous_clicks": 0,
+      "current_impressions": 1,
+      "previous_impressions": 0,
+      "current_ctr_percent": 0,
+      "current_average_position": 66,
+      "previous_average_position": null,
+      "note": "UI displays prior position 0 with no impressions; semantically unavailable"
+    }
+  ],
+  "scope": "property-level unfiltered query rows, NOT seven page-filtered rows",
+  "unknown": [
+    "all seven page metrics",
+    "page-filtered queries",
+    "country breakdown",
+    "device breakdown",
+    "AI impressions",
+    "AI inclusion setting",
+    "Bing citations and property access"
+  ],
+  "ai_navigation": "Google Search generative AI report link visible; report not opened before browser disabled",
+  "interruption": "On resume local browser use disabled in Work settings. No permission/authentication/account changes attempted.",
+  "limitations": "No finality export. No warning observed but data may revise. UI chart accessibility label said Invalid Date/1970 while selected dates and metric cards showed correct periods. Missing/anonymized queries are not zero demand. No aggregate summation or average-of-averages."
+}

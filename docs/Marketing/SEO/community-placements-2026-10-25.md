@@ -7,6 +7,8 @@ tags: [uaroute, marketing, seo, distribution, utm, gsc]
 
 # Community placements and GSC re-indexing package
 
+**Review hold — 27 October 2026:** these are historical prepared drafts, not publication-ready approved copy. Placement 3's direct-service and plural-carrier wording conflicts with the current constitution, and its return-oriented audience does not match the outbound Hannover destination. All three drafts require the factual/directional review in [mitigation session S04](mitigation-sessions-2026-10-27.md#6-s04--ukrainian-copywriting-and-editorial-review) before use. The “Reviewed Copy” headings below record the original draft label, not renewed acceptance. The GSC sequence is also historical: inspect current state and prior requests before any separately authorized submission. No posting or request is authorized by this document.
+
 Parent: [Marketing/SEO](index.md).
 Contract: [Next acquisition increment — existing pages and passenger journey](priority-acquisition-increment-2026-10-24.md).
 

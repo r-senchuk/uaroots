@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-27",
+  "task": "Read the immutable quoted prepared input docs/Marketing/SEO/mitigation-2026-10/passenger-evidence.md first. It is supplied in the task context, not overlaid into your worktree. Do not read other files.\nYou share this codebase. Preserve other workers’ and pre-existing changes. Edit only your assigned files. Do not overwrite another worker’s output.\nThen create only docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md.\nChange: write a concise Ukrainian S02 research planning brief (about 900 words maximum) with YAML frontmatter type: Research, title, description, tags. Include scope/date and limitations; a directional needs matrix with at least 10 rows covering actual locality, departure, arrival, onward connections, baggage, bicycle, transfers, return, changed plans, contact without known date and contact without WhatsApp. Each row must have direction, passenger question, evidence-supported/contract-required/hypothesis class, existing coverage, gap, resource/source, and operational boundary. Evidence-supported describes existing content, not researched demand. Cite the frozen passenger-evidence.md using a relative link and retain relevant source references/URLs.\nInclude short Ukrainian question candidates explicitly recommendations for S04, not approved/public copy, and unresolved research questions. Preserve useful geography; no pickup promise, forced hub travel, direct/no-transfer assertion, numeric buffer, new routes, booking or operational precision. Source dates are observations, not new public review dates. No interviews or carrier confirmations. No invented cost/outcome.\nNo shell, network or test execution. Coordinator validates evidence traceability, full needs coverage and documentation links.\nFinal answer: what changed, then inventory of changed and scratch files.",
+  "task_sha256": "b75ba78383e59cee4eeee177647e7a8ac570956f3abc16189a7a7c26c07a657e",
+  "source_head": "41c538149bd715a97c961ee6ca9db0fc6eac0a21",
+  "input_manifest": {
+    "schema_version": 1,
+    "owner": "vibe-supervisor-task-inputs",
+    "source": "/Users/roman/src/github.com/r-senchuk/uaroots",
+    "base_commit": "41c538149bd715a97c961ee6ca9db0fc6eac0a21",
+    "files": [
+      {
+        "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-evidence.md",
+        "sha256": "3498b45393d3d7715a91a1069492a037bf6b54da18c38a0157b4d2e10dfdcf0a",
+        "bytes": 13391,
+        "provenance": "untracked"
+      }
+    ],
+    "dirty_overlay_sha256": "08667974b516c1fd3913842a9f7505933d3e7151a83914c2467a1cb69cd910cc",
+    "allowed_output_paths": [
+      "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+    ],
+    "contract_sha256": "4676d845400c1758f672e3410915d263af63b26b5d350f11d8af24515c0ac320",
+    "policy_sha256": "105277bfd3e360b4610c4a8325cb0bd75b17219b596e1e2157a69cac8366c003",
+    "total_files": 1,
+    "total_bytes": 13391,
+    "token_count": null,
+    "manifest_sha256": "a9c08834f394268ec80d496cd00d6bd68e80db13822b767473358e332bb942ed"
+  },
+  "task_characters": 1806,
+  "approximate_task_tokens": 452,
+  "approximate_input_tokens": 3318,
+  "estimation_method": "Unicode characters / 4, rounded; heuristic only, not provider usage",
+  "allowed_output_paths": [
+    "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+  ],
+  "acceptance_contract": {
+    "schema_version": 1,
+    "allowed_changed_paths": [
+      "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+    ],
+    "required_changed_paths": [
+      "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+    ],
+    "checks": [
+      {
+        "id": "exists",
+        "kind": "file_exists",
+        "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+      },
+      {
+        "id": "frontmatter",
+        "kind": "text_contains",
+        "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md",
+        "value": "type: Research"
+      },
+      {
+        "id": "s04",
+        "kind": "text_contains",
+        "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md",
+        "value": "S04"
+      }
+    ],
+    "required_validations": [
+      "evidence-traceability",
+      "needs-coverage",
+      "docs-check"
+    ]
+  },
+  "request_sha256": "98b5d8d0ffb79a3e0ba6b83e2b7d5dc836b5e1dc60edc272fb3ab4baba6a4624",
+  "mechanism": "Prepared input quoted in initial task context, not overlaid into committed worktree; preparation succeeded but no worker received it."
+}

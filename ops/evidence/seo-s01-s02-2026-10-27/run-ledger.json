@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-27",
+  "source_head": "41c538149bd715a97c961ee6ca9db0fc6eac0a21",
+  "baseline_record": "ignored output/seo-geo-mitigation-2026-10/s01-s02/private/baseline.json",
+  "baseline_sha256": "50f22c2011c89d80c3723757a60a0e1430f80e7cad33bb11534f5550df52e7a5",
+  "historical_observations_sha256_before_next_task_edit": "995133ea26369334612bc0d5ed1df20db6abbfc0408913718e219464f50fcd84",
+  "supervisor": {
+    "candidate": "599a2a16a046f539bf286c0aab3ee81952db95bdb13ac2f8efd106e92c8194a3",
+    "version": "2.2.0",
+    "runtime": "/Users/roman/.nvm/versions/node/v24.21.0/bin/node",
+    "pinned_worker": "3.0.2",
+    "worker_version_verified": false,
+    "worker_model": null,
+    "worker_reasoning": null,
+    "preparation": "PASS",
+    "final_slot": "free",
+    "configuration_changes": false
+  },
+  "execution": {
+    "authorized_start_ceiling": 1,
+    "turn_ceiling": 12,
+    "seconds_ceiling": 180,
+    "grant_registrations": 1,
+    "grant_error": "VSUP_AUTHORIZATION_INVALID",
+    "safe_differing_fields": null,
+    "start_attempts": 0,
+    "created_runs": 0,
+    "known_vibe_model_calls": 0,
+    "run_id": null,
+    "worker_turns": null,
+    "worker_tool_calls": null,
+    "worker_duration_seconds": null,
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "cost": null,
+    "cost_status": "unavailable",
+    "stop_reason": "grant registration refusal before dispatch"
+  },
+  "context": {
+    "schema_version": 1,
+    "observed_at": "2026-10-27",
+    "task": "Read the immutable quoted prepared input docs/Marketing/SEO/mitigation-2026-10/passenger-evidence.md first. It is supplied in the task context, not overlaid into your worktree. Do not read other files.\nYou share this codebase. Preserve other workers’ and pre-existing changes. Edit only your assigned files. Do not overwrite another worker’s output.\nThen create only docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md.\nChange: write a concise Ukrainian S02 research planning brief (about 900 words maximum) with YAML frontmatter type: Research, title, description, tags. Include scope/date and limitations; a directional needs matrix with at least 10 rows covering actual locality, departure, arrival, onward connections, baggage, bicycle, transfers, return, changed plans, contact without known date and contact without WhatsApp. Each row must have direction, passenger question, evidence-supported/contract-required/hypothesis class, existing coverage, gap, resource/source, and operational boundary. Evidence-supported describes existing content, not researched demand. Cite the frozen passenger-evidence.md using a relative link and retain relevant source references/URLs.\nInclude short Ukrainian question candidates explicitly recommendations for S04, not approved/public copy, and unresolved research questions. Preserve useful geography; no pickup promise, forced hub travel, direct/no-transfer assertion, numeric buffer, new routes, booking or operational precision. Source dates are observations, not new public review dates. No interviews or carrier confirmations. No invented cost/outcome.\nNo shell, network or test execution. Coordinator validates evidence traceability, full needs coverage and documentation links.\nFinal answer: what changed, then inventory of changed and scratch files.",
+    "task_sha256": "b75ba78383e59cee4eeee177647e7a8ac570956f3abc16189a7a7c26c07a657e",
+    "source_head": "41c538149bd715a97c961ee6ca9db0fc6eac0a21",
+    "input_manifest": {
+      "schema_version": 1,
+      "owner": "vibe-supervisor-task-inputs",
+      "source": "/Users/roman/src/github.com/r-senchuk/uaroots",
+      "base_commit": "41c538149bd715a97c961ee6ca9db0fc6eac0a21",
+      "files": [
+        {
+          "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-evidence.md",
+          "sha256": "3498b45393d3d7715a91a1069492a037bf6b54da18c38a0157b4d2e10dfdcf0a",
+          "bytes": 13391,
+          "provenance": "untracked"
+        }
+      ],
+      "dirty_overlay_sha256": "08667974b516c1fd3913842a9f7505933d3e7151a83914c2467a1cb69cd910cc",
+      "allowed_output_paths": [
+        "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+      ],
+      "contract_sha256": "4676d845400c1758f672e3410915d263af63b26b5d350f11d8af24515c0ac320",
+      "policy_sha256": "105277bfd3e360b4610c4a8325cb0bd75b17219b596e1e2157a69cac8366c003",
+      "total_files": 1,
+      "total_bytes": 13391,
+      "token_count": null,
+      "manifest_sha256": "a9c08834f394268ec80d496cd00d6bd68e80db13822b767473358e332bb942ed"
+    },
+    "task_characters": 1806,
+    "approximate_task_tokens": 452,
+    "approximate_input_tokens": 3318,
+    "estimation_method": "Unicode characters / 4, rounded; heuristic only, not provider usage",
+    "allowed_output_paths": [
+      "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+    ],
+    "acceptance_contract": {
+      "schema_version": 1,
+      "allowed_changed_paths": [
+        "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+      ],
+      "required_changed_paths": [
+        "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+      ],
+      "checks": [
+        {
+          "id": "exists",
+          "kind": "file_exists",
+          "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md"
+        },
+        {
+          "id": "frontmatter",
+          "kind": "text_contains",
+          "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md",
+          "value": "type: Research"
+        },
+        {
+          "id": "s04",
+          "kind": "text_contains",
+          "path": "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md",
+          "value": "S04"
+        }
+      ],
+      "required_validations": [
+        "evidence-traceability",
+        "needs-coverage",
+        "docs-check"
+      ]
+    },
+    "request_sha256": "98b5d8d0ffb79a3e0ba6b83e2b7d5dc836b5e1dc60edc272fb3ab4baba6a4624",
+    "mechanism": "Prepared input quoted in initial task context, not overlaid into committed worktree; preparation succeeded but no worker received it."
+  },
+  "assessment": {
+    "execution_state": "infrastructure-blocked",
+    "verification_result": "no Vibe artifact to verify",
+    "acceptance_decision": "Vibe not applicable; coordinator-integrated research accepted with explicit unknowns",
+    "research_completeness": {
+      "gsc_inspections": {
+        "covered": 7,
+        "total": 7
+      },
+      "public_pages": {
+        "covered": 7,
+        "total": 7
+      },
+      "page_performance": {
+        "covered": 0,
+        "total": 7
+      },
+      "community_drafts": {
+        "covered": 3,
+        "total": 3
+      },
+      "passenger_rows": {
+        "reviewed": 12,
+        "total": 12
+      }
+    },
+    "vibe_usefulness": "preparation mechanism exercised; implementation usefulness untested",
+    "observed_vibe_reads": [],
+    "demonstrated_vibe_facts": null,
+    "original_vibe_patch_sha256": null,
+    "vibe_changed_paths": []
+  },
+  "fallback": {
+    "model": "gpt-6-luna",
+    "reasoning": "high",
+    "provenance": "requested specialist dispatch settings",
+    "original_sha256": "a267bc45d137659e4fb1597a155153547c1f6073403b02ef11a05d416a9c66a9",
+    "corrections": [
+      "relative documentation links",
+      "review-date wording",
+      "narrowed unverified storage assertion"
+    ],
+    "usage_tokens": null,
+    "cost": null
+  },
+  "artifacts": {
+    "docs/Marketing/SEO/mitigation-2026-10/claims-ledger.md": {
+      "sha256": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b",
+      "bytes": 109277
+    },
+    "docs/Marketing/SEO/mitigation-2026-10/index.md": {
+      "sha256": "d22c9c4be31aeba89a6787a151d447c3f7568c18e06fd0471e53a8af5ef2a23a",
+      "bytes": 1311
+    },
+    "docs/Marketing/SEO/mitigation-2026-10/passenger-evidence.md": {
+      "sha256": "3498b45393d3d7715a91a1069492a037bf6b54da18c38a0157b4d2e10dfdcf0a",
+      "bytes": 13391
+    },
+    "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md": {
+      "sha256": "60c763a9f43b7f0db06e5ab2279d582c1cf8a3f2e7decf11ac69e32d3828d3fd",
+      "bytes": 13800
+    },
+    "docs/Marketing/SEO/mitigation-2026-10/search-baseline.md": {
+      "sha256": "666ee8e5a21baaa994e2bd79d8166435257bc0a4341978886e223f140f9df096",
+      "bytes": 22230
+    },
+    "docs/Marketing/SEO/mitigation-2026-10/session-experience.md": {
+      "sha256": "3243abd838cc086e5ec4c84eeb48d426d6636607a0605f788d5a3fa63104a963",
+      "bytes": 5259
+    }
+  },
+  "checks": {
+    "observed_at": "2026-10-27",
+    "public_records": [
+      {
+        "url": "https://uaroute.com/routes/lviv-hannover/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      },
+      {
+        "url": "https://uaroute.com/cities/lviv/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      },
+      {
+        "url": "https://uaroute.com/cities/ivano-frankivsk/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-celle/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      },
+      {
+        "url": "https://uaroute.com/routes/celle-lviv/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      },
+      {
+        "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      },
+      {
+        "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+        "body_hash_title_h1_canonical": "pass",
+        "x_robots_tag": "absent",
+        "http_status_recorded": 200
+      }
+    ],
+    "preserved_preexisting_files": {
+      "docs/Marketing/SEO/community-placements-2026-10-25.md": true,
+      "docs/Marketing/SEO/priority-acquisition-increment-2026-10-24.md": true,
+      "docs/Marketing/SEO/mitigation-sessions-2026-10-27.md": true,
+      "docs/Marketing/SEO/mitigation-spec-2026-10-27.md": true
+    },
+    "historical_observations_unchanged": true,
+    "application_diff_empty": true,
+    "staging_empty": true,
+    "docs_index": "pass: 40 concepts, 10 directory indexes",
+    "docs_check": "pass: 404 local file links / 55 Markdown files; anchors and external links not checked",
+    "state_check": "pass: 8 dated observations; no live-state recertification"
+  },
+  "cleanup": {
+    "worker_worktree": "none created",
+    "slot": "free",
+    "prepared_bundle": "durable ignored copy retained; original temporary preparation bundle retained for diagnostics"
+  },
+  "evidence": {
+    "ops/evidence/seo-s01-s02-2026-10-27/gsc-inspections.json": "10c740b53ea08a6c876825b9367395f0b6b87b9ae2a1971d258dd48cc27f3fb1",
+    "ops/evidence/seo-s01-s02-2026-10-27/gsc-performance.json": "5910b69f4ffeeec3a2543c3933eff957bab9d603bafcb2f774d82c36d185262e",
+    "ops/evidence/seo-s01-s02-2026-10-27/public-http.json": "6c12ef88a0cd5b563099642f457b665483165581a521bbc5f3008e79766e37ba",
+    "ops/evidence/seo-s01-s02-2026-10-27/schema-observations.json": "45c5ece916434880af0847440a1859c7d1615ac6674daa9055c6063963cd73e4",
+    "ops/evidence/seo-s01-s02-2026-10-27/task-input-manifest.json": "fb365330def9879d96ed3b973e6b950cba0e774c47ce7039ef92d73866696ef7",
+    "ops/evidence/seo-s01-s02-2026-10-27/verification.json": "41f120105d8e3337a840e357b29e648416fc5470d3f5d3094d44f3bf74126574"
+  }
+}

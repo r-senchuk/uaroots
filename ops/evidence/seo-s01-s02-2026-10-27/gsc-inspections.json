@@ -1,0 +1,121 @@
+{
+  "observed_at": "2026-10-27",
+  "observer_timezone": "Europe/Warsaw",
+  "crawl_display_timezone": "not labelled in UI; retained verbatim without conversion",
+  "property": "sc-domain:uaroute.com",
+  "method": "coordinator transcription of signed-in Chrome stored URL Inspection accessibility text; not live test or raw export",
+  "limitations": "No indexing request or live test performed. Sitemap processing error is per inspection UI, not proof of invalid sitemap. None detected referrer does not mean no inbound links.",
+  "rows": [
+    {
+      "path": "/routes/lviv-hannover/",
+      "result": "URL is on Google",
+      "reason": "Page is indexed",
+      "last_crawl_display": "Oct 26, 2026, 2:47:10 PM",
+      "crawler": "Googlebot smartphone",
+      "crawl_allowed": true,
+      "fetch": "Successful",
+      "indexing_allowed": true,
+      "declared_canonical": "https://uaroute.com/routes/lviv-hannover/",
+      "google_canonical": "Inspected URL",
+      "sitemap": "Temporary processing error",
+      "referring_pages": [
+        "https://uaroute.com/routes/braunschweig-dolyna/",
+        "https://uaroute.com/contact"
+      ]
+    },
+    {
+      "path": "/cities/lviv/",
+      "result": "URL is on Google",
+      "reason": "Page is indexed",
+      "last_crawl_display": "Oct 20, 2026, 9:21:10 PM",
+      "crawler": "Googlebot smartphone",
+      "crawl_allowed": true,
+      "fetch": "Successful",
+      "indexing_allowed": true,
+      "declared_canonical": "https://uaroute.com/cities/lviv/",
+      "google_canonical": "Inspected URL",
+      "sitemap": "Temporary processing error",
+      "referring_pages": [
+        "https://uaroute.com/routes/celle-lviv/"
+      ]
+    },
+    {
+      "path": "/cities/ivano-frankivsk/",
+      "result": "URL is on Google",
+      "reason": "Page is indexed",
+      "last_crawl_display": "Oct 20, 2026, 9:23:08 PM",
+      "crawler": "Googlebot smartphone",
+      "crawl_allowed": true,
+      "fetch": "Successful",
+      "indexing_allowed": true,
+      "declared_canonical": "https://uaroute.com/cities/ivano-frankivsk/",
+      "google_canonical": "Inspected URL",
+      "sitemap": "https://uaroute.com/sitemap.xml",
+      "referring_pages": []
+    },
+    {
+      "path": "/routes/lviv-celle/",
+      "result": "URL is on Google",
+      "reason": "Page is indexed",
+      "last_crawl_display": "Oct 26, 2026, 2:47:09 PM",
+      "crawler": "Googlebot smartphone",
+      "crawl_allowed": true,
+      "fetch": "Successful",
+      "indexing_allowed": true,
+      "declared_canonical": "https://uaroute.com/routes/lviv-celle/",
+      "google_canonical": "Inspected URL",
+      "sitemap": "Temporary processing error",
+      "referring_pages": [
+        "https://uaroute.com/privacy/"
+      ]
+    },
+    {
+      "path": "/routes/celle-lviv/",
+      "result": "URL is on Google",
+      "reason": "Page is indexed",
+      "last_crawl_display": "Oct 21, 2026, 8:34:28 PM",
+      "crawler": "Googlebot smartphone",
+      "crawl_allowed": true,
+      "fetch": "Successful",
+      "indexing_allowed": true,
+      "declared_canonical": "https://uaroute.com/routes/celle-lviv/",
+      "google_canonical": "Inspected URL",
+      "sitemap": "https://uaroute.com/sitemap.xml",
+      "referring_pages": [
+        "https://uaroute.com/routes/dolyna-braunschweig/"
+      ]
+    },
+    {
+      "path": "/routes/ivano-frankivsk-wolfsburg/",
+      "result": "URL is not on Google",
+      "reason": "Discovered - currently not indexed",
+      "last_crawl_display": "N/A",
+      "crawler": "N/A",
+      "crawl_allowed": null,
+      "fetch": "N/A",
+      "indexing_allowed": null,
+      "declared_canonical": "N/A",
+      "google_canonical": "N/A",
+      "sitemap": "https://uaroute.com/sitemap.xml",
+      "referring_pages": [
+        "https://uaroute.com/routes/dolyna-braunschweig/"
+      ]
+    },
+    {
+      "path": "/routes/wolfsburg-ivano-frankivsk/",
+      "result": "URL is not on Google",
+      "reason": "Discovered - currently not indexed",
+      "last_crawl_display": "N/A",
+      "crawler": "N/A",
+      "crawl_allowed": null,
+      "fetch": "N/A",
+      "indexing_allowed": null,
+      "declared_canonical": "N/A",
+      "google_canonical": "N/A",
+      "sitemap": "https://uaroute.com/sitemap.xml",
+      "referring_pages": [
+        "https://uaroute.com/routes/dolyna-braunschweig/"
+      ]
+    }
+  ]
+}

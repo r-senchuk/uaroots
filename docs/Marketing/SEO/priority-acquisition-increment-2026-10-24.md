@@ -7,6 +7,8 @@ tags: [uaroute, marketing, seo, acquisition, implementation]
 
 # Next acquisition increment
 
+**Preparation update — 27 October 2026:** the [SEO/GEO mitigation specification](mitigation-spec-2026-10-27.md) and [individual session briefs](mitigation-sessions-2026-10-27.md) detail the next evidence, factual-copy, design and Next.js delivery work under this contract. Preserve this document's Hannover-first lane and seven-URL register. The new preparation does not authorize publication or repeat already completed passenger remediation.
+
 Decision date: 24 October 2026. Updated after production release: the first passenger package is completed and deployed as dac7e98; acquisition/measurement gates remain open. Current sequencing is consolidated in the [actualized strategy](../../Product/development-strategy-2026-10-24.md). Authority: [constitution §42](../../00-project-constitution.md#42-existing-page-acquisition-and-conversion-priority-2026-10-24). This is an execution contract, not a claim that traffic or conversions have improved.
 
 ## 1. First package: make existing discovery and contact work reliably

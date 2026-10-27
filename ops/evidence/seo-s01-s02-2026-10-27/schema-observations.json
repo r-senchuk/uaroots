@@ -1,0 +1,796 @@
+{
+  "observed_at": "2026-10-27",
+  "method": "coordinator parsed application/ld+json from retained HTTP HTML; not rendered browser or Rich Results test",
+  "records": [
+    {
+      "file": "s01/raw/01-lviv-hannover.body",
+      "sha256": "50f31dd334e17b82246c1918a883dd14238fadcaf5d4fdde3c16385df69bd585",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Львів → Ганновер",
+              "item": "https://uaroute.com/routes/lviv-hannover/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/lviv-hannover/#webpage",
+              "url": "https://uaroute.com/routes/lviv-hannover/",
+              "name": "Львів → Ганновер",
+              "description": "Львів — Ганновер: поїздка до Нижньої Саксонії. Зверніться до перевізника, щоб узгодити виїзд зі Львова, точну зупинку в Ганновері та перевезення багажу.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": [
+                {
+                  "@id": "https://uaroute.com/routes/lviv-hannover/#origin"
+                },
+                {
+                  "@id": "https://uaroute.com/routes/lviv-hannover/#destination"
+                }
+              ]
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/lviv-hannover/#origin",
+              "name": "Львів"
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/lviv-hannover/#destination",
+              "name": "Ганновер"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01/raw/02-lviv.body",
+      "sha256": "003229deb0fb4e53b82379a9629e34510cc7ea8a5e8af55cd78f1efdc786e72b",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Львів",
+              "item": "https://uaroute.com/cities/lviv/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "CollectionPage",
+              "@id": "https://uaroute.com/cities/lviv/#webpage",
+              "url": "https://uaroute.com/cities/lviv/",
+              "name": "Поїздки зі Львова до Німеччини та назад | UARoute",
+              "description": "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": {
+                "@id": "https://uaroute.com/cities/lviv/#place"
+              },
+              "mainEntity": {
+                "@id": "https://uaroute.com/cities/lviv/#directions"
+              }
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/cities/lviv/#place",
+              "name": "Львів"
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://uaroute.com/cities/lviv/#directions",
+              "name": "Напрямки Львів",
+              "itemListOrder": "https://schema.org/ItemListOrderAscending",
+              "numberOfItems": 3,
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://uaroute.com/routes/lviv-hannover/#webpage"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://uaroute.com/routes/lviv-celle/#webpage"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://uaroute.com/routes/celle-lviv/#webpage"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/lviv-hannover/#webpage",
+              "url": "https://uaroute.com/routes/lviv-hannover/",
+              "name": "Львів → Ганновер",
+              "description": "Львів — Ганновер: поїздка до Нижньої Саксонії. Зверніться до перевізника, щоб узгодити виїзд зі Львова, точну зупинку в Ганновері та перевезення багажу.",
+              "inLanguage": "uk"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/lviv-celle/#webpage",
+              "url": "https://uaroute.com/routes/lviv-celle/",
+              "name": "Львів → Целле",
+              "description": "Львів — Целле (Celle, Німеччина): узгодьте виїзд зі Львова, місце висадки біля вокзалу чи старого міста Целле, розклад та умови перевезення багажу з перевізником.",
+              "inLanguage": "uk"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/celle-lviv/#webpage",
+              "url": "https://uaroute.com/routes/celle-lviv/",
+              "name": "Целле → Львів",
+              "description": "Целле (Celle, Німеччина) — Львів: поїздка до України. Зверніться до перевізника, щоб погодити орієнтир зустрічі в Целле, прибуття до Львова та стиковку з поїздами.",
+              "inLanguage": "uk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01/raw/03-ivano-frankivsk.body",
+      "sha256": "4f1b5b9a2f6cfdea62b0d6796e44cc5e04166bcb832b4a632aa2fb3cb83e30ae",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Івано-Франківськ",
+              "item": "https://uaroute.com/cities/ivano-frankivsk/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "CollectionPage",
+              "@id": "https://uaroute.com/cities/ivano-frankivsk/#webpage",
+              "url": "https://uaroute.com/cities/ivano-frankivsk/",
+              "name": "Поїздки з Івано-Франківська до Німеччини та назад | UARoute",
+              "description": "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": {
+                "@id": "https://uaroute.com/cities/ivano-frankivsk/#place"
+              },
+              "mainEntity": {
+                "@id": "https://uaroute.com/cities/ivano-frankivsk/#directions"
+              }
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/cities/ivano-frankivsk/#place",
+              "name": "Івано-Франківськ"
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://uaroute.com/cities/ivano-frankivsk/#directions",
+              "name": "Напрямки Івано-Франківськ",
+              "itemListOrder": "https://schema.org/ItemListOrderAscending",
+              "numberOfItems": 2,
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#webpage"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#webpage"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#webpage",
+              "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+              "name": "Івано-Франківськ → Вольфсбург",
+              "description": "Івано-Франківськ — Вольфсбург (Wolfsburg, Німеччина): виїзд з Прикарпаття. Уточніть у перевізника дату, умови перевезення речей і висадку в потрібному районі Вольфсбурга.",
+              "inLanguage": "uk"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#webpage",
+              "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+              "name": "Вольфсбург → Івано-Франківськ",
+              "description": "Вольфсбург (Wolfsburg, Німеччина) — Івано-Франківськ: повернення до Прикарпаття. Узгодьте район посадки у Вольфсбурзі, зустріч в Івано-Франківську та умови багажу.",
+              "inLanguage": "uk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01/raw/04-lviv-celle.body",
+      "sha256": "f3275b610629103bf1b7554557b4306a7216b7bc4aac84e74350f68bca0dfc51",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Львів → Целле",
+              "item": "https://uaroute.com/routes/lviv-celle/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/lviv-celle/#webpage",
+              "url": "https://uaroute.com/routes/lviv-celle/",
+              "name": "Львів → Целле",
+              "description": "Львів — Целле (Celle, Німеччина): узгодьте виїзд зі Львова, місце висадки біля вокзалу чи старого міста Целле, розклад та умови перевезення багажу з перевізником.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": [
+                {
+                  "@id": "https://uaroute.com/routes/lviv-celle/#origin"
+                },
+                {
+                  "@id": "https://uaroute.com/routes/lviv-celle/#destination"
+                }
+              ]
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/lviv-celle/#origin",
+              "name": "Львів"
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/lviv-celle/#destination",
+              "name": "Целле"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01/raw/05-celle-lviv.body",
+      "sha256": "5c1099193ebff72b4e80b0b7b3c454abde7672fdd89004eb585969754b4f1fbb",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Целле → Львів",
+              "item": "https://uaroute.com/routes/celle-lviv/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/celle-lviv/#webpage",
+              "url": "https://uaroute.com/routes/celle-lviv/",
+              "name": "Целле → Львів",
+              "description": "Целле (Celle, Німеччина) — Львів: поїздка до України. Зверніться до перевізника, щоб погодити орієнтир зустрічі в Целле, прибуття до Львова та стиковку з поїздами.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": [
+                {
+                  "@id": "https://uaroute.com/routes/celle-lviv/#origin"
+                },
+                {
+                  "@id": "https://uaroute.com/routes/celle-lviv/#destination"
+                }
+              ]
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/celle-lviv/#origin",
+              "name": "Целле"
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/celle-lviv/#destination",
+              "name": "Львів"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01/raw/06-ivano-frankivsk-wolfsburg.body",
+      "sha256": "fb5d1dc8596186662ec29d0d8c2e3d9fe8948d27a219301e564b1b024bacd125",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Івано-Франківськ → Вольфсбург",
+              "item": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#webpage",
+              "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+              "name": "Івано-Франківськ → Вольфсбург",
+              "description": "Івано-Франківськ — Вольфсбург (Wolfsburg, Німеччина): виїзд з Прикарпаття. Уточніть у перевізника дату, умови перевезення речей і висадку в потрібному районі Вольфсбурга.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": [
+                {
+                  "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#origin"
+                },
+                {
+                  "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#destination"
+                }
+              ]
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#origin",
+              "name": "Івано-Франківськ"
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/#destination",
+              "name": "Вольфсбург"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01/raw/07-wolfsburg-ivano-frankivsk.body",
+      "sha256": "7e8f6fe6d0fec794e0577fc27e56aaae267b7f8636b67218ac2b4b9e0789edce",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Маршрути",
+              "item": "https://uaroute.com/routes/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Вольфсбург → Івано-Франківськ",
+              "item": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://uaroute.com/#website",
+              "name": "UARoute",
+              "url": "https://uaroute.com",
+              "description": "Поїздки між Україною та Німеччиною — вибір напрямку та запит перевізнику. Можливість і умови поїздки погоджуйте безпосередньо з перевізником.",
+              "inLanguage": "uk",
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://crewbravo.com/#operator",
+              "name": "Roman Senchuk",
+              "url": "https://crewbravo.com/"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#webpage",
+              "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+              "name": "Вольфсбург → Івано-Франківськ",
+              "description": "Вольфсбург (Wolfsburg, Німеччина) — Івано-Франківськ: повернення до Прикарпаття. Узгодьте район посадки у Вольфсбурзі, зустріч в Івано-Франківську та умови багажу.",
+              "inLanguage": "uk",
+              "isPartOf": {
+                "@id": "https://uaroute.com/#website"
+              },
+              "publisher": {
+                "@id": "https://crewbravo.com/#operator"
+              },
+              "about": [
+                {
+                  "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#origin"
+                },
+                {
+                  "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#destination"
+                }
+              ]
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#origin",
+              "name": "Вольфсбург"
+            },
+            {
+              "@type": "Place",
+              "@id": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/#destination",
+              "name": "Івано-Франківськ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "about-public.html",
+      "sha256": "a3abe2a81defd7c3c9184460f025b56736923350b36fc393d4cb537d346a28d7",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Про UARoute",
+              "item": "https://uaroute.com/about/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "guide-public.html",
+      "sha256": "4952d6311e57f767f42545a6fa02ba4ed20e64c144a600e0082b35b45c25e251",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Головна",
+              "item": "https://uaroute.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Про UARoute",
+              "item": "https://uaroute.com/about/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Перевезення велосипеда",
+              "item": "https://uaroute.com/guides/perevezennya-velosypeda/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Перевезення велосипеда: що погодити з перевізником | UARoute",
+          "description": "Як запитати про перевезення велосипеда: тип, розміри, пакування, дата та вартість. Можливість перевезення підтверджує перевізник.",
+          "datePublished": "2026-10-17",
+          "dateModified": "2026-10-25",
+          "mainEntityOfPage": "https://uaroute.com/guides/perevezennya-velosypeda/",
+          "inLanguage": "uk",
+          "author": {
+            "@type": "Organization",
+            "name": "UARoute"
+          }
+        }
+      ]
+    },
+    {
+      "file": "imprint-public.html",
+      "sha256": "deefa41954192989cdf6116e77e0e0ea6f6da5f1a2b3eddd97b856e444e65ef7",
+      "schemas": []
+    },
+    {
+      "file": "carrier-public.html",
+      "sha256": "054e0b86c39bef33b867b38d3d74ddbae9b07b460aed5a5ed0071efbd959ed95",
+      "schemas": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BusCompany",
+          "name": "Коваль Експресс",
+          "alternateName": "Коваль",
+          "url": "https://www.4k-koval.com/",
+          "image": "https://www.4k-koval.com/i/the-logo.png",
+          "description": "Коваль Експресс: пасажири та посилки коридором Україна — Польща — Чехія — Австрія — Ліхтенштейн — Німеччина. Бронювання в WhatsApp.",
+          "areaServed": [
+            "UA",
+            "DE",
+            "PL",
+            "CZ",
+            "AT",
+            "LI"
+          ],
+          "telephone": "+380956094357",
+          "sameAs": [
+            "https://www.facebook.com/groups/2173087736251151",
+            "https://t.me/+w0-gHjwyvacxMzQy"
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Що заборонено перевозити чи передавати в посилках?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "М'ясо, м'ясні та молочні вироби. Алкогольні напої. Картопля. Тютюн та тютюнові вироби. Електронні сигарети та заправки до них. Нова дороговартісна техніка. Дорогоцінні речі. Наркотичні засоби та прекурсори. Саджанці дерев"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Що ми перевозимо?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Особисті речі. Продукти харчування (дозволені). Меблі. Домашніх улюбленців. Замовлення з інтернет-магазинів. Пригін вашого автомобіля"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
