@@ -110,6 +110,8 @@ M1 залишається discovery/intent: UARoute не підтверджує 
 
 Технічна наступність: Node22/npm/TS6/static export; Server Components за замовчуванням; no dependency upgrades. Під час edits — focused checks, один stable full check за потребою application change; docs-only — docs:index/docs:check/tooling checks. Browser QA перехоплює всі collectors/handoffs до synthetic input. У релізі зберігати source/run/artifact hashes, exact export acceptance і recovery receipt. Реліз24 жовтня має verified backup; повний isolated rollback rehearsal усе ще окрема незакрита робота.
 
+**Актуалізація release tooling — 27 жовтня:** production run від26 жовтня тривав близько25 хвилин, переважно через послідовні AWS CLI передачі. Наступний обмежений engineering increment — bounded concurrency для recovery downloads, двох upload фаз і перевірки опублікованих об'єктів, зі сталим порядком manifest, complete hashes і settle-on-failure; детальний scope та acceptance — у [плані швидкодії production deployment](../Operations/deployment-performance-plan-2026-10-27.md). Спочатку зібрати stage timings і перевірити обмеження паралельності; не ставити ціль тривалості до першого порівнюваного виміру. Це запланована робота, не вже реалізована оптимізація.
+
 Немає нових Vibe calls або відновлення закритих runs; попередній бюджет вичерпано й власник обрав direct coordinator implementation. Це provenance, а не причина будувати нову agent platform. Підтримувальні tooling задачі виконувати лише для повторюваних реальних проблем. Сирі reasoning/credentials/пасажирські дані не зберігати в історії чи звітах.
 
 ## 8. Межа цієї актуалізації

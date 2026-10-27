@@ -20,6 +20,8 @@ The [Actions deployment plan](docs/knowledge-base.md#knowledge-base) (KB: `wiki/
 
 Use `gh workflow run deploy-production.yml --ref main` with `ci_run_id`, `source_sha`, `release_hash`, and `edge_hash`. Review the independently downloaded candidate first. Run `rollback-production.yml` with `recovery_prefix` and its externally recorded `recovery_hash`; obtain both from the deployment recovery receipt. Both workflows use the same writer lock, retrieve a fresh durable current-state backup before writes, retain old S3 keys, and wait for invalidation. Rollback refuses infrastructure drift; use reviewed manual recovery if distribution configuration changed. See [tracked contracts](infra/github-actions-release.md) for retention, identity checks and private evidence boundaries.
 
+The 2026-10-26 production run and tracked plan to reduce its measured serial-transfer time are recorded in the [deployment performance plan](docs/Operations/deployment-performance-plan-2026-10-27.md). Planned bounded concurrency does not waive candidate, recovery, inventory-drift, object-hash, edge or live-acceptance gates.
+
 ## Local Actions tooling increment
 
 See [tracked artifact/recovery commands](infra/github-actions-release.md). CI candidate packaging, remote Actions deployment and schema 2 recovery integration are implemented; full isolated CloudFront rollback rehearsal remains open. Existing manual apply gates are unchanged.
