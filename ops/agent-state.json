@@ -135,22 +135,22 @@
       "resource": "site:uaroute.com",
       "claim": "production-release",
       "value": {
-        "source_sha": "87a05ca150a4b8a0f3678e420b670492c10d1bec",
-        "ci_run_id": "40214171020",
-        "deployment_run_id": "40237490500",
+        "source_sha": "ff1e4d095e96cab9f5c75cbf19854f532d6273b9",
+        "ci_run_id": "40581329499",
+        "deployment_run_id": "40581726421",
         "conclusion": "success",
         "published_objects": 258,
         "verified_live_documents": 24,
         "invalidation": "Completed",
         "recovery_retrieval_verified": true
       },
-      "observed_at": "2026-10-25",
+      "observed_at": "2026-10-27",
       "verification": "observed",
       "recheck": "before-dependent-action",
       "evidence": {
         "kind": "artifact",
-        "reference": "ops/evidence/production-release-2026-10-25.json",
-        "summary": "Sanitized Actions success/recovery receipts and independent live document/browser verification for Step 2 release 87a05ca. Exact source published; no real passenger/conversion outcome claim."
+        "reference": "ops/evidence/production-calendar-release-2026-10-27.json",
+        "summary": "Authenticated Actions success/recovery receipts; all 373 HTTP checks passed, 24 live document hashes matched, 9 intercepted live browser scenarios passed. Owner confirmed the calendar-triggered Chrome closure no longer reproduces on iOS 27.0.1 / Chrome 156.0.8078. No real inquiry or passenger outcome claim."
       }
     },
     {

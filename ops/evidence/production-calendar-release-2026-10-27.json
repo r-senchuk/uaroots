@@ -1,0 +1,40 @@
+{
+  "observed_at": "2026-10-27",
+  "method": "Authenticated Actions run/artifact download; independent candidate hash verification, live document hashes, intercepted live browser tests and direct owner iPhone retest.",
+  "ci_url": "https://github.com/r-senchuk/uaroots/actions/runs/40581329499",
+  "deployment_url": "https://github.com/r-senchuk/uaroots/actions/runs/40581726421",
+  "conclusion": "success",
+  "success_receipt": {
+    "sourceSha": "ff1e4d095e96cab9f5c75cbf19854f532d6273b9",
+    "runId": "40581329499",
+    "releaseSha256": "4ba5ba10b0668a90e2ec46eb138a788d087052dcf79f74efb1fa8ca9ab8774b2",
+    "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+    "recoveryPrefix": "releases/40581726421-1",
+    "recoveryHash": "b92067049b50083eadc660688652146a64a442bfbd61e804b81ecc09c339a1f0",
+    "publishedObjects": 258,
+    "verifiedAt": "2026-10-27T21:12:27.977Z"
+  },
+  "recovery_receipt": {
+    "prefix": "releases/40581726421-1",
+    "bundleSha256": "b92067049b50083eadc660688652146a64a442bfbd61e804b81ecc09c339a1f0",
+    "bucket": "uaroute-recovery-863809951348-eu-central-1",
+    "objects": 471,
+    "retrievedAt": "2026-10-27T20:59:38.227Z",
+    "retrievalVerified": true
+  },
+  "invalidation_status": "Completed",
+  "workflow_http_checks": {
+    "pass": 373,
+    "fail": 0,
+    "unknown": 0
+  },
+  "independent_live_html_hash_matches": 24,
+  "live_browser_scenarios": 9,
+  "iphone_owner_verification": {
+    "iOS": "27.0.1",
+    "Chrome": "156.0.8078",
+    "method": "Direct owner reply after refreshed live page, early inquiry action, direct date-field tap and idle wait.",
+    "result": "Owner confirmed that the reported Chrome closure no longer reproduces."
+  },
+  "limits": "All QA carrier handoffs/collectors intercepted; no real inquiry or passenger outcome claim; no native crash log; full rollback rehearsal not performed."
+}
