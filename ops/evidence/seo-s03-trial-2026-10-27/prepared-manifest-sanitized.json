@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "owner": "vibe-supervisor-task-inputs",
+  "source": "<repository>",
+  "base_commit": "d6bbff2a6b12a6d6f065ae00b81c11bad0ef3e74",
+  "files": [
+    {
+      "path": "ops/evidence/seo-s03-trial-2026-10-27/context-extract.md",
+      "sha256": "2649c09dcac9508567dccabf914d5037dc5bb98d432dfff73fca9c2c6c9c1624",
+      "bytes": 65362,
+      "provenance": "untracked"
+    }
+  ],
+  "dirty_overlay_sha256": "f76e3620d471fc07793a379192c84e56e8b6e5cf1182032d5d01fdee974f1d51",
+  "allowed_output_paths": [
+    "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md"
+  ],
+  "contract_sha256": "45c75f66381dd80fcc4fcfed8af8c34ce71230d0dfff0597fbb65e7c914991f4",
+  "policy_sha256": "105277bfd3e360b4610c4a8325cb0bd75b17219b596e1e2157a69cac8366c003",
+  "total_files": 1,
+  "total_bytes": 65362,
+  "token_count": null,
+  "manifest_sha256": "63e5ae8be538a65d3caed24bf8701972cdfc38ee8c2f228863b239a3999ac434"
+}

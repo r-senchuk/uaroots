@@ -177,8 +177,8 @@
     }
   ],
   "next_task": {
-    "summary": "S01 and S02 ready with explicit unknowns; use accepted seven-page baseline, claims ledger and passenger-needs brief for S03 intent architecture, then S04 copy recommendations. No application implementation or publication.",
-    "contract": "docs/Marketing/SEO/mitigation-2026-10/search-baseline.md",
+    "summary": "S03 architecture complete and locally verified; execute S04 Ukrainian copy and per-claim reconciliation using the frozen seven-page architecture and S02 ledger. Include planned community-draft corrections. No application implementation or publication.",
+    "contract": "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md",
     "publication_state": "local-only",
     "blockers": [
       "October27 signed-in GSC inspection covered all seven URLs and property/query comparison; browser access then disabled. Page-level performance and Google AI/Bing visibility remain unknown. Obtain the smallest exports specified in search-baseline; do not retry GSC Wizard.",
@@ -191,7 +191,8 @@
       "Follow constitution42: preserve Lviv-Hannover, two priority UA hubs and four priority pair pages; preserve all current IDs, eligibility, desks, inline pairs and referral/privacy contracts.",
       "Actual implementation belongs to a later requested Next.js expert session S08 after the accepted S07 manifest. Release and distribution retain their separate authorization gates.",
       "Preserve unrelated local KB work. Recheck only the source/provider state needed before the next dependent action.",
-      "Separate pre-existing tracks remain open: Ads readiness/spend-cap clarification and human usability/native zoom/real-device execution. This planning handoff does not complete or authorize those tracks."
+      "Separate pre-existing tracks remain open: Ads readiness/spend-cap clarification and human usability/native zoom/real-device execution. This planning handoff does not complete or authorize those tracks.",
+      "S03 completion is the coordinator-authored documentation revision following the bounded trial, recorded in ops/evidence/seo-s03-completion-2026-10-27/completion.json. Five route-to-guide links are planned additions, not deployed changes. Earlier trial/administrative diagnostics are separate historical records."
     ]
   }
 }

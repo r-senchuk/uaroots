@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-27",
+  "source_head": "d6bbff2a6b12a6d6f065ae00b81c11bad0ef3e74",
+  "author": "coordinator",
+  "previous_trial_architecture_sha256": "685fc4adfa477ea949b556fa54e9dd8a1639d5bcd2565e0071556102be05b8b7",
+  "decision": "S03 architecture complete; S04 not started",
+  "implementation_scope": "documentation architecture only",
+  "worker_starts": 0,
+  "diagnostic_grants_created": 0,
+  "closed_findings": [
+    "Per-page source, metadata, canonical and AC mapping",
+    "Five exact guide additions fixed to existing target/section keys"
+  ],
+  "additional_completion": [
+    "source-field retain/rewrite/remove/move ownership",
+    "support and community-return destination assignments",
+    "Wolfsburg dated discovery reconciliation and evidence gates"
+  ],
+  "checks": "passed; see verification.json",
+  "architecture_sha256": "1fddb37481c3be4ec5f8744fbbc702a357d5e71c71f654a50e3f2d1638a8445b",
+  "claim_routing_sha256": "df9f2b5c85e59fdf1b16f31793ad91703e8ebb4df0a9556fa9ce04f3d6316294",
+  "verification_sha256": "881c91ec2aa64be4221092588e03d4b9405c64769f74aff0223f7d2b5088daea",
+  "sg03": "complete",
+  "s04_readiness": "ready with explicit evidence exclusions; final copy not produced",
+  "remaining_architecture_decisions": [],
+  "preserved_prior_trial": "Trial manifests/ledger/assessment hashes not rewritten; experience report has subsequent-completion note."
+}
