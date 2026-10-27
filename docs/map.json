@@ -111,6 +111,13 @@
       "description": "Infrastructure-blocked Vibe dispatch, independently accepted Luna fallback, exact revisions and remaining S03 gates."
     },
     {
+      "path": "Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit.md",
+      "id": "Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit",
+      "type": "Research",
+      "title": "S04 — редакторська чернетка Львів → Ганновер",
+      "description": "Часткова одиниця українського тексту з простежуваними рішеннями для наявної сторінки; без змін застосунку чи публікації."
+    },
+    {
       "path": "Marketing/SEO/mitigation-2026-10/search-baseline.md",
       "id": "Marketing/SEO/mitigation-2026-10/search-baseline",
       "type": "Research",
@@ -701,6 +708,11 @@
     },
     {
       "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
       "to": "Marketing/SEO/mitigation-2026-10/search-baseline.md",
       "scope": "bundle"
     },
@@ -923,6 +935,16 @@
       "from": "Marketing/SEO/mitigation-2026-10/s03-trial-experience.md",
       "to": "../ops/evidence/seo-s03-completion-2026-10-27/completion.json",
       "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit.md",
+      "to": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
+      "scope": "bundle"
     },
     {
       "from": "Marketing/SEO/mitigation-2026-10/search-baseline.md",

@@ -10,5 +10,6 @@ Parent: [SEO](../index.md).
 - [S02 — планування потреб пасажира](passenger-needs.md) — Напрямна матриця потреб і прогалин для пріоритетних сторінок UARoute; основа для редакторського пакета S04.
 - [S03/S04 — seven-page architecture and Ukrainian copy work plan](s03-s04-work-plan.md) — Evidence-bound work order for the seven existing page intents, claim dispositions, Ukrainian copy package and editorial acceptance.
 - [S03 bounded architecture trial — experience and acceptance](s03-trial-experience.md) — Infrastructure-blocked Vibe dispatch, independently accepted Luna fallback, exact revisions and remaining S03 gates.
+- [S04 — редакторська чернетка Львів → Ганновер](s04-hannover-copy-unit.md) — Часткова одиниця українського тексту з простежуваними рішеннями для наявної сторінки; без змін застосунку чи публікації.
 - [S01 — Seven-page SEO and GEO evidence baseline](search-baseline.md) — Dated Search Console, public HTTP and AI visibility evidence for the seven October 2026 priority URLs, with explicit access gaps.
 - [S01/S02 research and Supervisor experience](session-experience.md) — Verified documentation results, explicit access gaps and bounded Supervisor infrastructure refusal.
