@@ -7,6 +7,10 @@
     "Marketing",
     "Marketing/SEO",
     "Marketing/SEO/mitigation-2026-10",
+    "Marketing/SEO/mitigation-2026-10/design-assets",
+    "Marketing/SEO/mitigation-2026-10/design-assets/hubs",
+    "Marketing/SEO/mitigation-2026-10/design-assets/routes",
+    "Marketing/SEO/mitigation-2026-10/design-assets/support",
     "Operations",
     "Operations/Agentic",
     "Operations/Agentic/Operational",
@@ -65,6 +69,13 @@
       "kind": "reserved"
     },
     {
+      "path": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "id": "Marketing/SEO/mitigation-2026-10/acceptance-review",
+      "type": "Report",
+      "title": "S09 — Independent local application acceptance",
+      "description": "AC-by-AC review of the frozen seven-page mitigation candidate, intercepted application behavior and explicit release dependencies."
+    },
+    {
       "path": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
       "id": "Marketing/SEO/mitigation-2026-10/claims-ledger",
       "type": "Research",
@@ -72,8 +83,152 @@
       "description": "Exact scoped wording, source support, confidence and S04 dispositions for seven priority pages and supporting content."
     },
     {
+      "path": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "id": "Marketing/SEO/mitigation-2026-10/content-package",
+      "type": "Research",
+      "title": "S04 — повний пакет українського тексту",
+      "description": "Сім повних сторінкових записів, спільні та допоміжні тексти, точне узгодження 157 тверджень для S05/S07."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/board.css",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/hannover-route-375.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/manifest.json",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/manifest.json",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "kind": "reserved"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/manifest.json",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "kind": "artifact"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "id": "Marketing/SEO/mitigation-2026-10/design-handoff",
+      "type": "Specification",
+      "title": "S05 — responsive design handoff",
+      "description": "Exact-copy layout, shared component and state contract for the seven existing priority pages and support surfaces."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "id": "Marketing/SEO/mitigation-2026-10/editorial-review",
+      "type": "Research",
+      "title": "S04 — editorial review and frozen copy handoff",
+      "description": "Coordinator acceptance of seven Ukrainian page records, all 157 claim decisions and three corrected unposted drafts, with explicit evidence exclusions."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "id": "Marketing/SEO/mitigation-2026-10/execution-status",
+      "type": "Operational",
+      "title": "SEO/GEO mitigation — execution and acceptance status",
+      "description": "Current local execution of the accepted seven-page package, specialist ownership and remaining gates."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "id": "Marketing/SEO/mitigation-2026-10/implementation-plan",
+      "type": "Specification",
+      "title": "S07 — Next.js implementation work order",
+      "description": "Decision-complete source, copy, layout and independent verification ownership for the sole S08 implementer."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "id": "Marketing/SEO/mitigation-2026-10/implementation-result",
+      "type": "Report",
+      "title": "S08 — Local mitigation implementation result",
+      "description": "Local application candidate, exact-runtime checks and bounded acceptance evidence."
+    },
+    {
       "path": "Marketing/SEO/mitigation-2026-10/index.md",
       "kind": "reserved"
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "id": "Marketing/SEO/mitigation-2026-10/measurement-contract",
+      "type": "Specification",
+      "title": "S06-A — Measurement and privacy diagnosis",
+      "description": "Production-scoped GA4 evidence, attribution/privacy decision and exact matched-unit reporting recipes."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "id": "Marketing/SEO/mitigation-2026-10/next-stage-handoff",
+      "type": "Handoff",
+      "title": "Conditional S10–S12 handoff",
+      "description": "Smallest next steps after local S09 acceptance, with release and measurement gates kept explicit."
     },
     {
       "path": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
@@ -97,6 +252,27 @@
       "description": "Напрямна матриця потреб і прогалин для пріоритетних сторінок UARoute; основа для редакторського пакета S04."
     },
     {
+      "path": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "id": "Marketing/SEO/mitigation-2026-10/performance-baseline",
+      "type": "Report",
+      "title": "S06 — Mobile lab performance baseline",
+      "description": "Comparable local static-export measurements and reproduction recipe."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/performance-comparison.md",
+      "id": "Marketing/SEO/mitigation-2026-10/performance-comparison",
+      "type": "Report",
+      "title": "S08 — Mobile lab performance comparison",
+      "description": "Matched baseline and frozen candidate static-export measurements."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "id": "Marketing/SEO/mitigation-2026-10/readiness-manifest",
+      "type": "Report",
+      "title": "S07 — Implementation readiness manifest",
+      "description": "Frozen inputs, G2 decision, runtime compatibility and outstanding evidence boundaries for S08."
+    },
+    {
       "path": "Marketing/SEO/mitigation-2026-10/s03-s04-work-plan.md",
       "id": "Marketing/SEO/mitigation-2026-10/s03-s04-work-plan",
       "type": "Research",
@@ -116,6 +292,20 @@
       "type": "Research",
       "title": "S04 — редакторська чернетка Львів → Ганновер",
       "description": "Часткова одиниця українського тексту з простежуваними рішеннями для наявної сторінки; без змін застосунку чи публікації."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "id": "Marketing/SEO/mitigation-2026-10/s04-work-plan",
+      "type": "Research",
+      "title": "S04 — Ukrainian copy production and editorial acceptance plan",
+      "description": "Execution-ready work order for seven complete page-copy records, 157 claim dispositions, supporting content and three corrected community drafts."
+    },
+    {
+      "path": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "id": "Marketing/SEO/mitigation-2026-10/s05-work-plan",
+      "type": "Research",
+      "title": "S05 — responsive UX/UI design execution plan",
+      "description": "Real-copy design work order, viewport and interaction matrix, component reuse and acceptance for the existing UARoute templates."
     },
     {
       "path": "Marketing/SEO/mitigation-2026-10/search-baseline.md",
@@ -578,11 +768,6 @@
     },
     {
       "from": "Marketing/SEO/community-placements-2026-10-25.md",
-      "to": "Marketing/SEO/mitigation-sessions-2026-10-27.md",
-      "scope": "bundle"
-    },
-    {
-      "from": "Marketing/SEO/community-placements-2026-10-25.md",
       "to": "Marketing/SEO/index.md",
       "scope": "bundle"
     },
@@ -598,8 +783,8 @@
     },
     {
       "from": "Marketing/SEO/community-placements-2026-10-25.md",
-      "to": "../src/config/utm.ts",
-      "scope": "repository"
+      "to": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
+      "scope": "bundle"
     },
     {
       "from": "Marketing/SEO/evaluation-contract-2026-10-06.md",
@@ -652,6 +837,51 @@
       "scope": "bundle"
     },
     {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/final-source-review.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/static-review.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/catalog-invariants.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/passenger/results.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/focused-browser/results.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/native-application.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/performance-review.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/receiver-runtime.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/final-source-review.json",
+      "scope": "repository"
+    },
+    {
       "from": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
       "to": "../ops/evidence/seo-s01-s02-2026-10-27/public-http.json",
       "scope": "repository"
@@ -672,13 +902,498 @@
       "scope": "repository"
     },
     {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "Marketing/SEO/mitigation-2026-10/passenger-needs.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/copy-records.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/field-coverage.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/manifest.json",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hubs/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/board.css",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hannover-route-375.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/manifest.json",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/routes/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/manifest.json",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-assets/support/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/baseline.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/copy-records.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/board.css",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hannover-route-375.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/design-contract.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/review-history.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/independent-review.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/verification.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/hannover-route-375.html",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/baseline.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/design-review/acceptance.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Operations/Agentic/Operational/working-agreement.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-spec-2026-10-27.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-sessions-2026-10-27.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/field-coverage.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/input-manifest.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/guide-diagnostic.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/implementation/acceptance.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/implementation/pre-edit-fingerprint-check.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/implementation/receiver-negative.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/performance-review.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/native-application.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "to": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "scope": "bundle"
+    },
+    {
       "from": "Marketing/SEO/mitigation-2026-10/index.md",
       "to": "Marketing/SEO/index.md",
       "scope": "bundle"
     },
     {
       "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-assets/index.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
       "to": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
       "scope": "bundle"
     },
     {
@@ -698,6 +1413,21 @@
     },
     {
       "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/performance-comparison.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
       "to": "Marketing/SEO/mitigation-2026-10/s03-s04-work-plan.md",
       "scope": "bundle"
     },
@@ -713,6 +1443,16 @@
     },
     {
       "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
+      "to": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/index.md",
       "to": "Marketing/SEO/mitigation-2026-10/search-baseline.md",
       "scope": "bundle"
     },
@@ -720,6 +1460,136 @@
       "from": "Marketing/SEO/mitigation-2026-10/index.md",
       "to": "Marketing/SEO/mitigation-2026-10/session-experience.md",
       "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "Marketing/SEO/mitigation-spec-2026-10-27.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "00-project-constitution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "Marketing/08-analytics-and-attribution.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "Operations/Agentic/Operational/repository-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "Marketing/SEO/mitigation-sessions-2026-10-27.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "Marketing/SEO/mitigation-2026-10/search-baseline.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/measurement/summary.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/measurement/report-recipes.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "../ops/evidence/production-release-2026-10-24.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "../ops/evidence/production-calendar-release-2026-10-27.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/measurement/report-recipes.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/implementation-result.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/acceptance-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../CUTOVER.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/measurement-contract.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/mitigation-2026-10/performance-comparison.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "Marketing/SEO/mitigation-sessions-2026-10-27.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/r1/inventory.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/r2/device-instructions.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/r3/preparation.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/r4/decision.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/r7/placement-note.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/r9/supplement.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-release-preparation-2026-10-28/execution-ledger.json",
+      "scope": "repository"
     },
     {
       "from": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
@@ -842,6 +1712,56 @@
       "scope": "repository"
     },
     {
+      "from": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/locked-baseline-results.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/measure.mjs",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/baseline-results.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/performance-comparison.md",
+      "to": "Marketing/SEO/mitigation-2026-10/performance-baseline.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/performance-comparison.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/candidate-results.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/performance-comparison.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/guide-diagnostic.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "to": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/input-manifest.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
+      "to": "../ops/evidence/seo-mitigation-execution-2026-10-28/performance/guide-diagnostic.md",
+      "scope": "repository"
+    },
+    {
       "from": "Marketing/SEO/mitigation-2026-10/s03-s04-work-plan.md",
       "to": "Marketing/SEO/community-placements-2026-10-25.md",
       "scope": "bundle"
@@ -944,6 +1864,91 @@
     {
       "from": "Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit.md",
       "to": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/mitigation-sessions-2026-10-27.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/claims-ledger.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/passenger-needs.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/search-baseline.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "../ops/evidence/seo-s03-completion-2026-10-27/claim-routing.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s04-work-plan.md",
+      "to": "../ops/evidence/seo-s03-completion-2026-10-27/completion.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/copy-records.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "../ops/evidence/seo-s04-2026-10-27/field-coverage.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "Product/04-visual-design-system.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "Product/03-ux-and-information-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/s05-work-plan.md",
+      "to": "Product/passenger-discovery-conversion-spec-2026-10-22.md",
       "scope": "bundle"
     },
     {

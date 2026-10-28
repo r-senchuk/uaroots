@@ -1,0 +1,21 @@
+{
+  "source_files_sha256": {
+    "src/lib/analytics.ts": "cde3115bbfd726b491318f0bb97924268e3359764c3508e41450775c24574d8b",
+    "src/config/utm.ts": "4255a7ef619881e7cb86f1ecc2af46b7fb3551c0d9034127b66549bcf58ba7d4",
+    "src/components/AnalyticsAttribution.tsx": "65860412a307fb2250accc6ec21d045fdf8367e7c2dab622579cd601ec6abb95",
+    "src/components/AnalyticsScripts.tsx": "a36182c3d4199ea22d262f97876eb2c9ec67c58b4f999b22f0fffd6258757146",
+    "src/components/AnalyticsConsent.tsx": "ec461b78957f04c7c195848f348181a40d281910aedf8b51c92b7a249f18f5f7",
+    "src/lib/analytics-consent.ts": "92fc0c9dcda3060d6ecfa2df22c8288c8513fe6e4acc5d97f7210eebf4c621fa",
+    "src/lib/google-consent.ts": "5fd466dbe962a2d931984f111ed5fb622ea2274e9c7c81c8c14affa9e99bdba2",
+    "src/lib/analytics.test.ts": "7474aece2f42cdab402f60b57bf3e1242ad20ba6b9463d26575752a573977681",
+    "src/lib/analytics-provider.test.ts": "938a37409f58e97d16a4f23d7a258fd5380c5f047e6bf1cd672f6b299ea28472",
+    "src/lib/analytics-consent.test.ts": "c65fcfa81b4b15a50e0f8297506a6a281c3f9b8373e50cfdfe4ef3fcdee7d80e",
+    "src/lib/google-consent.test.ts": "d9e5d33c2358b20d8b18936e67cdd89d06e198ba8bdfff6735aab0aa1c8c2bb2"
+  },
+  "private_readback_sha256": "4f0f6e32985cb10d985283620275b0fdb69cb478f376cec545ddfc681c03ef54",
+  "focused_test_logs_sha256": {
+    "focused-tests.txt": "9fc6f7c78230572b0a33dfcd0d06617cab7cd6234459af4789f1a9c3ff781f6a",
+    "focused-tests-node22.txt": "3df7eb332acb4cb9254a1429046c5e0f4d7c8f8072f0e9a3e133983a82fd1486"
+  },
+  "verification": "Local relative documentation links exist; all assigned tracked JSON parses. Root owns docs:index/docs:check to avoid parallel generated-index mutation."
+}

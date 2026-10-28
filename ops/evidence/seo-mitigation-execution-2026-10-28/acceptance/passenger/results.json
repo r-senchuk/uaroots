@@ -1,0 +1,161 @@
+{
+  "export": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-mitigation-execution-2026-10-28-private/implementation/candidate/out",
+  "checks": [
+    {
+      "name": "viewport 360",
+      "passed": true
+    },
+    {
+      "name": "viewport 375",
+      "passed": true
+    },
+    {
+      "name": "viewport 1440",
+      "passed": true
+    },
+    {
+      "name": "one inquiry, unique IDs, early action focus without conversion",
+      "passed": true
+    },
+    {
+      "name": "website empty-fields baseline/current pair",
+      "passed": true
+    },
+    {
+      "name": "blank/past date and invalid phone block handoff",
+      "passed": true
+    },
+    {
+      "name": "navigation resets all inquiry state",
+      "passed": true
+    },
+    {
+      "name": "city cards preserve overview/direction, reset old result",
+      "passed": true
+    },
+    {
+      "name": "Hannover published forward, Lviv reverse fallback and IF reverse inline",
+      "passed": true
+    },
+    {
+      "name": "200 percent zoom and keyboard/reduced motion",
+      "passed": true
+    },
+    {
+      "name": "sticky after form and hidden for focused input",
+      "passed": true
+    },
+    {
+      "name": "German overview city cards in both directions",
+      "passed": true
+    },
+    {
+      "name": "long heading at360 and200percent without overflow",
+      "passed": true
+    },
+    {
+      "name": "no PII persisted",
+      "passed": true
+    },
+    {
+      "name": "Lviv Wolfsburg reversal preserves pair and resets candidate fields/errors",
+      "passed": true
+    },
+    {
+      "name": "out-of-range passengers do not open WhatsApp",
+      "passed": true
+    },
+    {
+      "name": "valid passengers1–8, desk/code and no telemetry/storage PII",
+      "passed": true
+    },
+    {
+      "name": "privacy dialog separately visible and keyboard dismissible",
+      "passed": true
+    },
+    {
+      "name": "body/muted/action contrast at least4.5",
+      "passed": true
+    },
+    {
+      "name": "missing desk actual-component SSR fixture: website primary without fields",
+      "passed": true
+    },
+    {
+      "name": "all commercial first-screen 375",
+      "passed": true
+    },
+    {
+      "name": "all commercial first-screen 1440",
+      "passed": true
+    },
+    {
+      "name": "settled layout 360 CSSzoom1",
+      "passed": true
+    },
+    {
+      "name": "settled layout 360 CSSzoom2",
+      "passed": true
+    },
+    {
+      "name": "settled layout 375 CSSzoom1",
+      "passed": true
+    },
+    {
+      "name": "settled layout 375 CSSzoom2",
+      "passed": true
+    },
+    {
+      "name": "settled layout 1440 CSSzoom1",
+      "passed": true
+    },
+    {
+      "name": "settled layout 1440 CSSzoom2",
+      "passed": true
+    },
+    {
+      "name": "functional navigation typography and target",
+      "passed": true
+    },
+    {
+      "name": "generic placement uses current surface without a stale pair",
+      "passed": true
+    },
+    {
+      "name": "native Enter and single submit route",
+      "passed": true
+    },
+    {
+      "name": "native Enter and single submit inline",
+      "passed": true
+    },
+    {
+      "name": "no JS usable site href",
+      "passed": true
+    }
+  ],
+  "externalBlocked": 0,
+  "screenshots": [
+    "route-360.png",
+    "route-375.png",
+    "route-1440.png",
+    "route-200-percent.png",
+    "long-heading-360-200-percent.png",
+    "privacy-dialog-375.png",
+    "missing-desk-fixture.png",
+    "layout-360-zoom1.png",
+    "layout-360-zoom2.png",
+    "layout-375-zoom1.png",
+    "layout-375-zoom2.png",
+    "layout-1440-zoom1.png",
+    "layout-1440-zoom2.png"
+  ],
+  "contrastRatios": [
+    15.396625973780203,
+    11.74283378937557,
+    5.5242813074736095
+  ],
+  "missingDeskFixture": "Actual BookingWidget and JourneyActions rendered to static HTML with resolved route deskId undefined; separate fixture, not a published route/export.",
+  "passed": true,
+  "cleanup": "closed"
+}

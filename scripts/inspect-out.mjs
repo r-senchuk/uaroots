@@ -145,9 +145,21 @@ function decodeHtml(value) {
 }
 
 function plainText(html) {
-  return decodeHtml(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " "))
+  return decodeHtml(html.replace(/<!--[\s\S]*?-->/g, "").replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
+    .replace(/\s+([.,;:!?])/g, "$1").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")")
     .trim();
+}
+
+function labelledSection(html, id) {
+  const opening = [...html.matchAll(/<section\b[^>]*>/gi)].find(([tag]) => attributes(tag)["aria-labelledby"] === id);
+  if (!opening) return "";
+  let depth = 0;
+  for (const token of html.slice(opening.index).matchAll(/<\/?section\b[^>]*>/gi)) {
+    depth += token[0].startsWith("</") ? -1 : 1;
+    if (depth === 0) return html.slice(opening.index, opening.index + token.index + token[0].length);
+  }
+  return "";
 }
 
 function attributes(tag) {
@@ -288,6 +300,63 @@ function canonicalUrl(path) {
   return `https://uaroute.com${path}`;
 }
 
+// Editorial evidence is a test/tool oracle, never a production runtime dependency.
+const mitigationCopy = JSON.parse(readFileSync(new URL("../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+const mitigationConsumers = JSON.parse(readFileSync(new URL("../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json", import.meta.url), "utf8")).consumers;
+function semantic(value) { return plainText(value).replace(/\s+([.,;:!?])/g, "$1"); }
+export function inspectMitigationCopy(pages) {
+  const errors = [];
+  for (const {url, key} of mitigationConsumers) {
+    const html = pages.get(url) ?? "";
+    const text = semantic(html);
+    const record = mitigationCopy.records[key];
+    function checkText(value) {
+      if (!value) return;
+      for (const sentence of semantic(value).split(/(?<=[.!?])\s+/)) {
+        if (!text.includes(sentence)) errors.push(`${url} is missing accepted copy ${key}: ${sentence}`);
+      }
+    }
+    function checkLink(link) {
+      const anchors = [...html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "").matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/gi)];
+      if (!anchors.some(([tag]) => attributes(tag.match(/<a\b[^>]*>/i)?.[0] ?? "").href === link.url && semantic(tag).includes(semantic(link.label)))) errors.push(`${url} is missing accepted link ${key}: ${link.label}`);
+    }
+    checkText(record.heading);
+    // The inquiry record is deliberately split around the existing controls.
+    if (key === "imprint.website") checkLink({url: record.text, label: "Crew Bravo"});
+    else checkText(record.text);
+    for (const item of record.items ?? []) {
+      if (typeof item === "string") {
+        if (!text.includes(semantic(item)) && !html.includes(`alt="${item}"`)) errors.push(`${url} is missing accepted item ${key}: ${item}`);
+      } else {
+        for (const field of ["heading", "text", "question", "answer", "label"]) checkText(item[field]);
+        if (item.url) checkLink(item);
+      }
+    }
+    for (const link of record.links ?? []) checkLink(link);
+    if (url.startsWith("/routes/") && !key.endsWith("-inquiry")) {
+      const body = semantic(record.text);
+      if (body && text.split(body).length > 2) errors.push(`${url} duplicates merged accepted copy ${key}`);
+    }
+  }
+  for (const entry of [...mitigationCopy.pages, ...Object.values(mitigationCopy.support)]) {
+    const html = pages.get(entry.url) ?? "";
+    const actual = pageMetadata(html);
+    for (const field of ["title", "description"]) if (actual[field] !== entry.metadata[field]) errors.push(`${entry.url} changed frozen ${field}`);
+    const nodes = graphNodes(jsonLdDocuments(html));
+    if (entry.kind === "route") {
+      const intro = mitigationCopy.records[entry.prefix + "-intro"].text;
+      if (!nodes.some((node) => node["@type"] === "WebPage" && node.description === intro)) errors.push(`${entry.url} WebPage description must equal accepted introduction`);
+      const formCount = [...html.matchAll(/<form\b/gi)].length;
+      if (formCount !== 1) errors.push(`${entry.url} must retain exactly one inquiry form`);
+      if (html.indexOf('id="practical-heading"') > html.indexOf('<figure')) errors.push(`${entry.url} must place practical content before illustrative image`);
+    }
+  }
+  const guideNodes = graphNodes(jsonLdDocuments(pages.get("/guides/perevezennya-velosypeda/") ?? ""));
+  const article = guideNodes.find((node) => node["@type"] === "Article");
+  if (article?.datePublished !== "2026-10-17" || article?.dateModified !== "2026-10-25" || article?.author?.name !== "UARoute" || article?.author?.["@type"] !== "Organization") errors.push("guide must retain historical Article dates and author");
+  return errors;
+}
+
 export function inspectExport(root = join(process.cwd(), "out")) {
   const errors = [];
   const requiredFiles = [
@@ -378,6 +447,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     if (robots !== "noindex,follow") errors.push(`${pagePath} must remain noindex, follow`);
   }
 
+  errors.push(...inspectMitigationCopy(pages));
+
   const homeHtml = pages.get("/") ?? "";
   const routeIndexHtml = pages.get("/routes/") ?? "";
   const homeWebsite = graphNodes(jsonLdDocuments(homeHtml)).find((node) => node?.["@type"] === "WebSite");
@@ -400,8 +471,11 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       errors.push(`${pagePath} must have one Ukrainian H1 naming ${origin} and ${destination}`);
     }
 
-    if (!candidate) continue;
     const text = plainText(html);
+    for (const claim of forbiddenCandidateClaims) {
+      if (text.toLocaleLowerCase().includes(claim.toLocaleLowerCase())) errors.push(`${pagePath} includes a carrier operational claim: ${claim}`);
+    }
+    if (!candidate) continue;
     if (!text.includes("Можливість поїздки на бажану дату") ||
       !text.toLocaleLowerCase().includes("перевізник підтвердить можливість поїздки") || !text.includes("не резервує місце")) {
       errors.push(`${pagePath} is missing the feasibility-first candidate inquiry notice`);
@@ -522,7 +596,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       !nearbyText.includes("Перевізник підтвердить, чи можлива там посадка або висадка")) {
       errors.push(pagePath + " is missing useful nearby guidance and the pickup boundary");
     }
-    const searchSection = visibleHtml.match(/<section\b(?=[^>]*aria-labelledby="search-heading")[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? "";
+    const searchSection = labelledSection(visibleHtml, "search-heading");
     const confirmationNotice = "Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.";
     if (!searchSection.includes(confirmationNotice)) {
       errors.push(`${pagePath} must place the trip confirmation notice in the search section`);

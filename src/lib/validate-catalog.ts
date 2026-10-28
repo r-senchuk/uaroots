@@ -87,6 +87,14 @@ export function validateCatalog(): string[] {
         errors.push(`Commercial route ${route.slug} has no city-specific practical content`);
       }
       for (const item of route.practicalContent ?? []) {
+        if (item.links !== undefined && (!Array.isArray(item.links) || item.links.some((link) => {
+          if (!link || typeof link.label !== "string" || !link.label.trim() || typeof link.url !== "string") return true;
+          if (/^\/(?!\/)[^?#]*\/$/.test(link.url)) return false;
+          try {
+            const url = new URL(link.url);
+            return url.protocol !== "https:" || Boolean(url.username || url.password);
+          } catch { return true; }
+        }))) errors.push(`Commercial route ${route.slug} has invalid practical links`);
         if (Boolean(item.sourceUrl) !== Boolean(item.lastVerifiedAt)) {
           errors.push(`Commercial route ${route.slug} has incomplete practical content provenance`);
         }

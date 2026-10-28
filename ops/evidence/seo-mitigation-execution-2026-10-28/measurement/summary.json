@@ -1,0 +1,162 @@
+{
+  "observed_at": "2026-10-28",
+  "scope": "S06-A measurement/privacy preparation; read-only GA4 and local disposable unit tests",
+  "decision": "NO CODE CHANGE; ready with explicit unknowns",
+  "identity": {
+    "property_id": "557859031",
+    "display_name": "UARoute — Production",
+    "time_zone": "Europe/Warsaw",
+    "currency": "PLN",
+    "stream": "16060537484",
+    "measurement_id": "G-PMXHF9YT7V",
+    "default_uri": "https://uaroute.com",
+    "workspace_isolation_verified": true
+  },
+  "provenance": {
+    "normalization_commit": "c71e4cfc1822824e8bb977f9d6db7312f3b9b88f",
+    "normalization_authored_at": "2026-10-21T13:58:11+02:00",
+    "contained_in_verified_release": "dac7e98735eabfdda8abb7df37fb6e59428b22be",
+    "release_verified_at": "2026-10-24T19:44:30.523Z",
+    "latest_calendar_release": "ff1e4d095e96cab9f5c75cbf19854f532d6273b9",
+    "latest_release_verified_at": "2026-10-27T21:12:27.977Z",
+    "earliest_normalization_deployment": "not established; by 24 Oct receipt is supported"
+  },
+  "final_cohort": {
+    "start_date": "2026-10-25",
+    "end_date": "2026-10-25",
+    "hostName": "uaroute.com",
+    "reason": "Full day after documented release; more than48h elapsed at collection",
+    "reports": {
+      "finalAcquisition": {
+        "status": "NO_DATA",
+        "row_count": 0,
+        "completeness": {
+          "sampled": false,
+          "sampling_metadatas": [],
+          "other_row_data_loss": false,
+          "thresholding_applied": false,
+          "empty_reason": null
+        },
+        "pagination": {
+          "limit": 50,
+          "offset": 0,
+          "returned_rows": 0,
+          "total_rows": 0,
+          "has_more": false,
+          "can_continue": false,
+          "next_offset": null,
+          "ordered": false
+        }
+      },
+      "finalEvents": {
+        "status": "NO_DATA",
+        "row_count": 0,
+        "completeness": {
+          "sampled": false,
+          "sampling_metadatas": [],
+          "other_row_data_loss": false,
+          "thresholding_applied": false,
+          "empty_reason": null
+        },
+        "pagination": {
+          "limit": 50,
+          "offset": 0,
+          "returned_rows": 0,
+          "total_rows": 0,
+          "has_more": false,
+          "can_continue": false,
+          "next_offset": null,
+          "ordered": false
+        }
+      },
+      "finalHandoffUnion": {
+        "status": "NO_DATA",
+        "row_count": 0,
+        "completeness": {
+          "sampled": false,
+          "sampling_metadatas": [],
+          "other_row_data_loss": false,
+          "thresholding_applied": false,
+          "empty_reason": null
+        },
+        "pagination": {
+          "limit": 50,
+          "offset": 0,
+          "returned_rows": 0,
+          "total_rows": 0,
+          "has_more": false,
+          "can_continue": false,
+          "next_offset": null,
+          "ordered": false
+        }
+      },
+      "finalDenominator": {
+        "status": "NO_DATA",
+        "row_count": 0,
+        "completeness": {
+          "sampled": false,
+          "sampling_metadatas": [],
+          "other_row_data_loss": false,
+          "thresholding_applied": false,
+          "empty_reason": null
+        },
+        "pagination": {
+          "limit": 50,
+          "offset": 0,
+          "returned_rows": 0,
+          "total_rows": 0,
+          "has_more": false,
+          "can_continue": false,
+          "next_offset": null,
+          "ordered": false
+        }
+      },
+      "hostContamination": {
+        "status": "NO_DATA",
+        "row_count": 0,
+        "completeness": {
+          "sampled": false,
+          "sampling_metadatas": [],
+          "other_row_data_loss": false,
+          "thresholding_applied": false,
+          "empty_reason": null
+        },
+        "pagination": {
+          "limit": 50,
+          "offset": 0,
+          "returned_rows": 0,
+          "total_rows": 0,
+          "has_more": false,
+          "can_continue": false,
+          "next_offset": null,
+          "ordered": false
+        }
+      }
+    },
+    "handoff_rate": null,
+    "deduplication_empirically_validated": false,
+    "contamination_status": "unknown; no host inventory rows"
+  },
+  "exploratory_not_cohort_evidence": {
+    "oct24_26": "CONFIRMED: 3 normalized Direct sessions,1 engaged session,3 users; includes26 Oct under48h old",
+    "oct24_25": "CONFIRMED: 1 normalized Direct session,0 engaged sessions,1 user;24Oct overlaps release day. Handoff union NO_DATA. Not used as clean post-release result."
+  },
+  "tests": {
+    "runtime_node22": "v22.23.3",
+    "runtime_node24": "v24.21.0",
+    "files": 4,
+    "tests": 33,
+    "passed": 33,
+    "external_requests": "No collectors or handoffs used; mocked unit sinks",
+    "limitations": "No new intercepted browser run; local provider serialization is not Google ingestion proof"
+  },
+  "unknowns": [
+    "Current non-direct acquisition ingestion",
+    "Latest27Oct release settled cohort",
+    "Test/internal identity within production hostname",
+    "Deduplicated union behavior with overlapping real handoff sessions",
+    "All-visitor totals and operator receipt/bookings",
+    "Google AI impressions and Bing citations"
+  ],
+  "private_raw": "output/seo-mitigation-execution-2026-10-28-private/measurement/ga4-readbacks.json"
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "artifact": "community-placements-2026-10-25.md",
+    "revision": "first Luna draft",
+    "sha256": "f9722642be891f347f8838b022acede525c0682e4fabaa89c208075ad7e11890",
+    "decision": "correction requested",
+    "findings": [
+      "P1 explicit author-affiliation disclosure lost",
+      "Kept P1/P2 fields paraphrased without need; restore exact retained values",
+      "Geographic examples only in brief, restore useful Ukrainian actual-locality examples",
+      "Repeated refusal warnings; consolidate confirmation boundary",
+      "Normalize blockquotes"
+    ]
+  },
+  {
+    "artifact": "content-package.md",
+    "revision": "incremental draft, not ready",
+    "sha256": "ef86dc8e8c1fa96d7ce738f34638643fb4fb0d0cdb759a7274294da3e6be6c91",
+    "decision": "correction requested during drafting",
+    "findings": [
+      "Hub metadata marked retain differed from frozen source",
+      "Lviv FAQ draft replaced existing return-date/children coverage despite keep dispositions",
+      "Editorial English mixed into final-copy cells; separate text/notes",
+      "Count and claim-prefix shorthand must match actual catalog and exact IDs"
+    ]
+  },
+  {
+    "artifact": "content-package.md",
+    "decision": "coordinator assessment correction",
+    "correction": "Coordinator initially compared IF metadata to the Lviv-style description and questioned the route alt text. Actual current source confirms initial IF description and route alt were correct. Those two concerns withdrawn; worker told to preserve exact source. No artifact rejection based on those concerns.",
+    "remaining_confirmed_findings": [
+      "Missing kept hub FAQ meanings",
+      "Invented imprint legal form/address/email",
+      "Unchanged CTA label mismatched current source",
+      "Duplicate coverage/ambiguous final-copy mappings"
+    ]
+  },
+  {
+    "artifact": "content-package.md",
+    "revision": "Luna handoff",
+    "sha256": "7464e7bfb889a139b56fab4353dece08f5b538c970056d1be4e186b6dc841dbc",
+    "decision": "coordinator integration",
+    "corrections": "Source-exact retained fields; unambiguous S03 destination records; full157-row reconciliation and field inventory. Coordinator owns accepted final bytes; do not attribute these edits to Luna."
+  },
+  {
+    "artifact": "coordinator integration",
+    "decision": "documentation corrections",
+    "findings": [
+      "Initial docs check treated site-relative public URLs as filesystem paths; public preview links changed to absolute uaroute.com URLs while implementation records retain exact site paths.",
+      "Verification report was linked before creation; report generated before final documentation check."
+    ],
+    "attribution": "coordinator; no application/source change"
+  }
+]

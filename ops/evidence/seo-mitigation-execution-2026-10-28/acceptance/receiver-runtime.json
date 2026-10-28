@@ -1,0 +1,89 @@
+{
+  "reviewer": "S09 independent",
+  "browser": "156.0.8078.48",
+  "sourceManifest": "61df2660ff0eb485eee2f77adbc9130807b47f46498ad7631f1b2d32afb25bc8",
+  "exportManifest": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "externalPolicy": "catch-all before navigation; local sender/receiver export only; WhatsApp/collectors/other requests aborted; service workers blocked",
+  "checks": [
+    {
+      "name": "dolyna-celle",
+      "inboundSourceValidated": true,
+      "originalSenderCodeRetained": true,
+      "currentPairRetained": true,
+      "manualFeasibility": true,
+      "noBookingPromise": true,
+      "literalUARoutePresent": false,
+      "oldConfirmationLiteralPresent": false,
+      "passed": true
+    },
+    {
+      "name": "lviv-celle",
+      "inboundSourceValidated": true,
+      "originalSenderCodeRetained": true,
+      "currentPairRetained": true,
+      "manualFeasibility": true,
+      "noBookingPromise": true,
+      "literalUARoutePresent": false,
+      "oldConfirmationLiteralPresent": false,
+      "passed": true
+    },
+    {
+      "name": "celle-lviv",
+      "inboundSourceValidated": true,
+      "originalSenderCodeRetained": true,
+      "currentPairRetained": true,
+      "manualFeasibility": true,
+      "noBookingPromise": true,
+      "literalUARoutePresent": false,
+      "oldConfirmationLiteralPresent": false,
+      "passed": true
+    },
+    {
+      "name": "ivano-frankivsk-wolfsburg",
+      "inboundSourceValidated": true,
+      "originalSenderCodeRetained": true,
+      "currentPairRetained": true,
+      "manualFeasibility": true,
+      "noBookingPromise": true,
+      "literalUARoutePresent": false,
+      "oldConfirmationLiteralPresent": false,
+      "passed": true
+    },
+    {
+      "name": "wolfsburg-ivano-frankivsk",
+      "inboundSourceValidated": true,
+      "originalSenderCodeRetained": true,
+      "currentPairRetained": true,
+      "manualFeasibility": true,
+      "noBookingPromise": true,
+      "literalUARoutePresent": false,
+      "oldConfirmationLiteralPresent": false,
+      "passed": true
+    }
+  ],
+  "runtimeErrors": [],
+  "blockedWhatsApp": 5,
+  "blockedOther": 5,
+  "receiverFiles": {
+    "assets/About-v4VSaREC.js": "f179f1a5434a35113afc89c1ded00c8d0baa8a585b23dd7cf7494b1e2a6628f2",
+    "assets/Contacts-tJ6wneTq.js": "6ee12dd1910b0a681cec68ef0f6b07c0eca3f856e1e08f1718d21894bed94b0a",
+    "assets/ContactsSection-Cv0noOVL.js": "076aaf929f62068bc8a0301b9ed28699ba9d4ebe92ba6c0d5c145baeee1af578",
+    "assets/Gallery-DIziP95h.js": "b0d976f5cceee137f2edeb3116ca15c71d4ce33dc7f1e5eec2b7e0557c2d2163",
+    "assets/Gallery-DeRjo_Q8.js": "9c03abb304e3902b6df4609da72b37c3d5425418173c373c3ee71fd0b53e743e",
+    "assets/Home-4pOfCMlb.js": "055b509d324c11bd757c5e5ced5a9eb0abe3a3069237cf364df6e1cbae36a344",
+    "assets/NotFound-CCZz6fTd.js": "5796a4400eb65fe0b33f0eaa0252578cee9fa2aa1717cd053712e37f7058a041",
+    "assets/Packages-DnPkVrjz.js": "d49374d9c0ffee1778440fe388ea92fd76ddbf638956a44d230af4c3ca1515f3",
+    "assets/PackagesSection-qIrT1uMm.js": "75719a3bdc1cfaaa1e33fb73e123adc30e03fee279f67062058f9834b9794fcd",
+    "assets/PageBanner-6fNJVB5k.js": "3a2b7918011b515a6e954684ef47ae7cb751085539dd6481a76affc37c733f9e",
+    "assets/RegionsSection-BDQyY3La.js": "9f75e4fcffe6e6038efd5421c0770b1ad8c4a02308d2d7c17516eabc7ff249da",
+    "assets/createLucideIcon-BquztTUT.js": "574a5aea8edb3aac080640869356843f95478469ca3690406d61a861545624a7",
+    "assets/index-l-79UGBT.js": "de8b55a91fba1da4599e98718975cd813164971f5b523cacf3461a0b42bcf7a1",
+    "assets/seo-D0PX6w4q.js": "72b30a2d9bcef9cf77dd2641f4b6174921636e7081f4f1186b24858001a1a306",
+    "assets/uarouteAttribution-6B7qvH49.js": "4c7aed0813c80515ed8e6ff22c106674dd89a38f88a1e2f1148ff0756203b565",
+    "assets/usePageMeta-DAEw-Dw0.js": "79907885c7ce45b32e330a1c853c3304be18f49977ab352b1d1223fc555835e6",
+    "index.html": "5c88dbdefee05ca387dc812266ca494dffdd6eaa55f3fe756356de9d708a408c"
+  },
+  "realMessagesSent": 0,
+  "passed": true,
+  "cleanup": "all fresh contexts and browser closed"
+}

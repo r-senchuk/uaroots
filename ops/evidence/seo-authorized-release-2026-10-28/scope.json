@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-28",
+  "authorization": "User explicitly authorized S01-S12 verification, commit and deployment in current chat; no posting/indexing/account/Ads/messages authorized.",
+  "release_checkout": "/private/tmp/uaroute-seo-release-2026-10-28",
+  "base_sha": "682afa90145ee1ee00aba4af1185dcd25b805a1c",
+  "protected_root_head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+  "source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "accepted_disabled_release_sha256": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+  "edge_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+  "reconciliation": "Isolated checkout based on current remote main retains ff1e4d calendar fix and 682afa release record; overlays frozen26 source paths, accepted canonical package and directly referenced S04/S08/S09/R-series evidence. Root worktree/log/state/out/dependencies and old trial evidence remain untouched. Root15725 S04 docs and dependent community/strategy edits carried explicitly.",
+  "build_settings_observed": {
+    "NEXT_PUBLIC_ANALYTICS_ENABLED": "true",
+    "NEXT_PUBLIC_GA_MEASUREMENT_ID": "G-PMXHF9YT7V",
+    "NEXT_PUBLIC_GTM_CONTAINER_ID": "GTM-WD2F63V5"
+  },
+  "build_delta": "CI currently compiles enabled analytics; accepted S09 export was disabled. Compare downloaded CI artifact and repeat affected enabled privacy/business acceptance before production promotion. No repository variables changed.",
+  "physical_device": {
+    "passed": 0,
+    "failed": 0,
+    "not_run": 6,
+    "disposition": "Owner previously chose preparation for later physical testing and now explicitly authorized deployment. Technical deployment may proceed after actual CI/recovery/tool gates; S10 acceptance retains device hold. No physical pass or full S10 acceptance claimed."
+  },
+  "safe_scope": "No output, credentials, real passenger data, full synthetic handoff/message URLs or unrelated historical trial evidence staged. Test fixture code remains executable validation, separate from generated messages.",
+  "status": "prepared_for_authorized_commit_no_production_write"
+}

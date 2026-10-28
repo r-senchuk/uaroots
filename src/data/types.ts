@@ -61,6 +61,7 @@ export type RouteServiceMode = "candidate_inquiry";
 export type PracticalContent = {
   heading: string;
   body: string;
+  links?: { label: string; url: string }[];
   sourceUrl?: string;
   lastVerifiedAt?: string;
 };

@@ -35,7 +35,7 @@ export function CandidateInquiry({
   const [passengers, setPassengers] = useState(1);
   const [errors, setErrors] = useState<{ travelDate?: string; phone?: string; passengers?: string }>({});
   const today = localTodayISO();
-  const fieldClass = "h-12 min-w-0 w-full border border-input bg-background px-3 text-base text-foreground focus:border-primary";
+  const fieldClass = "h-12 min-w-0 w-full border border-foreground bg-background px-3 text-base text-foreground focus:border-primary";
 
   function submit() {
     const validation = validateInquiry({ travelDate, phone, passengers });
@@ -82,13 +82,13 @@ export function CandidateInquiry({
       ) : null}
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
         {hasDesk
-          ? "Після переходу до WhatsApp перевірте повідомлення й надішліть його самостійно. Перевізник підтвердить можливість поїздки на бажану дату та її умови; запит не резервує місце."
+          ? "Перевізник підтвердить можливість поїздки на бажану дату та її умови. Запит не резервує місце."
           : "Перевізник підтвердить можливість поїздки. Перехід на його сайт не резервує місце."}
       </p>
 
       {hasDesk ? <form noValidate onSubmit={(event) => { event.preventDefault(); submit(); }}>
-      <p className="mt-4 type-body-small text-muted-foreground">
-        Додайте бажану дату, кількість пасажирів і телефон, щоб підготувати запит перевізнику.
+      <p className="mt-4 type-body text-muted-foreground">
+        Додайте бажану дату, кількість пасажирів і телефон. Відкриється WhatsApp із готовим текстом: перевірте його й надішліть самостійно.
       </p>
 
       <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -119,7 +119,7 @@ export function CandidateInquiry({
       </div>
 
       <button type="submit" disabled={!hydrated}
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-5 py-3 type-button text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground transition-colors hover:bg-primary-hover sm:w-auto">
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground transition-colors hover:bg-primary-hover sm:w-auto">
         <WhatsAppIcon /> Уточнити поїздку в WhatsApp
       </button>
       </form> : null}

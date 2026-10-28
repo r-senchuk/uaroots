@@ -92,14 +92,14 @@ export function StickyBookingBar({ anchorId }: { anchorId: string }) {
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <div className="container-page flex min-w-0 flex-col items-stretch gap-2 pt-3">
-        <p className="min-w-0 break-words font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted-foreground">
+        <p className="min-w-0 break-words font-mono text-sm uppercase tracking-[0.16em] text-muted-foreground">
           {route.origin.name} → {route.destination.name}
         </p>
         {desk ? (
           <button
             type="button"
             onClick={() => submit("sticky_mobile")}
-            className="inline-flex min-h-11 min-w-0 items-center justify-center bg-primary px-4 py-3 type-button text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground"
+            className="inline-flex min-h-11 min-w-0 items-center justify-center bg-primary px-4 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground"
           >
             Уточнити поїздку
           </button>
@@ -115,7 +115,7 @@ export function StickyBookingBar({ anchorId }: { anchorId: string }) {
               destinationCityId: route.destination.id,
               sourcePath,
             }}
-            className="inline-flex min-h-11 min-w-0 items-center justify-center bg-primary px-4 py-3 type-button text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground"
+            className="inline-flex min-h-11 min-w-0 items-center justify-center bg-primary px-4 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground"
           >
             Сайт перевізника ↗
           </KovalReferralLink>

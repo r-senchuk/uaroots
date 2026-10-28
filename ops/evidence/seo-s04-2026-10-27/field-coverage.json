@@ -1,0 +1,3074 @@
+{
+  "fields": 210,
+  "source": "field-inventory.json",
+  "rows": [
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "title",
+      "current": "Львів → Ганновер",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh.metadata.h1",
+      "final": "Львів → Ганновер",
+      "claim_id": "R-lviv-hannover-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "description",
+      "current": "Львів — Ганновер: поїздка до Нижньої Саксонії. Зверніться до перевізника, щоб узгодити виїзд зі Львова, точну зупинку в Ганновері та перевезення багажу.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lh-intro",
+      "final": "Львів — Ганновер: підготуйте звернення про бажану дату, місце прибуття й багаж. Можливість поїздки та умови підтверджує перевізник.",
+      "claim_id": "R-lviv-hannover-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.title",
+      "current": "Львів → Ганновер: як доїхати та що уточнити | UARoute",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh.metadata.title",
+      "final": "Львів → Ганновер: як доїхати та що уточнити | UARoute",
+      "claim_id": "R-lviv-hannover-seo.title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.description",
+      "current": "Підготуйте поїздку зі Львова до Ганновера: місця зустрічі та прибуття, багаж, подальша дорога й повідомлення перевізнику на бажану дату.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh.metadata.description",
+      "final": "Підготуйте поїздку зі Львова до Ганновера: місця зустрічі та прибуття, багаж, подальша дорога й повідомлення перевізнику на бажану дату.",
+      "claim_id": "R-lviv-hannover-seo.description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.heading",
+      "current": "Оберіть орієнтир для прибуття у Ганновері",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lh-arrival-locality + lh-independent-onward",
+      "final": [
+        {
+          "key": "lh-arrival-locality",
+          "heading": "Де ви хочете прибути у Ганновері?",
+          "text": "Назвіть район, адресу або бажаний орієнтир: наприклад, Hannover Hbf чи ZOB. Запитайте, чи можлива висадка у потрібному місці та яку точку можна погодити.",
+          "items": []
+        },
+        {
+          "key": "lh-independent-onward",
+          "heading": "Сплануйте подальшу дорогу окремо",
+          "text": "Після погодження можливого місця та орієнтовного часу прибуття перевірте наступну частину дороги. Для самостійного планування скористайтеся інформацією міста про громадський транспорт; вона не визначає зупинку перевізника й не гарантує стиковку.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.body",
+      "current": "Громадський транспорт Ганновера об'єднує центральний залізничний вокзал (Hannover Hbf) та автовокзал (ZOB). Для зустрічі чи висадки вкажіть конкретний орієнтир або район міста, щоб перевізник міг узгодити точну точку зупинки.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lh-arrival-locality + lh-independent-onward",
+      "final": [
+        {
+          "key": "lh-arrival-locality",
+          "heading": "Де ви хочете прибути у Ганновері?",
+          "text": "Назвіть район, адресу або бажаний орієнтир: наприклад, Hannover Hbf чи ZOB. Запитайте, чи можлива висадка у потрібному місці та яку точку можна погодити.",
+          "items": []
+        },
+        {
+          "key": "lh-independent-onward",
+          "heading": "Сплануйте подальшу дорогу окремо",
+          "text": "Після погодження можливого місця та орієнтовного часу прибуття перевірте наступну частину дороги. Для самостійного планування скористайтеся інформацією міста про громадський транспорт; вона не визначає зупинку перевізника й не гарантує стиковку.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.sourceUrl",
+      "current": "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.lastVerifiedAt",
+      "current": "2026-10-25",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.heading",
+      "current": "Узгодьте доїзд до Львова з часом виїзду",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lh-lviv-first-leg",
+      "final": [
+        {
+          "key": "lh-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з часом виїзду",
+          "text": "Якщо ви добираєтеся до Львова поїздом або автобусом з іншого населеного пункту, повідомте перевізнику орієнтовний час прибуття. Залиште достатній запас часу на випадок затримок та погодьте точне місце зустрічі у Львові.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.body",
+      "current": "Якщо ви добираєтеся до Львова поїздом або автобусом з іншого населеного пункту, повідомте перевізнику орієнтовний час прибуття. Залиште достатній запас часу на випадок затримок та погодьте точне місце зустрічі у Львові.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lh-lviv-first-leg",
+      "final": [
+        {
+          "key": "lh-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з часом виїзду",
+          "text": "Якщо ви добираєтеся до Львова поїздом або автобусом з іншого населеного пункту, повідомте перевізнику орієнтовний час прибуття. Залиште достатній запас часу на випадок затримок та погодьте точне місце зустрічі у Львові.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.question",
+      "current": "Як узгодити прибуття до Ганновера (ZOB або вокзал)?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lh-arrival-locality",
+      "final": [
+        {
+          "key": "lh-arrival-locality",
+          "heading": "Де ви хочете прибути у Ганновері?",
+          "text": "Назвіть район, адресу або бажаний орієнтир: наприклад, Hannover Hbf чи ZOB. Запитайте, чи можлива висадка у потрібному місці та яку точку можна погодити.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.answer",
+      "current": "Напишіть перевізнику, куди саме в Ганновері вам зручно прибути — до центрального автовокзалу (ZOB), залізничного вокзалу чи за конкретною адресою. Перевізник повідомить, чи можлива висадка в цій точці.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lh-arrival-locality",
+      "final": [
+        {
+          "key": "lh-arrival-locality",
+          "heading": "Де ви хочете прибути у Ганновері?",
+          "text": "Назвіть район, адресу або бажаний орієнтир: наприклад, Hannover Hbf чи ZOB. Запитайте, чи можлива висадка у потрібному місці та яку точку можна погодити.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.question",
+      "current": "Чи можна розрахувати запас часу між потягом до Львова та посадкою?",
+      "role": "visible/metadata/source-label input",
+      "action": "remove numeric clause; move/merge planning coverage",
+      "destination": "lh-lviv-first-leg",
+      "final": [
+        {
+          "key": "lh-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з часом виїзду",
+          "text": "Якщо ви добираєтеся до Львова поїздом або автобусом з іншого населеного пункту, повідомте перевізнику орієнтовний час прибуття. Залиште достатній запас часу на випадок затримок та погодьте точне місце зустрічі у Львові.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.answer",
+      "current": "Повідомте перевізнику час прибуття вашого потяга до Львова. Зазвичай варто закласти щонайменше 1–2 години запасу на випадок затримки залізничного транспорту перед зустріччю.",
+      "role": "visible/metadata/source-label input",
+      "action": "remove numeric clause; move/merge planning coverage",
+      "destination": "lh-lviv-first-leg",
+      "final": [
+        {
+          "key": "lh-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з часом виїзду",
+          "text": "Якщо ви добираєтеся до Львова поїздом або автобусом з іншого населеного пункту, повідомте перевізнику орієнтовний час прибуття. Залиште достатній запас часу на випадок затримок та погодьте точне місце зустрічі у Львові.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.question",
+      "current": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lh-actual-locality",
+      "final": [
+        {
+          "key": "lh-actual-locality",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.answer",
+      "current": "Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lh-actual-locality",
+      "final": [
+        {
+          "key": "lh-actual-locality",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.question",
+      "current": "Що робити, якщо плани змінилися після звернення?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lh-changed-plan",
+      "final": [
+        {
+          "key": "lh-changed-plan",
+          "heading": "Що робити, якщо плани змінилися після звернення?",
+          "text": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.answer",
+      "current": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lh-changed-plan",
+      "final": [
+        {
+          "key": "lh-changed-plan",
+          "heading": "Що робити, якщо плани змінилися після звернення?",
+          "text": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-hannover-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.1",
+      "current": "Можливість поїздки на бажану дату",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh-questions",
+      "final": "Можливість поїздки на бажану дату",
+      "claim_id": "R-lviv-hannover-confirm1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.2",
+      "current": "Ціна та оплата",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh-questions",
+      "final": "Ціна та оплата",
+      "claim_id": "R-lviv-hannover-confirm2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.3",
+      "current": "Посадка й висадка",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh-questions",
+      "final": "Посадка й висадка",
+      "claim_id": "R-lviv-hannover-confirm3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.4",
+      "current": "Багаж і можливі пересадки",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lh-questions",
+      "final": "Багаж і можливі пересадки",
+      "claim_id": "R-lviv-hannover-confirm4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "title",
+      "current": "Львів → Целле",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc.metadata.h1",
+      "final": "Львів → Целле",
+      "claim_id": "R-lviv-celle-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "description",
+      "current": "Львів — Целле (Celle, Німеччина): узгодьте виїзд зі Львова, місце висадки біля вокзалу чи старого міста Целле, розклад та умови перевезення багажу з перевізником.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-intro",
+      "final": "Львів — Целле (Celle, Німеччина): підготуйте запит про бажане місце прибуття, багаж і дату. Перевізник має підтвердити можливість поїздки та умови.",
+      "claim_id": "R-lviv-celle-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.title",
+      "current": "Львів → Целле: як уточнити поїздку | UARoute",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc.metadata.title",
+      "final": "Львів → Целле: як уточнити поїздку | UARoute",
+      "claim_id": "R-lviv-celle-seo.title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.description",
+      "current": "Поїздка зі Львова до Целле (Celle, Німеччина): вибір місця прибуття, підготовка до дороги та запит перевізнику на бажану дату.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc.metadata.description",
+      "final": "Поїздка зі Львова до Целле (Celle, Німеччина): вибір місця прибуття, підготовка до дороги та запит перевізнику на бажану дату.",
+      "claim_id": "R-lviv-celle-seo.description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.heading",
+      "current": "Оберіть місце прибуття у Целле",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-arrival-locality + lc-arrival-orientation",
+      "final": [
+        {
+          "key": "lc-arrival-locality",
+          "heading": "Яке місце прибуття в Целле запропонувати?",
+          "text": "Назвіть потрібний район, адресу або міський орієнтир — наприклад, вокзал (Bahnhof) чи старе місто. Запитайте, чи можливо погодити прибуття там і яке місце підійде для вашої поїздки.",
+          "items": []
+        },
+        {
+          "key": "lc-arrival-orientation",
+          "heading": "Довідка для орієнтування в Целле",
+          "text": "Для самостійного планування скористайтеся міською туристичною довідкою. Її інформація про прибуття до міста не встановлює місця висадки перевізника.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.body",
+      "current": "У туристичній інформації Целле вокзал і старе місто описані окремо. Для прибуття вкажіть потрібний район, адресу або один із цих орієнтирів. Так перевізнику буде легше узгодити з вами конкретне місце.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-arrival-locality + lc-arrival-orientation",
+      "final": [
+        {
+          "key": "lc-arrival-locality",
+          "heading": "Яке місце прибуття в Целле запропонувати?",
+          "text": "Назвіть потрібний район, адресу або міський орієнтир — наприклад, вокзал (Bahnhof) чи старе місто. Запитайте, чи можливо погодити прибуття там і яке місце підійде для вашої поїздки.",
+          "items": []
+        },
+        {
+          "key": "lc-arrival-orientation",
+          "heading": "Довідка для орієнтування в Целле",
+          "text": "Для самостійного планування скористайтеся міською туристичною довідкою. Її інформація про прибуття до міста не встановлює місця висадки перевізника.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.sourceUrl",
+      "current": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.lastVerifiedAt",
+      "current": "2026-10-06",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "2026-10-06",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.heading",
+      "current": "Узгодьте доїзд до Львова з посадкою",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lc-lviv-first-leg",
+      "final": [
+        {
+          "key": "lc-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з посадкою",
+          "text": "Якщо спочатку приїжджаєте до Львова поїздом або автобусом, напишіть час і місце свого прибуття. Попросіть перевізника погодити точку посадки та обговоріть запас часу між двома поїздками. Коли місце зустрічі стане відоме, сплануйте, як дістатися до нього з багажем.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.body",
+      "current": "Якщо спочатку приїжджаєте до Львова поїздом або автобусом, напишіть час і місце свого прибуття. Попросіть перевізника погодити точку посадки та обговоріть запас часу між двома поїздками. Коли місце зустрічі стане відоме, сплануйте, як дістатися до нього з багажем.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lc-lviv-first-leg",
+      "final": [
+        {
+          "key": "lc-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з посадкою",
+          "text": "Якщо спочатку приїжджаєте до Львова поїздом або автобусом, напишіть час і місце свого прибуття. Попросіть перевізника погодити точку посадки та обговоріть запас часу між двома поїздками. Коли місце зустрічі стане відоме, сплануйте, як дістатися до нього з багажем.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.question",
+      "current": "Як вказати точку прибуття в Целле?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-arrival-locality",
+      "final": [
+        {
+          "key": "lc-arrival-locality",
+          "heading": "Яке місце прибуття в Целле запропонувати?",
+          "text": "Назвіть потрібний район, адресу або міський орієнтир — наприклад, вокзал (Bahnhof) чи старе місто. Запитайте, чи можливо погодити прибуття там і яке місце підійде для вашої поїздки.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.answer",
+      "current": "Вкажіть район Целле, вокзал (Bahnhof) або адресу старого міста. Перевізник підтвердить можливість зупинки біля потрібного орієнтира.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-arrival-locality",
+      "final": [
+        {
+          "key": "lc-arrival-locality",
+          "heading": "Яке місце прибуття в Целле запропонувати?",
+          "text": "Назвіть потрібний район, адресу або міський орієнтир — наприклад, вокзал (Bahnhof) чи старе місто. Запитайте, чи можливо погодити прибуття там і яке місце підійде для вашої поїздки.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.question",
+      "current": "Що врахувати при доїзді до Львова з іншого міста?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lc-lviv-first-leg",
+      "final": [
+        {
+          "key": "lc-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з посадкою",
+          "text": "Якщо спочатку приїжджаєте до Львова поїздом або автобусом, напишіть час і місце свого прибуття. Попросіть перевізника погодити точку посадки та обговоріть запас часу між двома поїздками. Коли місце зустрічі стане відоме, сплануйте, як дістатися до нього з багажем.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.answer",
+      "current": "Якщо ви добираєтеся до Львова приміським транспортом чи потягом, повідомте перевізнику орієнтовний час прибуття й погодьте зручну точку зустрічі.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lc-lviv-first-leg",
+      "final": [
+        {
+          "key": "lc-lviv-first-leg",
+          "heading": "Узгодьте доїзд до Львова з посадкою",
+          "text": "Якщо спочатку приїжджаєте до Львова поїздом або автобусом, напишіть час і місце свого прибуття. Попросіть перевізника погодити точку посадки та обговоріть запас часу між двома поїздками. Коли місце зустрічі стане відоме, сплануйте, як дістатися до нього з багажем.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.question",
+      "current": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-locality-changes",
+      "final": [
+        {
+          "key": "lc-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.answer",
+      "current": "Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "lc-locality-changes",
+      "final": [
+        {
+          "key": "lc-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.question",
+      "current": "Що робити, якщо плани змінилися після звернення?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lc-locality-changes",
+      "final": [
+        {
+          "key": "lc-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.answer",
+      "current": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "lc-locality-changes",
+      "final": [
+        {
+          "key": "lc-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-lviv-celle-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.1",
+      "current": "Можливість поїздки на бажану дату",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc-questions",
+      "final": "Можливість поїздки на бажану дату",
+      "claim_id": "R-lviv-celle-confirm1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.2",
+      "current": "Ціна та оплата",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc-questions",
+      "final": "Ціна та оплата",
+      "claim_id": "R-lviv-celle-confirm2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.3",
+      "current": "Посадка й висадка",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc-questions",
+      "final": "Посадка й висадка",
+      "claim_id": "R-lviv-celle-confirm3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.4",
+      "current": "Багаж і можливі пересадки",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "lc-questions",
+      "final": "Багаж і можливі пересадки",
+      "claim_id": "R-lviv-celle-confirm4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "title",
+      "current": "Целле → Львів",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl.metadata.h1",
+      "final": "Целле → Львів",
+      "claim_id": "R-celle-lviv-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "description",
+      "current": "Целле (Celle, Німеччина) — Львів: поїздка до України. Зверніться до перевізника, щоб погодити орієнтир зустрічі в Целле, прибуття до Львова та стиковку з поїздами.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-intro",
+      "final": "Целле — Львів: запропонуйте місце зустрічі в Целле й запитайте про можливість поїздки на вашу дату. Подальшу дорогу зі Львова плануйте окремо після погодження місця та очікуваного часу прибуття.",
+      "claim_id": "R-celle-lviv-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.title",
+      "current": "Целле → Львів: як уточнити поїздку | UARoute",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl.metadata.title",
+      "final": "Целле → Львів: як уточнити поїздку | UARoute",
+      "claim_id": "R-celle-lviv-seo.title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.description",
+      "current": "Поїздка з Целле (Celle, Німеччина) до Львова: вибір місця зустрічі, підготовка до дороги та запит перевізнику на бажану дату.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl.metadata.description",
+      "final": "Поїздка з Целле (Celle, Німеччина) до Львова: вибір місця зустрічі, підготовка до дороги та запит перевізнику на бажану дату.",
+      "claim_id": "R-celle-lviv-seo.description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.heading",
+      "current": "Оберіть орієнтир для зустрічі у Целле",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-meeting-locality",
+      "final": [
+        {
+          "key": "cl-meeting-locality",
+          "heading": "Де вам було б зручно зустрітися в Целле?",
+          "text": "Запропонуйте район, адресу з поштовим індексом або міський орієнтир — наприклад, вокзал чи старе місто. Запитайте, чи можлива посадка в цьому місці та який час і точку зустрічі можна погодити. Туристична довідка допоможе зорієнтуватися в місті, але не підтверджує зупинку перевізника.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.body",
+      "current": "У туристичній інформації Целле вокзал і старе місто описані окремо. Для зустрічі вкажіть потрібний район, адресу або один із цих орієнтирів. Так перевізнику буде легше узгодити з вами конкретне місце.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-meeting-locality",
+      "final": [
+        {
+          "key": "cl-meeting-locality",
+          "heading": "Де вам було б зручно зустрітися в Целле?",
+          "text": "Запропонуйте район, адресу з поштовим індексом або міський орієнтир — наприклад, вокзал чи старе місто. Запитайте, чи можлива посадка в цьому місці та який час і точку зустрічі можна погодити. Туристична довідка допоможе зорієнтуватися в місті, але не підтверджує зупинку перевізника.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.sourceUrl",
+      "current": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.lastVerifiedAt",
+      "current": "2026-10-06",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "2026-10-06",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.heading",
+      "current": "Продумайте подальшу дорогу зі Львова",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "cl-lviv-arrival + cl-independent-onward",
+      "final": [
+        {
+          "key": "cl-lviv-arrival",
+          "heading": "Що уточнити про прибуття до Львова?",
+          "text": "Якщо зі Львова плануєте їхати далі, повідомте перевізнику кінцеве місто. Запитайте про місце висадки й орієнтовний час прибуття, а також про те, як дізнаватися про зміни в дорозі.",
+          "items": []
+        },
+        {
+          "key": "cl-independent-onward",
+          "heading": "Як підготувати подальшу дорогу зі Львова?",
+          "text": "Повідомте перевізнику, якщо у вас є подальший квиток на потяг. Після погодження місця й очікуваного часу прибуття обирайте наступний транспорт із запасом часу. Враховуйте можливі затримки, зокрема під час перетину кордону; стиковку потрібно планувати окремо.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.body",
+      "current": "Якщо зі Львова плануєте їхати далі, повідомте перевізнику кінцеве місто. Запитайте про місце висадки й орієнтовний час прибуття, а також про те, як дізнаватися про зміни в дорозі. Після цього обирайте наступний транспорт із запасом часу на пересадку.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "cl-lviv-arrival + cl-independent-onward",
+      "final": [
+        {
+          "key": "cl-lviv-arrival",
+          "heading": "Що уточнити про прибуття до Львова?",
+          "text": "Якщо зі Львова плануєте їхати далі, повідомте перевізнику кінцеве місто. Запитайте про місце висадки й орієнтовний час прибуття, а також про те, як дізнаватися про зміни в дорозі.",
+          "items": []
+        },
+        {
+          "key": "cl-independent-onward",
+          "heading": "Як підготувати подальшу дорогу зі Львова?",
+          "text": "Повідомте перевізнику, якщо у вас є подальший квиток на потяг. Після погодження місця й очікуваного часу прибуття обирайте наступний транспорт із запасом часу. Враховуйте можливі затримки, зокрема під час перетину кордону; стиковку потрібно планувати окремо.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.question",
+      "current": "Де краще призначити зустріч у Целле?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-meeting-locality",
+      "final": [
+        {
+          "key": "cl-meeting-locality",
+          "heading": "Де вам було б зручно зустрітися в Целле?",
+          "text": "Запропонуйте район, адресу з поштовим індексом або міський орієнтир — наприклад, вокзал чи старе місто. Запитайте, чи можлива посадка в цьому місці та який час і точку зустрічі можна погодити. Туристична довідка допоможе зорієнтуватися в місті, але не підтверджує зупинку перевізника.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.answer",
+      "current": "Запропонуйте вокзал Целле або конкретний район із точним індексом чи адресою. Перевізник погодить остаточне місце та орієнтовний час посадки.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-meeting-locality",
+      "final": [
+        {
+          "key": "cl-meeting-locality",
+          "heading": "Де вам було б зручно зустрітися в Целле?",
+          "text": "Запропонуйте район, адресу з поштовим індексом або міський орієнтир — наприклад, вокзал чи старе місто. Запитайте, чи можлива посадка в цьому місці та який час і точку зустрічі можна погодити. Туристична довідка допоможе зорієнтуватися в місті, але не підтверджує зупинку перевізника.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.question",
+      "current": "Як підготуватися до пересадки у Львові на поїзд?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "cl-independent-onward",
+      "final": [
+        {
+          "key": "cl-independent-onward",
+          "heading": "Як підготувати подальшу дорогу зі Львова?",
+          "text": "Повідомте перевізнику, якщо у вас є подальший квиток на потяг. Після погодження місця й очікуваного часу прибуття обирайте наступний транспорт із запасом часу. Враховуйте можливі затримки, зокрема під час перетину кордону; стиковку потрібно планувати окремо.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.answer",
+      "current": "Уточніть у перевізника очікуваний час прибуття до Львова та попередьте про подальший квиток на потяг. Закладайте додатковий часовий запас з огляду на перетин кордону.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "cl-independent-onward",
+      "final": [
+        {
+          "key": "cl-independent-onward",
+          "heading": "Як підготувати подальшу дорогу зі Львова?",
+          "text": "Повідомте перевізнику, якщо у вас є подальший квиток на потяг. Після погодження місця й очікуваного часу прибуття обирайте наступний транспорт із запасом часу. Враховуйте можливі затримки, зокрема під час перетину кордону; стиковку потрібно планувати окремо.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.question",
+      "current": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-locality-changes",
+      "final": [
+        {
+          "key": "cl-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.answer",
+      "current": "Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "cl-locality-changes",
+      "final": [
+        {
+          "key": "cl-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.question",
+      "current": "Що робити, якщо плани змінилися після звернення?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "cl-locality-changes",
+      "final": [
+        {
+          "key": "cl-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.answer",
+      "current": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "cl-locality-changes",
+      "final": [
+        {
+          "key": "cl-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-celle-lviv-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.1",
+      "current": "Можливість поїздки на бажану дату",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl-baggage-transfer",
+      "final": "Можливість поїздки на бажану дату",
+      "claim_id": "R-celle-lviv-confirm1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.2",
+      "current": "Ціна та оплата",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl-baggage-transfer",
+      "final": "Ціна та оплата",
+      "claim_id": "R-celle-lviv-confirm2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.3",
+      "current": "Посадка й висадка",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl-baggage-transfer",
+      "final": "Посадка й висадка",
+      "claim_id": "R-celle-lviv-confirm3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.4",
+      "current": "Багаж і можливі пересадки",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "cl-baggage-transfer",
+      "final": "Багаж і можливі пересадки",
+      "claim_id": "R-celle-lviv-confirm4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "title",
+      "current": "Івано-Франківськ → Вольфсбург",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw.metadata.h1",
+      "final": "Івано-Франківськ → Вольфсбург",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "description",
+      "current": "Івано-Франківськ — Вольфсбург (Wolfsburg, Німеччина): виїзд з Прикарпаття. Уточніть у перевізника дату, умови перевезення речей і висадку в потрібному районі Вольфсбурга.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw-intro",
+      "final": "Івано-Франківськ — Вольфсбург (Wolfsburg, Німеччина): виїзд з Прикарпаття. Уточніть у перевізника дату, умови перевезення речей і висадку в потрібному районі Вольфсбурга.",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.title",
+      "current": "Івано-Франківськ → Вольфсбург: як уточнити поїздку | UARoute",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw.metadata.title",
+      "final": "Івано-Франківськ → Вольфсбург: як уточнити поїздку | UARoute",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-seo.title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.description",
+      "current": "Поїздка з Івано-Франківська до Вольфсбурга (Wolfsburg, Німеччина): вибір місця прибуття, підготовка до дороги та запит перевізнику на бажану дату.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw.metadata.description",
+      "final": "Поїздка з Івано-Франківська до Вольфсбурга (Wolfsburg, Німеччина): вибір місця прибуття, підготовка до дороги та запит перевізнику на бажану дату.",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-seo.description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.heading",
+      "current": "Оберіть місце прибуття у Вольфсбурзі",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-arrival-locality",
+      "final": [
+        {
+          "key": "iw-arrival-locality",
+          "heading": "Оберіть місце прибуття у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу прибуття, а не лише місто. Точне місце висадки погодьте з перевізником. У запиті можна зазначити Fallersleben або Vorsfelde та поштовий індекс чи вулицю. Запитайте перевізника, чи можливий під’їзд до потрібного місця.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.body",
+      "current": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу прибуття, а не лише місто. Точне місце висадки погодьте з перевізником.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-arrival-locality",
+      "final": [
+        {
+          "key": "iw-arrival-locality",
+          "heading": "Оберіть місце прибуття у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу прибуття, а не лише місто. Точне місце висадки погодьте з перевізником. У запиті можна зазначити Fallersleben або Vorsfelde та поштовий індекс чи вулицю. Запитайте перевізника, чи можливий під’їзд до потрібного місця.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.sourceUrl",
+      "current": "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.lastVerifiedAt",
+      "current": "2026-10-06",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "2026-10-06",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.heading",
+      "current": "Підготуйте спільний виїзд з Івано-Франківська",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-shared-departure",
+      "final": [
+        {
+          "key": "iw-shared-departure",
+          "heading": "Підготуйте спільний виїзд з Івано-Франківська",
+          "text": "Якщо їдете разом, домовтеся, де всім зручно зібратися, й запропонуйте цей орієнтир перевізнику. Зазначте кількість дорослих і дітей, вік дітей та загальну кількість валіз. Запитайте про потрібні умови для дітей і перевезення великого багажу до погодження поїздки.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.body",
+      "current": "Якщо їдете разом, домовтеся, де всім зручно зібратися, й запропонуйте цей орієнтир перевізнику. Зазначте кількість дорослих і дітей, вік дітей та загальну кількість валіз. Запитайте про потрібні умови для дітей і перевезення великого багажу до погодження поїздки.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-shared-departure",
+      "final": [
+        {
+          "key": "iw-shared-departure",
+          "heading": "Підготуйте спільний виїзд з Івано-Франківська",
+          "text": "Якщо їдете разом, домовтеся, де всім зручно зібратися, й запропонуйте цей орієнтир перевізнику. Зазначте кількість дорослих і дітей, вік дітей та загальну кількість валіз. Запитайте про потрібні умови для дітей і перевезення великого багажу до погодження поїздки.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.question",
+      "current": "Як зазначити конкретний район Вольфсбурга (наприклад, Фаллерслебен)?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-arrival-locality",
+      "final": [
+        {
+          "key": "iw-arrival-locality",
+          "heading": "Оберіть місце прибуття у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу прибуття, а не лише місто. Точне місце висадки погодьте з перевізником. У запиті можна зазначити Fallersleben або Vorsfelde та поштовий індекс чи вулицю. Запитайте перевізника, чи можливий під’їзд до потрібного місця.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.answer",
+      "current": "Напишіть назву району (Fallersleben, Vorsfelde тощо) та поштовий індекс або вулицю в тексті запиту. Перевізник повідомить можливість під'їзду за цією адресою.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-arrival-locality",
+      "final": [
+        {
+          "key": "iw-arrival-locality",
+          "heading": "Оберіть місце прибуття у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу прибуття, а не лише місто. Точне місце висадки погодьте з перевізником. У запиті можна зазначити Fallersleben або Vorsfelde та поштовий індекс чи вулицю. Запитайте перевізника, чи можливий під’їзд до потрібного місця.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.question",
+      "current": "Що уточнити, якщо виїжджаємо з сім'єю з Івано-Франківська?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-shared-departure",
+      "final": [
+        {
+          "key": "iw-shared-departure",
+          "heading": "Підготуйте спільний виїзд з Івано-Франківська",
+          "text": "Якщо їдете разом, домовтеся, де всім зручно зібратися, й запропонуйте цей орієнтир перевізнику. Зазначте кількість дорослих і дітей, вік дітей та загальну кількість валіз. Запитайте про потрібні умови для дітей і перевезення великого багажу до погодження поїздки.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.answer",
+      "current": "Вкажіть загальну кількість дорослих і дітей, кількість валіз та зручний район збору в Івано-Франківську, щоб перевізник оцінив місткість і погодив посадку.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-shared-departure",
+      "final": [
+        {
+          "key": "iw-shared-departure",
+          "heading": "Підготуйте спільний виїзд з Івано-Франківська",
+          "text": "Якщо їдете разом, домовтеся, де всім зручно зібратися, й запропонуйте цей орієнтир перевізнику. Зазначте кількість дорослих і дітей, вік дітей та загальну кількість валіз. Запитайте про потрібні умови для дітей і перевезення великого багажу до погодження поїздки.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.question",
+      "current": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "iw-locality-changes",
+      "final": [
+        {
+          "key": "iw-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.answer",
+      "current": "Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "iw-locality-changes",
+      "final": [
+        {
+          "key": "iw-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.question",
+      "current": "Що робити, якщо плани змінилися після звернення?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-locality-changes",
+      "final": [
+        {
+          "key": "iw-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.answer",
+      "current": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "iw-locality-changes",
+      "final": [
+        {
+          "key": "iw-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-ivano-frankivsk-wolfsburg-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.1",
+      "current": "Можливість поїздки на бажану дату",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw-baggage-transfer",
+      "final": "Можливість поїздки на бажану дату",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.2",
+      "current": "Ціна та оплата",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw-baggage-transfer",
+      "final": "Ціна та оплата",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.3",
+      "current": "Посадка й висадка",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw-baggage-transfer",
+      "final": "Посадка й висадка",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.4",
+      "current": "Багаж і можливі пересадки",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "iw-baggage-transfer",
+      "final": "Багаж і можливі пересадки",
+      "claim_id": "R-ivano-frankivsk-wolfsburg-confirm4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "title",
+      "current": "Вольфсбург → Івано-Франківськ",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi.metadata.h1",
+      "final": "Вольфсбург → Івано-Франківськ",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "description",
+      "current": "Вольфсбург (Wolfsburg, Німеччина) — Івано-Франківськ: повернення до Прикарпаття. Узгодьте район посадки у Вольфсбурзі, зустріч в Івано-Франківську та умови багажу.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi-intro",
+      "final": "Вольфсбург (Wolfsburg, Німеччина) — Івано-Франківськ: повернення до Прикарпаття. Узгодьте район посадки у Вольфсбурзі, зустріч в Івано-Франківську та умови багажу.",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.title",
+      "current": "Вольфсбург → Івано-Франківськ: як уточнити поїздку | UARoute",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi.metadata.title",
+      "final": "Вольфсбург → Івано-Франківськ: як уточнити поїздку | UARoute",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-seo.title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "seo.description",
+      "current": "Поїздка з Вольфсбурга (Wolfsburg, Німеччина) до Івано-Франківська: вибір місця зустрічі, підготовка до дороги та запит перевізнику на бажану дату.",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi.metadata.description",
+      "final": "Поїздка з Вольфсбурга (Wolfsburg, Німеччина) до Івано-Франківська: вибір місця зустрічі, підготовка до дороги та запит перевізнику на бажану дату.",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-seo.description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.heading",
+      "current": "Оберіть орієнтир для зустрічі у Вольфсбурзі",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-meeting-locality",
+      "final": [
+        {
+          "key": "wi-meeting-locality",
+          "heading": "Оберіть орієнтир для зустрічі у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу зустрічі, а не лише місто. Точне місце посадки погодьте з перевізником. Запитайте, чи можлива посадка саме за потрібною адресою та яке місце можна погодити.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.body",
+      "current": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу зустрічі, а не лише місто. Точне місце посадки погодьте з перевізником.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-meeting-locality",
+      "final": [
+        {
+          "key": "wi-meeting-locality",
+          "heading": "Оберіть орієнтир для зустрічі у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу зустрічі, а не лише місто. Точне місце посадки погодьте з перевізником. Запитайте, чи можлива посадка саме за потрібною адресою та яке місце можна погодити.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-practical1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.sourceUrl",
+      "current": "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.1.lastVerifiedAt",
+      "current": "2026-10-06",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "existing source provenance",
+      "final": "2026-10-06",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.heading",
+      "current": "Домовтеся про зустріч в Івано-Франківську",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-arrival-coordination + wi-independent-onward",
+      "final": [
+        {
+          "key": "wi-arrival-coordination",
+          "heading": "Домовтеся про зустріч в Івано-Франківську",
+          "text": "Якщо після прибуття вас зустрічатимуть близькі, уточніть місце висадки та орієнтовний час. Запитайте, як підтримувати зв’язок і дізнаватися про зміни часу в дорозі. Передайте узгоджені відомості тим, хто приїде за вами.",
+          "items": []
+        },
+        {
+          "key": "wi-independent-onward",
+          "heading": "Якщо після Івано-Франківська їдете далі",
+          "text": "Обговоріть із перевізником можливе місце висадки, очікуваний час прибуття та запас часу перед наступною поїздкою. Подальший транспорт плануйте окремо з урахуванням можливих змін у дорозі.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "practicalContent.2.body",
+      "current": "Якщо після прибуття вас зустрічатимуть близькі, уточніть місце висадки та орієнтовний час. Запитайте, як підтримувати зв’язок і дізнаватися про зміни часу в дорозі. Передайте узгоджені відомості тим, хто приїде за вами. Якщо їдете далі, обговоріть запас часу для пересадки.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-arrival-coordination + wi-independent-onward",
+      "final": [
+        {
+          "key": "wi-arrival-coordination",
+          "heading": "Домовтеся про зустріч в Івано-Франківську",
+          "text": "Якщо після прибуття вас зустрічатимуть близькі, уточніть місце висадки та орієнтовний час. Запитайте, як підтримувати зв’язок і дізнаватися про зміни часу в дорозі. Передайте узгоджені відомості тим, хто приїде за вами.",
+          "items": []
+        },
+        {
+          "key": "wi-independent-onward",
+          "heading": "Якщо після Івано-Франківська їдете далі",
+          "text": "Обговоріть із перевізником можливе місце висадки, очікуваний час прибуття та запас часу перед наступною поїздкою. Подальший транспорт плануйте окремо з урахуванням можливих змін у дорозі.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-practical2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.question",
+      "current": "Як погодити посадку у Вольфсбурзі?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "wi-meeting-locality",
+      "final": [
+        {
+          "key": "wi-meeting-locality",
+          "heading": "Оберіть орієнтир для зустрічі у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу зустрічі, а не лише місто. Точне місце посадки погодьте з перевізником. Запитайте, чи можлива посадка саме за потрібною адресою та яке місце можна погодити.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.1.answer",
+      "current": "Вкажіть вашу точну адресу або район у Вольфсбурзі. Перевізник підтвердить, чи зможе забрати вас безпосередньо звідти, або запропонує найближчий зручний орієнтир.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "wi-meeting-locality",
+      "final": [
+        {
+          "key": "wi-meeting-locality",
+          "heading": "Оберіть орієнтир для зустрічі у Вольфсбурзі",
+          "text": "Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу зустрічі, а не лише місто. Точне місце посадки погодьте з перевізником. Запитайте, чи можлива посадка саме за потрібною адресою та яке місце можна погодити.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.question",
+      "current": "Як передати деталі прибуття родичам в Івано-Франківську?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-arrival-coordination",
+      "final": [
+        {
+          "key": "wi-arrival-coordination",
+          "heading": "Домовтеся про зустріч в Івано-Франківську",
+          "text": "Якщо після прибуття вас зустрічатимуть близькі, уточніть місце висадки та орієнтовний час. Запитайте, як підтримувати зв’язок і дізнаватися про зміни часу в дорозі. Передайте узгоджені відомості тим, хто приїде за вами.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.2.answer",
+      "current": "Узгодьте з перевізником орієнтовну зупинку висадки в Івано-Франківську та спосіб інформування про час приїзду перед передачею даних тим, хто вас зустрічає.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-arrival-coordination",
+      "final": [
+        {
+          "key": "wi-arrival-coordination",
+          "heading": "Домовтеся про зустріч в Івано-Франківську",
+          "text": "Якщо після прибуття вас зустрічатимуть близькі, уточніть місце висадки та орієнтовний час. Запитайте, як підтримувати зв’язок і дізнаватися про зміни часу в дорозі. Передайте узгоджені відомості тим, хто приїде за вами.",
+          "items": []
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.question",
+      "current": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "wi-locality-changes",
+      "final": [
+        {
+          "key": "wi-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.3.answer",
+      "current": "Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "role": "visible/metadata/source-label input",
+      "action": "rewrite",
+      "destination": "wi-locality-changes",
+      "final": [
+        {
+          "key": "wi-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.question",
+      "current": "Що робити, якщо плани змінилися після звернення?",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-locality-changes",
+      "final": [
+        {
+          "key": "wi-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "faq.4.answer",
+      "current": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "role": "visible/metadata/source-label input",
+      "action": "move/merge kept meaning",
+      "destination": "wi-locality-changes",
+      "final": [
+        {
+          "key": "wi-locality-changes",
+          "heading": "Що вибрати, якщо мого населеного пункту немає в пошуку?",
+          "text": "Виберіть найближче доступне місто для пошуку. У приватному зверненні назвіть фактичний населений пункт, район або адресу та запитайте, чи можлива там посадка або висадка. Вибір у пошуку не означає, що потрібно їхати до цього міста; потрібне місце може виявитися недоступним.",
+          "items": [
+            {
+              "question": "Що робити, якщо плани змінилися після звернення?",
+              "answer": "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця."
+            }
+          ]
+        }
+      ],
+      "claim_id": "R-wolfsburg-ivano-frankivsk-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.1",
+      "current": "Можливість поїздки на бажану дату",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi-baggage-transfer",
+      "final": "Можливість поїздки на бажану дату",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.2",
+      "current": "Ціна та оплата",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi-baggage-transfer",
+      "final": "Ціна та оплата",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.3",
+      "current": "Посадка й висадка",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi-baggage-transfer",
+      "final": "Посадка й висадка",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "source": "src/data/routes.ts",
+      "source_field": "whatToConfirm.4",
+      "current": "Багаж і можливі пересадки",
+      "role": "visible/metadata/source-label input",
+      "action": "retain exact",
+      "destination": "wi-baggage-transfer",
+      "final": "Багаж і можливі пересадки",
+      "claim_id": "R-wolfsburg-ivano-frankivsk-confirm4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "title",
+      "current": "Поїздки зі Львова до Німеччини та назад | UARoute",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv.metadata.title",
+      "final": "Поїздки зі Львова до Німеччини та назад | UARoute",
+      "claim_id": "H-lviv-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "heading",
+      "current": "Поїздки зі Львова до Німеччини та назад",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv.metadata.h1",
+      "final": "Поїздки зі Львова до Німеччини та назад",
+      "claim_id": "H-lviv-heading",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "description",
+      "current": "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv.metadata.description",
+      "final": "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.",
+      "claim_id": "H-lviv-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "intro",
+      "current": "Оберіть місто для поїздки зі Львова або повернення до Львова. UARoute допоможе підготувати звернення до перевізника.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-intro",
+      "final": "Оберіть місто для поїздки зі Львова або повернення до Львова. UARoute допоможе підготувати звернення до перевізника.",
+      "claim_id": "H-lviv-intro",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "outbound",
+      "current": "Якщо спочатку добираєтеся до Львова, повідомте перевізнику, звідки й коли плануєте прибути. Погодьте точку та час зустрічі, перш ніж купувати квиток на попередню ділянку. Для пересування містом звірте актуальні правила місцевого транспорту в офіційному довіднику нижче. Довідник не визначає місце посадки перевізника.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-outbound-return.outbound",
+      "final": "Якщо спочатку добираєтеся до Львова, повідомте перевізнику, звідки й коли плануєте прибути. Погодьте точку та час зустрічі, перш ніж купувати квиток на попередню ділянку. Для пересування містом звірте актуальні правила місцевого транспорту в офіційному довіднику нижче. Довідник не визначає місце посадки перевізника.",
+      "claim_id": "H-lviv-outbound",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "returning",
+      "current": "Для виїзду з Німеччини додайте адресу або район зустрічі й погодьте місце висадки у Львові. Якщо звідти їдете далі, уточніть очікуваний час прибуття та запас перед наступною поїздкою. Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-outbound-return.return",
+      "final": "Для виїзду з Німеччини додайте адресу або район зустрічі й погодьте місце висадки у Львові. Якщо звідти їдете далі, уточніть очікуваний час прибуття та запас перед наступною поїздкою. Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою.",
+      "claim_id": "H-lviv-returning",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.1.question",
+      "current": "Що написати, якщо до Львова ще потрібно доїхати?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq1",
+      "final": "Що написати, якщо до Львова ще потрібно доїхати?",
+      "claim_id": "H-lviv-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.1.answer",
+      "current": "Повідомте, звідки добираєтеся та коли плануєте бути у Львові. Погодьте місце й час зустрічі, перш ніж купувати квитки на попередню ділянку шляху.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq1",
+      "final": "Повідомте, звідки добираєтеся та коли плануєте бути у Львові. Погодьте місце й час зустрічі, перш ніж купувати квитки на попередню ділянку шляху.",
+      "claim_id": "H-lviv-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.2.question",
+      "current": "Як запитати про пересадку під час поїздки?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq2",
+      "final": "Як запитати про пересадку під час поїздки?",
+      "claim_id": "H-lviv-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.2.answer",
+      "current": "Якщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq2",
+      "final": "Якщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо.",
+      "claim_id": "H-lviv-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.3.question",
+      "current": "Чи потрібно одразу знати дату повернення?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq3",
+      "final": "Чи потрібно одразу знати дату повернення?",
+      "claim_id": "H-lviv-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.3.answer",
+      "current": "Можна підготувати звернення лише для виїзду. Коли визначите дату повернення, перемкніть пошук на «До України» й складіть окреме повідомлення. Якщо хочете обговорити обидві поїздки одразу, додайте дату повернення в текст WhatsApp.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq3",
+      "final": "Можна підготувати звернення лише для виїзду. Коли визначите дату повернення, перемкніть пошук на «До України» й складіть окреме повідомлення. Якщо хочете обговорити обидві поїздки одразу, додайте дату повернення в текст WhatsApp.",
+      "claim_id": "H-lviv-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.4.question",
+      "current": "Що запитати, якщо подорожую з дитиною?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq4",
+      "final": "Що запитати, якщо подорожую з дитиною?",
+      "claim_id": "H-lviv-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.4.answer",
+      "current": "Укажіть вік дитини й запитайте про вартість, дитяче крісло, багаж та потрібні для перевезення умови. Перевізник має підтвердити, що можна організувати саме для вашої поїздки.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq4",
+      "final": "Укажіть вік дитини й запитайте про вартість, дитяче крісло, багаж та потрібні для перевезення умови. Перевізник має підтвердити, що можна організувати саме для вашої поїздки.",
+      "claim_id": "H-lviv-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.5.question",
+      "current": "Як запитати про перевезення велосипеда?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq5",
+      "final": "Як запитати про перевезення велосипеда?",
+      "claim_id": "H-lviv-faq5",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.5.answer",
+      "current": "Назвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.faq5",
+      "final": "Назвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість.",
+      "claim_id": "H-lviv-faq5",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyHeading",
+      "current": "Якщо ви живете неподалік",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-actual-locality",
+      "final": "Якщо ви живете неподалік",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyIntro",
+      "current": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-actual-locality",
+      "final": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
+      "claim_id": "H-lviv-nearbyIntro",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyActionText",
+      "current": "Повернутися до пошуку поїздки",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-actual-locality",
+      "final": "Повернутися до пошуку поїздки",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.contentKey",
+      "current": "lviv-zhovkva",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "final": "lviv-zhovkva",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.name",
+      "current": "Жовква",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "final": "Жовква",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.localName",
+      "current": "Zhovkva",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "final": "Zhovkva",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.guidance",
+      "current": "Якщо ви вирушаєте з Жовкви, зазначте назву міста та адресу виїзду в повідомленні. Перевізник повідомить, чи можлива посадка за маршрутом через північний виїзд зі Львова, або погодить зустріч у зручній точці.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "final": "Якщо ваше фактичне місце — Жовква, назвіть місто й адресу приватно. Запитайте, чи можлива там посадка або висадка та яку точку можна погодити.",
+      "claim_id": "N-lviv-zhovkva",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.geographySource.url",
+      "current": "https://zhovkva-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "final": "https://zhovkva-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zhovkva",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.contentKey",
+      "current": "lviv-yavoriv",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "final": "lviv-yavoriv",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.name",
+      "current": "Яворів",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "final": "Яворів",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.localName",
+      "current": "Yavoriv",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "final": "Yavoriv",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.guidance",
+      "current": "Для виїзду з Яворова вкажіть населений пункт і точний орієнтир. Оскільки місто розташоване на трасі до кордону, перевізник підтвердить можливість узгодженої зупинки.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "final": "Плануєте виїзд із Яворова або прибуття туди? Укажіть фактичне місце й орієнтир у приватному зверненні та запитайте про можливість поїздки.",
+      "claim_id": "N-lviv-yavoriv",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.geographySource.url",
+      "current": "https://yavoriv-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "final": "https://yavoriv-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-yavoriv",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.contentKey",
+      "current": "lviv-zolochiv",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "final": "lviv-zolochiv",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.name",
+      "current": "Золочів",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "final": "Золочів",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.localName",
+      "current": "Zolochiv",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "final": "Zolochiv",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.guidance",
+      "current": "Напишіть, чи плануєте добиратися до Львова самостійно, чи шукаєте можливість посадки по дорозі із Золочева. Перевізник підкаже доцільний варіант з'єднання.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "final": "Для виїзду із Золочева або прибуття до міста назвіть фактичну адресу. Уточніть у перевізника, чи можна погодити потрібне місце.",
+      "claim_id": "N-lviv-zolochiv",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.geographySource.url",
+      "current": "https://zolochiv-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "final": "https://zolochiv-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-zolochiv",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.contentKey",
+      "current": "lviv-sambir",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "final": "lviv-sambir",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.name",
+      "current": "Самбір",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "final": "Самбір",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.localName",
+      "current": "Sambir",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "final": "Sambir",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.guidance",
+      "current": "Вкажіть Самбір і бажану дату виїзду. Уточніть у перевізника, чи можливий заїзд або як найкраще спланувати стиковку з місцем посадки у Львові.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "final": "Якщо потрібне місце — Самбір, зазначте його разом з адресою або орієнтиром. Запитайте, чи можлива там посадка або висадка.",
+      "claim_id": "N-lviv-sambir",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.geographySource.url",
+      "current": "https://sambir-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "final": "https://sambir-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-nearby-examples.lviv-sambir",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.label",
+      "current": "Офіційний довідник громадського транспорту Львова",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.resource1",
+      "final": "Офіційний довідник громадського транспорту Львова",
+      "claim_id": "H-lviv-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.url",
+      "current": "https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.resource1",
+      "final": "https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom",
+      "claim_id": "H-lviv-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.checkedAt",
+      "current": "2026-10-09",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.resource1",
+      "final": "2026-10-09",
+      "claim_id": "H-lviv-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.purpose",
+      "current": "Перевірити актуальні правила доїзду в місті.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "lv-faq-resources.resource1",
+      "final": "Перевірити актуальні правила доїзду в місті.",
+      "claim_id": "H-lviv-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "contentReview.reviewedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "existing historical contentReview",
+      "final": "2026-10-25",
+      "claim_id": "H-lviv-review",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "contentReview.contentUpdatedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "existing historical contentReview",
+      "final": "2026-10-25",
+      "claim_id": "H-lviv-review",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/lviv/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "contentReview.reviewScope",
+      "current": "editorial_guidance",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "existing historical contentReview",
+      "final": "editorial_guidance",
+      "claim_id": "H-lviv-review",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "title",
+      "current": "Поїздки з Івано-Франківська до Німеччини та назад | UARoute",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if.metadata.title",
+      "final": "Поїздки з Івано-Франківська до Німеччини та назад | UARoute",
+      "claim_id": "H-ivano-frankivsk-title",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "heading",
+      "current": "Поїздки з Івано-Франківська до Німеччини та назад",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if.metadata.h1",
+      "final": "Поїздки з Івано-Франківська до Німеччини та назад",
+      "claim_id": "H-ivano-frankivsk-heading",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "description",
+      "current": "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if.metadata.description",
+      "final": "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.",
+      "claim_id": "H-ivano-frankivsk-description",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "intro",
+      "current": "Оберіть місто для поїздки з Івано-Франківська або повернення до Івано-Франківська. UARoute допоможе підготувати звернення до перевізника.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-intro",
+      "final": "Оберіть місто для поїздки з Івано-Франківська або повернення до Івано-Франківська. UARoute допоможе підготувати звернення до перевізника.",
+      "claim_id": "H-ivano-frankivsk-intro",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "outbound",
+      "current": "Опишіть зручний район або орієнтир зустрічі в Івано-Франківську та повідомте, якщо добираєтеся з іншого населеного пункту. Запитайте про точне місце й час, кількість валіз і великий багаж. Якщо до міста плануєте їхати потягом, перевірте варіанти в офіційному сервісі Укрзалізниці після погодження зустрічі.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-outbound-return.outbound",
+      "final": "Опишіть зручний район або орієнтир зустрічі в Івано-Франківську та повідомте, якщо добираєтеся з іншого населеного пункту. Запитайте про точне місце й час, кількість валіз і великий багаж. Якщо до міста плануєте їхати потягом, перевірте варіанти в офіційному сервісі Укрзалізниці після погодження зустрічі.",
+      "claim_id": "H-ivano-frankivsk-outbound",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "returning",
+      "current": "Погодьте місце висадки в Івано-Франківську й спосіб отримати повідомлення про зміну часу прибуття. Якщо вас зустрічають, передайте їм погоджені деталі. Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до перевізника.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-outbound-return.return",
+      "final": "Погодьте місце висадки в Івано-Франківську й спосіб отримати повідомлення про зміну часу прибуття. Якщо вас зустрічають, передайте їм погоджені деталі. Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до перевізника.",
+      "claim_id": "H-ivano-frankivsk-returning",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.1.question",
+      "current": "Як зазначити дату, якщо можу виїхати в різні дні?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq1",
+      "final": "Як зазначити дату, якщо можу виїхати в різні дні?",
+      "claim_id": "H-ivano-frankivsk-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.1.answer",
+      "current": "Виберіть бажану дату у формі, а в повідомленні WhatsApp додайте інші дні, які вам підходять. Запитайте перевізника, на яку з цих дат можна погодити поїздку.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq1",
+      "final": "Виберіть бажану дату у формі, а в повідомленні WhatsApp додайте інші дні, які вам підходять. Запитайте перевізника, на яку з цих дат можна погодити поїздку.",
+      "claim_id": "H-ivano-frankivsk-faq1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.2.question",
+      "current": "Як запитати про пересадку під час поїздки?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq2",
+      "final": "Як запитати про пересадку під час поїздки?",
+      "claim_id": "H-ivano-frankivsk-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.2.answer",
+      "current": "Якщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq2",
+      "final": "Якщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо.",
+      "claim_id": "H-ivano-frankivsk-faq2",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.3.question",
+      "current": "Як описати великий багаж?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq3",
+      "final": "Як описати великий багаж?",
+      "claim_id": "H-ivano-frankivsk-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.3.answer",
+      "current": "Напишіть кількість валіз і приблизні розміри великої речі. Запитайте, чи можна взяти її з собою та скільки коштуватиме перевезення. Погодьте ці умови до виїзду.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq3",
+      "final": "Напишіть кількість валіз і приблизні розміри великої речі. Запитайте, чи можна взяти її з собою та скільки коштуватиме перевезення. Погодьте ці умови до виїзду.",
+      "claim_id": "H-ivano-frankivsk-faq3",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.4.question",
+      "current": "Як спланувати зустріч після повернення до Івано-Франківська?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq4",
+      "final": "Як спланувати зустріч після повернення до Івано-Франківська?",
+      "claim_id": "H-ivano-frankivsk-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.4.answer",
+      "current": "Погодьте місце висадки й очікуваний час прибуття. Запитайте, як дізнатися про зміну часу в дорозі, та передайте ці деталі тим, хто вас зустрічає.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq4",
+      "final": "Погодьте місце висадки й очікуваний час прибуття. Запитайте, як дізнатися про зміну часу в дорозі, та передайте ці деталі тим, хто вас зустрічає.",
+      "claim_id": "H-ivano-frankivsk-faq4",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.5.question",
+      "current": "Як запитати про перевезення велосипеда?",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq5",
+      "final": "Як запитати про перевезення велосипеда?",
+      "claim_id": "H-ivano-frankivsk-faq5",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "faq.5.answer",
+      "current": "Назвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.faq5",
+      "final": "Назвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість.",
+      "claim_id": "H-ivano-frankivsk-faq5",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyHeading",
+      "current": "Якщо ви живете неподалік",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-actual-locality",
+      "final": "Якщо ви живете неподалік",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyIntro",
+      "current": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-actual-locality",
+      "final": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
+      "claim_id": "H-ivano-frankivsk-nearbyIntro",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyActionText",
+      "current": "Повернутися до пошуку поїздки",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-actual-locality",
+      "final": "Повернутися до пошуку поїздки",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.contentKey",
+      "current": "if-kolomyia",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "final": "if-kolomyia",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.name",
+      "current": "Коломия",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "final": "Коломия",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.localName",
+      "current": "Kolomyia",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "final": "Kolomyia",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.guidance",
+      "current": "Вкажіть Коломию як фактичний пункт виїзду або повернення. Перевізник уточнить, чи передбачено заїзд на вашу дату, чи доцільно зустрітися на автостанції або вокзалі в Івано-Франківську.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "final": "Якщо фактичне місце виїзду або прибуття — Коломия, назвіть місто й адресу приватно. Уточніть, чи можливе погодження цього місця.",
+      "claim_id": "N-if-kolomyia",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.geographySource.url",
+      "current": "https://kolomyia.org.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "final": "https://kolomyia.org.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.1.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-kolomyia",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.contentKey",
+      "current": "if-tysmenytsia",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "final": "if-tysmenytsia",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.name",
+      "current": "Тисмениця",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "final": "Тисмениця",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.localName",
+      "current": "Tysmenytsia",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "final": "Tysmenytsia",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.guidance",
+      "current": "Якщо ви перебуваєте в Тисмениці, напишіть точну адресу або орієнтир на виїзді. Близькість до Івано-Франківська дозволяє узгодити найзручніший спосіб посадки.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "final": "Назвіть Тисменицю та фактичну адресу у приватному зверненні. Запитайте, чи можлива посадка або висадка там; близькість до Івано-Франківська не визначає можливість поїздки.",
+      "claim_id": "N-if-tysmenytsia",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.geographySource.url",
+      "current": "https://tysmenytsia-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "final": "https://tysmenytsia-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.2.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-tysmenytsia",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.contentKey",
+      "current": "if-rogatyn",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "final": "if-rogatyn",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.name",
+      "current": "Рогатин",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "final": "Рогатин",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.localName",
+      "current": "Rohatyn",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "final": "Rohatyn",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.guidance",
+      "current": "Для пасажирів з Рогатина вкажіть бажану ділянку вздовж львівського напрямку. Перевізник підтвердить, чи можлива посадка на трасі або біля місцевої автостанції.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "final": "Плануєте виїзд із Рогатина або прибуття туди? Зазначте фактичне місце й орієнтир та запитайте перевізника, чи можна погодити потрібну точку.",
+      "claim_id": "N-if-rogatyn",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.geographySource.url",
+      "current": "https://rogatyn-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "final": "https://rogatyn-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.3.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-rogatyn",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.contentKey",
+      "current": "if-bohorodchany",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "final": "if-bohorodchany",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.name",
+      "current": "Богородчани",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "final": "Богородчани",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.localName",
+      "current": "Bohorodchany",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "final": "Bohorodchany",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.guidance",
+      "current": "Повідомте перевізнику про поїздку з Богородчан. Запитайте про можливість підбору по дорозі або узгодьте стиковку з міським транспортом до Івано-Франківська.",
+      "role": "existing public field; review/source dates historical",
+      "action": "rewrite",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "final": "Якщо ваше фактичне місце — Богородчани, повідомте назву й адресу приватно. Запитайте про можливість посадки або висадки та місце, яке можна погодити.",
+      "claim_id": "N-if-bohorodchany",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.geographySource.url",
+      "current": "https://bohorodchany-rada.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "final": "https://bohorodchany-rada.gov.ua/",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "nearbyPlaces.4.geographySource.checkedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-nearby-examples.if-bohorodchany",
+      "final": "2026-10-25",
+      "claim_id": null,
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.label",
+      "current": "Офіційний пошук квитків Укрзалізниці",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.resource1",
+      "final": "Офіційний пошук квитків Укрзалізниці",
+      "claim_id": "H-ivano-frankivsk-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.url",
+      "current": "https://booking.uz.gov.ua/",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.resource1",
+      "final": "https://booking.uz.gov.ua/",
+      "claim_id": "H-ivano-frankivsk-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.checkedAt",
+      "current": "2026-10-09",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.resource1",
+      "final": "2026-10-09",
+      "claim_id": "H-ivano-frankivsk-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "planningResources.1.purpose",
+      "current": "Окремо перевірити потрібну попередню або подальшу ділянку.",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "if-faq-resources.resource1",
+      "final": "Окремо перевірити потрібну попередню або подальшу ділянку.",
+      "claim_id": "H-ivano-frankivsk-resource1",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "contentReview.reviewedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "existing historical contentReview",
+      "final": "2026-10-25",
+      "claim_id": "H-ivano-frankivsk-review",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "contentReview.contentUpdatedAt",
+      "current": "2026-10-25",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "existing historical contentReview",
+      "final": "2026-10-25",
+      "claim_id": "H-ivano-frankivsk-review",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "source": "src/data/city-hubs.ts",
+      "source_field": "contentReview.reviewScope",
+      "current": "editorial_guidance",
+      "role": "existing public field; review/source dates historical",
+      "action": "retain exact",
+      "destination": "existing historical contentReview",
+      "final": "editorial_guidance",
+      "claim_id": "H-ivano-frankivsk-review",
+      "review": "accepted source-field/copy coverage; not runtime verification"
+    }
+  ]
+}

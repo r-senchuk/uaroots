@@ -828,10 +828,14 @@ async function run() {
         const whatsapp = (await blocked).url();
         ensure(whatsapp, "Koval submit did not attempt a WhatsApp handoff");
         const message = new URL(whatsapp).searchParams.get("text") ?? "";
-        ensure(message.includes("UARoute"), "Koval WhatsApp message lost UARoute source");
+        const originalReferral = new URL(referralUrl);
+        const originalCode = originalReferral.searchParams.get("ref_code");
+        ensure(originalReferral.searchParams.get("utm_source") === "uaroute" && /^UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}$/.test(originalCode ?? ""), "Receiver form has no validated UARoute source and sender code");
+        ensure(message.startsWith(`${originalCode}\nВітаю! Хочу уточнити можливість поїздки:`), "Receiver form lost the exact original sender code or neutral feasibility prefix");
         ensure(/UR-[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{10}/.test(message), "Koval WhatsApp message lost the inquiry code");
         ensure(message.includes("Долина → Целле"), "Koval WhatsApp message lost the current route endpoints");
-        ensure(message.includes("Це запит про поїздку, а не бронювання."), "Koval message does not say the trip needs manual confirmation");
+        ensure(message.includes("Прошу підтвердити можливість поїздки та її умови."), "Receiver form lost manual confirmation wording");
+        ensure(!/Хочу забронювати|бронювання підтверджено|місце зарезервовано|підтверджене бронювання/i.test(message), "Receiver attributed form implies a booking promise");
         ensure(message.includes("+48111222333"), "The passenger's phone was not present in the operator-directed message");
         return { origin: startValue, destination: endValue, sourceAndCodePresent: true };
       });
@@ -862,8 +866,9 @@ async function run() {
           const blocked = koval.waitForEvent("requestfailed", { predicate: (request) => new URL(request.url()).hostname === "wa.me" });
           await koval.locator("form").getByRole("button", { name: /WhatsApp|запит/i }).click({ noWaitAfter: true });
           const message = new URL((await blocked).url()).searchParams.get("text") ?? "";
-          ensure(message.includes("UARoute") && message.includes(code) && message.includes(`${from} → ${to}`), "New Koval handoff lost source, original code or current pair");
-          ensure(message.includes("Це запит про поїздку, а не бронювання."), "New Koval handoff implies automatic confirmation");
+          ensure(referral.searchParams.get("utm_source") === "uaroute" && message.startsWith(`${code}\nВітаю! Хочу уточнити можливість поїздки:`) && message.includes(`${from} → ${to}`), "New receiver form lost validated source, exact original code or current pair");
+          ensure(message.includes("Прошу підтвердити можливість поїздки та її умови."), "New receiver form lost manual confirmation wording");
+          ensure(!/Хочу забронювати|бронювання підтверджено|місце зарезервовано|підтверджене бронювання/i.test(message), "New receiver attributed form implies a booking promise");
           await closeSafely(koval, "snapshot receiver page");
         }
         return { newPairsChecked: pairs.length, sameCodeRetained: true, bothDirections: true, messagesBlocked: true };

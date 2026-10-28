@@ -1,0 +1,55 @@
+{
+  "status": "designed; not browser verified",
+  "source_head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+  "copy_records_sha256": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+  "boards": [
+    {
+      "file": "lviv.html",
+      "page_url": "/cities/lviv/",
+      "keys": [
+        "lv-intro",
+        "lv-select",
+        "lv-actual-locality",
+        "lv-outbound-return.outbound",
+        "lv-outbound-return.return",
+        "lv-nearby-examples.lviv-zhovkva",
+        "lv-nearby-examples.lviv-yavoriv",
+        "lv-nearby-examples.lviv-zolochiv",
+        "lv-nearby-examples.lviv-sambir",
+        "lv-route-cards",
+        "lv-faq-resources.faq1",
+        "lv-faq-resources.faq2",
+        "lv-faq-resources.faq3",
+        "lv-faq-resources.faq4",
+        "lv-faq-resources.faq5",
+        "lv-faq-resources.resource1",
+        "lv-contact-alternative"
+      ],
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472"
+    },
+    {
+      "file": "ivano-frankivsk.html",
+      "page_url": "/cities/ivano-frankivsk/",
+      "keys": [
+        "if-intro",
+        "if-select",
+        "if-actual-locality",
+        "if-outbound-return.outbound",
+        "if-outbound-return.return",
+        "if-nearby-examples.if-kolomyia",
+        "if-nearby-examples.if-tysmenytsia",
+        "if-nearby-examples.if-rogatyn",
+        "if-nearby-examples.if-bohorodchany",
+        "if-route-cards",
+        "if-faq-resources.faq1",
+        "if-faq-resources.faq2",
+        "if-faq-resources.faq3",
+        "if-faq-resources.faq4",
+        "if-faq-resources.faq5",
+        "if-faq-resources.resource1",
+        "if-contact-alternative"
+      ],
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549"
+    }
+  ]
+}

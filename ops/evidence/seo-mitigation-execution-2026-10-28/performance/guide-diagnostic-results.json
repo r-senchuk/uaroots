@@ -1,0 +1,633 @@
+[
+  {
+    "mode": "normal",
+    "status": 200,
+    "blockedExternal": 0,
+    "blockedFonts": [],
+    "cls": 0.1685805551837501,
+    "shifts": [
+      {
+        "time": 3685.4000000059605,
+        "value": 0.014300204286337935,
+        "sources": [
+          {
+            "previous": {
+              "x": 20,
+              "y": 194,
+              "width": 350,
+              "height": 157.3125
+            },
+            "current": {
+              "x": 20,
+              "y": 191,
+              "width": 350,
+              "height": 157.3125
+            }
+          },
+          {
+            "tag": "DETAILS",
+            "previous": {
+              "x": 19,
+              "y": 619.1875,
+              "width": 351,
+              "height": 85
+            },
+            "current": {
+              "x": 19,
+              "y": 608.1875,
+              "width": 351,
+              "height": 85
+            }
+          },
+          {
+            "tag": "DETAILS",
+            "previous": {
+              "x": 20,
+              "y": 704.1875,
+              "width": 350,
+              "height": 85
+            },
+            "current": {
+              "x": 20,
+              "y": 693.1875,
+              "width": 350,
+              "height": 85
+            }
+          },
+          {
+            "tag": "SPAN",
+            "previous": {
+              "x": 20,
+              "y": 544.1875,
+              "width": 350,
+              "height": 55
+            },
+            "current": {
+              "x": 20,
+              "y": 552.4375,
+              "width": 338.296875,
+              "height": 27.5
+            }
+          },
+          {
+            "previous": {
+              "x": 19,
+              "y": 828.1875,
+              "width": 351,
+              "height": 15.8125
+            },
+            "current": {
+              "x": 20,
+              "y": 815.1875,
+              "width": 350,
+              "height": 28.8125
+            }
+          }
+        ]
+      },
+      {
+        "time": 3780.199999988079,
+        "value": 0.0000027441089094227505,
+        "sources": [
+          {
+            "tag": "svg",
+            "previous": {
+              "x": 188.15625,
+              "y": 120,
+              "width": 14,
+              "height": 14
+            },
+            "current": {
+              "x": 184.953125,
+              "y": 120,
+              "width": 14,
+              "height": 14
+            }
+          }
+        ]
+      },
+      {
+        "time": 4030.300000011921,
+        "value": 0.00005937927718783243,
+        "sources": [
+          {
+            "tag": "SPAN",
+            "previous": {
+              "x": 56.109375,
+              "y": 20.6875,
+              "width": 56,
+              "height": 30
+            },
+            "current": {
+              "x": 49.921875,
+              "y": 20.6875,
+              "width": 55.265625,
+              "height": 30
+            }
+          },
+          {
+            "tag": "svg",
+            "previous": {
+              "x": 113.734375,
+              "y": 31.0625,
+              "width": 46.1875,
+              "height": 13.625
+            },
+            "current": {
+              "x": 107.375,
+              "y": 31.0625,
+              "width": 46.1875,
+              "height": 13.625
+            }
+          },
+          {
+            "tag": "SPAN",
+            "previous": {
+              "x": 56.109375,
+              "y": 51.84375,
+              "width": 55.4375,
+              "height": 1
+            },
+            "current": {
+              "x": 49.921875,
+              "y": 51.84375,
+              "width": 55.265625,
+              "height": 1
+            }
+          }
+        ]
+      },
+      {
+        "time": 4515.300000011921,
+        "value": 0.1542182275113149,
+        "sources": [
+          {
+            "tag": "SECTION",
+            "previous": {
+              "x": 19,
+              "y": 473.3125,
+              "width": 351,
+              "height": 304.875
+            },
+            "current": {
+              "x": 19,
+              "y": 449.3125,
+              "width": 351,
+              "height": 304.875
+            }
+          },
+          {
+            "tag": "H1",
+            "previous": {
+              "x": 20,
+              "y": 191,
+              "width": 350,
+              "height": 157.3125
+            },
+            "current": {
+              "x": 20,
+              "y": 167,
+              "width": 350,
+              "height": 157.3125
+            }
+          },
+          {
+            "tag": "P",
+            "previous": {
+              "x": 20,
+              "y": 362.75,
+              "width": 350,
+              "height": 81.5625
+            },
+            "current": {
+              "x": 20,
+              "y": 338.75,
+              "width": 350,
+              "height": 81.5625
+            }
+          },
+          {
+            "tag": "SECTION",
+            "previous": {
+              "x": 20,
+              "y": 815.1875,
+              "width": 350,
+              "height": 28.8125
+            },
+            "current": {
+              "x": 20,
+              "y": 791.1875,
+              "width": 350,
+              "height": 52.8125
+            }
+          },
+          {
+            "tag": "LI",
+            "previous": {
+              "x": 20,
+              "y": 153,
+              "width": 169.203125,
+              "height": 20
+            },
+            "current": {
+              "x": 200.984375,
+              "y": 117,
+              "width": 168.71875,
+              "height": 20
+            }
+          }
+        ]
+      }
+    ],
+    "fonts": [
+      {
+        "event": "loading",
+        "time": 2881.4000000059605
+      },
+      {
+        "event": "loadingdone",
+        "time": 4519.699999988079,
+        "faces": [
+          {
+            "family": "IBM Plex Mono",
+            "status": "loaded"
+          },
+          {
+            "family": "Playfair Display",
+            "status": "loaded"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "loaded"
+          },
+          {
+            "family": "IBM Plex Sans",
+            "status": "loaded"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "loaded"
+          },
+          {
+            "family": "Playfair Display",
+            "status": "loaded"
+          },
+          {
+            "family": "IBM Plex Sans",
+            "status": "loaded"
+          }
+        ]
+      },
+      {
+        "event": "ready",
+        "time": 4519.699999988079
+      }
+    ],
+    "fontResources": [
+      {
+        "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+        "start": 2770.5999999940395,
+        "responseEnd": 4015.199999988079,
+        "duration": 1244.5999999940395,
+        "transferSize": 38760
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+        "start": 2770.699999988079,
+        "responseEnd": 3767.699999988079,
+        "duration": 997,
+        "transferSize": 25708
+      },
+      {
+        "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+        "start": 2771.199999988079,
+        "responseEnd": 3346.699999988079,
+        "duration": 575.5,
+        "transferSize": 10352
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+        "start": 2771.199999988079,
+        "responseEnd": 3670.0999999940395,
+        "duration": 898.9000000059605,
+        "transferSize": 21444
+      },
+      {
+        "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+        "start": 2771.5999999940395,
+        "responseEnd": 3676.9000000059605,
+        "duration": 905.3000000119209,
+        "transferSize": 5800
+      },
+      {
+        "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+        "start": 2815.5,
+        "responseEnd": 4502.4000000059605,
+        "duration": 1686.9000000059605,
+        "transferSize": 40540
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+        "start": 2835.199999988079,
+        "responseEnd": 3976.9000000059605,
+        "duration": 1141.7000000178814,
+        "transferSize": 5776
+      }
+    ],
+    "computedH1": {
+      "font": "\"Playfair Display\", Georgia, serif",
+      "rect": {
+        "x": 20,
+        "y": 173,
+        "width": 350,
+        "height": 145.75,
+        "top": 173,
+        "right": 370,
+        "bottom": 318.75,
+        "left": 20
+      }
+    }
+  },
+  {
+    "mode": "fonts-blocked",
+    "status": 200,
+    "blockedExternal": 0,
+    "blockedFonts": [
+      "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+      "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+      "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+      "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+      "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+      "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+      "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+      "/_next/static/media/latin-500-normal.98e207f0.woff2"
+    ],
+    "cls": 0,
+    "shifts": [],
+    "fonts": [
+      {
+        "event": "loading",
+        "time": 2890.7999999821186
+      },
+      {
+        "event": "loadingdone",
+        "time": 2919.4000000059605,
+        "faces": []
+      },
+      {
+        "event": "loadingerror",
+        "time": 2919.4000000059605,
+        "faces": [
+          {
+            "family": "Playfair Display",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Sans",
+            "status": "error"
+          },
+          {
+            "family": "Playfair Display",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Sans",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          }
+        ]
+      },
+      {
+        "event": "ready",
+        "time": 2920.199999988079
+      }
+    ],
+    "fontResources": [
+      {
+        "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+        "start": 2785,
+        "responseEnd": 2891,
+        "duration": 106,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+        "start": 2785.0999999940395,
+        "responseEnd": 2891.0999999940395,
+        "duration": 106,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+        "start": 2785.699999988079,
+        "responseEnd": 2893.2999999821186,
+        "duration": 107.59999999403954,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+        "start": 2785.7999999821186,
+        "responseEnd": 2894.699999988079,
+        "duration": 108.90000000596046,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+        "start": 2786,
+        "responseEnd": 2896.0999999940395,
+        "duration": 110.09999999403954,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+        "start": 2824.4000000059605,
+        "responseEnd": 2896.4000000059605,
+        "duration": 72,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+        "start": 2842.2999999821186,
+        "responseEnd": 2896.5999999940395,
+        "duration": 54.30000001192093,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+        "start": 2908.699999988079,
+        "responseEnd": 2912,
+        "duration": 3.300000011920929,
+        "transferSize": 0
+      }
+    ],
+    "computedH1": {
+      "font": "\"Playfair Display\", Georgia, serif",
+      "rect": {
+        "x": 20,
+        "y": 197,
+        "width": 350,
+        "height": 145.75,
+        "top": 197,
+        "right": 370,
+        "bottom": 342.75,
+        "left": 20
+      }
+    }
+  },
+  {
+    "mode": "fonts-blocked",
+    "status": 200,
+    "blockedExternal": 0,
+    "blockedFonts": [
+      "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+      "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+      "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+      "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+      "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+      "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+      "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+      "/_next/static/media/latin-500-normal.98e207f0.woff2"
+    ],
+    "cls": 0,
+    "shifts": [],
+    "fonts": [
+      {
+        "event": "loading",
+        "time": 2876.699999988079
+      },
+      {
+        "event": "loadingdone",
+        "time": 2899.899999976158,
+        "faces": []
+      },
+      {
+        "event": "loadingerror",
+        "time": 2899.899999976158,
+        "faces": [
+          {
+            "family": "Playfair Display",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Sans",
+            "status": "error"
+          },
+          {
+            "family": "Playfair Display",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Sans",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          },
+          {
+            "family": "IBM Plex Mono",
+            "status": "error"
+          }
+        ]
+      },
+      {
+        "event": "ready",
+        "time": 2900
+      }
+    ],
+    "fontResources": [
+      {
+        "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+        "start": 2777.699999988079,
+        "responseEnd": 2876.7999999821186,
+        "duration": 99.09999999403954,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+        "start": 2778.2999999821186,
+        "responseEnd": 2876.899999976158,
+        "duration": 98.59999999403954,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+        "start": 2778.2999999821186,
+        "responseEnd": 2878.7999999821186,
+        "duration": 100.5,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+        "start": 2778.2999999821186,
+        "responseEnd": 2878.899999976158,
+        "duration": 100.59999999403954,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+        "start": 2778.5,
+        "responseEnd": 2879,
+        "duration": 100.5,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+        "start": 2815.699999988079,
+        "responseEnd": 2879,
+        "duration": 63.30000001192093,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+        "start": 2833.2999999821186,
+        "responseEnd": 2879.199999988079,
+        "duration": 45.900000005960464,
+        "transferSize": 0
+      },
+      {
+        "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+        "start": 2891,
+        "responseEnd": 2893,
+        "duration": 2,
+        "transferSize": 0
+      }
+    ],
+    "computedH1": {
+      "font": "\"Playfair Display\", Georgia, serif",
+      "rect": {
+        "x": 20,
+        "y": 197,
+        "width": 350,
+        "height": 145.75,
+        "top": 197,
+        "right": 370,
+        "bottom": 342.75,
+        "left": 20
+      }
+    }
+  }
+]

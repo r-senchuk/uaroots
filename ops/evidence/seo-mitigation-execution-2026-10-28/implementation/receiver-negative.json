@@ -1,0 +1,27 @@
+{
+  "scope": "fresh-context compiled local receiver negative fixtures; no receiver edits",
+  "checks": [
+    {
+      "name": "invalid source with otherwise valid code",
+      "passed": true,
+      "originalCodeRejected": true,
+      "invalidSourceNotAttributed": true,
+      "safeRegenerationObserved": false
+    },
+    {
+      "name": "malformed original code with valid source",
+      "passed": true,
+      "originalCodeRejected": true,
+      "invalidSourceNotAttributed": false,
+      "safeRegenerationObserved": true
+    }
+  ],
+  "runtimeErrors": [],
+  "blockedHandoffs": 2,
+  "blockedOther": 2,
+  "realMessagesSent": 0,
+  "sourceAndCodePolicy": "invalid source is not attributed; malformed original code is not retained; existing safe-code regeneration remains allowed",
+  "browser": "156.0.8078.48",
+  "passed": true,
+  "cleanup": "all contexts and browser closed"
+}

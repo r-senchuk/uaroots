@@ -344,3 +344,16 @@ describe("validateCityHubContent", () => {
     expect(validateCityHubContent(malformed, "2045-03-01").join(" ")).toMatch(/invalid reviewedAt date|invalid contentUpdatedAt date|invalid checkedAt date/);
   });
 });
+
+describe("accepted nearby conditional wording", () => {
+  it("retains the eight exact conditional explanations without geographic or service promises", async () => {
+    const {readFileSync} = await import("node:fs");
+    const copy = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+    const keys = ["lv-nearby-examples.lviv-zhovkva", "lv-nearby-examples.lviv-yavoriv", "lv-nearby-examples.lviv-zolochiv", "lv-nearby-examples.lviv-sambir", "if-nearby-examples.if-kolomyia", "if-nearby-examples.if-tysmenytsia", "if-nearby-examples.if-rogatyn", "if-nearby-examples.if-bohorodchany"];
+    for (const key of keys) {
+      const place = cityHubContents.map((hub) => hub.nearbyPlaces.find((place) => place.contentKey === key.split(".")[1])).find(Boolean);
+      expect(place?.guidance).toBe(copy.records[key].text);
+      expect(place?.geographySource.checkedAt).toBe("2026-10-25");
+    }
+  });
+});

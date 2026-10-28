@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-27",
+  "status": "S04 complete: ready with explicit unknowns",
+  "source_head": "624196ade5ca9b404502e7b5793f7c1a28a635af",
+  "accepted_by": "coordinator AI assistant after direct source/content review and independent Luna read-only comparison",
+  "gates": {
+    "S04-01": "passed for documentation/editorial scope",
+    "S04-02": "passed for documentation/editorial scope",
+    "S04-03": "passed for documentation/editorial scope",
+    "S04-04": "passed for documentation/editorial scope",
+    "S04-05": "passed for documentation/editorial scope",
+    "S04-06": "passed for documentation/editorial scope",
+    "S04-07": "passed for documentation/editorial scope",
+    "S04-08": "passed for documentation/editorial scope"
+  },
+  "artifact_sha256": {
+    "docs/Marketing/SEO/mitigation-2026-10/content-package.md": "3823d1bede46a27bc1a61a6c2f307c1db6702e89ace011d12b32cbfeb6d57fae",
+    "docs/Marketing/SEO/mitigation-2026-10/editorial-review.md": "4ddebaf8524f7162443198045b48cd88c95fd90bfad5e6cd5788a99e50cec9d0",
+    "docs/Marketing/SEO/community-placements-2026-10-25.md": "75848ed354d1c302b368cb6f7ed8d66116743dbe6aadaaafa90bb7f111b4b4b8",
+    "ops/evidence/seo-s04-2026-10-27/copy-records.json": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+    "ops/evidence/seo-s04-2026-10-27/field-coverage.json": "fcf26ef5853e162e3646b54e2277a83a43ddda84b6aa939b7fe9ac8638391caa",
+    "ops/evidence/seo-s04-2026-10-27/verification.json": "8d6fff5f153b582712c8f6cc88a1897a44be99a2ffb47f01ff20bb976a21e5b7",
+    "ops/evidence/seo-s04-2026-10-27/claim-inventory.json": "8071b189050479f239b3c8762bff3cb83fd17053e82ed5a4cda4fefd5e94178d",
+    "ops/evidence/seo-s04-2026-10-27/input-revisions.json": "d212d457917ec690c8d16692d83b7ca457b646ebae348fd8d419ff955be70274",
+    "ops/evidence/seo-s04-2026-10-27/independent-review.json": "767c2e8446f7764b22b4894cddef630fcd28105c98f6a71d1caef3c848730794",
+    "ops/evidence/seo-s04-2026-10-27/review-history.json": "7f9c7b37a3d50f1a0af63587b37e2810a4a02952382372927759b56805f321e5",
+    "ops/agent-state.json": "4f202d6f2000791960838dfc4f36bd9067a318117d6737c216094c6eaca3b83a"
+  },
+  "coverage": {
+    "pages": {
+      "accepted": 7,
+      "required": 7
+    },
+    "claims": {
+      "accepted": 157,
+      "required": 157
+    },
+    "route_hub_fields": {
+      "accepted": 210,
+      "required": 210
+    },
+    "needs": {
+      "accepted": 12,
+      "required": 12
+    },
+    "community_drafts": {
+      "accepted": 3,
+      "required": 3
+    }
+  },
+  "attribution": {
+    "Luna_copy": "initial draft with source/coverage corrections, preserved privately",
+    "Luna_placements": "drafted and corrected3 existing drafts; coordinator final punctuation/status/verification edits",
+    "Luna_independent_review": "read-only retained-source/metadata/FAQ/operator/direction comparison",
+    "coordinator": "substantial source-driven final integration, exact per-key records,157-row reconciliation,210-field mapping, final linguistic/factual/scope checks, navigation/log/state"
+  },
+  "usage": {
+    "specialist_sessions": 3,
+    "requested_model": "gpt-6-luna",
+    "requested_reasoning": "high",
+    "provenance": "collaboration dispatch arguments",
+    "provider_actual_model": null,
+    "model_calls": null,
+    "tokens": null,
+    "duration_seconds": null,
+    "cost": null,
+    "unavailable_reason": "not reported by collaboration tools; no pricing or zero-cost inference",
+    "vibe_starts": 0,
+    "administrative_grants": 0
+  },
+  "known_unknowns": [
+    "Current operational claims OP1–4/service excluded",
+    "New public review/author dates deferred; historical values retained",
+    "Pickup/stops/fares/schedules/seats/transfer/baggage/bicycle terms unconfirmed",
+    "Page/query GSC and AI/Bing metrics unknown",
+    "No native-human, passenger or carrier review",
+    "No application/runtime/export or deployment verification"
+  ],
+  "next": "S05 real-copy design and S07 implementation planning; S08 code later",
+  "commit": "not performed",
+  "publication": "not performed",
+  "preexisting_work": "partial Hannover unit and frozen architecture/ledger/source preserved; existing plan retained; generated navigation regenerated",
+  "scratch": "task-scoped temporary authoring/check scripts and private draft/baseline backups retained locally; no provider worktree or active worker remains"
+}

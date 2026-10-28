@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 
 import { RouteEmptyState } from "@/components/brand/states";
 import { KovalReferralLink } from "@/components/KovalReferralLink";
@@ -50,7 +50,7 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
   }
 
   return (
-    <div className="relative flex-1">
+    <div className="relative min-w-0 flex-1">
       <label htmlFor={inputId} className="text-sm font-medium text-muted-foreground">
         {label}
       </label>
@@ -65,7 +65,7 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
         autoComplete="off"
         placeholder={placeholder}
         value={value}
-        className="field-rule search-field mt-2"
+        className="field-rule search-field mt-2 border-foreground"
         onChange={(event) => {
           onChange(event.target.value);
           setOpen(true);
@@ -122,7 +122,7 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
               <span className="block min-w-0 font-display text-lg leading-tight text-foreground">
                 {suggestion.name}
               </span>
-              <span className="mt-1 block min-w-0 type-meta">{suggestion.country}</span>
+              <span className="mt-1 block min-w-0 text-sm text-muted-foreground">{suggestion.country}</span>
             </li>
           ))}
         </ul>
@@ -146,6 +146,7 @@ type RouteSearchProps = {
   overviewCity?: City;
   choiceDirections?: CityChoice[];
   choiceHeading?: string;
+  children?: ReactNode;
 };
 
 export function RouteSearch({
@@ -157,6 +158,7 @@ export function RouteSearch({
   overviewCity,
   choiceDirections,
   choiceHeading,
+  children,
 }: RouteSearchProps) {
   const router = useRouter();
   const initialOrigin = initialOriginId ? getCity(initialOriginId) ?? null : null;
@@ -298,29 +300,20 @@ export function RouteSearch({
             <div className="sm:col-span-2">
               <fieldset>
                 <legend className="text-sm font-medium text-muted-foreground">Напрямок: {direction === "to-germany" ? "Україна → Німеччина" : "Німеччина → Україна"}</legend>
-                <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Напрямок поїздки">
+                <div className="mt-2 grid grid-cols-2 gap-2" role="group" aria-label="Напрямок поїздки">
                   <button type="button" aria-pressed={direction === "to-germany"}
                     onClick={() => changeDirection("to-germany")}
-                    className="min-h-11 border border-border-strong px-4 type-button transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
+                    className="min-h-11 border border-foreground px-3 type-button text-base transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
                     До Німеччини
                   </button>
                   <button type="button" aria-pressed={direction === "to-ukraine"}
                     onClick={() => changeDirection("to-ukraine")}
-                    className="min-h-11 border border-border-strong px-4 type-button transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
+                    className="min-h-11 border border-foreground px-3 type-button text-base transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
                     До України
                   </button>
                 </div>
               </fieldset>
-              <p className="mt-3 text-sm font-medium text-muted-foreground">Швидкий вибір міста {direction === "to-germany" ? "відправлення" : "прибуття"}</p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {priorityCities.map((city) => (
-                  <button key={city.id} type="button" onClick={() => selectPilotCity(city)}
-                    className="min-h-11 border border-border-strong px-4 type-button hover:bg-secondary">
-                    {city.name}
-                  </button>
-                ))}
-              </div>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
                 {(direction === "to-germany" ? ["ukraine", "germany"] : ["germany", "ukraine"]).map((country, index) => {
                   const isUkrainian = country === "ukraine";
                   const selected = isUkrainian ? selectedUkrainian : selectedGerman;
@@ -332,7 +325,7 @@ export function RouteSearch({
                       <select
                         value={selected?.id ?? ""}
                         onChange={(event) => chooseCity(index === 0 ? "origin" : "destination", event.target.value ? getCity(event.target.value) ?? null : null)}
-                        className="field-rule search-field mt-2"
+                        className="field-rule search-field mt-2 border-foreground"
                         aria-label={countryLabel}
                       >
                         <option value="">Оберіть місто</option>
@@ -392,14 +385,27 @@ export function RouteSearch({
           <button
             ref={submitRef}
             type="submit"
-            className="inline-flex h-12 shrink-0 items-center justify-center bg-primary px-7 type-button text-primary-foreground transition-colors hover:bg-primary-hover"
+            className="inline-flex h-12 shrink-0 items-center justify-center bg-primary px-7 type-button text-base text-primary-foreground transition-colors hover:bg-primary-hover"
           >
             Знайти маршрут
           </button>
           {showPilotChoices ? (
+            <div>
+              <p className="mt-3 text-sm font-medium text-muted-foreground">Швидкий вибір міста {direction === "to-germany" ? "відправлення" : "прибуття"}</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {priorityCities.map((city) => (
+                  <button key={city.id} type="button" onClick={() => selectPilotCity(city)}
+                    className="min-h-11 border border-foreground px-3 type-button text-base hover:bg-secondary">
+                    {city.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {showPilotChoices ? (
             <details>
-              <summary className="min-h-11 cursor-pointer py-3 type-button">Пошук за назвою або латинкою</summary>
-              <div className="mt-3 grid gap-4 sm:grid-cols-2">
+              <summary className="min-h-11 cursor-pointer py-3 type-button text-base">Пошук за назвою або латинкою</summary>
+              <div className="mt-3 grid gap-4 md:grid-cols-2">
                 <CityField
                   label="Звідки"
                   placeholder={direction === "to-germany" ? "Львів або Lviv" : "Целле або Celle"}
@@ -431,10 +437,12 @@ export function RouteSearch({
           ) : null}
         </div>
 
-        <p aria-live="polite" className="mt-4 min-h-5 type-meta">
+        <p aria-live="polite" className="mt-4 min-h-5 text-sm text-muted-foreground">
           {message}
         </p>
       </form>
+
+      {children}
 
       {candidatePair ? (
         <div ref={resultRef} tabIndex={-1} className="mt-6 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)]" key={`${candidatePair.origin.id}-${candidatePair.destination.id}`}>
@@ -464,12 +472,12 @@ export function RouteSearch({
                   searchRef.current?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
                   searchRef.current?.querySelector<HTMLElement>("select, input")?.focus({ preventScroll: true });
                 }}
-                className="inline-flex min-h-11 items-center justify-center bg-primary px-5 type-button text-primary-foreground hover:bg-primary-hover"
+                className="inline-flex min-h-11 items-center justify-center bg-primary px-5 type-button text-base text-primary-foreground hover:bg-primary-hover"
               >
                 Змінити міста
               </button>
               {getCarrier("koval") ? (
-                <KovalReferralLink href={getCarrier("koval")!.website} content={`site_${ctaLocation}`} ctaLocation={ctaLocation} className="inline-flex min-h-11 items-center justify-center border border-border-strong px-5 type-button hover:bg-secondary">
+                <KovalReferralLink href={getCarrier("koval")!.website} content={`site_${ctaLocation}`} ctaLocation={ctaLocation} className="inline-flex min-h-11 items-center justify-center border border-border-strong px-5 type-button text-base hover:bg-secondary">
                   Сайт перевізника ↗
                 </KovalReferralLink>
               ) : null}
@@ -482,20 +490,20 @@ export function RouteSearch({
       {overviewCity && choiceDirections && choiceHeading ? (
         <section className="mt-10" aria-labelledby="discovery-city-choices-heading">
           <h2 id="discovery-city-choices-heading" className="type-h2">{choiceHeading}</h2>
-          <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
+          <p className="mt-3 max-w-2xl type-body text-muted-foreground">
             Оберіть місто, щоб додати його до пошуку. Перевізник підтвердить можливість поїздки.
           </p>
           <ul className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
             {choiceDirections.map(({ city, departureHref, returnHref }) => (
               <li key={city.id} className="border-t border-border-strong py-4">
                 <h3 className="font-display text-xl">
-                  {city.name}{city.countryCode === "DE" && city.aliases[0] ? <span className="type-body-small text-muted-foreground"> ({city.aliases[0]})</span> : null}
+                  {city.name}{city.countryCode === "DE" && city.aliases[0] ? <span className="type-body text-muted-foreground"> ({city.aliases[0]})</span> : null}
                 </h3>
                 <button
                   type="button"
                   aria-label={`Обрати місто ${city.name}`}
                   onClick={() => chooseOverviewCity(city)}
-                  className="mt-1 inline-flex min-h-11 items-center type-body-small link-underline"
+                  className="mt-1 inline-flex min-h-11 items-center type-body link-underline"
                 >
                   Обрати місто в пошуку ↑
                 </button>

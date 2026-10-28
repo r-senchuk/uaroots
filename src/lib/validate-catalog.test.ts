@@ -39,3 +39,16 @@ describe("FAQ shape and publication gates", () => {
     } finally { route.deskId = previous; }
   });
 });
+
+describe("practical link shape", () => {
+  it("rejects incomplete or unsafe optional links without changing route eligibility", () => {
+    const item = routes[0].practicalContent![0];
+    const previous = item.links;
+    try {
+      item.links = [{label: "Міська довідка", url: "javascript:alert(1)"}];
+      expect(validateCatalog().join(" ")).toContain("invalid practical links");
+      item.links = [{label: "Поради", url: "/guides/perevezennya-velosypeda/"}];
+      expect(validateCatalog()).toEqual([]);
+    } finally { item.links = previous; }
+  });
+});

@@ -1,0 +1,245 @@
+{
+  "status": "designed; not browser verified",
+  "source_head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+  "copy_source_head": "624196ade5ca9b404502e7b5793f7c1a28a635af",
+  "copy_sha256": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+  "architecture_sha256": "1fddb37481c3be4ec5f8744fbbc702a357d5e71c71f654a50e3f2d1638a8445b",
+  "viewports": "same responsive file: 375, 768, 1440; checks pending: 360, 1280, 320 and native 200%",
+  "boards": {
+    "guide.html": {
+      "surface": "/guides/perevezennya-velosypeda/",
+      "copy_keys": [
+        "guide.intro",
+        "guide.faq1",
+        "guide.faq2",
+        "guide.faq3",
+        "guide.customs",
+        "guide.handoff"
+      ],
+      "retained_source": "src/app/guides/perevezennya-velosypeda/page.tsx; src/components/BicycleInquiryCta.tsx",
+      "source_fields": {
+        "guide.intro": [
+          "guide H1 and lead"
+        ],
+        "guide.faq1": [
+          "guide faq.1"
+        ],
+        "guide.faq2": [
+          "guide faq.2"
+        ],
+        "guide.faq3": [
+          "guide faq.3"
+        ],
+        "guide.customs": [
+          "guide customs paragraph"
+        ],
+        "guide.handoff": [
+          "guide handoff and BicycleInquiryCta"
+        ]
+      },
+      "destinations": {
+        "guide.customs": [
+          {
+            "label": "офіційних роз’ясненнях Державної митної служби України ↗",
+            "url": "https://customs.gov.ua/informatsiia-dlia-gromadian"
+          }
+        ]
+      },
+      "retained_navigation": [
+        {
+          "label": "Львів ↔ Німеччина",
+          "url": "/cities/lviv/"
+        },
+        {
+          "label": "Івано-Франківськ ↔ Німеччина",
+          "url": "/cities/ivano-frankivsk/"
+        },
+        {
+          "label": "Стрий ↔ Німеччина",
+          "url": "/cities/stryi/"
+        },
+        {
+          "label": "Целле ↔ Україна",
+          "url": "/cities/celle/"
+        },
+        {
+          "label": "Усі маршрути",
+          "url": "/routes/"
+        }
+      ],
+      "metadata": {
+        "title": "Перевезення велосипеда: що погодити з перевізником | UARoute",
+        "description": "Як запитати про перевезення велосипеда: тип, розміри, пакування, дата та вартість. Можливість перевезення підтверджує перевізник.",
+        "canonical": "https://uaroute.com/guides/perevezennya-velosypeda/"
+      },
+      "schema_historical": {
+        "datePublished": "2026-10-17",
+        "dateModified": "2026-10-25",
+        "author": {
+          "@type": "Organization",
+          "name": "UARoute"
+        },
+        "status": "retain current fields; new date/author assertions deferred under G-schema"
+      },
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69"
+    },
+    "about.html": {
+      "surface": "/about/",
+      "copy_keys": [
+        "about.hero",
+        "about.principle1",
+        "about.principle2",
+        "about.principle3",
+        "about.start",
+        "about.privacy",
+        "about.identity",
+        "about.photo",
+        "shared.role",
+        "about.pilot"
+      ],
+      "retained_source": "src/app/about/page.tsx; src/components/PartnerCard.tsx",
+      "source_fields": {
+        "about.hero": [
+          "about H1 and lead"
+        ],
+        "about.principle1": [
+          "about principles.1"
+        ],
+        "about.principle2": [
+          "about principles.2"
+        ],
+        "about.principle3": [
+          "about principles.3"
+        ],
+        "about.start": [
+          "about inline route link"
+        ],
+        "about.privacy": [
+          "about full privacy paragraph, not ledger excerpt"
+        ],
+        "about.identity": [
+          "about identity paragraph"
+        ],
+        "about.photo": [
+          "about Image.alt and caption"
+        ],
+        "shared.role": [
+          "PartnerCard inquiryOnly"
+        ],
+        "about.pilot": [
+          "about pilot section"
+        ]
+      },
+      "destinations": {
+        "about.start": [
+          {
+            "label": "вибору міст для поїздки",
+            "url": "/routes/"
+          }
+        ],
+        "about.identity": [
+          {
+            "label": "Відомості про оператора",
+            "url": "/imprint/"
+          },
+          {
+            "label": "приватність запитів",
+            "url": "/privacy/"
+          }
+        ],
+        "about.pilot": [
+          {
+            "label": "Львів ↔ Німеччина",
+            "url": "/cities/lviv/"
+          },
+          {
+            "label": "Івано-Франківськ ↔ Німеччина",
+            "url": "/cities/ivano-frankivsk/"
+          },
+          {
+            "label": "Інше українське місто? Перейдіть до вибору →",
+            "url": "/routes/"
+          }
+        ]
+      },
+      "metadata": {
+        "title": "Про UARoute — допомагаємо підготувати поїздку",
+        "description": "Як UARoute допомагає вибрати напрямок між Україною та Німеччиною, визначити питання про поїздку та зв’язатися з перевізником.",
+        "canonical": "https://uaroute.com/about/"
+      },
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16"
+    },
+    "imprint.html": {
+      "surface": "/imprint/",
+      "copy_keys": [
+        "imprint.identity",
+        "imprint.operatorName",
+        "imprint.legalForm",
+        "imprint.brand",
+        "imprint.contactAddress",
+        "imprint.email",
+        "imprint.website",
+        "imprint.role",
+        "imprint.reservation"
+      ],
+      "retained_source": "src/app/imprint/page.tsx; src/config/business.ts",
+      "source_fields": {
+        "imprint.identity": [
+          "imprint identity"
+        ],
+        "imprint.operatorName": [
+          "business.operatorName"
+        ],
+        "imprint.legalForm": [
+          "business.legalForm"
+        ],
+        "imprint.brand": [
+          "business.brand"
+        ],
+        "imprint.contactAddress": [
+          "business.contactAddress"
+        ],
+        "imprint.email": [
+          "business.email"
+        ],
+        "imprint.website": [
+          "business.website"
+        ],
+        "imprint.role": [
+          "imprint role paragraph"
+        ],
+        "imprint.reservation": [
+          "imprint reservation paragraph/privacy link"
+        ]
+      },
+      "destinations": {
+        "imprint.reservation": [
+          {
+            "label": "Як працює приватність і передавання даних →",
+            "url": "/privacy/"
+          }
+        ]
+      },
+      "metadata": {
+        "title": "Відомості про оператора UARoute",
+        "description": "Оператор UARoute — Roman Senchuk, польська JDG. Бізнес-бренд Crew Bravo, контактні дані та роль транспортного партнера.",
+        "canonical": "https://uaroute.com/imprint/"
+      },
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660"
+    },
+    "home.html": {
+      "surface": "/",
+      "copy_keys": [],
+      "retained_source": "src/app/page.tsx; src/components/RouteSearch.tsx; src/components/Header.tsx; src/components/Footer.tsx",
+      "scope": "representative exact existing copy; dynamic route lists omitted",
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca"
+    },
+    "routes-index.html": {
+      "surface": "/routes/",
+      "copy_keys": [],
+      "retained_source": "src/app/routes/page.tsx; src/components/RouteSearch.tsx; src/components/Header.tsx; src/components/Footer.tsx",
+      "scope": "representative exact existing copy; dynamic route lists omitted",
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad"
+    }
+  }
+}

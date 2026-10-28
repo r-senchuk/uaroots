@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-28",
+  "reviewer": "S09 independent of S08",
+  "decision": "G3_PASSED_WITH_EXPLICIT_RELEASE_HOLDS",
+  "local_application": "accepted within checked local scope, including actual desktop native200 zoom/select; no reproduced factual/privacy/routing/severe accessibility defect",
+  "release_cleared": false,
+  "final_source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "performance_source_manifest_sha256": "61df2660ff0eb485eee2f77adbc9130807b47f46498ad7631f1b2d32afb25bc8",
+  "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "independent_checks": {
+    "static": 194,
+    "catalog_structural": 2,
+    "focused_browser": 3,
+    "passenger": 33,
+    "receiver_compiled": 5,
+    "focused_unit": 40,
+    "performance_observations_recomputed": 12,
+    "additional_keyboard": {
+      "passed": 3,
+      "initial_indeterminate": 1,
+      "unresolved": 0,
+      "resolution": "coordinator actual native Tab/Space/Down/Return selected schwerin; initial headless diagnostics retained"
+    }
+  },
+  "reviewed_S08_checks": {
+    "responsive_matrix": 216,
+    "poc_final": 23,
+    "receiver_negative": 2
+  },
+  "full_check_status": "initial full command failed inspector after earlier stages passed; independent negative fixtures and later affected suites/types/lint/build/inspect/artifact passed; not relabelled as one successful npm check",
+  "unknown_with_named_dependency": {
+    "coordinator": "final documentation indexing/checks after stable S09 amendment",
+    "owner_device_tester": "actual iOS calendar/direct date/mobile keyboard before S10 acceptance",
+    "accessibility_reviewer": "screen reader and human usability execution as required",
+    "S10_release_owner": "required enabled compiled-provider/release CI/recovery/live gates under CUTOVER",
+    "measurement_owner": "fieldCWV/INP/searchAI/sessionunion/operatorreceipt and outcomes remain unknown"
+  },
+  "publication": "none; no commit/push/deployment/account action/index submission/outreach",
+  "evidence_json_canary_scan": "Prior13-report synthetic phone/date/request-code scan passed; native receipt contains only empty input values, control state and sanitized errors.",
+  "report_sha256": "0cec0b9a7a7f1f518cfee3df3cd101c091f633936a53f179b97a0b678fa2b08a",
+  "reviewed_coordinator_native": {
+    "receipt": "native-application.json",
+    "receipt_sha256": "c640d813207bd7ac0aaeb12548efb5b49abbe69ef1ce5228ce078e6691d71242",
+    "source_hash_binding": true,
+    "export_hash_binding": true,
+    "native_zoom_percent": 200,
+    "pages": 12,
+    "overflow_elements": 0,
+    "native_select_keyboard": "passed",
+    "blank_form_heading_focus_and_errors_at_200": "passed",
+    "method": "coordinator CUA session transcription; independently read and hash-bound by S09, not an S09 native rerun",
+    "cleanup": "Zoom100/task tab closed/user other window restored/server stopped"
+  }
+}

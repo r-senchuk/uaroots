@@ -69,15 +69,15 @@ export default async function RoutePage({ params }: PageProps) {
 
       <section className="relative overflow-hidden border-b border-border-strong">
         <Graticule />
-        <div className="container-page relative pb-6 pt-5 sm:pb-8 sm:pt-6">
+        <div className="container-page relative pb-6 pt-4 sm:pb-6 sm:pt-4">
           <Breadcrumbs items={crumbs} />
-          <div className="mt-3 grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
+          <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
             <div className="min-w-0">
               <p className="text-sm font-medium text-muted-foreground">{route.destination.country} · {route.status === "commercial" ? "Запит перевізнику" : "Довідка про напрямок"}</p>
               <h1 className="mt-2 max-w-4xl break-words type-h1">
                 {route.origin.name} <span className="text-primary" aria-hidden>→</span> {route.destination.name}
               </h1>
-              <p className="mt-3 max-w-2xl type-body text-muted-foreground">{route.description}</p>
+              <p className="mt-4 max-w-2xl type-body text-muted-foreground">{route.description}</p>
 
               {route.status === "commercial" && carrier ? (
                 <JourneyActions
@@ -116,34 +116,32 @@ export default async function RoutePage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="container-page grid gap-10 pb-28 pt-8 sm:pb-16 sm:pt-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">
-        <main className="space-y-10">
-          <figure>
-            <Image
-              src={atlasCity}
-              alt="Ілюстративна вулиця європейського міста"
-              className="photo-atlas aspect-[4/3] w-full object-cover"
-            />
-            <figcaption className="mt-3 type-caption">Ілюстративне фото · не місце посадки чи висадки</figcaption>
-          </figure>
-
+      <div className="container-page grid gap-10 pb-28 pt-8 sm:pb-16 sm:pt-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-8">
+        <main className="min-w-0 max-w-2xl space-y-10">
           {route.practicalContent?.length ? (
             <section aria-labelledby="practical-heading">
               <p className="type-label text-muted-foreground">Практична інформація</p>
               <h2 id="practical-heading" className="mt-2 type-h2">Сплануйте зустріч і прибуття</h2>
               <div className="mt-5 space-y-7">
                 {route.practicalContent.map((item) => (
-                  <div key={item.heading}>
-                    <h3 className="font-display text-2xl">{item.heading}</h3>
+                  <div key={`${item.heading}-${item.body}`}>
+                    {item.heading ? <h3 className="font-display text-2xl">{item.heading}</h3> : null}
                     <p className="mt-2 type-body text-muted-foreground">{item.body}</p>
-                    {item.sourceUrl ? (
-                      <p className="mt-3 type-caption">
-                        <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="link-underline">Інформація про місто ↗</a>
-                        {item.lastVerifiedAt ? (
-                          <span className="ml-2 inline-block font-sans text-[10px] leading-normal tracking-normal text-muted-foreground/60">
-                            · перевірено <time dateTime={item.lastVerifiedAt}>{item.lastVerifiedAt}</time>
-                          </span>
-                        ) : null}
+                    {item.links?.length ? (
+                      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                        {item.links.map((link) => (
+                          <li key={link.url}>
+                            <a href={link.url} {...(link.url.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="inline-flex min-h-11 items-center link-underline">{link.label}</a>
+                            {link.url === item.sourceUrl && item.lastVerifiedAt ? (
+                              <span className="ml-2 inline-block text-sm">· перевірено <time dateTime={item.lastVerifiedAt}>{item.lastVerifiedAt}</time></span>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : item.sourceUrl ? (
+                      <p className="mt-3 text-sm text-muted-foreground">
+                        <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center link-underline">Інформація про місто ↗</a>
+                        {item.lastVerifiedAt ? <span className="ml-2 inline-block text-sm">· перевірено <time dateTime={item.lastVerifiedAt}>{item.lastVerifiedAt}</time></span> : null}
                       </p>
                     ) : null}
                   </div>
@@ -156,7 +154,7 @@ export default async function RoutePage({ params }: PageProps) {
             <section aria-labelledby="route-faq-heading">
               <p className="type-label text-muted-foreground">Питання</p>
               <h2 id="route-faq-heading" className="mt-2 type-h2">Часті питання</h2>
-              <div className="mt-6"><Faq items={route.faq} /></div>
+              <div className="mt-6 [&_details_p]:text-base"><Faq items={route.faq} /></div>
             </section>
           ) : null}
 
@@ -175,18 +173,27 @@ export default async function RoutePage({ params }: PageProps) {
             </section>
           ) : null}
 
+          <figure>
+            <Image
+              src={atlasCity}
+              alt="Ілюстративна вулиця європейського міста"
+              className="photo-atlas aspect-[4/3] w-full object-cover"
+            />
+            <figcaption className="mt-3 text-sm text-muted-foreground">Ілюстративне фото · не місце посадки чи висадки</figcaption>
+          </figure>
+
           {route.status === "commercial" ? (
             <ShareRoute title={route.title} url={absoluteUrl(`/routes/${route.slug}/`)} />
           ) : null}
         </main>
 
-        <aside className="space-y-10 lg:sticky lg:top-28 lg:self-start">
+        <aside className="space-y-10 [&_p]:text-base [&_a]:text-base [&_a]:border-foreground lg:sticky lg:top-28 lg:self-start">
           {carrier ? (
             <PartnerCard
               carrier={publicCarrier(carrier)}
               routeSlug={route.slug}
               ctaLocation="partner_card"
-              inquiryOnly={route.serviceMode === "candidate_inquiry" || route.status === "editorial"}
+              inquiryOnly
               referralContext={{ originCityId: route.origin.id, destinationCityId: route.destination.id, sourcePath: `/routes/${route.slug}/` }}
             />
           ) : null}

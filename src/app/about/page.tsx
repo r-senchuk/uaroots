@@ -45,11 +45,11 @@ export default function AboutPage() {
 
       <section className="relative overflow-hidden border-b border-border-strong">
         <Graticule />
-        <div className="container-page relative pb-14 pt-8">
+        <div className="container-page relative pb-6 pt-4 sm:pb-8 sm:pt-6">
           <Breadcrumbs items={crumbs} />
-          <p className="mt-10 type-label text-muted-foreground">Хто ми</p>
-          <h1 className="mt-6 max-w-3xl type-display">Допомагаємо підготувати поїздку</h1>
-          <p className="mt-8 max-w-xl type-lead text-muted-foreground">
+          <p className="mt-4 type-label text-muted-foreground">Хто ми</p>
+          <h1 className="mt-4 max-w-2xl type-h1">Допомагаємо підготувати поїздку</h1>
+          <p className="mt-4 max-w-2xl type-body text-muted-foreground">
             Уже знаєте, куди хочете їхати, але ще потрібно домовитися про деталі?
             UARoute допоможе вибрати напрямок між Україною та Німеччиною,
             визначити питання про посадку, багаж і прибуття та зв’язатися з перевізником.
@@ -57,11 +57,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="container-page section-band grid gap-14 lg:grid-cols-[1fr_0.8fr] lg:gap-20">
-        <div>
+      <div className="container-page grid gap-8 py-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+        <div className="min-w-0 max-w-2xl">
           <ol className="rule-strong">
             {principles.map((item, index) => (
-              <li key={item.title} className="rule-hair py-8 first:border-t-0">
+              <li key={item.title} className="rule-hair py-6 first:border-t-0">
                 <span className="type-index text-accent-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -80,13 +80,13 @@ export default function AboutPage() {
           </p>
           <section className="mt-10 border-t border-border-strong pt-6" aria-labelledby="request-privacy-heading">
             <h2 id="request-privacy-heading" className="type-h2">Ваші дані — для вашого звернення</h2>
-            <p className="mt-3 max-w-xl type-body-small text-muted-foreground">
+            <p className="mt-3 max-w-xl type-body text-muted-foreground">
               Телефон і дата потрібні для підготовки повідомлення. UARoute не зберігає їх
               у базі клієнтів чи сховищі браузера та не передає в аналітику.
               Коли ви відкриваєте WhatsApp, підготовлений текст передається цьому зовнішньому сервісу.
             </p>
           </section>
-          <p className="mt-5 type-body-small text-muted-foreground">
+          <p className="mt-5 type-body text-muted-foreground">
             UARoute працює в межах польської JDG Roman Senchuk, під бізнес-брендом Crew Bravo.{" "}
             <Link href="/imprint/" className="link-underline">Відомості про оператора</Link>{" "}
             та <Link href="/privacy/" className="link-underline">приватність запитів</Link>.
@@ -99,10 +99,10 @@ export default function AboutPage() {
             alt="Вулиця європейського міста призначення"
             className="photo-atlas w-full object-cover"
           />
-          <p className="mt-3 type-caption">Європейські міста призначення</p>
+          <p className="mt-3 text-sm text-muted-foreground">Європейські міста призначення</p>
 
           {koval ? (
-            <div className="mt-12">
+            <div className="mt-8 [&_p]:text-base [&_a]:text-base [&_a]:border-foreground">
               <PartnerCard carrier={publicCarrier(koval)} inquiryOnly />
             </div>
           ) : null}

@@ -1,0 +1,28 @@
+{
+  "reviewer": "S09 independent",
+  "checks": [
+    {
+      "name": "keyboard FAQ Enter opens and closes with visible focus",
+      "passed": true
+    },
+    {
+      "name": "early and invalid-date activation never focuses date; direct date click does",
+      "passed": true
+    },
+    {
+      "name": "phone error targets phone and reset removes stale error",
+      "passed": true
+    },
+    {
+      "name": "native select keyboard preserves pair under direction switch",
+      "passed": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(chosen)\n"
+    }
+  ],
+  "runtimeErrors": [],
+  "blocked": 0,
+  "realMessagesSent": 0,
+  "nativeDevice": "unverified",
+  "cleanup": "context/browser closed",
+  "passed": false
+}

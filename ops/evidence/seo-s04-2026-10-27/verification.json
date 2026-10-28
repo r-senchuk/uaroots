@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-27",
+  "metadata_h1_canonical": {
+    "passed": 28,
+    "required": 28,
+    "pages": 7
+  },
+  "page_copy_records": {
+    "passed": 7,
+    "required": 7
+  },
+  "source_field_coverage": {
+    "passed": 210,
+    "required": 210
+  },
+  "claim_reconciliation": {
+    "passed": 157,
+    "required": 157,
+    "original_dispositions": {
+      "keep": 120,
+      "rewrite": 28,
+      "remove": 1,
+      "await evidence": 8
+    }
+  },
+  "aliases": {
+    "passed": 16,
+    "required": 16,
+    "counted_as_claims": false
+  },
+  "passenger_needs": {
+    "passed": 12,
+    "required": 12
+  },
+  "retained_hub_faqs": {
+    "passed": 10,
+    "required": 10
+  },
+  "route_confirmation_lists": {
+    "passed": 5,
+    "required": 5
+  },
+  "guide_additions": {
+    "passed": 5,
+    "required": 5
+  },
+  "community_drafts": {
+    "passed": 3,
+    "required": 3,
+    "claims": 14,
+    "publication": "unposted"
+  },
+  "internal_destination_checks": {
+    "passed": 13,
+    "required": 13,
+    "method": "source membership and existing static page paths; no live fetch"
+  },
+  "local_document_targets": {
+    "passed": 17,
+    "required": 17
+  },
+  "anchors": {
+    "references": 0,
+    "status": "No anchor links in final owned documents; existing app anchor behavior unchanged"
+  },
+  "external_sources": {
+    "urls_in_copy": 14,
+    "fresh_network_checks": 0,
+    "method": "Frozen ledger support/scope reviewed; inaccessible/current operational evidence remains unknown; existing provenance dates retained"
+  },
+  "source_hash_drift": [],
+  "preexisting_partial_unit": "unchanged",
+  "historical_provider_observations": "unchanged",
+  "head_and_staging": "unchanged",
+  "application_changes": false,
+  "semantic_review": "Coordinator read all98 final copy blocks, kept/moved coverage and all157 constraints; separate Luna source comparison found no blocker. AI editorial review only, not native/human/carrier confirmation.",
+  "automated_checks": "passed static inventory/source/field/link/scope checks; documentation commands recorded separately",
+  "build_browser_kb": "not run: docs-only; no runtime release or KB change",
+  "documentation_commands": {
+    "docs:index": "passed:47 concepts/10 directory indexes",
+    "docs:check": "passed:468 local file links/62 Markdown files; generated index/map and8 dated state observations consistent",
+    "git diff --check": "passed"
+  }
+}

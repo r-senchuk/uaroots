@@ -1,0 +1,75 @@
+{
+  "review_date": "2026-10-28",
+  "outcome": "ready with explicit unknowns; P2 is not ready to post until factual wording correction is approved and integrated",
+  "source": {
+    "path": "docs/Marketing/SEO/community-placements-2026-10-25.md",
+    "sha256": "75848ed354d1c302b368cb6f7ed8d66116743dbe6aadaaafa90bb7f111b4b4b8",
+    "matches_s04_frozen_hash": true,
+    "copy_changed": false
+  },
+  "deployment_state": "S09 candidate accepted locally with unknowns; no release or R6 live acceptance established by this preparation. Previous live deployment is a separate state and does not establish candidate publication.",
+  "live_check": {
+    "result": "unknown",
+    "web": "All three exact URLs inaccessible to web tool.",
+    "curl": "All three failed DNS resolution (HTTP 000); this does not establish site downtime.",
+    "required": "After R6, verify each exact tagged URL and destination content against the released candidate; retain timestamped evidence."
+  },
+  "placements": [
+    {
+      "id": "P1",
+      "status": "prepared",
+      "audience": "Lviv or actual nearby locality to Germany",
+      "channel_type": "Telegram",
+      "destination": "https://uaroute.com/cities/lviv/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch",
+      "direction": "outbound",
+      "disclosure": "Explicit: we develop UARoute as a passenger-direction guide.",
+      "claims": "Nearby places are examples; ask carrier about actual place, price and seats. No service or stop is promised.",
+      "review": "P1-1..P1-5 reconciled; verify Hannover/Celle guidance is actually reachable and accurately described on the final live destination."
+    },
+    {
+      "id": "P2",
+      "status": "not ready to post: factual wording correction required",
+      "audience": "Ivano-Frankivsk region to Wolfsburg / Lower Saxony",
+      "channel_type": "Telegram",
+      "destination": "https://uaroute.com/cities/ivano-frankivsk/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch",
+      "direction": "outbound",
+      "disclosure": "Explicit: material prepared by UARoute team.",
+      "claims": "Nearby places are examples; ask carrier about actual place. No pickup is promised.",
+      "review": "P2-1..P2-5 previously reconciled, but the candidate source supplies baggage preparation and questions, not a verified baggage calculation. The frozen phrase «розрахунку багажу» must not be posted as-is. Return a narrow correction for factual review and integration.",
+      "recommended_replacement_not_final_copy": "Підготували корисні поради для виїзду, узгодження багажу та зустрічі після повернення на UARoute:",
+      "blocker_scope": "S11 placement 2 only; not an application release blocker."
+    },
+    {
+      "id": "P3",
+      "status": "prepared",
+      "audience": "Germany to Lviv or actual locality in Ukraine",
+      "channel_type": "Facebook",
+      "destination": "https://uaroute.com/cities/lviv/?utm_source=facebook&utm_medium=social&utm_campaign=route_launch",
+      "direction": "return",
+      "disclosure": "Explicit: we develop UARoute as a passenger-direction guide.",
+      "claims": "Ask carrier about actual place and feasibility; no Hannover stop, direct service or multiple carriers asserted.",
+      "review": "P3-1..P3-4 rewritten; Lviv hub matches return audience, subject to final live verification."
+    }
+  ],
+  "utm": "Each tuple is allowed by src/config/utm.ts and matches S11; no group IDs, personal identifiers, utm_content or utm_term. Platform must match the tuple.",
+  "common_gates": [
+    "R6 actual live acceptance and exact tagged-link/content checks",
+    "Named channel or group, relevant audience and direction selected",
+    "Accessible actual channel rules checked and evidence captured; permission to post established, unknown until then",
+    "Separate explicit posting authorization naming destinations; at most three placements",
+    "For P2, approve and integrate a narrow factually reviewed correction to the baggage wording before posting; preserve frozen source until authorized review/integration.",
+    "Any needed copy change returned for factual review; no silent change to frozen drafts",
+    "After authorized publication verify saved state and record actual date/channel/exposure; no fabricated results"
+  ],
+  "channel_rules": "Unknown: no specific destinations supplied or accessible rules inspected.",
+  "human_review": "S04 AI editorial review only; human/native-speaker and carrier confirmation not claimed.",
+  "measurement": "No measurement clock starts without verified release/exposure; use actual dates and S12 measurement contract.",
+  "actions_not_taken": [
+    "posting",
+    "contact",
+    "joining",
+    "account changes",
+    "copy or application edits",
+    "URL submission"
+  ]
+}

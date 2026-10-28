@@ -1,0 +1,293 @@
+{
+  "date": "2026-10-28",
+  "status": "local_application_implemented; local_automated_checks_passed; independent_S09_and_native_gates_pending",
+  "runtime": {
+    "node": "22.23.3",
+    "next": "16.4.0",
+    "typescript": "6.0.3",
+    "chrome": "156.0.8078.48",
+    "playwright": "1.61.1",
+    "standalone_custom_browser_harness_node": "24.21.0; exact candidate build/npm and existing POC/passenger harnesses use22.23.3"
+  },
+  "candidate": "output/seo-mitigation-execution-2026-10-28-private/implementation/candidate",
+  "source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "export_files": 258,
+  "source_files": 167,
+  "checks": {
+    "initial_focused": {
+      "files": 15,
+      "tests": 155,
+      "passed": true
+    },
+    "stable_full_check": {
+      "docs_tooling_types_lint_unit_build_passed": true,
+      "unit_files": 18,
+      "unit_tests": 175,
+      "initial_inspector_passed": false,
+      "reason": "nested-section extraction falsely ended the search parent at the first child section",
+      "correction": "balanced extraction with independent inside-after-child positive and footer-only negative fixtures; presentation slot separately improves explanation adjacency",
+      "original_log": "private implementation/stable-check.log"
+    },
+    "final_affected": {
+      "typecheck": true,
+      "lint": true,
+      "files": 4,
+      "tests": 44,
+      "build": true,
+      "inspect_out": true,
+      "seo_artifact": true,
+      "artifact_summary": "24 HTML documents:22 indexed+2 editorial"
+    },
+    "responsive": {
+      "surfaces": 18,
+      "widths": [
+        320,
+        360,
+        375,
+        768,
+        1280,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "checks": 216,
+      "passed": true
+    },
+    "focused_browser": {
+      "checks": 3,
+      "passed": true,
+      "includes": [
+        "settled open-FAQ/autocomplete text contrast >=4.5",
+        "navy/foreground input boundaries >=3",
+        "helper sizes >=14;functional controls16",
+        "actual search hierarchy",
+        "keyboard autocomplete and reversal",
+        "editorial Hamburg fallback",
+        "nearby search heading focus",
+        "heading-only early/invalid-date focus",
+        "consent open/save"
+      ]
+    },
+    "passenger": {
+      "checks": 33,
+      "passed": true,
+      "changed_oracle": "Hannover to Ivano-Frankivsk expected inline form and exact direction; Hannover to Lviv remains fallback"
+    },
+    "privacy": {
+      "configuration": "disabled local build; real consent UI; no compiled provider claim",
+      "checks": 2,
+      "passed": true
+    },
+    "receiver_attribution": {
+      "checks": 7,
+      "passed": true,
+      "fixture": "sibling local4k-trans/dist; unchanged"
+    },
+    "poc": {
+      "flows": 23,
+      "passed_flows": 23,
+      "passed": true,
+      "errors": [],
+      "runtime_errors": [],
+      "receiver_form_policy": "inbound sourceuaroute; exact original safe sender code at prefix; current pair; neutral request and manual-confirmation phrases; no booking promise",
+      "independent_authority": "ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/receiver-runtime.json",
+      "receipt_sha256": "91c2bb56454c42297aa6bdf2133aacfe3f98c1e6d93c636b7267030b25147a46"
+    },
+    "runtime_errors": [],
+    "poc_original": {
+      "flows": 23,
+      "passed_flows": 21,
+      "failed_flows": [
+        "staged Koval form receives attribution and prepares a handoff",
+        "four new route referrals survive Koval contact in both directions"
+      ],
+      "errors": [
+        "staged Koval form receives attribution and prepares a handoff: Koval WhatsApp message lost UARoute source",
+        "four new route referrals survive Koval contact in both directions: New Koval handoff lost source, original code or current pair"
+      ],
+      "sender_referral_and_all_UARoute_flows_passed": true,
+      "receiver_form_end_to_end": "unresolved local fixture/harness mismatch; no receiver source change",
+      "receiver_form_diagnosis": {
+        "method": "read-only inspection of the same hashed receiver fixture; no receiver mutation",
+        "file": "assets/Home-4pOfCMlb.js",
+        "finding": "attributed form builder prefixes refCode and a feasibility request; lacks UARoute source literal and the older no-booking sentence required by POC assertions",
+        "separate_contact_link_builder": "includes UARoute source/code; independent7-check attribution harness passed",
+        "limit": "static builder explains literal mismatch; no weakening of end-to-end form assertions or claim that the receiver meets sender acceptance"
+      },
+      "receipt_sha256": "6854c3ea9363eb46d29d934eb5b50cc3ea3e993c4d86286761df955c60262adb"
+    },
+    "receiver_negative": {
+      "checks": 2,
+      "passed": true,
+      "invalid_source": "not accepted as attributed prefix despite valid code",
+      "malformed_original_code": "not retained; existing safe regenerated-code fallback observed and permitted",
+      "external": "all operator/collector requests blocked before navigation",
+      "runtime_errors": [],
+      "receipt_sha256": "52922b9316def9065a75c9037d896c26a375c5a6e60849f8c1f4a8a086ce4306"
+    }
+  },
+  "actual_375_primary_bounds": [
+    {
+      "url": "/routes/lviv-hannover/",
+      "dark": false,
+      "x": 20,
+      "y": 353.75,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "dark": false,
+      "x": 20,
+      "y": 353.75,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "dark": false,
+      "x": 20,
+      "y": 380.9375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "dark": false,
+      "x": 20,
+      "y": 440.9375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "dark": false,
+      "x": 20,
+      "y": 440.9375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/cities/lviv/",
+      "dark": false,
+      "x": 20,
+      "y": 680.734375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "dark": false,
+      "x": 20,
+      "y": 707.921875,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "dark": true,
+      "x": 20,
+      "y": 353.75,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "dark": true,
+      "x": 20,
+      "y": 353.75,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "dark": true,
+      "x": 20,
+      "y": 380.9375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "dark": true,
+      "x": 20,
+      "y": 440.9375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "dark": true,
+      "x": 20,
+      "y": 440.9375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/cities/lviv/",
+      "dark": true,
+      "x": 20,
+      "y": 680.734375,
+      "width": 335,
+      "height": 48
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "dark": true,
+      "x": 20,
+      "y": 707.921875,
+      "width": 335,
+      "height": 48
+    }
+  ],
+  "external_policy": "catch-all registered before navigation and inputs; only local export/receiver fixtures fulfilled; operators/collectors blocked; service workers blocked",
+  "calendar_baseline": "released heading focus, instant scroll, preventScroll and direct-tap native calendar preserved; no new calendar code",
+  "performance": {
+    "comparison": "ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/performance-review.json",
+    "comparison_sha256": "d8d3330685d0f88473591d8b99a616f62338446230a32170867c28c81f88c200",
+    "candidate": "ops/evidence/seo-mitigation-execution-2026-10-28/performance/candidate-results.json",
+    "same_settings": true,
+    "observations": 12,
+    "per_page": 3,
+    "lcp_median_delta_ms": [
+      76,
+      68,
+      48,
+      16
+    ],
+    "investigation_trigger": false,
+    "guide_existing_CLS": 0.168581,
+    "claim_limit": "matched small lab sample only; no field or improvement claim"
+  },
+  "unknown": [
+    "native calendar and mobile keyboard",
+    "native application200percent zoom",
+    "screen reader and human usability/native speaker/carrier review",
+    "compiled live provider/delivery",
+    "fieldCWV/INP/search/AI/settled cohorts/operator outcomes"
+  ],
+  "publication": "no commit,push,deploy,indexing request,account change,outreach",
+  "receiver_fixture_manifest_sha256": "b32effc00a4ba585ab365834d563e448e626ba477082f426cba5cc43a0f8cdaa",
+  "harness_sha256": {
+    "scripts/passenger-browser.mjs": "328348ebe41b4322f841e0966e8f49d2baff5e3aa835d4a8087899c1ee089a61",
+    "scripts/poc-browser.mjs": "f6894bb961829094d9537b990f732a9c507e67c0040c7d075b9fe269af05203a",
+    "scripts/privacy-browser.mjs": "f9b22e517f539ab337d74c8a599c96ce3c18657d997f59c07ff52c2e5aac234e",
+    "scripts/attribution-browser.mjs": "d6c7a1c0d66783a899c689aec24dc8283c843d27b13d4e2d2fb75efb5f2c9fd5",
+    "ops/evidence/seo-mitigation-execution-2026-10-28/implementation/browser-acceptance.mjs": "136b8cf8b26e8a7a7feeaaa21b2d627f44992e26e745fb6fa044186b4ba61c66",
+    "ops/evidence/seo-mitigation-execution-2026-10-28/implementation/receiver-negative.mjs": "d3ecab6aff154294a55b8d13959d84fc7c1e7921dafeae9d290ad16daa8c68ca"
+  },
+  "missing_desk_fixture_sha256": "7f24fc7356d6e20a10b64ea0ecf06906688838256372e707d352755a52291df9",
+  "performance_source_manifest_sha256": "61df2660ff0eb485eee2f77adbc9130807b47f46498ad7631f1b2d32afb25bc8",
+  "qa_only_overlay": {
+    "file": "scripts/poc-browser.mjs",
+    "before_sha256": "1e2d9a5c4dab301e1e8259ab8745547d93893779c2903dec88bcf907bbc7b618",
+    "after_sha256": "f6894bb961829094d9537b990f732a9c507e67c0040c7d075b9fe269af05203a",
+    "reason": "owner-authorized exact original-code/source/current-pair and current neutral manual-confirmation assertions after independent5-route runtime proof",
+    "application_source_changed": false,
+    "export_changed": false
+  },
+  "root_preliminary_test_note": "one intermediate root focused test updated a Vitest result cache only; excluded from acceptance; no installed dependency/config/build mutation"
+}

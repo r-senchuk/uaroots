@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-28",
+  "method": "Coordinator native CUA Chrome UI keyboard shortcuts; Chrome AX explicitly Zoom:200%; DOM read-only measurements after navigation. Session transcription, not raw browser export. No CSSzoom/deviceemulation used.",
+  "baseline": {
+    "zoom": 100,
+    "display_dpr": 2
+  },
+  "zoom_percent": 200,
+  "checks": [
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "css_width": 701,
+      "css_height": 457,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "css_width": 701,
+      "css_height": 463,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "css_width": 701,
+      "css_height": 470,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "css_width": 701,
+      "css_height": 467,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "css_width": 701,
+      "css_height": 470,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "css_width": 701,
+      "css_height": 467,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "css_width": 701,
+      "css_height": 457,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "css_width": 701,
+      "css_height": 469,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "css_width": 701,
+      "css_height": 475,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "css_width": 701,
+      "css_height": 476,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "css_width": 701,
+      "css_height": 473,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "css_width": 701,
+      "css_height": 473,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "css_width": 701,
+      "css_height": 473,
+      "device_pixel_ratio": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0,
+      "note": "FinalCSS16pxcontrols;fontready;nativeUI200confirmed. Twofinalhubsrecheckedaftermenucolorcorrection.",
+      "input_font_sizes": "allpresentinputs/selects16px"
+    }
+  ],
+  "keyboard_sample": {
+    "surface": "states.html",
+    "action": "nativeTab",
+    "active": "A Сайт перевізника ↗",
+    "outline": "solid2px",
+    "error_nodes_present": 5,
+    "hidden_error_nodes": 0
+  },
+  "scope": "Design previews only; disabled staticstates do not prove application validation/sticky/consent/mobilekeyboard. Humanusabilitynotrun.",
+  "cleanup": "FinalChromeZoom100confirmedAX;bothtaskcreatednativepreviewtabsclosed. UserChromecontrolreturned. Noaccountwrites.",
+  "shared_css_sha256": "7b6b050310be8edea2940911d8fd5fe68e531da416de3e3321ec65a621f2c286",
+  "status": "13/13finalsurfacesnative200layoutchecked;exactfinalhashesbound"
+}

@@ -1,0 +1,16 @@
+{
+  "reviewer": "S09 independent final readback",
+  "final_source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "performance_source_manifest_sha256": "61df2660ff0eb485eee2f77adbc9130807b47f46498ad7631f1b2d32afb25bc8",
+  "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "source_delta": [
+    "scripts/poc-browser.mjs"
+  ],
+  "poc_flows": 23,
+  "poc_passed": 23,
+  "poc_runtime_errors": [],
+  "poc_original_preserved": true,
+  "negative_fixtures": 2,
+  "negative_passed": true,
+  "passed": true
+}

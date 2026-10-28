@@ -1,0 +1,44 @@
+{
+  "source_head": "624196ade5ca9b404502e7b5793f7c1a28a635af",
+  "source_hashes": {
+    "docs/Marketing/SEO/mitigation-2026-10/s04-work-plan.md": "36d5a32f5fbdb5f6991e95c2135f72489b06ade0dd063ba96f147398554793c5",
+    "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md": "1fddb37481c3be4ec5f8744fbbc702a357d5e71c71f654a50e3f2d1638a8445b",
+    "docs/Marketing/SEO/mitigation-2026-10/claims-ledger.md": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b",
+    "docs/Marketing/SEO/mitigation-2026-10/passenger-needs.md": "60c763a9f43b7f0db06e5ab2279d582c1cf8a3f2e7decf11ac69e32d3828d3fd",
+    "docs/Marketing/SEO/mitigation-2026-10/search-baseline.md": "666ee8e5a21baaa994e2bd79d8166435257bc0a4341978886e223f140f9df096",
+    "docs/Marketing/SEO/mitigation-2026-10/s04-hannover-copy-unit.md": "15fd9b89e71f93b1e8613661445cce0ed7d893402e85a52823070f50789eaca9",
+    "src/data/routes.ts": "dee967e008ef338cadccdb2343eb37ea7d4c41e5bf5c2a2c2c9d211a3635b772",
+    "src/data/city-hubs.ts": "2c3699b360c38c4421380f1ee24f211173309c4510cffc45b6d86cea92777cfc",
+    "src/data/carriers.ts": "ee89b0a816c3f8b21d7a92fba3b7adef9cb03bc2067b67288f603ab308d2942a",
+    "src/lib/seo.ts": "d43777c6b89066b5c1bd70522902a0ac03c11148985f3608fbd8d9ae6ed293bd",
+    "src/components/BookingWidget.tsx": "98f4d71d340836260ae389ba96e398df5c62a69d2c212ac5c00cc01a6f95a57d",
+    "src/components/CandidateInquiry.tsx": "8319dd196d6b3d687027a8431635423a0bb0fe6f88894c78b345258ce923f7d9",
+    "src/components/PartnerCard.tsx": "f6ef4651756ecfc639ece2393d647ea4ff18e985bc5e9bf8853e000fed8541fa",
+    "src/app/about/page.tsx": "3e0b8f766c85303575e2c7136c3694a9e15ce4eddbe29515b1d9c1fa7f3c56a2",
+    "src/app/imprint/page.tsx": "312b1bc94b2a6ca8585128ec3012ccccdebe92a46cbf8a378624cfae2c21f63c",
+    "src/app/guides/perevezennya-velosypeda/page.tsx": "3b7c719d9ef8002f4dd02822d3887e9b240df0d319f56a6544d89c1a2af88cd9",
+    "src/config/business.ts": "9c422de03a9e56d9e80be9bc9b8849cb661c01e249c2739cd65d82755b24c5df",
+    "docs/Marketing/SEO/community-placements-2026-10-25.md": "8422138bb360e3172d05ab2a2478ea00275d8c90bd6dcba349b7d9d337a8c065"
+  },
+  "preexisting_partial_unit": "s04-hannover-copy-unit.md: preserved, not presumed accepted; full package must independently reconcile it",
+  "dispatches": [
+    {
+      "task": "s04_copy",
+      "requested_model": "gpt-6-luna",
+      "requested_reasoning": "high",
+      "owns": [
+        "content-package.md"
+      ]
+    },
+    {
+      "task": "s04_placements",
+      "requested_model": "gpt-6-luna",
+      "requested_reasoning": "high",
+      "owns": [
+        "community-placements-2026-10-25.md"
+      ]
+    }
+  ],
+  "provenance": "requested collaboration dispatch settings; provider actual model/token/cost unavailable",
+  "vibe_starts": 0
+}

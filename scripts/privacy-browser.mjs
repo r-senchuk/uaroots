@@ -19,7 +19,7 @@ async function check(name, fn) {
   catch (error) { report.checks.push({ name, passed: false, error: error.message }); }
 }
 async function context(options = {}) {
-  const ctx = await browser.newContext({ viewport: { width: 375, height: 812 } });
+  const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, serviceWorkers: "block" });
   const requests = [];
   const consentStates = [];
   await ctx.route("**/*", async (route) => {

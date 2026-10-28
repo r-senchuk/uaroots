@@ -1,0 +1,19 @@
+releaseSha256=ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974 files=258 manifest=/Users/roman/src/github.com/r-senchuk/uaroots/ops/evidence/seo-release-preparation-2026-10-28/r3/release-manifest.json
+deploy: release manifest: /Users/roman/src/github.com/r-senchuk/uaroots/ops/evidence/seo-release-preparation-2026-10-28/r3/release-manifest.json
+{
+  "releaseSha256": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+  "files": 258,
+  "uploadOrder": [
+    "/_next/static/**",
+    "remaining export files",
+    "*.html content-type repair",
+    "CloudFront /* invalidation"
+  ],
+  "retain": [
+    "existing /_next/static hashed chunks",
+    "unrelated and legacy S3 keys"
+  ],
+  "deletionCommands": []
+}
+
+deploy: dry-run complete; no AWS credentials or cloud APIs were used

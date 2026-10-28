@@ -1,0 +1,854 @@
+{
+  "reviewer": "S09 independent",
+  "scope": "read-only source/export; no build/browser",
+  "checks": [
+    {
+      "name": "source-files.json actual bytes",
+      "passed": true,
+      "detail": {
+        "files": 167,
+        "manifest_sha256": "61df2660ff0eb485eee2f77adbc9130807b47f46498ad7631f1b2d32afb25bc8",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "export-files.json actual bytes",
+      "passed": true,
+      "detail": {
+        "files": 258,
+        "manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "26 essential inputs",
+      "passed": true,
+      "detail": {
+        "count": 26,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "source changes bounded",
+      "passed": true,
+      "detail": {
+        "changed": [
+          "scripts/attribution-browser.mjs",
+          "scripts/inspect-out.mjs",
+          "scripts/passenger-browser.mjs",
+          "scripts/privacy-browser.mjs",
+          "src/app/about/page.tsx",
+          "src/app/cities/[slug]/page.tsx",
+          "src/app/guides/perevezennya-velosypeda/page.tsx",
+          "src/app/imprint/page.tsx",
+          "src/app/routes/[slug]/page.tsx",
+          "src/components/BookingWidget.tsx",
+          "src/components/CandidateInquiry.tsx",
+          "src/components/JourneyActions.tsx",
+          "src/components/NearbyPlaces.tsx",
+          "src/components/RouteSearch.tsx",
+          "src/components/StickyBookingBar.tsx",
+          "src/data/city-hubs.ts",
+          "src/data/routes.ts",
+          "src/data/types.ts",
+          "src/lib/inspect-out.test.ts",
+          "src/lib/passenger-conversion.test.ts",
+          "src/lib/seo.test.ts",
+          "src/lib/validate-catalog.test.ts",
+          "src/lib/validate-catalog.ts",
+          "src/lib/validate-city-hubs.test.ts"
+        ],
+        "outside_work_order": []
+      }
+    },
+    {
+      "name": "root matches frozen source",
+      "passed": true
+    },
+    {
+      "name": "literal independent sitemap set22",
+      "passed": true
+    },
+    {
+      "name": "/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/about/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/about/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/about/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/imprint/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/imprint/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/imprint/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/privacy/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/privacy/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/privacy/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/guides/perevezennya-velosypeda/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/guides/perevezennya-velosypeda/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/guides/perevezennya-velosypeda/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/cities/lviv/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/cities/lviv/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/cities/lviv/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/cities/ivano-frankivsk/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/cities/ivano-frankivsk/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/cities/ivano-frankivsk/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/cities/celle/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/cities/celle/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/cities/celle/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/cities/stryi/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/cities/stryi/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/cities/stryi/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ editorial noindex",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ html metadata",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ no operational schema",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ no public carrier brand",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ form eligibility",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ editorial noindex",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ no deferred service-claim presentation",
+      "passed": true
+    },
+    {
+      "name": "/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/about/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/imprint/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/privacy/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/guides/perevezennya-velosypeda/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/cities/lviv/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/cities/ivano-frankivsk/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/cities/celle/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/cities/stryi/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/lviv-hannover/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/dolyna-celle/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/celle-dolyna/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/lviv-celle/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/celle-lviv/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/celle-stryi/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/lviv-hamburg/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/routes/lviv-berlin/ internal hrefs resolve/slash",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "unique titles/descriptions",
+      "passed": true
+    },
+    {
+      "name": "frozen copy consumer sentences/items/links",
+      "passed": true,
+      "detail": {
+        "matched": 94,
+        "missing": []
+      }
+    },
+    {
+      "name": "/contact/ redirect",
+      "passed": true
+    },
+    {
+      "name": "/contacts/ redirect",
+      "passed": true
+    },
+    {
+      "name": "/carriers/ redirect",
+      "passed": true
+    },
+    {
+      "name": "/packages/ redirect",
+      "passed": true
+    },
+    {
+      "name": "/gallery/ redirect",
+      "passed": true
+    },
+    {
+      "name": "404 artifact no homepage canonical",
+      "passed": true
+    },
+    {
+      "name": "no extra exported files",
+      "passed": true
+    },
+    {
+      "name": "sitemap dates byte-identical to baseline",
+      "passed": true
+    },
+    {
+      "name": "/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/about/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/imprint/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/privacy/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/guides/perevezennya-velosypeda/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/cities/lviv/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/cities/ivano-frankivsk/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/cities/celle/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/cities/stryi/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hannover/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-celle/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-dolyna/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-wolfsburg/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-dolyna/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/dolyna-braunschweig/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/braunschweig-dolyna/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-celle/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-lviv/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/ivano-frankivsk-wolfsburg/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/wolfsburg-ivano-frankivsk/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/celle-stryi/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-hamburg/ practical precedes image",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ schema identities and dates retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ existing illustrative image/alt retained",
+      "passed": true
+    },
+    {
+      "name": "/routes/lviv-berlin/ practical precedes image",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

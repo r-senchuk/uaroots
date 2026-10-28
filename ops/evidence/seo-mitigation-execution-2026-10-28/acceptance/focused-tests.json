@@ -1,0 +1,20 @@
+{
+  "reviewer": "S09 independent",
+  "runtime": "Node22.23.3/Next16.4.0/TS6.0.3",
+  "test_files": [
+    "src/lib/inspect-out.test.ts",
+    "src/lib/analytics-provider.test.ts",
+    "src/lib/analytics-consent.test.ts",
+    "src/lib/google-consent.test.ts"
+  ],
+  "files": 4,
+  "tests": 40,
+  "passed": true,
+  "source_hashes": {
+    "src/lib/inspect-out.test.ts": "7b443d1dc59c70e94a63701d95e5256fb5c90dcf29984c8e9959340da0e2f9bb",
+    "src/lib/analytics-provider.test.ts": "938a37409f58e97d16a4f23d7a258fd5380c5f047e6bf1cd672f6b299ea28472",
+    "src/lib/analytics-consent.test.ts": "c65fcfa81b4b15a50e0f8297506a6a281c3f9b8373e50cfdfe4ef3fcdee7d80e",
+    "src/lib/google-consent.test.ts": "d9e5d33c2358b20d8b18936e67cdd89d06e198ba8bdfff6735aab0aa1c8c2bb2"
+  },
+  "limits": "Unit tests preserve provider/privacy contract; not compiled official-provider or vendor receipt"
+}

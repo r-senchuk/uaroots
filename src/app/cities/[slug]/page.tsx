@@ -41,6 +41,7 @@ export default async function CityHubPage({ params }: PageProps) {
   if (!city || !details) notFound();
   const presentation = getCityHubPresentation(city, details.fromName, details.toName, details.routeSlugs);
   if (!presentation) notFound();
+  const priorityHub = city.id === "lviv" || city.id === "ivano-frankivsk";
   const choiceDirections = presentation.choiceDirections.map(({ city: choiceCity, departureRoute, returnRoute }) => ({
     city: choiceCity,
     ...(departureRoute ? { departureHref: `/routes/${departureRoute.slug}/` } : {}),
@@ -57,24 +58,18 @@ export default async function CityHubPage({ params }: PageProps) {
       <JsonLd data={breadcrumbLd(crumbs)} />
       <JsonLd data={cityHubCollectionLd(city, details, presentation.routeCards)} />
       <section className="border-b border-border-strong">
-        <div className="container-page pb-8 pt-8 sm:pb-10">
+        <div className={priorityHub ? "container-page pb-3 pt-3" : "container-page pb-8 pt-8 sm:pb-10"}>
           <Breadcrumbs items={crumbs} />
-          <p className="mt-6 type-label text-muted-foreground">{presentation.departureLabel} · {presentation.arrivalLabel}</p>
-          <h1 className="mt-3 max-w-4xl type-h1">{details.heading}</h1>
-          <p className="mt-4 max-w-3xl type-body text-muted-foreground">{details.intro}</p>
+          <p className={priorityHub ? "hidden" : "mt-6 type-label text-muted-foreground"}>{presentation.departureLabel} · {presentation.arrivalLabel}</p>
+          <h1 className={priorityHub ? "mt-3 max-w-4xl type-h1" : "mt-3 max-w-4xl type-h1"}>{details.heading}</h1>
+          <p className={priorityHub ? "mt-3 max-w-3xl type-body text-muted-foreground" : "mt-4 max-w-3xl type-body text-muted-foreground"}>{details.intro}</p>
         </div>
       </section>
 
-      <section className="container-page py-8 sm:py-10" aria-labelledby="search-heading">
+      <section className={priorityHub ? "container-page py-3 sm:py-6" : "container-page py-8 sm:py-10"} aria-labelledby="search-heading">
         <p className="type-label text-muted-foreground">Вибір напрямку</p>
-        <h2 id="search-heading" tabIndex={-1} className="mt-3 scroll-mt-24 type-h2">Куди хочете їхати?</h2>
-        <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
-          {presentation.searchDescription}
-        </p>
-        <p className="mt-5 max-w-3xl border-l-2 border-primary pl-4 type-body-small text-muted-foreground">
-          Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.
-        </p>
-        <div className="mt-8 max-w-5xl border border-border-strong p-5 sm:p-8">
+        <h2 id="search-heading" tabIndex={-1} className="mt-2 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2">Куди хочете їхати?</h2>
+        <div className={priorityHub ? "mt-3 max-w-5xl" : "mt-8 max-w-5xl border border-border-strong p-5 sm:p-8"}>
           <RouteSearch
             key={city.id}
             sourcePath={`/cities/${city.slug}/`}
@@ -84,7 +79,14 @@ export default async function CityHubPage({ params }: PageProps) {
             overviewCity={city}
             choiceDirections={choiceDirections}
             choiceHeading={presentation.choiceHeading}
-          />
+          >
+        <p className="mt-3 max-w-2xl type-body text-muted-foreground">
+          {presentation.searchDescription}
+        </p>
+        <p className="mt-5 max-w-3xl border-l-2 border-primary pl-4 type-body text-muted-foreground">
+          Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.
+        </p>
+          </RouteSearch>
         </div>
       </section>
 
@@ -116,8 +118,8 @@ export default async function CityHubPage({ params }: PageProps) {
                     <a className="inline-flex min-h-11 items-center link-underline" href={resource.url}>
                       {resource.label} ↗
                     </a>
-                    <p className="mt-2 type-body-small text-muted-foreground">{resource.purpose}</p>
-                    <p className="mt-2 type-caption text-muted-foreground">
+                    <p className="mt-2 type-body text-muted-foreground">{resource.purpose}</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
                       Довідник переглянуто <time dateTime={resource.checkedAt}>{resource.checkedAt}</time>
                     </p>
                   </li>
@@ -125,7 +127,7 @@ export default async function CityHubPage({ params }: PageProps) {
               </ul>
             </div>
           ) : null}
-          <p className="type-caption text-muted-foreground lg:col-span-2">
+          <p className="text-sm text-muted-foreground lg:col-span-2">
             Редакційні поради переглянуто <time dateTime={details.contentReview.reviewedAt}>{details.contentReview.reviewedAt}</time>
           </p>
         </div>
@@ -135,20 +137,20 @@ export default async function CityHubPage({ params }: PageProps) {
         <div className="container-page py-12 sm:py-16">
           <p className="type-label text-muted-foreground">Поради для вашого напрямку</p>
           <h2 className="mt-3 type-h2">Місце зустрічі, прибуття та підготовка</h2>
-          <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
+          <p className="mt-3 max-w-2xl type-body text-muted-foreground">
             Перегляньте поради для потрібної пари міст, перш ніж писати перевізнику. Вони допоможуть описати зручне місце зустрічі та продумати подальшу дорогу.
           </p>
           <ul className="mt-7 grid gap-4 md:grid-cols-2">
             {presentation.routeCards.map((route) => (
               <li key={route.slug} className="border border-border-strong p-5">
                 <h3 className="font-display text-xl">{route.title}</h3>
-                <p className="mt-2 type-body-small text-muted-foreground">{route.description}</p>
+                <p className="mt-2 type-body text-muted-foreground">{route.description}</p>
                 <Link className="mt-4 inline-flex min-h-11 items-center link-underline" href={`/routes/${route.slug}/`}>Поради: {route.title}</Link>
               </li>
             ))}
           </ul>
-          <div className="mt-8"><Faq items={[...details.faq]} /></div>
-          <p className="mt-8 max-w-2xl type-body-small text-muted-foreground">
+          <div className="mt-8 [&_details_p]:text-base"><Faq items={[...details.faq]} /></div>
+          <p className="mt-8 max-w-2xl type-body text-muted-foreground">
             Повертаєтеся до планування пізніше? Збережіть посилання на потрібний напрямок.
             Для наступної поїздки дату та умови потрібно погодити заново.
           </p>
@@ -161,8 +163,8 @@ export default async function CityHubPage({ params }: PageProps) {
           >
             Контакти перевізника на його сайті ↗
           </KovalReferralLink>
-          <p className="mt-2 type-caption text-muted-foreground">Відкриється сайт перевізника.</p>
-          <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-strong pt-5 type-body-small" aria-label="Інші міські огляди">
+          <p className="mt-2 text-sm text-muted-foreground">{priorityHub ? "Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон. Відкриється сайт перевізника." : "Відкриється сайт перевізника."}</p>
+          <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-strong pt-5 type-body" aria-label="Інші міські огляди">
             {presentation.relatedHubs.map(({ city: relatedCity, label }) => (
               <Link key={relatedCity.id} className="inline-flex min-h-11 items-center link-underline" href={`/cities/${relatedCity.slug}/`}>
                 {label} →

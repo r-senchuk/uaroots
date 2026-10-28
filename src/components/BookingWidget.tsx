@@ -25,7 +25,7 @@ export function BookingWidget() {
   const carrier = getCarrier(route.carrierIds[0] ?? "");
   const today = localTodayISO();
   const fieldClass =
-    "h-12 min-w-0 w-full border border-input bg-background px-3 text-base text-foreground focus:border-primary";
+    "h-12 min-w-0 w-full border border-foreground bg-background px-3 text-base text-foreground focus:border-primary";
 
   return (
     <section className="border border-border-strong bg-card p-3 sm:p-6">
@@ -33,13 +33,13 @@ export function BookingWidget() {
       <h2 tabIndex={-1} className="mt-3 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2">Уточнити поїздку</h2>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-        <span className="font-mono text-xs uppercase tracking-[0.16em] text-foreground">
+        <span className="font-mono text-sm uppercase tracking-[0.16em] text-foreground">
           {route.origin.name} → {route.destination.name}
         </span>
       </div>
 
       {desk ? (
-        <p className="mt-4 type-body-small text-muted-foreground">
+        <p className="mt-4 type-body text-muted-foreground">
           Додайте бажану дату, кількість пасажирів і телефон. Відкриється WhatsApp із готовим текстом: перевірте його й надішліть самостійно.
         </p>
       ) : null}
@@ -53,8 +53,8 @@ export function BookingWidget() {
           routeSlug={route.slug}
           referralContext={{ originCityId: route.origin.id, destinationCityId: route.destination.id, sourcePath: `/routes/${route.slug}/` }}
           className={desk
-            ? "mt-5 inline-flex min-h-11 items-center justify-center border border-border-strong px-4 text-center text-sm font-medium hover:bg-secondary"
-            : "mt-5 inline-flex min-h-12 w-full items-center justify-center bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground hover:bg-primary-hover"}
+            ? "mt-5 inline-flex min-h-11 items-center justify-center border border-foreground px-4 text-center text-base font-medium hover:bg-secondary"
+            : "mt-5 inline-flex min-h-12 w-full items-center justify-center bg-primary px-5 py-3 text-center text-base font-semibold text-primary-foreground hover:bg-primary-hover"}
         >
           {desk ? "Сайт перевізника ↗" : "Перейти на сайт перевізника ↗"}
         </KovalReferralLink>
@@ -137,7 +137,7 @@ export function BookingWidget() {
         <button
           type="submit"
           disabled={!hydrated}
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-5 py-3 type-button leading-snug text-primary-foreground transition-colors hover:bg-primary-hover"
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-5 py-3 type-button text-base leading-snug text-primary-foreground transition-colors hover:bg-primary-hover"
         >
           {desk ? <WhatsAppIcon className="shrink-0" /> : null}
           <span className="min-w-0 text-center whitespace-normal [overflow-wrap:anywhere]">

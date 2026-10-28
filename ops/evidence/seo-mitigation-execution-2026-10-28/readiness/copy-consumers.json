@@ -1,0 +1,1094 @@
+{
+  "date": "2026-10-28",
+  "status": "S07 explicit implementation mapping; no application acceptance",
+  "copy_source": "ops/evidence/seo-s04-2026-10-27/copy-records.json",
+  "copy_source_sha256": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+  "priority_keys": 69,
+  "support_keys": 25,
+  "total_keys": 94,
+  "consumers": [
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-intro",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "description; shared resolved value feeds visible introduction, routePageLd WebPage.description, RelatedRoutes/RouteList and hub card descriptions",
+      "source_fields": [
+        "route.description"
+      ],
+      "copy_record_sha256": "d6173ffb14c945588f1e34938fff3c72fb6af6108b27a249585b1eae7f2f2078"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-arrival-locality",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[0] heading/body/links",
+      "source_fields": [
+        "practicalContent.1",
+        "faq.1"
+      ],
+      "copy_record_sha256": "6c077a2a8646fcc5f586d0bd51c65a99aaa0e274c67baa39380a3964ab087692"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-independent-onward",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[1] heading/body/links",
+      "source_fields": [
+        "practicalContent.1 source resource"
+      ],
+      "copy_record_sha256": "0d89a14058a638aa34f7af4177da527c12b0fafe3957c1812a2f31e3144a6b57"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-lviv-first-leg",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[2] heading/body/links",
+      "source_fields": [
+        "practicalContent.2",
+        "faq.2 planning question"
+      ],
+      "copy_record_sha256": "15e6065374410bc7d39a98cf31837e60e037e60cd3adf748614bdd87124695c1"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-questions",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[3] heading/body/links; heading/items rendered once via conditions-heading and whatToConfirm; practicalContent heading empty, body/links retain bicycle text",
+      "source_fields": [
+        "whatToConfirm.1–4",
+        "new contextual guide link"
+      ],
+      "copy_record_sha256": "d46a8226f9004500776a64480023725cdd514b06c65f9914dab6743e16878490"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-actual-locality",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "faq[0] question/answer",
+      "source_fields": [
+        "faq.3"
+      ],
+      "copy_record_sha256": "11967eff2d33a0ce380ada604685e369394eea7477d9fb630e91bfcab6300e90"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-changed-plan",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "faq[1] question/answer",
+      "source_fields": [
+        "faq.4"
+      ],
+      "copy_record_sha256": "7348a0d0d0cdb615b1778a59f447598518b11f0212ebd2586904ae86f0001dd7"
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "key": "lh-inquiry",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "BookingWidget heading + shared.action split introductory/confirmation paragraphs; JourneyActions shared.contact-alternative; no repeated full concatenated inquiry paragraph",
+      "source_fields": [
+        "shared.action",
+        "shared.contact-alternative"
+      ],
+      "copy_record_sha256": "015cee7955704f324ad1f2355454b63b038c85073cdda6cacdc0eecc98365e80"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-intro",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "description; shared resolved value feeds visible introduction, routePageLd WebPage.description, RelatedRoutes/RouteList and hub card descriptions",
+      "source_fields": [
+        "route.description"
+      ],
+      "copy_record_sha256": "8eb42bc3e61c867df8a15bf10a4623a3672cb36a50e7b914e1d1e5e3899e3a00"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-arrival-locality",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[0] heading/body/links",
+      "source_fields": [
+        "practicalContent.1",
+        "faq.1"
+      ],
+      "copy_record_sha256": "98c0f2352d51da2b08a223acdb093a6af14b4adf64b2ea136dc0e6638e812b19"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-arrival-orientation",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[1] heading/body/links",
+      "source_fields": [
+        "practicalContent.1 source resource"
+      ],
+      "copy_record_sha256": "d0e72424c4d9ba8b39cc01a90db30c13d87548310ab9087b27c1d1857abf02d1"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-lviv-first-leg",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[2] heading/body/links",
+      "source_fields": [
+        "practicalContent.2",
+        "faq.2"
+      ],
+      "copy_record_sha256": "e79f850bcae729f0129d0d85180af943ab3410baf914094fdbee72bdf5182d26"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-questions",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[3] heading/body/links; heading/items rendered once via conditions-heading and whatToConfirm; practicalContent heading empty, body/links retain bicycle text",
+      "source_fields": [
+        "whatToConfirm.1–4",
+        "new contextual guide link"
+      ],
+      "copy_record_sha256": "18e9137343f4a588c5eaa3cde4139b41524ef9545fa8b3bddf82596ea55968c7"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-locality-changes",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "faq[0] question/answer from heading/text; faq[1] from items[0].question/answer",
+      "source_fields": [
+        "faq.3",
+        "faq.4"
+      ],
+      "copy_record_sha256": "8ed19d09d4fce121287138276a115050a151829f6f423142100046baabd6627b"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "key": "lc-inquiry",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "BookingWidget heading + shared.action split introductory/confirmation paragraphs; JourneyActions shared.contact-alternative; no repeated full concatenated inquiry paragraph",
+      "source_fields": [
+        "shared.action",
+        "shared.contact-alternative"
+      ],
+      "copy_record_sha256": "9c47c19946e376fe6e28731b674a6807a793be880cc3e560d5e8791f3f937ba0"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-intro",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "description; shared resolved value feeds visible introduction, routePageLd WebPage.description, RelatedRoutes/RouteList and hub card descriptions",
+      "source_fields": [
+        "route.description"
+      ],
+      "copy_record_sha256": "d8b855167960a90e1f2da665b560e734c01898e92ca95d8eea818547583aa490"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-meeting-locality",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[0] heading/body/links",
+      "source_fields": [
+        "practicalContent.1",
+        "faq.1"
+      ],
+      "copy_record_sha256": "55ad6cc76a7e39bede3948712f01f4604f34f4fca570ed2e75c982452c8b6d09"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-lviv-arrival",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[1] heading/body/links",
+      "source_fields": [
+        "practicalContent.2 first part"
+      ],
+      "copy_record_sha256": "d2c890828e711764e3551b2a37c359d7c509efcf37498bdd985361a035de3375"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-independent-onward",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[2] heading/body/links",
+      "source_fields": [
+        "practicalContent.2 latter part",
+        "faq.2"
+      ],
+      "copy_record_sha256": "01d2687ad9a0f24aea2bf0e6dfa9e5feab36fa048fe9e112a019679c41e05cad"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-baggage-transfer",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[3] heading/body/links; heading/items rendered once via conditions-heading and whatToConfirm; practicalContent heading empty, body/links retain bicycle text",
+      "source_fields": [
+        "whatToConfirm.1–4",
+        "new contextual guide link"
+      ],
+      "copy_record_sha256": "0ba0ad023ac48acc1ec8bb2552114368846b2715a9586a09e389d499eceddd33"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-locality-changes",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "faq[0] question/answer from heading/text; faq[1] from items[0].question/answer",
+      "source_fields": [
+        "faq.3",
+        "faq.4"
+      ],
+      "copy_record_sha256": "bd67c7594b218753f71a54a075112fa9bb8ba9f71180492589709e11ef746869"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "key": "cl-inquiry",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "BookingWidget heading + shared.action split introductory/confirmation paragraphs; JourneyActions shared.contact-alternative; no repeated full concatenated inquiry paragraph",
+      "source_fields": [
+        "shared.action",
+        "shared.contact-alternative"
+      ],
+      "copy_record_sha256": "6fe358fb6730d88d35cce3ef97d60829a55b55570e230117a9f6d17bf7ec470f"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "key": "iw-intro",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "description; shared resolved value feeds visible introduction, routePageLd WebPage.description, RelatedRoutes/RouteList and hub card descriptions",
+      "source_fields": [
+        "route.description"
+      ],
+      "copy_record_sha256": "7dd39cbddb702ea767ad47c2628233a499f077e7c44bc08709169c72f2f07264"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "key": "iw-arrival-locality",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[0] heading/body/links",
+      "source_fields": [
+        "practicalContent.1",
+        "faq.1"
+      ],
+      "copy_record_sha256": "c9c508768804ad2a953541e0d04f568303fab153c6fda20b0cad6ab90ec567d4"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "key": "iw-shared-departure",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[1] heading/body/links",
+      "source_fields": [
+        "practicalContent.2",
+        "faq.2"
+      ],
+      "copy_record_sha256": "60b614125f97aac31335757f344ea33337a0853d913ce6caaff617ad7c4da061"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "key": "iw-baggage-transfer",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[2] heading/body/links; heading/items rendered once via conditions-heading and whatToConfirm; practicalContent heading empty, body/links retain bicycle text",
+      "source_fields": [
+        "whatToConfirm.1–4",
+        "new contextual guide link"
+      ],
+      "copy_record_sha256": "c2d446f115d972d3ed892812e3ec9748f764c15b6ac457eb25a1c1636d2a30f5"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "key": "iw-locality-changes",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "faq[0] question/answer from heading/text; faq[1] from items[0].question/answer",
+      "source_fields": [
+        "faq.3",
+        "faq.4"
+      ],
+      "copy_record_sha256": "03bffbc6874db791f29ee1957f53ea8664b9ade43557e3ba7ef1f6781805a593"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "key": "iw-inquiry",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "BookingWidget heading + shared.action split introductory/confirmation paragraphs; JourneyActions shared.contact-alternative; no repeated full concatenated inquiry paragraph",
+      "source_fields": [
+        "shared.action",
+        "shared.contact-alternative"
+      ],
+      "copy_record_sha256": "6fb582b1447199df9ad9ba60d02b141fdc855724ffd32c41a4f8b02806249eb6"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-intro",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "description; shared resolved value feeds visible introduction, routePageLd WebPage.description, RelatedRoutes/RouteList and hub card descriptions",
+      "source_fields": [
+        "route.description"
+      ],
+      "copy_record_sha256": "3730a27b04bd524cc8cc022808dae748b7eeee17da1930ac8143be5e57f47e69"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-meeting-locality",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[0] heading/body/links",
+      "source_fields": [
+        "practicalContent.1",
+        "faq.1"
+      ],
+      "copy_record_sha256": "af1528dad6cd9d45688ccf967f552a5347f4292b9626d6e5648e758e7f5735a6"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-arrival-coordination",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[1] heading/body/links",
+      "source_fields": [
+        "practicalContent.2",
+        "faq.2"
+      ],
+      "copy_record_sha256": "de81cb10f37013d8b91a6d10257e2ac70421ab7e2459cc24d56d2d5630284338"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-independent-onward",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[2] heading/body/links",
+      "source_fields": [
+        "practicalContent.2 onward advice"
+      ],
+      "copy_record_sha256": "ba594a215bd399cce62144f475d7e9930f0f1e22fbadfde8d04b2b3cc3e5266f"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-baggage-transfer",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "practicalContent[3] heading/body/links; heading/items rendered once via conditions-heading and whatToConfirm; practicalContent heading empty, body/links retain bicycle text",
+      "source_fields": [
+        "whatToConfirm.1–4",
+        "new contextual guide link"
+      ],
+      "copy_record_sha256": "84814112990d4a3a7f080a7d5cce5641aef3ab97e78b94f57495d23f546b108e"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-locality-changes",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "faq[0] question/answer from heading/text; faq[1] from items[0].question/answer",
+      "source_fields": [
+        "faq.3",
+        "faq.4"
+      ],
+      "copy_record_sha256": "4d02455665e5836b11f2516c82fbc79123784a82c117077e1eeed8a63a556fea"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "key": "wi-inquiry",
+      "data_file": "src/data/routes.ts",
+      "render_file": "src/app/routes/[slug]/page.tsx",
+      "destination": "BookingWidget heading + shared.action split introductory/confirmation paragraphs; JourneyActions shared.contact-alternative; no repeated full concatenated inquiry paragraph",
+      "source_fields": [
+        "shared.action",
+        "shared.contact-alternative"
+      ],
+      "copy_record_sha256": "8dab652ab08e1c31a54bd835c748c30204e26daf288bc54449eb22070796df81"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-intro",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "intro",
+      "source_fields": [
+        "intro"
+      ],
+      "copy_record_sha256": "b7caf2aec2edf3acd3525a6c77d0651ba04b86775ab79f8302c9a19cfb6ad0cc"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-select",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "search-heading from heading; existing getCityHubPresentation.searchDescription/choiceHeading and RouteSearch labels retain exact strings; explanatory text below actual search controls",
+      "source_fields": [
+        "city-hub-presentation searchDescription/choiceHeading",
+        "RouteSearch labels"
+      ],
+      "copy_record_sha256": "810e2c7b48e2760135b007e939a36c72c9838aaa329d0107398c0519c0fe5a6e"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-actual-locality",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyHeading/nearbyIntro/nearbyActionText -> NearbyPlaces; guidance follows search",
+      "source_fields": [
+        "nearbyHeading",
+        "nearbyIntro",
+        "nearbyActionText"
+      ],
+      "copy_record_sha256": "51ffc3c21788a132af54f999772796fe59214646dce0664ff67a03bab32dcc61"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-outbound-return.outbound",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "outbound",
+      "source_fields": [
+        "outbound"
+      ],
+      "copy_record_sha256": "ff75c82ab90d0aebdea8ebb2ec611ec52543a48fcb172442c95a0cac785c1126"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-outbound-return.return",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "returning",
+      "source_fields": [
+        "returning"
+      ],
+      "copy_record_sha256": "a323e281070fe39461cca477b5ff95b7936b9bc7815ea8ca665f0692b5077160"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-nearby-examples.lviv-zhovkva",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=lviv-zhovkva].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.lviv-zhovkva.guidance"
+      ],
+      "copy_record_sha256": "48188944c472fa7ee284bc3e0084a5e1ce3c7116fd3bdcca33ad16fb9f3e5137"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-nearby-examples.lviv-yavoriv",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=lviv-yavoriv].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.lviv-yavoriv.guidance"
+      ],
+      "copy_record_sha256": "3537bab620d4c47d8bbe855324c3babbae89536d8e855c7af4f4139dc73b195d"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-nearby-examples.lviv-zolochiv",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=lviv-zolochiv].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.lviv-zolochiv.guidance"
+      ],
+      "copy_record_sha256": "cb681853d36b55f192dc6cb574b1972d1640352ffbd1ff2bcd60189d47f639b3"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-nearby-examples.lviv-sambir",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=lviv-sambir].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.lviv-sambir.guidance"
+      ],
+      "copy_record_sha256": "19ce37345de3b7914025d417793b2ed97e45ea69b18f0cc4baadd422d2f182e2"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-route-cards",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "routeSlugs unchanged -> presentation.routeCards -> visible cards and cityHubCollectionLd exact same membership/order/descriptions",
+      "source_fields": [
+        "routeSlugs and route.description consumers"
+      ],
+      "copy_record_sha256": "1fee88e2fe88d144a9eabbd3a4db3814603b705f6ea5fca39bf1cc00515eaeb4"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-faq-resources.faq1",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[0] question/answer",
+      "source_fields": [
+        "faq.1"
+      ],
+      "copy_record_sha256": "bea15f8b23a1e44bb7bc783d23975d9f799462ad307ab0a0cab60d590b5c92d5"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-faq-resources.faq2",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[1] question/answer",
+      "source_fields": [
+        "faq.2"
+      ],
+      "copy_record_sha256": "2eb3da3ecba0c77a9025b310b1184f788c2b553628979c683ef6cbc60c281685"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-faq-resources.faq3",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[2] question/answer",
+      "source_fields": [
+        "faq.3"
+      ],
+      "copy_record_sha256": "991991f706c37eac7ffef0ca4aef8350db2d9c38df1bb65fb774d0ed579138ce"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-faq-resources.faq4",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[3] question/answer",
+      "source_fields": [
+        "faq.4"
+      ],
+      "copy_record_sha256": "78450f3295e46dd291d1343b09f5cf3b542341f58bae2c0a7ea9b305c4e56724"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-faq-resources.faq5",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[4] question/answer",
+      "source_fields": [
+        "faq.5"
+      ],
+      "copy_record_sha256": "fac534673fe893e97c15f40e806916ba5d25ffd69175fe2988530f2ac08a7a69"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-faq-resources.resource1",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "planningResources[0] label/url/purpose and historical checkedAt; exact link label includes external arrow",
+      "source_fields": [
+        "planningResources.1"
+      ],
+      "copy_record_sha256": "35b0953b3fd0405fb725cea967bdb05f54179d05b9d02c33996e08413a988086"
+    },
+    {
+      "url": "/cities/lviv/",
+      "key": "lv-contact-alternative",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "existing KovalReferralLink label; full exact helper text below link, no form dependency",
+      "source_fields": [
+        "hub website alternative"
+      ],
+      "copy_record_sha256": "e1e81b2ef046fe8d7696e2defaa727e8cc3b842a31d27707f7c9ee80ca90ac09"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-intro",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "intro",
+      "source_fields": [
+        "intro"
+      ],
+      "copy_record_sha256": "47ac8f275427ef3311a222d62aa37027c96601caddff7678b55c94ec87e94f63"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-select",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "search-heading from heading; existing getCityHubPresentation.searchDescription/choiceHeading and RouteSearch labels retain exact strings; explanatory text below actual search controls",
+      "source_fields": [
+        "city-hub-presentation searchDescription/choiceHeading",
+        "RouteSearch labels"
+      ],
+      "copy_record_sha256": "759cc5da3d6dafc733c19b39c55d31e22ee29f923dfe533ee199965156f0e573"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-actual-locality",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyHeading/nearbyIntro/nearbyActionText -> NearbyPlaces; guidance follows search",
+      "source_fields": [
+        "nearbyHeading",
+        "nearbyIntro",
+        "nearbyActionText"
+      ],
+      "copy_record_sha256": "9d92c92207c35c9d3535818a586c435cdd59169405ae872b5641a06ad412693c"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-outbound-return.outbound",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "outbound",
+      "source_fields": [
+        "outbound"
+      ],
+      "copy_record_sha256": "d7c1d077727f6fed8608a32b4520876fac4daaa1a8bfb96165844945d2732e77"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-outbound-return.return",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "returning",
+      "source_fields": [
+        "returning"
+      ],
+      "copy_record_sha256": "6af06d3f83e7998e01c425447925f045b35d636c2bcb1ffac4d3375c7074c651"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-nearby-examples.if-kolomyia",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=if-kolomyia].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.if-kolomyia.guidance"
+      ],
+      "copy_record_sha256": "de60baadc2de6c83b94c29d0e3bf224ef9f83b4c372af3207544c9acd997b6c3"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-nearby-examples.if-tysmenytsia",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=if-tysmenytsia].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.if-tysmenytsia.guidance"
+      ],
+      "copy_record_sha256": "abaa5d07c58257eefbc7e90d6da764572f0fce3bebcf8fac4073f4b206ad29b6"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-nearby-examples.if-rogatyn",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=if-rogatyn].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.if-rogatyn.guidance"
+      ],
+      "copy_record_sha256": "9ac4dbeea67ac1f018fca668c09c61b17e3a41eba78aba9c082da6f3a01a7730"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-nearby-examples.if-bohorodchany",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "nearbyPlaces[contentKey=if-bohorodchany].guidance; names/localName/geographySource retained",
+      "source_fields": [
+        "nearbyPlaces.if-bohorodchany.guidance"
+      ],
+      "copy_record_sha256": "581ee390a69956f1fd93df1d5046327200bfee53153b1bc0b13ff9935d4f7ad2"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-route-cards",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "routeSlugs unchanged -> presentation.routeCards -> visible cards and cityHubCollectionLd exact same membership/order/descriptions",
+      "source_fields": [
+        "routeSlugs and route.description consumers"
+      ],
+      "copy_record_sha256": "59d817a4797c257333a574b809db7f4d062afae6c5de5adf5ab85ddea974cf74"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-faq-resources.faq1",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[0] question/answer",
+      "source_fields": [
+        "faq.1"
+      ],
+      "copy_record_sha256": "f2a6f140f9dc72b8cbb752b062fb49b3cf05d29b7b07c21a9143739e02c7912b"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-faq-resources.faq2",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[1] question/answer",
+      "source_fields": [
+        "faq.2"
+      ],
+      "copy_record_sha256": "a38f7331f69c139c16d0e71a1134575909e70aa7b1bc9d6723ba14a54480685a"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-faq-resources.faq3",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[2] question/answer",
+      "source_fields": [
+        "faq.3"
+      ],
+      "copy_record_sha256": "3fd13dd49e530b13a9d3c98d286636569df2577461ffe426ac9c7efa97448cc8"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-faq-resources.faq4",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[3] question/answer",
+      "source_fields": [
+        "faq.4"
+      ],
+      "copy_record_sha256": "96140a1822b48d71b18166cbdf1da02e795251c4a0e3a21fb58db6d2c938af76"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-faq-resources.faq5",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "faq[4] question/answer",
+      "source_fields": [
+        "faq.5"
+      ],
+      "copy_record_sha256": "01347d293938b920fb99994ff7a644db3ee6f22eca7ad5a03d4275baf3d9069d"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-faq-resources.resource1",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "planningResources[0] label/url/purpose and historical checkedAt; exact link label includes external arrow",
+      "source_fields": [
+        "planningResources.1"
+      ],
+      "copy_record_sha256": "31f611056e7c6ca2e4191e3fe3c6e05bec30a28e461a957571d9c9aa97d31121"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "key": "if-contact-alternative",
+      "data_file": "src/data/city-hubs.ts",
+      "render_file": "src/app/cities/[slug]/page.tsx",
+      "destination": "existing KovalReferralLink label; full exact helper text below link, no form dependency",
+      "source_fields": [
+        "hub website alternative"
+      ],
+      "copy_record_sha256": "2c4388c3c578675c092fd97b2e02c2acbdde3aee6c06092013ab030258a3ce1c"
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "key": "guide.intro",
+      "data_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "render_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "guide H1 and lead"
+      ],
+      "copy_record_sha256": "1576ddb95880cc45f1bb148336deab879b1a8427ad08299d9178db439f217799"
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "key": "guide.faq1",
+      "data_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "render_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "guide faq.1"
+      ],
+      "copy_record_sha256": "24971500b539e82489dfb7223dba6170436fa7c510ea0eb5682eb9c768c67ff7"
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "key": "guide.faq2",
+      "data_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "render_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "guide faq.2"
+      ],
+      "copy_record_sha256": "0302c9ae31ec3206b39eecf5352d3ebb16cc9c6813d44590480b52937c475f98"
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "key": "guide.faq3",
+      "data_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "render_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "guide faq.3"
+      ],
+      "copy_record_sha256": "13d4a332ea457478de1a88268f5a465e1abfed64cb83780b808a226d0a39a1ef"
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "key": "guide.customs",
+      "data_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "render_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "guide customs paragraph"
+      ],
+      "copy_record_sha256": "183cddb7b5dd7d067428c1df8dffccc488a69b1eac4c5d2eeb4471ebc6e595ec"
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "key": "guide.handoff",
+      "data_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "render_file": "src/app/guides/perevezennya-velosypeda/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "guide handoff and BicycleInquiryCta"
+      ],
+      "copy_record_sha256": "6e90b4bb6addbbe98c5699f0650ad0f91d6198d28334e4ccc499329456238d70"
+    },
+    {
+      "url": "/about/",
+      "key": "about.hero",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about H1 and lead"
+      ],
+      "copy_record_sha256": "51d8d68fbbcde67a16ab5bcc9bd80b791680b0a1815adfea81ec943e841b2354"
+    },
+    {
+      "url": "/about/",
+      "key": "about.principle1",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about principles.1"
+      ],
+      "copy_record_sha256": "211dde06457e306b2ea5641f2be9406db3b56e158a30e4d90cc5a1f8e8a33d84"
+    },
+    {
+      "url": "/about/",
+      "key": "about.principle2",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about principles.2"
+      ],
+      "copy_record_sha256": "ce9d0310ca1d42ade4593ff1fbf433f32db0730d8ac041fb7da4a9f04e1dad55"
+    },
+    {
+      "url": "/about/",
+      "key": "about.principle3",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about principles.3"
+      ],
+      "copy_record_sha256": "08db61c4876730d9ac45cd9bca015ae1fb6589d950be115e78e152f3e2ce960b"
+    },
+    {
+      "url": "/about/",
+      "key": "about.start",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about inline route link"
+      ],
+      "copy_record_sha256": "6d9497496d654db1ab70af2c12307c479c8fb51f317651f86a9682e6a99d9bc8"
+    },
+    {
+      "url": "/about/",
+      "key": "about.privacy",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about full privacy paragraph, not ledger excerpt"
+      ],
+      "copy_record_sha256": "102f47037171c3483d430ec822c032282d69e0feca5b8fcbf5873611d0da7dc2"
+    },
+    {
+      "url": "/about/",
+      "key": "about.identity",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about identity paragraph"
+      ],
+      "copy_record_sha256": "dec412fffb212b39ce282a05551d0c94148a9ea00cb2e140293126d2608a7e13"
+    },
+    {
+      "url": "/about/",
+      "key": "about.photo",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about Image.alt and caption"
+      ],
+      "copy_record_sha256": "87e56cfc8971b4a139017f48075050149dcef4ad60ac88eed4b34c6d4063a1b2"
+    },
+    {
+      "url": "/about/",
+      "key": "shared.role",
+      "data_file": "src/components/PartnerCard.tsx",
+      "render_file": "src/components/PartnerCard.tsx",
+      "destination": "existing inquiryOnly branch; About call retained; route template passes inquiryOnly=true including Hannover, excludes OP-1..4/OP-service",
+      "source_fields": [
+        "PartnerCard inquiryOnly"
+      ],
+      "copy_record_sha256": "3b3fd6925eeb90f228164e14e98845eb42d583bd42a6210afa109408e54abbd2"
+    },
+    {
+      "url": "/about/",
+      "key": "about.pilot",
+      "data_file": "src/app/about/page.tsx",
+      "render_file": "src/app/about/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "about pilot section"
+      ],
+      "copy_record_sha256": "ae360067ee72852a03e428a2e65567667c67b94920eb74bfe12ac15855dae45e"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.identity",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "imprint identity"
+      ],
+      "copy_record_sha256": "0aa7b0267b7f984644560394ce9f1736d15cbf490d2386769dc21a7b771290ce"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.operatorName",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "existing business typed value and visible label/href; website record text is retained destination URL, current visible Crew Bravo label retained",
+      "source_fields": [
+        "business.operatorName"
+      ],
+      "copy_record_sha256": "b1ac025289802b44c6b2a79311c03daa31ccfb3534a58e12f8ee21fd7a1c5061"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.legalForm",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "existing business typed value and visible label/href; website record text is retained destination URL, current visible Crew Bravo label retained",
+      "source_fields": [
+        "business.legalForm"
+      ],
+      "copy_record_sha256": "bb422afea6eb502db7bad25f622bfdeccefb96e5379a4c608592aa847e4dbd29"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.brand",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "existing business typed value and visible label/href; website record text is retained destination URL, current visible Crew Bravo label retained",
+      "source_fields": [
+        "business.brand"
+      ],
+      "copy_record_sha256": "50bd71b2af586a342ee5af0ed191699fd677a9056bb5c8e61d5ee0981a0c13ca"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.contactAddress",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "existing business typed value and visible label/href; website record text is retained destination URL, current visible Crew Bravo label retained",
+      "source_fields": [
+        "business.contactAddress"
+      ],
+      "copy_record_sha256": "edc1c34d8f13e346d05a01add79945749c684211062df126d28c3497d8f26279"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.email",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "existing business typed value and visible label/href; website record text is retained destination URL, current visible Crew Bravo label retained",
+      "source_fields": [
+        "business.email"
+      ],
+      "copy_record_sha256": "8a9522d4e6a35368c32e5e947a3f0b4f9e4b797e9a0ceb94a0c8e5ab1abf975c"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.website",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "existing business typed value and visible label/href; website record text is retained destination URL, current visible Crew Bravo label retained",
+      "source_fields": [
+        "business.website"
+      ],
+      "copy_record_sha256": "2c0a71b2c825938ec78571a86a15cd0d63f6628f0a15a4c57169bba267bb7367"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.role",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "imprint role paragraph"
+      ],
+      "copy_record_sha256": "b5507067d05e697803586fd6ed65f6003d59766061a707fb818543f3c92ae450"
+    },
+    {
+      "url": "/imprint/",
+      "key": "imprint.reservation",
+      "data_file": "src/config/business.ts",
+      "render_file": "src/app/imprint/page.tsx",
+      "destination": "retain exact existing heading/text/items/link labels and hrefs; scoped readable single-column presentation",
+      "source_fields": [
+        "imprint reservation paragraph/privacy link"
+      ],
+      "copy_record_sha256": "db389c2bfa50e54e02dbeca326d11db316fe4ec44681090c81486ed00e6f59bc"
+    }
+  ],
+  "shared_dependencies": [
+    {
+      "key": "shared.action",
+      "destination": "BookingWidget and CandidateInquiry presentation only; frozen paragraph may split around fields, once per form"
+    },
+    {
+      "key": "shared.contact-alternative",
+      "destination": "JourneyActions full exact helper beside early website action; hub alternative helper"
+    },
+    {
+      "key": "shared.caption",
+      "destination": "route image alt/items[0] and figcaption/text exactly, image after practical/FAQ/related blocks"
+    },
+    {
+      "key": "shared.desk",
+      "destination": "retain technical desk identity, resolution, contact, existing label; no carrier-data edit"
+    }
+  ],
+  "rule": "Production must not import docs/ or ops/evidence/ JSON. Copy exact strings into existing typed source; tests may read frozen records as an independent editorial oracle."
+}

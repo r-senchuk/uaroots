@@ -1,0 +1,165 @@
+{
+  "assignment": "R4 independent release decision",
+  "reviewed_at_utc": "2026-10-28T12:04:54Z",
+  "close_status": "ready_with_explicit_unknowns",
+  "preparation_accepted": true,
+  "promotion_ready": false,
+  "release_cleared": false,
+  "deployed_by_this_work": false,
+  "decision": "Accept R1/R2-instructions/R3/R7/R9 preparation within its recorded local scope. No new application defect or unexplained candidate drift was found. Promotion remains blocked by named existing prerequisites below; instruction preparation is not physical-device acceptance.",
+  "verification_receipt": "verification.json",
+  "verification_receipt_sha256": "abe9ea7560b7d4d88fc3ac186a906bf9fad226ce2ce65ac15cd1968aadb71d2e",
+  "identities": {
+    "head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+    "source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+    "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+    "release_sha256": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+    "edge_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+    "combined_source_git_diff_sha256": "ace7a951b9fd043ea80fd504f319030e20d34f8ad5b5413760f05a170080367c",
+    "source_scope": "167 selected files; not an attestation of the whole repository"
+  },
+  "independently_recomputed": {
+    "root_source": {
+      "matched": 167,
+      "denominator": 167,
+      "mismatches": []
+    },
+    "candidate_source": {
+      "matched": 167,
+      "denominator": 167,
+      "mismatches": []
+    },
+    "export": {
+      "matched": 258,
+      "denominator": 258,
+      "mismatches": [],
+      "extra": [],
+      "missing": [],
+      "symlinks": [],
+      "bytes": 7830419
+    },
+    "essential_inputs": {
+      "matched": 26,
+      "denominator": 26,
+      "mismatches": []
+    },
+    "configuration_tooling": {
+      "matched": 14,
+      "denominator": 14,
+      "results": {
+        ".nvmrc": true,
+        "package.json": true,
+        "package-lock.json": true,
+        "next.config.ts": true,
+        "src/config/analytics.ts": true,
+        "scripts/deploy.sh": true,
+        "scripts/seo-release.mjs": true,
+        "scripts/release-bundle.mjs": true,
+        "scripts/production-release.mjs": true,
+        "scripts/recovery-tool.mjs": true,
+        ".github/workflows/ci.yml": true,
+        ".github/workflows/deploy-production.yml": true,
+        ".github/workflows/rollback-production.yml": true,
+        "infra/cloudfront/seo-viewer-request.v1.js": true
+      }
+    },
+    "compiled_disabled_analytics": {
+      "matched": 2,
+      "denominator": 2
+    },
+    "dry_run_log_hash_matches": true,
+    "release_manifest_exact_recomputed_entries": true,
+    "release_sha256": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+    "edge_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+    "failed_assertions": 0,
+    "portable_dry_run_txt_byte_identical_to_original_log": true
+  },
+  "actual_preparation_receipts": {
+    "R1": "candidate identities and protected dirty inventory reconciled; current 26 source/script paths comprise 25 mitigation changes plus carried inquiry.tsx calendar safeguard; earlier calendar release is not an ancestor",
+    "R2": {
+      "instructions": "accepted as later-session instructions",
+      "device_passed": 0,
+      "device_failed": 0,
+      "device_not_run": 6,
+      "device_denominator": 6,
+      "screen_reader": "NOT RUN",
+      "human_study": "NOT RUN",
+      "candidate_bound_preview": "NOT RUN"
+    },
+    "R3": "final preparation.md, source/config/runtime hashes, two compiled disabled-analytics modules, actual dry-run receipt and exact manifest reviewed",
+    "R7": {
+      "drafts": 3,
+      "unposted": 3,
+      "prepared_subject_to_common_gates": 2,
+      "wording_correction_required": 1,
+      "exact_live_links_verified": 0,
+      "exact_live_link_denominator": 3,
+      "named_channels_rules_permission": "unknown",
+      "wording_blocker_scope": "S11 draft 2 only; not application release"
+    },
+    "R9": {
+      "new_provider_observations": 0,
+      "priority_page_metrics_unknown": 7,
+      "priority_page_denominator": 7,
+      "status": "exact missing export requests prepared; historical aggregates are not page attribution"
+    }
+  },
+  "dry_run_provenance": {
+    "review": "R4 inspected actual candidate/root deploy.sh and seo-release.mjs, which match R3 hashes. Manifest/plan branches only read/write local files; deploy.sh exits before AWS command checks/calls. R3 verifier uses explicit cached Node22 and a minimal environment, not root default Node24/Next16.3.8. R4 independently recomputed all manifest entries and fingerprint and hash-checked the saved executed log; did not rerun R3 producer or dry-run.",
+    "receipt_exit_code": 0,
+    "aws_call_path_reachable_for_dry_run": false,
+    "recovery_or_live_proof": false,
+    "portable_receipt": "../r3/dry-run.txt; byte-identical to original executed dry-run.log, independently verified after final portability-only update."
+  },
+  "promotion_blockers": [
+    {
+      "id": "GIT_AUTH",
+      "owner": "owner and R5 release owner",
+      "reason": "No commit/push/release authorization in this preparation. The exact combined 26-path source scope and seven overlapping dirty source paths require hunk-level review and preservation; candidate is not committed. All other dirty work remains protected.",
+      "closure": "Obtain applicable authorization; reconcile the proposed combined diff identity in verification.json, retaining carried calendar safeguards. Never stage all dirty work or substitute historical calendar commit as ancestry proof."
+    },
+    {
+      "id": "DEVICE",
+      "owner": "owner physical-device tester and coordinator",
+      "reason": "Owner chose instructions for later; all six actual iPhone Chrome checks remain NOT RUN. This is not a waiver or pass of the existing S09 named iOS calendar/direct-date/mobile-keyboard dependency before S10 acceptance.",
+      "closure": "Establish an exact-manifest isolated device-reachable preview under separate authorized setup, execute R2 checks on actual iPhone, record versions/focus/isolation and results. Record screen-reader applicability under existing AC04/AC11 without inferring completion or inventing a universal study gate."
+    },
+    {
+      "id": "CI_ARTIFACT_MODE",
+      "owner": "R5 release owner",
+      "reason": "No independently authenticated successful main-push CI candidate for the reviewed source exists here; resolved CI public build variables remain unknown. S09 combined staged checks are not one successful npm run check.",
+      "closure": "After authorized integration/push, independently retrieve successful main CI/run/artifact; verify full SHA/run/repository and artifact+edge hashes before credentials. Preserve disabled analytics and recorded public IDs, retain resolved settings. Any output/Next build/environment difference requires documented comparison and affected reacceptance. Enabled analytics requires separately reviewed activation and compiled-provider/privacy/receipt gates; do not enable by deployment substitution."
+    },
+    {
+      "id": "RECOVERY",
+      "owner": "R5 release owner",
+      "reason": "No current independently retrieved, hash-verified recovery bundle/receipt or LIVE edge/config capture has been established. Historical calendar recovery is not current.",
+      "closure": "Authorized Actions/OIDC deployment must freshly capture current schema2 full inventory/config/LIVE-function state, reject drift, durably store, independently retrieve/hash-verify before upload, and retain external recovery prefix/hash/readback. Do not pass schema2 to schema1 manual apply."
+    }
+  ],
+  "required_delivery_evidence_after_authorization": [
+    "reviewed successful CI identity, downloaded candidate verification, exact environment/build comparison",
+    "fresh full recovery retrieval/hash receipt before any production upload",
+    "deployment success/source/run/static/edge identities, no deletion and preserved old keys",
+    "completed invalidation and every uploaded object size/hash",
+    "independent R6 changed-page/canonical/robots/sitemap/redirect/404 and intercepted inquiry/consent readback plus applicable device retest",
+    "on uncertain or failed write stop, inspect current state before retry; recovery only under applicable authorization"
+  ],
+  "known_unknowns_not_new_release_vetoes": [
+    "Screen-reader and human usability were not executed; retain applicable existing requirements and honest limits; no new mandatory 5-8 person study.",
+    "Enabled compiled-provider execution/vendor ingestion is not established by disabled-build consent or unit evidence; disabled unchanged measurement does not create an automatic new provider-delivery veto.",
+    "Field CWV/INP, seven-page Search Console attribution, Google AI, Bing access/citations, operator receipts and journey outcomes remain unknown, not zero.",
+    "No R6 candidate live acceptance, S11 post, approved channel destination/rules, or release/exposure start date is established.",
+    "Full isolated CloudFront rollback rehearsal remains a documented existing open limitation, not a completed R3 check."
+  ],
+  "failures": {
+    "independent_local_assertions": 0,
+    "new_reproduced_application_release_defects": 0,
+    "unresolved_S11_copy_findings": 1,
+    "prior_full_check_failure": "Inspector failure retained; S08 affected rechecks and S09 acceptance resolved it with staged evidence. Do not report original full check as exit0.",
+    "physical_device_failures": 0,
+    "physical_device_failure_count_limit": "0 failed with 0 executed; no physical-device pass implied"
+  },
+  "next_authorized_action": "Coordinator may integrate these preparation findings and complete documentation/index/link checks within current scope. Later physical-device execution follows R2 only after an authorized isolated preview is ready. Commit, push, workflow dispatch, deployment and posting need their separately applicable authorization; R5 cannot promote until named existing prerequisites close.",
+  "boundaries": "R4 read-only source/artifact review; wrote only this r4 evidence directory. No build, source edit, Git write, browser, deployment, credential access or network mutation."
+}

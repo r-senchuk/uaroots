@@ -44,3 +44,13 @@ describe("passenger conversion boundaries",()=>{
   const guide=readFileSync("src/app/guides/perevezennya-velosypeda/page.tsx","utf8");expect(guide).toContain("https://customs.gov.ua/informatsiia-dlia-gromadian");expect(guide).not.toMatch(/500|SIS|Mercedes|HowTo|15 хв/);
  });
 });
+
+it("keeps the accepted action/helper split and prevents duplicate contact paragraphs",()=>{
+ state.route=getResolvedRoute("lviv-hannover");
+ const form=renderToStaticMarkup(createElement(BookingWidget));
+ const action=renderToStaticMarkup(createElement(JourneyActions,{website:"https://www.4k-koval.com/",hasDesk:true,anchorId:"inquiry-anchor",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero",content:"lviv-hannover_hero"}));
+ expect(form).toContain("Додайте бажану дату, кількість пасажирів і телефон. Відкриється WhatsApp із готовим текстом: перевірте його й надішліть самостійно.");
+ expect(form).toContain("Перевізник підтвердить можливість поїздки на бажану дату та її умови. Запит не резервує місце.");
+ expect(action).toContain("Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон.");
+ expect(action.match(/Дата ще невідома/g)).toHaveLength(1);
+});

@@ -152,7 +152,9 @@ describe("priority route entities and sitemap", () => {
     expect(mentions).toHaveLength(2);
     for (const route of mentions) {
       const entityContext = `\\(${latinName}, Німеччина\\)`;
-      expect(route.description).toMatch(new RegExp(entityContext));
+      if (route.slug === "celle-lviv") {
+        expect(route.description).toBe("Целле — Львів: запропонуйте місце зустрічі в Целле й запитайте про можливість поїздки на вашу дату. Подальшу дорогу зі Львова плануйте окремо після погодження місця та очікуваного часу прибуття.");
+      } else expect(route.description).toMatch(new RegExp(entityContext));
       expect(route.seo.description).toMatch(new RegExp(entityContext));
     }
   });
@@ -197,5 +199,35 @@ describe("priority route entities and sitemap", () => {
     ]));
     expect(entries.filter(({ url }) => !url.includes("/cities/")).every((entry) => !("lastModified" in entry))).toBe(true);
     expect(entries.every((entry) => !("changeFrequency" in entry) && !("priority" in entry))).toBe(true);
+  });
+});
+
+// Frozen editorial input is independent of the runtime catalog and URL oracle above.
+describe("accepted mitigation catalog", () => {
+  it("maps the five exact introductions, merged practical paragraphs, links and FAQs", async () => {
+    const { readFileSync } = await import("node:fs");
+    const copy = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+    const orders: Record<string, string[]> = {
+      lh: ["arrival-locality", "independent-onward", "lviv-first-leg", "questions"],
+      lc: ["arrival-locality", "arrival-orientation", "lviv-first-leg", "questions"],
+      cl: ["meeting-locality", "lviv-arrival", "independent-onward", "baggage-transfer"],
+      iw: ["arrival-locality", "shared-departure", "baggage-transfer"],
+      wi: ["meeting-locality", "arrival-coordination", "independent-onward", "baggage-transfer"],
+    };
+    for (const [slug, prefix] of [["lviv-hannover", "lh"], ["lviv-celle", "lc"], ["celle-lviv", "cl"], ["ivano-frankivsk-wolfsburg", "iw"], ["wolfsburg-ivano-frankivsk", "wi"]]) {
+      const route = getResolvedRoute(slug)!;
+      expect(route.description).toBe(copy.records[prefix + "-intro"].text);
+      expect(route.practicalContent).toHaveLength(orders[prefix].length);
+      orders[prefix].forEach((suffix, index) => {
+        const expected = copy.records[prefix + "-" + suffix];
+        expect(route.practicalContent![index]).toMatchObject({ heading: index === orders[prefix].length - 1 ? "" : expected.heading, body: expected.text });
+        expect(route.practicalContent![index].links ?? []).toEqual(expected.links);
+      });
+      expect(route.whatToConfirm).toEqual(copy.records[prefix + "-" + orders[prefix].at(-1)].items);
+      const expectedFaq = prefix === "lh" ? ["lh-actual-locality", "lh-changed-plan"].map((key) => ({question: copy.records[key].heading, answer: copy.records[key].text})) : [{question: copy.records[prefix + "-locality-changes"].heading, answer: copy.records[prefix + "-locality-changes"].text}, ...copy.records[prefix + "-locality-changes"].items];
+      expect(route.faq).toEqual(expectedFaq);
+      const graph = routePageLd(route)["@graph"];
+      expect(graph.find((node) => node["@type"] === "WebPage")?.description).toBe(copy.records[prefix + "-intro"].text);
+    }
   });
 });

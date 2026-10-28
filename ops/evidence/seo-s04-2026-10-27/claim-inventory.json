@@ -1,0 +1,1657 @@
+{
+  "review_date": "2026-10-27",
+  "ledger_sha256": "9644a3ede2e4773063c63cb7966bcfb21b1ff1055dfbdccf201ff140977d063b",
+  "aliases_excluded": "C01–C16",
+  "rows": [
+    {
+      "id": "R-lviv-hannover-title",
+      "location": "`src/data/routes.ts:10`; `/routes/lviv-hannover/`; `title`",
+      "original": "Львів → Ганновер",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-lviv-hannover-description",
+      "location": "`src/data/routes.ts:11`; `/routes/lviv-hannover/`; `description`",
+      "original": "Львів — Ганновер: поїздка до Нижньої Саксонії. Зверніться до перевізника, щоб узгодити виїзд зі Львова, точну зупинку в Ганновері та перевезення багажу.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "rewrite",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Не створювати стандартної зупинки або гарантованої стиковки. Район/адреса — побажання для перевірки можливості; наступний транспорт планується окремо."
+    },
+    {
+      "id": "R-lviv-hannover-seo.title",
+      "location": "`src/data/routes.ts:25`; `/routes/lviv-hannover/`; `seo.title`",
+      "original": "Львів → Ганновер: як доїхати та що уточнити | UARoute",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-lviv-hannover-seo.description",
+      "location": "`src/data/routes.ts:26`; `/routes/lviv-hannover/`; `seo.description`",
+      "original": "Підготуйте поїздку зі Львова до Ганновера: місця зустрічі та прибуття, багаж, подальша дорога й повідомлення перевізнику на бажану дату.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-lviv-hannover-practical1",
+      "location": "`src/data/routes.ts:31`; `/routes/lviv-hannover/`; `practicalContent.1`",
+      "original": "Оберіть орієнтир для прибуття у Ганновері — Громадський транспорт Ганновера об'єднує центральний залізничний вокзал (Hannover Hbf) та автовокзал (ZOB). Для зустрічі чи висадки вкажіть конкретний орієнтир або район міста, щоб перевізник міг узгодити точну точку зупинки.",
+      "class": "geography + editorial advice",
+      "support": "S1",
+      "disposition": "rewrite",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "S1 не доводить точного зв’язку Hbf–ZOB і жодної зупинки перевізника. Зберегти посилання на міський транспорт; назви вузлів — лише після точного джерела або замінити на район/адресу."
+    },
+    {
+      "id": "R-lviv-hannover-practical2",
+      "location": "`src/data/routes.ts:37`; `/routes/lviv-hannover/`; `practicalContent.2`",
+      "original": "Узгодьте доїзд до Львова з часом виїзду — Якщо ви добираєтеся до Львова поїздом або автобусом з іншого населеного пункту, повідомте перевізнику орієнтовний час прибуття. Залиште достатній запас часу на випадок затримок та погодьте точне місце зустрічі у Львові.",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-lviv-hannover-faq1",
+      "location": "`src/data/routes.ts:43`; `/routes/lviv-hannover/`; `faq.1`",
+      "original": "Як узгодити прибуття до Ганновера (ZOB або вокзал)? — Напишіть перевізнику, куди саме в Ганновері вам зручно прибути — до центрального автовокзалу (ZOB), залізничного вокзалу чи за конкретною адресою. Перевізник повідомить, чи можлива висадка в цій точці.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-lviv-hannover-faq2",
+      "location": "`src/data/routes.ts:47`; `/routes/lviv-hannover/`; `faq.2`",
+      "original": "Чи можна розрахувати запас часу між потягом до Львова та посадкою? — Повідомте перевізнику час прибуття вашого потяга до Львова. Зазвичай варто закласти щонайменше 1–2 години запасу на випадок затримки залізничного транспорту перед зустріччю.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "remove",
+      "confidence": "high for wording; service unknown",
+      "constraints": "C01: прибрати точність 1–2 години; кандидат: «Повідомте час прибуття потяга. Узгодьте місце й очікуваний час зустрічі; оцініть запас з урахуванням можливих затримок.»"
+    },
+    {
+      "id": "R-lviv-hannover-faq3",
+      "location": "`src/data/routes.ts:51`; `/routes/lviv-hannover/`; `faq.3`",
+      "original": "Що вибрати, якщо мого населеного пункту немає в пошуку? — Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-lviv-hannover-faq4",
+      "location": "`src/data/routes.ts:55`; `/routes/lviv-hannover/`; `faq.4`",
+      "original": "Що робити, якщо плани змінилися після звернення? — Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-lviv-hannover-confirm1",
+      "location": "`src/data/routes.ts:59`; `/routes/lviv-hannover/`; `whatToConfirm.1`",
+      "original": "Можливість поїздки на бажану дату",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-hannover-confirm2",
+      "location": "`src/data/routes.ts:60`; `/routes/lviv-hannover/`; `whatToConfirm.2`",
+      "original": "Ціна та оплата",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-hannover-confirm3",
+      "location": "`src/data/routes.ts:61`; `/routes/lviv-hannover/`; `whatToConfirm.3`",
+      "original": "Посадка й висадка",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-hannover-confirm4",
+      "location": "`src/data/routes.ts:62`; `/routes/lviv-hannover/`; `whatToConfirm.4`",
+      "original": "Багаж і можливі пересадки",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-celle-title",
+      "location": "`src/data/routes.ts:526`; `/routes/lviv-celle/`; `title`",
+      "original": "Львів → Целле",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-lviv-celle-description",
+      "location": "`src/data/routes.ts:527`; `/routes/lviv-celle/`; `description`",
+      "original": "Львів — Целле (Celle, Німеччина): узгодьте виїзд зі Львова, місце висадки біля вокзалу чи старого міста Целле, розклад та умови перевезення багажу з перевізником.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "rewrite",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Не створювати стандартної зупинки або гарантованої стиковки. Район/адреса — побажання для перевірки можливості; наступний транспорт планується окремо."
+    },
+    {
+      "id": "R-lviv-celle-seo.title",
+      "location": "`src/data/routes.ts:541`; `/routes/lviv-celle/`; `seo.title`",
+      "original": "Львів → Целле: як уточнити поїздку | UARoute",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-lviv-celle-seo.description",
+      "location": "`src/data/routes.ts:542`; `/routes/lviv-celle/`; `seo.description`",
+      "original": "Поїздка зі Львова до Целле (Celle, Німеччина): вибір місця прибуття, підготовка до дороги та запит перевізнику на бажану дату.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-lviv-celle-practical1",
+      "location": "`src/data/routes.ts:547`; `/routes/lviv-celle/`; `practicalContent.1`",
+      "original": "Оберіть місце прибуття у Целле — У туристичній інформації Целле вокзал і старе місто описані окремо. Для прибуття вкажіть потрібний район, адресу або один із цих орієнтирів. Так перевізнику буде легше узгодити з вами конкретне місце.",
+      "class": "geography + editorial advice",
+      "support": "S2",
+      "disposition": "rewrite",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "S2 підтримує міську орієнтацію, не зупинку. Додати явне «чи можливе погодження тут»; не обіцяти зручності."
+    },
+    {
+      "id": "R-lviv-celle-practical2",
+      "location": "`src/data/routes.ts:553`; `/routes/lviv-celle/`; `practicalContent.2`",
+      "original": "Узгодьте доїзд до Львова з посадкою — Якщо спочатку приїжджаєте до Львова поїздом або автобусом, напишіть час і місце свого прибуття. Попросіть перевізника погодити точку посадки та обговоріть запас часу між двома поїздками. Коли місце зустрічі стане відоме, сплануйте, як дістатися до нього з багажем.",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-lviv-celle-faq1",
+      "location": "`src/data/routes.ts:559`; `/routes/lviv-celle/`; `faq.1`",
+      "original": "Як вказати точку прибуття в Целле? — Вкажіть район Целле, вокзал (Bahnhof) або адресу старого міста. Перевізник підтвердить можливість зупинки біля потрібного орієнтира.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-lviv-celle-faq2",
+      "location": "`src/data/routes.ts:563`; `/routes/lviv-celle/`; `faq.2`",
+      "original": "Що врахувати при доїзді до Львова з іншого міста? — Якщо ви добираєтеся до Львова приміським транспортом чи потягом, повідомте перевізнику орієнтовний час прибуття й погодьте зручну точку зустрічі.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-lviv-celle-faq3",
+      "location": "`src/data/routes.ts:567`; `/routes/lviv-celle/`; `faq.3`",
+      "original": "Що вибрати, якщо мого населеного пункту немає в пошуку? — Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-lviv-celle-faq4",
+      "location": "`src/data/routes.ts:571`; `/routes/lviv-celle/`; `faq.4`",
+      "original": "Що робити, якщо плани змінилися після звернення? — Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-lviv-celle-confirm1",
+      "location": "`src/data/routes.ts:575`; `/routes/lviv-celle/`; `whatToConfirm.1`",
+      "original": "Можливість поїздки на бажану дату",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-celle-confirm2",
+      "location": "`src/data/routes.ts:576`; `/routes/lviv-celle/`; `whatToConfirm.2`",
+      "original": "Ціна та оплата",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-celle-confirm3",
+      "location": "`src/data/routes.ts:577`; `/routes/lviv-celle/`; `whatToConfirm.3`",
+      "original": "Посадка й висадка",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-lviv-celle-confirm4",
+      "location": "`src/data/routes.ts:578`; `/routes/lviv-celle/`; `whatToConfirm.4`",
+      "original": "Багаж і можливі пересадки",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-celle-lviv-title",
+      "location": "`src/data/routes.ts:588`; `/routes/celle-lviv/`; `title`",
+      "original": "Целле → Львів",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-celle-lviv-description",
+      "location": "`src/data/routes.ts:589`; `/routes/celle-lviv/`; `description`",
+      "original": "Целле (Celle, Німеччина) — Львів: поїздка до України. Зверніться до перевізника, щоб погодити орієнтир зустрічі в Целле, прибуття до Львова та стиковку з поїздами.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "rewrite",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Не створювати стандартної зупинки або гарантованої стиковки. Район/адреса — побажання для перевірки можливості; наступний транспорт планується окремо."
+    },
+    {
+      "id": "R-celle-lviv-seo.title",
+      "location": "`src/data/routes.ts:602`; `/routes/celle-lviv/`; `seo.title`",
+      "original": "Целле → Львів: як уточнити поїздку | UARoute",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-celle-lviv-seo.description",
+      "location": "`src/data/routes.ts:603`; `/routes/celle-lviv/`; `seo.description`",
+      "original": "Поїздка з Целле (Celle, Німеччина) до Львова: вибір місця зустрічі, підготовка до дороги та запит перевізнику на бажану дату.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-celle-lviv-practical1",
+      "location": "`src/data/routes.ts:608`; `/routes/celle-lviv/`; `practicalContent.1`",
+      "original": "Оберіть орієнтир для зустрічі у Целле — У туристичній інформації Целле вокзал і старе місто описані окремо. Для зустрічі вкажіть потрібний район, адресу або один із цих орієнтирів. Так перевізнику буде легше узгодити з вами конкретне місце.",
+      "class": "geography + editorial advice",
+      "support": "S2",
+      "disposition": "rewrite",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "S2 підтримує міську орієнтацію, не зупинку. Додати явне «чи можливе погодження тут»; не обіцяти зручності."
+    },
+    {
+      "id": "R-celle-lviv-practical2",
+      "location": "`src/data/routes.ts:614`; `/routes/celle-lviv/`; `practicalContent.2`",
+      "original": "Продумайте подальшу дорогу зі Львова — Якщо зі Львова плануєте їхати далі, повідомте перевізнику кінцеве місто. Запитайте про місце висадки й орієнтовний час прибуття, а також про те, як дізнаватися про зміни в дорозі. Після цього обирайте наступний транспорт із запасом часу на пересадку.",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-celle-lviv-faq1",
+      "location": "`src/data/routes.ts:620`; `/routes/celle-lviv/`; `faq.1`",
+      "original": "Де краще призначити зустріч у Целле? — Запропонуйте вокзал Целле або конкретний район із точним індексом чи адресою. Перевізник погодить остаточне місце та орієнтовний час посадки.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-celle-lviv-faq2",
+      "location": "`src/data/routes.ts:624`; `/routes/celle-lviv/`; `faq.2`",
+      "original": "Як підготуватися до пересадки у Львові на поїзд? — Уточніть у перевізника очікуваний час прибуття до Львова та попередьте про подальший квиток на потяг. Закладайте додатковий часовий запас з огляду на перетин кордону.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-celle-lviv-faq3",
+      "location": "`src/data/routes.ts:628`; `/routes/celle-lviv/`; `faq.3`",
+      "original": "Що вибрати, якщо мого населеного пункту немає в пошуку? — Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-celle-lviv-faq4",
+      "location": "`src/data/routes.ts:632`; `/routes/celle-lviv/`; `faq.4`",
+      "original": "Що робити, якщо плани змінилися після звернення? — Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-celle-lviv-confirm1",
+      "location": "`src/data/routes.ts:636`; `/routes/celle-lviv/`; `whatToConfirm.1`",
+      "original": "Можливість поїздки на бажану дату",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-celle-lviv-confirm2",
+      "location": "`src/data/routes.ts:637`; `/routes/celle-lviv/`; `whatToConfirm.2`",
+      "original": "Ціна та оплата",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-celle-lviv-confirm3",
+      "location": "`src/data/routes.ts:638`; `/routes/celle-lviv/`; `whatToConfirm.3`",
+      "original": "Посадка й висадка",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-celle-lviv-confirm4",
+      "location": "`src/data/routes.ts:639`; `/routes/celle-lviv/`; `whatToConfirm.4`",
+      "original": "Багаж і можливі пересадки",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-title",
+      "location": "`src/data/routes.ts:649`; `/routes/ivano-frankivsk-wolfsburg/`; `title`",
+      "original": "Івано-Франківськ → Вольфсбург",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-description",
+      "location": "`src/data/routes.ts:650`; `/routes/ivano-frankivsk-wolfsburg/`; `description`",
+      "original": "Івано-Франківськ — Вольфсбург (Wolfsburg, Німеччина): виїзд з Прикарпаття. Уточніть у перевізника дату, умови перевезення речей і висадку в потрібному районі Вольфсбурга.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-seo.title",
+      "location": "`src/data/routes.ts:663`; `/routes/ivano-frankivsk-wolfsburg/`; `seo.title`",
+      "original": "Івано-Франківськ → Вольфсбург: як уточнити поїздку | UARoute",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-seo.description",
+      "location": "`src/data/routes.ts:664`; `/routes/ivano-frankivsk-wolfsburg/`; `seo.description`",
+      "original": "Поїздка з Івано-Франківська до Вольфсбурга (Wolfsburg, Німеччина): вибір місця прибуття, підготовка до дороги та запит перевізнику на бажану дату.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-practical1",
+      "location": "`src/data/routes.ts:669`; `/routes/ivano-frankivsk-wolfsburg/`; `practicalContent.1`",
+      "original": "Оберіть місце прибуття у Вольфсбурзі — Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу прибуття, а не лише місто. Точне місце висадки погодьте з перевізником.",
+      "class": "geography + editorial advice",
+      "support": "S3",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-practical2",
+      "location": "`src/data/routes.ts:675`; `/routes/ivano-frankivsk-wolfsburg/`; `practicalContent.2`",
+      "original": "Підготуйте спільний виїзд з Івано-Франківська — Якщо їдете разом, домовтеся, де всім зручно зібратися, й запропонуйте цей орієнтир перевізнику. Зазначте кількість дорослих і дітей, вік дітей та загальну кількість валіз. Запитайте про потрібні умови для дітей і перевезення великого багажу до погодження поїздки.",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-faq1",
+      "location": "`src/data/routes.ts:681`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.1`",
+      "original": "Як зазначити конкретний район Вольфсбурга (наприклад, Фаллерслебен)? — Напишіть назву району (Fallersleben, Vorsfelde тощо) та поштовий індекс або вулицю в тексті запиту. Перевізник повідомить можливість під'їзду за цією адресою.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-faq2",
+      "location": "`src/data/routes.ts:685`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.2`",
+      "original": "Що уточнити, якщо виїжджаємо з сім'єю з Івано-Франківська? — Вкажіть загальну кількість дорослих і дітей, кількість валіз та зручний район збору в Івано-Франківську, щоб перевізник оцінив місткість і погодив посадку.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-faq3",
+      "location": "`src/data/routes.ts:689`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.3`",
+      "original": "Що вибрати, якщо мого населеного пункту немає в пошуку? — Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-faq4",
+      "location": "`src/data/routes.ts:693`; `/routes/ivano-frankivsk-wolfsburg/`; `faq.4`",
+      "original": "Що робити, якщо плани змінилися після звернення? — Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-confirm1",
+      "location": "`src/data/routes.ts:697`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.1`",
+      "original": "Можливість поїздки на бажану дату",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-confirm2",
+      "location": "`src/data/routes.ts:698`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.2`",
+      "original": "Ціна та оплата",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-confirm3",
+      "location": "`src/data/routes.ts:699`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.3`",
+      "original": "Посадка й висадка",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-ivano-frankivsk-wolfsburg-confirm4",
+      "location": "`src/data/routes.ts:700`; `/routes/ivano-frankivsk-wolfsburg/`; `whatToConfirm.4`",
+      "original": "Багаж і можливі пересадки",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-title",
+      "location": "`src/data/routes.ts:710`; `/routes/wolfsburg-ivano-frankivsk/`; `title`",
+      "original": "Вольфсбург → Івано-Франківськ",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-description",
+      "location": "`src/data/routes.ts:711`; `/routes/wolfsburg-ivano-frankivsk/`; `description`",
+      "original": "Вольфсбург (Wolfsburg, Німеччина) — Івано-Франківськ: повернення до Прикарпаття. Узгодьте район посадки у Вольфсбурзі, зустріч в Івано-Франківську та умови багажу.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-seo.title",
+      "location": "`src/data/routes.ts:724`; `/routes/wolfsburg-ivano-frankivsk/`; `seo.title`",
+      "original": "Вольфсбург → Івано-Франківськ: як уточнити поїздку | UARoute",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-seo.description",
+      "location": "`src/data/routes.ts:725`; `/routes/wolfsburg-ivano-frankivsk/`; `seo.description`",
+      "original": "Поїздка з Вольфсбурга (Wolfsburg, Німеччина) до Івано-Франківська: вибір місця зустрічі, підготовка до дороги та запит перевізнику на бажану дату.",
+      "class": "product behavior + editorial advice",
+      "support": "K1; local/live metadata comparison",
+      "disposition": "keep",
+      "confidence": "high for wording; operations unknown",
+      "constraints": "Назва напряму/підготовка запиту, не доказ рейсу. Зберегти URL; без ціни, розкладу чи наявності."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-practical1",
+      "location": "`src/data/routes.ts:730`; `/routes/wolfsburg-ivano-frankivsk/`; `practicalContent.1`",
+      "original": "Оберіть орієнтир для зустрічі у Вольфсбурзі — Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть район і, за можливості, адресу зустрічі, а не лише місто. Точне місце посадки погодьте з перевізником.",
+      "class": "geography + editorial advice",
+      "support": "S3",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-practical2",
+      "location": "`src/data/routes.ts:736`; `/routes/wolfsburg-ivano-frankivsk/`; `practicalContent.2`",
+      "original": "Домовтеся про зустріч в Івано-Франківську — Якщо після прибуття вас зустрічатимуть близькі, уточніть місце висадки та орієнтовний час. Запитайте, як підтримувати зв’язок і дізнаватися про зміни часу в дорозі. Передайте узгоджені відомості тим, хто приїде за вами. Якщо їдете далі, обговоріть запас часу для пересадки.",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for source scope; operations unknown",
+      "constraints": "Зберегти як пораду/питання; жодного гарантованого місця, часу, стиковки чи перевезення речей."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-faq1",
+      "location": "`src/data/routes.ts:742`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.1`",
+      "original": "Як погодити посадку у Вольфсбурзі? — Вкажіть вашу точну адресу або район у Вольфсбурзі. Перевізник підтвердить, чи зможе забрати вас безпосередньо звідти, або запропонує найближчий зручний орієнтир.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-faq2",
+      "location": "`src/data/routes.ts:746`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.2`",
+      "original": "Як передати деталі прибуття родичам в Івано-Франківську? — Узгодьте з перевізником орієнтовну зупинку висадки в Івано-Франківську та спосіб інформування про час приїзду перед передачею даних тим, хто вас зустрічає.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-faq3",
+      "location": "`src/data/routes.ts:750`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.3`",
+      "original": "Що вибрати, якщо мого населеного пункту немає в пошуку? — Виберіть найближче доступне місто. У приватному повідомленні назвіть фактичний населений пункт та адресу; перевізник підтвердить можливість посадки або висадки саме там.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "rewrite",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Кандидат S04: «Назвіть фактичний населений пункт, район або адресу. Запитайте, чи можлива там посадка або висадка та яке місце можна погодити.» Можливе і «ні»; вибір міста не вимагає доїзду до нього."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-faq4",
+      "location": "`src/data/routes.ts:754`; `/routes/wolfsburg-ivano-frankivsk/`; `faq.4`",
+      "original": "Що робити, якщо плани змінилися після звернення? — Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; source field; operational confirmation absent",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Питання/умовна порада; не перетворювати погодження на гарантію виконання."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-confirm1",
+      "location": "`src/data/routes.ts:758`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.1`",
+      "original": "Можливість поїздки на бажану дату",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-confirm2",
+      "location": "`src/data/routes.ts:759`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.2`",
+      "original": "Ціна та оплата",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-confirm3",
+      "location": "`src/data/routes.ts:760`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.3`",
+      "original": "Посадка й висадка",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "R-wolfsburg-ivano-frankivsk-confirm4",
+      "location": "`src/data/routes.ts:761`; `/routes/wolfsburg-ivano-frankivsk/`; `whatToConfirm.4`",
+      "original": "Багаж і можливі пересадки",
+      "class": "editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Заголовок питання: не норма, ціна, місткість або факт пересадки."
+    },
+    {
+      "id": "H-lviv-title",
+      "location": "`src/data/city-hubs.ts:53`; `/cities/lviv/`; `title`",
+      "original": "Поїздки зі Львова до Німеччини та назад | UARoute",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-heading",
+      "location": "`src/data/city-hubs.ts:54`; `/cities/lviv/`; `heading`",
+      "original": "Поїздки зі Львова до Німеччини та назад",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-description",
+      "location": "`src/data/city-hubs.ts:55`; `/cities/lviv/`; `description`",
+      "original": "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-intro",
+      "location": "`src/data/city-hubs.ts:56`; `/cities/lviv/`; `intro`",
+      "original": "Оберіть місто для поїздки зі Львова або повернення до Львова. UARoute допоможе підготувати звернення до перевізника.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-outbound",
+      "location": "`src/data/city-hubs.ts:57`; `/cities/lviv/`; `outbound`",
+      "original": "Якщо спочатку добираєтеся до Львова, повідомте перевізнику, звідки й коли плануєте прибути. Погодьте точку та час зустрічі, перш ніж купувати квиток на попередню ділянку. Для пересування містом звірте актуальні правила місцевого транспорту в офіційному довіднику нижче. Довідник не визначає місце посадки перевізника.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-returning",
+      "location": "`src/data/city-hubs.ts:58`; `/cities/lviv/`; `returning`",
+      "original": "Для виїзду з Німеччини додайте адресу або район зустрічі й погодьте місце висадки у Львові. Якщо звідти їдете далі, уточніть очікуваний час прибуття та запас перед наступною поїздкою. Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-nearbyIntro",
+      "location": "`src/data/city-hubs.ts:87`; `/cities/lviv/`; `nearbyIntro`",
+      "original": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-lviv-faq1",
+      "location": "`src/data/city-hubs.ts:62`; `/cities/lviv/`; `faq.1`",
+      "original": "Що написати, якщо до Львова ще потрібно доїхати? — Повідомте, звідки добираєтеся та коли плануєте бути у Львові. Погодьте місце й час зустрічі, перш ніж купувати квитки на попередню ділянку шляху.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-lviv-faq2",
+      "location": "`src/data/city-hubs.ts:66`; `/cities/lviv/`; `faq.2`",
+      "original": "Як запитати про пересадку під час поїздки? — Якщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-lviv-faq3",
+      "location": "`src/data/city-hubs.ts:70`; `/cities/lviv/`; `faq.3`",
+      "original": "Чи потрібно одразу знати дату повернення? — Можна підготувати звернення лише для виїзду. Коли визначите дату повернення, перемкніть пошук на «До України» й складіть окреме повідомлення. Якщо хочете обговорити обидві поїздки одразу, додайте дату повернення в текст WhatsApp.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-lviv-faq4",
+      "location": "`src/data/city-hubs.ts:74`; `/cities/lviv/`; `faq.4`",
+      "original": "Що запитати, якщо подорожую з дитиною? — Укажіть вік дитини й запитайте про вартість, дитяче крісло, багаж та потрібні для перевезення умови. Перевізник має підтвердити, що можна організувати саме для вашої поїздки.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-lviv-faq5",
+      "location": "`src/data/city-hubs.ts:78`; `/cities/lviv/`; `faq.5`",
+      "original": "Як запитати про перевезення велосипеда? — Назвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "N-lviv-zhovkva",
+      "location": "`src/data/city-hubs.ts:94`; `/cities/lviv/`; `lviv-zhovkva`",
+      "original": "Жовква — Якщо ви вирушаєте з Жовкви, зазначте назву міста та адресу виїзду в повідомленні. Перевізник повідомить, чи можлива посадка за маршрутом через північний виїзд зі Львова, або погодить зустріч у зручній точці.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://zhovkva-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Жовква, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "N-lviv-yavoriv",
+      "location": "`src/data/city-hubs.ts:104`; `/cities/lviv/`; `lviv-yavoriv`",
+      "original": "Яворів — Для виїзду з Яворова вкажіть населений пункт і точний орієнтир. Оскільки місто розташоване на трасі до кордону, перевізник підтвердить можливість узгодженої зупинки.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://yavoriv-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Яворів, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "N-lviv-zolochiv",
+      "location": "`src/data/city-hubs.ts:114`; `/cities/lviv/`; `lviv-zolochiv`",
+      "original": "Золочів — Напишіть, чи плануєте добиратися до Львова самостійно, чи шукаєте можливість посадки по дорозі із Золочева. Перевізник підкаже доцільний варіант з'єднання.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://zolochiv-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Золочів, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "N-lviv-sambir",
+      "location": "`src/data/city-hubs.ts:124`; `/cities/lviv/`; `lviv-sambir`",
+      "original": "Самбір — Вкажіть Самбір і бажану дату виїзду. Уточніть у перевізника, чи можливий заїзд або як найкраще спланувати стиковку з місцем посадки у Львові.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://sambir-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Самбір, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "H-lviv-resource1",
+      "location": "`src/data/city-hubs.ts:133`; `/cities/lviv/`; `planningResources`",
+      "original": "Офіційний довідник громадського транспорту Львова — Перевірити актуальні правила доїзду в місті.",
+      "class": "editorial advice",
+      "support": "S4",
+      "disposition": "keep",
+      "confidence": "high for resource purpose",
+      "constraints": "Окремий транспорт: перевірити актуальний ресурс; не публікувати тарифи/час без нової перевірки."
+    },
+    {
+      "id": "H-lviv-review",
+      "location": "`src/data/city-hubs.ts`; `/cities/lviv/`; `contentReview`",
+      "original": "{\"reviewedAt\": \"2026-10-25\", \"contentUpdatedAt\": \"2026-10-25\", \"reviewScope\": \"editorial_guidance\"}",
+      "class": "unknown (review provenance)",
+      "support": "Existing source dates; this research does not prove prior review scope",
+      "disposition": "await evidence",
+      "confidence": "high for stored values; historical review unknown",
+      "constraints": "Зберегти історичні значення до з’ясування; не називати географічну перевірку підтвердженням роботи перевізника. Нові дати тільки після відповідної редакторської роботи."
+    },
+    {
+      "id": "H-ivano-frankivsk-title",
+      "location": "`src/data/city-hubs.ts:150`; `/cities/ivano-frankivsk/`; `title`",
+      "original": "Поїздки з Івано-Франківська до Німеччини та назад | UARoute",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-heading",
+      "location": "`src/data/city-hubs.ts:151`; `/cities/ivano-frankivsk/`; `heading`",
+      "original": "Поїздки з Івано-Франківська до Німеччини та назад",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-description",
+      "location": "`src/data/city-hubs.ts:152`; `/cities/ivano-frankivsk/`; `description`",
+      "original": "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-intro",
+      "location": "`src/data/city-hubs.ts:153`; `/cities/ivano-frankivsk/`; `intro`",
+      "original": "Оберіть місто для поїздки з Івано-Франківська або повернення до Івано-Франківська. UARoute допоможе підготувати звернення до перевізника.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-outbound",
+      "location": "`src/data/city-hubs.ts:154`; `/cities/ivano-frankivsk/`; `outbound`",
+      "original": "Опишіть зручний район або орієнтир зустрічі в Івано-Франківську та повідомте, якщо добираєтеся з іншого населеного пункту. Запитайте про точне місце й час, кількість валіз і великий багаж. Якщо до міста плануєте їхати потягом, перевірте варіанти в офіційному сервісі Укрзалізниці після погодження зустрічі.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-returning",
+      "location": "`src/data/city-hubs.ts:155`; `/cities/ivano-frankivsk/`; `returning`",
+      "original": "Погодьте місце висадки в Івано-Франківську й спосіб отримати повідомлення про зміну часу прибуття. Якщо вас зустрічають, передайте їм погоджені деталі. Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до перевізника.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-nearbyIntro",
+      "location": "`src/data/city-hubs.ts:183`; `/cities/ivano-frankivsk/`; `nearbyIntro`",
+      "original": "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне для вашої поїздки місто в пошуку. У приватному повідомленні WhatsApp назвіть фактичне місце, точну адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. Їхати до вибраного міста потрібно лише за погодженою домовленістю.",
+      "class": "product behavior / editorial advice",
+      "support": "K1; S4/S5 for separate transport resources",
+      "disposition": "keep",
+      "confidence": "high for wording; service unknown",
+      "constraints": "Зберегти умовність, фактичну місцевість і приватний запит. Не обіцяти стиковки/посадки; місто вибору не є обов’язковим хабом."
+    },
+    {
+      "id": "H-ivano-frankivsk-faq1",
+      "location": "`src/data/city-hubs.ts:159`; `/cities/ivano-frankivsk/`; `faq.1`",
+      "original": "Як зазначити дату, якщо можу виїхати в різні дні? — Виберіть бажану дату у формі, а в повідомленні WhatsApp додайте інші дні, які вам підходять. Запитайте перевізника, на яку з цих дат можна погодити поїздку.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-ivano-frankivsk-faq2",
+      "location": "`src/data/city-hubs.ts:163`; `/cities/ivano-frankivsk/`; `faq.2`",
+      "original": "Як запитати про пересадку під час поїздки? — Якщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-ivano-frankivsk-faq3",
+      "location": "`src/data/city-hubs.ts:167`; `/cities/ivano-frankivsk/`; `faq.3`",
+      "original": "Як описати великий багаж? — Напишіть кількість валіз і приблизні розміри великої речі. Запитайте, чи можна взяти її з собою та скільки коштуватиме перевезення. Погодьте ці умови до виїзду.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-ivano-frankivsk-faq4",
+      "location": "`src/data/city-hubs.ts:171`; `/cities/ivano-frankivsk/`; `faq.4`",
+      "original": "Як спланувати зустріч після повернення до Івано-Франківська? — Погодьте місце висадки й очікуваний час прибуття. Запитайте, як дізнатися про зміну часу в дорозі, та передайте ці деталі тим, хто вас зустрічає.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "H-ivano-frankivsk-faq5",
+      "location": "`src/data/city-hubs.ts:175`; `/cities/ivano-frankivsk/`; `faq.5`",
+      "original": "Як запитати про перевезення велосипеда? — Назвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість.",
+      "class": "editorial advice / product behavior",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high for wording; operational facts unknown",
+      "constraints": "Залишити питання про дату/дітей/багаж/велосипед/пересадку; не підтверджувати умови замість перевізника, не збирати ці дані в аналітиці."
+    },
+    {
+      "id": "N-if-kolomyia",
+      "location": "`src/data/city-hubs.ts:190`; `/cities/ivano-frankivsk/`; `if-kolomyia`",
+      "original": "Коломия — Вкажіть Коломию як фактичний пункт виїзду або повернення. Перевізник уточнить, чи передбачено заїзд на вашу дату, чи доцільно зустрітися на автостанції або вокзалі в Івано-Франківську.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://kolomyia.org.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Коломия, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "N-if-tysmenytsia",
+      "location": "`src/data/city-hubs.ts:200`; `/cities/ivano-frankivsk/`; `if-tysmenytsia`",
+      "original": "Тисмениця — Якщо ви перебуваєте в Тисмениці, напишіть точну адресу або орієнтир на виїзді. Близькість до Івано-Франківська дозволяє узгодити найзручніший спосіб посадки.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://tysmenytsia-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Тисмениця, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "N-if-rogatyn",
+      "location": "`src/data/city-hubs.ts:210`; `/cities/ivano-frankivsk/`; `if-rogatyn`",
+      "original": "Рогатин — Для пасажирів з Рогатина вкажіть бажану ділянку вздовж львівського напрямку. Перевізник підтвердить, чи можлива посадка на трасі або біля місцевої автостанції.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://rogatyn-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Рогатин, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "N-if-bohorodchany",
+      "location": "`src/data/city-hubs.ts:220`; `/cities/ivano-frankivsk/`; `if-bohorodchany`",
+      "original": "Богородчани — Повідомте перевізнику про поїздку з Богородчан. Запитайте про можливість підбору по дорозі або узгодьте стиковку з міським транспортом до Івано-Франківська.",
+      "class": "geography + unsupported operational implication",
+      "support": "S6; https://bohorodchany-rada.gov.ua/",
+      "disposition": "rewrite",
+      "confidence": "high for exact wording; low/unknown for operational implication",
+      "constraints": "Кандидат S04: «Якщо ваше фактичне місце — Богородчани, назвіть його в приватному зверненні. Запитайте, чи можлива посадка або висадка там і яке місце можна погодити. Вибір міста в пошуку не зобов’язує їхати до нього.» Не стверджувати заїзд, трасу, північний виїзд, зручність або стиковку."
+    },
+    {
+      "id": "H-ivano-frankivsk-resource1",
+      "location": "`src/data/city-hubs.ts:229`; `/cities/ivano-frankivsk/`; `planningResources`",
+      "original": "Офіційний пошук квитків Укрзалізниці — Окремо перевірити потрібну попередню або подальшу ділянку.",
+      "class": "editorial advice",
+      "support": "S5",
+      "disposition": "keep",
+      "confidence": "high for resource purpose",
+      "constraints": "Окремий транспорт: перевірити актуальний ресурс; не публікувати тарифи/час без нової перевірки."
+    },
+    {
+      "id": "H-ivano-frankivsk-review",
+      "location": "`src/data/city-hubs.ts`; `/cities/ivano-frankivsk/`; `contentReview`",
+      "original": "{\"reviewedAt\": \"2026-10-25\", \"contentUpdatedAt\": \"2026-10-25\", \"reviewScope\": \"editorial_guidance\"}",
+      "class": "unknown (review provenance)",
+      "support": "Existing source dates; this research does not prove prior review scope",
+      "disposition": "await evidence",
+      "confidence": "high for stored values; historical review unknown",
+      "constraints": "Зберегти історичні значення до з’ясування; не називати географічну перевірку підтвердженням роботи перевізника. Нові дати тільки після відповідної редакторської роботи."
+    },
+    {
+      "id": "G-title",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:11`",
+      "original": "Перевезення велосипеда: що погодити з перевізником | UARoute",
+      "class": "product behavior / editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Запит і підготовка, не дозвіл перевезення; metadata, OG and Article descriptions must remain aligned."
+    },
+    {
+      "id": "G-description",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:12`",
+      "original": "Як запитати про перевезення велосипеда: тип, розміри, пакування, дата та вартість. Можливість перевезення підтверджує перевізник.",
+      "class": "product behavior / editorial advice",
+      "support": "K1",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Запит і підготовка, не дозвіл перевезення; metadata, OG and Article descriptions must remain aligned."
+    },
+    {
+      "id": "G-faq1",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:16`",
+      "original": "Назвіть тип, розміри та приблизну вагу велосипеда. Для електровелосипеда окремо опишіть акумулятор і запитайте, чи можливе перевезення.",
+      "class": "editorial advice",
+      "support": "K1; S7 only customs context",
+      "disposition": "keep",
+      "confidence": "high for wording; carriage unknown",
+      "constraints": "Тільки питання; батарея, вага, пакування і ціна не є дозволеними умовами. Погодити можливість до витрат на пакування."
+    },
+    {
+      "id": "G-faq2",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:17`",
+      "original": "Спочатку погодьте вимоги до пакування та допустимі габарити. Потребу розбирання й порядок робіт уточніть для вашої моделі; за потреби зверніться до майстра.",
+      "class": "editorial advice",
+      "support": "K1; S7 only customs context",
+      "disposition": "keep",
+      "confidence": "high for wording; carriage unknown",
+      "constraints": "Тільки питання; батарея, вага, пакування і ціна не є дозволеними умовами. Погодити можливість до витрат на пакування."
+    },
+    {
+      "id": "G-faq3",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:18`",
+      "original": "Запитайте про можливість перевезення на потрібну дату, загальну вартість, завантаження й отримання велосипеда. Не купуйте пакування лише на підставі загальних порад.",
+      "class": "editorial advice",
+      "support": "K1; S7 only customs context",
+      "disposition": "keep",
+      "confidence": "high for wording; carriage unknown",
+      "constraints": "Тільки питання; батарея, вага, пакування і ціна не є дозволеними умовами. Погодити можливість до витрат на пакування."
+    },
+    {
+      "id": "G-customs",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:29`",
+      "original": "Правила залежать від напрямку та обставин подорожі.",
+      "class": "editorial advice",
+      "support": "S7",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Лінк до компетентних органів, не персональне рішення чи універсальне звільнення від декларації."
+    },
+    {
+      "id": "G-handoff",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:30`",
+      "original": "У WhatsApp відкриється підготовлений текст. Доповніть його й надішліть самостійно. Перевізник підтвердить можливість та умови; звернення не резервує місце.",
+      "class": "product behavior",
+      "support": "K1; BicycleInquiryCta/whatsapp source",
+      "disposition": "keep",
+      "confidence": "high for code contract",
+      "constraints": "Немає доказу отримання/відправлення; користувач надсилає сам."
+    },
+    {
+      "id": "G-schema",
+      "location": "`src/app/guides/perevezennya-velosypeda/page.tsx:24`",
+      "original": "Article; headline=guide title; description=guide description; datePublished=\"2026-10-17\"; dateModified=\"2026-10-25\"; author={\"@type\":\"Organization\",\"name\":\"UARoute\"}; inLanguage=\"uk\"; mainEntityOfPage=https://uaroute.com/guides/perevezennya-velosypeda/",
+      "class": "product behavior / unknown review provenance",
+      "support": "Parsed live JSON-LD + local source",
+      "disposition": "await evidence",
+      "confidence": "high for stored values; review provenance unknown",
+      "constraints": "No new date/expert claim. Organization is editorial brand, not a new legal entity. S04 should make genuine editorial responsibility/date visible when verified; do not relabel this research as publication update."
+    },
+    {
+      "id": "A-principle1",
+      "location": "`src/app/about/page.tsx:22`",
+      "original": "Знайдіть напрямок і перегляньте поради для підготовки. Для повернення перемкніть напрямок у пошуку — вибрані міста збережуться.",
+      "class": "product behavior",
+      "support": "K1; source inspection",
+      "disposition": "keep",
+      "confidence": "high for source; no runtime test this task",
+      "constraints": "Preserve reversal, date/phone-free website alternative, user-sent WhatsApp and no-reservation boundary."
+    },
+    {
+      "id": "A-principle2",
+      "location": "`src/app/about/page.tsx:26`",
+      "original": "Додайте бажану дату, кількість пасажирів і телефон, щоб скласти повідомлення з вибраним напрямком. Сайт перевізника можна відкрити без заповнення дати й телефону.",
+      "class": "product behavior",
+      "support": "K1; source inspection",
+      "disposition": "keep",
+      "confidence": "high for source; no runtime test this task",
+      "constraints": "Preserve reversal, date/phone-free website alternative, user-sent WhatsApp and no-reservation boundary."
+    },
+    {
+      "id": "A-principle3",
+      "location": "`src/app/about/page.tsx:30`",
+      "original": "Основний спосіб звернення — WhatsApp: перевірте підготовлений текст і надішліть його перевізнику самостійно. Сайт перевізника — помітна альтернатива, доступна без дати й телефону. Перевізник підтвердить можливість поїздки та умови; звернення не резервує місце.",
+      "class": "product behavior",
+      "support": "K1; source inspection",
+      "disposition": "keep",
+      "confidence": "high for source; no runtime test this task",
+      "constraints": "Preserve reversal, date/phone-free website alternative, user-sent WhatsApp and no-reservation boundary."
+    },
+    {
+      "id": "A-privacy",
+      "location": "`src/app/about/page.tsx:84`",
+      "original": "UARoute не зберігає їх",
+      "class": "product behavior",
+      "support": "K1; whatsapp and analytics design; not a new security audit",
+      "disposition": "keep",
+      "confidence": "high contract; implementation assurance limited",
+      "constraints": "The full paragraph refers to phone/date, no client DB/browser storage/analytics and transfer to WhatsApp. Keep explicit external-service handoff; do not expand to a claim no data ever leaves device."
+    },
+    {
+      "id": "A-identity",
+      "location": "`src/app/about/page.tsx:90`",
+      "original": "UARoute працює в межах польської JDG Roman Senchuk, під бізнес-брендом Crew Bravo.",
+      "class": "owner-reported context",
+      "support": "S9; constitution §40",
+      "disposition": "keep",
+      "confidence": "high for existing disclosure; no fresh registry check",
+      "constraints": "Preserve legal operator identity; neutral carrier rule does not erase actual site operator."
+    },
+    {
+      "id": "I-role",
+      "location": "`src/app/imprint/page.tsx:33`",
+      "original": "UARoute допомагає знайти напрямок і підготувати запит. Транспортний партнер — перевізник. Він перевіряє можливість поїздки, узгоджує умови з пасажиром і відповідає за перевезення.",
+      "class": "product behavior",
+      "support": "K1; live/source",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "No service outcome or contractual receipt inferred."
+    },
+    {
+      "id": "I-reservation",
+      "location": "`src/app/imprint/page.tsx:34`",
+      "original": "Саме повідомлення у WhatsApp не резервує місце. Можливість поїздки та її умови погоджує перевізник. Для питань про саму поїздку звертайтеся до перевізника, з яким ви її погодили.",
+      "class": "product behavior",
+      "support": "K1; live/source",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Preserve inquiry boundary and correct responsibility."
+    },
+    {
+      "id": "I-legal",
+      "location": "`src/app/imprint/page.tsx:21`",
+      "original": "UARoute не є окремою юридичною особою.",
+      "class": "owner-reported context",
+      "support": "S9; constitution §40",
+      "disposition": "keep",
+      "confidence": "high existing record; registry not rechecked",
+      "constraints": "Preserve factual business disclosure, no new legal advice."
+    },
+    {
+      "id": "I-operatorName",
+      "location": "`src/config/business.ts:3`",
+      "original": "Roman Senchuk",
+      "class": "owner-reported context",
+      "support": "S9",
+      "disposition": "keep",
+      "confidence": "medium; owner record, not registry certification",
+      "constraints": "Existing public disclosure; address labelled contact address, never claim registered office verification. No change to identity/contact."
+    },
+    {
+      "id": "I-legalForm",
+      "location": "`src/config/business.ts:4`",
+      "original": "Польська одноосібна підприємницька діяльність (JDG)",
+      "class": "owner-reported context",
+      "support": "S9",
+      "disposition": "keep",
+      "confidence": "medium; owner record, not registry certification",
+      "constraints": "Existing public disclosure; address labelled contact address, never claim registered office verification. No change to identity/contact."
+    },
+    {
+      "id": "I-brand",
+      "location": "`src/config/business.ts:1`",
+      "original": "Crew Bravo",
+      "class": "owner-reported context",
+      "support": "S9",
+      "disposition": "keep",
+      "confidence": "medium; owner record, not registry certification",
+      "constraints": "Existing public disclosure; address labelled contact address, never claim registered office verification. No change to identity/contact."
+    },
+    {
+      "id": "I-website",
+      "location": "`src/config/business.ts:6`",
+      "original": "https://crewbravo.com/",
+      "class": "owner-reported context",
+      "support": "S9",
+      "disposition": "keep",
+      "confidence": "medium; owner record, not registry certification",
+      "constraints": "Existing public disclosure; address labelled contact address, never claim registered office verification. No change to identity/contact."
+    },
+    {
+      "id": "I-contactAddress",
+      "location": "`src/config/business.ts:9`",
+      "original": "ul. A. Vespucciego 32, 51-505 Wrocław, Польща",
+      "class": "owner-reported context",
+      "support": "S9",
+      "disposition": "keep",
+      "confidence": "medium; owner record, not registry certification",
+      "constraints": "Existing public disclosure; address labelled contact address, never claim registered office verification. No change to identity/contact."
+    },
+    {
+      "id": "OP-1",
+      "location": "`src/data/carriers.ts:35`",
+      "original": "Два професійні водії",
+      "class": "operational fact (unverified current)",
+      "support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "disposition": "await evidence",
+      "confidence": "high wording; low current support",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date."
+    },
+    {
+      "id": "OP-2",
+      "location": "`src/data/carriers.ts:40`",
+      "original": "Адресна доставка пасажирів у Німеччині",
+      "class": "operational fact (unverified current)",
+      "support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "disposition": "await evidence",
+      "confidence": "high wording; low current support",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date."
+    },
+    {
+      "id": "OP-3",
+      "location": "`src/data/carriers.ts:45`",
+      "original": "Бронювання без передоплати",
+      "class": "operational fact (unverified current)",
+      "support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "disposition": "await evidence",
+      "confidence": "high wording; low current support",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date."
+    },
+    {
+      "id": "OP-4",
+      "location": "`src/data/carriers.ts:50`",
+      "original": "Мікроавтобуси Mercedes Sprinter",
+      "class": "operational fact (unverified current)",
+      "support": "S8; historical source date 2026-09-11; live Hannover PartnerCard",
+      "disposition": "await evidence",
+      "confidence": "high wording; low current support",
+      "constraints": "S04 recommendation: omit from included copy until current source supports exact scope; otherwise convert to question about this trip. No assertion of two drivers, address delivery, no prepayment or vehicle type merely from historical source date."
+    },
+    {
+      "id": "OP-service",
+      "location": "`src/data/carriers.ts:15`",
+      "original": "Пасажирські перевезення та посилки між Україною та Європою.",
+      "class": "operational fact (broad description)",
+      "support": "S8; live Hannover only in scoped pages",
+      "disposition": "await evidence",
+      "confidence": "high wording; current scope unknown",
+      "constraints": "Keep parcel promotion out of passenger flow. Recommended narrow replacement: «Уточніть можливість та умови поїздки безпосередньо у перевізника.»"
+    },
+    {
+      "id": "OP-desk",
+      "location": "`src/data/carriers.ts:19`",
+      "original": "Німеччина та основні напрямки (Іван)",
+      "class": "product behavior / owner-reported context",
+      "support": "Local carrier desk + BookingWidget interpolation, matches live",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Not deployment drift. Preserve desk identity/contact. No surname/carrier-brand expansion; do not infer verified service coverage from label."
+    },
+    {
+      "id": "SH-image",
+      "location": "`src/app/routes/[slug]/page.tsx:128`",
+      "original": "Ілюстративне фото · не місце посадки чи висадки",
+      "class": "editorial advice",
+      "support": "Source + all5 route HTML",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Image is illustrative, not vehicle/stop evidence."
+    },
+    {
+      "id": "SH-candidate",
+      "location": "`src/components/PartnerCard.tsx:38`",
+      "original": "Запитайте перевізника про можливість поїздки, вартість, місце посадки й багаж. Контакт доступний на його сайті.",
+      "class": "product behavior",
+      "support": "K1; four candidate pages and About inquiryOnly",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Do not copy Hannover operational-claims panel into candidate pages."
+    },
+    {
+      "id": "P1-1",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:35`; placement 1",
+      "original": "**Плануєте поїздку зі Львова чи сусідніх містечок до Німеччини?**",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P1-2",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:37`; placement 1",
+      "original": "Якщо ви живете не в самому Львові, а поруч (Жовква, Яворів, Золочів, Самбір тощо), найзручніше орієнтуватися на львівський напрямок, а в приватному зверненні до перевізника назвати точний населений пункт і адресу виїзду.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "rewrite",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Candidate: «Якщо вашого населеного пункту немає в пошуку, виберіть найближче доступне місто й приватно назвіть фактичне місце. Перевізник повідомить, чи можлива поїздка та де можна погодити зустріч.»"
+    },
+    {
+      "id": "P1-3",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:39`; placement 1",
+      "original": "На UARoute (ми розвиваємо цей довідник пасажирських напрямків) зібрали практичні поради щодо доїзду, стиковки з потягами та орієнтирів прибуття в Ганновері й Целле:",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P1-4",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:40`; placement 1",
+      "original": "👉 https://uaroute.com/cities/lviv/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P1-5",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:42`; placement 1",
+      "original": "*Можливість посадки за адресою, ціну та наявність місць підтверджує перевізник безпосередньо у відповідь на запит.*",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P2-1",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:52`; placement 2",
+      "original": "**До уваги тих, хто планує дорогу з Прикарпаття до Німеччини (Вольфсбург, Нижня Саксонія):**",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P2-2",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:54`; placement 2",
+      "original": "Якщо добираєтеся з Коломиї, Тисмениці, Рогатина чи Богородчан, не обов'язково одразу купувати квитки до самого Івано-Франківська — спершу узгодьте з перевізником фактичну адресу та можливість посадки по дорозі.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "rewrite",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Candidate: «Не потрібно їхати до вибраного міста лише через вибір у пошуку. Спершу запитайте, чи можлива посадка у вашому фактичному населеному пункті та яке місце можна погодити.»"
+    },
+    {
+      "id": "P2-3",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:56`; placement 2",
+      "original": "Підготували корисний чеклист для виїзду, розрахунку багажу та зустрічі після повернення на UARoute:",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P2-4",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:57`; placement 2",
+      "original": "👉 https://uaroute.com/cities/ivano-frankivsk/?utm_source=telegram&utm_medium=social&utm_campaign=route_launch",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P2-5",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:59`; placement 2",
+      "original": "*(Матеріал підготовлено командою UARoute; поїздка та точні зупинки узгоджуються з перевізником напряму).*",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "keep",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Preserve affiliation and approved UTM; draft not published. No operational validation implied."
+    },
+    {
+      "id": "P3-1",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:69`; placement 3",
+      "original": "**Поїздки між Ганновером та Львовом: що варто узгодити заздалегідь**",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "rewrite",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Return audience conflicts with outbound Hannover URL. Either rewrite audience to outbound Hannover or use an existing direction-matched reverse page/hub after S03. No new Hannover reverse URL."
+    },
+    {
+      "id": "P3-2",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:71`; placement 3",
+      "original": "Якщо плануєте дорогу в Україну чи зустрічаєте рідних у Ганновері, врахуйте зручні орієнтири: автовокзал (ZOB), головний вокзал (Hbf) або точну адресу району.",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "rewrite",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Return audience conflicts with outbound Hannover URL. Either rewrite audience to outbound Hannover or use an existing direction-matched reverse page/hub after S03. No new Hannover reverse URL. City landmarks are not confirmed carrier stops."
+    },
+    {
+      "id": "P3-3",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:73`; placement 3",
+      "original": "На UARoute (довіднику прямих рейсів і запитів до перевізників) оновили практичну інформацію про маршрут Львів — Ганновер, орієнтацію на місці та поради щодо багажу:",
+      "class": "unknown / unsupported operational claim",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "rewrite",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Return audience conflicts with outbound Hannover URL. Either rewrite audience to outbound Hannover or use an existing direction-matched reverse page/hub after S03. No new Hannover reverse URL. Remove both direct-service and plural-carrier implications. Candidate: «UARoute допомагає вибрати напрямок і підготувати запит перевізнику.»"
+    },
+    {
+      "id": "P3-4",
+      "location": "`docs/Marketing/SEO/community-placements-2026-10-25.md:74`; placement 3",
+      "original": "👉 https://uaroute.com/routes/lviv-hannover/?utm_source=facebook&utm_medium=social&utm_campaign=route_launch",
+      "class": "editorial advice / product behavior",
+      "support": "K1; local unpublished draft; no channel/outcome evidence",
+      "disposition": "rewrite",
+      "confidence": "high wording; operations unknown",
+      "constraints": "Return audience conflicts with outbound Hannover URL. Either rewrite audience to outbound Hannover or use an existing direction-matched reverse page/hub after S03. No new Hannover reverse URL."
+    },
+    {
+      "id": "SC-routes",
+      "location": "`src/lib/seo.ts:145`; all5 route pages",
+      "original": "WebPage + Place; name=route.title; description=route.description; inLanguage=uk; publisher @id=https://crewbravo.com/#operator; Person name=Roman Senchuk; self-canonical URL",
+      "class": "product behavior + owner-reported context",
+      "support": "K1/S9; live JSON-LD snapshot",
+      "disposition": "keep",
+      "confidence": "high structural; identity owner-reported",
+      "constraints": "Route descriptions listed above also enter JSON-LD: carry corrections into that field. No BusTrip/Offer/availability/ratings; Place is geography, not pickup location."
+    },
+    {
+      "id": "SC-hubs",
+      "location": "`src/lib/seo.ts:91`; /cities/lviv/ and /cities/ivano-frankivsk/",
+      "original": "CollectionPage + Place + ItemList + WebPage entries; name=content.title; description=content.description; visible route names/descriptions; numberOfItems=visibleRoutes.length",
+      "class": "product behavior",
+      "support": "K1; parsed live JSON-LD",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "List counts represent visible directions, not operated services. Lviv links 3 route pages; IF links 2. Keep exact eligible graph, no automatic publication."
+    },
+    {
+      "id": "SC-shared",
+      "location": "`src/lib/seo.ts:64`; scoped pages",
+      "original": "BreadcrumbList items=visible breadcrumb name/path; WebSite name=UARoute; inLanguage=uk; publisher=https://crewbravo.com/#operator",
+      "class": "product behavior / owner-reported context",
+      "support": "K1/S9; parsed live JSON-LD",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "Describe actual navigation/site; no new expert, organization registration or special AI schema."
+    },
+    {
+      "id": "SC-meta",
+      "location": "`src/lib/seo.ts:15`; all7 priority pages + guide/About/imprint",
+      "original": "OpenGraph/Twitter repeat page title and description; locale=uk_UA; canonical=absolute page URL; route OpenGraph type=article",
+      "class": "product behavior",
+      "support": "Live metadata snapshots and local builder",
+      "disposition": "keep",
+      "confidence": "high",
+      "constraints": "OG article does not mean verified transport fact. All7 titles/descriptions exact in register; no snippet experiment inferred from property averages."
+    },
+    {
+      "id": "M-about-title",
+      "location": "`src/app/about/page.tsx:13`; /about/",
+      "original": "Про UARoute — допомагаємо підготувати поїздку",
+      "class_support": "product behavior; About principles and M1 contract",
+      "disposition": "keep",
+      "constraints": "No claim of operated service, booking or independently verified registration."
+    },
+    {
+      "id": "M-about-description",
+      "location": "`src/app/about/page.tsx:14`; /about/",
+      "original": "Як UARoute допомагає вибрати напрямок між Україною та Німеччиною, визначити питання про поїздку та зв’язатися з перевізником.",
+      "class_support": "product behavior; About principles and M1 contract",
+      "disposition": "keep",
+      "constraints": "No claim of operated service, booking or independently verified registration."
+    },
+    {
+      "id": "M-imprint-title",
+      "location": "`src/app/imprint/page.tsx:8`; /imprint/",
+      "original": "Відомості про оператора UARoute",
+      "class_support": "owner-reported context; constitution §40/business.ts",
+      "disposition": "keep",
+      "constraints": "No claim of operated service, booking or independently verified registration."
+    },
+    {
+      "id": "M-imprint-description",
+      "location": "`src/app/imprint/page.tsx:9`; /imprint/",
+      "original": "Оператор UARoute — Roman Senchuk, польська JDG. Бізнес-бренд Crew Bravo, контактні дані та роль транспортного партнера.",
+      "class_support": "owner-reported context; constitution §40/business.ts",
+      "disposition": "keep",
+      "constraints": "No claim of operated service, booking or independently verified registration."
+    }
+  ],
+  "counts": {
+    "exact_ids": 157,
+    "keep": 120,
+    "rewrite": 28,
+    "remove": 1,
+    "await_evidence": 8
+  },
+  "alias_map": {
+    "C01": [
+      "R-lviv-hannover-faq2"
+    ],
+    "C02": [
+      "N-lviv-zhovkva"
+    ],
+    "C03": [
+      "N-if-tysmenytsia"
+    ],
+    "C04": [
+      "N-lviv-yavoriv",
+      "N-lviv-zolochiv",
+      "N-lviv-sambir",
+      "N-if-kolomyia",
+      "N-if-rogatyn",
+      "N-if-bohorodchany"
+    ],
+    "C05": [
+      "R-lviv-hannover-practical1",
+      "R-lviv-hannover-description"
+    ],
+    "C06": [
+      "R-lviv-celle-description",
+      "R-lviv-celle-practical1",
+      "R-lviv-celle-faq1",
+      "R-celle-lviv-description",
+      "R-celle-lviv-practical1",
+      "R-celle-lviv-faq1"
+    ],
+    "C07": [
+      "R-ivano-frankivsk-wolfsburg-practical1",
+      "R-wolfsburg-ivano-frankivsk-practical1",
+      "R-wolfsburg-ivano-frankivsk-faq1"
+    ],
+    "C08": [
+      "R-lviv-hannover-confirm4",
+      "H-lviv-faq2",
+      "H-ivano-frankivsk-faq2"
+    ],
+    "C09": [
+      "G-faq1",
+      "G-faq2",
+      "G-faq3",
+      "G-customs"
+    ],
+    "C10": [
+      "A-principle1",
+      "A-principle2",
+      "A-principle3",
+      "A-privacy"
+    ],
+    "C11": [
+      "A-identity",
+      "I-operatorName",
+      "I-legalForm",
+      "I-brand",
+      "I-contactAddress"
+    ],
+    "C12": [
+      "G-schema"
+    ],
+    "C13": [
+      "SC-routes",
+      "SC-hubs",
+      "SC-shared",
+      "SC-meta"
+    ],
+    "C14": [
+      "P1-2"
+    ],
+    "C15": [
+      "P2-2"
+    ],
+    "C16": [
+      "P3-1",
+      "P3-2",
+      "P3-3",
+      "P3-4"
+    ]
+  }
+}

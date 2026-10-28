@@ -1,0 +1,2831 @@
+{
+  "date": "2026-10-28",
+  "checks": 78,
+  "boards": 13,
+  "widths": [
+    320,
+    360,
+    375,
+    768,
+    1280,
+    1440
+  ],
+  "all_final_hashes_match": true,
+  "zero_overflow": true,
+  "all_links_valid": true,
+  "targets_min44": true,
+  "explanations_min14": true,
+  "contrast_min": 5.5242813074736095,
+  "contrast_method": "computedCSScolors browsercanvas srgb alpha composite WCAG2luminance; allnonemptyDOMtextnodes pluscontrolcomputedfg/bg",
+  "results": [
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "width": 320,
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Поїздки з Івано-Франківська до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "if-intro": 1,
+        "if-select": 1,
+        "if-actual-locality": 1,
+        "if-outbound-return.outbound": 1,
+        "if-outbound-return.return": 1,
+        "if-nearby-examples.if-kolomyia": 1,
+        "if-nearby-examples.if-tysmenytsia": 1,
+        "if-nearby-examples.if-rogatyn": 1,
+        "if-nearby-examples.if-bohorodchany": 1,
+        "if-route-cards": 1,
+        "if-faq-resources.faq1": 1,
+        "if-faq-resources.faq2": 1,
+        "if-faq-resources.faq3": 1,
+        "if-faq-resources.faq4": 1,
+        "if-faq-resources.faq5": 1,
+        "if-faq-resources.resource1": 1,
+        "if-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 115,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 29,
+        "y": 499.90625,
+        "width": 126,
+        "height": 74,
+        "right": 155,
+        "bottom": 573.90625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "width": 360,
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Поїздки з Івано-Франківська до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "if-intro": 1,
+        "if-select": 1,
+        "if-actual-locality": 1,
+        "if-outbound-return.outbound": 1,
+        "if-outbound-return.return": 1,
+        "if-nearby-examples.if-kolomyia": 1,
+        "if-nearby-examples.if-tysmenytsia": 1,
+        "if-nearby-examples.if-rogatyn": 1,
+        "if-nearby-examples.if-bohorodchany": 1,
+        "if-route-cards": 1,
+        "if-faq-resources.faq1": 1,
+        "if-faq-resources.faq2": 1,
+        "if-faq-resources.faq3": 1,
+        "if-faq-resources.faq4": 1,
+        "if-faq-resources.faq5": 1,
+        "if-faq-resources.resource1": 1,
+        "if-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 115,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 29,
+        "y": 472.71875,
+        "width": 146,
+        "height": 50,
+        "right": 175,
+        "bottom": 522.71875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "width": 375,
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Поїздки з Івано-Франківська до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "if-intro": 1,
+        "if-select": 1,
+        "if-actual-locality": 1,
+        "if-outbound-return.outbound": 1,
+        "if-outbound-return.return": 1,
+        "if-nearby-examples.if-kolomyia": 1,
+        "if-nearby-examples.if-tysmenytsia": 1,
+        "if-nearby-examples.if-rogatyn": 1,
+        "if-nearby-examples.if-bohorodchany": 1,
+        "if-route-cards": 1,
+        "if-faq-resources.faq1": 1,
+        "if-faq-resources.faq2": 1,
+        "if-faq-resources.faq3": 1,
+        "if-faq-resources.faq4": 1,
+        "if-faq-resources.faq5": 1,
+        "if-faq-resources.resource1": 1,
+        "if-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 115,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 29,
+        "y": 433.84375,
+        "width": 153.5,
+        "height": 50,
+        "right": 182.5,
+        "bottom": 483.84375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": [
+        {
+          "summary": "Пошук за назвою або латинкою",
+          "opened": true,
+          "text": "Пошук за назвою або латинкою\n\nІлюстрація стану: поля вимкнено."
+        },
+        {
+          "summary": "Як зазначити дату, якщо можу виїхати в різні дні?",
+          "opened": true,
+          "text": "Як зазначити дату, якщо можу виїхати в різні дні?\n\nВиберіть бажану дату у формі, а в повідомленні WhatsApp додайте інші дні, які вам підходять. Запитайте перевізника, на яку з цих дат можна погодити поїздку."
+        },
+        {
+          "summary": "Як запитати про пересадку під час поїздки?",
+          "opened": true,
+          "text": "Як запитати про пересадку під час поїздки?\n\nЯкщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо."
+        },
+        {
+          "summary": "Як описати великий багаж?",
+          "opened": true,
+          "text": "Як описати великий багаж?\n\nНапишіть кількість валіз і приблизні розміри великої речі. Запитайте, чи можна взяти її з собою та скільки коштуватиме перевезення. Погодьте ці умови до виїзду."
+        },
+        {
+          "summary": "Як спланувати зустріч після повернення до Івано-Франківська?",
+          "opened": true,
+          "text": "Як спланувати зустріч після повернення до Івано-Франківська?\n\nПогодьте місце висадки й очікуваний час прибуття. Запитайте, як дізнатися про зміну часу в дорозі, та передайте ці деталі тим, хто вас зустрічає."
+        },
+        {
+          "summary": "Як запитати про перевезення велосипеда?",
+          "opened": true,
+          "text": "Як запитати про перевезення велосипеда?\n\nНазвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість."
+        }
+      ]
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "width": 768,
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Поїздки з Івано-Франківська до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "if-intro": 1,
+        "if-select": 1,
+        "if-actual-locality": 1,
+        "if-outbound-return.outbound": 1,
+        "if-outbound-return.return": 1,
+        "if-nearby-examples.if-kolomyia": 1,
+        "if-nearby-examples.if-tysmenytsia": 1,
+        "if-nearby-examples.if-rogatyn": 1,
+        "if-nearby-examples.if-bohorodchany": 1,
+        "if-route-cards": 1,
+        "if-faq-resources.faq1": 1,
+        "if-faq-resources.faq2": 1,
+        "if-faq-resources.faq3": 1,
+        "if-faq-resources.faq4": 1,
+        "if-faq-resources.faq5": 1,
+        "if-faq-resources.resource1": 1,
+        "if-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 116,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 473.3125,
+        "width": 331,
+        "height": 50,
+        "right": 368,
+        "bottom": 523.3125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "width": 1280,
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Поїздки з Івано-Франківська до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "if-intro": 1,
+        "if-select": 1,
+        "if-actual-locality": 1,
+        "if-outbound-return.outbound": 1,
+        "if-outbound-return.return": 1,
+        "if-nearby-examples.if-kolomyia": 1,
+        "if-nearby-examples.if-tysmenytsia": 1,
+        "if-nearby-examples.if-rogatyn": 1,
+        "if-nearby-examples.if-bohorodchany": 1,
+        "if-route-cards": 1,
+        "if-faq-resources.faq1": 1,
+        "if-faq-resources.faq2": 1,
+        "if-faq-resources.faq3": 1,
+        "if-faq-resources.faq4": 1,
+        "if-faq-resources.faq5": 1,
+        "if-faq-resources.resource1": 1,
+        "if-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 116,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 53,
+        "y": 422.4375,
+        "width": 331,
+        "height": 50,
+        "right": 384,
+        "bottom": 472.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/ivano-frankivsk.html",
+      "width": 1440,
+      "sha256": "ca36255ca912aeddf87aad878abe8484fdc8114ebc42fca8b45a4e8ac3b20549",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Поїздки з Івано-Франківська до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "if-intro": 1,
+        "if-select": 1,
+        "if-actual-locality": 1,
+        "if-outbound-return.outbound": 1,
+        "if-outbound-return.return": 1,
+        "if-nearby-examples.if-kolomyia": 1,
+        "if-nearby-examples.if-tysmenytsia": 1,
+        "if-nearby-examples.if-rogatyn": 1,
+        "if-nearby-examples.if-bohorodchany": 1,
+        "if-route-cards": 1,
+        "if-faq-resources.faq1": 1,
+        "if-faq-resources.faq2": 1,
+        "if-faq-resources.faq3": 1,
+        "if-faq-resources.faq4": 1,
+        "if-faq-resources.faq5": 1,
+        "if-faq-resources.resource1": 1,
+        "if-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 116,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 133,
+        "y": 422.4375,
+        "width": 331,
+        "height": 50,
+        "right": 464,
+        "bottom": 472.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "width": 320,
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Поїздки зі Львова до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "lv-intro": 1,
+        "lv-select": 1,
+        "lv-actual-locality": 1,
+        "lv-outbound-return.outbound": 1,
+        "lv-outbound-return.return": 1,
+        "lv-nearby-examples.lviv-zhovkva": 1,
+        "lv-nearby-examples.lviv-yavoriv": 1,
+        "lv-nearby-examples.lviv-zolochiv": 1,
+        "lv-nearby-examples.lviv-sambir": 1,
+        "lv-route-cards": 1,
+        "lv-faq-resources.faq1": 1,
+        "lv-faq-resources.faq2": 1,
+        "lv-faq-resources.faq3": 1,
+        "lv-faq-resources.faq4": 1,
+        "lv-faq-resources.faq5": 1,
+        "lv-faq-resources.resource1": 1,
+        "lv-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 119,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 29,
+        "y": 472.71875,
+        "width": 126,
+        "height": 74,
+        "right": 155,
+        "bottom": 546.71875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "width": 360,
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Поїздки зі Львова до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "lv-intro": 1,
+        "lv-select": 1,
+        "lv-actual-locality": 1,
+        "lv-outbound-return.outbound": 1,
+        "lv-outbound-return.return": 1,
+        "lv-nearby-examples.lviv-zhovkva": 1,
+        "lv-nearby-examples.lviv-yavoriv": 1,
+        "lv-nearby-examples.lviv-zolochiv": 1,
+        "lv-nearby-examples.lviv-sambir": 1,
+        "lv-route-cards": 1,
+        "lv-faq-resources.faq1": 1,
+        "lv-faq-resources.faq2": 1,
+        "lv-faq-resources.faq3": 1,
+        "lv-faq-resources.faq4": 1,
+        "lv-faq-resources.faq5": 1,
+        "lv-faq-resources.resource1": 1,
+        "lv-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 119,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 29,
+        "y": 433.84375,
+        "width": 146,
+        "height": 50,
+        "right": 175,
+        "bottom": 483.84375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "width": 375,
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Поїздки зі Львова до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "lv-intro": 1,
+        "lv-select": 1,
+        "lv-actual-locality": 1,
+        "lv-outbound-return.outbound": 1,
+        "lv-outbound-return.return": 1,
+        "lv-nearby-examples.lviv-zhovkva": 1,
+        "lv-nearby-examples.lviv-yavoriv": 1,
+        "lv-nearby-examples.lviv-zolochiv": 1,
+        "lv-nearby-examples.lviv-sambir": 1,
+        "lv-route-cards": 1,
+        "lv-faq-resources.faq1": 1,
+        "lv-faq-resources.faq2": 1,
+        "lv-faq-resources.faq3": 1,
+        "lv-faq-resources.faq4": 1,
+        "lv-faq-resources.faq5": 1,
+        "lv-faq-resources.resource1": 1,
+        "lv-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 119,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 29,
+        "y": 406.65625,
+        "width": 153.5,
+        "height": 50,
+        "right": 182.5,
+        "bottom": 456.65625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": [
+        {
+          "summary": "Пошук за назвою або латинкою",
+          "opened": true,
+          "text": "Пошук за назвою або латинкою\n\nІлюстрація стану: поля вимкнено."
+        },
+        {
+          "summary": "Що написати, якщо до Львова ще потрібно доїхати?",
+          "opened": true,
+          "text": "Що написати, якщо до Львова ще потрібно доїхати?\n\nПовідомте, звідки добираєтеся та коли плануєте бути у Львові. Погодьте місце й час зустрічі, перш ніж купувати квитки на попередню ділянку шляху."
+        },
+        {
+          "summary": "Як запитати про пересадку під час поїздки?",
+          "opened": true,
+          "text": "Як запитати про пересадку під час поїздки?\n\nЯкщо пересадка впливає на ваші плани, запитайте перевізника, чи передбачена вона для конкретної поїздки та як бути з багажем. Умови потрібно погодити окремо."
+        },
+        {
+          "summary": "Чи потрібно одразу знати дату повернення?",
+          "opened": true,
+          "text": "Чи потрібно одразу знати дату повернення?\n\nМожна підготувати звернення лише для виїзду. Коли визначите дату повернення, перемкніть пошук на «До України» й складіть окреме повідомлення. Якщо хочете обговорити обидві поїздки одразу, додайте дату повернення в текст WhatsApp."
+        },
+        {
+          "summary": "Що запитати, якщо подорожую з дитиною?",
+          "opened": true,
+          "text": "Що запитати, якщо подорожую з дитиною?\n\nУкажіть вік дитини й запитайте про вартість, дитяче крісло, багаж та потрібні для перевезення умови. Перевізник має підтвердити, що можна організувати саме для вашої поїздки."
+        },
+        {
+          "summary": "Як запитати про перевезення велосипеда?",
+          "opened": true,
+          "text": "Як запитати про перевезення велосипеда?\n\nНазвіть тип велосипеда, його розміри та бажану дату. Запитайте, чи можна його перевезти, як запакувати та яка вартість."
+        }
+      ]
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "width": 768,
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Поїздки зі Львова до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "lv-intro": 1,
+        "lv-select": 1,
+        "lv-actual-locality": 1,
+        "lv-outbound-return.outbound": 1,
+        "lv-outbound-return.return": 1,
+        "lv-nearby-examples.lviv-zhovkva": 1,
+        "lv-nearby-examples.lviv-yavoriv": 1,
+        "lv-nearby-examples.lviv-zolochiv": 1,
+        "lv-nearby-examples.lviv-sambir": 1,
+        "lv-route-cards": 1,
+        "lv-faq-resources.faq1": 1,
+        "lv-faq-resources.faq2": 1,
+        "lv-faq-resources.faq3": 1,
+        "lv-faq-resources.faq4": 1,
+        "lv-faq-resources.faq5": 1,
+        "lv-faq-resources.resource1": 1,
+        "lv-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 120,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 473.3125,
+        "width": 331,
+        "height": 50,
+        "right": 368,
+        "bottom": 523.3125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "width": 1280,
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Поїздки зі Львова до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "lv-intro": 1,
+        "lv-select": 1,
+        "lv-actual-locality": 1,
+        "lv-outbound-return.outbound": 1,
+        "lv-outbound-return.return": 1,
+        "lv-nearby-examples.lviv-zhovkva": 1,
+        "lv-nearby-examples.lviv-yavoriv": 1,
+        "lv-nearby-examples.lviv-zolochiv": 1,
+        "lv-nearby-examples.lviv-sambir": 1,
+        "lv-route-cards": 1,
+        "lv-faq-resources.faq1": 1,
+        "lv-faq-resources.faq2": 1,
+        "lv-faq-resources.faq3": 1,
+        "lv-faq-resources.faq4": 1,
+        "lv-faq-resources.faq5": 1,
+        "lv-faq-resources.resource1": 1,
+        "lv-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 120,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 53,
+        "y": 422.4375,
+        "width": 331,
+        "height": 50,
+        "right": 384,
+        "bottom": 472.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hubs/lviv.html",
+      "width": 1440,
+      "sha256": "d3fe292ecf8cfefbcfcb77d11f717c0521b9248d6356f94e8c27d498be17e472",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Поїздки зі Львова до Німеччини та назад"
+      ],
+      "keyCounts": {
+        "lv-intro": 1,
+        "lv-select": 1,
+        "lv-actual-locality": 1,
+        "lv-outbound-return.outbound": 1,
+        "lv-outbound-return.return": 1,
+        "lv-nearby-examples.lviv-zhovkva": 1,
+        "lv-nearby-examples.lviv-yavoriv": 1,
+        "lv-nearby-examples.lviv-zolochiv": 1,
+        "lv-nearby-examples.lviv-sambir": 1,
+        "lv-route-cards": 1,
+        "lv-faq-resources.faq1": 1,
+        "lv-faq-resources.faq2": 1,
+        "lv-faq-resources.faq3": 1,
+        "lv-faq-resources.faq4": 1,
+        "lv-faq-resources.faq5": 1,
+        "lv-faq-resources.resource1": 1,
+        "lv-contact-alternative": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 120,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 133,
+        "y": 422.4375,
+        "width": 331,
+        "height": 50,
+        "right": 464,
+        "bottom": 472.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "width": 320,
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Целле → Львів"
+      ],
+      "keyCounts": {
+        "cl-intro": 1,
+        "cl-meeting-locality": 1,
+        "cl-lviv-arrival": 1,
+        "cl-independent-onward": 1,
+        "cl-baggage-transfer": 1,
+        "cl-locality-changes": 1,
+        "cl-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 91,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 418,
+        "width": 280,
+        "height": 50,
+        "right": 300,
+        "bottom": 468
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "width": 360,
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Целле → Львів"
+      ],
+      "keyCounts": {
+        "cl-intro": 1,
+        "cl-meeting-locality": 1,
+        "cl-lviv-arrival": 1,
+        "cl-independent-onward": 1,
+        "cl-baggage-transfer": 1,
+        "cl-locality-changes": 1,
+        "cl-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 91,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 418,
+        "width": 320,
+        "height": 50,
+        "right": 340,
+        "bottom": 468
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "width": 375,
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Целле → Львів"
+      ],
+      "keyCounts": {
+        "cl-intro": 1,
+        "cl-meeting-locality": 1,
+        "cl-lviv-arrival": 1,
+        "cl-independent-onward": 1,
+        "cl-baggage-transfer": 1,
+        "cl-locality-changes": 1,
+        "cl-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 91,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 390.8125,
+        "width": 335,
+        "height": 50,
+        "right": 355,
+        "bottom": 440.8125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "width": 768,
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Целле → Львів"
+      ],
+      "keyCounts": {
+        "cl-intro": 1,
+        "cl-meeting-locality": 1,
+        "cl-lviv-arrival": 1,
+        "cl-independent-onward": 1,
+        "cl-baggage-transfer": 1,
+        "cl-locality-changes": 1,
+        "cl-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 91,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 356.4375,
+        "width": 331,
+        "height": 50,
+        "right": 351,
+        "bottom": 406.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "width": 1280,
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Целле → Львів"
+      ],
+      "keyCounts": {
+        "cl-intro": 1,
+        "cl-meeting-locality": 1,
+        "cl-lviv-arrival": 1,
+        "cl-independent-onward": 1,
+        "cl-baggage-transfer": 1,
+        "cl-locality-changes": 1,
+        "cl-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 91,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 36,
+        "y": 356.4375,
+        "width": 331,
+        "height": 50,
+        "right": 367,
+        "bottom": 406.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/celle-lviv.html",
+      "width": 1440,
+      "sha256": "b537feead7a318e053ee137212edb1b3c464aca3c9835ae7cd3adae8357b21e3",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Целле → Львів"
+      ],
+      "keyCounts": {
+        "cl-intro": 1,
+        "cl-meeting-locality": 1,
+        "cl-lviv-arrival": 1,
+        "cl-independent-onward": 1,
+        "cl-baggage-transfer": 1,
+        "cl-locality-changes": 1,
+        "cl-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 91,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 116,
+        "y": 356.4375,
+        "width": 331,
+        "height": 50,
+        "right": 447,
+        "bottom": 406.4375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "width": 320,
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Івано-Франківськ → Вольфсбург"
+      ],
+      "keyCounts": {
+        "iw-intro": 1,
+        "iw-arrival-locality": 1,
+        "iw-shared-departure": 1,
+        "iw-baggage-transfer": 1,
+        "iw-locality-changes": 1,
+        "iw-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 86,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 523.546875,
+        "width": 280,
+        "height": 50,
+        "right": 300,
+        "bottom": 573.546875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "width": 360,
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Івано-Франківськ → Вольфсбург"
+      ],
+      "keyCounts": {
+        "iw-intro": 1,
+        "iw-arrival-locality": 1,
+        "iw-shared-departure": 1,
+        "iw-baggage-transfer": 1,
+        "iw-locality-changes": 1,
+        "iw-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 86,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 457.484375,
+        "width": 320,
+        "height": 50,
+        "right": 340,
+        "bottom": 507.484375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "width": 375,
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Івано-Франківськ → Вольфсбург"
+      ],
+      "keyCounts": {
+        "iw-intro": 1,
+        "iw-arrival-locality": 1,
+        "iw-shared-departure": 1,
+        "iw-baggage-transfer": 1,
+        "iw-locality-changes": 1,
+        "iw-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 86,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 457.484375,
+        "width": 335,
+        "height": 50,
+        "right": 355,
+        "bottom": 507.484375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "width": 768,
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Івано-Франківськ → Вольфсбург"
+      ],
+      "keyCounts": {
+        "iw-intro": 1,
+        "iw-arrival-locality": 1,
+        "iw-shared-departure": 1,
+        "iw-baggage-transfer": 1,
+        "iw-locality-changes": 1,
+        "iw-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 86,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 380.125,
+        "width": 331,
+        "height": 50,
+        "right": 351,
+        "bottom": 430.125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "width": 1280,
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Івано-Франківськ → Вольфсбург"
+      ],
+      "keyCounts": {
+        "iw-intro": 1,
+        "iw-arrival-locality": 1,
+        "iw-shared-departure": 1,
+        "iw-baggage-transfer": 1,
+        "iw-locality-changes": 1,
+        "iw-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 86,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 36,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 367,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/ivano-frankivsk-wolfsburg.html",
+      "width": 1440,
+      "sha256": "e24f0dff78d03f0d1471848b3b014918aae7d22b4d3f0011f78ca00a1b5d3e2a",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Івано-Франківськ → Вольфсбург"
+      ],
+      "keyCounts": {
+        "iw-intro": 1,
+        "iw-arrival-locality": 1,
+        "iw-shared-departure": 1,
+        "iw-baggage-transfer": 1,
+        "iw-locality-changes": 1,
+        "iw-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 86,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 116,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 447,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "width": 320,
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Львів → Целле"
+      ],
+      "keyCounts": {
+        "lc-intro": 1,
+        "lc-arrival-locality": 1,
+        "lc-arrival-orientation": 1,
+        "lc-lviv-first-leg": 1,
+        "lc-questions": 1,
+        "lc-locality-changes": 1,
+        "lc-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 94,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 390.8125,
+        "width": 280,
+        "height": 50,
+        "right": 300,
+        "bottom": 440.8125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "width": 360,
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Львів → Целле"
+      ],
+      "keyCounts": {
+        "lc-intro": 1,
+        "lc-arrival-locality": 1,
+        "lc-arrival-orientation": 1,
+        "lc-lviv-first-leg": 1,
+        "lc-questions": 1,
+        "lc-locality-changes": 1,
+        "lc-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 94,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 363.625,
+        "width": 320,
+        "height": 50,
+        "right": 340,
+        "bottom": 413.625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "width": 375,
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Львів → Целле"
+      ],
+      "keyCounts": {
+        "lc-intro": 1,
+        "lc-arrival-locality": 1,
+        "lc-arrival-orientation": 1,
+        "lc-lviv-first-leg": 1,
+        "lc-questions": 1,
+        "lc-locality-changes": 1,
+        "lc-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 94,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 363.625,
+        "width": 335,
+        "height": 50,
+        "right": 355,
+        "bottom": 413.625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "width": 768,
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Львів → Целле"
+      ],
+      "keyCounts": {
+        "lc-intro": 1,
+        "lc-arrival-locality": 1,
+        "lc-arrival-orientation": 1,
+        "lc-lviv-first-leg": 1,
+        "lc-questions": 1,
+        "lc-locality-changes": 1,
+        "lc-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 94,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 351,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "width": 1280,
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Львів → Целле"
+      ],
+      "keyCounts": {
+        "lc-intro": 1,
+        "lc-arrival-locality": 1,
+        "lc-arrival-orientation": 1,
+        "lc-lviv-first-leg": 1,
+        "lc-questions": 1,
+        "lc-locality-changes": 1,
+        "lc-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 94,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 36,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 367,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-celle.html",
+      "width": 1440,
+      "sha256": "8ee9f43d0ea615985f7de8285282e71ceeb4d6188a0b6eeba87baa220c28d85a",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Львів → Целле"
+      ],
+      "keyCounts": {
+        "lc-intro": 1,
+        "lc-arrival-locality": 1,
+        "lc-arrival-orientation": 1,
+        "lc-lviv-first-leg": 1,
+        "lc-questions": 1,
+        "lc-locality-changes": 1,
+        "lc-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 94,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 116,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 447,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "width": 320,
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Львів → Ганновер"
+      ],
+      "keyCounts": {
+        "lh-intro": 1,
+        "lh-arrival-locality": 1,
+        "lh-independent-onward": 1,
+        "lh-lviv-first-leg": 1,
+        "lh-questions": 1,
+        "lh-actual-locality": 1,
+        "lh-changed-plan": 1,
+        "lh-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 457.484375,
+        "width": 280,
+        "height": 50,
+        "right": 300,
+        "bottom": 507.484375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "width": 360,
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Львів → Ганновер"
+      ],
+      "keyCounts": {
+        "lh-intro": 1,
+        "lh-arrival-locality": 1,
+        "lh-independent-onward": 1,
+        "lh-lviv-first-leg": 1,
+        "lh-questions": 1,
+        "lh-actual-locality": 1,
+        "lh-changed-plan": 1,
+        "lh-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 363.625,
+        "width": 320,
+        "height": 50,
+        "right": 340,
+        "bottom": 413.625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "width": 375,
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Львів → Ганновер"
+      ],
+      "keyCounts": {
+        "lh-intro": 1,
+        "lh-arrival-locality": 1,
+        "lh-independent-onward": 1,
+        "lh-lviv-first-leg": 1,
+        "lh-questions": 1,
+        "lh-actual-locality": 1,
+        "lh-changed-plan": 1,
+        "lh-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 363.625,
+        "width": 335,
+        "height": 50,
+        "right": 355,
+        "bottom": 413.625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "width": 768,
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Львів → Ганновер"
+      ],
+      "keyCounts": {
+        "lh-intro": 1,
+        "lh-arrival-locality": 1,
+        "lh-independent-onward": 1,
+        "lh-lviv-first-leg": 1,
+        "lh-questions": 1,
+        "lh-actual-locality": 1,
+        "lh-changed-plan": 1,
+        "lh-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 351,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "width": 1280,
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Львів → Ганновер"
+      ],
+      "keyCounts": {
+        "lh-intro": 1,
+        "lh-arrival-locality": 1,
+        "lh-independent-onward": 1,
+        "lh-lviv-first-leg": 1,
+        "lh-questions": 1,
+        "lh-actual-locality": 1,
+        "lh-changed-plan": 1,
+        "lh-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 36,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 367,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/lviv-hannover.html",
+      "width": 1440,
+      "sha256": "6a87f4e5ca1d71c1b31c786fbee1be339123deb40a934abeca8cead333aa9494",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Львів → Ганновер"
+      ],
+      "keyCounts": {
+        "lh-intro": 1,
+        "lh-arrival-locality": 1,
+        "lh-independent-onward": 1,
+        "lh-lviv-first-leg": 1,
+        "lh-questions": 1,
+        "lh-actual-locality": 1,
+        "lh-changed-plan": 1,
+        "lh-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 116,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 447,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "width": 320,
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Вольфсбург → Івано-Франківськ"
+      ],
+      "keyCounts": {
+        "wi-intro": 1,
+        "wi-meeting-locality": 1,
+        "wi-arrival-coordination": 1,
+        "wi-independent-onward": 1,
+        "wi-baggage-transfer": 1,
+        "wi-locality-changes": 1,
+        "wi-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 496.359375,
+        "width": 280,
+        "height": 50,
+        "right": 300,
+        "bottom": 546.359375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "width": 360,
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Вольфсбург → Івано-Франківськ"
+      ],
+      "keyCounts": {
+        "wi-intro": 1,
+        "wi-meeting-locality": 1,
+        "wi-arrival-coordination": 1,
+        "wi-independent-onward": 1,
+        "wi-baggage-transfer": 1,
+        "wi-locality-changes": 1,
+        "wi-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 457.484375,
+        "width": 320,
+        "height": 50,
+        "right": 340,
+        "bottom": 507.484375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "width": 375,
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Вольфсбург → Івано-Франківськ"
+      ],
+      "keyCounts": {
+        "wi-intro": 1,
+        "wi-meeting-locality": 1,
+        "wi-arrival-coordination": 1,
+        "wi-independent-onward": 1,
+        "wi-baggage-transfer": 1,
+        "wi-locality-changes": 1,
+        "wi-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 457.484375,
+        "width": 335,
+        "height": 50,
+        "right": 355,
+        "bottom": 507.484375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "width": 768,
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Вольфсбург → Івано-Франківськ"
+      ],
+      "keyCounts": {
+        "wi-intro": 1,
+        "wi-meeting-locality": 1,
+        "wi-arrival-coordination": 1,
+        "wi-independent-onward": 1,
+        "wi-baggage-transfer": 1,
+        "wi-locality-changes": 1,
+        "wi-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 380.125,
+        "width": 331,
+        "height": 50,
+        "right": 351,
+        "bottom": 430.125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "width": 1280,
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Вольфсбург → Івано-Франківськ"
+      ],
+      "keyCounts": {
+        "wi-intro": 1,
+        "wi-meeting-locality": 1,
+        "wi-arrival-coordination": 1,
+        "wi-independent-onward": 1,
+        "wi-baggage-transfer": 1,
+        "wi-locality-changes": 1,
+        "wi-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 36,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 367,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/routes/wolfsburg-ivano-frankivsk.html",
+      "width": 1440,
+      "sha256": "bc8aa2369a6fde9bb9014e9d1cf68796c83a040c48f61d13271be218be8982ca",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Вольфсбург → Івано-Франківськ"
+      ],
+      "keyCounts": {
+        "wi-intro": 1,
+        "wi-meeting-locality": 1,
+        "wi-arrival-coordination": 1,
+        "wi-independent-onward": 1,
+        "wi-baggage-transfer": 1,
+        "wi-locality-changes": 1,
+        "wi-inquiry": 1
+      },
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 88,
+      "forms": 1,
+      "scripts": 0,
+      "action": {
+        "x": 116,
+        "y": 329.25,
+        "width": 331,
+        "height": 50,
+        "right": 447,
+        "bottom": 379.25
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "width": 320,
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Стани пошуку та звернення"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 124,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 949.46875,
+        "width": 246,
+        "height": 74,
+        "right": 283,
+        "bottom": 1023.46875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "width": 360,
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Стани пошуку та звернення"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 124,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 874.015625,
+        "width": 286,
+        "height": 50,
+        "right": 323,
+        "bottom": 924.015625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "width": 375,
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Стани пошуку та звернення"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 124,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 802.046875,
+        "width": 301,
+        "height": 50,
+        "right": 338,
+        "bottom": 852.046875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "width": 768,
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Стани пошуку та звернення"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 124,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 545.59375,
+        "width": 331,
+        "height": 50,
+        "right": 368,
+        "bottom": 595.59375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "width": 1280,
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Стани пошуку та звернення"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 124,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 53,
+        "y": 473.625,
+        "width": 331,
+        "height": 50,
+        "right": 384,
+        "bottom": 523.625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "width": 1440,
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Стани пошуку та звернення"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 124,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 133,
+        "y": 473.625,
+        "width": 331,
+        "height": 50,
+        "right": 464,
+        "bottom": 523.625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "width": 320,
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Допомагаємо підготувати поїздку"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 53,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "width": 360,
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Допомагаємо підготувати поїздку"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 53,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "width": 375,
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Допомагаємо підготувати поїздку"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 53,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "width": 768,
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Допомагаємо підготувати поїздку"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 53,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "width": 1280,
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Допомагаємо підготувати поїздку"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 53,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/about.html",
+      "width": 1440,
+      "sha256": "0be46d8016644e8a4cfad5a52dcab847897a6eea6fbfa5b0576865e62522bb16",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Допомагаємо підготувати поїздку"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 53,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "width": 320,
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Перевезення велосипеда: що погодити з перевізником"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 46,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 2028.859375,
+        "width": 280,
+        "height": 74,
+        "right": 300,
+        "bottom": 2102.859375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "width": 360,
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Перевезення велосипеда: що погодити з перевізником"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 46,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 1943.8125,
+        "width": 320,
+        "height": 74,
+        "right": 340,
+        "bottom": 2017.8125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "width": 375,
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Перевезення велосипеда: що погодити з перевізником"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 46,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 20,
+        "y": 1834.96875,
+        "width": 335,
+        "height": 74,
+        "right": 355,
+        "bottom": 1908.96875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": [
+        {
+          "summary": "Що повідомити про велосипед?",
+          "opened": true,
+          "text": "Що повідомити про велосипед?\n\nНазвіть тип, розміри та приблизну вагу велосипеда. Для електровелосипеда окремо опишіть акумулятор і запитайте, чи можливе перевезення."
+        },
+        {
+          "summary": "Як підготувати велосипед?",
+          "opened": true,
+          "text": "Як підготувати велосипед?\n\nСпочатку погодьте вимоги до пакування та допустимі габарити. Потребу розбирання й порядок робіт уточніть для вашої моделі; за потреби зверніться до майстра."
+        },
+        {
+          "summary": "Що погодити до виїзду?",
+          "opened": true,
+          "text": "Що погодити до виїзду?\n\nЗапитайте про можливість перевезення на потрібну дату, загальну вартість, завантаження й отримання велосипеда. Не купуйте пакування лише на підставі загальних порад."
+        }
+      ]
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "width": 768,
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Перевезення велосипеда: що погодити з перевізником"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 46,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 48,
+        "y": 1352.09375,
+        "width": 331,
+        "height": 74,
+        "right": 379,
+        "bottom": 1426.09375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "width": 1280,
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Перевезення велосипеда: що погодити з перевізником"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 46,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 304,
+        "y": 1356.09375,
+        "width": 331,
+        "height": 74,
+        "right": 635,
+        "bottom": 1430.09375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/guide.html",
+      "width": 1440,
+      "sha256": "c63842c7489e5a86cd50c1879f6b7e3e5efa7654b474dab6f60b9d28d600dc69",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Перевезення велосипеда: що погодити з перевізником"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 46,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 384,
+        "y": 1356.09375,
+        "width": 331,
+        "height": 74,
+        "right": 715,
+        "bottom": 1430.09375
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "width": 320,
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Поїздки між Україноюта Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 48,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 473.5625,
+        "width": 246,
+        "height": 50,
+        "right": 283,
+        "bottom": 523.5625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "width": 360,
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Поїздки між Україноюта Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 48,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 473.5625,
+        "width": 286,
+        "height": 50,
+        "right": 323,
+        "bottom": 523.5625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "width": 375,
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Поїздки між Україноюта Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 48,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 473.5625,
+        "width": 301,
+        "height": 50,
+        "right": 338,
+        "bottom": 523.5625
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": [
+        {
+          "summary": "Пошук за назвою або латинкою",
+          "opened": true,
+          "text": "Пошук за назвою або латинкою\n\nЗвідки: Львів або Lviv\nКуди: Целле або Celle"
+        }
+      ]
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "width": 768,
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Поїздки між Україноюта Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 48,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 402.703125,
+        "width": 331,
+        "height": 50,
+        "right": 368,
+        "bottom": 452.703125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "width": 1280,
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Поїздки між Україноюта Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 48,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 53,
+        "y": 402.703125,
+        "width": 331,
+        "height": 50,
+        "right": 384,
+        "bottom": 452.703125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/home.html",
+      "width": 1440,
+      "sha256": "5c62f1b40aaf2b9e2a5ddb42bc0b445c7f8f8914d258e76235ff2cd7924010ca",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Поїздки між Україноюта Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 48,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 133,
+        "y": 402.703125,
+        "width": 331,
+        "height": 50,
+        "right": 464,
+        "bottom": 452.703125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "width": 320,
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Відомості про оператора"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 42,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "width": 360,
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Відомості про оператора"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 42,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "width": 375,
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Відомості про оператора"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 42,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "width": 768,
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Відомості про оператора"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 42,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "width": 1280,
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Відомості про оператора"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 42,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/imprint.html",
+      "width": 1440,
+      "sha256": "3a34271d92dc2f83f595c99480e292372b7d6bfa2dce3ffbc597932f565ef660",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Відомості про оператора"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 42,
+      "forms": 0,
+      "scripts": 0,
+      "action": null,
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "width": 320,
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "viewport": {
+        "width": 320,
+        "height": 812,
+        "scrollWidth": 320
+      },
+      "h1": [
+        "Поїздки між Україною та Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 45,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 594.921875,
+        "width": 246,
+        "height": 50,
+        "right": 283,
+        "bottom": 644.921875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "width": 360,
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "viewport": {
+        "width": 360,
+        "height": 812,
+        "scrollWidth": 360
+      },
+      "h1": [
+        "Поїздки між Україною та Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 45,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 594.921875,
+        "width": 286,
+        "height": 50,
+        "right": 323,
+        "bottom": 644.921875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "width": 375,
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "scrollWidth": 375
+      },
+      "h1": [
+        "Поїздки між Україною та Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 45,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 594.921875,
+        "width": 301,
+        "height": 50,
+        "right": 338,
+        "bottom": 644.921875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": [
+        {
+          "summary": "Пошук за назвою або латинкою",
+          "opened": true,
+          "text": "Пошук за назвою або латинкою\n\nЗвідки: Львів або Lviv\nКуди: Целле або Celle"
+        }
+      ]
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "width": 768,
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "scrollWidth": 768
+      },
+      "h1": [
+        "Поїздки між Україною та Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 45,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 37,
+        "y": 469.6875,
+        "width": 331,
+        "height": 50,
+        "right": 368,
+        "bottom": 519.6875
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "width": 1280,
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "scrollWidth": 1280
+      },
+      "h1": [
+        "Поїздки між Україною та Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 45,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 53,
+        "y": 418.8125,
+        "width": 331,
+        "height": 50,
+        "right": 384,
+        "bottom": 468.8125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    },
+    {
+      "file": "docs/Marketing/SEO/mitigation-2026-10/design-assets/support/routes-index.html",
+      "width": 1440,
+      "sha256": "ee9c63f0143b471bc848bfdcb633abc3e59aca9993538b1456fb2189964bb7ad",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440
+      },
+      "h1": [
+        "Поїздки між Україною та Німеччиною"
+      ],
+      "keyCounts": {},
+      "contrastMin": 5.5242813074736095,
+      "contrastSamples": 45,
+      "forms": 0,
+      "scripts": 0,
+      "action": {
+        "x": 133,
+        "y": 418.8125,
+        "width": 331,
+        "height": 50,
+        "right": 464,
+        "bottom": 468.8125
+      },
+      "external": [],
+      "errors": [],
+      "failed": [],
+      "faqChecks": []
+    }
+  ],
+  "field_presence": "69prioritykeys present; DOMcopyinclnativeFAQclosedanswers. Independentreviewerexact94keys checker. FAQdisclosureclickseparatelyasserted375.",
+  "scope": "Designboardsnotapplication; staticstatesnotruntimebehavior. Nativezoomseparate native-zoom.json.",
+  "screenshots": "Privateboard-qa initial375+full375/1440; scriptandrawchecks retainedignored.",
+  "coordinator_check_correction": "Initially toggled pre-open guide details closed because empty open attribute was treated falsey; corrected to null comparison and reran guide all6widths. No board defect or edit.",
+  "docs_checks": "docs:index/docs:check passed541filelinks71Markdown52concepts14indexes8datedobservations",
+  "shared_css_sha256": "7b6b050310be8edea2940911d8fd5fe68e531da416de3e3321ec65a621f2c286",
+  "final_hub_correction": "Fullwidthstacked16pxcityfields;72pxheader;compactoptionalspacing;directionbuttons2cols;explicitnavymenucontrast.Independentcomputedselectedvaluefitsnativecontrol."
+}

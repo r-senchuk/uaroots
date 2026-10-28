@@ -1,0 +1,29 @@
+{
+  "prepared_at": "2026-10-28",
+  "scope": "R9 baseline-gap follow-up; read-only source and tool discovery",
+  "status": "ready with explicit unknowns",
+  "new_provider_observations": false,
+  "method": "Read S01 baseline, measurement contract, S10-S12 handoff and saved sanitized provider transcriptions; searched available tool metadata for Search Console, Search Analytics, Bing and Webmaster. No dedicated matching provider connector was exposed. Browser controlled separately by coordinator; no browser, GSC Wizard, authentication or account changes attempted.",
+  "historical_evidence": {
+    "observed_at": "2026-10-27",
+    "method": "signed-in Chrome UI transcription, not raw export or live test",
+    "property": "sc-domain:uaroute.com",
+    "search_type": "Web",
+    "timezone": "Pacific Time",
+    "current_window": ["2026-09-27", "2026-10-24"],
+    "previous_window": ["2026-08-30", "2026-09-26"],
+    "property_totals": {"current": {"clicks": 0, "impressions": 100, "ctr_percent": 0, "average_position": 54}, "previous": {"clicks": 0, "impressions": 3, "ctr_percent": 0, "average_position": 4}},
+    "limitations": "Property totals and unfiltered query rows do not attribute exposure to pages; final export not obtained and values may revise. Prior average position with no impressions is unavailable, not zero. Small and different query mixes do not establish ranking change.",
+    "inspection_summary": "Five stored indexed results and two discovered-currently-not-indexed results; state is dated and not a current live test.",
+    "sources": ["ops/evidence/seo-s01-s02-2026-10-27/gsc-performance.json", "ops/evidence/seo-s01-s02-2026-10-27/gsc-inspections.json", "docs/Marketing/SEO/mitigation-2026-10/search-baseline.md"]
+  },
+  "priority_urls": ["https://uaroute.com/routes/lviv-hannover/", "https://uaroute.com/cities/lviv/", "https://uaroute.com/cities/ivano-frankivsk/", "https://uaroute.com/routes/lviv-celle/", "https://uaroute.com/routes/celle-lviv/", "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/", "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/"],
+  "unavailable": ["page comparisons for all seven URLs", "page-filtered query, country and device breakdowns", "Google AI report contents and inclusion setting", "Bing property access and AI citation data"],
+  "requests": [
+    {"provider": "Google Search Console", "request": "Export Pages comparison for the property, Web search and two exact windows above. For each priority page with exposure, export page-filtered Queries, Countries and Devices comparison tables; retain full page URL, metric columns, filters, report dates, timezone, last-update/finality and any row limits or anonymization. Record absent/unavailable tables as such rather than inferring zero."},
+    {"provider": "Google Search Console", "request": "Read or export the generative AI report for the property and the same windows if available; capture impression dimensions offered, filters, report availability/limitations and the displayed inclusion setting. Record missing access or insufficient data as observed, not zero."},
+    {"provider": "Bing Webmaster Tools", "request": "If access to the UARoute property already exists, capture dated AI Performance view/export: selected window, cited pages, citation counts, available sampled grounding queries, availability and limitations. Note Topics Portfolio availability separately if shown. If inaccessible, record access as unknown; do not create or change the property."}
+  ],
+  "boundaries": "Google AI impressions, Bing citations, consented analytics sessions and handoffs are distinct; no GA4 query was needed to fill provider report gaps. No exposure clock starts before actual release or placement. These missing provider reports are not independent release vetoes.",
+  "decision_readiness": "Ready to hand off exact missing export requests; page-specific snippet experiments and AI visibility conclusions remain unsupported until corresponding usable evidence is obtained."
+}

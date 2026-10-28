@@ -1,0 +1,41 @@
+{
+  "export": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-mitigation-execution-2026-10-28-private/implementation/candidate/out",
+  "browser": "156.0.8078.48",
+  "configuration": {
+    "widths": [
+      320,
+      360,
+      375,
+      768,
+      1280,
+      1440
+    ],
+    "height": 812,
+    "fonts": "document.fonts.ready + 2 animation frames",
+    "external": "all nonlocal requests and handoffs blocked before navigation",
+    "serviceWorkers": "block",
+    "nativeCalendar": "unverified",
+    "nativeKeyboard": "unverified",
+    "nativeZoom": "unverified"
+  },
+  "checks": [
+    {
+      "name": "actual source helper sizes and contrast in light and dark",
+      "passed": true
+    },
+    {
+      "name": "hub first controls precede explanation, autocomplete keyboard and nearby focus",
+      "passed": true
+    },
+    {
+      "name": "actual inquiry heading focus, date validation, consent-open and keyboard single submit",
+      "passed": true
+    }
+  ],
+  "geometry": [],
+  "runtimeErrors": [],
+  "externalBlocked": 0,
+  "screenshots": [
+    "consent-open.png"
+  ]
+}

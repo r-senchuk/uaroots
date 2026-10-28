@@ -1,0 +1,48 @@
+{
+  "reviewer": "S09 independent recomputation",
+  "settings_identical": true,
+  "rows": [
+    {
+      "url": "/",
+      "baseline_runs": 3,
+      "candidate_runs": 3,
+      "lcp_delta_ms": 76,
+      "lcp_delta_percent": 2.3255813953488373,
+      "cls_delta": -5.749231564015564e-05,
+      "trigger": false
+    },
+    {
+      "url": "/cities/lviv/",
+      "baseline_runs": 3,
+      "candidate_runs": 3,
+      "lcp_delta_ms": 68,
+      "lcp_delta_percent": 2.103960396039604,
+      "cls_delta": -0.0004527501858817418,
+      "trigger": false
+    },
+    {
+      "url": "/routes/lviv-hannover/",
+      "baseline_runs": 3,
+      "candidate_runs": 3,
+      "lcp_delta_ms": 48,
+      "lcp_delta_percent": 1.5151515151515151,
+      "cls_delta": 0.0,
+      "trigger": false
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "baseline_runs": 3,
+      "candidate_runs": 3,
+      "lcp_delta_ms": 16,
+      "lcp_delta_percent": 0.5547850208044383,
+      "cls_delta": 0.0,
+      "trigger": false
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "fieldCWV/INP unknown",
+    "three runs do not establish meaningful improvement",
+    "guideCLS existing .168581 remains"
+  ]
+}

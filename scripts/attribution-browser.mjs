@@ -50,6 +50,7 @@ try {
   const context = await browser.newContext({
     locale: "uk-UA",
     reducedMotion: "reduce",
+    serviceWorkers: "block",
   });
   context.setDefaultTimeout(8000);
   await context.route("**/*", async (route) => {

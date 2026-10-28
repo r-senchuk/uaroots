@@ -39,12 +39,12 @@ export function JourneyActions({
   }
 
   return (
-    <div data-journey-actions data-primary-channel={hasDesk ? "whatsapp" : "website"} className="mt-4 flex min-w-0 flex-wrap items-center gap-3">
+    <div data-journey-actions data-primary-channel={hasDesk ? "whatsapp" : "website"} className="mt-4 flex min-w-0 flex-col items-stretch sm:flex-row sm:flex-wrap sm:items-center gap-3">
       {hasDesk ? (
         <a
           href={`#${anchorId}`}
           onClick={focusInquiry}
-          className="inline-flex max-w-full min-h-12 min-w-0 items-center justify-center gap-2 bg-primary px-5 py-3 type-button text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground transition-colors hover:bg-primary-hover"
+          className="inline-flex max-w-full min-h-12 min-w-0 items-center justify-center gap-2 bg-primary px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground transition-colors hover:bg-primary-hover"
         >
           <WhatsAppIcon />
           Уточнити поїздку в WhatsApp
@@ -58,13 +58,13 @@ export function JourneyActions({
           routeSlug={routeSlug}
           referralContext={{ originCityId, destinationCityId, sourcePath }}
           className={hasDesk
-            ? "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center border border-border-strong px-5 py-3 type-button text-center whitespace-normal [overflow-wrap:anywhere] hover:bg-secondary"
-            : "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center bg-primary px-5 py-3 type-button text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground hover:bg-primary-hover"}
+            ? "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center border border-foreground px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] hover:bg-secondary"
+            : "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center bg-primary px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground hover:bg-primary-hover"}
         >
           {hasDesk ? "Сайт перевізника ↗" : "Перейти на сайт перевізника ↗"}
         </KovalReferralLink>
       ) : null}
-      {website ? <p className="basis-full text-sm text-muted-foreground">Посилання «Сайт перевізника» відкриє зовнішній сайт. Дата й телефон не потрібні.</p> : null}
+      {website ? <p className="basis-full text-sm text-muted-foreground">Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон.</p> : null}
     </div>
   );
 }

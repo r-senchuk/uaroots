@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-28",
+  "scope": "Full seven-page local mitigation through S09; S10 release/S11 posting remain separately authorized stages.",
+  "source_head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+  "dispatches": [
+    {
+      "session": "P0",
+      "model_requested": "gpt-6-luna",
+      "reasoning_requested": "medium",
+      "result": "ready"
+    },
+    {
+      "session": "S05-A",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "designed;acceptedaftercorrections"
+    },
+    {
+      "session": "S06-A",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "readywithunknowns;nocodechange"
+    },
+    {
+      "session": "S06-B",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "readywithunknowns;lockedbaseline16.4"
+    },
+    {
+      "session": "S05-B",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "acceptedaftercorrections"
+    },
+    {
+      "session": "S05-C",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "acceptedaftercorrections"
+    },
+    {
+      "session": "S05-D",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "acceptedaftercorrections"
+    },
+    {
+      "session": "S05-E",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "independentG1accepted"
+    },
+    {
+      "session": "S07",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "G2readywithunknownsaccepted"
+    },
+    {
+      "session": "S08",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns; local implementation independently accepted"
+    },
+    {
+      "session": "S09",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns; G3 local passed, release not cleared"
+    },
+    {
+      "session": "S10–S12 handoff preparation",
+      "model_requested": "gpt-6-luna",
+      "reasoning_requested": "medium",
+      "result": "ready; coordinator updated final native results and preserved conditional authorization"
+    }
+  ],
+  "reported_underlying_provider_model": "unavailable;requestedsettings are orchestratordispatchlabels",
+  "model_calls_tokens_cost": "unavailable forcollaborationsessions; noinventedcounts",
+  "nexter_preset": "spawnrefused unavailable; noagentcreated; sameSolhighdispatchedasworkerwithNextJSexpertresponsibility",
+  "vibe_starts": 0,
+  "commits_push_publication_messages": 0,
+  "G1": "passeddesigned+previewonly",
+  "G2": "passedcoordinatorinputhashreadback+docsgate",
+  "G3": "G3_PASSED_WITH_EXPLICIT_RELEASE_HOLDS",
+  "original_dirty_app_fix": "8filesbyteidenticaltoreleasedff1e4d0;preserveasbaseline",
+  "environment": "Node22cached; exactlockNext16.4+depsinstalledisolatedprivate; rootoldnode_modules16.3.8unchanged; oldbaselinepreservedsuperseded",
+  "cleanup": "All specialist tasks finished; owned preview/test servers stopped; Chrome100% restored, task tab closed and user window restored. Ignored dependency/baseline/candidate/export/evidence copies retained for reproduction. Root dependency libraries/build/export preserved; ignored Vitest-cache exception recorded. Staging remains empty.",
+  "execution_state": "Local implementation and independent review complete; no release.",
+  "verification_result": "Accepted staged application evidence, independent S09 review and coordinator native application checks.",
+  "acceptance_decision": "Accept local candidate; release_cleared=false.",
+  "research_completeness": "Explicit search/AI/field/provider/real-device/screen-reader/human evidence gaps; no fabricated zero demand or outcomes.",
+  "vibe_usefulness": "Not evaluated in this execution; no new Vibe starts. Historical trials preserved separately.",
+  "checks_accounting": {
+    "stable_check": "Whole check reached inspector; nested-section oracle failed. Original retained; independent fixtures and affected checks subsequently pass. Combined evidence, not whole-command success.",
+    "responsive_authored": "216/216",
+    "passenger_independent": "33/33",
+    "focused_independent": "3/3",
+    "poc_final": "23/23; original21/23 preserved",
+    "native_application_zoom": "12/12 at actual Chrome200%, plus native select keyboard and blank-form error/focus checks",
+    "performance": "Matched12 observations; no configured regression investigation trigger; existing guide CLS remains."
+  },
+  "source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "coordinator_corrections": [
+    "S05 copy/contrast/native-select fit and early action issues returned to assigned owners before acceptance.",
+    "Final POC oracle aligned only after independent compiled receiver proof; original failure preserved, receiver bytes unchanged.",
+    "Final source manifest differs from performance-era manifest only in QA script scripts/poc-browser.mjs; export unchanged.",
+    "Preliminary root focused test updated ignored Vitest cache only and was excluded from acceptance; accepted checks used isolated locked dependencies.",
+    "Handoff corrected stale pending native zoom/select status; no human study or missing field data invented as new release requirement."
+  ],
+  "final_documentation_checks": {
+    "index": "PASS:58 concepts/14 directory indexes",
+    "docs": "PASS:600 available local file links/77 Markdown files; external links and anchors not checked",
+    "state": "PASS:8 dated observations consistent; not live verification",
+    "diff_whitespace": "PASS",
+    "kb_checks": "not applicable; no KB records changed",
+    "application_rebuild": "not repeated; final changes documentation/state/evidence only"
+  },
+  "completion_record": "ops/evidence/seo-mitigation-execution-2026-10-28/completion.json"
+}

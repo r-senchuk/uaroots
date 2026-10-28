@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "status": "Finaldesigncontract;independentacceptancepending",
+  "source_head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+  "working_tree": "Includes preserved calendar fix ff1e4d0; baseline.json owns dirty scope gate",
+  "frozen_inputs": [
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "sha256": "1fddb37481c3be4ec5f8744fbbc702a357d5e71c71f654a50e3f2d1638a8445b",
+      "verified_match": true
+    },
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/content-package.md",
+      "sha256": "3823d1bede46a27bc1a61a6c2f307c1db6702e89ace011d12b32cbfeb6d57fae",
+      "verified_match": true
+    },
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "sha256": "4ddebaf8524f7162443198045b48cd88c95fd90bfad5e6cd5788a99e50cec9d0",
+      "verified_match": true
+    },
+    {
+      "path": "ops/evidence/seo-s04-2026-10-27/copy-records.json",
+      "sha256": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+      "verified_match": true
+    }
+  ],
+  "owned_artifacts": [
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "sha256": "2b145a258d66e48281995f5a4064c2186568e1e77638f0d09cbf30682ad8cce2"
+    },
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/design-assets/board.css",
+      "sha256": "7b6b050310be8edea2940911d8fd5fe68e531da416de3e3321ec65a621f2c286"
+    },
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504"
+    }
+  ],
+  "immutable_history": {
+    "path": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hannover-route-375.html",
+    "sha256": "9b0ceeea4b09d5dc9c79286d115c7839fcb2df3d18b7a759f4df2f2c6d756fb5",
+    "edited": false
+  },
+  "viewport_rules": {
+    "360x800": "single column, gutter20 body16 helper14 target44",
+    "375x812": "single column; complete primary initial action target; measure actual bounds",
+    "768": "route stacked; H1 48; form p24; no narrow sidebar",
+    "1024+": "grid minmax(0,1fr) minmax(320px,380px), gap32",
+    "1280x900": "shell1248 inner1208 left796 right380 gap32",
+    "1440x900": "same capped shell; margins96 then20 inner gutter",
+    "320_css_reflow": "required; distinct real layout width, no clipping/sideways interaction",
+    "true_browser_200_zoom": "required native browser zoom, record effective viewport; not author-run"
+  },
+  "font_source": "src/assets/fonts/fonts.css via offline relative import; current bundled Playfair/IBM Plex",
+  "copy_source": "ops/evidence/seo-s04-2026-10-27/copy-records.json",
+  "page_coverage": [
+    {
+      "url": "/routes/lviv-hannover/",
+      "kind": "route",
+      "h1": "Львів → Ганновер",
+      "keys": [
+        "lh-intro",
+        "lh-arrival-locality",
+        "lh-independent-onward",
+        "lh-lviv-first-leg",
+        "lh-questions",
+        "lh-actual-locality",
+        "lh-changed-plan",
+        "lh-inquiry"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "BookingWidget/JourneyActions/Faq/RelatedRoutes"
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "kind": "route",
+      "h1": "Львів → Целле",
+      "keys": [
+        "lc-intro",
+        "lc-arrival-locality",
+        "lc-arrival-orientation",
+        "lc-lviv-first-leg",
+        "lc-questions",
+        "lc-locality-changes",
+        "lc-inquiry"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "BookingWidget/JourneyActions/Faq/RelatedRoutes"
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "kind": "route",
+      "h1": "Целле → Львів",
+      "keys": [
+        "cl-intro",
+        "cl-meeting-locality",
+        "cl-lviv-arrival",
+        "cl-independent-onward",
+        "cl-baggage-transfer",
+        "cl-locality-changes",
+        "cl-inquiry"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "BookingWidget/JourneyActions/Faq/RelatedRoutes"
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "kind": "route",
+      "h1": "Івано-Франківськ → Вольфсбург",
+      "keys": [
+        "iw-intro",
+        "iw-arrival-locality",
+        "iw-shared-departure",
+        "iw-baggage-transfer",
+        "iw-locality-changes",
+        "iw-inquiry"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "BookingWidget/JourneyActions/Faq/RelatedRoutes"
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "kind": "route",
+      "h1": "Вольфсбург → Івано-Франківськ",
+      "keys": [
+        "wi-intro",
+        "wi-meeting-locality",
+        "wi-arrival-coordination",
+        "wi-independent-onward",
+        "wi-baggage-transfer",
+        "wi-locality-changes",
+        "wi-inquiry"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "BookingWidget/JourneyActions/Faq/RelatedRoutes"
+    },
+    {
+      "url": "/cities/lviv/",
+      "kind": "hub",
+      "h1": "Поїздки зі Львова до Німеччини та назад",
+      "keys": [
+        "lv-intro",
+        "lv-select",
+        "lv-actual-locality",
+        "lv-outbound-return.outbound",
+        "lv-outbound-return.return",
+        "lv-nearby-examples.lviv-zhovkva",
+        "lv-nearby-examples.lviv-yavoriv",
+        "lv-nearby-examples.lviv-zolochiv",
+        "lv-nearby-examples.lviv-sambir",
+        "lv-route-cards",
+        "lv-faq-resources.faq1",
+        "lv-faq-resources.faq2",
+        "lv-faq-resources.faq3",
+        "lv-faq-resources.faq4",
+        "lv-faq-resources.faq5",
+        "lv-faq-resources.resource1",
+        "lv-contact-alternative"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "RouteSearch/NearbyPlaces/Faq"
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "kind": "hub",
+      "h1": "Поїздки з Івано-Франківська до Німеччини та назад",
+      "keys": [
+        "if-intro",
+        "if-select",
+        "if-actual-locality",
+        "if-outbound-return.outbound",
+        "if-outbound-return.return",
+        "if-nearby-examples.if-kolomyia",
+        "if-nearby-examples.if-tysmenytsia",
+        "if-nearby-examples.if-rogatyn",
+        "if-nearby-examples.if-bohorodchany",
+        "if-route-cards",
+        "if-faq-resources.faq1",
+        "if-faq-resources.faq2",
+        "if-faq-resources.faq3",
+        "if-faq-resources.faq4",
+        "if-faq-resources.faq5",
+        "if-faq-resources.resource1",
+        "if-contact-alternative"
+      ],
+      "links": "exact retained_links plus records links",
+      "component": "RouteSearch/NearbyPlaces/Faq"
+    }
+  ],
+  "shared_keys": [
+    "shared.action",
+    "shared.contact-alternative",
+    "shared.role",
+    "shared.caption",
+    "shared.desk"
+  ],
+  "support_coverage": {
+    "guide": {
+      "url": "/guides/perevezennya-velosypeda/",
+      "metadata": {
+        "title": "Перевезення велосипеда: що погодити з перевізником | UARoute",
+        "description": "Як запитати про перевезення велосипеда: тип, розміри, пакування, дата та вартість. Можливість перевезення підтверджує перевізник."
+      },
+      "keys": [
+        "guide.intro",
+        "guide.faq1",
+        "guide.faq2",
+        "guide.faq3",
+        "guide.customs",
+        "guide.handoff"
+      ],
+      "retained_navigation": [
+        {
+          "label": "Львів ↔ Німеччина",
+          "url": "/cities/lviv/"
+        },
+        {
+          "label": "Івано-Франківськ ↔ Німеччина",
+          "url": "/cities/ivano-frankivsk/"
+        },
+        {
+          "label": "Стрий ↔ Німеччина",
+          "url": "/cities/stryi/"
+        },
+        {
+          "label": "Целле ↔ Україна",
+          "url": "/cities/celle/"
+        },
+        {
+          "label": "Усі маршрути",
+          "url": "/routes/"
+        }
+      ],
+      "schema_historical": {
+        "datePublished": "2026-10-17",
+        "dateModified": "2026-10-25",
+        "author": {
+          "@type": "Organization",
+          "name": "UARoute"
+        },
+        "status": "retain current fields; new date/author assertions deferred under G-schema"
+      }
+    },
+    "about": {
+      "url": "/about/",
+      "metadata": {
+        "title": "Про UARoute — допомагаємо підготувати поїздку",
+        "description": "Як UARoute допомагає вибрати напрямок між Україною та Німеччиною, визначити питання про поїздку та зв’язатися з перевізником."
+      },
+      "keys": [
+        "about.hero",
+        "about.principle1",
+        "about.principle2",
+        "about.principle3",
+        "about.start",
+        "about.privacy",
+        "about.identity",
+        "about.photo",
+        "shared.role",
+        "about.pilot"
+      ]
+    },
+    "imprint": {
+      "url": "/imprint/",
+      "metadata": {
+        "title": "Відомості про оператора UARoute",
+        "description": "Оператор UARoute — Roman Senchuk, польська JDG. Бізнес-бренд Crew Bravo, контактні дані та роль транспортного партнера.",
+        "h1": "Відомості про оператора"
+      },
+      "keys": [
+        "imprint.identity",
+        "imprint.operatorName",
+        "imprint.legalForm",
+        "imprint.brand",
+        "imprint.contactAddress",
+        "imprint.email",
+        "imprint.website",
+        "imprint.role",
+        "imprint.reservation"
+      ]
+    }
+  },
+  "state_ids": [
+    "route-initial",
+    "no-desk",
+    "form-invalid",
+    "form-valid",
+    "unknown-date",
+    "search-published",
+    "search-inline",
+    "search-unsupported",
+    "sticky-before",
+    "sticky-after",
+    "sticky-keyboard",
+    "sticky-fallback",
+    "consent-open",
+    "consent-closed",
+    "baseline-motion",
+    "faq-locality"
+  ],
+  "preserve": [
+    "one inquiry form and provider/unique IDs per current surface",
+    "direct user datepicker activation only",
+    "early CTA/error-date focus heading, instant scroll, preventScroll",
+    "validation strings1-8; same submit sticky",
+    "commercial-only published/inline/fallback distinction",
+    "pair reversal and expected countries",
+    "current desk/referral IDs URLs allowlists",
+    "first-touch separate from current target; no private data telemetry",
+    "consent and baseline no-JS site path"
+  ],
+  "five_guide_link_keys": [
+    "lh-questions",
+    "lc-questions",
+    "cl-baggage-transfer",
+    "iw-baggage-transfer",
+    "wi-baggage-transfer"
+  ],
+  "usability": {
+    "protocol": "existing passenger S01-S07; 5-8 new participants",
+    "status": "NOT RUN",
+    "participants": 0,
+    "sessions": 0
+  },
+  "verification": {
+    "author_source_inspection": true,
+    "frozen_hashes": true,
+    "inert_stateboard_static_checks": "author parser passed: 16 states, no script, all controls disabled, local anchors valid, font import path exists; coordinator independent review pending",
+    "browser_rendered": false,
+    "native_zoom": false,
+    "application_runtime": false,
+    "publication": false,
+    "human_usability": false
+  },
+  "downstream": {
+    "S07": "bind final board/copy hashes, exact consumers, scoped CSS and oracle manifest; S06 required",
+    "S08": "sole app implementation; do not ship standalone board styles/disabled controls",
+    "S09": "independent actual candidate verification"
+  },
+  "unknowns": [
+    "measured board fit and font load",
+    "320 reflow and native200 zoom",
+    "real keyboard/native calendar/consent/sticky behavior",
+    "affected dark-mode contrast",
+    "actual app static export/referral/privacy/performance",
+    "human usability and carrier receipt"
+  ],
+  "author_snapshot_artifacts": [
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/design-handoff.md",
+      "sha256": "96474384164fc855ca33dbe7eab75b6fce0da214e5c172a44a75df717b8f7f5a"
+    },
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/design-assets/board.css",
+      "sha256": "f9d6cf2f48d1a143fccf6620644b790e6158f3cae4d7dd8e961de04ef6d1b6fb"
+    },
+    {
+      "path": "docs/Marketing/SEO/mitigation-2026-10/design-assets/states.html",
+      "sha256": "175f2724c11f38f3b2381fbc0677efbf9a5d3def40e7bb083ae3ad97496c3504"
+    }
+  ],
+  "final_preview_evidence": [
+    "design-browser.json",
+    "native-zoom.json",
+    "design-review/acceptance.json"
+  ]
+}

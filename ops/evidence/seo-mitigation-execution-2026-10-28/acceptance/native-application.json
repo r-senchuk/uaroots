@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-28",
+  "status": "NATIVE_APPLICATION_200_AND_SELECT_KEYBOARD_PASSED",
+  "method": "Coordinator CUA native Chrome UI Cmd+0 then5Cmd+plus; AX explicitly Zoom:200%; read-only DOM measurements after fonts.ready. Session transcription, not rawbrowserexport. No CSSzoom/resize substituted.",
+  "candidate_export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "candidate_source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "checks": [
+    {
+      "url": "/routes/lviv-hannover/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/routes/lviv-celle/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/routes/celle-lviv/",
+      "css_width": 701,
+      "css_height": 459,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/routes/ivano-frankivsk-wolfsburg/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/routes/wolfsburg-ivano-frankivsk/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/cities/ivano-frankivsk/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/guides/perevezennya-velosypeda/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/about/",
+      "css_width": 701,
+      "css_height": 459,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/imprint/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/routes/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    },
+    {
+      "url": "/cities/lviv/",
+      "css_width": 701,
+      "css_height": 457,
+      "dpr": 4,
+      "scrollWidth": 701,
+      "overflow_elements": 0
+    }
+  ],
+  "native_keyboard": {
+    "url": "/cities/lviv/",
+    "method": "9nativeTabkeysenabledreachGermanselect; nativeSpaceopenmenu,Down+Returncommit",
+    "target_aria_label": "Місто в Німеччині",
+    "before_value": "",
+    "after_value": "schwerin",
+    "after_visible_text": "Шверін",
+    "control_font": "16px",
+    "focus_indicator": "navyborderbottom; no CSSoutline asserted",
+    "form_submitted": false,
+    "result": "passed;headlessnativepopupindeterminacyresolved"
+  },
+  "validation_at_200": {
+    "url": "/routes/lviv-hannover/",
+    "action": "clickenabledsubmitwithdateandphoneempty;nosuccessfulsubmit",
+    "focus_tag": "H2",
+    "focus_text": "Уточнити поїздку",
+    "errors": [
+      {
+        "text": "Вкажіть дату поїздки.",
+        "font": "14px",
+        "display": "block",
+        "right": 340.75
+      },
+      {
+        "text": "Вкажіть номер телефону для зв'язку.",
+        "font": "14px",
+        "display": "block",
+        "right": 656.5
+      }
+    ],
+    "input_values": [
+      "",
+      ""
+    ],
+    "viewport_width": 701,
+    "scrollWidth": 701,
+    "result": "passed"
+  },
+  "isolation": "Loopback frozenstaticexport, CSPblockedexternal scripts/connect/frames/formactions before navigation; noactualcontactlinkclicked/no passenger dataentered. Runtimeproviderreceipt notclaimed.",
+  "limitations": [
+    "nativeMacChromedesktoponly",
+    "actualiOS/calendar/mobilekeyboard/screenreader/humanusabilitynotestablished",
+    "blockedprovider/liveGoogleingestion/operatorreceiptunknown"
+  ],
+  "cleanup": "ChromeAXZoom100confirmed,taskapplicationtabclosed,userotherwindowrestored;previewserverstoppedafterreceipt"
+}

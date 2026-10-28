@@ -12,20 +12,20 @@ export const metadata = buildMetadata({
 
 export default function ImprintPage() {
   return (
-    <div className="container-page py-10 sm:py-16">
+    <div className="container-page py-4 sm:py-6">
       <Breadcrumbs items={[{ name: "Головна", path: "/" }, { name: "Відомості про оператора", path: "/imprint/" }]} />
-      <h1 className="mt-10 max-w-3xl type-display">Відомості про оператора</h1>
-      <div className="mt-10 max-w-2xl space-y-8 type-body">
+      <h1 className="mt-4 max-w-2xl type-h1">Відомості про оператора</h1>
+      <div className="mt-6 max-w-2xl space-y-8 type-body">
         <section>
           <h2 className="type-h2">Хто керує UARoute</h2>
           <p className="mt-4">UARoute — продукт у межах підприємницької діяльності {business.operatorName}. UARoute не є окремою юридичною особою.</p>
           <dl className="mt-5 space-y-3">
-            <div><dt className="type-label">Оператор</dt><dd className="mt-1">{business.operatorName}</dd></div>
-            <div><dt className="type-label">Форма діяльності</dt><dd className="mt-1">{business.legalForm}</dd></div>
-            <div><dt className="type-label">Бізнес-бренд</dt><dd className="mt-1">{business.brand}</dd></div>
-            <div><dt className="type-label">Контактна адреса</dt><dd className="mt-1">{business.contactAddress}</dd></div>
-            <div><dt className="type-label">Електронна пошта</dt><dd className="mt-1"><a className="link-underline" href={`mailto:${business.email}`}>{business.email}</a></dd></div>
-            <div><dt className="type-label">Бізнес-сайт</dt><dd className="mt-1"><a className="link-underline" href={business.website} target="_blank" rel="noopener noreferrer">Crew Bravo ↗</a></dd></div>
+            <div><dt className="type-label">Оператор</dt><dd className="mt-1 break-words">{business.operatorName}</dd></div>
+            <div><dt className="type-label">Форма діяльності</dt><dd className="mt-1 break-words">{business.legalForm}</dd></div>
+            <div><dt className="type-label">Бізнес-бренд</dt><dd className="mt-1 break-words">{business.brand}</dd></div>
+            <div><dt className="type-label">Контактна адреса</dt><dd className="mt-1 break-words">{business.contactAddress}</dd></div>
+            <div><dt className="type-label">Електронна пошта</dt><dd className="mt-1 break-words"><a className="inline-flex min-h-11 max-w-full items-center break-all link-underline" href={`mailto:${business.email}`}>{business.email}</a></dd></div>
+            <div><dt className="type-label">Бізнес-сайт</dt><dd className="mt-1 break-words"><a className="inline-flex min-h-11 max-w-full items-center break-all link-underline" href={business.website} target="_blank" rel="noopener noreferrer">Crew Bravo ↗</a></dd></div>
           </dl>
         </section>
         <section>
@@ -33,7 +33,7 @@ export default function ImprintPage() {
           <p className="mt-4">UARoute допомагає знайти напрямок і підготувати запит. Транспортний партнер — перевізник. Він перевіряє можливість поїздки, узгоджує умови з пасажиром і відповідає за перевезення.</p>
           <p className="mt-3">Саме повідомлення у WhatsApp не резервує місце. Можливість поїздки та її умови погоджує перевізник. Для питань про саму поїздку звертайтеся до перевізника, з яким ви її погодили.</p>
         </section>
-        <p><Link href="/privacy/" className="link-underline">Як працює приватність і передавання даних →</Link></p>
+        <p><Link href="/privacy/" className="inline-flex min-h-11 max-w-full items-center break-all link-underline">Як працює приватність і передавання даних →</Link></p>
       </div>
     </div>
   );

@@ -3,7 +3,40 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { inspectExport } from "../../scripts/inspect-out.mjs";
+import { inspectExport, inspectMitigationCopy } from "../../scripts/inspect-out.mjs";
+
+const editorial = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+const consumers = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json", import.meta.url), "utf8")).consumers;
+function editorialFixture(root: string) {
+  for (const entry of [...editorial.pages, ...Object.values(editorial.support)] as {url: string; kind?: string; prefix?: string; metadata: {title: string; description: string}}[]) {
+    const path = `${entry.url.slice(1)}index.html`;
+    let html = readFileSync(join(root, path), "utf8");
+    html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${entry.metadata.title}</title>`).replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${entry.metadata.description}">`);
+    let addition = "";
+    for (const {key} of consumers.filter((item: {url: string}) => item.url === entry.url)) {
+      const record = editorial.records[key];
+      addition += `<section><h3>${record.heading}</h3><p>${record.text}</p>`;
+      for (const item of record.items) addition += typeof item === "string" ? `<p>${item}</p>` : `<h3>${item.heading ?? item.question ?? ""}</h3><p>${item.text ?? item.answer ?? ""}</p>${item.url ? `<a href="${item.url}">${item.label}</a>` : ""}`;
+      for (const link of record.links) {
+        if (html.includes(`href="${link.url}"`)) {
+          const start = html.indexOf(`<a href="${link.url}">`);
+          const end = html.indexOf("</a>", start);
+          const existing = html.slice(start + `<a href="${link.url}">`.length, end);
+          if (existing === "Відкрити" || link.label.startsWith(existing)) html = html.slice(0, start) + `<a href="${link.url}">${link.label}` + html.slice(end);
+          else addition += `<a href="${link.url}">${link.label}</a>`;
+        } else addition += `<a href="${link.url}">${link.label}</a>`;
+      }
+      if (key === "imprint.website") addition += `<a href="${record.text}">Crew Bravo ↗</a>`;
+      addition += "</section>";
+    }
+    if (entry.kind === "route") {
+      addition = `<form></form><h2 id="practical-heading">Практична інформація</h2>` + addition + '<figure><img alt="Ілюстративна вулиця європейського міста"><figcaption>Ілюстративне фото · не місце посадки чи висадки</figcaption></figure>';
+      addition += `<script type="application/ld+json">${JSON.stringify({"@type":"WebPage", description:editorial.records[entry.prefix + "-intro"].text})}</script>`;
+    }
+    if (entry.url.startsWith("/guides/")) addition += '<script type="application/ld+json">{"@type":"Article","datePublished":"2026-10-17","dateModified":"2026-10-25","author":{"@type":"Organization","name":"UARoute"}}</script>';
+    write(root, path, html.replace("</body>", addition + "</body>"));
+  }
+}
 
 const routes = [
   ["lviv-hannover", "Львів", "Ганновер", false, ""],
@@ -209,6 +242,7 @@ function fixture() {
   for (const asset of ["arrival-560.webp", "arrival-1120.webp", "crewbravo-logo.svg", "icon.svg", "_next/static/media/font.woff2"]) {
     write(root, asset, "fixture asset");
   }
+  editorialFixture(root);
   return root;
 }
 
@@ -227,8 +261,22 @@ describe("inspectExport", () => {
     expect(inspectExport(root)).toContain("about/index.html includes a removed carrier surname; use neutral carrier copy");
   });
 
-  it("accepts the fixed eleven-route export, selected hubs, and legal pages", () => {
+  it("accepts the fixed twelve-route export, selected hubs, and legal pages", () => {
     expect(inspectExport(fixture())).toEqual([]);
+  });
+
+  it("rejects missing accepted text, labelled guide links, duplicate merged FAQ and schema disagreement", () => {
+    const root = fixture();
+    const url = "/routes/lviv-hannover/";
+    const html = readFileSync(join(root, "routes/lviv-hannover/index.html"), "utf8");
+    const pages = new Map([[url, html.replace(editorial.records["lh-arrival-locality"].text, "")]]);
+    expect(inspectMitigationCopy(pages).some((error: string) => error.includes("lh-arrival-locality"))).toBe(true);
+    pages.set(url, html.replace('href="/guides/perevezennya-velosypeda/"', 'href="/about/"'));
+    expect(inspectMitigationCopy(pages).some((error: string) => error.includes("accepted link lh-questions"))).toBe(true);
+    pages.set(url, html + `<p>${editorial.records["lh-actual-locality"].text}</p>`);
+    expect(inspectMitigationCopy(pages).some((error: string) => error.includes("duplicates merged accepted copy lh-actual-locality"))).toBe(true);
+    pages.set(url, html.replace('"description":"' + editorial.records["lh-intro"].text, '"description":"old'));
+    expect(inspectMitigationCopy(pages).some((error: string) => error.includes("WebPage description"))).toBe(true);
   });
 
   it("reports missing candidate notice, operational claims, editorial sitemap URLs, and remote fonts", () => {
@@ -339,6 +387,18 @@ describe("inspectExport", () => {
     );
     write(operational, cellePath, operationalHtml);
     expect(inspectExport(operational).some((error) => error.includes("unsupported operational structured data: Offer"))).toBe(true);
+  });
+
+  it("accepts the notice inside its search parent after a nested child but rejects footer-only copy", () => {
+    const root = fixture();
+    const path = "cities/lviv/index.html";
+    const html = readFileSync(join(root, path), "utf8");
+    const notice = "Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.";
+    const nested = html.replace(`<p>${notice}</p>`, `<section><h3>Доступні міста</h3></section><p>${notice}</p>`);
+    write(root, path, nested);
+    expect(inspectExport(root)).toEqual([]);
+    write(root, path, nested.replace(`<p>${notice}</p>`, "").replace("</body>", `<footer><p>${notice}</p></footer></body>`));
+    expect(inspectExport(root)).toContain("/cities/lviv/ must place the trip confirmation notice in the search section");
   });
 
   it("continues to reject a real visible section-order regression", () => {

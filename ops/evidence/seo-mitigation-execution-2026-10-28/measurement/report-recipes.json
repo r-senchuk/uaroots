@@ -1,0 +1,156 @@
+{
+  "property_id": "557859031",
+  "time_zone": "Europe/Warsaw",
+  "cohort": "2026-10-25 full post-dac7e98 calendar day; no latest-calendar-release cohort",
+  "finalAcquisition": {
+    "property_id": "557859031",
+    "date_ranges": [
+      {
+        "start_date": "2026-10-25",
+        "end_date": "2026-10-25"
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "return_property_quota": true,
+    "dimensions": [
+      "sessionSourceMedium",
+      "sessionDefaultChannelGroup"
+    ],
+    "metrics": [
+      "sessions",
+      "engagedSessions",
+      "totalUsers"
+    ],
+    "dimension_filter": {
+      "filter": {
+        "field_name": "hostName",
+        "string_filter": {
+          "match_type": "EXACT",
+          "value": "uaroute.com",
+          "case_sensitive": false
+        }
+      }
+    }
+  },
+  "finalEvents": {
+    "property_id": "557859031",
+    "date_ranges": [
+      {
+        "start_date": "2026-10-25",
+        "end_date": "2026-10-25"
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "return_property_quota": true,
+    "dimensions": [
+      "eventName"
+    ],
+    "metrics": [
+      "eventCount"
+    ],
+    "dimension_filter": {
+      "filter": {
+        "field_name": "hostName",
+        "string_filter": {
+          "match_type": "EXACT",
+          "value": "uaroute.com",
+          "case_sensitive": false
+        }
+      }
+    }
+  },
+  "finalHandoffUnion": {
+    "property_id": "557859031",
+    "date_ranges": [
+      {
+        "start_date": "2026-10-25",
+        "end_date": "2026-10-25"
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "return_property_quota": true,
+    "dimensions": [],
+    "metrics": [
+      "sessions",
+      "totalUsers",
+      "eventCount"
+    ],
+    "dimension_filter": {
+      "and_group": {
+        "expressions": [
+          {
+            "filter": {
+              "field_name": "hostName",
+              "string_filter": {
+                "match_type": "EXACT",
+                "value": "uaroute.com",
+                "case_sensitive": false
+              }
+            }
+          },
+          {
+            "filter": {
+              "field_name": "eventName",
+              "in_list_filter": {
+                "values": [
+                  "whatsapp_click",
+                  "koval_site_click"
+                ],
+                "case_sensitive": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "finalDenominator": {
+    "property_id": "557859031",
+    "date_ranges": [
+      {
+        "start_date": "2026-10-25",
+        "end_date": "2026-10-25"
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "return_property_quota": true,
+    "dimensions": [],
+    "metrics": [
+      "sessions",
+      "totalUsers"
+    ],
+    "dimension_filter": {
+      "filter": {
+        "field_name": "hostName",
+        "string_filter": {
+          "match_type": "EXACT",
+          "value": "uaroute.com",
+          "case_sensitive": false
+        }
+      }
+    }
+  },
+  "hostContamination": {
+    "property_id": "557859031",
+    "date_ranges": [
+      {
+        "start_date": "2026-10-25",
+        "end_date": "2026-10-25"
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "return_property_quota": true,
+    "dimensions": [
+      "hostName"
+    ],
+    "metrics": [
+      "sessions",
+      "eventCount"
+    ]
+  }
+}

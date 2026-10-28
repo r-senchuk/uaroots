@@ -1,0 +1,67 @@
+{
+  "assignment": "R2",
+  "prepared_on": "2026-10-28",
+  "preparation_status": "ready_with_explicit_unknowns",
+  "overall_device_result": "NOT RUN",
+  "reason": "Instructions only, for later physical-device execution as selected by the owner.",
+  "candidate": {
+    "source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+    "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+    "export_directory": "output/seo-mitigation-execution-2026-10-28-private/implementation/candidate/out/",
+    "preview_url": null,
+    "served_identity_verification_result": "NOT RUN",
+    "served_identity_receipt": null,
+    "verified_at": null,
+    "root_out_or_older_production_substitution_permitted": false
+  },
+  "session": {
+    "tester": null,
+    "started_at": null,
+    "iphone_model": null,
+    "ios_version": null,
+    "chrome_version": null,
+    "orientation_and_display_settings": null,
+    "primary_path": "/routes/lviv-hannover/",
+    "actual_physical_device": null
+  },
+  "isolation": {
+    "result": "NOT RUN",
+    "method": null,
+    "collectors_blocked_receipt": null,
+    "external_navigation_and_app_handoffs_blocked_receipt": null,
+    "first_party_hydration_observation": null,
+    "passenger_data_entered": null,
+    "real_messages_sent": null,
+    "unexpected_outbound_observation": null
+  },
+  "checks": [
+    {"id": "early_cta", "result": "NOT RUN", "observation": null, "evidence": null, "heading_focus_result": "NOT RUN", "heading_focus_evidence": null, "automatic_calendar_or_keyboard": null, "crash_or_home_screen_return": null},
+    {"id": "blank_invalid_submit", "result": "NOT RUN", "observation": null, "evidence": null, "heading_focus_result": "NOT RUN", "heading_focus_evidence": null, "both_errors_readable": null, "automatic_calendar_or_keyboard": null, "outgoing_handoff": null},
+    {"id": "direct_date_activation_and_cancel", "result": "NOT RUN", "observation": null, "evidence": null, "native_picker_opened": null, "date_remained_blank": null, "crash_or_home_screen_return": null},
+    {"id": "phone_keyboard_and_dismiss", "result": "NOT RUN", "observation": null, "evidence": null, "phone_remained_blank": null, "controls_reachable": null},
+    {"id": "sticky_blank_submit_and_consent_overlap", "result": "NOT RUN", "observation": null, "evidence": null, "consent_open_state": null, "consent_closed_state": null, "safe_area_and_focused_input_observation": null},
+    {"id": "internal_navigation_and_chrome_back", "result": "NOT RUN", "observation": null, "evidence": null, "return_path": "/routes/", "restored_state_observation": null}
+  ],
+  "separate_accessibility_review": {
+    "screen_reader_result": "NOT RUN",
+    "reviewer": null,
+    "device_os_voiceover_version": null,
+    "heading_label_error_dialog_focus_observations": null,
+    "evidence": null,
+    "applicability": "Accessibility reviewer and R4 classify under existing AC04/AC11 and CUTOVER requirements; no pass inferred from visual checks."
+  },
+  "separate_human_usability_study": {
+    "result": "NOT RUN",
+    "participants_or_results": null,
+    "applicability": "May be prepared independently; not a newly invented universal release gate."
+  },
+  "release_decision": "NOT RUN",
+  "release_decision_owner": "R4/coordinator",
+  "remaining_unknowns": [
+    "No secure device-reachable preview or current served-byte verification has been established by R2.",
+    "No actual iPhone/iOS/Chrome identity or device observations have been supplied.",
+    "Real iOS calendar, heading focus, mobile keyboard, sticky/consent and return-navigation behavior are NOT RUN.",
+    "Screen-reader and human usability reviews are separately NOT RUN.",
+    "This receipt does not establish CI, recovery readiness, deployment, provider delivery or production behavior."
+  ]
+}

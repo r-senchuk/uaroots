@@ -1,0 +1,2909 @@
+{
+  "settings": {
+    "chrome": "chromium",
+    "viewport": "390x844",
+    "deviceScaleFactor": 1,
+    "mobile": true,
+    "touch": true,
+    "cpu": 4,
+    "network": "150ms RTT, 1.6Mbps down, 0.75Mbps up, CDP applied",
+    "consent": "fresh context; no interaction",
+    "observation": "load plus 5s",
+    "cache": "fresh browser and context each run",
+    "external": "all non-local origins aborted"
+  },
+  "results": [
+    {
+      "path": "/",
+      "run": 1,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3336,
+        "size": 39102,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.007179042340254008,
+      "shifts": [
+        {
+          "startTime": 4690.199999988079,
+          "value": 0.0025753728145576932,
+          "sources": [
+            "DIV",
+            null,
+            "P",
+            null
+          ]
+        },
+        {
+          "startTime": 4756,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        },
+        {
+          "startTime": 5277.699999988079,
+          "value": 0.004544290248508482,
+          "sources": [
+            "DIV",
+            "P",
+            null
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2980.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 257.09999999403954
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 210.39999997615814
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 608.6999999880791
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1231.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 5385.299999982119
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 5716.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1831.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 2295.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 4365.699999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 2984.7999999821186
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 2535.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 3344.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 3375.0999999940395
+        },
+        {
+          "name": "/arrival-560.webp",
+          "type": "img",
+          "transferSize": 52330,
+          "duration": 2218
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1379.5999999940395
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1519.7000000178814
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 680.1999999880791
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1458.5999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-italic.19150647.woff2",
+          "type": "css",
+          "transferSize": 23652,
+          "duration": 2051.4000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 2171.4000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1849.0999999940395
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1893.7000000178814
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-italic.78d0dd04.woff2",
+          "type": "css",
+          "transferSize": 39188,
+          "duration": 2578.4000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 2243.5
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.5
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 158.30000001192093
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 162.39999997615814
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 234.60000002384186
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 519.4000000059605
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3323.7999999821186,
+        "load": 6020.399999976158,
+        "transferSize": 114763
+      }
+    },
+    {
+      "path": "/",
+      "run": 2,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3344,
+        "size": 39102,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.007179042340254008,
+      "shifts": [
+        {
+          "startTime": 4685.799999982119,
+          "value": 0.0025753728145576932,
+          "sources": [
+            "DIV",
+            null,
+            "P",
+            null
+          ]
+        },
+        {
+          "startTime": 4752.5999999940395,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        },
+        {
+          "startTime": 5246.799999982119,
+          "value": 0.004544290248508482,
+          "sources": [
+            "DIV",
+            "P",
+            null
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 3012.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 267.30000001192093
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 5389.200000017881
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 5718.699999988079
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 206.40000000596046
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 604.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1241.300000011921
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1841.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 2306.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 2538.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 2996.5
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 4346.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 3356.600000023842
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 3379.100000023842
+        },
+        {
+          "name": "/arrival-560.webp",
+          "type": "img",
+          "transferSize": 52330,
+          "duration": 2218.4000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1356.800000011921
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1490.5999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 649.3000000119209
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1430.3999999761581
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-italic.19150647.woff2",
+          "type": "css",
+          "transferSize": 23652,
+          "duration": 1999.0999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 2143
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1871.5999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1819.1000000238419
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-italic.78d0dd04.woff2",
+          "type": "css",
+          "transferSize": 39188,
+          "duration": 2542.2999999821186
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 2211.600000023842
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.5999999940395355
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 159
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 161.60000002384186
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 240.60000002384186
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 525.2999999821186
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3330.899999976158,
+        "load": 6013.5,
+        "transferSize": 114763
+      }
+    },
+    {
+      "path": "/",
+      "run": 3,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3400,
+        "size": 39102,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.007179042340254008,
+      "shifts": [
+        {
+          "startTime": 4671.9000000059605,
+          "value": 0.0025753728145576932,
+          "sources": [
+            "DIV",
+            null,
+            "P",
+            null
+          ]
+        },
+        {
+          "startTime": 4778.200000017881,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        },
+        {
+          "startTime": 5159.5,
+          "value": 0.004544290248508482,
+          "sources": [
+            "DIV",
+            "P",
+            null
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 3006
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 266.40000000596046
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 5374
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 5710.600000023842
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 213.30000001192093
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 618.5
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1623.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 2193.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 2350.5
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 2545.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 2950.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 3350.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 4210.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 3341
+        },
+        {
+          "name": "/arrival-560.webp",
+          "type": "img",
+          "transferSize": 52330,
+          "duration": 1879.9000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1492.4000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 619.6999999880791
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1512.199999988079
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1407.2999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-italic.19150647.woff2",
+          "type": "css",
+          "transferSize": 23652,
+          "duration": 1902.5999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 2173.199999988079
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1917.0999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1834.6000000238419
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-italic.78d0dd04.woff2",
+          "type": "css",
+          "transferSize": 39188,
+          "duration": 2543.7000000178814
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 2230.7000000178814
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.9000000059604645
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 170.09999999403954
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 162.80000001192093
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 240.39999997615814
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 526.2999999821186
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3373.100000023842,
+        "load": 6023.700000017881,
+        "transferSize": 114763
+      }
+    },
+    {
+      "path": "/cities/lviv/",
+      "run": 1,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3272,
+        "size": 26180,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.00040404565545703295,
+      "shifts": [
+        {
+          "startTime": 4192,
+          "value": 0.0003288206257029958,
+          "sources": [
+            null
+          ]
+        },
+        {
+          "startTime": 4223.300000011921,
+          "value": 0.000015845752566204712,
+          "sources": [
+            "LI",
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4516.0999999940395,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2882.300000011921
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 227.19999998807907
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 288.09999999403954
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4757.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4967.899999976158
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 632.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1232.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1262.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1660.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1854.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 2102
+        },
+        {
+          "name": "/_next/static/chunks/app/cities/%5Bslug%5D/page-69ddeb9ccff26ee5.js",
+          "type": "script",
+          "transferSize": 3008,
+          "duration": 2342.800000011921
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 2679
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 3115.4000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1411.9000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1371.8999999761581
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 1078.7000000178814
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1011.5999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 1325.199999988079
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 1467.699999988079
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1641.699999988079
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1537.800000011921
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.7999999821186066
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 161.09999999403954
+        },
+        {
+          "name": "/routes/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 167.59999999403954
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 159.09999999403954
+        },
+        {
+          "name": "/routes/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 513,
+          "duration": 164.19999998807907
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 276.60000002384186
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 883.6999999880791
+        },
+        {
+          "name": "/routes/__next.routes.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 61745,
+          "duration": 871.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 287.60000002384186
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/page-079674947ed56c87.js",
+          "type": "script",
+          "transferSize": 5137,
+          "duration": 183.90000000596046
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3260.0999999940395,
+        "load": 5267.300000011921,
+        "transferSize": 87633
+      }
+    },
+    {
+      "path": "/cities/lviv/",
+      "run": 2,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3300,
+        "size": 26180,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.00040404565545703295,
+      "shifts": [
+        {
+          "startTime": 4179.300000011921,
+          "value": 0.0003288206257029958,
+          "sources": [
+            null
+          ]
+        },
+        {
+          "startTime": 4253.9000000059605,
+          "value": 0.000015845752566204712,
+          "sources": [
+            "LI",
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4548.300000011921,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2891
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 256.90000000596046
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4757.699999988079
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 205.40000000596046
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4967.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 608.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1223.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1210.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1652.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 2213.5
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 3098.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1846.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 2686.899999976158
+        },
+        {
+          "name": "/_next/static/chunks/app/cities/%5Bslug%5D/page-69ddeb9ccff26ee5.js",
+          "type": "script",
+          "transferSize": 3008,
+          "duration": 2454.0999999940395
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1438.5999999940395
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1398.699999988079
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 1105.7999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 992.5999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 1293.5999999940395
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 1495
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1613.0999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1542.2000000178814
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.6000000238418579
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 173.40000000596046
+        },
+        {
+          "name": "/routes/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 161.7999999821186
+        },
+        {
+          "name": "/routes/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 513,
+          "duration": 168.2999999821186
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 168.59999999403954
+        },
+        {
+          "name": "/routes/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8479,
+          "duration": 275.80000001192093
+        },
+        {
+          "name": "/routes/__next.routes.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 61745,
+          "duration": 853.6999999880791
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 865.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/page-079674947ed56c87.js",
+          "type": "script",
+          "transferSize": 5137,
+          "duration": 244.5
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 200.7000000178814
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3285.600000023842,
+        "load": 5275.700000017881,
+        "transferSize": 87633
+      }
+    },
+    {
+      "path": "/cities/lviv/",
+      "run": 3,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3324,
+        "size": 26180,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.00040404565545703295,
+      "shifts": [
+        {
+          "startTime": 4198.5999999940395,
+          "value": 0.0003288206257029958,
+          "sources": [
+            null
+          ]
+        },
+        {
+          "startTime": 4276.9000000059605,
+          "value": 0.000015845752566204712,
+          "sources": [
+            "LI",
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4569.299999982119,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2889.5
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 256.90000000596046
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4756.299999982119
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4966.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 195.89999997615814
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 601.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1201.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1231
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1643.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1839.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 2221
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 2686.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 3113.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/app/cities/%5Bslug%5D/page-69ddeb9ccff26ee5.js",
+          "type": "script",
+          "transferSize": 3008,
+          "duration": 2461
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1458.2000000178814
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1408.9000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1004.2000000178814
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 1116.1000000238419
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 1303
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 1512.7000000178814
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1623.7999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1539.5
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.699999988079071
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 171.40000000596046
+        },
+        {
+          "name": "/routes/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 163.40000000596046
+        },
+        {
+          "name": "/routes/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 513,
+          "duration": 159.69999998807907
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 164.09999999403954
+        },
+        {
+          "name": "/routes/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8479,
+          "duration": 270.2999999821186
+        },
+        {
+          "name": "/routes/__next.routes.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 61745,
+          "duration": 847.5999999940395
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 858.5
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/page-079674947ed56c87.js",
+          "type": "script",
+          "transferSize": 5137,
+          "duration": 243.69999998807907
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 198.39999997615814
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3305.199999988079,
+        "load": 5266.9000000059605,
+        "transferSize": 87633
+      }
+    },
+    {
+      "path": "/routes/lviv-hannover/",
+      "run": 1,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3220,
+        "size": 30600,
+        "element": "P",
+        "src": null
+      },
+      "cls": 0.0002943280934767747,
+      "shifts": [
+        {
+          "startTime": 4156.0999999940395,
+          "value": 0.00019330765256845084,
+          "sources": [
+            null
+          ]
+        },
+        {
+          "startTime": 4182.5999999940395,
+          "value": 0.00004164116372049145,
+          "sources": [
+            "LI",
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4458.5,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2838.5
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 257.19999998807907
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4719.700000017881
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 211.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 608.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4929.700000017881
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1208.5
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1230.7999999821186
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1643.699999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 1988.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 3077
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1838.1000000238419
+        },
+        {
+          "name": "/_next/static/chunks/283-f5dc4957c4120870.js",
+          "type": "script",
+          "transferSize": 10627,
+          "duration": 2310.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/%5Bslug%5D/page-61d61774f1d1b572.js",
+          "type": "script",
+          "transferSize": 17020,
+          "duration": 2618.2999999821186
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1417.199999988079
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1365.300000011921
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1012.9000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 1071.5
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 1326.5
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1386.800000011921
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 1670.4000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1715.300000011921
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 1.0999999940395355
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 164
+        },
+        {
+          "name": "/routes/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 167.80000001192093
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 159.2999999821186
+        },
+        {
+          "name": "/routes/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 513,
+          "duration": 163.80000001192093
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 270.30000001192093
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 1005.4000000059605
+        },
+        {
+          "name": "/routes/__next.routes.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 61745,
+          "duration": 994
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 581.3000000119209
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 332
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/page-079674947ed56c87.js",
+          "type": "script",
+          "transferSize": 5137,
+          "duration": 183.5
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3193.7000000178814,
+        "load": 5230,
+        "transferSize": 78602
+      }
+    },
+    {
+      "path": "/routes/lviv-hannover/",
+      "run": 2,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3212,
+        "size": 30600,
+        "element": "P",
+        "src": null
+      },
+      "cls": 0.0002943280934767747,
+      "shifts": [
+        {
+          "startTime": 4163.5,
+          "value": 0.00019330765256845084,
+          "sources": [
+            null
+          ]
+        },
+        {
+          "startTime": 4199,
+          "value": 0.00004164116372049145,
+          "sources": [
+            "LI",
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4455,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2846.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 258
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4720.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 204.90000000596046
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 602.1999999880791
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4930.300000011921
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1201.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1232.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1621.6000000238419
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 1981.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 3076.600000023842
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1817.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/283-f5dc4957c4120870.js",
+          "type": "script",
+          "transferSize": 10627,
+          "duration": 2296.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/%5Bslug%5D/page-61d61774f1d1b572.js",
+          "type": "script",
+          "transferSize": 17020,
+          "duration": 2604
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1388.800000011921
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1344.7999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 1050.199999988079
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 1005
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 1321.6000000238419
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1373.6000000238419
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 1665.9000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1695.2999999821186
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.5
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 163.59999999403954
+        },
+        {
+          "name": "/routes/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 168.7000000178814
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 160.7999999821186
+        },
+        {
+          "name": "/routes/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 513,
+          "duration": 164
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 270.2000000178814
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 1005.5999999940395
+        },
+        {
+          "name": "/routes/__next.routes.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 61745,
+          "duration": 994.1999999880791
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 581.1999999880791
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 333
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/page-079674947ed56c87.js",
+          "type": "script",
+          "transferSize": 5137,
+          "duration": 183.5
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3195.300000011921,
+        "load": 5223.4000000059605,
+        "transferSize": 78602
+      }
+    },
+    {
+      "path": "/routes/lviv-hannover/",
+      "run": 3,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 3216,
+        "size": 30600,
+        "element": "P",
+        "src": null
+      },
+      "cls": 0.0002943280934767747,
+      "shifts": [
+        {
+          "startTime": 4158.5999999940395,
+          "value": 0.00019330765256845084,
+          "sources": [
+            null
+          ]
+        },
+        {
+          "startTime": 4194.5999999940395,
+          "value": 0.00004164116372049145,
+          "sources": [
+            "LI",
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4452.699999988079,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2853.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 257.09999999403954
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4727.800000011921
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4929.800000011921
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 212.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 616.6000000238419
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 1216.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1222.800000011921
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1651.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1846
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 1987.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/283-f5dc4957c4120870.js",
+          "type": "script",
+          "transferSize": 10627,
+          "duration": 2326.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/%5Bslug%5D/page-61d61774f1d1b572.js",
+          "type": "script",
+          "transferSize": 17020,
+          "duration": 2626.0999999940395
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 3075
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1387.9000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1343.4000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 989.7999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 1050.7999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 1306.0999999940395
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1372.9000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 1650.5
+        },
+        {
+          "name": "/_next/static/media/latin-500-normal.98e207f0.woff2",
+          "type": "css",
+          "transferSize": 10360,
+          "duration": 1694
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 1.4000000059604645
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 164.80000001192093
+        },
+        {
+          "name": "/routes/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 169.5
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 160.09999999403954
+        },
+        {
+          "name": "/routes/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 513,
+          "duration": 163.2000000178814
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 279
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 1013.9000000059605
+        },
+        {
+          "name": "/routes/__next.routes.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 61745,
+          "duration": 1002.4000000059605
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 579.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 332.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/app/routes/page-079674947ed56c87.js",
+          "type": "script",
+          "transferSize": 5137,
+          "duration": 182
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 3197.0999999940395,
+        "load": 5229.699999988079,
+        "transferSize": 78602
+      }
+    },
+    {
+      "path": "/guides/perevezennya-velosypeda/",
+      "run": 1,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 2916,
+        "size": 37500,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.1685805551837501,
+      "shifts": [
+        {
+          "startTime": 3699.199999988079,
+          "value": 0.014300204286337935,
+          "sources": [
+            null,
+            "DETAILS",
+            "DETAILS",
+            "SPAN",
+            null
+          ]
+        },
+        {
+          "startTime": 3793.699999988079,
+          "value": 0.0000027441089094227505,
+          "sources": [
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4049.9000000059605,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        },
+        {
+          "startTime": 4528.300000011921,
+          "value": 0.1542182275113149,
+          "sources": [
+            "SECTION",
+            "H1",
+            "P",
+            "SECTION",
+            "LI"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2610.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 254.69999998807907
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 202.5
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 570.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4380.5
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4589.600000023842
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 953.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1133.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1026.5
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1327.5
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 1701.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 2692.199999988079
+        },
+        {
+          "name": "/_next/static/chunks/app/guides/perevezennya-velosypeda/page-02573f2b091aa7f0.js",
+          "type": "script",
+          "transferSize": 5306,
+          "duration": 1656.300000011921
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 977.9000000059605
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1226.199999988079
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 880.7000000178814
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 564.5
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 887
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1678
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1132.5
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.699999988079071
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 166.2000000178814
+        },
+        {
+          "name": "/about/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 171.40000000596046
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 160.90000000596046
+        },
+        {
+          "name": "/about/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 512,
+          "duration": 164
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 270.90000000596046
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 826.3999999761581
+        },
+        {
+          "name": "/about/__next.about.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 13299,
+          "duration": 328
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 520.5
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 317.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/283-f5dc4957c4120870.js",
+          "type": "script",
+          "transferSize": 10627,
+          "duration": 364.40000000596046
+        },
+        {
+          "name": "/_next/static/chunks/app/about/page-efd38f60502f0dde.js",
+          "type": "script",
+          "transferSize": 660,
+          "duration": 183.69999998807907
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 2907.800000011921,
+        "load": 4881.800000011921,
+        "transferSize": 45425
+      }
+    },
+    {
+      "path": "/guides/perevezennya-velosypeda/",
+      "run": 2,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 2872,
+        "size": 37500,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.1685805551837501,
+      "shifts": [
+        {
+          "startTime": 3633.199999988079,
+          "value": 0.014300204286337935,
+          "sources": [
+            null,
+            "DETAILS",
+            "DETAILS",
+            "SPAN",
+            null
+          ]
+        },
+        {
+          "startTime": 3745.7999999821186,
+          "value": 0.0000027441089094227505,
+          "sources": [
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4009.2999999821186,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        },
+        {
+          "startTime": 4470.699999988079,
+          "value": 0.1542182275113149,
+          "sources": [
+            "SECTION",
+            "H1",
+            "P",
+            "SECTION",
+            "LI"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2583.300000011921
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 258.30000001192093
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4382.5
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4591.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 205.5
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 579.3999999761581
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1150.7999999821186
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 985.6999999880791
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1037.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1345.5
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 1712.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 2710.7999999821186
+        },
+        {
+          "name": "/_next/static/chunks/app/guides/perevezennya-velosypeda/page-02573f2b091aa7f0.js",
+          "type": "script",
+          "transferSize": 5306,
+          "duration": 1674.9000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 849.8999999761581
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 961.8999999761581
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1225.199999988079
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 579
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 894.2999999821186
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1656.2999999821186
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1145.300000011921
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.699999988079071
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 166.09999999403954
+        },
+        {
+          "name": "/about/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 171.40000000596046
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 159.40000000596046
+        },
+        {
+          "name": "/about/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 512,
+          "duration": 163.69999998807907
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 271.69999998807907
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 827.0999999940395
+        },
+        {
+          "name": "/about/__next.about.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 13299,
+          "duration": 327.5
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 521.2999999821186
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 317.69999998807907
+        },
+        {
+          "name": "/_next/static/chunks/283-f5dc4957c4120870.js",
+          "type": "script",
+          "transferSize": 10627,
+          "duration": 365.69999998807907
+        },
+        {
+          "name": "/_next/static/chunks/app/about/page-efd38f60502f0dde.js",
+          "type": "script",
+          "transferSize": 660,
+          "duration": 183.7000000178814
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 2862.5999999940395,
+        "load": 4873,
+        "transferSize": 45425
+      }
+    },
+    {
+      "path": "/guides/perevezennya-velosypeda/",
+      "run": 3,
+      "status": 200,
+      "blocked": 0,
+      "lcp": {
+        "startTime": 2900,
+        "size": 37500,
+        "element": "H1",
+        "src": null
+      },
+      "cls": 0.1685805551837501,
+      "shifts": [
+        {
+          "startTime": 3699.199999988079,
+          "value": 0.014300204286337935,
+          "sources": [
+            null,
+            "DETAILS",
+            "DETAILS",
+            "SPAN",
+            null
+          ]
+        },
+        {
+          "startTime": 3780.5999999940395,
+          "value": 0.0000027441089094227505,
+          "sources": [
+            "svg"
+          ]
+        },
+        {
+          "startTime": 4029.5,
+          "value": 0.00005937927718783243,
+          "sources": [
+            "SPAN",
+            "svg",
+            "SPAN"
+          ]
+        },
+        {
+          "startTime": 4517.699999988079,
+          "value": 0.1542182275113149,
+          "sources": [
+            "SECTION",
+            "H1",
+            "P",
+            "SECTION",
+            "LI"
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/css/5408326f58deb483.css",
+          "type": "link",
+          "transferSize": 105470,
+          "duration": 2613.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/webpack-c35fc9312980980e.js",
+          "type": "link",
+          "transferSize": 3626,
+          "duration": 259.19999998807907
+        },
+        {
+          "name": "/_next/static/chunks/748a097a-09672a1d2c48a782.js",
+          "type": "script",
+          "transferSize": 204021,
+          "duration": 4383.699999988079
+        },
+        {
+          "name": "/_next/static/chunks/482-897270ef42272456.js",
+          "type": "script",
+          "transferSize": 243228,
+          "duration": 4592.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/main-app-82d982fad561d254.js",
+          "type": "script",
+          "transferSize": 814,
+          "duration": 205.40000000596046
+        },
+        {
+          "name": "/_next/static/chunks/948-2cef7322d8b5c079.js",
+          "type": "script",
+          "transferSize": 7949,
+          "duration": 573
+        },
+        {
+          "name": "/_next/static/chunks/285-7ebd7a0161832955.js",
+          "type": "script",
+          "transferSize": 14680,
+          "duration": 955.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/109-3a5b43227e7107f9.js",
+          "type": "script",
+          "transferSize": 27616,
+          "duration": 1150.2000000178814
+        },
+        {
+          "name": "/_next/static/chunks/326-fcd880ec1cc875b0.js",
+          "type": "script",
+          "transferSize": 9429,
+          "duration": 1029.800000011921
+        },
+        {
+          "name": "/_next/static/chunks/app/error-632d926d49ced188.js",
+          "type": "script",
+          "transferSize": 1501,
+          "duration": 1345.5
+        },
+        {
+          "name": "/_next/static/chunks/app/guides/perevezennya-velosypeda/page-02573f2b091aa7f0.js",
+          "type": "script",
+          "transferSize": 5306,
+          "duration": 1674.7000000178814
+        },
+        {
+          "name": "/_next/static/chunks/app/layout-3dad83548ba66f1f.js",
+          "type": "script",
+          "transferSize": 18891,
+          "duration": 1704.5999999940395
+        },
+        {
+          "name": "/_next/static/chunks/170-f48107bc5db759fb.js",
+          "type": "script",
+          "transferSize": 72535,
+          "duration": 2701.5999999940395
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.eaead17c.woff2",
+          "type": "css",
+          "transferSize": 38760,
+          "duration": 1216.9000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.28793f5c.woff2",
+          "type": "css",
+          "transferSize": 25708,
+          "duration": 970.3000000119209
+        },
+        {
+          "name": "/_next/static/media/latin-400-normal.d3ebbfd6.woff2",
+          "type": "css",
+          "transferSize": 10352,
+          "duration": 549.6999999880791
+        },
+        {
+          "name": "/_next/static/media/cyrillic-500-normal.d29838c1.woff2",
+          "type": "css",
+          "transferSize": 5800,
+          "duration": 871.3999999761581
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-600-normal.47f13698.woff2",
+          "type": "css",
+          "transferSize": 21444,
+          "duration": 879.6999999880791
+        },
+        {
+          "name": "/_next/static/media/latin-400-600-normal.26d4368b.woff2",
+          "type": "css",
+          "transferSize": 40540,
+          "duration": 1670.9000000059605
+        },
+        {
+          "name": "/_next/static/media/cyrillic-400-normal.011e1807.woff2",
+          "type": "css",
+          "transferSize": 5776,
+          "duration": 1132.4000000059605
+        },
+        {
+          "name": "/favicon.ico",
+          "type": "other",
+          "transferSize": 0,
+          "duration": 0.5
+        },
+        {
+          "name": "/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 164.7000000178814
+        },
+        {
+          "name": "/about/",
+          "type": "fetch",
+          "transferSize": 300,
+          "duration": 169.69999998807907
+        },
+        {
+          "name": "/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 464,
+          "duration": 161.40000000596046
+        },
+        {
+          "name": "/about/__next._tree.txt",
+          "type": "fetch",
+          "transferSize": 512,
+          "duration": 164.5
+        },
+        {
+          "name": "/__next._index.txt",
+          "type": "fetch",
+          "transferSize": 8483,
+          "duration": 269.69999998807907
+        },
+        {
+          "name": "/__next.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 64381,
+          "duration": 825.5999999940395
+        },
+        {
+          "name": "/about/__next.about.__PAGE__.txt",
+          "type": "fetch",
+          "transferSize": 13299,
+          "duration": 327.30000001192093
+        },
+        {
+          "name": "/_next/static/chunks/48-db330ad6aa92ac11.js",
+          "type": "script",
+          "transferSize": 25378,
+          "duration": 522.9000000059605
+        },
+        {
+          "name": "/_next/static/chunks/app/page-9cd4c0e37524523b.js",
+          "type": "script",
+          "transferSize": 7936,
+          "duration": 318.7999999821186
+        },
+        {
+          "name": "/_next/static/chunks/283-f5dc4957c4120870.js",
+          "type": "script",
+          "transferSize": 10627,
+          "duration": 366.30000001192093
+        },
+        {
+          "name": "/_next/static/chunks/app/about/page-efd38f60502f0dde.js",
+          "type": "script",
+          "transferSize": 660,
+          "duration": 185.40000000596046
+        }
+      ],
+      "navigation": {
+        "domContentLoaded": 2891.199999988079,
+        "load": 4873.699999988079,
+        "transferSize": 45425
+      }
+    }
+  ]
+}

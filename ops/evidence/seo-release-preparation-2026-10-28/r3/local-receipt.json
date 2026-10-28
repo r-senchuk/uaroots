@@ -1,0 +1,161 @@
+{
+  "observed_at_utc": "2026-10-28T12:02:40.010667+00:00",
+  "status": "ready_with_explicit_unknowns_local_preparation_only",
+  "source_manifest_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+  "source_files_verified": 167,
+  "source_mismatches": {},
+  "export_manifest_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+  "export_files_verified": 258,
+  "export_mismatches": {},
+  "export_extra_files": [],
+  "export_bytes": 7830419,
+  "releaseSha256": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+  "release_manifest_file_sha256": "80ce1bd5fe4c9df292c5cf12edf81efbcec5f3c91e24888faf02f36eb18546d1",
+  "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+  "configuration_and_tooling": {
+    ".nvmrc": {
+      "root_sha256": "f14b4987904bcb5814e4459a057ed4d20f58a633152288a761214dcd28780b56",
+      "candidate_sha256": "f14b4987904bcb5814e4459a057ed4d20f58a633152288a761214dcd28780b56",
+      "same": true
+    },
+    "package.json": {
+      "root_sha256": "fb8df7f4a2b24783d875349d5ba4ce0184c4b4f4dc5ec509219f28f301d7bf4a",
+      "candidate_sha256": "fb8df7f4a2b24783d875349d5ba4ce0184c4b4f4dc5ec509219f28f301d7bf4a",
+      "same": true
+    },
+    "package-lock.json": {
+      "root_sha256": "6e4c53cc064e1c6cea688a0b491eaac83a2a8e4576b01688b96d4cff329e64db",
+      "candidate_sha256": "6e4c53cc064e1c6cea688a0b491eaac83a2a8e4576b01688b96d4cff329e64db",
+      "same": true
+    },
+    "next.config.ts": {
+      "root_sha256": "f238ddad1b473c37d9779caeae433a9f2dd2f1d5a68d331f49d418998bc8fe4d",
+      "candidate_sha256": "f238ddad1b473c37d9779caeae433a9f2dd2f1d5a68d331f49d418998bc8fe4d",
+      "same": true
+    },
+    "src/config/analytics.ts": {
+      "root_sha256": "29e44da74584a9821eaa2990cca7eafe2b803bafc49f555bc8c48c6e5c03778e",
+      "candidate_sha256": "29e44da74584a9821eaa2990cca7eafe2b803bafc49f555bc8c48c6e5c03778e",
+      "same": true
+    },
+    "scripts/deploy.sh": {
+      "root_sha256": "fd8a7be7ab7621940576ae67b26d413b782b994e853963b9a8296ee4764d35bb",
+      "candidate_sha256": "fd8a7be7ab7621940576ae67b26d413b782b994e853963b9a8296ee4764d35bb",
+      "same": true
+    },
+    "scripts/seo-release.mjs": {
+      "root_sha256": "376f6e8879148a75859ace2088c94201504362be7c00a1de4328f3d058af742b",
+      "candidate_sha256": "376f6e8879148a75859ace2088c94201504362be7c00a1de4328f3d058af742b",
+      "same": true
+    },
+    "scripts/release-bundle.mjs": {
+      "root_sha256": "add75f8e8bf4940c77bd2fde07c16dba4650a7cf73055c9ec9d3603a0a39e76d",
+      "candidate_sha256": "add75f8e8bf4940c77bd2fde07c16dba4650a7cf73055c9ec9d3603a0a39e76d",
+      "same": true
+    },
+    "scripts/production-release.mjs": {
+      "root_sha256": "2a322815905c97b0c28f229fa09b95085d0ee5dec3aca0439c2d7d9eeb671990",
+      "candidate_sha256": "2a322815905c97b0c28f229fa09b95085d0ee5dec3aca0439c2d7d9eeb671990",
+      "same": true
+    },
+    "scripts/recovery-tool.mjs": {
+      "root_sha256": "a32aa8d85836c231df38ce56b320263c93e791cd9cda0d62942847e04b0486ac",
+      "candidate_sha256": "a32aa8d85836c231df38ce56b320263c93e791cd9cda0d62942847e04b0486ac",
+      "same": true
+    },
+    ".github/workflows/ci.yml": {
+      "root_sha256": "c78b3a66897f7e8a0594fe33ce87ecb7bdfec7cea00431298d2665270aa9e660",
+      "candidate_sha256": "c78b3a66897f7e8a0594fe33ce87ecb7bdfec7cea00431298d2665270aa9e660",
+      "same": true
+    },
+    ".github/workflows/deploy-production.yml": {
+      "root_sha256": "6491d955a044e919c5ffc28dfad44c189ef583b46077ea3d341e6951ef6d9777",
+      "candidate_sha256": "6491d955a044e919c5ffc28dfad44c189ef583b46077ea3d341e6951ef6d9777",
+      "same": true
+    },
+    ".github/workflows/rollback-production.yml": {
+      "root_sha256": "f309ec1bfef839142f06ad55b13cb0a9773880fdd5f354abf15dc75546c89879",
+      "candidate_sha256": "f309ec1bfef839142f06ad55b13cb0a9773880fdd5f354abf15dc75546c89879",
+      "same": true
+    },
+    "infra/cloudfront/seo-viewer-request.v1.js": {
+      "root_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+      "candidate_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+      "same": true
+    }
+  },
+  "runtime": {
+    "node": "v22.23.3",
+    "node_binary": "/Users/roman/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+    "node_binary_sha256": "68f4d07ca49e0500cc135c7e0a445093e228e42e126ac22306d045f0a8c2636b",
+    "nvmrc": "22",
+    "next": {
+      "installed": "16.4.0",
+      "locked": "16.4.0",
+      "match": true
+    },
+    "typescript": {
+      "installed": "6.0.3",
+      "locked": "6.0.3",
+      "match": true
+    },
+    "react": {
+      "installed": "19.3.0",
+      "locked": "19.3.0",
+      "match": true
+    },
+    "react-dom": {
+      "installed": "19.3.0",
+      "locked": "19.3.0",
+      "match": true
+    }
+  },
+  "compiled_analytics": [
+    {
+      "path": "_next/static/chunks/170-f48107bc5db759fb.js",
+      "sha256": "2cd9f1208e9c7c591bb64fe71b7501e324b41cf1065a6f40a6344f7c9b27d02c",
+      "compiled_configuration": "function n(){let e=\"G-PMXHF9YT7V\",i=\"GTM-WD2F63V5\";return/^G-[A-Z0-9]{6,}$/.test(e),/^GTM-[A-Z0-9]{4,}$/.test(i),{measurementId:e,containerId:i,provider:i?\"gtm\":\"ga4\",enabled:!1}",
+      "enabled": false
+    },
+    {
+      "path": "_next/static/chunks/app/privacy/page-be4b25e4c7a5f8e4.js",
+      "sha256": "38cf9087f7cf52f6a7d264009984f5c4e9786661755baf64fa72ea3e298a7dfc",
+      "compiled_configuration": "function o(){let e=\"G-PMXHF9YT7V\",t=\"GTM-WD2F63V5\";return/^G-[A-Z0-9]{6,}$/.test(e),/^GTM-[A-Z0-9]{4,}$/.test(t),{measurementId:e,containerId:t,provider:t?\"gtm\":\"ga4\",enabled:!1}",
+      "enabled": false
+    }
+  ],
+  "dry_run": {
+    "argv": [
+      "/bin/bash",
+      "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-mitigation-execution-2026-10-28-private/implementation/candidate/scripts/deploy.sh",
+      "--dry-run",
+      "--manifest",
+      "/Users/roman/src/github.com/r-senchuk/uaroots/ops/evidence/seo-release-preparation-2026-10-28/r3/release-manifest.json"
+    ],
+    "cwd": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-release-preparation-2026-10-28-private/r3",
+    "exit_code": 0,
+    "log_sha256": "0c6fa1366bc9e373baaa2f6fee1f572515c749b7a9e2f678f1f1b3d4ff398e54",
+    "no_aws_calls": "deploy.sh exits after local manifest+plan; minimal PATH, no credentials supplied"
+  },
+  "preservation": {
+    "root_export_before_after_identical": true,
+    "root_build_id_before_after_identical": true,
+    "root_dependencies_package_before_after_identical": true,
+    "root_lock_and_config_before_after_identical": true,
+    "candidate_build_id_before_after_identical": true,
+    "before_after_receipt": "private r3/preservation.json"
+  },
+  "not_performed": [
+    "build",
+    "dependency installation",
+    "credential access",
+    "AWS/network capture or mutation",
+    "Git writes",
+    "workflow dispatch",
+    "commit",
+    "push",
+    "deployment"
+  ],
+  "current_recovery_freshness": "unknown; no current capture/retrieval performed",
+  "matching_successful_ci_run": "not established for this uncommitted candidate"
+}

@@ -1,0 +1,132 @@
+{
+  "reviewed_at_utc": "2026-10-28T12:04:54Z",
+  "input_sha256": {
+    "ops/evidence/seo-release-preparation-2026-10-28/r1/identity.json": "2cede770c23fc21980d56ae09f3adfce1d66a65d71542c1d461564983bc6a812",
+    "ops/evidence/seo-release-preparation-2026-10-28/r1/inventory.md": "67989b71709b16c52a61a02314d951b400d06c30998c30c9d12b7f1528247915",
+    "ops/evidence/seo-release-preparation-2026-10-28/r2/results-template.json": "9f4f47d472925d08ce12e0c24d7efb689bc92afe9629489de5aae47c5137a19f",
+    "ops/evidence/seo-release-preparation-2026-10-28/r2/device-instructions.md": "5682718e3c46acbe02732a788b58ef30e8f063e0cd12e2845c2baf799246e4bd",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/local-receipt.json": "5b294b4e0934c899f510f74956588a9f7c701aecb59451cf0d34c879e4ceeda2",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/preparation.md": "8677379386d51a6269d3efb4bfea631fa502d34c2a5bd0edeea1b6ec467c4bc7",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/release-manifest.json": "80ce1bd5fe4c9df292c5cf12edf81efbcec5f3c91e24888faf02f36eb18546d1",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/verify-local.py": "c982ba5436b488fb93fb5cff569c3c13a166142d05e61f52980d997efb375ed1",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/dry-run.log": "0c6fa1366bc9e373baaa2f6fee1f572515c749b7a9e2f678f1f1b3d4ff398e54",
+    "ops/evidence/seo-release-preparation-2026-10-28/r7/placement-checklist.json": "44f94dc6fd28ff7a0ae716cafc564fc71f7be04be2da87b944954caa57db76bf",
+    "ops/evidence/seo-release-preparation-2026-10-28/r7/placement-note.md": "c5289d554ff992af7c6350eeea9f80794516ff8f64568e8500fc6e8b5109b716",
+    "ops/evidence/seo-release-preparation-2026-10-28/r9/supplement.json": "de5fec3f6279616538a55c458defdc0e23bebf82009fac8ec3f87b861291594c",
+    "ops/evidence/seo-release-preparation-2026-10-28/r9/supplement.md": "eaa0071f835a3bc5b05501b1bd88df6dcb3305c39645a6dbe27772a0d7efb516",
+    "output/seo-mitigation-execution-2026-10-28-private/implementation/source-files.json": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+    "output/seo-mitigation-execution-2026-10-28-private/implementation/export-files.json": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+    "ops/evidence/seo-mitigation-execution-2026-10-28/readiness/input-manifest.json": "9991a4f5028ac3cb679c59cf455126c8326d58171f68658b9eecb49ac2e7e2da",
+    "ops/evidence/seo-mitigation-execution-2026-10-28/acceptance/acceptance.json": "44d612193c7ebae76062ac25ae4b17f4bf78e213de6d94746ccf75c125d081f3",
+    "ops/evidence/seo-mitigation-execution-2026-10-28/implementation/acceptance.json": "ca237a8c8bd6ad83c9cd0700390153b9f92e5b807859e92f6e5f5bf9e7a1da9e",
+    "CUTOVER.md": "43e5a6ce2d634722b2a6bcd1a7b4294089de1f65ff302a71f78583a57617b18a",
+    "infra/github-actions-release.md": "42c1773044feba56ad4586358b8c0a14c161c6c2e5c8c2e715bfe76de59f75f3",
+    "docs/Marketing/SEO/mitigation-2026-10/next-stage-handoff.md": "12132075667c6198f1263ca468d15954859e84d194460a36dac7b5f43fd8bdb5",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/dry-run.txt": "0c6fa1366bc9e373baaa2f6fee1f572515c749b7a9e2f678f1f1b3d4ff398e54"
+  },
+  "independent_checks": {
+    "root_source": {
+      "matched": 167,
+      "denominator": 167,
+      "mismatches": []
+    },
+    "candidate_source": {
+      "matched": 167,
+      "denominator": 167,
+      "mismatches": []
+    },
+    "export": {
+      "matched": 258,
+      "denominator": 258,
+      "mismatches": [],
+      "extra": [],
+      "missing": [],
+      "symlinks": [],
+      "bytes": 7830419
+    },
+    "essential_inputs": {
+      "matched": 26,
+      "denominator": 26,
+      "mismatches": []
+    },
+    "configuration_tooling": {
+      "matched": 14,
+      "denominator": 14,
+      "results": {
+        ".nvmrc": true,
+        "package.json": true,
+        "package-lock.json": true,
+        "next.config.ts": true,
+        "src/config/analytics.ts": true,
+        "scripts/deploy.sh": true,
+        "scripts/seo-release.mjs": true,
+        "scripts/release-bundle.mjs": true,
+        "scripts/production-release.mjs": true,
+        "scripts/recovery-tool.mjs": true,
+        ".github/workflows/ci.yml": true,
+        ".github/workflows/deploy-production.yml": true,
+        ".github/workflows/rollback-production.yml": true,
+        "infra/cloudfront/seo-viewer-request.v1.js": true
+      }
+    },
+    "compiled_disabled_analytics": {
+      "matched": 2,
+      "denominator": 2
+    },
+    "dry_run_log_hash_matches": true,
+    "release_manifest_exact_recomputed_entries": true,
+    "release_sha256": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+    "edge_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+    "failed_assertions": 0,
+    "portable_dry_run_txt_byte_identical_to_original_log": true
+  },
+  "git_scope": {
+    "head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+    "selected_source_manifest_is_not_whole_repository": true,
+    "combined_candidate_paths": {
+      "scripts/attribution-browser.mjs": "d6c7a1c0d66783a899c689aec24dc8283c843d27b13d4e2d2fb75efb5f2c9fd5",
+      "scripts/inspect-out.mjs": "7b81d6294ae61d63eef0def5d071d5c36ac464b5d6a5f3fa35da0999e4cd640a",
+      "scripts/passenger-browser.mjs": "328348ebe41b4322f841e0966e8f49d2baff5e3aa835d4a8087899c1ee089a61",
+      "scripts/poc-browser.mjs": "f6894bb961829094d9537b990f732a9c507e67c0040c7d075b9fe269af05203a",
+      "scripts/privacy-browser.mjs": "f9b22e517f539ab337d74c8a599c96ce3c18657d997f59c07ff52c2e5aac234e",
+      "src/app/about/page.tsx": "1bcb34cd39bcf7bd05e29dadf905f00b9232efd7b1efc2ecb602d94d7617abde",
+      "src/app/cities/[slug]/page.tsx": "f36698991918c2c23530ccdc16fb144340501b402a27b1be02a86332019c11e4",
+      "src/app/guides/perevezennya-velosypeda/page.tsx": "10d5ba9570ab40034ee138b86db7fe6d1c4bf0af85fb52a922ff602b02ec764c",
+      "src/app/imprint/page.tsx": "f7c91621943393c7fa133d7da3236f6648cbea8bb2380fa0db556eca336043f7",
+      "src/app/routes/[slug]/page.tsx": "faeb15cc1e7a8f39efbcc5615dac078e5981eb75c392a767a0cf97d3b7c71905",
+      "src/components/BookingWidget.tsx": "f63f04c2edde42acd5e9f58efcd92099b903aedcfbcb4a28f4ff944f8bf3f0e8",
+      "src/components/CandidateInquiry.tsx": "f148ff3c1e3824b22da018b78e44790ccc48e4da14d4216ac59c8cb6940060ef",
+      "src/components/JourneyActions.tsx": "e544ad40b24904a810e9153d7aa040d7ec69b05e21931535f6dec5e0d295225e",
+      "src/components/NearbyPlaces.tsx": "fa5173833681aba875e7d23fbff771dc9a79de29e033cdbd45358c8f3d97451f",
+      "src/components/RouteSearch.tsx": "df5082e93c39c346d942a3075fde8e2bceb1c07a623eb14f2f39148af2f4f953",
+      "src/components/StickyBookingBar.tsx": "c2b868c757b18cab4564f02d591abd6010bb17b3c05161ae9426142d9e56f6c3",
+      "src/components/inquiry.tsx": "7057050edb216c0f0036b64373f8517084ffbddba989c2171af37e5dbcfdd29f",
+      "src/data/city-hubs.ts": "b941cf4bf126e7a12e75a512c93fece167a3efd14abde3988115d91b1a64ba44",
+      "src/data/routes.ts": "38e85f88acf6a1c4a83dd4a9021d7ed9c5cc018e2bdf4618105c3d4ef619e92e",
+      "src/data/types.ts": "2d51c0247c18187f0a94ee53cd9f714866030a3b2971c3b05301f2f2ffa8bcd4",
+      "src/lib/inspect-out.test.ts": "7b443d1dc59c70e94a63701d95e5256fb5c90dcf29984c8e9959340da0e2f9bb",
+      "src/lib/passenger-conversion.test.ts": "c69e812eb7a4391f5d060c217e8492c0d33cfcabe375f374b31897589e198986",
+      "src/lib/seo.test.ts": "a1eb292ac1f3847e2c84163d5d10f1b1c55d697e36fd7c31c272706124565238",
+      "src/lib/validate-catalog.test.ts": "f6a59a928781cb4220d10c25fe5a08b7273f1f3bc169705aaffc282dfc8275bb",
+      "src/lib/validate-catalog.ts": "89003b60584319d06404750b1837bbb7c1567c200447b86e8bef4faf764bdbdc",
+      "src/lib/validate-city-hubs.test.ts": "de8dceca0a0341b3d181bed13cf5edde6e1bf2c3e7b3d851b148ac4f24dd1295"
+    },
+    "combined_candidate_git_diff_sha256": "ace7a951b9fd043ea80fd504f319030e20d34f8ad5b5413760f05a170080367c",
+    "path_count": 26,
+    "prior_calendar_sha": "ff1e4d095e96cab9f5c75cbf19854f532d6273b9",
+    "prior_calendar_is_ancestor": false,
+    "overlapping_preexisting_source_paths": [
+      "scripts/passenger-browser.mjs",
+      "scripts/poc-browser.mjs",
+      "src/app/routes/[slug]/page.tsx",
+      "src/components/BookingWidget.tsx",
+      "src/components/CandidateInquiry.tsx",
+      "src/components/JourneyActions.tsx",
+      "src/lib/passenger-conversion.test.ts"
+    ],
+    "status": "proposed_combined_scope_identity_only_not_approved_for_staging",
+    "protected": "All other dirty work; overlapping pre-existing hunks require release-owner review; no blanket add or reset."
+  },
+  "execution_boundary": "R4 read-only source/artifact review; wrote only this r4 evidence directory. No build, source edit, Git write, browser, deployment, credential access or network mutation.",
+  "portability_note": "R3 final note/script changes only add a byte-identical portable dry-run.txt receipt; no new execution claimed."
+}

@@ -1,0 +1,8 @@
+{
+  "requested_model": "gpt-6-luna",
+  "requested_reasoning": "high",
+  "scope": "read-only independent source comparison; seven metadata/H1/canonicals, ten hubFAQs, business details, directions, operational/inquiry boundaries",
+  "findings": "No blocking factual/content defect found in coordinator candidate.",
+  "limitations": "Provider actual model/tokens/cost unavailable; no human/native review, network or tests. Reviewer saw a transient source.datePrefix value while coordinator was removing it; final candidate has no such key.",
+  "coordinator_final_action": "Source/copy review and exact field/claim coverage; retained source-date prefix removed, guide navigation kept source exact."
+}

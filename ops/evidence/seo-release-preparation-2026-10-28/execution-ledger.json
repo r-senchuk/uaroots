@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-28",
+  "scope": "R1/R2 instructions/R3/R4/R7/R9 local release preparation only",
+  "source_head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+  "requested_dispatches": [
+    {
+      "step": "R1",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns"
+    },
+    {
+      "step": "R7",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns"
+    },
+    {
+      "step": "R9",
+      "model_requested": "gpt-6.1-terra",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns"
+    },
+    {
+      "step": "R2",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns"
+    },
+    {
+      "step": "R3",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns"
+    },
+    {
+      "step": "R4",
+      "model_requested": "gpt-6.1-sol",
+      "reasoning_requested": "high",
+      "result": "ready with explicit unknowns"
+    }
+  ],
+  "actual_underlying_provider_model_calls_tokens_cost": "unavailable; requested settings are dispatch labels",
+  "execution": "preparation complete",
+  "verification": "independent R4 accepted local preparation; coordinator independently recomputed167 root+167 candidate+258 export hashes",
+  "promotion_ready": false,
+  "physical_device": "owner chose later-test instructions;6/6 NOT RUN",
+  "new_provider_data": "none obtained; exact export requests saved",
+  "distribution": "0/3 posted; draft2 wording correction required before placement",
+  "deferred": {
+    "R5_R6": "separate release authorization,device/CI/recovery prerequisites",
+    "R8": "separate named placement authorization,live/channel review and draft2 correction",
+    "R10_R11": "actual release/exposure and elapsed settled observation windows"
+  },
+  "corrections": [
+    "Ignored dry-run.log copied byte-identical to portable dry-run.txt; original preserved, no rerun.",
+    "R7 draft2 calculation wording explicitly marked not ready to post; safe recommendation remains separate from frozen copy."
+  ],
+  "mutations": {
+    "application": false,
+    "commit_push": false,
+    "cloud_deployment": false,
+    "account": false,
+    "external_messages": false,
+    "vibe_starts": 0
+  },
+  "cleanup": "No owned browser/server/build process opened in this increment; private preservation evidence and prior candidate retained.",
+  "coordinator_checks": "ops/evidence/seo-release-preparation-2026-10-28/coordinator-checks.json",
+  "retained_outputs": {
+    "ops/evidence/seo-release-preparation-2026-10-28/coordinator-checks.json": "7fb8acb799cbd1b19791d0772edbf7ac7cf0c97585cd1fcab00104a711ffae01",
+    "ops/evidence/seo-release-preparation-2026-10-28/r7/placement-checklist.json": "44f94dc6fd28ff7a0ae716cafc564fc71f7be04be2da87b944954caa57db76bf",
+    "ops/evidence/seo-release-preparation-2026-10-28/r7/placement-note.md": "c5289d554ff992af7c6350eeea9f80794516ff8f64568e8500fc6e8b5109b716",
+    "ops/evidence/seo-release-preparation-2026-10-28/r9/supplement.md": "eaa0071f835a3bc5b05501b1bd88df6dcb3305c39645a6dbe27772a0d7efb516",
+    "ops/evidence/seo-release-preparation-2026-10-28/r9/supplement.json": "de5fec3f6279616538a55c458defdc0e23bebf82009fac8ec3f87b861291594c",
+    "ops/evidence/seo-release-preparation-2026-10-28/r1/inventory.md": "67989b71709b16c52a61a02314d951b400d06c30998c30c9d12b7f1528247915",
+    "ops/evidence/seo-release-preparation-2026-10-28/r1/identity.json": "2cede770c23fc21980d56ae09f3adfce1d66a65d71542c1d461564983bc6a812",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/verify-local.py": "c982ba5436b488fb93fb5cff569c3c13a166142d05e61f52980d997efb375ed1",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/preparation.md": "8677379386d51a6269d3efb4bfea631fa502d34c2a5bd0edeea1b6ec467c4bc7",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/dry-run.txt": "0c6fa1366bc9e373baaa2f6fee1f572515c749b7a9e2f678f1f1b3d4ff398e54",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/release-manifest.json": "80ce1bd5fe4c9df292c5cf12edf81efbcec5f3c91e24888faf02f36eb18546d1",
+    "ops/evidence/seo-release-preparation-2026-10-28/r3/local-receipt.json": "5b294b4e0934c899f510f74956588a9f7c701aecb59451cf0d34c879e4ceeda2",
+    "ops/evidence/seo-release-preparation-2026-10-28/r4/decision.json": "a567f1782e60b24c424353b3b839a7ba18bb3734ae15612e80061d83ae4a82e4",
+    "ops/evidence/seo-release-preparation-2026-10-28/r4/verification.json": "abe9ea7560b7d4d88fc3ac186a906bf9fad226ce2ce65ac15cd1968aadb71d2e",
+    "ops/evidence/seo-release-preparation-2026-10-28/r4/decision.md": "345b1ed9fdcecdfb60597df1dd63cfa7161c22bb8830222d517ab5882e1ad44d",
+    "ops/evidence/seo-release-preparation-2026-10-28/r2/device-instructions.md": "5682718e3c46acbe02732a788b58ef30e8f063e0cd12e2845c2baf799246e4bd",
+    "ops/evidence/seo-release-preparation-2026-10-28/r2/results-template.json": "9f4f47d472925d08ce12e0c24d7efb689bc92afe9629489de5aae47c5137a19f"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-28",
+  "phase": "P0 baseline",
+  "status": "ready",
+  "repository": {
+    "head": "15725cba20f4f83475f0df8241e66f31836ce1d4",
+    "branch": "main",
+    "worktree": "dirty; pre-edit path identities and hashes stored in the private baseline record",
+    "application_script_release_gate": {
+      "release": "ff1e4d095e96cab9f5c75cbf19854f532d6273b9",
+      "paths_checked": 8,
+      "byte_identical": 8,
+      "result": "passed"
+    }
+  },
+  "frozen_inputs": [
+    {
+      "name": "S03 architecture",
+      "path": "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "expected_sha256": "1fddb37481c3be4ec5f8744fbbc702a357d5e71c71f654a50e3f2d1638a8445b",
+      "actual_sha256": "1fddb37481c3be4ec5f8744fbbc702a357d5e71c71f654a50e3f2d1638a8445b",
+      "match": true
+    },
+    {
+      "name": "S04 content package",
+      "path": "docs/Marketing/SEO/mitigation-2026-10/content-package.md",
+      "expected_sha256": "3823d1bede46a27bc1a61a6c2f307c1db6702e89ace011d12b32cbfeb6d57fae",
+      "actual_sha256": "3823d1bede46a27bc1a61a6c2f307c1db6702e89ace011d12b32cbfeb6d57fae",
+      "match": true
+    },
+    {
+      "name": "S04 editorial review",
+      "path": "docs/Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "expected_sha256": "4ddebaf8524f7162443198045b48cd88c95fd90bfad5e6cd5788a99e50cec9d0",
+      "actual_sha256": "4ddebaf8524f7162443198045b48cd88c95fd90bfad5e6cd5788a99e50cec9d0",
+      "match": true
+    },
+    {
+      "name": "S04 exact copy records",
+      "path": "ops/evidence/seo-s04-2026-10-27/copy-records.json",
+      "expected_sha256": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+      "actual_sha256": "0b84743d3a3ac5fddfb15e6a035b4322d4e4b2b786d5a760238a80acb68dc419",
+      "match": true
+    }
+  ],
+  "hannover_board": {
+    "verification": "ops/evidence/seo-s05-hannover-375-direct-2026-10-28/verification.json",
+    "artifact": "docs/Marketing/SEO/mitigation-2026-10/design-assets/hannover-route-375.html",
+    "artifact_sha256": "9b0ceeea4b09d5dc9c79286d115c7839fcb2df3d18b7a759f4df2f2c6d756fb5",
+    "acceptance_scope": "one 375px initial-state standalone board only",
+    "verification_result": "accepted within stated scope"
+  },
+  "measurements": {
+    "actual_runtime_metrics": null,
+    "availability": "not reported; no application runtime measurement performed for P0"
+  },
+  "scope": {
+    "application_changes": false,
+    "commit_push_deploy_or_configuration_changes": false,
+    "private_identity_record": "output/seo-mitigation-execution-2026-10-28-private/baseline/pre-edit-identities.json"
+  }
+}
