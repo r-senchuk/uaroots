@@ -1,0 +1,10 @@
+{
+  "sourceSha": "76bbc03197b017ea813e39014bee6950455959d2",
+  "runId": "40686329581",
+  "releaseSha256": "79f483e38207593b14a39d9127e41d1f199b9ec0fb01b551da50a9f7599503c2",
+  "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+  "recoveryPrefix": "releases/40687288662-1",
+  "recoveryHash": "a12b1504579354452111dc84b3b4c52b51bd0368608d9e13df9bef151af63bd5",
+  "publishedObjects": 258,
+  "verifiedAt": "2026-10-28T12:48:18.221Z"
+}

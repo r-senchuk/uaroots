@@ -1,0 +1,17 @@
+{
+  "Location": "https://cloudfront.amazonaws.com/2020-05-31/distribution/E3L95CZFIU6533/invalidation/I50VZX2UOM8CBA2DBLEHYS560S",
+  "Invalidation": {
+    "Id": "I50VZX2UOM8CBA2DBLEHYS560S",
+    "Status": "InProgress",
+    "CreateTime": "2026-10-28T12:38:19.981000+00:00",
+    "InvalidationBatch": {
+      "Paths": {
+        "Quantity": 1,
+        "Items": [
+          "/*"
+        ]
+      },
+      "CallerReference": "cli-1793191099-488738"
+    }
+  }
+}

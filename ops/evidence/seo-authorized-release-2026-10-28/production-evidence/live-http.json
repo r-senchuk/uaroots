@@ -1,0 +1,5715 @@
+{
+  "evaluatedAt": "2026-10-28T12:48:18.210Z",
+  "scope": "Public GET/HEAD only; synthetic query parameters; no cookies, credentials, or contact sends",
+  "origin": "https://uaroute.com",
+  "counts": {
+    "pass": 373,
+    "fail": 0,
+    "unknown": 0
+  },
+  "results": [
+    {
+      "label": "document / HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document / HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /about/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /about/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /about/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /about/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /about/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /about/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document / GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document / GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document / GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document / canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /imprint/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/imprint/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /imprint/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/imprint/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /imprint/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/imprint/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /imprint/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/imprint/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /imprint/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/imprint/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /imprint/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /guides/perevezennya-velosypeda/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /guides/perevezennya-velosypeda/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /privacy/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/privacy/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /privacy/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/privacy/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /privacy/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/privacy/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /privacy/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/privacy/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /privacy/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/privacy/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /privacy/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-celle/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-celle/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-celle/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-celle/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-hannover/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hannover/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hannover/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hannover/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /guides/perevezennya-velosypeda/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /guides/perevezennya-velosypeda/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /guides/perevezennya-velosypeda/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /guides/perevezennya-velosypeda/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-celle/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-celle/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hannover/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hannover/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hannover/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hannover/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hannover/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hannover/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hannover/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/celle-dolyna/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-dolyna/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-dolyna/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-dolyna/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/ivano-frankivsk-wolfsburg/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ivano-frankivsk-wolfsburg/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ivano-frankivsk-wolfsburg/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ivano-frankivsk-wolfsburg/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/ivano-frankivsk-wolfsburg/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/ivano-frankivsk-wolfsburg/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-celle/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-celle/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-dolyna/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-dolyna/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-celle/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-celle/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-celle/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-celle/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/dolyna-wolfsburg/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-wolfsburg/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-wolfsburg/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-wolfsburg/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-wolfsburg/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-wolfsburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-wolfsburg/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/wolfsburg-dolyna/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-dolyna/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-dolyna/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-dolyna/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/wolfsburg-dolyna/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-dolyna/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-braunschweig/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-braunschweig/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-braunschweig/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-braunschweig/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/braunschweig-dolyna/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/braunschweig-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/braunschweig-dolyna/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/braunschweig-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/braunschweig-dolyna/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/braunschweig-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/braunschweig-dolyna/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/braunschweig-dolyna/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/braunschweig-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/braunschweig-dolyna/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/braunschweig-dolyna/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-braunschweig/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-braunschweig/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-braunschweig/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-braunschweig/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-braunschweig/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/dolyna-braunschweig/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/dolyna-braunschweig/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/celle-lviv/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-lviv/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-lviv/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-lviv/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-lviv/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-lviv/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/wolfsburg-ivano-frankivsk/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-ivano-frankivsk/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-ivano-frankivsk/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-ivano-frankivsk/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/celle-stryi/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-stryi/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-ivano-frankivsk/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/wolfsburg-ivano-frankivsk/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/lviv/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/lviv/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-stryi/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-stryi/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-stryi/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/celle-stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/celle-stryi/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /cities/ivano-frankivsk/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/ivano-frankivsk/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/lviv/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/lviv/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/lviv/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/lviv/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/lviv/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /cities/ivano-frankivsk/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/ivano-frankivsk/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/ivano-frankivsk/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/ivano-frankivsk/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/ivano-frankivsk/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /cities/celle/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/celle/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/stryi/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/stryi/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/celle/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/celle/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/celle/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/celle/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hamburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hamburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hamburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hamburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-hamburg/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-hamburg/ editorial noindex",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /cities/stryi/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/stryi/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/stryi/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/stryi/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /cities/stryi/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-berlin/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-berlin/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-berlin/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-berlin/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-berlin/ GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-berlin/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-berlin/ canonical",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "document /routes/lviv-berlin/ editorial noindex",
+      "state": "pass",
+      "detail": ""
+    },
+    {
+      "label": "legacy /contact GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-berlin/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-berlin/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "document /routes/lviv-berlin/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-berlin/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact/ HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contact HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /contacts/ HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contacts/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers/ GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /carriers GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/carriers",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /packages/ GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/packages/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /index.html HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "legacy /gallery/ GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/gallery/",
+          "status": 308,
+          "location": "https://uaroute.com/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "known alias /routes/index.html HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /routes/index.html GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/index.html?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /cities/celle GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/celle?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/cities/celle/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP canonical protocol GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://uaroute.com/routes/",
+          "status": 301,
+          "location": "https://uaroute.com/routes/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP canonical protocol GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://uaroute.com/routes/",
+          "status": 301,
+          "location": "https://uaroute.com/routes/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP canonical protocol GET first status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://uaroute.com/routes/",
+          "status": 301,
+          "location": "https://uaroute.com/routes/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP canonical protocol GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://uaroute.com/routes/",
+          "status": 301,
+          "location": "https://uaroute.com/routes/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /seo-http-missing-document-20261007/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-document-20261007/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /seo-http-missing-document-20261007/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-document-20261007/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /seo-http-missing-document-20261007/ no homepage canonical",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-document-20261007/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /seo-http-missing-document-20261007/ noindex",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-document-20261007/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /seo-http-missing-document-20261007/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-document-20261007/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /seo-http-missing-document-20261007/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-document-20261007/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact HEAD Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact HEAD permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "query preservation /contact HEAD final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/contact?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 308,
+          "location": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/?utm_source=seo_qa&utm_medium=test&tag=a&tag=b&encoded=%2F%26+&blank=",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /routes/unknown-nested-slug/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /routes/unknown-nested-slug/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /routes/unknown-nested-slug/ no homepage canonical",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /routes/unknown-nested-slug/ noindex",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "www canonical host GET Location",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://www.uaroute.com/routes/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "www canonical host GET permanent redirect",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://www.uaroute.com/routes/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "www canonical host GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://www.uaroute.com/routes/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "www canonical host GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://www.uaroute.com/routes/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "www canonical host GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://www.uaroute.com/routes/",
+          "status": 308,
+          "location": "https://uaroute.com/routes/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/routes/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /cities/unknown-nested-slug/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /cities/unknown-nested-slug/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /cities/unknown-nested-slug/ no homepage canonical",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /cities/unknown-nested-slug/ noindex",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP www legacy normalization GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://www.uaroute.com/contact/",
+          "status": 301,
+          "location": "https://www.uaroute.com/contact/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://www.uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP www legacy normalization GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://www.uaroute.com/contact/",
+          "status": 301,
+          "location": "https://www.uaroute.com/contact/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://www.uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP www legacy normalization GET first status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://www.uaroute.com/contact/",
+          "status": 301,
+          "location": "https://www.uaroute.com/contact/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://www.uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "HTTP www legacy normalization GET final URL",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "http://www.uaroute.com/contact/",
+          "status": 301,
+          "location": "https://www.uaroute.com/contact/",
+          "contentType": "text/html"
+        },
+        {
+          "url": "https://www.uaroute.com/contact/",
+          "status": 308,
+          "location": "https://uaroute.com/about/",
+          "contentType": null
+        },
+        {
+          "url": "https://uaroute.com/about/",
+          "status": 200,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /provider/unknown/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/provider/unknown/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /provider/unknown/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/provider/unknown/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /routes/unknown-nested-slug/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /routes/unknown-nested-slug/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /cities/unknown-nested-slug/ HEAD redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /cities/unknown-nested-slug/ HEAD final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/cities/unknown-nested-slug/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /provider/unknown/ GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/provider/unknown/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /provider/unknown/ GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/provider/unknown/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /provider/unknown/ no homepage canonical",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/provider/unknown/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "unknown document /provider/unknown/ noindex",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/provider/unknown/",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/media/vietnamese-500-normal.e40af345.woff2 GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/media/vietnamese-500-normal.e40af345.woff2",
+          "status": 200,
+          "location": null,
+          "contentType": "font/woff2"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/media/vietnamese-500-normal.e40af345.woff2 GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/media/vietnamese-500-normal.e40af345.woff2",
+          "status": 200,
+          "location": null,
+          "contentType": "font/woff2"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/media/vietnamese-500-normal.e40af345.woff2 GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/media/vietnamese-500-normal.e40af345.woff2",
+          "status": 200,
+          "location": null,
+          "contentType": "font/woff2"
+        }
+      ]
+    },
+    {
+      "label": "missing static object /seo-http-missing-image-20261007.webp GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-image-20261007.webp",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "missing static object /seo-http-missing-image-20261007.webp GET error status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/seo-http-missing-image-20261007.webp",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "missing static object /_next/seo-http-missing-asset.js GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/seo-http-missing-asset.js",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "missing static object /_next/seo-http-missing-asset.js GET error status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/seo-http-missing-asset.js",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "missing static object /routes/unknown/index.txt GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown/index.txt",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "missing static object /routes/unknown/index.txt GET error status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/unknown/index.txt",
+          "status": 404,
+          "location": null,
+          "contentType": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/css/75598e59cde7e917.css GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/css/75598e59cde7e917.css",
+          "status": 200,
+          "location": null,
+          "contentType": "text/css"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/css/75598e59cde7e917.css GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/css/75598e59cde7e917.css",
+          "status": 200,
+          "location": null,
+          "contentType": "text/css"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/css/75598e59cde7e917.css GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/css/75598e59cde7e917.css",
+          "status": 200,
+          "location": null,
+          "contentType": "text/css"
+        }
+      ]
+    },
+    {
+      "label": "static object /arrival-560.webp GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/arrival-560.webp",
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      ]
+    },
+    {
+      "label": "static object /arrival-560.webp GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/arrival-560.webp",
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      ]
+    },
+    {
+      "label": "static object /arrival-560.webp GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/arrival-560.webp",
+          "status": 200,
+          "location": null,
+          "contentType": "image/webp"
+        }
+      ]
+    },
+    {
+      "label": "robots.txt GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/robots.txt",
+          "status": 200,
+          "location": null,
+          "contentType": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "robots.txt GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/robots.txt",
+          "status": 200,
+          "location": null,
+          "contentType": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "robots.txt GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/robots.txt",
+          "status": 200,
+          "location": null,
+          "contentType": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/chunks/4bd1b696-c7408084347438ae.js GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "status": 200,
+          "location": null,
+          "contentType": "text/javascript"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/chunks/4bd1b696-c7408084347438ae.js GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "status": 200,
+          "location": null,
+          "contentType": "text/javascript"
+        }
+      ]
+    },
+    {
+      "label": "static object /_next/static/chunks/4bd1b696-c7408084347438ae.js GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/_next/static/chunks/4bd1b696-c7408084347438ae.js",
+          "status": 200,
+          "location": null,
+          "contentType": "text/javascript"
+        }
+      ]
+    },
+    {
+      "label": "static object /icon.svg GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/icon.svg",
+          "status": 200,
+          "location": null,
+          "contentType": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "label": "static object /icon.svg GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/icon.svg",
+          "status": 200,
+          "location": null,
+          "contentType": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "label": "static object /icon.svg GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/icon.svg",
+          "status": 200,
+          "location": null,
+          "contentType": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "label": "sitemap.xml GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/sitemap.xml",
+          "status": 200,
+          "location": null,
+          "contentType": "application/xml"
+        }
+      ]
+    },
+    {
+      "label": "sitemap.xml GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/sitemap.xml",
+          "status": 200,
+          "location": null,
+          "contentType": "application/xml"
+        }
+      ]
+    },
+    {
+      "label": "sitemap.xml GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/sitemap.xml",
+          "status": 200,
+          "location": null,
+          "contentType": "application/xml"
+        }
+      ]
+    },
+    {
+      "label": "static object /routes/lviv-celle/index.txt GET redirect count",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/index.txt",
+          "status": 200,
+          "location": null,
+          "contentType": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "static object /routes/lviv-celle/index.txt GET final status",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/index.txt",
+          "status": 200,
+          "location": null,
+          "contentType": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "label": "static object /routes/lviv-celle/index.txt GET content type",
+      "state": "pass",
+      "detail": "",
+      "evidence": [
+        {
+          "url": "https://uaroute.com/routes/lviv-celle/index.txt",
+          "status": 200,
+          "location": null,
+          "contentType": "text/plain; charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

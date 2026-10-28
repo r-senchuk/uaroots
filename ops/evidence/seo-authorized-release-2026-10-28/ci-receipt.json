@@ -1,0 +1,40 @@
+{
+  "sourceSha": "76bbc03197b017ea813e39014bee6950455959d2",
+  "runId": "40686329581",
+  "conclusion": "success",
+  "event": "push",
+  "branch": "main",
+  "workflowPath": ".github/workflows/ci.yml",
+  "ciUrl": "https://github.com/r-senchuk/uaroots/actions/runs/40686329581",
+  "createdAt": "2026-10-28T12:15:30Z",
+  "completedAt": "2026-10-28T12:16:55Z",
+  "releaseSha256": "79f483e38207593b14a39d9127e41d1f199b9ec0fb01b551da50a9f7599503c2",
+  "exportFiles": 258,
+  "exportBytes": 7815302,
+  "ciLogSha256": "f12e9b9ca6591de261e53a38262c43a8c5288372b2b786ffea50ed5ecbdff305",
+  "validation": {
+    "npmRunCheck": "passed once as one successful CIcommand",
+    "unitTests": 176,
+    "unitFiles": 18,
+    "instructionToolingTests": 29,
+    "releaseToolingTests": 16,
+    "catalogFocusedTests": 9,
+    "typecheck": "passed",
+    "lint": "passed",
+    "staticBuild": "passed locked Next16.4.0 Node22",
+    "inspectOut": "passed",
+    "seoVerifyArtifact": "passed",
+    "dryRun": "passed"
+  },
+  "resolvedSettings": {
+    "NEXT_PUBLIC_ANALYTICS_ENABLED": "true",
+    "NEXT_PUBLIC_GTM_CONTAINER_ID": "GTM-WD2F63V5",
+    "NEXT_PUBLIC_GA_MEASUREMENT_ID": "G-PMXHF9YT7V"
+  },
+  "artifactAuthenticatedAndIndependentlyDownloaded": true,
+  "artifactRebuiltAtPromotion": false,
+  "productionRunId": "40687288662",
+  "productionUrl": "https://github.com/r-senchuk/uaroots/actions/runs/40687288662",
+  "status": "Authorized production deployment completed successfully; independent live HTTP and browser acceptance passed; final physical-device acceptance remains held.",
+  "productionVerifiedAt": "2026-10-28T12:48:18.221Z"
+}

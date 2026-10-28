@@ -1222,6 +1222,21 @@
       "scope": "bundle"
     },
     {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "../ops/evidence/seo-authorized-release-2026-10-28/release-receipt.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/execution-status.md",
+      "to": "../ops/evidence/seo-authorized-release-2026-10-28/live-browser/README.md",
+      "scope": "repository"
+    },
+    {
       "from": "Marketing/SEO/mitigation-2026-10/implementation-plan.md",
       "to": "Marketing/SEO/mitigation-2026-10/readiness-manifest.md",
       "scope": "bundle"
@@ -1589,6 +1604,21 @@
     {
       "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
       "to": "../ops/evidence/seo-release-preparation-2026-10-28/execution-ledger.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-authorized-release-2026-10-28/release-receipt.json",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-session-verification-2026-10-28/release-readback.md",
+      "scope": "repository"
+    },
+    {
+      "from": "Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+      "to": "../ops/evidence/seo-authorized-release-2026-10-28/live-browser/README.md",
       "scope": "repository"
     },
     {

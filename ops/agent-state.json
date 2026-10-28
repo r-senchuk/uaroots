@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-27",
+  "updated_at": "2026-10-28",
   "scope": {
     "project": "uaroute",
     "resources": [
@@ -177,12 +177,12 @@
     }
   ],
   "next_task": {
-    "summary": "S03 architecture complete and locally verified; execute S04 Ukrainian copy and per-claim reconciliation using the frozen seven-page architecture and S02 ledger. Include planned community-draft corrections. No application implementation or publication.",
-    "contract": "docs/Marketing/SEO/mitigation-2026-10/page-architecture.md",
-    "publication_state": "local-only",
+    "summary": "Source76bbc03 committed/pushed and technically deployed via successful40687288662; fresh recovery475, published258, invalidationComplete, independentHTTP55/55. FinalS10 physicaldevice6 NOT RUN held; livebrowser12/12 groups and31 hash-matched GET paths pass. Next laterdevicechecks, S11draft2correction/namedchannelpermission; S12reviewsNov4/11/18/25 afterOct28release.",
+    "contract": "docs/Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+    "publication_state": "deployed",
     "blockers": [
       "October27 signed-in GSC inspection covered all seven URLs and property/query comparison; browser access then disabled. Page-level performance and Google AI/Bing visibility remain unknown. Obtain the smallest exports specified in search-baseline; do not retry GSC Wizard.",
-      "Community placement drafts require factual and directional correction before use; their prior reviewed label is not current acceptance.",
+      "S04 corrected all three community drafts and accepted their copy; posting, channel permission and actual publication remain separate and unverified.",
       "Current post-normalization production acquisition, field performance and real operator receipt remain unverified; do not treat historical direct/direct events as proof of an unfixed defect."
     ],
     "boundaries": [
@@ -192,7 +192,12 @@
       "Actual implementation belongs to a later requested Next.js expert session S08 after the accepted S07 manifest. Release and distribution retain their separate authorization gates.",
       "Preserve unrelated local KB work. Recheck only the source/provider state needed before the next dependent action.",
       "Separate pre-existing tracks remain open: Ads readiness/spend-cap clarification and human usability/native zoom/real-device execution. This planning handoff does not complete or authorize those tracks.",
-      "S03 completion is the coordinator-authored documentation revision following the bounded trial, recorded in ops/evidence/seo-s03-completion-2026-10-27/completion.json. Five route-to-guide links are planned additions, not deployed changes. Earlier trial/administrative diagnostics are separate historical records."
+      "S03 completion is the coordinator-authored documentation revision following the bounded trial, recorded in ops/evidence/seo-s03-completion-2026-10-27/completion.json. Five route-to-guide links are planned additions, not deployed changes. Earlier trial/administrative diagnostics are separate historical records.",
+      "S04 final copy is coordinator-integrated from requested Luna/high drafts with a separate read-only Luna source review. Exact157 claims,210 route/hub fields and12needs are reconciled; OP operational claims/new dates remain excluded. Existing pre-S04 partial Hannover draft is historical and unchanged. See editorial-review.md for frozen hashes.",
+      "2026-10-28 full-seven-page execution: preserve released calendar-fix dirty baseline; accepted S05 preview evidence is not application verification. Exact locked dependencies prepared only in ignored task directory; root installed Next16.3.8 remains mismatched to lock16.4.0. All application validation must use the isolated lock-matched environment. S10 release/S11 posting still require separate authorization.",
+      "2026-10-28 completion supersedes earlier planning-only boundaries for local implementation: S08 implemented the accepted package, S09 independently accepted local G3, and coordinator verified true desktop application200% zoom/native select/blank errors. No publication or provider receipt is inferred. Source/export identities and remaining real-device/accessibility/human evidence gaps are in acceptance-review.md; unknown reports do not automatically add release gates.",
+      "2026-10-28 R-series preparation: actual local isolated dry-run passed and R4 independently accepted preparation only. Root out is historical, accepted export remains private; compiled analytics disabled. Physical iPhone tests deferred by owner, not passed. R7 draft2 wording finding blocks that placement only. No new search/provider data; export requests saved. See seo-release-preparation-2026-10-28 evidence.",
+      "Subsequent owner authorization covered commit/push/deploy on2026-10-28. Isolated release source76bbc03; original dirty checkout preserved. Actual release receipt is ops/evidence/seo-authorized-release-2026-10-28/release-receipt.json. Existing dated observations below are historical, not refreshed indexing/outcome evidence."
     ]
   }
 }

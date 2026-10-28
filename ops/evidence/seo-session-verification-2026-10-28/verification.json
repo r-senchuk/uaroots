@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-28T12:13:26.297418+00:00",
+  "scope": "Independent bounded readback of existing S01-S12 records; no new app/build/browser/provider/cloud/Git mutation or historical test reexecution. Evidence reuse is explicit.",
+  "checks": {
+    "root_selected_source": {
+      "matched": 167,
+      "denominator": 167,
+      "mismatches": [],
+      "missing": []
+    },
+    "isolated_selected_source": {
+      "matched": 167,
+      "denominator": 167,
+      "mismatches": [],
+      "missing": []
+    },
+    "accepted_export": {
+      "matched": 258,
+      "denominator": 258,
+      "mismatches": [],
+      "missing": [],
+      "extra": [],
+      "symlinks": [],
+      "bytes": 7830419
+    },
+    "r4_input_hashes": {
+      "matched": 21,
+      "denominator": 22,
+      "mismatches": [
+        "docs/Marketing/SEO/mitigation-2026-10/next-stage-handoff.md"
+      ],
+      "missing": [],
+      "resolved_drift": {
+        "path": "docs/Marketing/SEO/mitigation-2026-10/next-stage-handoff.md",
+        "historical_sha256": "12132075667c6198f1263ca468d15954859e84d194460a36dac7b5f43fd8bdb5",
+        "current_sha256": "7d403e244b7136f1888fae259e4f3e60f2985973119b962411e04229cc4b88ee",
+        "exact_historical_prefix_lines": 61,
+        "prefix_sha256": "12132075667c6198f1263ca468d15954859e84d194460a36dac7b5f43fd8bdb5",
+        "classification": "explained later documentation append; no selected application-source drift"
+      }
+    },
+    "s07_essential_inputs": {
+      "matched": 26,
+      "denominator": 26,
+      "mismatches": [],
+      "missing": []
+    },
+    "s05_snapshot_hashes": {
+      "matched": 34,
+      "denominator": 34,
+      "mismatches": [],
+      "missing": []
+    },
+    "content_counts": {
+      "page_records": 7,
+      "field_rows": 210,
+      "declared_field_denominator": 210,
+      "reconciliation_records": 157,
+      "consumer_rows": 94,
+      "consumer_declared_denominator": 94
+    },
+    "physical_device": {
+      "passed": 0,
+      "failed": 0,
+      "not_run": 6,
+      "denominator": 6
+    },
+    "manifest_identity": {
+      "source_map_sha256": "3c114ad623fd49d791eea58ea2210170801e45613fb557ad4fdf0313c3cae29e",
+      "export_map_sha256": "40a5db56e1a7ae1aa8b6d06ebabf05f3d1adde1229dc2c25517adfaa89636572",
+      "release_fingerprint_r4": "ed5adc3a5964701aaa5da34296ffd2db1348bd86f4593abe82b99f1620f2c974",
+      "edge_fingerprint_r4": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d"
+    }
+  },
+  "decision": "READY_WITH_EXPLICIT_UNKNOWNS; S01-S09 local acceptance supported; S10 technical release in separate owner execution; S10 device acceptance remains held; S11 unposted; S12 not yet observable",
+  "owner_disposition_provenance": "Coordinator message in this execution: owner explicitly selected physical tests later and now instructs deployment. Technical deployment may proceed under actual CI/recovery gates; all six remain NOT RUN and final S10 acceptance is held for device. Historical R4 unchanged.",
+  "unknowns": [
+    "matching new source-SHA CI and artifact comparison pending release owner",
+    "fresh recovery and deployment/live receipts pending release owner",
+    "six exact-candidate physical iPhone checks NOT RUN",
+    "screen-reader and human usability not executed",
+    "S11 named channel rules/permission, exact released destination and publication evidence missing; P2 baggage wording needs factual correction",
+    "no actual release/exposure start established by this bounded audit; S12 day7/14/21/28 outcomes unavailable",
+    "page-specific search, AI, field-CWV, provider ingestion and operator outcomes remain unavailable"
+  ],
+  "sessions": [
+    {
+      "id": "S01",
+      "status": "ready_with_unknowns",
+      "scope": "dated seven-page search baseline",
+      "unknowns": "7/7 page-specific query/country/device and AI metrics unavailable"
+    },
+    {
+      "id": "S02",
+      "status": "ready_with_unknowns",
+      "scope": "claim/passenger research",
+      "unknowns": "operational facts unsupported; omitted/suppressed"
+    },
+    {
+      "id": "S03",
+      "status": "complete_preparation",
+      "scope": "existing seven-page architecture; no new pages",
+      "unknowns": "query-dependent snippet experiments deferred"
+    },
+    {
+      "id": "S04",
+      "status": "complete_preparation_with_s11_finding",
+      "scope": "7 page records;210 field rows;157 reconciliation entries",
+      "unknowns": "human/carrier review absent; P2 baggage wording awaits factual correction"
+    },
+    {
+      "id": "S05",
+      "status": "g1_accepted_design_only",
+      "scope": "94 copy keys;16 illustrated states;78 viewport;13 native preview zoom checks reused",
+      "unknowns": "no application/device acceptance inferred from boards"
+    },
+    {
+      "id": "S06",
+      "status": "complete_preparation_with_unknowns",
+      "scope": "no analytics code change;matched 3x4 lab",
+      "unknowns": "NO_DATA is not zero;ingestion/rate union/field/outcomes unknown"
+    },
+    {
+      "id": "S07",
+      "status": "g2_accepted",
+      "scope": "26/26 current essential hashes;94 consumers",
+      "unknowns": "readiness not release approval"
+    },
+    {
+      "id": "S08",
+      "status": "complete_local_candidate",
+      "scope": "current selected167 source and258 export match;existing checks reused",
+      "unknowns": "original whole npm check failed inspector;later affected checks passed;new successful CI needed"
+    },
+    {
+      "id": "S09",
+      "status": "g3_accepted_local_with_holds",
+      "scope": "independent acceptance record and exact candidate reused",
+      "unknowns": "6 physical NOT_RUN;screenreader/human/provider receipt unknown"
+    },
+    {
+      "id": "S10",
+      "status": "technical_delivery_owned_separately_device_acceptance_held",
+      "scope": "preparation reviewed;current owner-authorized execution outside this audit",
+      "unknowns": "CI/recovery/deploy/live receipts pending release owner at audit;physical6NOT_RUN"
+    },
+    {
+      "id": "S11",
+      "status": "unposted_three_drafts",
+      "scope": "P1/P3 prepared;P2 factual correction required",
+      "unknowns": "0/3 final tagged-live checks;named channels/rules/permission/posting authorization absent"
+    },
+    {
+      "id": "S12",
+      "status": "plan_only_observations_not_executed",
+      "scope": "7/14/21/28-day observation contract",
+      "unknowns": "actual release/exposure/cohorts/outcomes not established by this audit"
+    }
+  ]
+}

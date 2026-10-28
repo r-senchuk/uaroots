@@ -1,0 +1,87 @@
+{
+  "observedAt": "2026-10-28T12:20:25.077Z",
+  "method": "Read-only connected GTM live version call for site uaroute; no settings changed",
+  "version": {
+    "path": "accounts/6381109446/containers/266368930/versions/2",
+    "accountId": "6381109446",
+    "containerId": "266368930",
+    "containerVersionId": "2",
+    "name": "UARoute Basic GA4 consent — verified 2026-10-07",
+    "description": "Reviewed Basic consent template and approved event allowlist. All advertising consent denied; no Google requests before opt-in. Withdrawal, private payload exclusion, blocked-provider business flow and SPA deduplication passed clean-profile QA. Activation follows verified disabled recovery baseline.",
+    "container": {
+      "path": "accounts/6381109446/containers/266368930",
+      "accountId": "6381109446",
+      "containerId": "266368930",
+      "name": "uaroute.com",
+      "publicId": "GTM-WD2F63V5",
+      "usageContext": [
+        "web"
+      ],
+      "fingerprint": "1791376034155",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6381109446/containers/266368930/workspaces?apiLink=container",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": false,
+        "supportBuiltInVariables": true,
+        "supportClients": false,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true,
+        "supportTransformations": false
+      },
+      "tagIds": [
+        "GTM-WD2F63V5"
+      ]
+    },
+    "fingerprint": "1791408500647",
+    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6381109446/containers/266368930/versions/2?apiLink=version"
+  },
+  "summary": {
+    "tagCount": 3,
+    "triggerCount": 1,
+    "variableCount": 23,
+    "folderCount": 0,
+    "builtInVariableCount": 5,
+    "zoneCount": 0,
+    "customTemplateCount": 1,
+    "clientCount": 0,
+    "gtagConfigCount": 0,
+    "transformationCount": 0
+  },
+  "tagIds": [
+    {
+      "tagId": "4",
+      "fingerprint": "1791380785497",
+      "type": "googtag"
+    },
+    {
+      "tagId": "6",
+      "fingerprint": "1791378123058",
+      "type": "cvt_266368930_5"
+    },
+    {
+      "tagId": "9",
+      "fingerprint": "1791380826656",
+      "type": "gaawe"
+    }
+  ],
+  "triggerIds": [
+    {
+      "triggerId": "8",
+      "fingerprint": "1791379112289"
+    }
+  ],
+  "template": [
+    {
+      "templateId": "5",
+      "fingerprint": "1791395006629"
+    }
+  ],
+  "limits": "Live version2 is unchanged historical published provider configuration; this is configuration readback, not new vendor ingestion or business receipt."
+}

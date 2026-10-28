@@ -1,0 +1,2770 @@
+{
+  "observed_at_utc": "2026-10-28T12:19:23.248769+00:00",
+  "stage": "live_readback_complete",
+  "bundle_verification": {
+    "independently_executed": true,
+    "exit_code": 0,
+    "identity": {
+      "schemaVersion": 1,
+      "repository": "r-senchuk/uaroots",
+      "sourceSha": "76bbc03197b017ea813e39014bee6950455959d2",
+      "runId": "40686329581",
+      "event": "push",
+      "ref": "refs/heads/main",
+      "releaseSha256": "79f483e38207593b14a39d9127e41d1f199b9ec0fb01b551da50a9f7599503c2",
+      "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d"
+    },
+    "run_api_record_sha256": "1e051894fa4edf30fc20301989e423b45c04b538a60097337ad28ca75cc51845",
+    "provenance": "Authenticated API response supplied by release owner; independently validated eligibility by release-bundle.mjs verify; not merely artifact-asserted run identity"
+  },
+  "static_affected_reacceptance": {
+    "method": "Existing independent S09 static oracle executed in memory against actual CI export; no application/build/source writes. Source-only and old-map inventory checks omitted; bundle verify checks new inventory independently.",
+    "checks": [
+      {
+        "name": "literal independent sitemap set22",
+        "passed": true
+      },
+      {
+        "name": "/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/about/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/about/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/about/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/imprint/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/imprint/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/imprint/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/privacy/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/privacy/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/privacy/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/guides/perevezennya-velosypeda/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/guides/perevezennya-velosypeda/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/guides/perevezennya-velosypeda/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/cities/lviv/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/cities/lviv/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/cities/lviv/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/cities/ivano-frankivsk/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/cities/ivano-frankivsk/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/cities/ivano-frankivsk/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/cities/celle/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/cities/celle/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/cities/celle/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/cities/stryi/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/cities/stryi/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/cities/stryi/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ editorial noindex",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ html metadata",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ no operational schema",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ no public carrier brand",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ form eligibility",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ editorial noindex",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ no deferred service-claim presentation",
+        "passed": true
+      },
+      {
+        "name": "/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/about/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/imprint/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/privacy/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/guides/perevezennya-velosypeda/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/cities/lviv/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/cities/ivano-frankivsk/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/cities/celle/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/cities/stryi/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/lviv-hannover/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/dolyna-celle/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/celle-dolyna/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/lviv-celle/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/celle-lviv/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/celle-stryi/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/lviv-hamburg/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "/routes/lviv-berlin/ internal hrefs resolve/slash",
+        "passed": true,
+        "detail": []
+      },
+      {
+        "name": "unique titles/descriptions",
+        "passed": true
+      },
+      {
+        "name": "frozen copy consumer sentences/items/links",
+        "passed": true,
+        "detail": {
+          "matched": 94,
+          "missing": []
+        }
+      },
+      {
+        "name": "/contact/ redirect",
+        "passed": true
+      },
+      {
+        "name": "/contacts/ redirect",
+        "passed": true
+      },
+      {
+        "name": "/carriers/ redirect",
+        "passed": true
+      },
+      {
+        "name": "/packages/ redirect",
+        "passed": true
+      },
+      {
+        "name": "/gallery/ redirect",
+        "passed": true
+      },
+      {
+        "name": "404 artifact no homepage canonical",
+        "passed": true
+      },
+      {
+        "name": "sitemap dates byte-identical to baseline",
+        "passed": true
+      },
+      {
+        "name": "/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/about/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/imprint/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/privacy/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/guides/perevezennya-velosypeda/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/cities/lviv/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/cities/ivano-frankivsk/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/cities/celle/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/cities/stryi/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hannover/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-celle/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-dolyna/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-wolfsburg/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-dolyna/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/dolyna-braunschweig/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/braunschweig-dolyna/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-celle/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-lviv/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/ivano-frankivsk-wolfsburg/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/wolfsburg-ivano-frankivsk/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/celle-stryi/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-hamburg/ practical precedes image",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ schema identities and dates retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ existing illustrative image/alt retained",
+        "passed": true
+      },
+      {
+        "name": "/routes/lviv-berlin/ practical precedes image",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "denominator": 188
+  },
+  "main_text_comparison": [
+    {
+      "path": "index.html",
+      "main_text_identical": true,
+      "before_length": 2705,
+      "after_length": 2705
+    },
+    {
+      "path": "404.html",
+      "main_text_identical": true,
+      "before_length": 400,
+      "after_length": 400
+    },
+    {
+      "path": "contact/index.html",
+      "main_text_identical": true,
+      "before_length": 70,
+      "after_length": 70
+    },
+    {
+      "path": "privacy/index.html",
+      "main_text_identical": false,
+      "before_length": 10141,
+      "after_length": 10137
+    },
+    {
+      "path": "gallery/index.html",
+      "main_text_identical": true,
+      "before_length": 70,
+      "after_length": 70
+    },
+    {
+      "path": "contacts/index.html",
+      "main_text_identical": true,
+      "before_length": 70,
+      "after_length": 70
+    },
+    {
+      "path": "about/index.html",
+      "main_text_identical": true,
+      "before_length": 1849,
+      "after_length": 1849
+    },
+    {
+      "path": "packages/index.html",
+      "main_text_identical": true,
+      "before_length": 70,
+      "after_length": 70
+    },
+    {
+      "path": "carriers/index.html",
+      "main_text_identical": true,
+      "before_length": 70,
+      "after_length": 70
+    },
+    {
+      "path": "_not-found/index.html",
+      "main_text_identical": true,
+      "before_length": 400,
+      "after_length": 400
+    },
+    {
+      "path": "404/index.html",
+      "main_text_identical": true,
+      "before_length": 400,
+      "after_length": 400
+    },
+    {
+      "path": "routes/index.html",
+      "main_text_identical": true,
+      "before_length": 2234,
+      "after_length": 2234
+    },
+    {
+      "path": "imprint/index.html",
+      "main_text_identical": true,
+      "before_length": 841,
+      "after_length": 841
+    },
+    {
+      "path": "routes/lviv-celle/index.html",
+      "main_text_identical": true,
+      "before_length": 3123,
+      "after_length": 3123
+    },
+    {
+      "path": "routes/lviv-hannover/index.html",
+      "main_text_identical": true,
+      "before_length": 2920,
+      "after_length": 2920
+    },
+    {
+      "path": "routes/wolfsburg-ivano-frankivsk/index.html",
+      "main_text_identical": true,
+      "before_length": 3198,
+      "after_length": 3198
+    },
+    {
+      "path": "routes/ivano-frankivsk-wolfsburg/index.html",
+      "main_text_identical": true,
+      "before_length": 3081,
+      "after_length": 3081
+    },
+    {
+      "path": "routes/dolyna-wolfsburg/index.html",
+      "main_text_identical": true,
+      "before_length": 2930,
+      "after_length": 2930
+    },
+    {
+      "path": "routes/celle-stryi/index.html",
+      "main_text_identical": true,
+      "before_length": 2805,
+      "after_length": 2805
+    },
+    {
+      "path": "routes/dolyna-braunschweig/index.html",
+      "main_text_identical": true,
+      "before_length": 2939,
+      "after_length": 2939
+    },
+    {
+      "path": "routes/braunschweig-dolyna/index.html",
+      "main_text_identical": true,
+      "before_length": 2929,
+      "after_length": 2929
+    },
+    {
+      "path": "routes/lviv-hamburg/index.html",
+      "main_text_identical": true,
+      "before_length": 785,
+      "after_length": 785
+    },
+    {
+      "path": "routes/wolfsburg-dolyna/index.html",
+      "main_text_identical": true,
+      "before_length": 2911,
+      "after_length": 2911
+    },
+    {
+      "path": "routes/dolyna-celle/index.html",
+      "main_text_identical": true,
+      "before_length": 2968,
+      "after_length": 2968
+    },
+    {
+      "path": "routes/celle-lviv/index.html",
+      "main_text_identical": true,
+      "before_length": 3221,
+      "after_length": 3221
+    },
+    {
+      "path": "routes/lviv-berlin/index.html",
+      "main_text_identical": true,
+      "before_length": 761,
+      "after_length": 761
+    },
+    {
+      "path": "routes/celle-dolyna/index.html",
+      "main_text_identical": true,
+      "before_length": 2949,
+      "after_length": 2949
+    },
+    {
+      "path": "guides/perevezennya-velosypeda/index.html",
+      "main_text_identical": true,
+      "before_length": 1358,
+      "after_length": 1358
+    },
+    {
+      "path": "cities/stryi/index.html",
+      "main_text_identical": true,
+      "before_length": 5783,
+      "after_length": 5783
+    },
+    {
+      "path": "cities/celle/index.html",
+      "main_text_identical": true,
+      "before_length": 7044,
+      "after_length": 7044
+    },
+    {
+      "path": "cities/lviv/index.html",
+      "main_text_identical": true,
+      "before_length": 5979,
+      "after_length": 5979
+    },
+    {
+      "path": "cities/ivano-frankivsk/index.html",
+      "main_text_identical": true,
+      "before_length": 5983,
+      "after_length": 5983
+    }
+  ],
+  "comparison_record_sha256": "546908a9e1443d7172866dfe8b5884dc4fd08c560cc6c05ca2c6afaa4425d9e0",
+  "artifact_delta_counts": {
+    "same": 35,
+    "different": 182,
+    "added": 41,
+    "removed": 41
+  },
+  "concrete_static_difference": "Actual CI compiles enabled optional analytics. All-page footer status wording and rendered consent dialog differ from accepted disabled artifact; privacy page consent-only analytics explanation differs. Main content unchanged except privacy page, checked separately. Not solely build-ID drift.",
+  "physical_device": {
+    "passed": 0,
+    "failed": 0,
+    "not_run": 6,
+    "denominator": 6
+  },
+  "enabled_runtime_review": {
+    "status": "affected actual enabled artifact accepted within mocked/intercepted scope",
+    "results": {
+      "privacy": {
+        "report": "output/seo-authorized-release-2026-10-28-private/privacy/report.json",
+        "sha256": "1068e1537a4c774df072d5f33b436f3efd502df767bdedb14d67ebd1657e0de6",
+        "checked": 10,
+        "passed": 10,
+        "failed": [],
+        "runtime_errors": [],
+        "reported_export": null,
+        "mode": "enabled-mock",
+        "request_counts": null,
+        "claim_boundary": "mock provider/aborted collectors; no real vendor ingestion proven"
+      },
+      "poc_enabled": {
+        "report": "output/seo-authorized-release-2026-10-28-private/poc-enabled/results.json",
+        "sha256": "8717256ee82e220e25c3479bca51a69bb1ce0f3b411d87b7c4bf4c7802007e7a",
+        "checked": 23,
+        "passed": 23,
+        "failed": [],
+        "runtime_errors": [],
+        "reported_export": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-authorized-release-2026-10-28-private/candidate/out",
+        "mode": "enabled-mock",
+        "request_counts": {
+          "mode": "enabled-mock",
+          "mockedGtmRequests": 1,
+          "blockedGoogleRequests": 8,
+          "blockedNonlocalRequests": 14,
+          "locallyServedPartnerRequests": 138
+        },
+        "claim_boundary": "mock provider/aborted collectors; no real vendor ingestion proven"
+      },
+      "passenger_original": {
+        "report": "output/seo-authorized-release-2026-10-28-private/passenger/results.json",
+        "sha256": "56a5ca3f9e155e18b536a7b26a96efa2d17e5a3130fd235934302c5daa162993",
+        "checked": 32,
+        "passed": 26,
+        "failed": [
+          "German overview city cards in both directions",
+          "Lviv Wolfsburg reversal preserves pair and resets candidate fields/errors",
+          "out-of-range passengers do not open WhatsApp",
+          "valid passengers1–8, desk/code and no telemetry/storage PII",
+          "privacy dialog separately visible and keyboard dismissible",
+          "native Enter and single submit inline"
+        ],
+        "runtime_errors": [],
+        "reported_export": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-authorized-release-2026-10-28-private/candidate/out",
+        "mode": null,
+        "request_counts": null,
+        "claim_boundary": "mock provider/aborted collectors; no real vendor ingestion proven"
+      }
+    },
+    "privacy_binding": "Release-owner explicit actual invocation/environment receipt points to exact candidate; invocation script and report hashes independently match. This is execution transcription, not direct reexecution.",
+    "original_failure_classification": "Worker reports six passenger failures were intercepted by enabled consent banner under old disabled-mode assumptions; denied-mode task-local harness rerun pending. Originals retained.",
+    "verified_results": [
+      {
+        "name": "privacy",
+        "path": "output/seo-authorized-release-2026-10-28-private/privacy/report.json",
+        "sha256": "1068e1537a4c774df072d5f33b436f3efd502df767bdedb14d67ebd1657e0de6",
+        "matched_recorded_hash": true,
+        "passed": 10,
+        "denominator": 10,
+        "runtime_errors": [],
+        "execution_binding": "release-owner explicit invocation receipt; report itself lacks export field"
+      },
+      {
+        "name": "poc",
+        "path": "output/seo-authorized-release-2026-10-28-private/poc-enabled/results.json",
+        "sha256": "8717256ee82e220e25c3479bca51a69bb1ce0f3b411d87b7c4bf4c7802007e7a",
+        "matched_recorded_hash": true,
+        "passed": 23,
+        "denominator": 23,
+        "runtime_errors": [],
+        "execution_binding": "exact export field in report"
+      },
+      {
+        "name": "passengerDenied",
+        "path": "output/seo-authorized-release-2026-10-28-private/passenger-denied-final/results.json",
+        "sha256": "e32a902dcdb3f28a99703fed0a6a353c0d848fe50e3211777e3f8b8e0d35ac20",
+        "matched_recorded_hash": true,
+        "passed": 32,
+        "denominator": 32,
+        "runtime_errors": [],
+        "execution_binding": "exact export field in report"
+      }
+    ],
+    "wrapper_review": "Independent diff inspected: explicit consent refusal and scroll reset in navigation helper; actual enabled-mode refusal button label. All original business assertions preserved. Wrapper hash independently matches receipt.",
+    "analytics_sources": {
+      "compared": 10,
+      "denominator": 10,
+      "changed_paths": [],
+      "method": "Independent read-only git diff between calendar release ff1e4d and actual source76bbc03"
+    },
+    "acceptance_receipt_sha256": "dadfa7cff08c957ff22c712388ae9d3b7036be6fbba25d4f2d8db0777cc07743"
+  },
+  "technical_release_decision": "TECHNICAL_DEPLOYMENT_AND_INDEPENDENT_HTTP_ARTIFACT_READBACK_ACCEPTED;final S10 physical-device acceptance held",
+  "unknowns": [
+    "actual physical iPhone six NOT RUN",
+    "screen-reader/human usability not executed",
+    "real vendor receipt/field/GSC/operator outcomes unavailable"
+  ],
+  "live_readback": {
+    "method": "Independently executed public GET/HEAD with redirect following disabled; no cookies, credentials, query inputs, JS, collectors or operator handoffs. Responses compared to exact CI manifest bytes and static canonicals.",
+    "observed_at_utc": "2026-10-28T12:51:05.400293+00:00",
+    "requests": 55,
+    "passed": 55,
+    "failed": 0,
+    "results": [
+      {
+        "url": "https://uaroute.com/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.491005+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "RefreshHit from cloudfront",
+        "etag": "\"b87a8993d37981027d6d792b55f15462\"",
+        "passed": true,
+        "sha256": "db6316ef67f62d1b945e11777501e1dd27cdb95f1912b0bbbd697e83d62af2f8",
+        "expected_sha256": "db6316ef67f62d1b945e11777501e1dd27cdb95f1912b0bbbd697e83d62af2f8",
+        "bytes": 115967,
+        "expected_bytes": 115967,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.491481+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "RefreshHit from cloudfront",
+        "etag": "\"b87a8993d37981027d6d792b55f15462\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.491595+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"51b53a4a2a4b5889005bcc87d5ebe4b9\"",
+        "passed": true,
+        "sha256": "caf57b2704434d02844c16da103d25a1d9ac6223c0840de5deaf931843606b3b",
+        "expected_sha256": "caf57b2704434d02844c16da103d25a1d9ac6223c0840de5deaf931843606b3b",
+        "bytes": 108798,
+        "expected_bytes": 108798,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/routes/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.491777+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"51b53a4a2a4b5889005bcc87d5ebe4b9\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/cities/lviv/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.491865+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"7090e5fee15e87dc1ddcc8cf8fc41277\"",
+        "passed": true,
+        "sha256": "fb3e803ae1a13b88618ff938d1cc0060390f493317d05b832903eedfc4b1ce22",
+        "expected_sha256": "fb3e803ae1a13b88618ff938d1cc0060390f493317d05b832903eedfc4b1ce22",
+        "bytes": 88836,
+        "expected_bytes": 88836,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/cities/lviv/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/cities/lviv/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.491987+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"7090e5fee15e87dc1ddcc8cf8fc41277\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/cities/ivano-frankivsk/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.595375+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"55751a49bf7c1c7f6ceefb45cb7a8ae2\"",
+        "passed": true,
+        "sha256": "b7ef20b238aa7a336283092a421eefe378163241507fa814c6b07c94f706dd67",
+        "expected_sha256": "b7ef20b238aa7a336283092a421eefe378163241507fa814c6b07c94f706dd67",
+        "bytes": 87834,
+        "expected_bytes": 87834,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/cities/ivano-frankivsk/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/cities/ivano-frankivsk/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.597900+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"55751a49bf7c1c7f6ceefb45cb7a8ae2\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hannover/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.617797+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"2baaa2ead6715a5d92675ec4f356dc2f\"",
+        "passed": true,
+        "sha256": "ee72345f3bee71008ea146577b52da48ea45a8562e8589cc3ea07221de42bff5",
+        "expected_sha256": "ee72345f3bee71008ea146577b52da48ea45a8562e8589cc3ea07221de42bff5",
+        "bytes": 79799,
+        "expected_bytes": 79799,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/lviv-hannover/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hannover/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.618187+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"2baaa2ead6715a5d92675ec4f356dc2f\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-celle/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.625841+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"19dce852a4005c94a2dd6e04e167d090\"",
+        "passed": true,
+        "sha256": "d989a2895e5416dc0a3d940457e9070e034eacb6dbee2bb813402aafb3ea818f",
+        "expected_sha256": "d989a2895e5416dc0a3d940457e9070e034eacb6dbee2bb813402aafb3ea818f",
+        "bytes": 86874,
+        "expected_bytes": 86874,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/lviv-celle/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-celle/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.628180+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"19dce852a4005c94a2dd6e04e167d090\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/celle-lviv/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.702292+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"f646200771af4d222fe3bc9e88a412da\"",
+        "passed": true,
+        "sha256": "ff9c7649a4a721a15cc3457125500518183d134f61b318469b6b53f2c9ffa367",
+        "expected_sha256": "ff9c7649a4a721a15cc3457125500518183d134f61b318469b6b53f2c9ffa367",
+        "bytes": 81595,
+        "expected_bytes": 81595,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/celle-lviv/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/routes/celle-lviv/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.707987+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Hit from cloudfront",
+        "etag": "\"f646200771af4d222fe3bc9e88a412da\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.720517+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"cdca1b0b727810af21c3328be37985c8\"",
+        "passed": true,
+        "sha256": "94029712ae0c2e995a9156735f48ef3b2d733d0d9fb97a7fb49350c46378e00f",
+        "expected_sha256": "94029712ae0c2e995a9156735f48ef3b2d733d0d9fb97a7fb49350c46378e00f",
+        "bytes": 81187,
+        "expected_bytes": 81187,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.731555+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"cdca1b0b727810af21c3328be37985c8\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.739795+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"48e480ec71fa332ce944ac67a87c434a\"",
+        "passed": true,
+        "sha256": "feaaf2693279a8ff32b4d05fe5dc8aeac373bc91e7232e4e23e5a53c2a8bd0af",
+        "expected_sha256": "feaaf2693279a8ff32b4d05fe5dc8aeac373bc91e7232e4e23e5a53c2a8bd0af",
+        "bytes": 82200,
+        "expected_bytes": 82200,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.747377+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"48e480ec71fa332ce944ac67a87c434a\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.815624+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"b565368caad7f073f2231c63cd604af3\"",
+        "passed": true,
+        "sha256": "879e6eb621b3525b6c97a6c3f1527628be07789531f1cbeb09d058a450592109",
+        "expected_sha256": "879e6eb621b3525b6c97a6c3f1527628be07789531f1cbeb09d058a450592109",
+        "bytes": 46622,
+        "expected_bytes": 46622,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/guides/perevezennya-velosypeda/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.823894+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"b565368caad7f073f2231c63cd604af3\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/about/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.835788+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"a133dba53e7b6d5b2c4c263e6eb2ec21\"",
+        "passed": true,
+        "sha256": "10c0ae6730196fbd9c841604b9eaa74382ed20879833d10261b54c729c22e2dc",
+        "expected_sha256": "10c0ae6730196fbd9c841604b9eaa74382ed20879833d10261b54c729c22e2dc",
+        "bytes": 44778,
+        "expected_bytes": 44778,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/about/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/about/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.838217+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"a133dba53e7b6d5b2c4c263e6eb2ec21\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/imprint/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.839281+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"9dd563d0d5f6b9eee547482db541732c\"",
+        "passed": true,
+        "sha256": "941e78fd3dff4b97ed552ef33d0d73893eb26a52e7938ad2189c8e87fbe75bc3",
+        "expected_sha256": "941e78fd3dff4b97ed552ef33d0d73893eb26a52e7938ad2189c8e87fbe75bc3",
+        "bytes": 31351,
+        "expected_bytes": 31351,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/imprint/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/imprint/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.876108+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"9dd563d0d5f6b9eee547482db541732c\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/privacy/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.925311+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"3747c7da8606d743f94fc8dccacda17e\"",
+        "passed": true,
+        "sha256": "10306581ec924c41d8431920f6ba6afc511e1f103be350e00e8aefd582ca59de",
+        "expected_sha256": "10306581ec924c41d8431920f6ba6afc511e1f103be350e00e8aefd582ca59de",
+        "bytes": 74550,
+        "expected_bytes": 74550,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/privacy/"
+        ]
+      },
+      {
+        "url": "https://uaroute.com/privacy/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.959131+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"3747c7da8606d743f94fc8dccacda17e\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hamburg/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.960034+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"286a298d8883bb7775eb0b84ac8a9e0b\"",
+        "passed": true,
+        "sha256": "f18002aa0cdba9c167bccdb675afc7b55d83928c5ff373b180fcc63698e77698",
+        "expected_sha256": "f18002aa0cdba9c167bccdb675afc7b55d83928c5ff373b180fcc63698e77698",
+        "bytes": 57299,
+        "expected_bytes": 57299,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/lviv-hamburg/"
+        ],
+        "editorial_noindex": true
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hamburg/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.980622+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"286a298d8883bb7775eb0b84ac8a9e0b\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-berlin/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:04.983509+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"41f838e24ec2f2316ff5bac08affc6fa\"",
+        "passed": true,
+        "sha256": "fe9de2870bf57b9e13e8172e0f2ecec3a8972d9de999ed131c78530a70658cf1",
+        "expected_sha256": "fe9de2870bf57b9e13e8172e0f2ecec3a8972d9de999ed131c78530a70658cf1",
+        "bytes": 56997,
+        "expected_bytes": 56997,
+        "artifact_matches": true,
+        "canonical": [
+          "https://uaroute.com/routes/lviv-berlin/"
+        ],
+        "editorial_noindex": true
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-berlin/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:51:05.002342+00:00",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"41f838e24ec2f2316ff5bac08affc6fa\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/robots.txt",
+        "method": "GET",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:51:05.040767+00:00",
+        "status": 200,
+        "content_type": "text/plain; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"c164f24dc47349733f5c8943681dd3de\"",
+        "passed": true,
+        "sha256": "8cf83d982bc04d12d5c930aae0e5578cb6535b040ac4feda6c0953982fc0691d",
+        "expected_sha256": "8cf83d982bc04d12d5c930aae0e5578cb6535b040ac4feda6c0953982fc0691d",
+        "bytes": 65,
+        "expected_bytes": 65,
+        "artifact_matches": true
+      },
+      {
+        "url": "https://uaroute.com/robots.txt",
+        "method": "HEAD",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:51:05.050537+00:00",
+        "status": 200,
+        "content_type": "text/plain; charset=utf-8",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"c164f24dc47349733f5c8943681dd3de\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/sitemap.xml",
+        "method": "GET",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:51:05.080802+00:00",
+        "status": 200,
+        "content_type": "application/xml",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"4d98ff7557bf8cf51cef88fb1c08f342\"",
+        "passed": true,
+        "sha256": "0ac7e947a4457ee7f8556fe0e53cee9861d45a01a9717a3acaa87783cea48d05",
+        "expected_sha256": "0ac7e947a4457ee7f8556fe0e53cee9861d45a01a9717a3acaa87783cea48d05",
+        "bytes": 1625,
+        "expected_bytes": 1625,
+        "artifact_matches": true
+      },
+      {
+        "url": "https://uaroute.com/sitemap.xml",
+        "method": "HEAD",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:51:05.084785+00:00",
+        "status": 200,
+        "content_type": "application/xml",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"4d98ff7557bf8cf51cef88fb1c08f342\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/referral-contract.json",
+        "method": "GET",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:51:05.105087+00:00",
+        "status": 200,
+        "content_type": "application/json",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"e1b0440c9c623e47878944a9e6dc85d3\"",
+        "passed": true,
+        "sha256": "a4db35b7f7ed72d27a1ba6ea41c9dd2233edc740c7ab8b586bc9fb01e6db4108",
+        "expected_sha256": "a4db35b7f7ed72d27a1ba6ea41c9dd2233edc740c7ab8b586bc9fb01e6db4108",
+        "bytes": 5119,
+        "expected_bytes": 5119,
+        "artifact_matches": true
+      },
+      {
+        "url": "https://uaroute.com/referral-contract.json",
+        "method": "HEAD",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:51:05.111557+00:00",
+        "status": 200,
+        "content_type": "application/json",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"e1b0440c9c623e47878944a9e6dc85d3\"",
+        "passed": true
+      },
+      {
+        "url": "https://uaroute.com/contact/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.123881+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/contact/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.142269+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/contacts/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.159914+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/contacts/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.180168+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/carriers/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.196340+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/routes/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/carriers/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.198060+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/routes/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/packages/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.198565+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/packages/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.205586+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/gallery/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.209071+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/gallery/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.219891+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 308,
+        "oracle": "exact reviewed edge seoRedirect"
+      },
+      {
+        "url": "https://uaroute.com/provider/r6-nonexistent/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.237290+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "expected_sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "bytes": 526,
+        "artifact_matches": true,
+        "expected_status": 404,
+        "oracle": "exact reviewed edge seoNotFound/SEO_MISSING_DOCUMENT_BODY",
+        "expected_bytes": 526
+      },
+      {
+        "url": "https://uaroute.com/provider/r6-nonexistent/",
+        "method": "HEAD",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.239351+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 404,
+        "oracle": "exact reviewed edge seoNotFound/SEO_MISSING_DOCUMENT_BODY"
+      },
+      {
+        "url": "https://uaroute.com/r6-nonexistent/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.240548+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "expected_sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "bytes": 526,
+        "artifact_matches": true,
+        "expected_status": 404,
+        "oracle": "exact reviewed edge seoNotFound/SEO_MISSING_DOCUMENT_BODY",
+        "expected_bytes": 526
+      },
+      {
+        "url": "https://uaroute.com/r6-nonexistent/",
+        "method": "HEAD",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.243158+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 404,
+        "oracle": "exact reviewed edge seoNotFound/SEO_MISSING_DOCUMENT_BODY"
+      },
+      {
+        "url": "https://uaroute.com/routes/hannover-lviv/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.247002+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "expected_sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "bytes": 526,
+        "artifact_matches": true,
+        "expected_status": 404,
+        "oracle": "exact reviewed edge seoNotFound/SEO_MISSING_DOCUMENT_BODY",
+        "expected_bytes": 526
+      },
+      {
+        "url": "https://uaroute.com/routes/hannover-lviv/",
+        "method": "HEAD",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.257795+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": true,
+        "expected_status": 404,
+        "oracle": "exact reviewed edge seoNotFound/SEO_MISSING_DOCUMENT_BODY"
+      },
+      {
+        "url": "https://uaroute.com/_next/static/chunks/538-cf1041b7f9d7c1a1.js",
+        "method": "GET",
+        "kind": "asset",
+        "observed_at_utc": "2026-10-28T12:51:05.282102+00:00",
+        "status": 200,
+        "content_type": "text/javascript",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"c23fcfcde2962c6dbb7cdc99fa99755d\"",
+        "passed": true,
+        "sha256": "fbcbf0697b34cadfa4e5b543cfb6ac66e2fac5010f55a1f60384dd1cd8d9ae94",
+        "expected_sha256": "fbcbf0697b34cadfa4e5b543cfb6ac66e2fac5010f55a1f60384dd1cd8d9ae94",
+        "bytes": 72250,
+        "expected_bytes": 72250,
+        "artifact_matches": true
+      },
+      {
+        "url": "https://uaroute.com/_next/static/chunks/app/privacy/page-466bca5dd959f282.js",
+        "method": "GET",
+        "kind": "asset",
+        "observed_at_utc": "2026-10-28T12:51:05.282330+00:00",
+        "status": 200,
+        "content_type": "text/javascript",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"3544341e2d4c26c4ebe501a28976d619\"",
+        "passed": true,
+        "sha256": "b2f49e62e89ff9ff94e6900b2dc07e41a2b53d5c261339c9770e76cba710cf36",
+        "expected_sha256": "b2f49e62e89ff9ff94e6900b2dc07e41a2b53d5c261339c9770e76cba710cf36",
+        "bytes": 10550,
+        "expected_bytes": 10550,
+        "artifact_matches": true
+      },
+      {
+        "url": "https://uaroute.com/_next/static/css/75598e59cde7e917.css",
+        "method": "GET",
+        "kind": "asset",
+        "observed_at_utc": "2026-10-28T12:51:05.282455+00:00",
+        "status": 200,
+        "content_type": "text/css",
+        "location": null,
+        "cache_status": "Miss from cloudfront",
+        "etag": "\"6a46f3701ede7857d87c7f01e70274f6\"",
+        "passed": true,
+        "sha256": "fa1380299394233fe951b8fc1e674f6107d88c5869d5c116a3ddbee7b2c7b819",
+        "expected_sha256": "fa1380299394233fe951b8fc1e674f6107d88c5869d5c116a3ddbee7b2c7b819",
+        "bytes": 42675,
+        "expected_bytes": 42675,
+        "artifact_matches": true
+      }
+    ],
+    "scope": {
+      "html_pages": 15,
+      "plain_artifacts": 3,
+      "legacy_redirects": 5,
+      "missing_paths": 3,
+      "compiled_assets": 3
+    },
+    "runtime_boundary": "HTTP/byte checks only; actual inquiry/privacy browser behavior separately owned. Device6NOT_RUN and real vendor ingestion remain unknown.",
+    "unknown": 0,
+    "retry_boundary": "Same public read-only requests retried with network permission after environment DNS restriction; no account/production mutation",
+    "expected_edge404_sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+    "artifact_get_matches": 21,
+    "edge404_get_matches": 3,
+    "oracle_review_completed_at_utc": "2026-10-28T12:51:37.940146+00:00"
+  },
+  "artifact_acceptance_at_utc": "2026-10-28T12:22:13.725585+00:00",
+  "production_receipt_review": {
+    "authenticated_deployment_run": {
+      "id": 40687288662,
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "76bbc03197b017ea813e39014bee6950455959d2",
+      "workflow": ".github/workflows/deploy-production.yml"
+    },
+    "success": {
+      "sourceSha": "76bbc03197b017ea813e39014bee6950455959d2",
+      "runId": "40686329581",
+      "releaseSha256": "79f483e38207593b14a39d9127e41d1f199b9ec0fb01b551da50a9f7599503c2",
+      "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+      "recoveryPrefix": "releases/40687288662-1",
+      "recoveryHash": "a12b1504579354452111dc84b3b4c52b51bd0368608d9e13df9bef151af63bd5",
+      "publishedObjects": 258,
+      "verifiedAt": "2026-10-28T12:48:18.221Z"
+    },
+    "recovery": {
+      "prefix": "releases/40687288662-1",
+      "bundleSha256": "a12b1504579354452111dc84b3b4c52b51bd0368608d9e13df9bef151af63bd5",
+      "bucket": "uaroute-recovery-863809951348-eu-central-1",
+      "objects": 475,
+      "retrievedAt": "2026-10-28T12:32:41.209Z",
+      "retrievalVerified": true
+    },
+    "invalidation": {
+      "Invalidation": {
+        "Id": "I50VZX2UOM8CBA2DBLEHYS560S",
+        "Status": "Completed",
+        "CreateTime": "2026-10-28T12:38:19.981000+00:00",
+        "InvalidationBatch": {
+          "Paths": {
+            "Quantity": 1,
+            "Items": [
+              "/*"
+            ]
+          },
+          "CallerReference": "cli-1793191099-488738"
+        }
+      }
+    },
+    "producer_http_checks": {
+      "counts": {
+        "pass": 373,
+        "fail": 0,
+        "unknown": 0
+      },
+      "classification": "producer executed receipt independently reviewed; not relabeled as independent rerun"
+    },
+    "receipt_hashes": {
+      "deployment-run.json": {
+        "path": "output/seo-authorized-release-2026-10-28-private/deployment-run.json",
+        "sha256": "13a0fa165f470f2bdfb216fc05cd7671579984b1fe03876756109da087e0a49b"
+      },
+      "success.json": {
+        "path": "output/seo-authorized-release-2026-10-28-private/production-evidence/success.json",
+        "sha256": "01d563c52bf801cc7ee34007d99816b96e28ebe66160f9f217ad5441b535a5b0"
+      },
+      "invalidation-created.json": {
+        "path": "output/seo-authorized-release-2026-10-28-private/production-evidence/invalidation-created.json",
+        "sha256": "1f658bf41e729739cc51d5c25ececeed410d47121d18c44c7de921ca84e13f39"
+      },
+      "live-http.json": {
+        "path": "output/seo-authorized-release-2026-10-28-private/production-evidence/live-http.json",
+        "sha256": "58b84e2c4c42211a6c6db2c72b8b7425ac04e6d58448e1e0af540a68e2a8193b"
+      },
+      "invalidation-completed.json": {
+        "path": "output/seo-authorized-release-2026-10-28-private/production-evidence/invalidation-completed.json",
+        "sha256": "fb58fb658b116b747fc6d23616616511ffd33abcd1873c23c992c909dc4d6a1f"
+      },
+      "recovery-receipt.json": {
+        "path": "output/seo-authorized-release-2026-10-28-private/production-evidence/recovery-receipt.json",
+        "sha256": "463753aeabe9c5520151419be343bac0bed0e31bec093d0669159add2b0b7544"
+      }
+    },
+    "boundary": "Receipt consistency/hash review; reviewer did not fetch full private475object recovery or inspect AWS directly; remote retrieval verification supplied by successful OIDC release receipt."
+  },
+  "live_readback_first_attempt": {
+    "method": "Independently executed public GET/HEAD with redirect following disabled; no cookies, credentials, query inputs, JS, collectors or operator handoffs. Responses compared to exact CI manifest bytes and static canonicals.",
+    "observed_at_utc": "2026-10-28T12:50:28.384021+00:00",
+    "requests": 55,
+    "passed": 0,
+    "failed": 0,
+    "results": [
+      {
+        "url": "https://uaroute.com/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.375359+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.375699+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.375815+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.375909+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/cities/lviv/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.375976+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/cities/lviv/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.376128+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/cities/ivano-frankivsk/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.378893+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/cities/ivano-frankivsk/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.378969+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hannover/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379033+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hannover/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379101+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-celle/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379177+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-celle/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379228+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/celle-lviv/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379301+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/celle-lviv/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379380+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379449+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/ivano-frankivsk-wolfsburg/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379518+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379589+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/wolfsburg-ivano-frankivsk/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379660+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379731+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/guides/perevezennya-velosypeda/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379802+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/about/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379873+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/about/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.379946+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/imprint/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380015+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/imprint/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380116+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/privacy/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380180+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/privacy/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380250+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hamburg/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380320+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-hamburg/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380391+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-berlin/",
+        "method": "GET",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380462+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/lviv-berlin/",
+        "method": "HEAD",
+        "kind": "document",
+        "observed_at_utc": "2026-10-28T12:50:28.380532+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/robots.txt",
+        "method": "GET",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:50:28.380604+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/robots.txt",
+        "method": "HEAD",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:50:28.380675+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/sitemap.xml",
+        "method": "GET",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:50:28.380746+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/sitemap.xml",
+        "method": "HEAD",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:50:28.380817+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/referral-contract.json",
+        "method": "GET",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:50:28.380896+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/referral-contract.json",
+        "method": "HEAD",
+        "kind": "plain",
+        "observed_at_utc": "2026-10-28T12:50:28.380962+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/contact/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381034+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/contact/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381115+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/contacts/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381191+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/contacts/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381268+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/carriers/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381339+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/carriers/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381417+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/packages/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381520+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/packages/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381599+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/gallery/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381684+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/gallery/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:50:28.381774+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/provider/r6-nonexistent/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:50:28.381846+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/provider/r6-nonexistent/",
+        "method": "HEAD",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:50:28.381935+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/r6-nonexistent/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:50:28.382012+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/r6-nonexistent/",
+        "method": "HEAD",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:50:28.382090+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/hannover-lviv/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:50:28.382168+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/routes/hannover-lviv/",
+        "method": "HEAD",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:50:28.382255+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/_next/static/chunks/538-cf1041b7f9d7c1a1.js",
+        "method": "GET",
+        "kind": "asset",
+        "observed_at_utc": "2026-10-28T12:50:28.382331+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/_next/static/chunks/app/privacy/page-466bca5dd959f282.js",
+        "method": "GET",
+        "kind": "asset",
+        "observed_at_utc": "2026-10-28T12:50:28.382411+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      },
+      {
+        "url": "https://uaroute.com/_next/static/css/75598e59cde7e917.css",
+        "method": "GET",
+        "kind": "asset",
+        "observed_at_utc": "2026-10-28T12:50:28.382493+00:00",
+        "passed": null,
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+        "state": "unknown_transport"
+      }
+    ],
+    "scope": {
+      "html_pages": 15,
+      "plain_artifacts": 3,
+      "legacy_redirects": 5,
+      "missing_paths": 3,
+      "compiled_assets": 3
+    },
+    "runtime_boundary": "HTTP/byte checks only; actual inquiry/privacy browser behavior separately owned. Device6NOT_RUN and real vendor ingestion remain unknown.",
+    "classification": "Environment DNS lookup unavailable before HTTP;55 unknown transport observations,not production failures",
+    "unknown": 55
+  },
+  "live_readback_oracle_diagnostic": {
+    "initial_passed": 42,
+    "initial_reported_mismatches": 13,
+    "cause": "Reviewer initially assumed301redirect and exported404body. Exact reviewed immutable edge defines308redirects and SEO_MISSING_DOCUMENT_BODY for unknown routes. Corrected to edge-defined expectations; no application or network response changed.",
+    "retained_observations": [
+      {
+        "url": "https://uaroute.com/contact/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.123881+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/contact/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.142269+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/contacts/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.159914+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/contacts/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.180168+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/carriers/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.196340+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/routes/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/carriers/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.198060+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/routes/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/packages/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.198565+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/packages/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.205586+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/about/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/gallery/",
+        "method": "GET",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.209071+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/gallery/",
+        "method": "HEAD",
+        "kind": "redirect",
+        "observed_at_utc": "2026-10-28T12:51:05.219891+00:00",
+        "status": 308,
+        "content_type": null,
+        "location": "https://uaroute.com/",
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false
+      },
+      {
+        "url": "https://uaroute.com/provider/r6-nonexistent/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.237290+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false,
+        "sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "expected_sha256": "05b7f202e279419423ca6c3980ced1134c9d8d5a0397a93b835709eee7890268",
+        "bytes": 526,
+        "artifact_matches": false
+      },
+      {
+        "url": "https://uaroute.com/r6-nonexistent/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.240548+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false,
+        "sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "expected_sha256": "05b7f202e279419423ca6c3980ced1134c9d8d5a0397a93b835709eee7890268",
+        "bytes": 526,
+        "artifact_matches": false
+      },
+      {
+        "url": "https://uaroute.com/routes/hannover-lviv/",
+        "method": "GET",
+        "kind": "missing",
+        "observed_at_utc": "2026-10-28T12:51:05.247002+00:00",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "location": null,
+        "cache_status": "FunctionGeneratedResponse from cloudfront",
+        "etag": null,
+        "passed": false,
+        "sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77",
+        "expected_sha256": "05b7f202e279419423ca6c3980ced1134c9d8d5a0397a93b835709eee7890268",
+        "bytes": 526,
+        "artifact_matches": false
+      }
+    ],
+    "resolution": "Same captured HTTP status/location/hash observations now checked against exact reviewed edge,not blanket308acceptance. No rerun needed for expectation-only correction.",
+    "reviewed_edge_sha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+    "expected_edge404_sha256": "eaa631e2eb213d41ea36887f90ae1f4f862ed22bab1981c108d930c11a618f77"
+  }
+}

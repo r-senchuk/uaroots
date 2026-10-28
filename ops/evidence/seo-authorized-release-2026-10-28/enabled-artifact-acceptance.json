@@ -1,0 +1,78 @@
+{
+  "sourceSha": "76bbc03197b017ea813e39014bee6950455959d2",
+  "runId": "40686329581",
+  "releaseSha256": "79f483e38207593b14a39d9127e41d1f199b9ec0fb01b551da50a9f7599503c2",
+  "export": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-authorized-release-2026-10-28-private/candidate/out",
+  "runtime": "Node22.23.3; Chrome156.0.8078.48; Playwright1.61.1",
+  "privacyInvocation": {
+    "cwd": "/private/tmp/uaroute-seo-release-2026-10-28",
+    "script": "scripts/privacy-browser.mjs",
+    "scriptSha256": "f9b22e517f539ab337d74c8a599c96ce3c18657d997f59c07ff52c2e5aac234e",
+    "environment": {
+      "UAROUTE_OUT_DIR": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-authorized-release-2026-10-28-private/candidate/out",
+      "PRIVACY_QA_ENABLED": "1",
+      "PRIVACY_QA_OUTPUT_DIR": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-authorized-release-2026-10-28-private/privacy",
+      "PLAYWRIGHT_MODULE_PATH": "/Users/roman/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.mjs"
+    },
+    "reportSha256": "1068e1537a4c774df072d5f33b436f3efd502df767bdedb14d67ebd1657e0de6"
+  },
+  "analyticsSourcesComparedToCalendarRelease": {
+    "paths": [
+      "src/lib/analytics-consent.ts",
+      "src/lib/google-consent.ts",
+      "src/lib/privacy-choice.ts",
+      "src/lib/analytics.ts",
+      "src/components/AnalyticsScripts.tsx",
+      "src/components/AnalyticsAttribution.tsx",
+      "src/components/AnalyticsConsent.tsx",
+      "src/config/analytics.ts",
+      "src/app/privacy/page.tsx",
+      "infra/analytics/uaroute-basic-consent.txt"
+    ],
+    "changedPaths": [],
+    "unchanged": true
+  },
+  "checks": {
+    "privacy": {
+      "reportSha256": "1068e1537a4c774df072d5f33b436f3efd502df767bdedb14d67ebd1657e0de6",
+      "total": 10,
+      "passed": 10,
+      "runtimeErrors": [],
+      "errors": []
+    },
+    "poc": {
+      "reportSha256": "8717256ee82e220e25c3479bca51a69bb1ce0f3b411d87b7c4bf4c7802007e7a",
+      "total": 23,
+      "passed": 23,
+      "runtimeErrors": [],
+      "errors": [],
+      "requestCounts": {
+        "mode": "enabled-mock",
+        "mockedGtmRequests": 1,
+        "blockedGoogleRequests": 8,
+        "blockedNonlocalRequests": 14,
+        "locallyServedPartnerRequests": 138
+      }
+    },
+    "passengerDenied": {
+      "reportSha256": "e32a902dcdb3f28a99703fed0a6a353c0d848fe50e3211777e3f8b8e0d35ac20",
+      "total": 32,
+      "passed": 32,
+      "externalBlocked": 0,
+      "cleanup": "closed",
+      "limits": "Desktopheadless; physicaliPhonenotrun; optionalmissingdeskfixture notsupplied inthisrerun, unchanged priorlocalfixtureevidence retained."
+    }
+  },
+  "limits": "Mocked/intercepted provider checks establish candidate runtime/privacy boundaries; no actual Google ingestion, current field performance or operator receipt asserted. Six physicaliPhonechecks remain NOTRUN; finalS10deviceacceptanceheld.",
+  "firstDiagnostics": {
+    "poc": "Firstinvocationbadlocalreceiverpath; zero flows; corrected to existingunchangedsibling4k-trans/dist. No candidate edits.",
+    "passengerOriginal": "32checks26pass6consentbanner-interception; disabled-mode harness assumptions. Retained private original report.",
+    "passengerDeniedFirst": "32checks30pass; consentdecline scrolledpage and disabledmodeselectorlabel. Retained; finalwrapper scrollrestoration and actualenabledconsentlabel only."
+  },
+  "passengerWrapper": {
+    "path": "/Users/roman/src/github.com/r-senchuk/uaroots/output/seo-authorized-release-2026-10-28-private/passenger-enabled-denied.mjs",
+    "sha256": "c7bc59ea58eef6ca2601c692af702276436f847e7c9fee63950c08eb6d8bf5fd",
+    "changes": "Explicitclick \u0411\u0435\u0437\u0430\u043d\u0430\u043b\u0456\u0442\u0438\u043a\u0438 afterload ifpresent; restore scrolltopafterclick; useactualenabledbuttonlabel \u0411\u0435\u0437\u0430\u043d\u0430\u043b\u0456\u0442\u0438\u043a\u0438 forprivacysettings. Existingbehaviorassertions preserved; catchall local-fixture/abort and handoff override retained."
+  },
+  "status": "enabled CI artifact affected acceptance passed:privacy10/10,POC23/23,passenger32/32; no reproduced source defect"
+}

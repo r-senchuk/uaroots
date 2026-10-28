@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-28",
+  "method": "Authenticated completed Actions run and independently downloaded sanitized evidence; exact identity and recovery/invalidation crosschecks",
+  "sourceSha": "76bbc03197b017ea813e39014bee6950455959d2",
+  "ciRunId": "40686329581",
+  "deploymentRunId": "40687288662",
+  "ciUrl": "https://github.com/r-senchuk/uaroots/actions/runs/40686329581",
+  "deploymentUrl": "https://github.com/r-senchuk/uaroots/actions/runs/40687288662",
+  "conclusion": "success",
+  "verifiedAt": "2026-10-28T12:48:18.221Z",
+  "releaseSha256": "79f483e38207593b14a39d9127e41d1f199b9ec0fb01b551da50a9f7599503c2",
+  "edgeSha256": "b9bae15fec6705a1834115a492849980eaf552ce29bc6d50cf1c6663fe492f2d",
+  "publishedObjects": 258,
+  "recovery": {
+    "prefix": "releases/40687288662-1",
+    "bundleSha256": "a12b1504579354452111dc84b3b4c52b51bd0368608d9e13df9bef151af63bd5",
+    "bucket": "uaroute-recovery-863809951348-eu-central-1",
+    "objects": 475,
+    "retrievedAt": "2026-10-28T12:32:41.209Z",
+    "retrievalVerified": true
+  },
+  "invalidation": {
+    "Id": "I50VZX2UOM8CBA2DBLEHYS560S",
+    "Status": "Completed",
+    "CreateTime": "2026-10-28T12:38:19.981000+00:00",
+    "InvalidationBatch": {
+      "Paths": {
+        "Quantity": 1,
+        "Items": [
+          "/*"
+        ]
+      },
+      "CallerReference": "cli-1793191099-488738"
+    }
+  },
+  "workflowHttp": {
+    "pass": 373,
+    "fail": 0,
+    "unknown": 0
+  },
+  "receiptFileSha256": {
+    "success.json": "01d563c52bf801cc7ee34007d99816b96e28ebe66160f9f217ad5441b535a5b0",
+    "invalidation-created.json": "1f658bf41e729739cc51d5c25ececeed410d47121d18c44c7de921ca84e13f39",
+    "live-http.json": "58b84e2c4c42211a6c6db2c72b8b7425ac04e6d58448e1e0af540a68e2a8193b",
+    "invalidation-completed.json": "fb58fb658b116b747fc6d23616616511ffd33abcd1873c23c992c909dc4d6a1f",
+    "recovery-receipt.json": "463753aeabe9c5520151419be343bac0bed0e31bec093d0669159add2b0b7544"
+  },
+  "deploymentLogSha256": "fe583275f43d3c020446d106623de29d011f8f56a843b2530975e94db7966c80",
+  "privacy": "Existing enabled analytics retained; fresh GTM livev2 read-only configuration. No new provider ingestion or operator receipt asserted. All synthetic candidate QA used interception; no real inquiry sent.",
+  "deviceAcceptance": {
+    "passed": 0,
+    "failed": 0,
+    "notRun": 6,
+    "status": "Final S10 physical-device acceptance held; owner selected later checks while explicitly authorizing technical deployment."
+  },
+  "deliveryAcceptance": "Technically deployed and independently live-verified; final S10 physical-device acceptance remains held.",
+  "durableRecovery": "Complete private capture/config/functions retained in the private versioned encrypted recovery bucket under the recorded prefix; workflow independently retrieved and hash-verified it before production uploads. No recovery credentials or private objects in Git.",
+  "independentLiveHttp": {
+    "path": "ops/evidence/seo-session-verification-2026-10-28/release-readback.json",
+    "sha256": "6cabb95851269bc9165ad54b2c5735954d635a779d536e8adbc4aaa0c7ee7dc2",
+    "checks": 55,
+    "passed": 55,
+    "exactArtifactGetMatches": 21,
+    "edge404Bodies": 3,
+    "legacyRedirectMethodObservations": 10,
+    "htmlCanonicalEditorialChecks": 15
+  },
+  "independentLiveBrowser": {
+    "path": "ops/evidence/seo-authorized-release-2026-10-28/live-browser/results.json",
+    "sha256": "6e81e2ada7147f3a3db32e8ab5d5dbc90eb95743a12f1e43931ae7bdc0f56bf4",
+    "checkGroups": 12,
+    "passedGroups": 12,
+    "firstPartyGetArtifactMatches": 31,
+    "runtimeErrors": 0,
+    "externalRequestsBlocked": 15,
+    "speculativeHeadRequestsBlocked": 62,
+    "limits": "Headless browser, not physical iPhone. Earlier HEAD-body comparison harness diagnostics retained; final GET-only comparisons passed. No real inquiry or analytics collection."
+  }
+}
