@@ -95,8 +95,8 @@ export default async function RoutePage({ params }: PageProps) {
 
               {route.whatToConfirm.length > 0 ? (
                 <section className="mt-4 max-w-2xl" aria-labelledby="conditions-heading">
-                  <h2 id="conditions-heading" className="text-sm font-semibold">Що погодити з перевізником</h2>
-                  <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+                  <h2 id="conditions-heading" className="text-sm font-semibold">Перед поїздкою уточніть</h2>
+                  <ul className="mt-2 list-disc space-y-2 pl-5">
                     {route.whatToConfirm.map((item) => (
                       <li key={item} className="text-sm text-muted-foreground">{item}</li>
                     ))}

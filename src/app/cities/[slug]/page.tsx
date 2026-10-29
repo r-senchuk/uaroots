@@ -163,7 +163,7 @@ export default async function CityHubPage({ params }: PageProps) {
           >
             Контакти перевізника на його сайті ↗
           </KovalReferralLink>
-          <p className="mt-2 text-sm text-muted-foreground">{priorityHub ? "Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон. Відкриється сайт перевізника." : "Відкриється сайт перевізника."}</p>
+          <p className="mt-2 text-sm text-muted-foreground">{priorityHub ? "Ще не обрали дату? Узгодьте її з перевізником." : "Відкриється сайт перевізника."}</p>
           <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-strong pt-5 type-body" aria-label="Інші міські огляди">
             {presentation.relatedHubs.map(({ city: relatedCity, label }) => (
               <Link key={relatedCity.id} className="inline-flex min-h-11 items-center link-underline" href={`/cities/${relatedCity.slug}/`}>

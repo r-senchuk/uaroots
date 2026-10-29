@@ -55,6 +55,6 @@ it("keeps the accepted action/helper split and prevents duplicate contact paragr
  const action=renderToStaticMarkup(createElement(JourneyActions,{website:"https://www.4k-koval.com/",hasDesk:true,anchorId:"inquiry-anchor",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero",content:"lviv-hannover_hero"}));
  expect(form).toContain("Додайте бажану дату, кількість пасажирів і телефон. Відкриється WhatsApp із готовим текстом: перевірте його й надішліть самостійно.");
  expect(form).toContain("Перевізник підтвердить можливість поїздки на бажану дату та її умови. Запит не резервує місце.");
- expect(action).toContain("Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон.");
- expect(action.match(/Дата ще невідома/g)).toHaveLength(1);
+ expect(action).toContain("Ще не обрали дату? Узгодьте її з перевізником.");
+ expect(action.match(/Ще не обрали дату/g)).toHaveLength(1);
 });

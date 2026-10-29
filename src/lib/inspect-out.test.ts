@@ -3,9 +3,9 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { inspectExport, inspectMitigationCopy } from "../../scripts/inspect-out.mjs";
+import { inspectExport, inspectMitigationCopy, currentInquiryCopy } from "../../scripts/inspect-out.mjs";
 
-const editorial = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+const editorial = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"), (_key, value) => currentInquiryCopy(value));
 const consumers = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json", import.meta.url), "utf8")).consumers;
 function editorialFixture(root: string) {
   for (const entry of [...editorial.pages, ...Object.values(editorial.support)] as {url: string; kind?: string; prefix?: string; metadata: {title: string; description: string}}[]) {
@@ -138,7 +138,7 @@ function fixture() {
     const counterpart = routes.find(([, reverseOrigin, reverseDestination]) => reverseOrigin === destination && reverseDestination === origin);
     const reverse = counterpart ? `/routes/${counterpart[0]}/` : "/routes/";
     const copy = candidate
-      ? `<p>Можливість поїздки на бажану дату Перевізник підтвердить можливість поїздки, чи може виконати поїздку між цими містами на обрану дату. Повідомлення не резервує місце.</p><p>${practical}</p>`
+      ? `<p>Чи можлива поїздка на потрібну дату? Перевізник підтвердить можливість поїздки, чи може виконати поїздку між цими містами на обрану дату. Повідомлення не резервує місце.</p><p>${practical}</p>`
       : "Публічна сторінка маршруту.";
     const citySource = slug.includes("celle")
       ? "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken"
@@ -316,7 +316,7 @@ describe("inspectExport", () => {
     write(root, "routes/dolyna-wolfsburg/index.html", page(
       "/routes/dolyna-wolfsburg/",
       "Назва dolyna-wolfsburg",
-      "<h1>Долина → Вольфсбург</h1><p>Можливість поїздки на бажану дату Перевізник підтвердить можливість поїздки на дату. Повідомлення не резервує місце.</p><p>Фаллерслебен Форсфельде</p>",
+      "<h1>Долина → Вольфсбург</h1><p>Чи можлива поїздка на потрібну дату? Перевізник підтвердить можливість поїздки на дату. Повідомлення не резервує місце.</p><p>Фаллерслебен Форсфельде</p>",
       ["/routes/dolyna-braunschweig/"],
     ));
     const errors = inspectExport(root);

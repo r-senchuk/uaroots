@@ -64,7 +64,7 @@ export function JourneyActions({
           {hasDesk ? "Сайт перевізника ↗" : "Перейти на сайт перевізника ↗"}
         </KovalReferralLink>
       ) : null}
-      {website ? <p className="basis-full text-sm text-muted-foreground">Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон.</p> : null}
+      {website ? <p className="basis-full text-sm text-muted-foreground">Ще не обрали дату? Узгодьте її з перевізником.</p> : null}
     </div>
   );
 }

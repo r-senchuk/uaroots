@@ -134,7 +134,7 @@ describe("priority route entities and sitemap", () => {
     expect(route!.title).toBe(`${route!.origin.name} → ${route!.destination.name}`);
     expect(route!.seo.title).toContain(route!.title);
     expect(route!.seo.description).toContain("перевізнику");
-    expect(route!.whatToConfirm).toContain("Можливість поїздки на бажану дату");
+    expect(route!.whatToConfirm).toContain("Чи можлива поїздка на потрібну дату?");
   });
 
   it.each([
@@ -223,7 +223,8 @@ describe("accepted mitigation catalog", () => {
         expect(route.practicalContent![index]).toMatchObject({ heading: index === orders[prefix].length - 1 ? "" : expected.heading, body: expected.text });
         expect(route.practicalContent![index].links ?? []).toEqual(expected.links);
       });
-      expect(route.whatToConfirm).toEqual(copy.records[prefix + "-" + orders[prefix].at(-1)].items);
+      // Owner editorial correction, 29 October: passenger questions; no transfer prompt.
+      expect(route.whatToConfirm).toEqual(["Чи можлива поїздка на потрібну дату?", "Яка повна вартість і як оплатити?", "Де вас заберуть і де можна вийти?", "Який багаж можна взяти?"]);
       const expectedFaq = prefix === "lh" ? ["lh-actual-locality", "lh-changed-plan"].map((key) => ({question: copy.records[key].heading, answer: copy.records[key].text})) : [{question: copy.records[prefix + "-locality-changes"].heading, answer: copy.records[prefix + "-locality-changes"].text}, ...copy.records[prefix + "-locality-changes"].items];
       expect(route.faq).toEqual(expectedFaq);
       const graph = routePageLd(route)["@graph"];

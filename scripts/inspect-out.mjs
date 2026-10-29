@@ -300,8 +300,23 @@ function canonicalUrl(path) {
   return `https://uaroute.com${path}`;
 }
 
+// Owner copy revision, 29 October 2026. Preserve the original editorial evidence.
+export function currentInquiryCopy(value) {
+  if (typeof value !== "string") return value;
+  const revisions = [
+    ["Дата ще невідома або не користуєтеся WhatsApp? Відкрийте сайт перевізника — для переходу не потрібно вводити дату чи телефон.", "Ще не обрали дату? Узгодьте її з перевізником."],
+    ["Ще не обрали дату? Узгодьте її з перевізником. Відкриється сайт перевізника.", "Ще не обрали дату? Узгодьте її з перевізником."],
+    ["Що погодити з перевізником", "Перед поїздкою уточніть"],
+    ["Можливість поїздки на бажану дату", "Чи можлива поїздка на потрібну дату?"],
+    ["Ціна та оплата", "Яка повна вартість і як оплатити?"],
+    ["Посадка й висадка", "Де вас заберуть і де можна вийти?"],
+    ["Багаж і можливі пересадки", "Який багаж можна взяти?"],
+  ];
+  for (const [before, after] of revisions) value = value.replaceAll(before, after);
+  return value;
+}
 // Editorial evidence is a test/tool oracle, never a production runtime dependency.
-const mitigationCopy = JSON.parse(readFileSync(new URL("../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+const mitigationCopy = JSON.parse(readFileSync(new URL("../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"), (_key, value) => currentInquiryCopy(value));
 const mitigationConsumers = JSON.parse(readFileSync(new URL("../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json", import.meta.url), "utf8")).consumers;
 function semantic(value) { return plainText(value).replace(/\s+([.,;:!?])/g, "$1"); }
 export function inspectMitigationCopy(pages) {
@@ -476,7 +491,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       if (text.toLocaleLowerCase().includes(claim.toLocaleLowerCase())) errors.push(`${pagePath} includes a carrier operational claim: ${claim}`);
     }
     if (!candidate) continue;
-    if (!text.includes("Можливість поїздки на бажану дату") ||
+    if (!text.includes("Чи можлива поїздка на потрібну дату?") ||
       !text.toLocaleLowerCase().includes("перевізник підтвердить можливість поїздки") || !text.includes("не резервує місце")) {
       errors.push(`${pagePath} is missing the feasibility-first candidate inquiry notice`);
     }
