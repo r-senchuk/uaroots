@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 
+import { InquiryDate, PassengerCount } from "@/components/InquiryFields";
 import { useHydrated } from "@/lib/use-hydrated";
 import { WhatsAppIcon } from "@/components/brand/WhatsAppIcon";
 import { JourneyActions } from "@/components/JourneyActions";
@@ -94,27 +95,23 @@ export function CandidateInquiry({
       <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={dateId} className="text-sm font-medium text-muted-foreground">Бажана дата поїздки</label>
-          <input id={dateId} type="date" required min={today} value={travelDate}
+          <InquiryDate id={dateId} type="date" required min={today} value={travelDate}
             onChange={(event) => setTravelDate(event.target.value)} aria-invalid={Boolean(errors.travelDate)} aria-describedby={errors.travelDate ? dateErrorId : undefined}
             className={`mt-2 ${fieldClass}`} />
           {errors.travelDate ? <p id={dateErrorId} role="alert" className="mt-2 text-sm text-destructive">{errors.travelDate}</p> : null}
         </div>
         <div>
           <label htmlFor={passengerId} className="text-sm font-medium text-muted-foreground">Пасажирів</label>
-          <select id={passengerId} aria-invalid={Boolean(errors.passengers)} aria-describedby={errors.passengers ? `${passengerId}-error` : undefined}
-            value={passengers} onChange={(event) => setPassengers(Number(event.target.value))}
-            className={`mt-2 ${fieldClass}`}>
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((count) => <option key={count} value={count}>{count}</option>)}
-          </select>
+          <PassengerCount id={passengerId} value={passengers} onChange={setPassengers} invalid={Boolean(errors.passengers)} describedBy={errors.passengers ? `${passengerId}-error` : undefined} />
           {errors.passengers ? <p id={`${passengerId}-error`} role="alert" className="mt-2 text-sm text-destructive">{errors.passengers}</p> : null}
         </div>
         <div className="sm:col-span-2">
           <label htmlFor={phoneId} className="text-sm font-medium text-muted-foreground">Телефон для зв’язку</label>
-          <input id={phoneId} type="tel" required inputMode="tel" autoComplete="tel" placeholder="+38 0__ ___ __ __"
+          <input id={phoneId} type="tel" required inputMode="tel" autoComplete="tel" placeholder="+…"
             value={phone} onChange={(event) => setPhone(event.target.value)} aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? phoneErrorId : phoneHintId}
             className={`mt-2 ${fieldClass}`} />
           {errors.phone ? <p id={phoneErrorId} className="mt-2 text-sm text-destructive">{errors.phone}</p> :
-            <p id={phoneHintId} className="mt-2 text-sm text-muted-foreground">Телефон і дата потрібні для повідомлення перевізнику. UARoute їх не зберігає.</p>}
+            <p id={phoneHintId} className="mt-2 text-sm text-muted-foreground">Номер будь-якої країни з кодом, наприклад +49, +48 або +380. Телефон і дата лише для повідомлення перевізнику; UARoute їх не зберігає.</p>}
         </div>
       </div>
 

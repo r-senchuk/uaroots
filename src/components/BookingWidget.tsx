@@ -1,5 +1,6 @@
 "use client";
 
+import { InquiryDate, PassengerCount } from "@/components/InquiryFields";
 import { useHydrated } from "@/lib/use-hydrated";
 import { KovalReferralLink } from "@/components/KovalReferralLink";
 import { WhatsAppIcon } from "@/components/brand/WhatsAppIcon";
@@ -66,7 +67,7 @@ export function BookingWidget() {
           <label htmlFor="inquiry-date" className="text-sm font-medium text-muted-foreground">
             Бажана дата поїздки
           </label>
-          <input
+          <InquiryDate
             id="inquiry-date"
             type="date"
             required
@@ -88,19 +89,7 @@ export function BookingWidget() {
           <label htmlFor="inquiry-passengers" className="text-sm font-medium text-muted-foreground">
             Пасажирів
           </label>
-          <select
-            id="inquiry-passengers"
-            aria-invalid={Boolean(errors.passengers)} aria-describedby={errors.passengers ? "inquiry-passengers-error" : undefined}
-            value={passengers}
-            onChange={(event) => setPassengers(Number(event.target.value))}
-            className={`mt-2 ${fieldClass}`}
-          >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((count) => (
-              <option key={count} value={count}>
-                {count}
-              </option>
-            ))}
-          </select>
+          <PassengerCount id="inquiry-passengers" value={passengers} onChange={setPassengers} invalid={Boolean(errors.passengers)} describedBy={errors.passengers ? "inquiry-passengers-error" : undefined} />
           {errors.passengers ? <p id={"inquiry-passengers-error"} role="alert" className="mt-2 text-sm text-destructive">{errors.passengers}</p> : null}
         </div>
 
@@ -114,7 +103,7 @@ export function BookingWidget() {
             required
             inputMode="tel"
             autoComplete="tel"
-            placeholder="+38 0__ ___ __ __"
+            placeholder="+…"
             value={phone}
             onChange={(event) => setPhone(event.target.value)}
             aria-invalid={Boolean(errors.phone)}
@@ -127,7 +116,7 @@ export function BookingWidget() {
             </p>
           ) : (
             <p id="inquiry-phone-hint" className="mt-2 text-sm text-muted-foreground">
-              Телефон і дата потрібні для повідомлення перевізнику. UARoute їх не зберігає.
+              Номер будь-якої країни з кодом, наприклад +49, +48 або +380. Телефон і дата лише для повідомлення перевізнику; UARoute їх не зберігає.
             </p>
           )}
         </div>

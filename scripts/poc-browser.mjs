@@ -449,7 +449,7 @@ async function run() {
       ensure(!beforeForm.includes(dateCanary) && !beforeForm.includes(phoneCanary), "Celle browser state already contains a synthetic form canary");
       await cellePage.getByLabel("Бажана дата поїздки", { exact: true }).fill(dateCanary);
       await cellePage.getByLabel("Телефон для зв’язку", { exact: true }).fill(phoneCanary);
-      await cellePage.getByLabel("Пасажирів", { exact: true }).selectOption("2");
+      await cellePage.getByRole("button", { name: "Збільшити кількість пасажирів", exact: true }).click();
       await cellePage.getByRole("button", { name: "Уточнити поїздку в WhatsApp" }).click();
       const handoff = new URL(await captureOpenedUrl(cellePage));
       ensure(handoff.hostname === "wa.me", "Celle inline inquiry did not use the intercepted WhatsApp handoff");
@@ -624,7 +624,7 @@ async function run() {
 
       await desktop.locator("#inquiry-date").fill("2030-12-31");
       await desktop.locator("#inquiry-phone").fill("+48111222333");
-      await desktop.locator("#inquiry-passengers").selectOption("2");
+      await desktop.locator("#inquiry-passengers").press("ArrowUp");
       await desktop.getByRole("button", { name: "Уточнити поїздку в WhatsApp" }).click();
       const opened = await captureOpenedUrl(desktop);
       ensure(opened, "The route inquiry did not open a handoff URL");
@@ -687,7 +687,7 @@ async function run() {
       ensure(new URL(mobile.url()).pathname === "/", "An unselected candidate pair created an extra route landing page");
       await mobile.getByLabel("Бажана дата поїздки", { exact: true }).fill("2030-12-31");
       await mobile.getByLabel("Телефон для зв’язку", { exact: true }).fill("+48111222333");
-      await mobile.getByLabel("Пасажирів", { exact: true }).selectOption("2");
+      await mobile.getByRole("button", { name: "Збільшити кількість пасажирів", exact: true }).click();
       await mobile.getByRole("button", { name: "Уточнити поїздку в WhatsApp" }).click();
       const opened = await captureOpenedUrl(mobile);
       ensure(opened, "The inline candidate inquiry did not open a handoff URL");

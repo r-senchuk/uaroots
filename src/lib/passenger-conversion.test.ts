@@ -27,12 +27,16 @@ describe("passenger conversion boundaries",()=>{
   state.route=getResolvedRoute("lviv-hannover");const html=renderToStaticMarkup(createElement(BookingWidget));
   expect(html.match(/id="inquiry-date"/g)).toHaveLength(1);expect(html.match(/id="inquiry-phone"/g)).toHaveLength(1);
   expect(html.match(/<form\b/g)).toHaveLength(1);expect(html).toContain('noValidate=""');expect(html).toContain('type="submit" disabled=""');expect(html).not.toMatch(/<input[^>]+name=/);
-  for(let n=1;n<=8;n++)expect(html).toContain(`value="${n}"`);expect(html).not.toContain('value="9"');
+  expect(html).toContain('role="spinbutton"');expect(html).toContain('aria-valuemax="8"');expect(html).not.toContain("<select");
  });
  it("early actions switch channel by verified desk and preserve the hero mapping",()=>{
   const props={website:"https://www.4k-koval.com/",hasDesk:false,anchorId:"inquiry-anchor",originCityId:"lviv",destinationCityId:"hannover",sourcePath:"/routes/lviv-hannover/",routeSlug:"lviv-hannover",ctaLocation:"hero" as const,content:"lviv-hannover_hero"};
   const website=renderToStaticMarkup(createElement(JourneyActions,props));expect(website).toContain('data-primary-channel="website"');expect(website).not.toContain('href="#inquiry-anchor"');expect(website).toContain('utm_content=lviv-hannover_hero');
   const whatsapp=renderToStaticMarkup(createElement(JourneyActions,{...props,hasDesk:true}));expect(whatsapp).toContain('data-primary-channel="whatsapp"');expect(whatsapp).toContain('href="#inquiry-anchor"');
+ });
+ it("accepts international contact numbers without a Ukrainian prefix",()=>{
+  for(const phone of ["+49 151 23456789", "+48 501 234 567", "+44 7700 900123", "+380 99 1234567"])
+   expect(validateInquiry({travelDate:"2030-12-15",phone,passengers:1}).ok).toBe(true);
  });
  it("rejects noninteger/out-of-range passengers and accepts every supported count",()=>{
   for(const passengers of [0,9,-1,1.5,NaN,Infinity])expect(validateInquiry({travelDate:"2030-12-15",phone:"+380991234567",passengers}).ok).toBe(false);
