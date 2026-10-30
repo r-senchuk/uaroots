@@ -2825,6 +2825,16 @@
     },
     {
       "from": "Product/development-strategy-2026-10-24.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/development-strategy-2026-10-24.md",
+      "to": "Product/usability-testing-protocol-2026-10-31.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "Product/development-strategy-2026-10-24.md",
       "to": "Operations/deployment-performance-plan-2026-10-27.md",
       "scope": "bundle"
     },
@@ -3281,6 +3291,11 @@
     {
       "from": "log.md",
       "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "log.md",
+      "to": "Product/development-strategy-2026-10-24.md",
       "scope": "bundle"
     },
     {
