@@ -567,17 +567,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     }
     const resourceCard = resourceAnchor ? visibleHtml.slice(visibleHtml.lastIndexOf("<li", resourceAnchor.index), visibleHtml.indexOf("</li>", resourceAnchor.index) + 5) : "";
     if (!plainText(resourceCard).includes(expectedResource.purpose)) errors.push(`${pagePath} is missing the passenger action for its planning resource`);
-    const resourceTime = [...resourceCard.matchAll(/<time\b[^>]*datetime=(?:"([^"]*)"|'([^']*)')[^>]*>([\s\S]*?)<\/time>/gi)]
-      .find(([, doubleDate, singleDate, value]) => (doubleDate ?? singleDate) === expectedResource.checkedAt && plainText(value ?? "") === expectedResource.checkedAt);
-    if (!resourceTime || !plainText(resourceCard).includes("Довідник переглянуто")) errors.push(`${pagePath} is missing a visible reviewed resource date`);
-    const editorialDateParagraph = [...visibleHtml.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)]
-      .map(([, paragraph]) => paragraph ?? "")
-      .find((paragraph) => {
-        if (!plainText(paragraph).includes("Редакційні поради переглянуто")) return false;
-        return [...paragraph.matchAll(/<time\b[^>]*datetime=(?:"([^"]*)"|'([^']*)')[^>]*>([\s\S]*?)<\/time>/gi)]
-          .some(([, doubleDate, singleDate, value]) => (doubleDate ?? singleDate) === expectedResource.reviewedAt && plainText(value ?? "") === expectedResource.reviewedAt);
-      });
-    if (!editorialDateParagraph) errors.push(`${pagePath} is missing the editorial review date and scope`);
+    // Review dates remain internal provenance, not mandatory passenger-facing copy.
     const hasDepartureHeading = text.includes(slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд");
     const hasArrivalHeading = text.includes(slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення");
     if (!hasDepartureHeading || !hasArrivalHeading ||

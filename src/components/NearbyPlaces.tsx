@@ -22,7 +22,7 @@ export function NearbyPlaces({ heading, intro, actionText, places }: NearbyPlace
                 </h3>
                 <p className="mt-2 type-body text-muted-foreground">{place.guidance}</p>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Географічна довідка: <a className="inline-flex min-h-11 items-center link-underline" href={place.geographySource.url} target="_blank" rel="noreferrer" aria-label={`Географічне джерело: ${place.name}`}>{`Географічне джерело: ${place.name}`} ↗</a>, перевірено {place.geographySource.checkedAt}.
+                  <a className="inline-flex min-h-11 items-center link-underline" href={place.geographySource.url} target="_blank" rel="noreferrer" aria-label={`Географічне джерело: ${place.name}`}>{`Географічне джерело: ${place.name}`} ↗</a>
                 </p>
               </li>
             ))}

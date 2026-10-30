@@ -119,17 +119,13 @@ export default async function CityHubPage({ params }: PageProps) {
                       {resource.label} ↗
                     </a>
                     <p className="mt-2 type-body text-muted-foreground">{resource.purpose}</p>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      Довідник переглянуто <time dateTime={resource.checkedAt}>{resource.checkedAt}</time>
-                    </p>
+
                   </li>
                 ))}
               </ul>
             </div>
           ) : null}
-          <p className="text-sm text-muted-foreground lg:col-span-2">
-            Редакційні поради переглянуто <time dateTime={details.contentReview.reviewedAt}>{details.contentReview.reviewedAt}</time>
-          </p>
+
         </div>
       </section>
 

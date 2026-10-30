@@ -132,16 +132,14 @@ export default async function RoutePage({ params }: PageProps) {
                         {item.links.map((link) => (
                           <li key={link.url}>
                             <a href={link.url} {...(link.url.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="inline-flex min-h-11 items-center link-underline">{link.label}</a>
-                            {link.url === item.sourceUrl && item.lastVerifiedAt ? (
-                              <span className="ml-2 inline-block text-sm">· перевірено <time dateTime={item.lastVerifiedAt}>{item.lastVerifiedAt}</time></span>
-                            ) : null}
+
                           </li>
                         ))}
                       </ul>
                     ) : item.sourceUrl ? (
                       <p className="mt-3 text-sm text-muted-foreground">
                         <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center link-underline">Інформація про місто ↗</a>
-                        {item.lastVerifiedAt ? <span className="ml-2 inline-block text-sm">· перевірено <time dateTime={item.lastVerifiedAt}>{item.lastVerifiedAt}</time></span> : null}
+
                       </p>
                     ) : null}
                   </div>

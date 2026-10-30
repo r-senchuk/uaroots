@@ -347,7 +347,7 @@ describe("inspectExport", () => {
     expect(inspectExport(unsafe)).toContain("/cities/lviv/ is missing the expected visible city planning resource");
   });
 
-  it("ignores resource markup hidden in scripts and binds the editorial date to its own label", () => {
+  it("ignores resource markup hidden in scripts and allows internal-only review dates", () => {
     const scriptOnly = fixture();
     const path = "cities/lviv/index.html";
     const html = readFileSync(join(scriptOnly, path), "utf8");
@@ -355,11 +355,12 @@ describe("inspectExport", () => {
     write(scriptOnly, path, hiddenCard);
     expect(inspectExport(scriptOnly)).toContain("/cities/lviv/ is missing the expected visible city planning resource");
 
-    const missingEditorialTime = fixture();
-    const withoutEditorialTime = readFileSync(join(missingEditorialTime, path), "utf8")
-      .replace(/<p>Редакційні поради переглянуто <time[^>]*>[\s\S]*?<\/time><\/p>/, "<p>Редакційні поради переглянуто</p>");
-    write(missingEditorialTime, path, withoutEditorialTime);
-    expect(inspectExport(missingEditorialTime)).toContain("/cities/lviv/ is missing the editorial review date and scope");
+    const withoutReviewBadges = fixture();
+    const cleanHtml = readFileSync(join(withoutReviewBadges, path), "utf8")
+      .replace(/<p>Редакційні поради переглянуто <time[^>]*>[\s\S]*?<\/time><\/p>/, "")
+      .replace(/<p>Довідник переглянуто <time[^>]*>[\s\S]*?<\/time><\/p>/, "");
+    write(withoutReviewBadges, path, cleanHtml);
+    expect(inspectExport(withoutReviewBadges)).toEqual([]);
   });
 
   it("rejects unsupported hub service guarantees while allowing explicit uncertainty", () => {
