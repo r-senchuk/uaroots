@@ -521,6 +521,13 @@
       "description": "Dated assessment of GA4 cookieless measurement, EU/Polish constraints, aggregate alternatives and conditional EDD implementation."
     },
     {
+      "path": "Product/usability-testing-protocol-2026-10-31.md",
+      "id": "Product/usability-testing-protocol-2026-10-31",
+      "type": "Specification",
+      "title": "UARoute — протокол тестування зручності з 5–8 новими користувачами",
+      "description": "Методика, сценарії без підказок, фіксація першого хибного кліку та протокол спостереження за розумінням ролей і каналів."
+    },
+    {
       "path": "README.md",
       "id": "README",
       "type": "Reference",
@@ -2952,6 +2959,11 @@
       "scope": "bundle"
     },
     {
+      "from": "Product/index.md",
+      "to": "Product/usability-testing-protocol-2026-10-31.md",
+      "scope": "bundle"
+    },
+    {
       "from": "Product/inquiry-handoff-development-spec-2026-10-07.md",
       "to": "00-project-constitution.md",
       "scope": "bundle"
@@ -3117,6 +3129,11 @@
       "scope": "bundle"
     },
     {
+      "from": "Product/usability-testing-protocol-2026-10-31.md",
+      "to": "Product/development-strategy-2026-10-24.md",
+      "scope": "bundle"
+    },
+    {
       "from": "README.md",
       "to": "index.md",
       "scope": "bundle"
@@ -3254,6 +3271,21 @@
     {
       "from": "log.md",
       "to": "Marketing/SEO/mitigation-2026-10/page-architecture.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "log.md",
+      "to": "Marketing/SEO/mitigation-2026-10/content-package.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "log.md",
+      "to": "Marketing/SEO/mitigation-2026-10/editorial-review.md",
+      "scope": "bundle"
+    },
+    {
+      "from": "log.md",
+      "to": "Marketing/SEO/community-placements-2026-10-25.md",
       "scope": "bundle"
     },
     {
