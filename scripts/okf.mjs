@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
 import { basename, dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 import { resolveDocumentationRoots } from "./documentation-roots.mjs";
 
 const posix = (path) => path.replaceAll("\\", "/");
