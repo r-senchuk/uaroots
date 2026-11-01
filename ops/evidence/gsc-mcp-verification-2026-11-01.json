@@ -1,0 +1,23 @@
+{
+  "connection": "uaroute-search-console",
+  "method": "Fresh-process FastMCP stdio smoke verification and tool discovery",
+  "discovered_tools": 5,
+  "tools": [
+    "get_property",
+    "inspect_url",
+    "list_sitemaps",
+    "query_pages",
+    "query_search_analytics"
+  ],
+  "verification": {
+    "unit_tests": "26/26 passed in ops/mcp/search-console/test_server.py",
+    "property": "sc-domain:uaroute.com",
+    "permission_level": "siteOwner",
+    "auth_credential": "ga4-admin-mcp-adc.json",
+    "auth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
+    "sitemap_url": "https://uaroute.com/sitemap.xml",
+    "sitemap_submitted_urls": 22,
+    "inspect_url_smoke": "https://uaroute.com/routes/lviv-hannover/ returned CONFIRMED (indexed)",
+    "query_pages_smoke": "October 2026 returned 11 pages with traffic metrics (CONFIRMED)"
+  }
+}

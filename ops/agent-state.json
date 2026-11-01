@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-28",
+  "updated_at": "2026-11-01",
   "scope": {
     "project": "uaroute",
     "resources": [
@@ -173,6 +173,55 @@
         "kind": "artifact",
         "reference": "ops/evidence/manual-qa-package-2026-10-24.json",
         "summary": "Canonical plan and generated PDF structurally/visually reviewed; Drive sheet metadata readback; no manual execution or QA results claimed. Local PDFs cleaned on explicit owner instruction."
+      }
+    },
+    {
+      "id": "bing-reporting-mcp",
+      "resource": "site:uaroute.com",
+      "claim": "bing-reporting-mcp",
+      "value": {
+        "connection": "uaroute-bing",
+        "property": "https://uaroute.com/",
+        "auth_request_scope": "webmaster.read",
+        "returned_scope_label": "Read",
+        "read_tools": 17,
+        "live_methods_verified": 17,
+        "sitemap_status": "Success",
+        "discovered_urls": 22,
+        "desktop_discovery": "verified-seventeen-tool-dispatches"
+      },
+      "observed_at": "2026-11-01",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "artifact",
+        "reference": "ops/evidence/bing-reporting-expansion-2026-11-01.json",
+        "summary": "FastMCP server uaroute-bing expanded to 17 read-only inspection tools across indexing, crawl diagnostics, traffic analytics, backlinks, crawl settings, and keyword search demand. Verified via 14 unit tests and fresh stdio smoke."
+      }
+    },
+    {
+      "id": "gsc-reporting-mcp",
+      "resource": "gsc:sc-domain:uaroute.com",
+      "claim": "gsc-reporting-mcp",
+      "value": {
+        "connection": "uaroute-search-console",
+        "property": "sc-domain:uaroute.com",
+        "permission_level": "siteOwner",
+        "auth_credential": "ga4-admin-mcp-adc.json",
+        "auth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
+        "read_tools": 5,
+        "live_methods_verified": 5,
+        "sitemap_status": "Success",
+        "submitted_pages": 22,
+        "desktop_discovery": "verified-five-tool-dispatches"
+      },
+      "observed_at": "2026-11-01",
+      "verification": "observed",
+      "recheck": "before-dependent-action",
+      "evidence": {
+        "kind": "artifact",
+        "reference": "ops/evidence/gsc-mcp-verification-2026-11-01.json",
+        "summary": "FastMCP server uaroute-search-console verified in fresh stdio child process. Site owner permissions confirmed under local ADC; 5 read-only tools discoverable and functional."
       }
     }
   ],

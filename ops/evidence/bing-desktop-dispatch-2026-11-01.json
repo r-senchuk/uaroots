@@ -1,0 +1,212 @@
+{
+  "connection": "uaroute-bing",
+  "method": "Actual Codex desktop tool dispatch after user restart",
+  "discovered_tools": 9,
+  "results": [
+    {
+      "tool": "get_user_sites",
+      "status": "DATA_RETURNED",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:34.783746Z",
+      "api_method": "GetUserSites",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 1,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [
+        {
+          "Url": "https://uaroute.com/",
+          "IsVerified": true
+        }
+      ],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_feeds",
+      "status": "DATA_RETURNED",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:34.457719Z",
+      "api_method": "GetFeeds",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 1,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [
+        {
+          "Compressed": false,
+          "FileSize": 2119,
+          "LastCrawled": "2026-11-01T16:42:51Z",
+          "Status": "Success",
+          "Submitted": "2026-11-01T16:42:51.094000Z",
+          "Type": "Sitemap",
+          "Url": "https://uaroute.com/sitemap.xml",
+          "UrlCount": 22
+        }
+      ],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_crawl_issues",
+      "status": "EMPTY_ISSUE_LIST",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:33.495222Z",
+      "api_method": "GetCrawlIssues",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 0,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_crawl_stats",
+      "status": "NO_ROWS",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:35.565314Z",
+      "api_method": "GetCrawlStats",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 0,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_rank_and_traffic_stats",
+      "status": "NO_ROWS",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:36.302687Z",
+      "api_method": "GetRankAndTrafficStats",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 0,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_query_stats",
+      "status": "NO_ROWS",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:37.316292Z",
+      "api_method": "GetQueryStats",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 0,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_page_stats",
+      "status": "NO_ROWS",
+      "site_url": "https://uaroute.com/",
+      "requested_url": null,
+      "retrieved_at": "2026-11-01T21:42:37.608630Z",
+      "api_method": "GetPageStats",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 0,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_url_info",
+      "status": "DATA_RETURNED",
+      "site_url": "https://uaroute.com/",
+      "requested_url": "https://uaroute.com/",
+      "retrieved_at": "2026-11-01T21:42:37.998428Z",
+      "api_method": "GetUrlInfo",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 1,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": {
+        "AnchorCount": 0,
+        "DiscoveryDate": "2025-03-06T08:00:00Z",
+        "DocumentSize": 58097,
+        "HttpStatus": 0,
+        "IsPage": true,
+        "LastCrawledDate": "2026-10-12T04:58:26Z",
+        "TotalChildUrlCount": 0,
+        "Url": "https://uaroute.com/"
+      },
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    },
+    {
+      "tool": "get_page_query_stats",
+      "status": "NO_ROWS",
+      "site_url": "https://uaroute.com/",
+      "requested_url": "https://uaroute.com/",
+      "retrieved_at": "2026-11-01T21:42:38.293700Z",
+      "api_method": "GetPageQueryStats",
+      "period": {
+        "start": null,
+        "end": null,
+        "basis": "returned dated records only; no local date filter"
+      },
+      "row_count": 0,
+      "pagination": {
+        "supported": false,
+        "truncation": "unknown upstream; no local row truncation"
+      },
+      "data": [],
+      "limits": "Stored Bing data; not a fresh live crawl. Discovery is not proof of indexing."
+    }
+  ]
+}

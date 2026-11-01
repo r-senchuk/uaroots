@@ -1,0 +1,32 @@
+{
+  "connection": "uaroute-bing",
+  "method": "Fresh-process FastMCP stdio smoke verification and tool discovery",
+  "discovered_tools": 17,
+  "tools": [
+    "get_blocked_urls",
+    "get_crawl_issues",
+    "get_crawl_settings",
+    "get_crawl_stats",
+    "get_feeds",
+    "get_keyword_stats",
+    "get_link_counts",
+    "get_page_query_stats",
+    "get_page_stats",
+    "get_query_stats",
+    "get_query_traffic_stats",
+    "get_rank_and_traffic_stats",
+    "get_url_info",
+    "get_url_links",
+    "get_url_submission_quota",
+    "get_url_traffic_info",
+    "get_user_sites"
+  ],
+  "verification": {
+    "unit_tests": "14/14 passed in ops/mcp/bing-webmaster/test_reporting.py",
+    "property": "https://uaroute.com/",
+    "sitemap_url": "https://uaroute.com/sitemap.xml",
+    "sitemap_discovered_urls": 22,
+    "keyword_stats_smoke": "q=lviv, country=ua, language=uk returned 25 data points",
+    "crawl_settings_smoke": "GetCrawlSettings returned DATA_RETURNED"
+  }
+}

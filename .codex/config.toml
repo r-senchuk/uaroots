@@ -13,3 +13,27 @@ enabled_tools = [
 GA4_ENFORCE_ISOLATION = "true"
 GA4_ALLOWED_PROPERTY_IDS = "557859031"
 GA4_DEFAULT_PROPERTY_ID = "557859031"
+
+[mcp_servers.uaroute-bing]
+command = "/Users/roman/.local/pipx/venvs/analytics-mcp/bin/python"
+args = ["/Users/roman/src/github.com/r-senchuk/uaroots/ops/mcp/bing-webmaster/server.py"]
+startup_timeout_sec = 30
+tool_timeout_sec = 180
+enabled_tools = [
+  "get_user_sites", "get_feeds", "get_crawl_stats", "get_crawl_issues",
+  "get_rank_and_traffic_stats", "get_query_stats", "get_page_stats",
+  "get_url_info", "get_page_query_stats", "get_keyword_stats",
+  "get_url_traffic_info", "get_query_traffic_stats", "get_link_counts",
+  "get_url_links", "get_crawl_settings", "get_url_submission_quota",
+  "get_blocked_urls"
+]
+
+[mcp_servers.uaroute-search-console]
+command = "/Users/roman/.local/bin/uaroute-search-console-mcp"
+args = []
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+enabled_tools = [
+  "get_property", "list_sitemaps", "inspect_url",
+  "query_search_analytics", "query_pages"
+]
