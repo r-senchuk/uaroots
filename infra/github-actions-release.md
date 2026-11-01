@@ -37,3 +37,19 @@ The observed ~25-minute deployment on 2026-10-26 and the planned bounded-paralle
 Both workflows use the same noncancelable production writer concurrency group, main-only production environment and short-lived OIDC credentials. No independent reviewer is configured for this sole-owner manual promotion policy. Tracked trust/policy templates are in `infra/github-actions/`; provision separately, never from a pull request workflow. The role has no object deletion, IAM administration, other-site write or distribution update grant. `ListDistributions` is the single read-only wildcard for edge blast-radius validation.
 
 Recovery bucket: `uaroute-recovery-863809951348-eu-central-1`, minimum 30-day window, currently no expiry policy. Backup objects and full capture remain private; only hashes/receipts, invalidation status and public HTTP results are uploaded as Actions evidence. No credentials belong in Git. Artifacts expire after 30 days; durable S3 recovery is separate. Expired candidates require a new CI run and review.
+
+## IndexNow notifications
+
+After recoverable publication and live acceptance succeed, the production workflow runs `scripts/indexnow.mjs`. The root verification file in `public/` is included in the immutable export and served as plain text. Its public ownership key is configured in `scripts/indexnow-config.json`; no account credential or secret is required. Both files must agree.
+
+The first release with that key notifies IndexNow about every indexable, self-canonical URL in the deployed sitemap. Later releases compare public HTML hashes with the freshly captured, independently retrieved pre-release recovery inventory and submit only added or changed sitemap pages. The script rejects other hosts, query strings, fragments, noncanonical URLs and noindex pages. Editorial pages, tracking URLs, passenger details, assets and unrelated retained S3 objects are never submitted. Removed sitemap pages are not submitted as deletions: this release process retains old S3 keys, so removal requires a separate reviewed noindex/404 change.
+
+Before any POST, the script checks the live key file and that the live sitemap matches the candidate. It sends one batch to the official IndexNow endpoint; participating engines share the notification. HTTP 200 means received; HTTP 202 means key validation pending. Neither proves crawling, indexing, ranking or AI citations. A notification failure is recorded separately and does not undo a successful production deployment. There are no automatic retries or new permissions.
+
+`indexnow.json` is included in the sanitized production evidence and the workflow summary reports its status. Review it after each release. A failed notification must be retried deliberately using the same verified candidate and original pre-release recovery bundle, after resolving the failure. Run the following without `--submit` to review the URL plan without network requests, then add `--submit` for an authorized retry:
+
+```sh
+node scripts/indexnow.mjs --out /path/to/candidate/out --previous /path/to/verified-pre-release-recovery --output /path/to/indexnow-result.json
+```
+
+Run `node --test scripts/indexnow.test.mjs` for isolated fixtures and intercepted network checks. The normal release checks include these tests.

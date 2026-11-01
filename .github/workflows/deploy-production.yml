@@ -64,13 +64,20 @@ jobs:
           role-session-name: uaroute-${{ github.run_id }}
       - name: Recoverable publication and live acceptance
         run: node scripts/production-release.mjs deploy --bundle candidate --sha "$SOURCE_SHA" --runId "$CI_RUN_ID" --expectedHash "$RELEASE_HASH" --expectedEdgeHash "$EDGE_HASH" --run ci-run.json --prefix "$RECOVERY_PREFIX" --evidence private-evidence
+      - name: Notify IndexNow after verified publication
+        if: success()
+        continue-on-error: true
+        run: node scripts/indexnow.mjs --out candidate/out --previous private-evidence/retrieved --output private-evidence/indexnow.json --submit
       - name: Publish sanitized result
         if: always()
         run: |
           mkdir -p public-evidence
-          for name in success.json recovery-receipt.json invalidation-created.json invalidation-completed.json live-http.json; do
+          for name in success.json recovery-receipt.json invalidation-created.json invalidation-completed.json live-http.json indexnow.json; do
             if test -f "private-evidence/$name"; then cp "private-evidence/$name" public-evidence/; fi
           done
+          if test -f private-evidence/indexnow.json; then
+            node -e 'const r=JSON.parse(require("fs").readFileSync("private-evidence/indexnow.json","utf8")); console.log(`IndexNow: ${r.status}; ${r.submittedUrls} URLs submitted. Indexing and AI citations are not guaranteed.`)' >> "$GITHUB_STEP_SUMMARY"
+          fi
           printf 'Recovery prefix: `%s`\n\nDeployment stage: `%s`\n' "$RECOVERY_PREFIX" "${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
