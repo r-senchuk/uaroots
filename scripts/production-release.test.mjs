@@ -2,7 +2,7 @@ import test from 'node:test';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 import {validatePrefix,objectMetadata,target,recoveryBucket,verifyRestoredLive,inspectEdgeRuntimeCase,assertEdgeRuntimeResults,baseEdgeRuntimeCases,edgeRuntimeCases} from './production-release.mjs';
 test('release targets and recovery selectors exclude other resources and shell/path injection',()=>{
  assert.equal(target.bucket,'uaroute.com');assert.equal(target.distribution,'E3L95CZFIU6533');assert.match(recoveryBucket,/^uaroute-recovery-/);assert.equal(validatePrefix('releases/123-1'),'releases/123-1');for(const bad of ['../objects','releases/123/../1','releases/123-1; echo x','releases/abc-1','s3://other/x'])assert.throws(()=>validatePrefix(bad));
