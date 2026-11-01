@@ -64,10 +64,15 @@ jobs:
           role-session-name: uaroute-${{ github.run_id }}
       - name: Recoverable publication and live acceptance
         run: node scripts/production-release.mjs deploy --bundle candidate --sha "$SOURCE_SHA" --runId "$CI_RUN_ID" --expectedHash "$RELEASE_HASH" --expectedEdgeHash "$EDGE_HASH" --run ci-run.json --prefix "$RECOVERY_PREFIX" --evidence private-evidence
+      # Submit updated URLs to IndexNow (non-blocking)
       - name: Notify IndexNow after verified publication
         if: success()
         continue-on-error: true
         run: node scripts/indexnow.mjs --out candidate/out --previous private-evidence/retrieved --output private-evidence/indexnow.json --submit
+        env:
+          INDEXNOW_HOST: uaroute.com
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
       - name: Publish sanitized result
         if: always()
         run: |
