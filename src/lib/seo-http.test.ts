@@ -61,7 +61,7 @@ describe("CloudFront SEO viewer request policy v1", () => {
   });
 
   it("does not turn absent assets, Next files, Flight, or unknown RSC into HTML", () => {
-    for (const path of ["/missing.webp", "/missing.js", "/robots.txt", "/sitemap.xml", "/_next/static/missing.js",
+    for (const path of ["/missing.webp", "/missing.js", "/robots.txt", "/sitemap.xml", "/f128e5821369cd42ad2c2c535b11171c.txt", "/_next/static/missing.js",
       "/routes/lviv-celle/index.txt", "/routes/not-exported/index.txt", "/__next._tree.txt"]) {
       const original = request(path);
       const response = handler({ request: original });

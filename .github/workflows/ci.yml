@@ -35,6 +35,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+      - name: IndexNow validation
+        run: |
+          npm run test:indexnow
+          npm run indexnow -- --dry-run --all
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: static-out

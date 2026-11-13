@@ -36,7 +36,18 @@ export function Header() {
   return (
     <header ref={headerRef} className="sticky top-0 z-40 border-b border-border-strong bg-background/95 backdrop-blur">
       <div className="container-page flex min-h-[4.5rem] flex-wrap items-center justify-between gap-3 py-3">
-        <Link href="/" aria-label="UARoute — на головну" className="inline-flex min-h-11 items-center">
+        <Link
+          href="/"
+          aria-label="UARoute — на головну"
+          className="inline-flex min-h-11 items-center"
+          onNavigate={(event) => {
+            setOpen(false);
+            if (pathname === "/") {
+              event.preventDefault();
+              window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+            }
+          }}
+        >
           <Logo />
         </Link>
 
