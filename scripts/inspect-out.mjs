@@ -317,6 +317,12 @@ export function currentInquiryCopy(value) {
 }
 // Editorial evidence is a test/tool oracle, never a production runtime dependency.
 const mitigationCopy = JSON.parse(readFileSync(new URL("../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"), (_key, value) => currentInquiryCopy(value));
+// Current copy revisions leave the dated S04 evidence intact.
+mitigationCopy.records["lv-intro"].text = "Оберіть місто в Німеччині та напрямок поїздки: зі Львова або до Львова. UARoute допоможе підготувати звернення до перевізника.";
+mitigationCopy.records["if-intro"].text = "Оберіть місто в Німеччині та напрямок поїздки: з Івано-Франківська або до Івано-Франківська. UARoute допоможе підготувати звернення до перевізника.";
+for (const key of ["lv-actual-locality", "if-actual-locality"]) {
+  mitigationCopy.records[key].text = "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне місто. У приватному зверненні назвіть фактичний населений пункт і, за потреби, адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. До вибраного міста їдьте, лише якщо погодили там зустріч.";
+}
 const mitigationConsumers = JSON.parse(readFileSync(new URL("../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json", import.meta.url), "utf8")).consumers;
 function semantic(value) { return plainText(value).replace(/\s+([.,;:!?])/g, "$1"); }
 export function inspectMitigationCopy(pages) {
@@ -597,7 +603,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
           errors.push(pagePath + " is missing the expected Celle locality group or named places: " + group.localName);
         }
       }
-    } else if (!nearbyText.includes("фактичне місце") || !nearbyText.includes("приватному повідомленні WhatsApp") ||
+    } else if (!(nearbyText.includes("фактичне місце") || nearbyText.includes("фактичний населений пункт")) ||
+      !(nearbyText.includes("приватному повідомленні WhatsApp") || nearbyText.includes("приватному зверненні")) ||
       !nearbyText.includes("Перевізник підтвердить, чи можлива там посадка або висадка")) {
       errors.push(pagePath + " is missing useful nearby guidance and the pickup boundary");
     }

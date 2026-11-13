@@ -96,8 +96,18 @@ async function main() {
     Object.assign(report, { bootstrap: plan.bootstrap, sitemapUrls: plan.sitemapUrls, urls: plan.urlList });
     Object.assign(report, submit ? await submitPlan(plan) : { status: 'dry-run', plannedUrls: plan.urlList.length });
   } catch (error) {
-    // Do not persist response bodies, headers, tokens or unbounded network diagnostics.
-    report.error = error.message.startsWith('IndexNow returned HTTP ') ? error.message : 'IndexNow validation or request failed; see checks before retrying';
+    // Only persist known messages, never arbitrary network diagnostics or response bodies.
+    const safeErrors = new Set([
+      'live IndexNow verification file mismatch',
+      'live sitemap differs from deployed candidate',
+      'exported IndexNow key mismatch',
+      'invalid IndexNow key',
+      'expected verified UARoute recovery manifest',
+    ]);
+    const message = error instanceof Error ? error.message : '';
+    report.error = safeErrors.has(message) || /^IndexNow returned HTTP [0-9]{3}$/.test(message)
+      ? message
+      : 'IndexNow validation or request failed; inspect deployment prerequisites and network access';
     process.exitCode = 1;
   }
   await mkdir(path.dirname(options.output), { recursive: true });
