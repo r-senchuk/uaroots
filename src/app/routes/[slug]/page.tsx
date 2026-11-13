@@ -164,7 +164,9 @@ export default async function RoutePage({ params }: PageProps) {
               <div className="mt-4 flex flex-wrap gap-3">
                 {[route.origin, route.destination].filter((city) => cityHubPaths.some((path) => path === `/cities/${city.slug}/`)).map((city) => (
                   <Link key={city.id} href={`/cities/${city.slug}/`} className="inline-flex min-h-11 items-center border border-border-strong px-4 py-2 type-button hover:bg-secondary">
-                    {city.name} ↔ {city.countryCode === "DE" ? "Україна" : "Німеччина"}
+                    {route.id === "lviv-hannover" && city.id === "lviv"
+                      ? "Інші напрямки зі Львова та повернення до Львова"
+                      : `${city.name} ↔ ${city.countryCode === "DE" ? "Україна" : "Німеччина"}`}
                   </Link>
                 ))}
               </div>
