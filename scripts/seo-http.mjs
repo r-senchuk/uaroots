@@ -246,6 +246,14 @@ export async function evaluate(origin = "https://uaroute.com") {
   }
   schedule({ label: "robots.txt", url: new URL("/robots.txt", base),
     expect: { finalStatus: 200, maxRedirects: 0, contentType: "text/plain" } });
+  for (const filename of ["llms.txt", "llms-full.txt"]) {
+    schedule({ label: filename, url: new URL(`/${filename}`, base),
+      expect: { finalStatus: 200, maxRedirects: 0, contentType: "text/plain" },
+      bodyCheck: (checks, label, _method, _first, last, _chain, evidence) => {
+        check(checks, `${label} Markdown title`, last.body.startsWith("# UARoute\n"),
+          "expected the UARoute Markdown guide", evidence);
+      } });
+  }
   schedule({ label: "sitemap.xml", url: new URL("/sitemap.xml", base),
     expect: { finalStatus: 200, maxRedirects: 0, contentType: "application/xml" } });
 

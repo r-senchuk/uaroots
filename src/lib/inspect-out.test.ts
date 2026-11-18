@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { afterEach, describe, expect, it } from "vitest";
 
 import { inspectExport, inspectMitigationCopy, currentInquiryCopy } from "../../scripts/inspect-out.mjs";
+import { llmsContent } from "./llms-content";
 
 const editorial = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"), (_key, value) => currentInquiryCopy(value));
 editorial.records["lv-intro"].text = "Оберіть місто в Німеччині та напрямок поїздки: зі Львова або до Львова. UARoute допоможе підготувати звернення до перевізника.";
@@ -241,6 +242,8 @@ function fixture() {
   write(root, "index.txt", "RSC");
   write(root, "404.html", "<h1>Цю сторінку не знайдено</h1>");
   write(root, "robots.txt", "User-agent: *");
+  write(root, "llms.txt", llmsContent(false));
+  write(root, "llms-full.txt", llmsContent(true));
   const sitemapPaths = [...mainPages, ...guidePages, ...hubs.map(([slug]) => `/cities/${slug}/`), ...routes.map(([slug]) => `/routes/${slug}/`)];
   write(root, "sitemap.xml", `<urlset>${sitemapPaths.map((path) => `<url><loc>https://uaroute.com${path}</loc>${path === "/cities/celle/" || path === "/cities/stryi/" ? "<lastmod>2026-10-23</lastmod>" : path.startsWith("/cities/") ? "<lastmod>2026-10-25</lastmod>" : ""}</url>`).join("")}</urlset>`);
   write(root, "assets/site.css", "body { color: black; }");

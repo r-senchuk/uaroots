@@ -384,6 +384,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     "index.html", "index.txt", "__next._tree.txt", "__next._full.txt", "__next.__PAGE__.txt",
     "404.html", "routes/index.html", "about/index.html",
     "imprint/index.html", "privacy/index.html", "sitemap.xml", "robots.txt",
+    "llms.txt", "llms-full.txt",
     ...legacyRedirects.map(([slug]) => `${slug}/index.html`),
     ...sitePages.slice(1).map((path) => `${path.replace(/^\/+|\/+$/g, "")}/index.txt`),
     ...sitePages.slice(1).flatMap((path) => {
@@ -686,6 +687,35 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     }
     for (const pagePath of editorialPaths) {
       if (locations.includes(canonicalUrl(pagePath))) errors.push(`${pagePath} is editorial and must not appear in sitemap.xml`);
+    }
+
+    for (const filename of ["llms.txt", "llms-full.txt"]) {
+      const file = join(root, filename);
+      if (!existsSync(file)) continue;
+      let markdown;
+      try {
+        markdown = new TextDecoder("utf-8", { fatal: true }).decode(readFileSync(file));
+      } catch {
+        errors.push(`${filename} must be valid UTF-8`);
+        continue;
+      }
+      if (!markdown.startsWith("# UARoute\n\n> ")) {
+        errors.push(`${filename} must start with a Markdown title and summary`);
+      }
+      const links = new Set([...markdown.matchAll(/\]\(([^)]+)\)/g)].map(([, url]) => url));
+      const companion = canonicalUrl("/llms-full.txt");
+      const full = filename === "llms-full.txt";
+      for (const url of links) {
+        if (!locations.includes(url) && (full || url !== companion)) {
+          errors.push(`${filename} links to a URL outside the published guide: ${url}`);
+        }
+      }
+      const requiredLinks = full
+        ? [...cityHubPaths, ...pilotRoutes.map(({ slug }) => `/routes/${slug}/`)]
+        : ["/cities/lviv/", "/cities/ivano-frankivsk/"];
+      for (const url of [canonicalUrl("/routes/"), ...requiredLinks.map(canonicalUrl), ...(!full ? [companion] : [])]) {
+        if (!links.has(url)) errors.push(`${filename} must link to ${url}`);
+      }
     }
   }
 
