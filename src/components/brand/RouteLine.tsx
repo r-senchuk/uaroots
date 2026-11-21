@@ -35,7 +35,7 @@ const geometry: Record<
 
 /**
  * The UARoute primitive: an origin node, a measured corridor, a destination.
- * Ticks read as an atlas scale bar; waypoints carry country codes.
+ * Built with flex/HTML nodes so circles and labels never distort across widths.
  */
 export function RouteLine({
   variant = "minimal",
@@ -44,141 +44,49 @@ export function RouteLine({
   waypoints = [],
   waypointsAsCodes = true,
   highlightDestination = false,
-  animate = false,
   className,
   title,
 }: Props) {
-  const { height, curve, labels, ticks } = geometry[variant];
-  const width = 360;
-  const y = labels ? height * 0.4 : height / 2;
-  const startX = 10;
-  const endX = width - 10;
-  const path =
-    curve === 0
-      ? `M ${startX} ${y} L ${endX} ${y}`
-      : `M ${startX} ${y} Q ${width / 2} ${y - curve} ${endX} ${y}`;
-
-  const nodeR = variant === "hero" ? 5.5 : variant === "compact" ? 3 : 4;
+  const { labels } = geometry[variant];
   const stops = waypoints.slice(0, 4);
-  const tickCount = variant === "hero" ? 28 : 18;
 
   return (
-    <svg
-      viewBox={`0 0 ${width} ${height}`}
-      preserveAspectRatio="none"
+    <div
       role={title ? "img" : undefined}
       aria-hidden={title ? undefined : true}
       aria-label={title}
-      className={cn("w-full text-primary", className)}
-      style={{ height, maxHeight: height }}
+      className={cn("w-full min-w-0 select-none text-primary", className)}
     >
-      {title ? <title>{title}</title> : null}
-
-      {ticks
-        ? Array.from({ length: tickCount }).map((_, index) => {
-            const t = index / (tickCount - 1);
-            const cx = startX + (endX - startX) * t;
-            const cy = curve === 0 ? y : y - curve * 4 * t * (1 - t);
-            return (
-              <line
-                key={index}
-                x1={cx}
-                x2={cx}
-                y1={cy - 3}
-                y2={cy + 3}
-                stroke="currentColor"
-                strokeWidth="0.75"
-                opacity={0.22}
-              />
-            );
-          })
-        : null}
-
-      <path
-        d={path}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="var(--route-stroke)"
-        strokeLinecap="round"
-        strokeDasharray={animate ? 900 : undefined}
-        className={animate ? "route-line-draw" : undefined}
-        opacity={0.85}
-      />
-
-      {stops.map((stop, index) => {
-        const t = (index + 1) / (stops.length + 1);
-        const cx = startX + (endX - startX) * t;
-        const cy = curve === 0 ? y : y - curve * 4 * t * (1 - t);
-        return (
-          <g key={`${stop}-${index}`}>
-            <circle cx={cx} cy={cy} r={nodeR * 0.45} fill="currentColor" opacity={0.55} />
-            {labels ? (
-              <text
-                x={cx}
-                y={cy - 9}
-                textAnchor="middle"
-                className="fill-muted-foreground"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: variant === "hero" ? 10 : 8.5,
-                  letterSpacing: "0.14em",
-                }}
-              >
-                {waypointsAsCodes ? countryCode(stop) : stop}
-              </text>
-            ) : null}
-          </g>
-        );
-      })}
-
-      <circle cx={startX} cy={y} r={nodeR} fill="currentColor" />
-      <circle
-        cx={endX}
-        cy={y}
-        r={nodeR}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        className={highlightDestination ? "text-accent" : undefined}
-      />
-      <circle
-        cx={endX}
-        cy={y}
-        r={nodeR * 0.4}
-        className={highlightDestination ? "fill-accent" : "fill-current"}
-      />
+      <div className="flex min-w-0 items-center gap-2">
+        <span className="size-2.5 shrink-0 rounded-full bg-primary ring-4 ring-primary/15" />
+        <div className="relative flex min-w-0 flex-1 items-center justify-evenly">
+          <span className="pointer-events-none absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-primary/45" />
+          {stops.map((stop, index) => (
+            <span
+              key={`${stop}-${index}`}
+              className="relative z-10 inline-flex items-center gap-1 bg-background px-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+            >
+              <span className="size-1.5 rounded-full bg-primary/60" />
+              {labels ? (waypointsAsCodes ? countryCode(stop) : stop) : null}
+            </span>
+          ))}
+        </div>
+        <span
+          className={cn(
+            "size-2.5 shrink-0 rounded-full border-2",
+            highlightDestination
+              ? "border-primary bg-accent ring-4 ring-accent/30"
+              : "border-primary bg-background ring-4 ring-primary/15",
+          )}
+        />
+      </div>
 
       {labels && (originLabel || destinationLabel) ? (
-        <>
-          <text
-            x={startX}
-            y={height - 3}
-            className="fill-muted-foreground"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 9.5,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-            }}
-          >
-            {originLabel?.toUpperCase()}
-          </text>
-          <text
-            x={endX}
-            y={height - 3}
-            textAnchor="end"
-            className="fill-foreground"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 9.5,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-            }}
-          >
-            {destinationLabel?.toUpperCase()}
-          </text>
-        </>
+        <div className="mt-1.5 flex min-w-0 items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em]">
+          <span className="min-w-0 truncate text-muted-foreground">{originLabel}</span>
+          <span className="min-w-0 truncate text-right font-medium text-foreground">{destinationLabel}</span>
+        </div>
       ) : null}
-    </svg>
+    </div>
   );
 }

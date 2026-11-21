@@ -36,7 +36,7 @@ export function CandidateInquiry({
   const [passengers, setPassengers] = useState(1);
   const [errors, setErrors] = useState<{ travelDate?: string; phone?: string; passengers?: string }>({});
   const today = localTodayISO();
-  const fieldClass = "h-12 min-w-0 w-full border border-foreground bg-background px-3 text-base text-foreground focus:border-primary";
+  const fieldClass = "h-12 min-w-0 w-full border border-border-strong bg-background px-3 text-base text-foreground transition-colors focus:border-primary";
 
   function submit() {
     const validation = validateInquiry({ travelDate, phone, passengers });

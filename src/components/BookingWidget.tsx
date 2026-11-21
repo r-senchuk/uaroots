@@ -26,28 +26,34 @@ export function BookingWidget() {
   const carrier = getCarrier(route.carrierIds[0] ?? "");
   const today = localTodayISO();
   const fieldClass =
-    "h-12 min-w-0 w-full border border-foreground bg-background px-3 text-base text-foreground focus:border-primary";
+    "h-12 min-w-0 w-full border border-border-strong bg-background px-3 text-base text-foreground transition-colors focus:border-primary";
 
   return (
-    <section className="min-w-0 border border-border-strong border-t-4 border-t-primary bg-card p-3 sm:p-6">
+    <section className="min-w-0 border border-border-strong border-t-4 border-t-primary bg-card p-3 sm:p-6 shadow-[var(--shadow-lifted)]">
       <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
         <p className="min-w-0 type-label text-muted-foreground [overflow-wrap:anywhere]">Запит перевізнику</p>
-        <span className="min-w-0 font-mono text-xs uppercase tracking-[0.12em] text-primary [overflow-wrap:anywhere]">Без передоплати</span>
-      </div>
-      <h2 tabIndex={-1} className="mt-2 min-w-0 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2 [overflow-wrap:anywhere]">Уточнити поїздку</h2>
-
-      <div className="mt-3 flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
-        <span className="min-w-0 font-mono text-sm font-semibold uppercase tracking-[0.14em] text-foreground [overflow-wrap:anywhere]">
-          {route.origin.name} → {route.destination.name}
+        <span className="inline-flex min-w-0 items-center gap-1.5 bg-primary/10 px-2 py-0.5 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-primary [overflow-wrap:anywhere]">
+          <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+          Без передоплати
         </span>
       </div>
+      <h2 tabIndex={-1} className="mt-2.5 min-w-0 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2 [overflow-wrap:anywhere]">Уточнити поїздку</h2>
 
-      {desk ? (
-        <div className="mt-3 flex min-w-0 items-center gap-2 border-l-2 border-primary bg-secondary/60 px-2.5 py-2 text-sm text-foreground">
-          <span aria-hidden className="inline-block size-2 shrink-0 rounded-full bg-primary" />
-          <span className="min-w-0 [overflow-wrap:anywhere]">Диспетчер напрямку: <strong className="font-medium">{desk.label}</strong></span>
+      <div className="mt-3.5 min-w-0 border border-border bg-secondary/55 px-3 py-2.5">
+        <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
+          <span className="min-w-0 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground [overflow-wrap:anywhere]">
+            {route.origin.name} → {route.destination.name}
+          </span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
+            {route.origin.countryCode} → {route.destination.countryCode}
+          </span>
         </div>
-      ) : null}
+        {desk ? (
+          <p className="mt-1.5 min-w-0 border-t border-border/80 pt-1.5 text-sm text-foreground [overflow-wrap:anywhere]">
+            Диспетчер напрямку: <strong className="font-semibold">{desk.label}</strong>
+          </p>
+        ) : null}
+      </div>
 
       {desk ? (
         <p className="mt-4 type-body text-muted-foreground">

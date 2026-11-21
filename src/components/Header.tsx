@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { Logo } from "@/components/brand/Logo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -39,7 +40,7 @@ export function Header() {
         <Link
           href="/"
           aria-label="UARoute — на головну"
-          className="inline-flex min-h-11 items-center"
+          className="inline-flex min-h-11 max-w-full min-w-0 items-center"
           onNavigate={(event) => {
             setOpen(false);
             if (pathname === "/") {
@@ -51,31 +52,35 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav aria-label="Головна навігація" className="hidden items-center gap-8 sm:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "inline-flex min-h-11 items-center text-sm font-medium transition-colors hover:text-foreground",
-                pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex shrink-0 items-center gap-2 sm:gap-6">
+          <nav aria-label="Головна навігація" className="hidden items-center gap-8 sm:flex">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "inline-flex min-h-11 items-center text-sm font-medium transition-colors hover:text-foreground",
+                  pathname.startsWith(item.href) ? "text-foreground" : "text-muted-foreground",
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <button
-          type="button"
-          className="inline-flex size-11 shrink-0 items-center justify-center border border-border-strong sm:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Закрити меню" : "Відкрити меню"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? <X aria-hidden className="size-5" /> : <Menu aria-hidden className="size-5" />}
-        </button>
+          <ThemeToggle />
+
+          <button
+            type="button"
+            className="inline-flex size-11 shrink-0 items-center justify-center border border-border-strong bg-surface/75 transition-colors hover:bg-secondary sm:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Закрити меню" : "Відкрити меню"}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <X aria-hidden className="size-5" /> : <Menu aria-hidden className="size-5" />}
+          </button>
+        </div>
       </div>
 
       {open ? (

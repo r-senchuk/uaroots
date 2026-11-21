@@ -58,8 +58,8 @@ export function JourneyActions({
           routeSlug={routeSlug}
           referralContext={{ originCityId, destinationCityId, sourcePath }}
           className={hasDesk
-            ? "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center border border-foreground px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] hover:bg-secondary"
-            : "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center bg-primary px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground hover:bg-primary-hover"}
+            ? "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center border border-border-strong px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] transition-colors hover:bg-secondary"
+            : "inline-flex max-w-full min-h-12 min-w-0 items-center justify-center bg-primary px-5 py-3 type-button text-base text-center whitespace-normal [overflow-wrap:anywhere] transition-colors text-primary-foreground hover:bg-primary-hover"}
         >
           {hasDesk ? "Сайт перевізника ↗" : "Перейти на сайт перевізника ↗"}
         </KovalReferralLink>
