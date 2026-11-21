@@ -276,7 +276,8 @@ describe("priority route entities and sitemap", () => {
 describe("accepted mitigation catalog", () => {
   it("maps the five exact introductions, merged practical paragraphs, links and FAQs", async () => {
     const { readFileSync } = await import("node:fs");
-    const copy = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"));
+    const { applyCurrentCopyRevisions } = await import("../../scripts/inspect-out.mjs");
+    const copy = applyCurrentCopyRevisions(JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8")));
     const orders: Record<string, string[]> = {
       lh: ["arrival-locality", "independent-onward", "lviv-first-leg", "questions"],
       lc: ["arrival-locality", "arrival-orientation", "lviv-first-leg", "questions"],

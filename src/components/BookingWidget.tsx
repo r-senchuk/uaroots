@@ -29,15 +29,25 @@ export function BookingWidget() {
     "h-12 min-w-0 w-full border border-foreground bg-background px-3 text-base text-foreground focus:border-primary";
 
   return (
-    <section className="border border-border-strong bg-card p-3 sm:p-6">
-      <p className="type-label text-muted-foreground">Запит перевізнику</p>
-      <h2 tabIndex={-1} className="mt-3 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2">Уточнити поїздку</h2>
+    <section className="min-w-0 border border-border-strong border-t-4 border-t-primary bg-card p-3 sm:p-6">
+      <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
+        <p className="min-w-0 type-label text-muted-foreground [overflow-wrap:anywhere]">Запит перевізнику</p>
+        <span className="min-w-0 font-mono text-xs uppercase tracking-[0.12em] text-primary [overflow-wrap:anywhere]">Без передоплати</span>
+      </div>
+      <h2 tabIndex={-1} className="mt-2 min-w-0 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2 [overflow-wrap:anywhere]">Уточнити поїздку</h2>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-        <span className="font-mono text-sm uppercase tracking-[0.16em] text-foreground">
+      <div className="mt-3 flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
+        <span className="min-w-0 font-mono text-sm font-semibold uppercase tracking-[0.14em] text-foreground [overflow-wrap:anywhere]">
           {route.origin.name} → {route.destination.name}
         </span>
       </div>
+
+      {desk ? (
+        <div className="mt-3 flex min-w-0 items-center gap-2 border-l-2 border-primary bg-secondary/60 px-2.5 py-2 text-sm text-foreground">
+          <span aria-hidden className="inline-block size-2 shrink-0 rounded-full bg-primary" />
+          <span className="min-w-0 [overflow-wrap:anywhere]">Диспетчер напрямку: <strong className="font-medium">{desk.label}</strong></span>
+        </div>
+      ) : null}
 
       {desk ? (
         <p className="mt-4 type-body text-muted-foreground">
@@ -45,7 +55,7 @@ export function BookingWidget() {
         </p>
       ) : null}
 
-      {carrier ? (
+      {!desk && carrier ? (
         <KovalReferralLink
           href={carrier.website}
           content={`${route.slug}_booking_widget`}
@@ -53,11 +63,9 @@ export function BookingWidget() {
           routeId={route.id}
           routeSlug={route.slug}
           referralContext={{ originCityId: route.origin.id, destinationCityId: route.destination.id, sourcePath: `/routes/${route.slug}/` }}
-          className={desk
-            ? "mt-5 inline-flex min-h-11 items-center justify-center border border-foreground px-4 text-center text-base font-medium hover:bg-secondary"
-            : "mt-5 inline-flex min-h-12 w-full items-center justify-center bg-primary px-5 py-3 text-center text-base font-semibold text-primary-foreground hover:bg-primary-hover"}
+          className="mt-5 inline-flex min-h-12 w-full items-center justify-center bg-primary px-5 py-3 text-center text-base font-semibold text-primary-foreground hover:bg-primary-hover"
         >
-          {desk ? "Сайт перевізника ↗" : "Перейти на сайт перевізника ↗"}
+          Перейти на сайт перевізника ↗
         </KovalReferralLink>
       ) : null}
 

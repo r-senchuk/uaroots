@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import atlasCity from "@/assets/atlas-city.jpg";
 import { BookingWidget } from "@/components/BookingWidget";
 import { Graticule } from "@/components/brand/graphics";
+import { VerifiedMark } from "@/components/brand/Metadata";
+import { RouteLine } from "@/components/brand/RouteLine";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Faq } from "@/components/Faq";
 import { InquiryProvider } from "@/components/inquiry";
@@ -93,13 +95,58 @@ export default async function RoutePage({ params }: PageProps) {
                 />
               ) : null}
 
+              {route.status === "commercial" && carrier ? (
+                <div className="mt-6 max-w-2xl min-w-0 border border-border-strong bg-card/80 p-3 sm:p-5 [overflow-wrap:anywhere]">
+                  <div className="flex min-w-0 flex-wrap items-center justify-between gap-2">
+                    <span className="min-w-0 type-label text-muted-foreground">
+                      Маршрутний коридор · {route.corridor.join(" → ")}
+                    </span>
+                    <VerifiedMark className="min-w-0" />
+                  </div>
+                  <RouteLine
+                    variant="card"
+                    originLabel={route.origin.name}
+                    destinationLabel={route.destination.name}
+                    waypoints={route.corridor}
+                    highlightDestination
+                    className="mt-3"
+                  />
+                  {carrier.claims.length > 0 ? (
+                    <ul className="mt-4 grid gap-2.5 border-t border-border pt-4 sm:grid-cols-2">
+                      {carrier.claims.map((claim) => (
+                        <li key={claim.text} className="flex min-w-0 items-start gap-2 text-sm text-foreground">
+                          <span aria-hidden className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-primary" />
+                          <span className="min-w-0 font-medium">{claim.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              ) : null}
+
               {route.whatToConfirm.length > 0 ? (
-                <section className="mt-4 max-w-2xl" aria-labelledby="conditions-heading">
-                  <h2 id="conditions-heading" className="text-sm font-semibold">Перед поїздкою уточніть</h2>
-                  <ul className="mt-2 list-disc space-y-2 pl-5">
-                    {route.whatToConfirm.map((item) => (
-                      <li key={item} className="text-sm text-muted-foreground">{item}</li>
-                    ))}
+                <section className="mt-5 max-w-2xl min-w-0 border border-border-strong bg-secondary/40 p-3 sm:p-5 [overflow-wrap:anywhere]" aria-labelledby="conditions-heading">
+                  <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-2">
+                    <h2 id="conditions-heading" className="min-w-0 text-base font-semibold text-foreground">Перед поїздкою уточніть</h2>
+                    <span className="min-w-0 text-xs text-muted-foreground">Диспетчер погодить у WhatsApp</span>
+                  </div>
+                  <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+                    {route.whatToConfirm.map((item, index) => {
+                      const topics = [
+                        "Можливість поїздки на бажану дату",
+                        "Вартість і спосіб оплати",
+                        "Місце посадки та висадки",
+                        "Багаж та особливі речі",
+                      ];
+                      return (
+                        <li key={item} className="min-w-0 border-l-2 border-primary pl-3">
+                          <span className="block text-xs font-medium text-foreground">
+                            {topics[index] ?? `Питання ${index + 1}`}
+                          </span>
+                          <span className="mt-0.5 block text-sm text-muted-foreground">{item}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </section>
               ) : null}
@@ -122,27 +169,33 @@ export default async function RoutePage({ params }: PageProps) {
             <section aria-labelledby="practical-heading">
               <p className="type-label text-muted-foreground">Практична інформація</p>
               <h2 id="practical-heading" className="mt-2 type-h2">Сплануйте зустріч і прибуття</h2>
-              <div className="mt-5 space-y-7">
-                {route.practicalContent.map((item) => (
-                  <div key={`${item.heading}-${item.body}`}>
-                    {item.heading ? <h3 className="font-display text-2xl">{item.heading}</h3> : null}
-                    <p className="mt-2 type-body text-muted-foreground">{item.body}</p>
+              <p className="mt-2 type-body-small text-muted-foreground">
+                Короткі орієнтири для напрямку {route.origin.name} → {route.destination.name}, які допоможуть швидко узгодити зручну точку посадки, висадку та багаж із диспетчером.
+              </p>
+              <div className="mt-6 space-y-5">
+                {route.practicalContent.map((item, index) => (
+                  <article key={`${item.heading}-${item.body}`} className="min-w-0 border border-border-strong bg-card/60 p-3 sm:p-6 [overflow-wrap:anywhere]">
+                    <span className="block font-mono text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                      {String(index + 1).padStart(2, "0")} · Орієнтир
+                    </span>
+                    <h3 className="mt-1.5 min-w-0 font-display text-2xl leading-snug text-foreground">
+                      {item.heading || "Додатковий багаж та перевезення велосипеда"}
+                    </h3>
+                    <p className="mt-3 type-body text-muted-foreground">{item.body}</p>
                     {item.links?.length ? (
-                      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                      <ul className="mt-4 space-y-2 border-t border-border pt-3 text-sm text-muted-foreground">
                         {item.links.map((link) => (
                           <li key={link.url}>
-                            <a href={link.url} {...(link.url.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="inline-flex min-h-11 items-center link-underline">{link.label}</a>
-
+                            <a href={link.url} {...(link.url.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="inline-flex min-h-11 items-center font-medium text-primary link-underline">{link.label}</a>
                           </li>
                         ))}
                       </ul>
                     ) : item.sourceUrl ? (
-                      <p className="mt-3 text-sm text-muted-foreground">
-                        <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center link-underline">Інформація про місто ↗</a>
-
+                      <p className="mt-4 border-t border-border pt-3 text-sm text-muted-foreground">
+                        <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-medium text-primary link-underline">Інформація про місто ↗</a>
                       </p>
                     ) : null}
-                  </div>
+                  </article>
                 ))}
               </div>
             </section>
@@ -150,7 +203,7 @@ export default async function RoutePage({ params }: PageProps) {
 
           {route.faq.length > 0 ? (
             <section aria-labelledby="route-faq-heading">
-              <p className="type-label text-muted-foreground">Питання</p>
+              <p className="type-label text-muted-foreground">Питання та відповіді</p>
               <h2 id="route-faq-heading" className="mt-2 type-h2">Часті питання</h2>
               <div className="mt-6 [&_details_p]:text-base"><Faq items={route.faq} /></div>
             </section>
@@ -187,15 +240,38 @@ export default async function RoutePage({ params }: PageProps) {
           ) : null}
         </main>
 
-        <aside className="space-y-10 [&_p]:text-base [&_a]:text-base [&_a]:border-foreground lg:sticky lg:top-28 lg:self-start">
+        <aside className="space-y-8 [&_p]:text-base [&_a]:text-base [&_a]:border-foreground lg:sticky lg:top-28 lg:self-start">
           {carrier ? (
             <PartnerCard
               carrier={publicCarrier(carrier)}
               routeSlug={route.slug}
               ctaLocation="partner_card"
-              inquiryOnly
+              inquiryOnly={route.status !== "commercial"}
               referralContext={{ originCityId: route.origin.id, destinationCityId: route.destination.id, sourcePath: `/routes/${route.slug}/` }}
             />
+          ) : null}
+
+          {route.status === "commercial" ? (
+            <section className="min-w-0 border border-border-strong bg-secondary/40 p-3 sm:p-5 [overflow-wrap:anywhere]" aria-labelledby="how-inquiry-works-heading">
+              <p className="type-label text-muted-foreground">Прозорий процес</p>
+              <h2 id="how-inquiry-works-heading" className="mt-2 min-w-0 font-display text-xl text-foreground">
+                Як відбувається погодження поїздки
+              </h2>
+              <ol className="mt-4 space-y-3 text-sm text-muted-foreground">
+                <li className="flex min-w-0 items-start gap-2.5">
+                  <span className="font-mono text-xs font-semibold text-primary">01</span>
+                  <span className="min-w-0">Вкажіть бажану дату, кількість місць і телефон у формі звернення — без жодної оплати на сайті.</span>
+                </li>
+                <li className="flex min-w-0 items-start gap-2.5">
+                  <span className="font-mono text-xs font-semibold text-primary">02</span>
+                  <span className="min-w-0">Надішліть сформоване повідомлення напряму диспетчеру у WhatsApp (або перейдіть на сайт перевізника).</span>
+                </li>
+                <li className="flex min-w-0 items-start gap-2.5">
+                  <span className="font-mono text-xs font-semibold text-primary">03</span>
+                  <span className="min-w-0">Диспетчер особисто підтвердить наявність місць, повну вартість та зручне місце посадки й висадки.</span>
+                </li>
+              </ol>
+            </section>
           ) : null}
         </aside>
       </div>

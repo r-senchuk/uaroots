@@ -5,7 +5,7 @@ Read `types.ts` first. Field names stay as they are.
 - Route: `originCityId`, `destinationCityId`, `carrierIds[]`, optional `deskId` — never infer a desk from copy
 - Desks in `carriers.ts`: `koval-de`, `koval-at` only (do not invent `koval-cz`)
 - Promote to `commercial` only via dated selection evidence; see [KB guide](../../docs/knowledge-base.md#knowledge-base). The external matrix is unavailable in this checkout; do not reconstruct it
-- POC exception under constitution §40: selected `serviceMode: "candidate_inquiry"` commercial records identify an owner-approved inquiry path, not a verified operated service. Record selection evidence in the matrix, use feasibility-first copy, suppress operational claims, and avoid generating the 14×6 candidates. Editorial rules still apply.
+- POC exception under constitution §40: selected `serviceMode: "candidate_inquiry"` commercial records identify an owner-approved inquiry path, not a verified operated service. Record selection evidence in the matrix, use feasibility-first copy, allow sourced carrier claims from `carriers.ts` (owner decision 2026-11-21), and avoid generating the 14×6 candidates. Editorial rules still apply.
 - Route copy describes confirmation of a specific trip and its terms, not denial of a selected direction. Use neutral «перевізник» in public names and Ukrainian text; omit surnames/branding. Preserve IDs, contacts, source/referral URLs and classifications; no additional connected carriers are implied.
 - `claims[]`: `sourceUrl` + `lastVerifiedAt`, or leave empty
 - City `aliases`: search-only, never URLs

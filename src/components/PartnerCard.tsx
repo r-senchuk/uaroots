@@ -28,12 +28,12 @@ export function PartnerCard({
   const directWhatsapp = whatsappHref;
 
   return (
-    <section className="border-t-2 border-primary pt-6">
+    <section className="min-w-0 border-t-2 border-primary pt-6">
       <p className="type-label text-muted-foreground">
         {inquiryOnly ? "Зв’язок із перевізником" : "Хто виконує перевезення"}
       </p>
-      <h2 className="mt-3 type-h2">{carrier.name}</h2>
-      <p className="mt-3 type-body-small text-muted-foreground">
+      <h2 className="mt-3 min-w-0 break-words type-h2">{carrier.name}</h2>
+      <p className="mt-3 min-w-0 break-words type-body-small text-muted-foreground">
         {inquiryOnly
           ? "Запитайте перевізника про можливість поїздки, вартість, місце посадки й багаж. Контакт доступний на його сайті."
           : carrier.serviceDescription}
@@ -42,31 +42,36 @@ export function PartnerCard({
       <RouteLine variant="minimal" className="mt-5 max-w-[240px]" />
 
       {!inquiryOnly ? (
-        <p className="mt-5 max-w-md type-body-small text-muted-foreground">
-          Перегляньте інформацію перевізника та запитайте про умови для вашої поїздки.
+        <p className="mt-5 max-w-md min-w-0 break-words type-body-small text-muted-foreground">
+          Прямий зв’язок із диспетчером без комісій UARoute. Перегляньте інформацію перевізника та запитайте про умови для вашої поїздки:
         </p>
       ) : null}
 
       {!inquiryOnly && carrier.claims.length > 0 ? (
         <ul className="mt-5 space-y-3">
           {carrier.claims.map((claim) => (
-            <li key={claim.text} className="border-t border-border pt-3">
-              <span className="block type-body-small text-foreground">{claim.text}</span>
-              <VerifiedMark className="mt-1.5" />{" "}
-              <a
-                href={claim.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="type-caption link-underline text-[10px] opacity-60"
-              >
-                джерело
-              </a>
+            <li key={claim.text} className="min-w-0 border border-border-strong bg-card/60 p-2.5 sm:p-3.5">
+              <div className="flex min-w-0 items-start gap-2">
+                <span aria-hidden className="mt-1.5 inline-block size-2 shrink-0 rounded-full bg-primary" />
+                <span className="min-w-0 break-words font-medium text-foreground [overflow-wrap:anywhere]">{claim.text}</span>
+              </div>
+              <div className="mt-2 flex min-w-0 flex-wrap items-center justify-between gap-2 pl-4">
+                <VerifiedMark className="min-w-0 break-words [overflow-wrap:anywhere]" />
+                <a
+                  href={claim.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="inline-flex min-h-11 min-w-0 items-center text-sm text-primary link-underline"
+                >
+                  джерело ↗
+                </a>
+              </div>
             </li>
           ))}
         </ul>
       ) : null}
 
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-6 flex min-w-0 flex-col gap-3 sm:flex-row">
         {directWhatsapp ? (
           <a
             href={directWhatsapp}
@@ -79,7 +84,7 @@ export function PartnerCard({
                 conversionType: "whatsapp_inquiry",
               })
             }
-            className="inline-flex h-12 items-center justify-center gap-2 bg-primary px-6 type-button text-primary-foreground transition-colors hover:bg-primary-hover"
+            className="inline-flex min-h-12 min-w-0 max-w-full items-center justify-center gap-2 bg-primary px-4 py-3 sm:px-6 type-button text-center whitespace-normal [overflow-wrap:anywhere] text-primary-foreground transition-colors hover:bg-primary-hover"
           >
             <WhatsAppIcon />
             Уточнити поїздку в WhatsApp
@@ -92,7 +97,7 @@ export function PartnerCard({
           ctaLocation={ctaLocation}
           routeSlug={routeSlug}
           referralContext={referralContext}
-          className="inline-flex h-12 items-center justify-center border border-border-strong px-6 type-button hover:bg-secondary"
+          className="inline-flex min-h-12 min-w-0 max-w-full items-center justify-center border border-border-strong px-4 py-3 sm:px-6 type-button text-center whitespace-normal [overflow-wrap:anywhere] hover:bg-secondary"
         >
           Сайт перевізника ↗
         </KovalReferralLink>

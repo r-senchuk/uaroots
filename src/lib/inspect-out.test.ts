@@ -3,15 +3,10 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { inspectExport, inspectMitigationCopy, currentInquiryCopy } from "../../scripts/inspect-out.mjs";
+import { inspectExport, inspectMitigationCopy, currentInquiryCopy, applyCurrentCopyRevisions } from "../../scripts/inspect-out.mjs";
 import { llmsContent } from "./llms-content";
 
-const editorial = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"), (_key, value) => currentInquiryCopy(value));
-editorial.records["lv-intro"].text = "Оберіть місто в Німеччині та напрямок поїздки: зі Львова або до Львова. UARoute допоможе підготувати звернення до перевізника.";
-editorial.records["if-intro"].text = "Оберіть місто в Німеччині та напрямок поїздки: з Івано-Франківська або до Івано-Франківська. UARoute допоможе підготувати звернення до перевізника.";
-for (const key of ["lv-actual-locality", "if-actual-locality"]) {
-  editorial.records[key].text = "Якщо вашого населеного пункту немає в пошуку, оберіть найближче доступне місто. У приватному зверненні назвіть фактичний населений пункт і, за потреби, адресу або орієнтир. Перевізник підтвердить, чи можлива там посадка або висадка. До вибраного міста їдьте, лише якщо погодили там зустріч.";
-}
+const editorial = applyCurrentCopyRevisions(JSON.parse(readFileSync(new URL("../../ops/evidence/seo-s04-2026-10-27/copy-records.json", import.meta.url), "utf8"), (_key, value) => currentInquiryCopy(value)));
 const consumers = JSON.parse(readFileSync(new URL("../../ops/evidence/seo-mitigation-execution-2026-10-28/readiness/copy-consumers.json", import.meta.url), "utf8")).consumers;
 function editorialFixture(root: string) {
   for (const entry of [...editorial.pages, ...Object.values(editorial.support)] as {url: string; kind?: string; prefix?: string; metadata: {title: string; description: string}}[]) {
