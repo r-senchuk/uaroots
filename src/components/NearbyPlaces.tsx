@@ -1,3 +1,4 @@
+import { IconTile, PinIcon } from "@/components/brand/editorial";
 import type { NearbyPlaceContext } from "@/data/city-hubs";
 
 type NearbyPlacesProps = {
@@ -16,10 +17,15 @@ export function NearbyPlaces({ heading, intro, actionText, places }: NearbyPlace
         {places.length > 0 ? (
           <ul className="mt-5 grid gap-4 sm:grid-cols-2">
             {places.map((place) => (
-              <li key={place.contentKey} className="border border-border-strong bg-background p-4">
-                <h3 className="font-display text-lg">
-                  {place.name}{place.localName ? <span className="type-body text-muted-foreground"> ({place.localName})</span> : null}
-                </h3>
+              <li key={place.contentKey} className="min-w-0 border border-border-strong bg-card p-4 sm:p-5 [overflow-wrap:anywhere]">
+                <div className="flex min-w-0 items-start gap-3">
+                  <IconTile className="mt-0.5">
+                    <PinIcon />
+                  </IconTile>
+                  <h3 className="min-w-0 font-display text-lg">
+                    {place.name}{place.localName ? <span className="type-body text-muted-foreground"> ({place.localName})</span> : null}
+                  </h3>
+                </div>
                 <p className="mt-2 type-body text-muted-foreground">{place.guidance}</p>
                 <p className="mt-3 text-sm text-muted-foreground">
                   <a className="inline-flex min-h-11 items-center link-underline" href={place.geographySource.url} target="_blank" rel="noreferrer" aria-label={`Географічне джерело: ${place.name}`}>{`Географічне джерело: ${place.name}`} ↗</a>

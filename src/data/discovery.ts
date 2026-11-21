@@ -47,4 +47,6 @@ export const selectedCandidatePairs = [
   { slug: "ivano-frankivsk-wolfsburg", originCityId: "ivano-frankivsk", destinationCityId: "wolfsburg" },
   { slug: "wolfsburg-ivano-frankivsk", originCityId: "wolfsburg", destinationCityId: "ivano-frankivsk" },
   { slug: "celle-stryi", originCityId: "celle", destinationCityId: "stryi" },
+  { slug: "kalush-lueneburg", originCityId: "kalush", destinationCityId: "lueneburg" },
+  { slug: "lueneburg-kalush", originCityId: "lueneburg", destinationCityId: "kalush" },
 ] as const;

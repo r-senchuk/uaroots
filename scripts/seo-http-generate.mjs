@@ -15,6 +15,7 @@ const sitemapExpected = [
   "/routes/dolyna-celle/", "/routes/celle-dolyna/", "/routes/dolyna-wolfsburg/",
   "/routes/wolfsburg-dolyna/", "/routes/dolyna-braunschweig/", "/routes/braunschweig-dolyna/",
   "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/", "/routes/celle-stryi/",
+  "/routes/kalush-lueneburg/", "/routes/lueneburg-kalush/",
   "/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/",
   "/guides/perevezennya-velosypeda/",
 ];
@@ -47,7 +48,7 @@ function sitemapPaths() {
       `sitemap has an unexpected URL: ${url}`);
     return parsed.pathname;
   });
-  assert(paths.length === 22, `expected the reviewed 22 sitemap URLs; found ${paths.length}`);
+  assert(paths.length === 24, `expected the reviewed 24 sitemap URLs; found ${paths.length}`);
   assert(new Set(paths).size === paths.length, "sitemap contains duplicate document paths");
   assert([...paths].sort().join("\n") === [...sitemapExpected].sort().join("\n"),
     "sitemap paths differ from the reviewed commercial/export document set");

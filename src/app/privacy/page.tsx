@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PrivacySettingsButton } from "@/components/AnalyticsConsent";
+import { Eyebrow } from "@/components/brand/editorial";
+import { Graticule } from "@/components/brand/graphics";
 import { business } from "@/config/business";
 import { analyticsConfiguration } from "@/config/analytics";
 import { buildMetadata } from "@/lib/seo";
@@ -20,19 +22,40 @@ const sections = [
 export default function PrivacyPage() {
   const { enabled } = analyticsConfiguration();
   return (
-    <div className="container-page py-10 sm:py-16">
-      <Breadcrumbs items={[{ name: "Головна", path: "/" }, { name: "Приватність і файли cookie", path: "/privacy/" }]} />
-      <h1 className="mt-10 max-w-3xl type-display">Приватність і файли cookie</h1>
-      <p className="mt-5 type-caption">Редакція від 7 жовтня 2026 року</p>
-      <div className="mt-6 max-w-3xl type-body">
-        <p>UARoute допомагає обрати напрямок і підготувати звернення до перевізника. Тут пояснено, які дані потрібні для роботи сайту, що передається під час звернення та як керувати приватністю.</p>
-        <p className="mt-3">Пошук і звернення працюють без дозволу на аналітику. Ознайомлення з цією політикою не є згодою на аналітику чи рекламні повідомлення.</p>
-        <div className="mt-5"><PrivacySettingsButton /></div>
-      </div>
-      <nav aria-label="Зміст політики приватності" className="mt-8 max-w-3xl border-y border-border py-5">
-        <ul className="grid gap-2 sm:grid-cols-2">{sections.map(([id, title]) => <li key={id}><a href={`#${id}`} className="inline-block py-2 type-body-small link-underline">{title}</a></li>)}</ul>
-      </nav>
-      <div className="mt-10 max-w-3xl space-y-10 type-body [&_section]:scroll-mt-24">
+    <>
+      <header className="relative overflow-hidden border-b border-border-strong">
+        <Graticule />
+        <div className="container-page relative pb-8 pt-4">
+          <Breadcrumbs items={[{ name: "Головна", path: "/" }, { name: "Приватність і файли cookie", path: "/privacy/" }]} />
+          <p className="mt-4">
+            <Eyebrow>Юридична інформація</Eyebrow>
+          </p>
+          <h1 className="mt-4 max-w-3xl type-h1">Приватність і файли cookie</h1>
+          <p className="mt-4 type-caption">Редакція від 7 жовтня 2026 року</p>
+        </div>
+      </header>
+
+      <div className="container-page py-8 sm:py-10">
+        <div className="min-w-0 max-w-3xl type-body text-foreground/85 [overflow-wrap:anywhere]">
+          <p>UARoute допомагає обрати напрямок і підготувати звернення до перевізника. Тут пояснено, які дані потрібні для роботи сайту, що передається під час звернення та як керувати приватністю.</p>
+          <p className="mt-3">Пошук і звернення працюють без дозволу на аналітику. Ознайомлення з цією політикою не є згодою на аналітику чи рекламні повідомлення.</p>
+          <div className="mt-5"><PrivacySettingsButton /></div>
+        </div>
+        <nav aria-label="Зміст політики приватності" className="mt-8 max-w-3xl border border-border-strong bg-card p-4 sm:p-5 [overflow-wrap:anywhere]">
+          <ul className="grid gap-1 sm:grid-cols-2">
+            {sections.map(([id, title], index) => (
+              <li key={id} className="min-w-0">
+                <a href={`#${id}`} className="inline-flex min-h-11 items-center gap-2 type-body-small link-underline">
+                  <span aria-hidden className="font-mono text-xs font-semibold text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span>{title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className="mt-10 min-w-0 max-w-3xl space-y-10 type-body [&_section]:scroll-mt-24 [&_section]:border-t-2 [&_section]:border-border-strong [&_section]:pt-6 [overflow-wrap:anywhere]">
         <section id="controller">
           <h2 className="type-h2">Хто відповідає за ваші дані</h2>
           <p className="mt-4">Адміністратор персональних даних у межах роботи UARoute — {business.operatorName}, який здійснює одноосібну підприємницьку діяльність у Польщі під бізнес-брендом {business.brand}. UARoute не є окремою юридичною особою.</p>
@@ -64,7 +87,7 @@ export default function PrivacyPage() {
           <p className="mt-4">{enabled ? "Аналітика доступна лише після вашого дозволу. До дозволу та після відмови UARoute не завантажує Google Analytics і Google Tag Manager для аналітики та не надсилає їм аналітичних запитів." : "У цій версії сайту необов’язкова аналітика вимкнена. Google Analytics і Google Tag Manager не завантажуються для аналітики, навіть якщо у браузері був збережений попередній дозвіл."}</p>
           <p className="mt-3">Якщо аналітику ввімкнено й ви її дозволили, вона отримує відомості про переглянуті напрямки, джерело переходу, натискання контакту, кількість пасажирів і технічні дані браузера та мережі. Правова підстава — згода, стаття 6(1)(a) GDPR. Ім’я, телефон, бажану дату, текст повідомлення й код звернення Google не передаємо. Інші аналітичні дані не обов’язково є анонімними.</p>
           <p className="mt-3">Рекламні інструменти, Google Signals, рекламна персоналізація та рекламні розсилки не ввімкнені. Звернення щодо поїздки не є дозволом на рекламні повідомлення.</p>
-          <div className="mt-5 overflow-x-auto">
+          <div className="mt-5 overflow-x-auto border border-border-strong bg-card p-4">
             <table className="w-full border-collapse text-left type-body-small">
               <caption className="mb-3 text-left font-semibold">Збереження інформації у браузері UARoute</caption>
               <thead><tr className="border-b border-border"><th scope="col" className="py-3 pr-4">Назва й мета</th><th scope="col" className="py-3">Строк</th></tr></thead>
@@ -107,6 +130,7 @@ export default function PrivacyPage() {
           <p className="mt-3">Якщо зміняться способи обробки, оновимо політику. Нову мету, що потребує згоди, не вмикатимемо лише на підставі перегляду оновленого тексту. Дата редакції вказана на початку сторінки.</p>
         </section>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

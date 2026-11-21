@@ -9,12 +9,15 @@ if (live && process.env.POC_LIVE_DEPLOY_CONFIRMED !== "1") throw new Error("Live
 const origin = live ? "https://uaroute.com" : "http://uaroute.test";
 const ukIds = ["lviv", "ivano-frankivsk", "dolyna", "kalush", "stryi", "halych", "burshtyn", "pustomyty", "briukhovychi", "horodok-lviv", "mykolaiv-lviv", "novyi-rozdil", "nadvirna", "zhydachiv"];
 const deIds = ["schwerin", "lueneburg", "luebeck", "celle", "wolfsburg", "braunschweig"];
+const selectDeIds = [...deIds, "hannover"];
 const selected = [
   ["dolyna", "celle", "dolyna-celle"], ["celle", "dolyna", "celle-dolyna"],
   ["dolyna", "wolfsburg", "dolyna-wolfsburg"], ["wolfsburg", "dolyna", "wolfsburg-dolyna"],
   ["dolyna", "braunschweig", "dolyna-braunschweig"], ["braunschweig", "dolyna", "braunschweig-dolyna"],
   ["lviv", "celle", "lviv-celle"], ["celle", "lviv", "celle-lviv"],
   ["ivano-frankivsk", "wolfsburg", "ivano-frankivsk-wolfsburg"], ["wolfsburg", "ivano-frankivsk", "wolfsburg-ivano-frankivsk"],
+  ["celle", "stryi", "celle-stryi"],
+  ["kalush", "lueneburg", "kalush-lueneburg"], ["lueneburg", "kalush", "lueneburg-kalush"],
 ];
 const report = { generatedAt: new Date().toISOString(), mode: live ? "live" : "local", checks: [], viewportChecks: [], screenshots: [], runtimeErrors: [], outgoingMessagesChecked: 0, blockedRequests: 0 };
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".txt": "text/x-component", ".woff2": "font/woff2", ".webp": "image/webp", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon" };
@@ -53,7 +56,7 @@ async function choose(page, uk, de, backwards = false) {
 
 const candidate = (page) => page.locator('section[aria-labelledby$="-candidate-inquiry-title"]');
 async function assertOptions(page) {
-  for (const [label, ids] of [["Українське місто", ukIds], ["Місто в Німеччині", deIds]]) {
+  for (const [label, ids] of [["Українське місто", ukIds], ["Місто в Німеччині", selectDeIds]]) {
     const values = await page.getByRole("combobox", { name: label, exact: true }).locator("option").evaluateAll((options) => options.map((option) => option.value).filter(Boolean));
     ensure(values.length === ids.length && ids.every((id) => values.includes(id)), `${label} option coverage differs`);
   }
@@ -110,7 +113,7 @@ try {
     const selects = page.locator("select");
     ensure(await selects.nth(0).inputValue() === "celle" && await selects.nth(1).inputValue() === "lviv", "Departure/arrival order or city preservation failed");
     ensure((await selects.nth(0).locator("..").innerText()).includes("Звідки · Німеччина"), "Return departure label missing");
-    await page.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+    await page.getByText("Пошук за назвою або латинкою", { exact: true }).click();
     const from = page.getByRole("combobox", { name: "Звідки", exact: true });
     await from.fill("Івано-Франківськ");
     ensure(await page.getByRole("listbox").count() === 0, "Ukrainian city offered as return departure");
@@ -134,7 +137,7 @@ try {
     for (const backwards of [false, true]) {
       await load(page, "/");
       await choose(page, "lviv", "celle", backwards);
-      await page.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+      await page.getByText("Пошук за назвою або латинкою", { exact: true }).click();
       for (const [side, query] of [["Звідки", backwards ? "Львів" : "Celle"], ["Куди", backwards ? "Celle" : "Івано-Франківськ"]]) {
         const field = page.getByRole("combobox", { name: side, exact: true });
         await field.fill(query);
@@ -219,7 +222,7 @@ try {
 
   await check("aliases remain keyboard searchable and editorial routes stay excluded", async () => {
     await load(page, "/routes/");
-    await page.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+    await page.getByText("Пошук за назвою або латинкою", { exact: true }).click();
     for (const [query, expected, side] of [["Львів", "Львів", "Звідки"], ["Львов", "Львів", "Звідки"], ["Lüneburg", "Люнебург", "Куди"], ["Kałusz", "Калуш", "Звідки"], ["Celle", "Целле", "Куди"]]) {
       const field = page.getByRole("combobox", { name: side, exact: true });
       await field.fill(query);
@@ -236,7 +239,7 @@ try {
     ensure(new URL(page.url()).pathname === "/routes/", "Editorial route entered search navigation");
     await to.fill("Hannover");
     await page.getByRole("listbox").getByRole("option").filter({ hasText: "Ганновер" }).first().click();
-    await page.getByText("Пошук за іншою назвою міста", { exact: true }).click();
+    await page.getByText("Пошук за назвою або латинкою", { exact: true }).click();
     const visibleCity = page.getByRole("combobox", { name: "Місто в Німеччині", exact: true });
     ensure(await visibleCity.inputValue() === "hannover", "Selected nonpilot alias is hidden by the native picker");
     ensure((await visibleCity.locator("option:checked").textContent()).includes("Ганновер"), "Native picker hides the submitted city");

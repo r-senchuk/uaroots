@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ArrowDirectionIcon, Eyebrow, IconTile, chipLink, ticketCard } from "@/components/brand/editorial";
+import { Graticule } from "@/components/brand/graphics";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -57,19 +59,20 @@ export default async function CityHubPage({ params }: PageProps) {
     <>
       <JsonLd data={breadcrumbLd(crumbs)} />
       <JsonLd data={cityHubCollectionLd(city, details, presentation.routeCards)} />
-      <section className="border-b border-border-strong">
-        <div className={priorityHub ? "container-page pb-3 pt-3" : "container-page pb-8 pt-8 sm:pb-10"}>
+      <section className="relative overflow-hidden border-b border-border-strong">
+        <Graticule />
+        <div className={priorityHub ? "container-page relative pb-3 pt-3" : "container-page relative pb-8 pt-8 sm:pb-10"}>
           <Breadcrumbs items={crumbs} />
-          <p className={priorityHub ? "hidden" : "mt-6 type-label text-muted-foreground"}>{presentation.departureLabel} · {presentation.arrivalLabel}</p>
-          <h1 className={priorityHub ? "mt-3 max-w-4xl type-h1" : "mt-3 max-w-4xl type-h1"}>{details.heading}</h1>
-          <p className={priorityHub ? "mt-3 max-w-3xl type-body text-muted-foreground" : "mt-4 max-w-3xl type-body text-muted-foreground"}>{details.intro}</p>
+          <p className={priorityHub ? "mt-3 hidden sm:block" : "mt-6"}><Eyebrow>{presentation.departureLabel} · {presentation.arrivalLabel}</Eyebrow></p>
+          <h1 className="mt-3 max-w-4xl type-h1">{details.heading}</h1>
+          <p className={priorityHub ? "mt-3 max-w-3xl type-body text-foreground/85" : "mt-4 max-w-3xl type-body text-foreground/85"}>{details.intro}</p>
         </div>
       </section>
 
       <section className={priorityHub ? "container-page py-3 sm:py-6" : "container-page py-8 sm:py-10"} aria-labelledby="search-heading">
         <p className="type-label text-muted-foreground">Вибір напрямку</p>
         <h2 id="search-heading" tabIndex={-1} className="mt-2 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] type-h2">Куди хочете їхати?</h2>
-        <div className={priorityHub ? "mt-3 max-w-5xl" : "mt-8 max-w-5xl border border-border-strong p-5 sm:p-8"}>
+        <div className={priorityHub ? "mt-3 max-w-5xl min-w-0" : `mt-8 max-w-5xl ${ticketCard}`}>
           <RouteSearch
             key={city.id}
             sourcePath={`/cities/${city.slug}/`}
@@ -99,22 +102,27 @@ export default async function CityHubPage({ params }: PageProps) {
 
       <section className="border-y border-border-strong bg-secondary/40">
         <div className="container-page grid gap-10 py-12 sm:py-16 lg:grid-cols-2">
-          <div>
-            <p className="type-label text-muted-foreground">{presentation.departureLabel}</p>
-            <h2 className="mt-3 type-h2">{presentation.departureHeading}</h2>
-            <p className="mt-4 max-w-xl type-body text-muted-foreground">{details.outbound}</p>
-          </div>
-          <div>
-            <p className="type-label text-muted-foreground">{presentation.arrivalLabel}</p>
-            <h2 className="mt-3 type-h2">{presentation.arrivalHeading}</h2>
-            <p className="mt-4 max-w-xl type-body text-muted-foreground">{details.returning}</p>
-          </div>
+          {[
+            { label: presentation.departureLabel, heading: presentation.departureHeading, body: details.outbound, direction: "outbound" as const },
+            { label: presentation.arrivalLabel, heading: presentation.arrivalHeading, body: details.returning, direction: "inbound" as const },
+          ].map((band) => (
+            <div key={band.label} className="min-w-0 border-t-2 border-border-strong pt-5 [overflow-wrap:anywhere]">
+              <div className="flex min-w-0 items-center gap-3">
+                <IconTile>
+                  <ArrowDirectionIcon direction={band.direction} />
+                </IconTile>
+                <p className="min-w-0 type-label text-muted-foreground">{band.label}</p>
+              </div>
+              <h2 className="mt-3 type-h2">{band.heading}</h2>
+              <p className="mt-4 max-w-xl type-body text-muted-foreground">{band.body}</p>
+            </div>
+          ))}
           {details.planningResources.length > 0 ? (
-            <div className="lg:col-span-2">
+            <div className="min-w-0 lg:col-span-2">
               <h3 className="type-h3">Корисний довідник</h3>
               <ul className="mt-3 grid gap-4 sm:grid-cols-2">
                 {details.planningResources.map((resource) => (
-                  <li key={resource.url} className="border border-border-strong p-5">
+                  <li key={resource.url} className="min-w-0 border border-border-strong bg-card p-5 [overflow-wrap:anywhere]">
                     <a className="inline-flex min-h-11 items-center link-underline" href={resource.url}>
                       {resource.label} ↗
                     </a>
@@ -129,7 +137,7 @@ export default async function CityHubPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="border-y border-border-strong bg-secondary/40">
+      <section className="border-b border-border-strong">
         <div className="container-page py-12 sm:py-16">
           <p className="type-label text-muted-foreground">Поради для вашого напрямку</p>
           <h2 className="mt-3 type-h2">Місце зустрічі, прибуття та підготовка</h2>
@@ -138,10 +146,13 @@ export default async function CityHubPage({ params }: PageProps) {
           </p>
           <ul className="mt-7 grid gap-4 md:grid-cols-2">
             {presentation.routeCards.map((route) => (
-              <li key={route.slug} className="border border-border-strong p-5">
-                <h3 className="font-display text-xl">{route.title}</h3>
+              <li key={route.slug} className="min-w-0 border border-border-strong bg-card p-5 [overflow-wrap:anywhere]">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+                  {route.corridor.join(" → ")}
+                </p>
+                <h3 className="mt-2 font-display text-xl">{route.title}</h3>
                 <p className="mt-2 type-body text-muted-foreground">{route.description}</p>
-                <Link className="mt-4 inline-flex min-h-11 items-center link-underline" href={`/routes/${route.slug}/`}>Поради: {route.title}</Link>
+                <Link className="mt-4 inline-flex min-h-11 items-center type-button text-primary link-underline" href={`/routes/${route.slug}/`}>Поради: {route.title}</Link>
               </li>
             ))}
           </ul>
@@ -160,13 +171,13 @@ export default async function CityHubPage({ params }: PageProps) {
             Контакти перевізника на його сайті ↗
           </KovalReferralLink>
           <p className="mt-2 text-sm text-muted-foreground">{priorityHub ? "Ще не обрали дату? Узгодьте її з перевізником." : "Відкриється сайт перевізника."}</p>
-          <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-strong pt-5 type-body" aria-label="Інші міські огляди">
+          <nav className="mt-6 flex flex-wrap gap-3 border-t border-border-strong pt-5" aria-label="Інші міські огляди">
             {presentation.relatedHubs.map(({ city: relatedCity, label }) => (
-              <Link key={relatedCity.id} className="inline-flex min-h-11 items-center link-underline" href={`/cities/${relatedCity.slug}/`}>
+              <Link key={relatedCity.id} className={chipLink} href={`/cities/${relatedCity.slug}/`}>
                 {label} →
               </Link>
             ))}
-            <Link className="inline-flex min-h-11 items-center link-underline" href="/guides/perevezennya-velosypeda/">
+            <Link className={chipLink} href="/guides/perevezennya-velosypeda/">
               Поради щодо перевезення велосипеда →
             </Link>
           </nav>
