@@ -26,9 +26,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="uk">
+    <html lang="uk" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#F5F1E8" />
+        <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var s=localStorage.getItem("color-scheme");if(s==="light"||s==="dark"){var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=s;document.documentElement.dataset.theme=s;}}catch(e){}`,
+          }}
+        />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F5F1E8" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121722" />
         <link rel="alternate" type="text/plain" href="https://uaroute.com/llms.txt" title="LLMs.txt" />
       </head>
       <body>

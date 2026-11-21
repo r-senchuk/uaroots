@@ -1,11 +1,11 @@
 @import "tailwindcss";
 @import "../assets/fonts/fonts.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *), &:where(:root:has(> head > meta[name="color-scheme"][content="dark"]) *), &:where(:root[data-theme="dark"] *));
 
 /*
  * UARoute — Digital European Route Atlas.
- * Warm paper, ink, deep navy, scarce yellow signal.
+ * Warm paper / midnight folio, ink, deep navy, scarce gold signal.
  * Editorial serif display (Cyrillic-capable) + IBM Plex Sans + IBM Plex Mono metadata.
  */
 
@@ -51,7 +51,7 @@
 
   --shadow-subtle: none;
   --shadow-raised: 0 1px 0 var(--border-strong);
-  --shadow-lifted: 0 12px 40px -32px oklch(0.2 0.02 270 / 45%);
+  --shadow-lifted: 0 18px 42px -24px var(--shadow-color);
 
   --spacing-gutter: 1.5rem;
   --spacing-section: 5rem;
@@ -63,39 +63,109 @@
   --font-playfair: "Playfair Display";
   --radius: 4px;
 
-  --background: oklch(0.951 0.014 89);
-  --foreground: oklch(0.212 0.009 275);
-  --surface: oklch(0.972 0.011 89);
-  --surface-foreground: oklch(0.212 0.009 275);
-  --card: oklch(0.985 0.007 89);
-  --card-foreground: oklch(0.212 0.009 275);
-  --popover: oklch(0.985 0.007 89);
-  --popover-foreground: oklch(0.212 0.009 275);
+  /* Raw light & dark palette primitives */
+  --bg-light: oklch(0.955 0.012 89);
+  --bg-dark: oklch(0.168 0.018 264);
+  --fg-light: oklch(0.212 0.012 270);
+  --fg-dark: oklch(0.938 0.01 88);
 
-  --primary: oklch(0.318 0.062 264);
-  --primary-foreground: oklch(0.968 0.013 89);
-  --primary-hover: oklch(0.252 0.052 264);
+  --surface-light: oklch(0.974 0.009 89);
+  --surface-dark: oklch(0.204 0.02 264);
+  --card-light: oklch(0.986 0.006 89);
+  --card-dark: oklch(0.222 0.021 264);
+  --popover-light: oklch(0.986 0.006 89);
+  --popover-dark: oklch(0.238 0.022 264);
 
-  --secondary: oklch(0.925 0.015 88);
-  --secondary-foreground: oklch(0.28 0.02 270);
+  --primary-light: oklch(0.312 0.068 262);
+  --primary-dark: oklch(0.835 0.095 87);
+  --primary-fg-light: oklch(0.972 0.01 89);
+  --primary-fg-dark: oklch(0.168 0.018 264);
+  --primary-hover-light: oklch(0.252 0.056 262);
+  --primary-hover-dark: oklch(0.89 0.082 87);
 
-  --muted: oklch(0.932 0.013 88);
-  --muted-foreground: oklch(0.487 0.014 272);
+  --secondary-light: oklch(0.922 0.014 87);
+  --secondary-dark: oklch(0.268 0.022 264);
+  --secondary-fg-light: oklch(0.26 0.02 268);
+  --secondary-fg-dark: oklch(0.938 0.01 88);
 
-  --accent: oklch(0.812 0.148 87);
-  --accent-foreground: oklch(0.26 0.05 80);
+  --muted-light: oklch(0.932 0.012 87);
+  --muted-dark: oklch(0.258 0.02 264);
+  --muted-fg-light: oklch(0.455 0.016 268);
+  --muted-fg-dark: oklch(0.755 0.014 88);
 
-  --destructive: oklch(0.51 0.17 27);
-  --destructive-foreground: oklch(0.97 0.01 27);
-  --success: oklch(0.52 0.1 155);
-  --success-foreground: oklch(0.97 0.01 155);
-  --warning: oklch(0.7 0.12 75);
-  --warning-foreground: oklch(0.26 0.05 75);
+  --accent-light: oklch(0.812 0.148 87);
+  --accent-dark: oklch(0.82 0.142 87);
+  --accent-fg-light: oklch(0.3 0.065 78);
+  --accent-fg-dark: oklch(0.855 0.125 87);
 
-  --border: oklch(0.868 0.014 86);
-  --border-strong: oklch(0.735 0.018 86);
-  --input: oklch(0.79 0.016 86);
-  --ring: oklch(0.318 0.062 264);
+  --destructive-light: oklch(0.51 0.17 27);
+  --destructive-dark: oklch(0.68 0.17 25);
+  --destructive-fg-light: oklch(0.97 0.01 27);
+  --destructive-fg-dark: oklch(0.168 0.018 264);
+
+  --success-light: oklch(0.5 0.11 155);
+  --success-dark: oklch(0.72 0.12 155);
+  --success-fg-light: oklch(0.97 0.01 155);
+  --success-fg-dark: oklch(0.168 0.018 264);
+
+  --warning-light: oklch(0.68 0.12 75);
+  --warning-dark: oklch(0.78 0.13 75);
+  --warning-fg-light: oklch(0.25 0.05 75);
+  --warning-fg-dark: oklch(0.168 0.018 264);
+
+  --border-light: oklch(0.868 0.013 85);
+  --border-dark: oklch(1 0 0 / 13%);
+  --border-strong-light: oklch(0.58 0.018 84);
+  --border-strong-dark: oklch(0.56 0.022 264);
+  --input-light: oklch(0.56 0.02 264);
+  --input-dark: oklch(0.58 0.024 264);
+
+  --shadow-color-light: oklch(0.2 0.02 270 / 24%);
+  --shadow-color-dark: oklch(0.03 0.015 270 / 72%);
+
+  --scrollbar-track-light: oklch(0.925 0.012 88);
+  --scrollbar-track-dark: oklch(0.195 0.018 264);
+  --scrollbar-thumb-light: oklch(0.58 0.018 266);
+  --scrollbar-thumb-dark: oklch(0.54 0.022 264);
+
+  /* Light defaults + fallback when light-dark() is unsupported */
+  --background: var(--bg-light);
+  --foreground: var(--fg-light);
+  --surface: var(--surface-light);
+  --surface-foreground: var(--fg-light);
+  --card: var(--card-light);
+  --card-foreground: var(--fg-light);
+  --popover: var(--popover-light);
+  --popover-foreground: var(--fg-light);
+
+  --primary: var(--primary-light);
+  --primary-foreground: var(--primary-fg-light);
+  --primary-hover: var(--primary-hover-light);
+
+  --secondary: var(--secondary-light);
+  --secondary-foreground: var(--secondary-fg-light);
+
+  --muted: var(--muted-light);
+  --muted-foreground: var(--muted-fg-light);
+
+  --accent: var(--accent-light);
+  --accent-foreground: var(--accent-fg-light);
+
+  --destructive: var(--destructive-light);
+  --destructive-foreground: var(--destructive-fg-light);
+  --success: var(--success-light);
+  --success-foreground: var(--success-fg-light);
+  --warning: var(--warning-light);
+  --warning-foreground: var(--warning-fg-light);
+
+  --border: var(--border-light);
+  --border-strong: var(--border-strong-light);
+  --input: var(--input-light);
+  --ring: var(--primary-light);
+  --shadow-color: var(--shadow-color-light);
+
+  --scrollbar-track: var(--scrollbar-track-light);
+  --scrollbar-thumb: var(--scrollbar-thumb-light);
 
   --route-stroke: 1.5;
   --route-node: 5px;
@@ -103,35 +173,158 @@
   --route-draw-duration: 1100ms;
   --route-pulse-duration: 1800ms;
   --contour-opacity: 0.14;
-  --graticule-opacity: 0.1;
-  --pattern-opacity: 0.06;
+  --graticule-opacity: 0.095;
+  --pattern-opacity: 0.055;
   --grid-opacity: 0.05;
   --illustration-stroke: 1.5;
+
+  @media (prefers-color-scheme: dark) {
+    --background: var(--bg-dark);
+    --foreground: var(--fg-dark);
+    --surface: var(--surface-dark);
+    --surface-foreground: var(--fg-dark);
+    --card: var(--card-dark);
+    --card-foreground: var(--fg-dark);
+    --popover: var(--popover-dark);
+    --popover-foreground: var(--fg-dark);
+
+    --primary: var(--primary-dark);
+    --primary-foreground: var(--primary-fg-dark);
+    --primary-hover: var(--primary-hover-dark);
+
+    --secondary: var(--secondary-dark);
+    --secondary-foreground: var(--secondary-fg-dark);
+
+    --muted: var(--muted-dark);
+    --muted-foreground: var(--muted-fg-dark);
+
+    --accent: var(--accent-dark);
+    --accent-foreground: var(--accent-fg-dark);
+
+    --destructive: var(--destructive-dark);
+    --destructive-foreground: var(--destructive-fg-dark);
+    --success: var(--success-dark);
+    --success-foreground: var(--success-fg-dark);
+    --warning: var(--warning-dark);
+    --warning-foreground: var(--warning-fg-dark);
+
+    --border: var(--border-dark);
+    --border-strong: var(--border-strong-dark);
+    --input: var(--input-dark);
+    --ring: var(--primary-dark);
+    --shadow-color: var(--shadow-color-dark);
+
+    --scrollbar-track: var(--scrollbar-track-dark);
+    --scrollbar-thumb: var(--scrollbar-thumb-dark);
+
+    --contour-opacity: 0.11;
+    --graticule-opacity: 0.055;
+    --pattern-opacity: 0.04;
+    --grid-opacity: 0.035;
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --background: light-dark(var(--bg-light), var(--bg-dark));
+    --foreground: light-dark(var(--fg-light), var(--fg-dark));
+    --surface: light-dark(var(--surface-light), var(--surface-dark));
+    --surface-foreground: light-dark(var(--fg-light), var(--fg-dark));
+    --card: light-dark(var(--card-light), var(--card-dark));
+    --card-foreground: light-dark(var(--fg-light), var(--fg-dark));
+    --popover: light-dark(var(--popover-light), var(--popover-dark));
+    --popover-foreground: light-dark(var(--fg-light), var(--fg-dark));
+
+    --primary: light-dark(var(--primary-light), var(--primary-dark));
+    --primary-foreground: light-dark(var(--primary-fg-light), var(--primary-fg-dark));
+    --primary-hover: light-dark(var(--primary-hover-light), var(--primary-hover-dark));
+
+    --secondary: light-dark(var(--secondary-light), var(--secondary-dark));
+    --secondary-foreground: light-dark(var(--secondary-fg-light), var(--secondary-fg-dark));
+
+    --muted: light-dark(var(--muted-light), var(--muted-dark));
+    --muted-foreground: light-dark(var(--muted-fg-light), var(--muted-fg-dark));
+
+    --accent: light-dark(var(--accent-light), var(--accent-dark));
+    --accent-foreground: light-dark(var(--accent-fg-light), var(--accent-fg-dark));
+
+    --destructive: light-dark(var(--destructive-light), var(--destructive-dark));
+    --destructive-foreground: light-dark(var(--destructive-fg-light), var(--destructive-fg-dark));
+    --success: light-dark(var(--success-light), var(--success-dark));
+    --success-foreground: light-dark(var(--success-fg-light), var(--success-fg-dark));
+    --warning: light-dark(var(--warning-light), var(--warning-dark));
+    --warning-foreground: light-dark(var(--warning-fg-light), var(--warning-fg-dark));
+
+    --border: light-dark(var(--border-light), var(--border-dark));
+    --border-strong: light-dark(var(--border-strong-light), var(--border-strong-dark));
+    --input: light-dark(var(--input-light), var(--input-dark));
+    --ring: light-dark(var(--primary-light), var(--primary-dark));
+    --shadow-color: light-dark(var(--shadow-color-light), var(--shadow-color-dark));
+
+    --scrollbar-track: light-dark(var(--scrollbar-track-light), var(--scrollbar-track-dark));
+    --scrollbar-thumb: light-dark(var(--scrollbar-thumb-light), var(--scrollbar-thumb-dark));
+  }
+
+  color-scheme: light dark;
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]),
+  &[data-theme="dark"],
+  &.dark {
+    color-scheme: dark;
+    --contour-opacity: 0.11;
+    --graticule-opacity: 0.055;
+    --pattern-opacity: 0.04;
+    --grid-opacity: 0.035;
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]),
+  &[data-theme="light"],
+  &.light {
+    color-scheme: light;
+    --contour-opacity: 0.14;
+    --graticule-opacity: 0.095;
+    --pattern-opacity: 0.055;
+    --grid-opacity: 0.05;
+  }
+
+  accent-color: var(--primary);
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-.dark {
-  --background: oklch(0.19 0.014 272);
-  --foreground: oklch(0.94 0.008 88);
-  --surface: oklch(0.23 0.016 270);
-  --surface-foreground: oklch(0.94 0.008 88);
-  --card: oklch(0.23 0.016 270);
-  --card-foreground: oklch(0.94 0.008 88);
-  --popover: oklch(0.23 0.016 270);
-  --popover-foreground: oklch(0.94 0.008 88);
-  --primary: oklch(0.82 0.05 88);
-  --primary-foreground: oklch(0.2 0.015 270);
-  --primary-hover: oklch(0.9 0.04 88);
-  --secondary: oklch(0.27 0.018 270);
-  --secondary-foreground: oklch(0.94 0.008 88);
-  --muted: oklch(0.27 0.018 270);
-  --muted-foreground: oklch(0.71 0.012 88);
-  --accent: oklch(0.812 0.148 87);
-  --accent-foreground: oklch(0.2 0.03 80);
-  --border: oklch(1 0 0 / 14%);
-  --border-strong: oklch(1 0 0 / 26%);
-  --input: oklch(1 0 0 / 24%);
-  --ring: oklch(0.82 0.05 88);
-  --contour-opacity: 0.16;
+/* Fallback for browsers without light-dark() when manually pinned via .dark or meta */
+@supports not (color: light-dark(white, black)) {
+  :root:has(> head > meta[name="color-scheme"][content="dark"]),
+  :root[data-theme="dark"],
+  .dark {
+    --background: var(--bg-dark);
+    --foreground: var(--fg-dark);
+    --surface: var(--surface-dark);
+    --surface-foreground: var(--fg-dark);
+    --card: var(--card-dark);
+    --card-foreground: var(--fg-dark);
+    --popover: var(--popover-dark);
+    --popover-foreground: var(--fg-dark);
+    --primary: var(--primary-dark);
+    --primary-foreground: var(--primary-fg-dark);
+    --primary-hover: var(--primary-hover-dark);
+    --secondary: var(--secondary-dark);
+    --secondary-foreground: var(--secondary-fg-dark);
+    --muted: var(--muted-dark);
+    --muted-foreground: var(--muted-fg-dark);
+    --accent: var(--accent-dark);
+    --accent-foreground: var(--accent-fg-dark);
+    --destructive: var(--destructive-dark);
+    --destructive-foreground: var(--destructive-fg-dark);
+    --success: var(--success-dark);
+    --success-foreground: var(--success-fg-dark);
+    --warning: var(--warning-dark);
+    --warning-foreground: var(--warning-fg-dark);
+    --border: var(--border-dark);
+    --border-strong: var(--border-strong-dark);
+    --input: var(--input-dark);
+    --ring: var(--primary-dark);
+    --shadow-color: var(--shadow-color-dark);
+    --scrollbar-track: var(--scrollbar-track-dark);
+    --scrollbar-thumb: var(--scrollbar-thumb-dark);
+  }
 }
 
 @layer base {
@@ -173,7 +366,7 @@
 
   ::selection {
     background: var(--color-accent);
-    color: var(--color-accent-foreground);
+    color: oklch(0.2 0.03 80);
   }
 
   :focus-visible {
@@ -385,7 +578,19 @@
 }
 
 @utility photo-atlas {
-  filter: saturate(0.82) contrast(1.04);
+  filter: saturate(0.84) contrast(1.04);
+}
+
+:is(:root:has(> head > meta[name="color-scheme"][content="dark"]), :root[data-theme="dark"], .dark) .photo-atlas,
+:is(:root:has(> head > meta[name="color-scheme"][content="dark"]), :root[data-theme="dark"], .dark) .hero-arrival {
+  filter: brightness(0.92) contrast(1.04) saturate(0.88);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])):not([data-theme="light"]):not(.light) .photo-atlas,
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])):not([data-theme="light"]):not(.light) .hero-arrival {
+    filter: brightness(0.92) contrast(1.04) saturate(0.88);
+  }
 }
 
 @keyframes route-draw {
@@ -431,6 +636,47 @@
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --border: CanvasText;
+    --border-strong: CanvasText;
+    --input: CanvasText;
+    --ring: Highlight;
+  }
+}
+
+.theme-toggle-to-light {
+  display: none;
+}
+
+.theme-toggle-to-dark {
+  display: inline-flex;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-toggle-to-light,
+:root[data-theme="dark"] .theme-toggle-to-light,
+.dark .theme-toggle-to-light {
+  display: inline-flex;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-toggle-to-dark,
+:root[data-theme="dark"] .theme-toggle-to-dark,
+.dark .theme-toggle-to-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])):not([data-theme="light"]):not(.light)
+    .theme-toggle-to-light {
+    display: inline-flex;
+  }
+
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])):not([data-theme="light"]):not(.light)
+    .theme-toggle-to-dark {
+    display: none;
   }
 }
 

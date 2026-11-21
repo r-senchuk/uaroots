@@ -48,20 +48,23 @@ export function PartnerCard({
       ) : null}
 
       {!inquiryOnly && carrier.claims.length > 0 ? (
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-5 divide-y divide-border border-y border-border-strong">
           {carrier.claims.map((claim) => (
-            <li key={claim.text} className="min-w-0 border border-border-strong bg-card/60 p-2.5 sm:p-3.5">
-              <div className="flex min-w-0 items-start gap-2">
-                <span aria-hidden className="mt-1.5 inline-block size-2 shrink-0 rounded-full bg-primary" />
+            <li key={claim.text} className="min-w-0 py-3.5">
+              <div className="flex min-w-0 items-start gap-2.5">
+                <svg aria-hidden viewBox="0 0 16 16" fill="none" className="mt-1 size-4 shrink-0 text-primary">
+                  <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.25" />
+                  <path d="M5.2 8.2L7.1 10.1L10.8 6.2" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 <span className="min-w-0 break-words font-medium text-foreground [overflow-wrap:anywhere]">{claim.text}</span>
               </div>
-              <div className="mt-2 flex min-w-0 flex-wrap items-center justify-between gap-2 pl-4">
+              <div className="mt-1.5 flex min-w-0 flex-wrap items-center justify-between gap-2 pl-6.5">
                 <VerifiedMark className="min-w-0 break-words [overflow-wrap:anywhere]" />
                 <a
                   href={claim.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="inline-flex min-h-11 min-w-0 items-center text-sm text-primary link-underline"
+                  className="inline-flex min-h-11 min-w-0 items-center text-sm font-medium text-primary link-underline"
                 >
                   джерело ↗
                 </a>

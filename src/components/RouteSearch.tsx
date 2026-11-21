@@ -65,7 +65,7 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
         autoComplete="off"
         placeholder={placeholder}
         value={value}
-        className="field-rule search-field mt-2 border-foreground"
+        className="field-rule search-field mt-2 border-border-strong"
         onChange={(event) => {
           onChange(event.target.value);
           setOpen(true);
@@ -303,12 +303,12 @@ export function RouteSearch({
                 <div className="mt-2 grid grid-cols-2 gap-2" role="group" aria-label="Напрямок поїздки">
                   <button type="button" aria-pressed={direction === "to-germany"}
                     onClick={() => changeDirection("to-germany")}
-                    className="min-h-11 border border-foreground px-3 type-button text-base transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
+                    className="min-h-11 border border-border-strong px-3 type-button text-base transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
                     До Німеччини
                   </button>
                   <button type="button" aria-pressed={direction === "to-ukraine"}
                     onClick={() => changeDirection("to-ukraine")}
-                    className="min-h-11 border border-foreground px-3 type-button text-base transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
+                    className="min-h-11 border border-border-strong px-3 type-button text-base transition-colors hover:bg-secondary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
                     До України
                   </button>
                 </div>
@@ -325,7 +325,7 @@ export function RouteSearch({
                       <select
                         value={selected?.id ?? ""}
                         onChange={(event) => chooseCity(index === 0 ? "origin" : "destination", event.target.value ? getCity(event.target.value) ?? null : null)}
-                        className="field-rule search-field mt-2 border-foreground"
+                        className="field-rule search-field mt-2 border-border-strong"
                         aria-label={countryLabel}
                       >
                         <option value="">Оберіть місто</option>
@@ -395,7 +395,7 @@ export function RouteSearch({
               <div className="mt-2 flex flex-wrap gap-2">
                 {priorityCities.map((city) => (
                   <button key={city.id} type="button" onClick={() => selectPilotCity(city)}
-                    className="min-h-11 border border-foreground px-3 type-button text-base hover:bg-secondary">
+                    className="min-h-11 border border-border-strong px-3 type-button text-base transition-colors hover:bg-secondary">
                     {city.name}
                   </button>
                 ))}
