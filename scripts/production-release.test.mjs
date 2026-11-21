@@ -1,9 +1,9 @@
 import test from 'node:test';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,writeFile} from 'node:fs/promises';
 import * as yaml from 'js-yaml';
-import {validatePrefix,objectMetadata,target,recoveryBucket,verifyRestoredLive,inspectEdgeRuntimeCase,assertEdgeRuntimeResults,baseEdgeRuntimeCases,edgeRuntimeCases} from './production-release.mjs';
+import {validatePrefix,objectMetadata,target,recoveryBucket,verifyRestoredLive,verifyPublished,runBounded,inspectEdgeRuntimeCase,assertEdgeRuntimeResults,baseEdgeRuntimeCases,edgeRuntimeCases} from './production-release.mjs';
 test('release targets and recovery selectors exclude other resources and shell/path injection',()=>{
  assert.equal(target.bucket,'uaroute.com');assert.equal(target.distribution,'E3L95CZFIU6533');assert.match(recoveryBucket,/^uaroute-recovery-/);assert.equal(validatePrefix('releases/123-1'),'releases/123-1');for(const bad of ['../objects','releases/123/../1','releases/123-1; echo x','releases/abc-1','s3://other/x'])assert.throws(()=>validatePrefix(bad));
 });
@@ -39,4 +39,46 @@ test('rollback acceptance rejects stale CDN bytes, wrong MIME and broken redirec
  let failure;
  globalThis.fetch=async url=>{const u=new URL(url);if(u.pathname==='/contacts')return new Response(null,{status:308,headers:{location:failure==='redirect'?'https://other.example/':'https://uaroute.com/about/?utm_source=uaroute'}});if(u.pathname==='/provider/unknown')return new Response(null,{status:404});return new Response(failure==='bytes'?'stale':bodies[u.pathname],{status:200,headers:{'content-type':failure==='mime'?'text/plain':types[u.pathname]}});};
  try{assert.equal((await verifyRestoredLive(m)).results.length,5);for(failure of ['bytes','mime','redirect'])await assert.rejects(()=>verifyRestoredLive(m),/restored .* mismatch/);}finally{globalThis.fetch=previous;}
+});
+
+test('runBounded enforces concurrency limit, preserves order, and settles in-flight work on failure',async()=>{
+ const items=Array.from({length:12},(_,i)=>i);
+ let active=0,maxActive=0;
+ const out=await runBounded(items,4,async item=>{
+  active++;maxActive=Math.max(maxActive,active);
+  await new Promise(r=>setTimeout(r,5));
+  active--;return item*2;
+ });
+ assert.ok(maxActive<=4&&maxActive>1);
+ assert.deepEqual(out,items.map(i=>i*2));
+
+ let started=0,settled=0;
+ await assert.rejects(()=>runBounded(items,3,async item=>{
+  started++;
+  await new Promise(r=>setTimeout(r,item===1?2:15));
+  settled++;
+  if(item===1)throw Error('boom');
+  return item;
+ }),/boom/);
+ assert.equal(settled,started);
+ assert.ok(started<=4);
+});
+
+test('verifyPublished checks size, SHA-256 bytes, and metadata via bounded get-object',async()=>{
+ const content=Buffer.from('<html>ok</html>');
+ const sha256=createHash('sha256').update(content).digest('hex');
+ const file={key:'index.html',size:content.length,sha256,metadata:{ContentType:'text/html; charset=utf-8',CacheControl:'public, max-age=0, must-revalidate'}};
+ const mockAws=(mode)=>async args=>{
+  const outFile=args[args.length-1];
+  await writeFile(outFile,mode==='bytes'?Buffer.from('<html>xx</html>'):content);
+  return {
+   ContentLength:mode==='size'?content.length+1:content.length,
+   ContentType:mode==='meta'?'text/plain':'text/html; charset=utf-8',
+   CacheControl:'public, max-age=0, must-revalidate',
+  };
+ };
+ await verifyPublished([file],'uaroute.com',mockAws('ok'));
+ await assert.rejects(()=>verifyPublished([file],'uaroute.com',mockAws('bytes')),/hash mismatch/);
+ await assert.rejects(()=>verifyPublished([file],'uaroute.com',mockAws('size')),/size mismatch/);
+ await assert.rejects(()=>verifyPublished([file],'uaroute.com',mockAws('meta')),/metadata mismatch/);
 });

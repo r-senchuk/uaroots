@@ -14,6 +14,36 @@ import { fileURLToPath } from "node:url";
 const exec = promisify(execFile),
   hash = (b) => createHash("sha256").update(b).digest("hex"),
   json = (v) => `${JSON.stringify(v, null, 2)}\n`;
+export const DEFAULT_CONCURRENCY = 8;
+
+export async function runBounded(items, limit, worker) {
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new RangeError("concurrency limit must be a positive integer");
+  }
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  let firstError = null;
+
+  async function runWorker() {
+    while (!firstError) {
+      const index = nextIndex;
+      nextIndex += 1;
+      if (index >= items.length) return;
+      try {
+        results[index] = await worker(items[index], index);
+      } catch (error) {
+        if (!firstError) firstError = error;
+        return;
+      }
+    }
+  }
+
+  const workerCount = Math.min(limit, items.length);
+  await Promise.all(Array.from({ length: workerCount }, () => runWorker()));
+  if (firstError) throw firstError;
+  return results;
+}
+
 export const aws = async (args) =>
   JSON.parse(
     (
@@ -58,13 +88,12 @@ export async function capture(
     )
   )
     throw Error("origin mismatch");
-  const files = [];
   async function put(name, bytes) {
     await mkdir(path.dirname(path.join(to, name)), { recursive: true });
     await writeFile(path.join(to, name), bytes);
     return { path: name, size: bytes.length, sha256: hash(bytes) };
   }
-  for (const obj of before) {
+  const files = await runBounded(before, DEFAULT_CONCURRENCY, async (obj) => {
     const name = `objects/${hash(obj.key)}`;
     const meta = await call([
       "s3api",
@@ -78,8 +107,8 @@ export async function capture(
     const bytes = await readFile(path.join(to, name));
     if (bytes.length !== obj.size || meta.ETag !== obj.etag)
       throw Error("object changed during capture");
-    files.push({ ...obj, path: name, sha256: hash(bytes), metadata: meta });
-  }
+    return { ...obj, path: name, sha256: hash(bytes), metadata: meta };
+  });
   const configFile = await put(
     "cloudfront/distribution.json",
     Buffer.from(json(config)),
