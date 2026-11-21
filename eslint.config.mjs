@@ -5,6 +5,20 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-new-func": "error",
+      "no-unsafe-finally": "error",
+    },
+  },
+  {
+    ignores: ["**/*.test.*", "scripts/**/*.test.*"],
+    rules: {
+      "no-script-url": "error",
+    },
+  },
   globalIgnores([
     ".next/**",
     "out/**",

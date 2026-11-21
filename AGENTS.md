@@ -27,7 +27,7 @@ Use the [expanded contract](docs/Operations/Agentic/Operational/repository-contr
 
 ## Checks and documentation
 
-Node 22 follows `.nvmrc`; Node 24 is compatibility coverage when runtime/release scope requires it. `npm run dev`, `npm test`, `npm run typecheck`, `npm run lint`, `npm run validate`. During edits run focused checks; run `npm run check` once on the stable application candidate. Documentation/instruction-only work: `npm run docs:index`, `npm run docs:check` and relevant instruction/tooling checks. Repeat broader tests only after affected changes/failures or explicit release requirements.
+Node 24.22.3 follows `.nvmrc`. `npm run dev`, `npm test`, `npm run typecheck`, `npm run lint`, `npm run validate`. During edits run focused checks; run `npm run check` once on the stable application candidate. Documentation/instruction-only work: `npm run docs:index`, `npm run docs:check` and relevant instruction/tooling checks. Repeat broader tests only after affected changes/failures or explicit release requirements.
 
 `docs/` contains Git-versioned canonical contracts; Project KB is a separate local vault (see [KB guide](docs/knowledge-base.md#knowledge-base)). `npm run check` never depends on that vault; `output/` and secrets/passenger data remain excluded. Generated indexes/maps come from `docs:index`. Memory is dated evidence, never new authority, authorization or proof of deployment. Record lessons there and promote accepted rules to Operational/scoped instructions. Keep this file a lean router. If a required contract is missing, report it; do not reconstruct it from memory.
 

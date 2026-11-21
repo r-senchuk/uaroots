@@ -1,4 +1,4 @@
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -552,10 +552,16 @@ fs.writeFileSync(htmlPath, htmlContent, 'utf8');
 console.log('HTML generated at:', htmlPath);
 
 const chromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const cmd = `"${chromePath}" --headless --disable-gpu --print-to-pdf="${pdfPath}" --no-pdf-header-footer file://${htmlPath}`;
+const chromeArgs = [
+  '--headless',
+  '--disable-gpu',
+  `--print-to-pdf=${pdfPath}`,
+  '--no-pdf-header-footer',
+  `file://${htmlPath}`,
+];
 
 console.log('Running Chrome headless to generate PDF...');
-execSync(cmd, { stdio: 'inherit' });
+execFileSync(chromePath, chromeArgs, { stdio: 'inherit' });
 
 const stats = fs.statSync(pdfPath);
 console.log(`PDF successfully created: ${pdfPath} (${stats.size} bytes)`);

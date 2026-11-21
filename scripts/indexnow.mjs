@@ -122,17 +122,22 @@ export function isFullReindexTriggered(changedFiles, keyFile) {
   );
 }
 
+function isSafeGitRef(value) {
+  return typeof value === 'string' && /^[a-zA-Z0-9._/~^][a-zA-Z0-9._/~^-]*$/.test(value) && !value.includes('..');
+}
+
 export function getGitChangedFiles(baseSha, headSha = 'HEAD', cwd = REPO_ROOT) {
   if (baseSha && /^0+$/.test(baseSha)) return ['public/key-fallback'];
 
-  const diffTarget = baseSha ? `${baseSha}...${headSha}` : 'HEAD~1...HEAD';
+  const safeHead = isSafeGitRef(headSha) ? headSha : 'HEAD';
+  const diffTarget = baseSha && isSafeGitRef(baseSha) ? `${baseSha}...${safeHead}` : 'HEAD~1...HEAD';
   try {
-    const output = execFileSync('git', ['diff', '--name-only', diffTarget], { cwd, encoding: 'utf8' }).trim();
+    const output = execFileSync('git', ['diff', '--name-only', diffTarget, '--'], { cwd, encoding: 'utf8' }).trim();
     return output ? output.split('\n').filter(Boolean) : [];
   } catch {
     if (baseSha) {
       try {
-        const fallback = execFileSync('git', ['diff', '--name-only', 'HEAD~1...HEAD'], { cwd, encoding: 'utf8' }).trim();
+        const fallback = execFileSync('git', ['diff', '--name-only', 'HEAD~1...HEAD', '--'], { cwd, encoding: 'utf8' }).trim();
         return fallback ? fallback.split('\n').filter(Boolean) : [];
       } catch {
         return [];
@@ -276,6 +281,10 @@ async function main() {
     else if (arg === '--skip-preflight') skipPreflight = true;
     else if (arg === '--host' && args[i + 1]) host = args[++i];
     else if (arg.startsWith('http://') || arg.startsWith('https://')) explicitUrls.push(arg);
+  }
+
+  if (!/^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/i.test(host)) {
+    throw new Error(`Invalid IndexNow host: "${host}"`);
   }
 
   const { key, keyFile, keyLocation } = resolveIndexNowKey(join(REPO_ROOT, 'public'), host);

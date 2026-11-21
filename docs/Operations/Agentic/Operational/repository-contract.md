@@ -60,7 +60,7 @@ npm run check        # docs, typecheck, lint, test, validate, build, inspect ./o
 make deploy          # apply reviewed artifact, no rebuild; explicit manifest/recovery gates in CUTOVER.md
 ```
 
-Need Node 22.12+ (Node 22 line), Node 24, or Node 26+; CI follows `.nvmrc`. TypeScript 6 provides the shared compiler/API for typecheck, Next.js and ESLint; the TS7 experiment was superseded. Run focused checks during edits and `npm run check` once on a stable application candidate. Documentation/instruction-only changes use docs indexing/checks and applicable instruction tests; release scope still follows CUTOVER.md.
+Need Node 24.22.3+ (Node 24 line) or Node 26+; CI follows `.nvmrc`. TypeScript 6 provides the shared compiler/API for typecheck, Next.js and ESLint; the TS7 experiment was superseded. Run focused checks during edits and `npm run check` once on a stable application candidate. Documentation/instruction-only changes use docs indexing/checks and applicable instruction tests; release scope still follows CUTOVER.md.
 
 ## Layout
 

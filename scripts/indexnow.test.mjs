@@ -5,7 +5,7 @@ import { mkdtemp, mkdir, writeFile, readFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import * as yaml from 'js-yaml';
-import { origin, sitemapUrls, assertIndexable, planSubmission, submitPlan } from './indexnow.mjs';
+import { origin, sitemapUrls, assertIndexable, planSubmission, submitPlan, getGitChangedFiles } from './indexnow.mjs';
 
 const key = '1234567890abcdef1234567890abcdef';
 const html = (url, robots = 'index,follow') => `<head><link rel="canonical" href="${url}"><meta name="robots" content="${robots}"></head>`;
@@ -132,4 +132,10 @@ test('repository verification key and post-deployment workflow stay aligned', as
   assert.match(steps[notification].run, /--submit/);
   assert.ok(steps.some(step => step.name === 'Publish sanitized result' && step.run.includes('indexnow.json')));
   assert.ok(!steps.some(step => step.run?.includes('npm run build')));
+});
+
+test('git diff helper ignores unsafe option-like refs', async t => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'uaroute-indexnow-git-'));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  assert.deepEqual(getGitChangedFiles('--output=/tmp/pwned', '--exec=bad', dir), []);
 });

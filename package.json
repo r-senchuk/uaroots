@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+    "node": "^24.22.3 || >=26.0.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -39,27 +39,22 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "lucide-react": "^1.56.0",
-    "next": "^16.4.3",
+    "next": "^16.4.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
-    "@types/node": "^22.20.5",
+    "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.36.0",
-    "eslint-config-next": "^16.4.3",
+    "eslint-config-next": "^16.4.6",
     "js-yaml": "^5.4.3",
-    "serve": "14.2.6",
+    "serve": "14.2.8",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
-  },
-  "overrides": {
-    "serve": {
-      "compression": "1.8.2"
-    }
   }
 }
