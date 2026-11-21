@@ -34,6 +34,11 @@ export function Footer() {
               </Link>
             </li>
             <li className="rule-hair">
+              <Link href="/guides/perevezennya-velosypeda/" className="block py-3 text-sm hover:text-primary">
+                Перевезення велосипеда
+              </Link>
+            </li>
+            <li className="rule-hair">
               <Link href="/about/" className="block py-3 text-sm hover:text-primary">
                 Про UARoute
               </Link>

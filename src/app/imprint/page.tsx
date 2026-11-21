@@ -1,19 +1,26 @@
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/config/business";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbLd, buildMetadata, imprintPageLd } from "@/lib/seo";
+
+const title = "Відомості про оператора UARoute";
+const description = "Оператор UARoute — Roman Senchuk, польська JDG. Бізнес-бренд Crew Bravo, контактні дані та роль транспортного партнера.";
+const crumbs = [{ name: "Головна", path: "/" }, { name: "Відомості про оператора", path: "/imprint/" }];
 
 export const metadata = buildMetadata({
-  title: "Відомості про оператора UARoute",
-  description: "Оператор UARoute — Roman Senchuk, польська JDG. Бізнес-бренд Crew Bravo, контактні дані та роль транспортного партнера.",
+  title,
+  description,
   path: "/imprint/",
 });
 
 export default function ImprintPage() {
   return (
     <div className="container-page py-4 sm:py-6">
-      <Breadcrumbs items={[{ name: "Головна", path: "/" }, { name: "Відомості про оператора", path: "/imprint/" }]} />
+      <JsonLd data={breadcrumbLd(crumbs)} />
+      <JsonLd data={imprintPageLd(title, description)} />
+      <Breadcrumbs items={crumbs} />
       <h1 className="mt-4 max-w-2xl type-h1">Відомості про оператора</h1>
       <div className="mt-6 max-w-2xl space-y-8 type-body">
         <section>

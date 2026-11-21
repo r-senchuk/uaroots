@@ -5,9 +5,21 @@ import { describe, expect, it } from "vitest";
 
 import { cities } from "@/data/cities";
 import { cityHubContents } from "@/data/city-hubs";
-import { getResolvedRoute } from "@/data/queries";
+import { listResolvedRoutes, getResolvedRoute } from "@/data/queries";
 import sitemap from "@/app/sitemap";
-import { buildMetadata, cityHubCollectionLd, routePageLd, travelPreviewImage, websiteLd } from "@/lib/seo";
+import { llmsContent } from "@/lib/llms-content";
+import {
+  aboutPageLd,
+  brandOrganizationLd,
+  buildMetadata,
+  cityHubCollectionLd,
+  guideArticleLd,
+  imprintPageLd,
+  routeIndexCollectionLd,
+  routePageLd,
+  travelPreviewImage,
+  websiteLd,
+} from "@/lib/seo";
 
 const priorityPairs = [
   ["lviv", "celle", "lviv-celle"],
@@ -115,9 +127,67 @@ describe("city hub structured data", () => {
       description: route.description,
       inLanguage: "uk",
     });
-    expect(originPlace).toMatchObject({ "@type": "Place", name: "Львів" });
-    expect(destPlace).toMatchObject({ "@type": "Place", name: "Ганновер" });
+    expect(originPlace).toMatchObject({
+      "@type": "Place",
+      name: "Львів",
+      address: { "@type": "PostalAddress", addressCountry: "UA" },
+    });
+    expect(originPlace["alternateName"]).toContain("Lviv");
+    expect(destPlace).toMatchObject({
+      "@type": "Place",
+      name: "Ганновер",
+      address: { "@type": "PostalAddress", addressCountry: "DE" },
+    });
+    expect(destPlace["alternateName"]).toContain("Hannover");
     expect(JSON.stringify(ld)).not.toMatch(/Offer|BusTrip|ReserveAction|Trip|Product|availability/i);
+  });
+
+  it("connects Organization, Route Index CollectionPage, AboutPage, Imprint, and Guide Article graphs", () => {
+    const routes = listResolvedRoutes("commercial");
+    const routeIndex = routeIndexCollectionLd("Маршрути", "Опис", routes);
+    const routeIndexNodes = routeIndex["@graph"] as Array<Record<string, unknown>>;
+    expect(routeIndexNodes.find((n) => n["@type"] === "CollectionPage")).toMatchObject({
+      "@id": "https://uaroute.com/routes/#webpage",
+      mainEntity: { "@id": "https://uaroute.com/routes/#routes" },
+    });
+    expect(routeIndexNodes.find((n) => n["@type"] === "ItemList")?.numberOfItems).toBe(routes.length);
+
+    const brand = brandOrganizationLd()["@graph"] as Array<Record<string, unknown>>;
+    expect(brand.find((n) => n["@type"] === "Organization")).toMatchObject({
+      "@id": "https://uaroute.com/#organization",
+      name: "UARoute",
+      founder: { "@id": "https://crewbravo.com/#operator" },
+    });
+
+    const about = aboutPageLd("Про UARoute", "Опис")["@graph"] as Array<Record<string, unknown>>;
+    expect(about.find((n) => n["@type"] === "AboutPage")).toMatchObject({
+      about: { "@id": "https://uaroute.com/#organization" },
+    });
+
+    const imprint = imprintPageLd("Відомості", "Опис")["@graph"] as Array<Record<string, unknown>>;
+    expect(imprint.find((n) => n["@type"] === "WebPage")).toMatchObject({
+      "@id": "https://uaroute.com/imprint/#webpage",
+      about: { "@id": "https://crewbravo.com/#operator" },
+    });
+
+    const guide = guideArticleLd({
+      title: "Велосипед",
+      description: "Поради",
+      path: "/guides/perevezennya-velosypeda/",
+      datePublished: "2026-10-17",
+      dateModified: "2026-10-25",
+    })["@graph"] as Array<Record<string, unknown>>;
+    expect(guide.find((n) => n["@type"] === "Article")).toMatchObject({
+      datePublished: "2026-10-17",
+      dateModified: "2026-10-25",
+      isPartOf: { "@id": "https://uaroute.com/#website" },
+      author: { "@type": "Organization", "@id": "https://uaroute.com/#organization", name: "UARoute" },
+    });
+
+    const llmsFull = llmsContent(true);
+    expect(llmsFull).toContain("https://uaroute.com/imprint/");
+    expect(llmsFull).toContain("https://uaroute.com/privacy/");
+    expect(llmsFull).toContain("Жовква");
   });
 });
 
@@ -227,7 +297,7 @@ describe("accepted mitigation catalog", () => {
       expect(route.whatToConfirm).toEqual(["Чи можлива поїздка на потрібну дату?", "Яка повна вартість і як оплатити?", "Де вас заберуть і де можна вийти?", "Який багаж можна взяти?"]);
       const expectedFaq = prefix === "lh" ? ["lh-actual-locality", "lh-changed-plan"].map((key) => ({question: copy.records[key].heading, answer: copy.records[key].text})) : [{question: copy.records[prefix + "-locality-changes"].heading, answer: copy.records[prefix + "-locality-changes"].text}, ...copy.records[prefix + "-locality-changes"].items];
       expect(route.faq).toEqual(expectedFaq);
-      const graph = routePageLd(route)["@graph"];
+      const graph = routePageLd(route)["@graph"] as Array<Record<string, unknown>>;
       expect(graph.find((node) => node["@type"] === "WebPage")?.description).toBe(copy.records[prefix + "-intro"].text);
     }
   });

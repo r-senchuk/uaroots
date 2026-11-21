@@ -29,6 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="uk">
       <head>
         <meta name="theme-color" content="#F5F1E8" />
+        <link rel="alternate" type="text/plain" href="https://uaroute.com/llms.txt" title="LLMs.txt" />
       </head>
       <body>
         <AnalyticsAttribution />

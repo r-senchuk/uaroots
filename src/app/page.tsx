@@ -9,7 +9,7 @@ import { RouteSearch } from "@/components/RouteSearch";
 import { getCarrier, publicCarrier } from "@/data/carriers";
 import { priorityOriginCityIds } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
-import { organizationLd, websiteLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
+import { brandOrganizationLd, organizationLd, websiteLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
 const title = "UARoute — поїздки між Україною та Німеччиною";
 const description =
@@ -46,6 +46,7 @@ export default function HomePage() {
     <>
       <JsonLd data={websiteLd()} />
       <JsonLd data={organizationLd()} />
+      <JsonLd data={brandOrganizationLd()} />
 
       <section className="relative border-b border-border-strong">
         <div className="container-page relative grid items-center gap-8 py-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:py-12">

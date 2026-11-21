@@ -5,8 +5,7 @@ import { BicycleInquiryCta } from "@/components/BicycleInquiryCta";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { getDesk } from "@/data/carriers";
-import { absoluteUrl } from "@/config/site";
-import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
+import { breadcrumbLd, buildMetadata, guideArticleLd, travelPreviewImage } from "@/lib/seo";
 const path = "/guides/perevezennya-velosypeda/";
 const title = "Перевезення велосипеда: що погодити з перевізником | UARoute";
 const description = "Як запитати про перевезення велосипеда: тип, розміри, пакування, дата та вартість. Можливість перевезення підтверджує перевізник.";
@@ -21,7 +20,7 @@ export default function BicycleTransportGuidePage(){
  const desk=getDesk("koval","koval-de");
  return <article className="container-page py-8 sm:py-12">
  <JsonLd data={breadcrumbLd(crumbs)}/>
- <JsonLd data={{"@context":"https://schema.org","@type":"Article",headline:title,description,datePublished:"2026-10-17",dateModified:"2026-10-25",mainEntityOfPage:absoluteUrl(path),inLanguage:"uk",author:{"@type":"Organization",name:"UARoute"}}}/>
+ <JsonLd data={guideArticleLd({title,description,path,datePublished:"2026-10-17",dateModified:"2026-10-25"})}/>
  <Breadcrumbs items={crumbs}/>
  <h1 className="mt-6 max-w-2xl type-h1">Перевезення велосипеда: що погодити з перевізником</h1>
  <p className="mt-5 max-w-2xl type-body text-muted-foreground">Хочете взяти велосипед у поїздку? Повідомте перевізнику його тип, розміри та бажану дату, щоб з’ясувати можливість перевезення.</p>

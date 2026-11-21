@@ -8,7 +8,7 @@ import { RouteList } from "@/components/RouteList";
 import { RouteSearch } from "@/components/RouteSearch";
 import { priorityOriginCityIds } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
-import { breadcrumbLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
+import { breadcrumbLd, buildMetadata, routeIndexCollectionLd, travelPreviewImage } from "@/lib/seo";
 
 const title = "Поїздки Україна — Німеччина: оберіть міста | UARoute";
 const description =
@@ -32,6 +32,7 @@ export default function RoutesIndexPage() {
   return (
     <>
       <JsonLd data={breadcrumbLd(crumbs)} />
+      <JsonLd data={routeIndexCollectionLd(title, description, routes)} />
 
       <section className="relative border-b border-border-strong">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden><Graticule /></div>
@@ -84,6 +85,16 @@ export default function RoutesIndexPage() {
             <RouteList routes={items} ctaLocation="route_index" className="mt-5" />
           </section>
         ))}
+
+        <section aria-labelledby="planning-guides-heading" className="border-t border-border-strong pt-8">
+          <h2 id="planning-guides-heading" className="type-h2">Практичні поради перед поїздкою</h2>
+          <p className="mt-3 max-w-2xl type-body-small text-muted-foreground">
+            Якщо берете нестандартний багаж, звірте заздалегідь, що уточнити у перевізника.
+          </p>
+          <Link href="/guides/perevezennya-velosypeda/" className="mt-4 inline-flex min-h-11 items-center text-sm font-medium text-primary link-underline">
+            Перевезення велосипеда: що погодити з перевізником →
+          </Link>
+        </section>
 
       </div>
     </>

@@ -50,25 +50,42 @@ export function llmsContent(full: boolean) {
   sections.push([
     "## Довідники міст",
     "",
-    ...hubs.map((path) => {
+    ...hubs.flatMap((path) => {
       const city = cities.find(({ slug }) => path === `/cities/${slug}/`);
       const hub = city && getCityHubContent(city.id);
       if (!hub) throw new Error(`Missing published city hub content for ${path}`);
-      return link(hub.cityName, path, hub.description);
+      if (!full) return [link(hub.cityName, path, hub.description)];
+      const nearby = hub.nearbyPlaces.map((place) => place.localName ? `${place.name} (${place.localName})` : place.name).join(", ");
+      const faqLines = hub.faq.slice(0, 2).map((item) => `  - ${item.question} ${item.answer}`);
+      return [
+        link(hub.cityName, path, hub.description),
+        ...(nearby ? [`  - Населені пункти поруч (назвіть фактичне місце в приватному зверненні): ${nearby}.`] : []),
+        ...faqLines,
+      ];
     }),
   ].join("\n"));
 
   sections.push([
     full ? "## Опубліковані напрямки для звернень" : "## Вибрані напрямки для звернень",
     "",
-    ...routes.map((route) => link(
-      route.title,
-      `/routes/${route.slug}/`,
-      full ? route.description : "Деталі напрямку та звернення до перевізника.",
-    )),
+    ...routes.map((route) => {
+      if (!full) {
+        return link(route.title, `/routes/${route.slug}/`, "Деталі напрямку та звернення до перевізника.");
+      }
+      const corridor = route.corridor.join(" — ");
+      const confirm = route.whatToConfirm.join(" ");
+      return link(route.title, `/routes/${route.slug}/`, `${route.description} Коридор: ${corridor}. Перед поїздкою уточніть: ${confirm}`);
+    }),
   ].join("\n"));
 
-  if (!full) {
+  if (full) {
+    sections.push([
+      "## Інформація про оператора та приватність",
+      "",
+      link("Відомості про оператора", "/imprint/", "Оператор UARoute (Roman Senchuk, польська JDG, бренд Crew Bravo) та роль перевізника."),
+      link("Приватність і файли cookie", "/privacy/", "Обробка даних форми, передавання до WhatsApp, необов’язкова аналітика та права користувачів."),
+    ].join("\n"));
+  } else {
     sections.push([
       "## Повний довідник",
       "",

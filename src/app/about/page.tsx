@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerCard } from "@/components/PartnerCard";
 import { getCarrier, publicCarrier } from "@/data/carriers";
-import { breadcrumbLd, buildMetadata } from "@/lib/seo";
+import { aboutPageLd, breadcrumbLd, buildMetadata } from "@/lib/seo";
 
 const title = "Про UARoute — допомагаємо підготувати поїздку";
 const description =
@@ -42,6 +42,7 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={breadcrumbLd(crumbs)} />
+      <JsonLd data={aboutPageLd(title, description)} />
 
       <section className="relative overflow-hidden border-b border-border-strong">
         <Graticule />
@@ -124,6 +125,7 @@ export default function AboutPage() {
         <div className="mt-6 flex flex-wrap gap-4">
           <Link href="/cities/lviv/" className="inline-flex min-h-11 items-center text-primary link-underline">Львів ↔ Німеччина</Link>
           <Link href="/cities/ivano-frankivsk/" className="inline-flex min-h-11 items-center text-primary link-underline">Івано-Франківськ ↔ Німеччина</Link>
+          <Link href="/guides/perevezennya-velosypeda/" className="inline-flex min-h-11 items-center text-primary link-underline">Перевезення велосипеда</Link>
         </div>
         <Link href="/routes/" className="mt-6 inline-flex min-h-11 items-center type-label text-primary link-underline">
           Інше українське місто? Перейдіть до вибору →
