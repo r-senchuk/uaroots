@@ -1,11 +1,12 @@
 import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { cp, mkdir, readFile, writeFile, mkdtemp } from 'node:fs/promises';
+import { cp, mkdir, readFile, writeFile, mkdtemp, rm } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
-import { aws, capture, verify as recoveryVerify } from './recovery-tool.mjs';
+import { aws, capture, DEFAULT_CONCURRENCY, runBounded, verify as recoveryVerify } from './recovery-tool.mjs';
+export { runBounded };
 import { verify as releaseVerify } from './release-bundle.mjs';
 const execute = promisify(execFile);
 const digest = b => createHash('sha256').update(b).digest('hex');
@@ -50,10 +51,39 @@ async function edgePublish(code,config){await exclusiveAssociations();const live
  await aws(['cloudfront','publish-function','--name',functionName,'--if-match',updated.ETag]);return {changed:true};}
 export function objectMetadata(meta){return Object.fromEntries(['ContentType','CacheControl','ContentEncoding','ContentDisposition','ContentLanguage','Expires','Metadata','WebsiteRedirectLocation'].filter(k=>meta[k]!==undefined).map(k=>[k,meta[k]]));}
 async function finish(evidence){await cli(['cloudfront','wait','distribution-deployed','--id',target.distribution]);const result=await aws(['cloudfront','create-invalidation','--distribution-id',target.distribution,'--paths','/*']);await writeFile(path.join(evidence,'invalidation-created.json'),json(result));await cli(['cloudfront','wait','invalidation-completed','--distribution-id',target.distribution,'--id',result.Invalidation.Id]);await writeFile(path.join(evidence,'invalidation-completed.json'),json(await aws(['cloudfront','get-invalidation','--distribution-id',target.distribution,'--id',result.Invalidation.Id])));}
-export async function verifyPublished(files,bucket=target.bucket){for(const f of files){const meta=await aws(['s3api','head-object','--bucket',bucket,'--key',f.key]);if(meta.ContentLength!==f.size)throw Error(`published size mismatch ${f.key}`);const tmp=path.join(await mkdtemp(path.join(os.tmpdir(),'uaroute-verify-')),'object');await aws(['s3api','get-object','--bucket',bucket,'--key',f.key,tmp]);if(digest(await readFile(tmp))!==f.sha256)throw Error(`published hash mismatch ${f.key}`);if(f.metadata)for(const [k,v] of Object.entries(objectMetadata(f.metadata)))if(json(meta[k])!==json(v))throw Error(`published metadata mismatch ${f.key} ${k}`);}}
+export async function verifyPublished(files,bucket=target.bucket,call=aws){
+ const tmpDir=await mkdtemp(path.join(os.tmpdir(),'uaroute-verify-'));
+ try{
+  await runBounded(files,DEFAULT_CONCURRENCY,async (f,index)=>{
+   const tmp=path.join(tmpDir,`object-${index}`);
+   const meta=await call(['s3api','get-object','--bucket',bucket,'--key',f.key,tmp]);
+   const bytes=await readFile(tmp);
+   if(meta.ContentLength!==f.size||bytes.length!==f.size)throw Error(`published size mismatch ${f.key}`);
+   if(digest(bytes)!==f.sha256)throw Error(`published hash mismatch ${f.key}`);
+   if(f.metadata)for(const [k,v] of Object.entries(objectMetadata(f.metadata)))if(json(meta[k])!==json(v))throw Error(`published metadata mismatch ${f.key} ${k}`);
+  });
+ }finally{await rm(tmpDir,{recursive:true,force:true});}
+}
 async function backup({prefix,evidence}){validatePrefix(prefix);const version=await aws(['s3api','get-bucket-versioning','--bucket',recoveryBucket]);const block=await aws(['s3api','get-public-access-block','--bucket',recoveryBucket]);if(version.Status!=='Enabled'||Object.values(block.PublicAccessBlockConfiguration).some(x=>x!==true))throw Error('private versioned recovery bucket required');const captured=path.join(evidence,'captured');const manifest=await capture({to:captured,...target});await cli(['s3','cp',captured,`s3://${recoveryBucket}/${prefix}/`,'--recursive','--no-progress','--sse','AES256']);const retrieved=path.join(evidence,'retrieved');await cli(['s3','cp',`s3://${recoveryBucket}/${prefix}/`,retrieved,'--recursive','--no-progress']);await recoveryVerify({bundle:retrieved,expectedHash:manifest.bundleSha256,...target});await writeFile(path.join(evidence,'recovery-receipt.json'),json({prefix,bundleSha256:manifest.bundleSha256,bucket:recoveryBucket,objects:manifest.objects.length,retrievedAt:new Date().toISOString(),retrievalVerified:true}));return {bundle:retrieved,manifest};}
-export async function deploy(o){await mkdir(o.evidence,{recursive:true});const run=JSON.parse(await readFile(o.run,'utf8'));await releaseVerify({...o,run});await identity();const recovery=await backup(o);await assertConfig(recovery.bundle);await exclusiveAssociations();const saved=JSON.parse(await readFile(path.join(recovery.bundle,recovery.manifest.functions.find(f=>f.arn.endsWith(`/${functionName}`)).description.path),'utf8'));const manifest=JSON.parse(await readFile(path.join(o.bundle,'manifest.json'),'utf8'));const files=[...manifest.files].sort((a,b)=>Number(b.path.startsWith('_next/static/'))-Number(a.path.startsWith('_next/static/')));for(const f of files){const type=f.path.endsWith('.html')?'text/html; charset=utf-8':f.path.endsWith('.txt')?'text/plain; charset=utf-8':f.path.endsWith('.json')?'application/json':f.path.endsWith('.xml')?'application/xml':undefined;const args=['s3','cp',path.join(o.bundle,'out',f.path),`s3://${target.bucket}/${f.path}`,'--no-progress','--cache-control',f.path.startsWith('_next/static/')?'public, max-age=31536000, immutable':'public, max-age=0, must-revalidate'];if(type)args.push('--content-type',type);await cli(args);}
- await edgePublish(path.join(o.bundle,'edge.js'),saved.FunctionSummary.FunctionConfig);await finish(o.evidence);await verifyPublished(files.map(f=>({...f,key:f.path})));const contract=await fetch('https://uaroute.com/referral-contract.json');if(!contract.ok||!(contract.headers.get('content-type')??'').includes('application/json')||digest(Buffer.from(await contract.arrayBuffer()))!==digest(await readFile(path.join(o.bundle,'out','referral-contract.json'))))throw Error('live receiver contract mismatch');await cp(path.join(o.bundle,'out'),'out',{recursive:true});await execute('node',['scripts/seo-http.mjs','https://uaroute.com','--output',path.join(o.evidence,'live-http.json')],{maxBuffer:20*1024*1024});await writeFile(path.join(o.evidence,'success.json'),json({sourceSha:o.sha,runId:o.runId,releaseSha256:o.expectedHash,edgeSha256:o.expectedEdgeHash,recoveryPrefix:o.prefix,recoveryHash:recovery.manifest.bundleSha256,publishedObjects:files.length,verifiedAt:new Date().toISOString()}));}
+export async function deploy(o){
+ const startedAt=Date.now();
+ await mkdir(o.evidence,{recursive:true});const run=JSON.parse(await readFile(o.run,'utf8'));await releaseVerify({...o,run});await identity();
+ const recoveryStart=Date.now();const recovery=await backup(o);const recoveryMs=Date.now()-recoveryStart;
+ await assertConfig(recovery.bundle);await exclusiveAssociations();const saved=JSON.parse(await readFile(path.join(recovery.bundle,recovery.manifest.functions.find(f=>f.arn.endsWith(`/${functionName}`)).description.path),'utf8'));const manifest=JSON.parse(await readFile(path.join(o.bundle,'manifest.json'),'utf8'));
+ const assets=manifest.files.filter(f=>f.path.startsWith('_next/static/'));
+ const documents=manifest.files.filter(f=>!f.path.startsWith('_next/static/'));
+ const uploadFile=async f=>{const type=f.path.endsWith('.html')?'text/html; charset=utf-8':f.path.endsWith('.txt')?'text/plain; charset=utf-8':f.path.endsWith('.json')?'application/json':f.path.endsWith('.xml')?'application/xml':undefined;const args=['s3','cp',path.join(o.bundle,'out',f.path),`s3://${target.bucket}/${f.path}`,'--no-progress','--cache-control',f.path.startsWith('_next/static/')?'public, max-age=31536000, immutable':'public, max-age=0, must-revalidate'];if(type)args.push('--content-type',type);await cli(args);};
+ const uploadStart=Date.now();
+ await runBounded(assets,DEFAULT_CONCURRENCY,uploadFile);
+ await runBounded(documents,DEFAULT_CONCURRENCY,uploadFile);
+ const uploadMs=Date.now()-uploadStart;
+ const edgeStart=Date.now();await edgePublish(path.join(o.bundle,'edge.js'),saved.FunctionSummary.FunctionConfig);const edgeMs=Date.now()-edgeStart;
+ const invalidationStart=Date.now();await finish(o.evidence);const invalidationMs=Date.now()-invalidationStart;
+ const verifyStart=Date.now();await verifyPublished([...assets,...documents].map(f=>({...f,key:f.path})));const verifyMs=Date.now()-verifyStart;
+ const contract=await fetch('https://uaroute.com/referral-contract.json');if(!contract.ok||!(contract.headers.get('content-type')??'').includes('application/json')||digest(Buffer.from(await contract.arrayBuffer()))!==digest(await readFile(path.join(o.bundle,'out','referral-contract.json'))))throw Error('live receiver contract mismatch');await cp(path.join(o.bundle,'out'),'out',{recursive:true});
+ const liveHttpStart=Date.now();await execute('node',['scripts/seo-http.mjs','https://uaroute.com','--output',path.join(o.evidence,'live-http.json')],{maxBuffer:20*1024*1024});const liveHttpMs=Date.now()-liveHttpStart;
+ await writeFile(path.join(o.evidence,'success.json'),json({sourceSha:o.sha,runId:o.runId,releaseSha256:o.expectedHash,edgeSha256:o.expectedEdgeHash,recoveryPrefix:o.prefix,recoveryHash:recovery.manifest.bundleSha256,publishedObjects:manifest.files.length,publishedAssets:assets.length,publishedDocuments:documents.length,concurrency:DEFAULT_CONCURRENCY,timingsMs:{recoveryMs,uploadMs,edgeMs,invalidationMs,verifyMs,liveHttpMs,totalMs:Date.now()-startedAt},verifiedAt:new Date().toISOString()}));
+}
 export async function edgeCheck(o){
  await mkdir(o.evidence,{recursive:true});
  const resultPath=path.join(o.evidence,'edge-runtime-tests.json');let report={schemaVersion:1,caseResults:[],functionCodeMatch:false,completed:false};
