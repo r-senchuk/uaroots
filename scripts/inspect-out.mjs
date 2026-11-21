@@ -15,6 +15,8 @@ export const pilotRoutes = [
   { slug: "ivano-frankivsk-wolfsburg", originId: "ivano-frankivsk", destinationId: "wolfsburg", origin: "Івано-Франківськ", destination: "Вольфсбург", candidate: true },
   { slug: "wolfsburg-ivano-frankivsk", originId: "wolfsburg", destinationId: "ivano-frankivsk", origin: "Вольфсбург", destination: "Івано-Франківськ", candidate: true },
   { slug: "celle-stryi", originId: "celle", destinationId: "stryi", origin: "Целле", destination: "Стрий", candidate: true },
+  { slug: "kalush-lueneburg", originId: "kalush", destinationId: "lueneburg", origin: "Калуш", destination: "Люнебург", candidate: true },
+  { slug: "lueneburg-kalush", originId: "lueneburg", destinationId: "kalush", origin: "Люнебург", destination: "Калуш", candidate: true },
 ];
 
 const sitePages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
@@ -103,6 +105,8 @@ const candidatePracticalTerms = {
   "ivano-frankivsk-wolfsburg": ["Фаллерслебен", "Форсфельде"],
   "wolfsburg-ivano-frankivsk": ["Фаллерслебен", "Форсфельде"],
   "celle-stryi": ["вокзал", "старе місто"],
+  "kalush-lueneburg": ["вокзал", "старе місто"],
+  "lueneburg-kalush": ["вокзал", "старе місто"],
 };
 const candidateSources = {
   "dolyna-celle": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
@@ -116,6 +120,8 @@ const candidateSources = {
   "ivano-frankivsk-wolfsburg": "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort",
   "wolfsburg-ivano-frankivsk": "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort",
   "celle-stryi": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
+  "kalush-lueneburg": "https://www.lueneburg.info/buchen-service/service/anreise",
+  "lueneburg-kalush": "https://www.lueneburg.info/buchen-service/service/anreise",
 };
 const forbiddenCandidateClaims = [
   "Прямі рейси без пересадок",
@@ -350,6 +356,107 @@ export function applyCurrentCopyRevisions(copy) {
         question: "Що робити, якщо плани змінилися після звернення?",
         answer: "Повідомте перевізнику, що саме змінилося, і попросіть переглянути домовленості. Не покладайтеся на попереднє погодження для нової дати чи іншого місця.",
       },
+    ],
+  };
+  // Owner marketing/trust & SEO revisions for priority routes (lh, cl, iw, wi), 22 November 2026.
+  copy.records["lh-intro"].text = "Львів — Ганновер (Hannover, Німеччина): прямий запит диспетчеру перевізника у WhatsApp. Узгодьте виїзд на вашу дату, зручне місце посадки у Львові, адресну доставку в Ганновері та умови для багажу — без передоплати на сайті.";
+  if (copy.records["lv-route-cards"]?.items?.[0]) {
+    copy.records["lv-route-cards"].items[0].text = copy.records["lh-intro"].text;
+  }
+  const lhPage = copy.pages?.find((p) => p.url === "/routes/lviv-hannover/");
+  if (lhPage?.metadata) {
+    lhPage.metadata.description = "Поїздка зі Львова до Ганновера (Hannover, Німеччина): адресна доставка до дому, мікроавтобуси Mercedes Sprinter, прямий запит перевізнику у WhatsApp без передоплати.";
+  }
+  copy.records["lh-arrival-locality"].heading = "Прибуття в Ганновер та адресна висадка";
+  copy.records["lh-arrival-locality"].text = "За інформацією перевізника, у Німеччині діє адресна доставка пасажирів. У запиті назвіть потрібний район Ганновера, точну адресу з поштовим індексом або зручний міський орієнтир — наприклад, головний вокзал (Hannover Hbf) чи автовокзал (ZOB). Диспетчер підкаже, яку точку чи адресу найзручніше погодити для прибуття.";
+  copy.records["lh-independent-onward"].heading = "Орієнтування в Ганновері та подальша дорога";
+  copy.records["lh-independent-onward"].text = "Якщо після прибуття до Ганновера ви плануєте пересадку на місцевий транспорт, скористайтеся офіційною довідкою міста про міські маршрути. Точне місце та орієнтовний час вашої висадки ви попередньо узгоджуєте напряму з диспетчером перевізника; стикування з іншим транспортом плануйте окремо з запасом часу.";
+  copy.records["lh-lviv-first-leg"].heading = "Посадка у Львові або виїзд із вашого міста в регіоні";
+  copy.records["lh-lviv-first-leg"].text = "Повідомте диспетчеру, звідки ви вирушаєте. Якщо спочатку приїжджаєте до Львова поїздом або автобусом з іншого регіону, напишіть орієнтовний час і місце прибуття — перевізник допоможе погодити зручну точку посадки у Львові та достатній запас часу між поїздками.";
+  copy.records["lh-questions"].text = "Під час звернення зазначте кількість валіз чи сумок, а для поїздки з дитиною — її вік та потребу в автокріслі. Плануєте взяти велосипед? Назвіть його тип, розміри й приблизну вагу та спершу запитайте, чи можливе перевезення. Вимоги до пакування й можливу вартість погодьте після цього.";
+
+  copy.records["cl-intro"].text = "Целле — Львів (Celle, Німеччина): прямий запит диспетчеру перевізника у WhatsApp. Узгодьте адресну посадку в Целле чи сусідній громаді, виїзд на вашу дату, місце прибуття у Львові та умови для багажу — без передоплати на сайті.";
+  if (copy.records["lv-route-cards"]?.items?.[2]) {
+    copy.records["lv-route-cards"].items[2].text = copy.records["cl-intro"].text;
+  }
+  const clPage = copy.pages?.find((p) => p.url === "/routes/celle-lviv/");
+  if (clPage?.metadata) {
+    clPage.metadata.description = "Поїздка з Целле (Celle, Німеччина) до Львова: адресна посадка в Німеччині, мікроавтобуси Mercedes Sprinter, прямий запит перевізнику у WhatsApp без передоплати.";
+  }
+  copy.records["cl-meeting-locality"].heading = "Посадка за адресою в Целле або поблизу";
+  copy.records["cl-meeting-locality"].text = "За інформацією перевізника, у Німеччині діє адресна посадка та висадка пасажирів. У запиті назвіть район Целле, точну адресу з поштовим індексом або зручний міський орієнтир — наприклад, вокзал (Bahnhof Celle) чи старе місто (Altstadt). Туристична довідка допоможе зорієнтуватися в місті, а конкретну точку й час посадки підтвердить диспетчер.";
+  copy.records["cl-lviv-arrival"].heading = "Прибуття до Львова та зустріч";
+  copy.records["cl-lviv-arrival"].text = "Повідомте диспетчеру, у якій частині Львова вам зручніше вийти або чи прямуєте ви далі в інше місто області чи України. Уточніть орієнтовний час прибуття та спосіб зв’язку в дорозі, щоб узгодити зустріч.";
+  copy.records["cl-independent-onward"].heading = "Подальша дорога зі Львова потягом або автобусом";
+  copy.records["cl-independent-onward"].text = "Якщо у Львові ви пересідаєте на потяг або інший транспорт, повідомте диспетчеру час відправлення за квитком. З огляду на можливі черги на кордоні залишайте достатній запас часу та плануйте подальшу поїздку окремо.";
+  copy.records["cl-baggage-transfer"].text = "Під час звернення зазначте кількість валіз чи сумок, а для поїздки з дитиною — її вік та потребу в автокріслі. Плануєте взяти велосипед? Назвіть його тип, розміри й приблизну вагу та спершу запитайте, чи можливе перевезення. Вимоги до пакування й можливу вартість погодьте після цього.";
+  copy.records["cl-locality-changes"] = {
+    ...copy.records["cl-locality-changes"],
+    heading: "Як відбувається бронювання і чи потрібна передоплата на сайті?",
+    text: "На UARoute ви нічого не оплачуєте. За інформацією перевізника, бронювання здійснюється без передоплати: ви надсилаєте запит у WhatsApp, диспетчер перевіряє наявність місць на вашу дату, називає повну вартість і погоджує з вами місце посадки та висадки.",
+    items: [
+      {
+        question: "Яким транспортом виконуються поїздки та чи є адресна посадка в Целле?",
+        answer: "За інформацією перевізника, рейси між Німеччиною та Україною виконуються пасажирськими мікроавтобусами Mercedes Sprinter з двома професійними водіями та адресною посадкою пасажирів у Німеччині. Усі деталі конкретного виїзду Целле → Львів підтверджує диспетчер у відповідь на ваш запит.",
+      },
+      copy.records["cl-locality-changes"],
+      ...copy.records["cl-locality-changes"].items.slice(0),
+    ].map((entry) => ("heading" in entry ? { question: entry.heading, answer: entry.text } : entry)),
+  };
+
+  copy.records["iw-intro"].text = "Івано-Франківськ — Вольфсбург (Wolfsburg, Німеччина): прямий запит диспетчеру перевізника у WhatsApp. Узгодьте виїзд з Прикарпаття на вашу дату, адресну доставку в потрібний район Вольфсбурга та умови для багажу — без передоплати на сайті.";
+  if (copy.records["if-route-cards"]?.items?.[0]) {
+    copy.records["if-route-cards"].items[0].text = copy.records["iw-intro"].text;
+  }
+  const iwPage = copy.pages?.find((p) => p.url === "/routes/ivano-frankivsk-wolfsburg/");
+  if (iwPage?.metadata) {
+    iwPage.metadata.description = "Поїздка з Івано-Франківська до Вольфсбурга (Wolfsburg, Німеччина): адресна доставка до дому, мікроавтобуси Mercedes Sprinter, прямий запит перевізнику у WhatsApp без передоплати.";
+  }
+  copy.records["iw-arrival-locality"].heading = "Прибуття у Вольфсбург та адресна висадка";
+  copy.records["iw-arrival-locality"].text = "За інформацією перевізника, у Німеччині діє адресна доставка пасажирів. Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде (Fallersleben, Vorsfelde). У запиті назвіть потрібний район, поштовий індекс і точну адресу або зручний міський орієнтир — диспетчер підтвердить умови під’їзду.";
+  copy.records["iw-shared-departure"].heading = "Посадка в Івано-Франківську та поїздка компанією або з дітьми";
+  copy.records["iw-shared-departure"].text = "Повідомте диспетчеру, звідки ви вирушаєте в Івано-Франківську або області. Якщо їдете разом із родиною чи друзями, запропонуйте зручне місце збору й зазначте кількість дорослих, вік дітей і потребу в автокріслах — щоб усе погодити заздалегідь.";
+  copy.records["iw-baggage-transfer"].text = "Під час звернення зазначте кількість валіз чи сумок, а для великого чи нестандартного багажу вкажіть орієнтовні розміри. Плануєте взяти велосипед? Назвіть його тип, розміри й приблизну вагу та спершу запитайте, чи можливе перевезення. Вимоги до пакування й можливу вартість погодьте після цього.";
+  copy.records["iw-locality-changes"] = {
+    ...copy.records["iw-locality-changes"],
+    heading: "Як відбувається бронювання і чи потрібна передоплата на сайті?",
+    text: "На UARoute ви нічого не оплачуєте. За інформацією перевізника, бронювання здійснюється без передоплати: ви надсилаєте запит у WhatsApp, диспетчер перевіряє наявність місць на вашу дату, називає повну вартість і погоджує з вами місце посадки та висадки.",
+    items: [
+      {
+        question: "Яким транспортом виконуються поїздки та чи є адресна доставка у Вольфсбурзі?",
+        answer: "За інформацією перевізника, рейси між Україною та Німеччиною виконуються пасажирськими мікроавтобусами Mercedes Sprinter з двома професійними водіями та адресною доставкою пасажирів у Німеччині. Усі деталі конкретного виїзду Івано-Франківськ → Вольфсбург підтверджує диспетчер у відповідь на ваш запит.",
+      },
+      { question: copy.records["iw-locality-changes"].heading, answer: copy.records["iw-locality-changes"].text },
+      ...copy.records["iw-locality-changes"].items,
+    ],
+  };
+
+  copy.records["wi-intro"].text = "Вольфсбург — Івано-Франківськ (Wolfsburg, Німеччина): прямий запит диспетчеру перевізника у WhatsApp. Узгодьте адресну посадку у Вольфсбурзі чи околицях, виїзд на вашу дату, зустріч в Івано-Франківську та умови для багажу — без передоплати на сайті.";
+  if (copy.records["if-route-cards"]?.items?.[1]) {
+    copy.records["if-route-cards"].items[1].text = copy.records["wi-intro"].text;
+  }
+  const wiPage = copy.pages?.find((p) => p.url === "/routes/wolfsburg-ivano-frankivsk/");
+  if (wiPage?.metadata) {
+    wiPage.metadata.description = "Поїздка з Вольфсбурга (Wolfsburg, Німеччина) до Івано-Франківська: адресна посадка в Німеччині, мікроавтобуси Mercedes Sprinter, прямий запит перевізнику у WhatsApp без передоплати.";
+  }
+  copy.records["wi-meeting-locality"].heading = "Посадка за адресою у Вольфсбурзі або поблизу";
+  copy.records["wi-meeting-locality"].text = "За інформацією перевізника, у Німеччині діє адресна посадка та висадка пасажирів. Вольфсбург має окремі райони, зокрема Фаллерслебен і Форсфельде. Назвіть у запиті ваш район, точну адресу з індексом або зручний міський орієнтир — диспетчер перевірить можливість під’їзду й підтвердить точку зустрічі.";
+  copy.records["wi-arrival-coordination"].heading = "Прибуття до Івано-Франківська та зустріч із близькими";
+  copy.records["wi-arrival-coordination"].text = "Якщо після прибуття до Івано-Франківська вас зустрічатимуть рідні або друзі, узгодьте з диспетчером орієнтовний час і місце висадки. Уточніть, як підтримувати зв’язок у дорозі, і завчасно передайте контакти тим, хто приїде за вами.";
+  copy.records["wi-independent-onward"].heading = "Якщо після Івано-Франківська прямуєте далі по області";
+  copy.records["wi-independent-onward"].text = "Повідомте диспетчеру ваше кінцеве місто чи селище на Прикарпатті. Враховуйте можливі затримки під час перетину кордону, залишайте запас часу й плануйте подальший місцевий транспорт окремо після підтвердження часу прибуття.";
+  copy.records["wi-baggage-transfer"].text = "Під час звернення зазначте кількість валіз чи сумок, а для поїздки з дитиною — її вік та потребу в автокріслі. Плануєте взяти велосипед? Назвіть його тип, розміри й приблизну вагу та спершу запитайте, чи можливе перевезення. Вимоги до пакування й можливу вартість погодьте після цього.";
+  copy.records["wi-locality-changes"] = {
+    ...copy.records["wi-locality-changes"],
+    heading: "Як відбувається бронювання і чи потрібна передоплата на сайті?",
+    text: "На UARoute ви нічого не оплачуєте. За інформацією перевізника, бронювання здійснюється без передоплати: ви надсилаєте запит у WhatsApp, диспетчер перевіряє наявність місць на вашу дату, називає повну вартість і погоджує з вами місце посадки та висадки.",
+    items: [
+      {
+        question: "Яким транспортом виконуються поїздки та чи є адресна посадка у Вольфсбурзі?",
+        answer: "За інформацією перевізника, рейси між Німеччиною та Україною виконуються пасажирськими мікроавтобусами Mercedes Sprinter з двома професійними водіями та адресною посадкою пасажирів у Німеччині. Усі деталі конкретного виїзду Вольфсбург → Івано-Франківськ підтверджує диспетчер у відповідь на ваш запит.",
+      },
+      { question: copy.records["wi-locality-changes"].heading, answer: copy.records["wi-locality-changes"].text },
+      ...copy.records["wi-locality-changes"].items,
     ],
   };
   return copy;
@@ -705,7 +812,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       .sort();
     const actual = [...locations].sort();
     if (actual.length !== expected.length || actual.some((location, index) => location !== expected[index])) {
-      errors.push("sitemap.xml must contain exactly the five public pages, dedicated bicycle guide, four selected city hubs, and twelve commercial routes");
+      errors.push("sitemap.xml must contain exactly the five public pages, dedicated bicycle guide, four selected city hubs, and fourteen commercial routes");
     }
     const expectedLastmod = new Map(Object.entries(cityHubResources).map(([slug, content]) => [canonicalUrl(`/cities/${slug}/`), content.contentUpdatedAt]));
     for (const entry of entries) {

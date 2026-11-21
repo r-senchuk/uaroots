@@ -52,6 +52,8 @@ const routes = [
   ["ivano-frankivsk-wolfsburg", "Івано-Франківськ", "Вольфсбург", true, "Фаллерслебен Форсфельде"],
   ["wolfsburg-ivano-frankivsk", "Вольфсбург", "Івано-Франківськ", true, "Фаллерслебен Форсфельде"],
   ["celle-stryi", "Целле", "Стрий", true, "вокзал старе місто"],
+  ["kalush-lueneburg", "Калуш", "Люнебург", true, "вокзал старе місто"],
+  ["lueneburg-kalush", "Люнебург", "Калуш", true, "вокзал старе місто"],
 ] as const;
 const mainPages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const guidePages = ["/guides/perevezennya-velosypeda/"];
@@ -147,7 +149,9 @@ function fixture() {
         ? "https://www.wolfsburg.de/en/bauenwohnen/wolfsburg-als-wohnort"
         : slug.includes("braunschweig")
           ? "https://www.braunschweig.de/tourismus/ihr-besuch-in-braunschweig/anreise_bahn_bus.php"
-          : "";
+          : slug.includes("lueneburg")
+            ? "https://www.lueneburg.info/buchen-service/service/anreise"
+            : "";
     write(root, `routes/${slug}/index.html`, page(path, `Назва ${slug}`, `<h1>${origin} → ${destination}</h1>${copy}`, [reverse, "/routes/", ...(candidate ? [citySource] : [])]));
     for (const file of ["index.txt", "__next._tree.txt", "__next._full.txt", "__next.routes.$d$slug.__PAGE__.txt"]) {
       write(root, `routes/${slug}/${file}`, "RSC");

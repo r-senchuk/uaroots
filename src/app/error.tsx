@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { Eyebrow } from "@/components/brand/editorial";
+
 export default function ErrorPage({
   error,
   reset,
@@ -13,7 +15,9 @@ export default function ErrorPage({
 
   return (
     <div className="container-page section-band">
-      <p className="type-label text-muted-foreground">Помилка</p>
+      <p>
+        <Eyebrow>Помилка</Eyebrow>
+      </p>
       <h1 className="mt-6 type-h1">Сторінка не завантажилася</h1>
       <p className="mt-4 max-w-md type-body text-muted-foreground">
         Спробуйте оновити сторінку або поверніться на головну.

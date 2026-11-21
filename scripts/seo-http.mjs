@@ -8,7 +8,7 @@ const guideDocuments = ["/guides/perevezennya-velosypeda/"];
 const commercialSlugs = [
   "lviv-hannover", "lviv-celle", "ivano-frankivsk-wolfsburg", "dolyna-celle", "celle-dolyna",
   "dolyna-wolfsburg", "wolfsburg-dolyna", "dolyna-braunschweig", "braunschweig-dolyna",
-  "celle-lviv", "wolfsburg-ivano-frankivsk", "celle-stryi",
+  "celle-lviv", "wolfsburg-ivano-frankivsk", "celle-stryi", "kalush-lueneburg", "lueneburg-kalush",
 ];
 const editorialSlugs = ["lviv-hamburg", "lviv-berlin"];
 const citySlugs = ["lviv", "ivano-frankivsk", "celle", "stryi"];

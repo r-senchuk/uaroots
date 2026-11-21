@@ -1,6 +1,9 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Eyebrow } from "@/components/brand/editorial";
+import { Graticule } from "@/components/brand/graphics";
 import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/config/business";
 import { breadcrumbLd, buildMetadata, imprintPageLd } from "@/lib/seo";
@@ -16,32 +19,81 @@ export const metadata = buildMetadata({
 });
 
 export default function ImprintPage() {
+  const operatorDetails: ReadonlyArray<readonly [string, ReactNode]> = [
+    ["Оператор", business.operatorName],
+    ["Форма діяльності", business.legalForm],
+    ["Бізнес-бренд", business.brand],
+    ["Контактна адреса", business.contactAddress],
+    [
+      "Електронна пошта",
+      <a key="email" className="inline-flex min-h-11 max-w-full items-center break-all text-primary link-underline" href={`mailto:${business.email}`}>
+        {business.email}
+      </a>,
+    ],
+    [
+      "Бізнес-сайт",
+      <a
+        key="website"
+        className="inline-flex min-h-11 max-w-full items-center break-all text-primary link-underline"
+        href={business.website}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Crew Bravo ↗
+      </a>,
+    ],
+  ];
+
   return (
-    <div className="container-page py-4 sm:py-6">
+    <>
       <JsonLd data={breadcrumbLd(crumbs)} />
       <JsonLd data={imprintPageLd(title, description)} />
-      <Breadcrumbs items={crumbs} />
-      <h1 className="mt-4 max-w-2xl type-h1">Відомості про оператора</h1>
-      <div className="mt-6 max-w-2xl space-y-8 type-body">
-        <section>
-          <h2 className="type-h2">Хто керує UARoute</h2>
-          <p className="mt-4">UARoute — продукт у межах підприємницької діяльності {business.operatorName}. UARoute не є окремою юридичною особою.</p>
-          <dl className="mt-5 space-y-3">
-            <div><dt className="type-label">Оператор</dt><dd className="mt-1 break-words">{business.operatorName}</dd></div>
-            <div><dt className="type-label">Форма діяльності</dt><dd className="mt-1 break-words">{business.legalForm}</dd></div>
-            <div><dt className="type-label">Бізнес-бренд</dt><dd className="mt-1 break-words">{business.brand}</dd></div>
-            <div><dt className="type-label">Контактна адреса</dt><dd className="mt-1 break-words">{business.contactAddress}</dd></div>
-            <div><dt className="type-label">Електронна пошта</dt><dd className="mt-1 break-words"><a className="inline-flex min-h-11 max-w-full items-center break-all link-underline" href={`mailto:${business.email}`}>{business.email}</a></dd></div>
-            <div><dt className="type-label">Бізнес-сайт</dt><dd className="mt-1 break-words"><a className="inline-flex min-h-11 max-w-full items-center break-all link-underline" href={business.website} target="_blank" rel="noopener noreferrer">Crew Bravo ↗</a></dd></div>
-          </dl>
-        </section>
-        <section>
-          <h2 className="type-h2">Роль перевізника</h2>
-          <p className="mt-4">UARoute допомагає знайти напрямок і підготувати запит. Транспортний партнер — перевізник. Він перевіряє можливість поїздки, узгоджує умови з пасажиром і відповідає за перевезення.</p>
-          <p className="mt-3">Саме повідомлення у WhatsApp не резервує місце. Можливість поїздки та її умови погоджує перевізник. Для питань про саму поїздку звертайтеся до перевізника, з яким ви її погодили.</p>
-        </section>
-        <p><Link href="/privacy/" className="inline-flex min-h-11 max-w-full items-center break-all link-underline">Як працює приватність і передавання даних →</Link></p>
+
+      <header className="relative overflow-hidden border-b border-border-strong">
+        <Graticule />
+        <div className="container-page relative pb-8 pt-4">
+          <Breadcrumbs items={crumbs} />
+          <p className="mt-4">
+            <Eyebrow>Юридична інформація</Eyebrow>
+          </p>
+          <h1 className="mt-4 max-w-2xl type-h1">Відомості про оператора</h1>
+        </div>
+      </header>
+
+      <div className="container-page py-8 sm:py-10">
+        <div className="min-w-0 max-w-2xl space-y-10 type-body [overflow-wrap:anywhere]">
+          <section className="min-w-0">
+            <h2 className="type-h2">Хто керує UARoute</h2>
+            <p className="mt-4 text-muted-foreground">
+              UARoute — продукт у межах підприємницької діяльності {business.operatorName}. UARoute не є окремою юридичною особою.
+            </p>
+            <dl className="mt-6 divide-y divide-border border border-border-strong bg-card [overflow-wrap:anywhere]">
+              {operatorDetails.map(([label, value]) => (
+                <div key={label} className="grid min-w-0 gap-1 p-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:items-center sm:gap-4 [overflow-wrap:anywhere]">
+                  <dt className="type-label text-muted-foreground">{label}</dt>
+                  <dd className="min-w-0 break-words">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="min-w-0 border-t-2 border-border-strong pt-6">
+            <h2 className="type-h2">Роль перевізника</h2>
+            <p className="mt-4 text-muted-foreground">
+              UARoute допомагає знайти напрямок і підготувати запит. Транспортний партнер — перевізник. Він перевіряє можливість поїздки, узгоджує умови з пасажиром і відповідає за перевезення.
+            </p>
+            <p className="mt-3 text-muted-foreground">
+              Саме повідомлення у WhatsApp не резервує місце. Можливість поїздки та її умови погоджує перевізник. Для питань про саму поїздку звертайтеся до перевізника, з яким ви її погодили.
+            </p>
+          </section>
+
+          <p>
+            <Link href="/privacy/" className="inline-flex min-h-11 max-w-full items-center break-all text-primary link-underline">
+              Як працює приватність і передавання даних →
+            </Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

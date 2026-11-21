@@ -39,6 +39,8 @@ var SEO_DOCUMENTS = {
   "/routes/celle-lviv/": "/routes/celle-lviv/index.html",
   "/routes/wolfsburg-ivano-frankivsk/": "/routes/wolfsburg-ivano-frankivsk/index.html",
   "/routes/celle-stryi/": "/routes/celle-stryi/index.html",
+  "/routes/kalush-lueneburg/": "/routes/kalush-lueneburg/index.html",
+  "/routes/lueneburg-kalush/": "/routes/lueneburg-kalush/index.html",
   "/cities/lviv/": "/cities/lviv/index.html",
   "/cities/ivano-frankivsk/": "/cities/ivano-frankivsk/index.html",
   "/cities/celle/": "/cities/celle/index.html",

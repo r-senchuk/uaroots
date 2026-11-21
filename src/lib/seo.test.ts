@@ -222,14 +222,12 @@ describe("priority route entities and sitemap", () => {
     expect(mentions).toHaveLength(2);
     for (const route of mentions) {
       const entityContext = `\\(${latinName}, Німеччина\\)`;
-      if (route.slug === "celle-lviv") {
-        expect(route.description).toBe("Целле — Львів: запропонуйте місце зустрічі в Целле й запитайте про можливість поїздки на вашу дату. Подальшу дорогу зі Львова плануйте окремо після погодження місця та очікуваного часу прибуття.");
-      } else expect(route.description).toMatch(new RegExp(entityContext));
+      expect(route.description).toMatch(new RegExp(entityContext));
       expect(route.seo.description).toMatch(new RegExp(entityContext));
     }
   });
 
-  it("keeps the 22 approved sitemap URLs and omits ineffective hints", () => {
+  it("keeps the 24 approved sitemap URLs and omits ineffective hints", () => {
     const entries = sitemap();
     const expectedUrls = [
       "https://uaroute.com/",
@@ -255,10 +253,12 @@ describe("priority route entities and sitemap", () => {
         "ivano-frankivsk-wolfsburg",
         "wolfsburg-ivano-frankivsk",
         "celle-stryi",
+        "kalush-lueneburg",
+        "lueneburg-kalush",
       ].map((slug) => `https://uaroute.com/routes/${slug}/`),
     ].sort();
 
-    expect(entries).toHaveLength(22);
+    expect(entries).toHaveLength(24);
     expect(entries.map(({ url }) => url).sort()).toEqual(expectedUrls);
     const hubDates = new Map(entries.filter(({ url }) => url.includes("/cities/")).map(({ url, lastModified }) => [url, lastModified]));
     expect(hubDates).toEqual(new Map([

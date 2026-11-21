@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Eyebrow, IndexBadge, chipLink, ticketCard } from "@/components/brand/editorial";
+import { Graticule } from "@/components/brand/graphics";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerCard } from "@/components/PartnerCard";
 import { RouteList } from "@/components/RouteList";
@@ -48,21 +50,22 @@ export default function HomePage() {
       <JsonLd data={organizationLd()} />
       <JsonLd data={brandOrganizationLd()} />
 
-      <section className="relative border-b border-border-strong">
+      <section className="relative overflow-hidden border-b border-border-strong">
+        <Graticule />
         <div className="container-page relative grid items-center gap-8 py-6 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:py-12">
-          <div>
-            <p className="type-label text-muted-foreground">Сплануйте наступну поїздку</p>
+          <div className="min-w-0">
+            <p><Eyebrow>Сплануйте наступну поїздку</Eyebrow></p>
             <h1 className="mt-4 font-display text-[clamp(2.5rem,4.5vw,4rem)] font-medium leading-[1.08] tracking-tight">
               Поїздки між Україною
               <br />
               <span className="italic text-primary">та Німеччиною</span>
             </h1>
-            <p className="mt-5 max-w-lg type-body text-muted-foreground">
+            <p className="mt-5 max-w-lg type-body text-foreground/85">
               Зі Львова, Івано-Франківська та інших міст — і назад.
               Оберіть міста, щоб звернутися до перевізника.
             </p>
 
-            <div className="mt-7 border-t border-border-strong pt-5">
+            <div className={`mt-7 ${ticketCard}`}>
               <RouteSearch showPilotChoices />
             </div>
           </div>
@@ -90,7 +93,7 @@ export default function HomePage() {
 
       <section className="container-page section-band" aria-labelledby="routes-heading">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
+          <div className="min-w-0">
             <p className="type-label text-muted-foreground">Знайдіть свій напрямок</p>
             <h2 id="routes-heading" className="mt-4 type-h1">
               Зі Львова та Івано-Франківська — і назад
@@ -103,8 +106,8 @@ export default function HomePage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/cities/lviv/" className="inline-flex min-h-11 items-center border border-border-strong px-4 py-2 type-button hover:bg-secondary">Львів ↔ Німеччина</Link>
-          <Link href="/cities/ivano-frankivsk/" className="inline-flex min-h-11 items-center border border-border-strong px-4 py-2 type-button hover:bg-secondary">Івано-Франківськ ↔ Німеччина</Link>
+          <Link href="/cities/lviv/" className={chipLink}>Львів ↔ Німеччина</Link>
+          <Link href="/cities/ivano-frankivsk/" className={chipLink}>Івано-Франківськ ↔ Німеччина</Link>
         </div>
         <RouteList routes={featured} ctaLocation="route_index" className="mt-8" />
         <details className="mt-8 border-t border-border-strong pt-5">
@@ -123,13 +126,11 @@ export default function HomePage() {
           Від вибору міст до розмови про поїздку
         </h2>
 
-        <ol className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
+        <ol className="mt-10 grid gap-8 border-t-2 border-border-strong pt-6 sm:grid-cols-3">
           {steps.map((step, index) => (
-            <li key={step.title} className="border-t border-border-strong pt-5">
-              <span className="type-index text-accent-foreground">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-4 font-display text-2xl font-normal leading-tight">{step.title}</h3>
+            <li key={step.title} className="min-w-0 [overflow-wrap:anywhere]">
+              <IndexBadge index={index + 1} />
+              <h3 className="mt-4 font-display text-2xl leading-snug">{step.title}</h3>
               <p className="mt-3 type-body-small text-muted-foreground">{step.text}</p>
             </li>
           ))}
