@@ -51,8 +51,8 @@ export function getCityHubPresentation(city: City, fromName: string, toName: str
       : `${city.name} вже вибрано. Додайте місто в Німеччині, а для повернення натисніть «До України» — вибрана пара міст збережеться.`,
     departureLabel: `Як їхати ${fromName}`,
     arrivalLabel: `${isGerman ? "Як планувати прибуття" : "Як повертатися"} ${toName}`,
-    departureHeading: isGerman ? `Підготуйте виїзд із ${city.name}` : "Підготуйте виїзд",
-    arrivalHeading: isGerman ? `Сплануйте прибуття до ${city.name}` : "Підготуйте повернення",
+    departureHeading: isGerman ? `Підготуйте виїзд ${fromName}` : "Підготуйте виїзд",
+    arrivalHeading: isGerman ? `Сплануйте прибуття ${toName}` : "Підготуйте повернення",
     routeCards: routeSlugs.map(getResolvedRoute).filter((route): route is ResolvedRoute => route?.status === "commercial"),
     relatedHubs: selectedHubCities
       .filter((candidate) => candidate.id !== city.id)
@@ -64,7 +64,9 @@ export function getCityHubPresentation(city: City, fromName: string, toName: str
             ? "Напрямки з Івано-Франківська"
             : candidate.id === "stryi"
               ? "Напрямки зі Стрия"
-              : "Напрямки із Целле",
+              : candidate.id === "hannover"
+                ? "Напрямки з Ганновера"
+                : "Напрямки із Целле",
       })),
   };
 }

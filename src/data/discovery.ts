@@ -27,12 +27,12 @@ export const pilotGermanCityIds = [
 
 export const priorityOriginCityIds = ["lviv", "ivano-frankivsk"] as const;
 
-/** Owner-selected 2026-10-26: inline inquiries in both directions, without new route pages. */
+/** Owner-selected 2026-10-26 (inline inquiries); promoted to standalone candidate_inquiry pages on 2026-11-27. */
 export const additionalInquiryPairs = [
   { originCityId: "ivano-frankivsk", destinationCityId: "hannover" },
 ] as const;
 
-export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"] as const;
+export const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/"] as const;
 
 /** Explicitly selected pages only; do not derive route slugs from these pairs. */
 export const selectedCandidatePairs = [
@@ -49,4 +49,6 @@ export const selectedCandidatePairs = [
   { slug: "celle-stryi", originCityId: "celle", destinationCityId: "stryi" },
   { slug: "kalush-lueneburg", originCityId: "kalush", destinationCityId: "lueneburg" },
   { slug: "lueneburg-kalush", originCityId: "lueneburg", destinationCityId: "kalush" },
+  { slug: "ivano-frankivsk-hannover", originCityId: "ivano-frankivsk", destinationCityId: "hannover" },
+  { slug: "hannover-ivano-frankivsk", originCityId: "hannover", destinationCityId: "ivano-frankivsk" },
 ] as const;

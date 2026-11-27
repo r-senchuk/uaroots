@@ -19,7 +19,7 @@ import { breadcrumbLd, buildMetadata, routeIndexCollectionLd, travelPreviewImage
 
 const title = "Поїздки Україна — Німеччина: оберіть міста | UARoute";
 const description =
-  "Знайдіть напрямок зі Львова, Івано-Франківська чи іншого українського міста до Німеччини та назад. Поради для підготовки й повідомлення перевізнику.";
+  "Оберіть українське та німецьке місто для запиту перевізнику: Львів, Івано-Франківськ, Калуш, Стрий, Долина та Ганновер, Целле, Вольфсбург, Брауншвейг, Люнебург.";
 
 export const metadata: Metadata = buildMetadata({ title, description, path: "/routes/", socialImage: travelPreviewImage });
 
@@ -53,6 +53,12 @@ const hubCards = [
     cta: "Міста, напрямки та підготовка поїздки →",
     tag: "DE ⇄ UA",
   },
+  {
+    href: "/cities/hannover/",
+    title: "Ганновер ↔ Україна",
+    cta: "Напрямки в Нижній Саксонії та підготовка поїздки →",
+    tag: "DE ⇄ UA",
+  },
 ] as const;
 
 export default function RoutesIndexPage() {
@@ -75,9 +81,9 @@ export default function RoutesIndexPage() {
           <p className="mt-4"><Eyebrow>Куди плануєте їхати?</Eyebrow></p>
           <h1 className="mt-4 max-w-4xl type-h1">Поїздки між Україною та Німеччиною</h1>
           <p className="mt-5 max-w-2xl type-body text-foreground/85">
-            Оберіть міста, щоб звернутися до перевізника й з’ясувати умови вашої поїздки.
-            У добірках нижче є поради про місце зустрічі та подальшу дорогу.
-            Для поїздки з Німеччини перемкніть пошук на «До України».
+            Оберіть українське та німецьке місто (зокрема Львів, Івано-Франківськ, Калуш, Стрий, Долина та
+            Ганновер, Целле, Вольфсбург, Брауншвейг, Люнебург), щоб надіслати запит перевізнику.
+            Можливість поїздки на вашу дату, посадку та висадку підтверджує перевізник; для зворотного напрямку перемкніть пошук на «До України».
           </p>
           <div className={`mt-7 ${ticketCard}`}>
             <RouteSearch sourcePath="/routes/" ctaLocation="route_index" showPilotChoices />

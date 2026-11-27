@@ -13,9 +13,9 @@ import { priorityOriginCityIds } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
 import { brandOrganizationLd, organizationLd, websiteLd, buildMetadata, travelPreviewImage } from "@/lib/seo";
 
-const title = "UARoute — поїздки між Україною та Німеччиною";
+const title = "UARoute — поїздки мікроавтобусом між Україною та Німеччиною";
 const description =
-  "Поїздки зі Львова, Івано-Франківська та інших міст до Німеччини й назад. Оберіть напрямок, перегляньте питання про посадку й багаж та зверніться до перевізника.";
+  "Оберіть міста для запиту перевізнику: Львів, Івано-Франківськ, Калуш, Стрий, Долина та Ганновер, Целле, Вольфсбург, Брауншвейг. Можливість поїздки й умови підтверджує перевізник.";
 
 export const metadata: Metadata = buildMetadata({ title, description, path: "/", socialImage: travelPreviewImage });
 
@@ -61,8 +61,9 @@ export default function HomePage() {
               <span className="italic text-primary">та Німеччиною</span>
             </h1>
             <p className="mt-5 max-w-lg type-body text-foreground/85">
-              Зі Львова, Івано-Франківська та інших міст — і назад.
-              Оберіть міста, щоб звернутися до перевізника.
+              Оберіть міста для запиту перевізнику між Україною (Львів, Івано-Франківськ, Калуш, Стрий, Долина та інші)
+              й Німеччиною (Ганновер, Целле, Вольфсбург, Брауншвейг, Люнебург та інші). За інформацією перевізника,
+              у Німеччині діє адресна доставка та бронювання без передоплати; можливість поїздки, посадку й висадку підтверджує перевізник.
             </p>
 
             <div className={`mt-7 ${ticketCard}`}>
@@ -108,6 +109,7 @@ export default function HomePage() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/cities/lviv/" className={chipLink}>Львів ↔ Німеччина</Link>
           <Link href="/cities/ivano-frankivsk/" className={chipLink}>Івано-Франківськ ↔ Німеччина</Link>
+          <Link href="/cities/hannover/" className={chipLink}>Ганновер ↔ Україна</Link>
         </div>
         <RouteList routes={featured} ctaLocation="route_index" className="mt-8" />
         <details className="mt-8 border-t border-border-strong pt-5">

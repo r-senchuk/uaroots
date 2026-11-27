@@ -9,10 +9,10 @@ Read `types.ts` first. Field names stay as they are.
 - Route copy describes confirmation of a specific trip and its terms, not denial of a selected direction. Use neutral «перевізник» in public names and Ukrainian text; omit surnames/branding. Preserve IDs, contacts, source/referral URLs and classifications; no additional connected carriers are implied.
 - `claims[]`: `sourceUrl` + `lastVerifiedAt`, or leave empty
 - City `aliases`: search-only, never URLs
-- Acquisition priority is Lviv/Ivano-Frankivsk. Preserve fourteen Ukrainian and six German candidate IDs; discovery additionally includes commercial endpoints (seven German cities including Hannover). There are four hubs and eleven published candidate-inquiry pairs. Existing Celle → Stryi page is preserved per owner clarification 2026-10-23 and current canonical catalog/tests. This does not establish operated service or authorize additional pairs. New publication requires dated selection evidence; never reconstruct the missing matrix.
+- Acquisition priority is Lviv/Ivano-Frankivsk. Preserve fourteen Ukrainian and six German candidate IDs; discovery additionally includes commercial endpoints (seven German cities including Hannover). There are five hubs (including `/cities/hannover/` per owner decision 2026-11-27) and fifteen published candidate-inquiry pairs (including `kalush-lueneburg` / `lueneburg-kalush` and `ivano-frankivsk-hannover` / `hannover-ivano-frankivsk`). Existing Celle → Stryi page is preserved per owner clarification 2026-10-23 and current canonical catalog/tests. This does not establish operated service or authorize additional pairs. New publication requires dated selection evidence; never reconstruct the missing matrix.
 
 
-Owner selection 2026-10-26 additionally allows the single inline inquiry pair Івано-Франківськ ↔ Ганновер (`additionalInquiryPairs`), without new route pages or changes to the 14×6 pilot sets. Dated scope: [content governance](../../docs/Product/06-data-model-and-content-governance.md).
+Owner selection 2026-10-26 additionally allowed the inline inquiry pair Івано-Франківськ ↔ Ганновер (`additionalInquiryPairs`); owner selection 2026-11-27 promoted Івано-Франківськ ↔ Ганновер to standalone `candidate_inquiry` route pages (`/routes/ivano-frankivsk-hannover/`, `/routes/hannover-ivano-frankivsk/`) and added `/cities/hannover/`, without changing the 14×6 pilot sets or publishing other Hannover pairs. Dated scope: [content governance](../../docs/Product/06-data-model-and-content-governance.md).
 
 Then `npm run validate`.
 

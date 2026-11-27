@@ -18,6 +18,7 @@ const selected = [
   ["ivano-frankivsk", "wolfsburg", "ivano-frankivsk-wolfsburg"], ["wolfsburg", "ivano-frankivsk", "wolfsburg-ivano-frankivsk"],
   ["celle", "stryi", "celle-stryi"],
   ["kalush", "lueneburg", "kalush-lueneburg"], ["lueneburg", "kalush", "lueneburg-kalush"],
+  ["ivano-frankivsk", "hannover", "ivano-frankivsk-hannover"], ["hannover", "ivano-frankivsk", "hannover-ivano-frankivsk"],
 ];
 const report = { generatedAt: new Date().toISOString(), mode: live ? "live" : "local", checks: [], viewportChecks: [], screenshots: [], runtimeErrors: [], outgoingMessagesChecked: 0, blockedRequests: 0 };
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".txt": "text/x-component", ".woff2": "font/woff2", ".webp": "image/webp", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon" };
@@ -246,7 +247,7 @@ try {
     return { aliasLanguages: 5, editorialExcluded: true };
   });
 
-  for (const width of [375, 768, 1440]) for (const path of ["/", "/routes/", "/cities/lviv/", "/cities/ivano-frankivsk/", ...selected.slice(6).map(([, , slug]) => `/routes/${slug}/`)]) {
+  for (const width of [375, 768, 1440]) for (const path of ["/", "/routes/", "/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/hannover/", ...selected.slice(6).map(([, , slug]) => `/routes/${slug}/`)]) {
     await check(`viewport ${width} ${path}`, async () => {
       await page.setViewportSize({ width, height: width === 375 ? 812 : 1000 });
       await load(page, path);

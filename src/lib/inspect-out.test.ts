@@ -54,15 +54,18 @@ const routes = [
   ["celle-stryi", "Целле", "Стрий", true, "вокзал старе місто"],
   ["kalush-lueneburg", "Калуш", "Люнебург", true, "вокзал старе місто"],
   ["lueneburg-kalush", "Люнебург", "Калуш", true, "вокзал старе місто"],
+  ["ivano-frankivsk-hannover", "Івано-Франківськ", "Ганновер", true, "Hannover Hbf ZOB"],
+  ["hannover-ivano-frankivsk", "Ганновер", "Івано-Франківськ", true, "Hannover Hbf ZOB"],
 ] as const;
 const mainPages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const guidePages = ["/guides/perevezennya-velosypeda/"];
 const editorialRoutes = ["lviv-hamburg", "lviv-berlin"] as const;
 const hubs = [
-  ["lviv", "зі Львова", "Поїздки зі Львова до Німеччини та назад", "Поїздки зі Львова до Німеччини та назад", "Львів Львова", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["lviv-hannover", "lviv-celle", "celle-lviv"], ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"]],
-  ["ivano-frankivsk", "з Івано-Франківська", "Поїздки з Івано-Франківська до Німеччини та назад", "Поїздки з Івано-Франківська до Німеччини та назад", "Івано-Франківськ Івано-Франківська", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], ["/cities/lviv/", "/cities/celle/", "/cities/stryi/"]],
-  ["celle", "із Целле", "Поїздки з Целле до України та назад", "Поїздки з Целле до України та назад", "Целле", [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]], ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/stryi/"]],
-  ["stryi", "зі Стрия", "Поїздки зі Стрия до Німеччини та назад", "Поїздки зі Стрия до Німеччини та назад", "Стрий Стрия", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["celle-stryi"], ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"]],
+  ["lviv", "зі Львова", "Поїздки зі Львова до Німеччини та назад", "Поїздки зі Львова до Німеччини та назад", "Львів Львова", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["lviv-hannover", "lviv-celle", "celle-lviv"], ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/"]],
+  ["ivano-frankivsk", "з Івано-Франківська", "Поїздки з Івано-Франківська до Німеччини та назад", "Поїздки з Івано-Франківська до Німеччини та назад", "Івано-Франківськ Івано-Франківська", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk", "ivano-frankivsk-hannover", "hannover-ivano-frankivsk"], ["/cities/lviv/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/"]],
+  ["celle", "із Целле", "Поїздки з Целле до України та назад", "Поїздки з Целле до України та назад", "Целле", [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]], ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/stryi/", "/cities/hannover/"]],
+  ["stryi", "зі Стрия", "Поїздки зі Стрия до Німеччини та назад", "Поїздки зі Стрия до Німеччини та назад", "Стрий Стрия", [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]], ["celle-stryi"], ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/hannover/"]],
+  ["hannover", "з Ганновера", "Поїздки з Ганновера до України та назад", "Поїздки з Ганновера до України та назад", "Ганновер Ганновера", [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]], ["lviv-hannover", "ivano-frankivsk-hannover", "hannover-ivano-frankivsk"], ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"]],
 ] as const;
 const temporaryRoots: string[] = [];
 
@@ -151,7 +154,9 @@ function fixture() {
           ? "https://www.braunschweig.de/tourismus/ihr-besuch-in-braunschweig/anreise_bahn_bus.php"
           : slug.includes("lueneburg")
             ? "https://www.lueneburg.info/buchen-service/service/anreise"
-            : "";
+            : slug.includes("hannover")
+              ? "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn"
+              : "";
     write(root, `routes/${slug}/index.html`, page(path, `Назва ${slug}`, `<h1>${origin} → ${destination}</h1>${copy}`, [reverse, "/routes/", ...(candidate ? [citySource] : [])]));
     for (const file of ["index.txt", "__next._tree.txt", "__next._full.txt", "__next.routes.$d$slug.__PAGE__.txt"]) {
       write(root, `routes/${slug}/${file}`, "RSC");
@@ -166,31 +171,31 @@ function fixture() {
         ? ["https://booking.uz.gov.ua/", "Офіційний пошук квитків Укрзалізниці"]
         : slug === "stryi"
           ? ["https://booking.uz.gov.ua/", "Офіційний пошук квитків Укрзалізниці"]
-          : ["https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", "Офіційний довідник доїзду до Целле"];
-    const role = slug === "lviv"
-      ? "UARoute допоможе підготувати звернення до перевізника"
-      : slug === "ivano-frankivsk"
-        ? "UARoute допоможе підготувати звернення до перевізника"
-        : slug === "stryi"
-          ? "UARoute допоможе підготувати звернення до перевізника"
-          : "UARoute допоможе підготувати звернення до перевізника";
-    const purpose = slug === "lviv" ? "Перевірити актуальні правила доїзду в місті" : slug === "ivano-frankivsk" ? "Окремо перевірити потрібну попередню або подальшу ділянку" : slug === "stryi" ? "Окремо перевірити розклад приміських потягів та поїздів до станції Стрий" : "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою";
+          : slug === "hannover"
+            ? ["https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn", "Офіційний довідник громадського транспорту Ганновера"]
+            : ["https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", "Офіційний довідник доїзду до Целле"];
+    const role = "UARoute допоможе підготувати звернення до перевізника";
+    const purpose = slug === "lviv" ? "Перевірити актуальні правила доїзду в місті" : slug === "ivano-frankivsk" ? "Окремо перевірити потрібну попередню або подальшу ділянку" : slug === "stryi" ? "Окремо перевірити розклад приміських потягів та поїздів до станції Стрий" : slug === "hannover" ? "Перевірити місцевий доїзд у Ганновері та регіоні перед зустріччю або після прибуття" : "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою";
     const outbound = slug === "lviv"
       ? "Якщо спочатку добираєтеся до Львова, погодьте точку та час зустрічі."
       : slug === "ivano-frankivsk"
         ? "Якщо до міста плануєте їхати потягом, перевірте варіанти після погодження зустрічі."
         : slug === "stryi"
           ? "Вкажіть перевізнику фактичний населений пункт, якщо ви живете в місті або добираєтеся з Моршина."
-          : "Якщо вирушаєте з Целле або сусіднього населеного пункту, якого немає в пошуку, оберіть Целле як найближче доступне в пошуку місто, коли воно відповідає вашому плану. У приватному повідомленні вкажіть фактичне місце й точну адресу або орієнтир, а також повідомте про багаж. Якщо їдете до зустрічі в Целле, уточніть місце й час до купівлі квитків на місцеву дорогу.";
+          : slug === "hannover"
+            ? "Якщо вирушаєте з Ганновера або сусідньої громади регіону, оберіть Ганновер у пошуку."
+            : "Якщо вирушаєте з Целле або сусіднього населеного пункту, якого немає в пошуку, оберіть Целле як найближче доступне в пошуку місто, коли воно відповідає вашому плану. У приватному повідомленні вкажіть фактичне місце й точну адресу або орієнтир, а також повідомте про багаж. Якщо їдете до зустрічі в Целле, уточніть місце й час до купівлі квитків на місцеву дорогу.";
     const returning = slug === "lviv"
       ? "Не вважайте залізничний вокзал чи інший орієнтир автоматично погодженою зупинкою."
       : slug === "ivano-frankivsk"
         ? "Для подальшої поїздки потягом перевірте доступні варіанти окремо; пересування містом і стиковка не гарантуються зверненням до перевізника."
         : slug === "stryi"
           ? "Погодьте фактичне місце висадки."
-          : "Якщо вам потрібно приїхати до Целле чи сусіднього населеного пункту, оберіть напрямок до Целле в пошуку, коли окремого місця немає серед варіантів. У приватному повідомленні вкажіть фактичне місце прибуття, адресу або орієнтир. Повідомте тих, хто вас зустрічатиме, і окремо сплануйте місцеву дорогу після прибуття.";
-    const departureHeading = slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд";
-    const arrivalHeading = slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення";
+          : slug === "hannover"
+            ? "Якщо вам потрібно приїхати до Ганновера чи навколишніх міст регіону, вкажіть точну адресу."
+            : "Якщо вам потрібно приїхати до Целле чи сусіднього населеного пункту, оберіть напрямок до Целле в пошуку, коли окремого місця немає серед варіантів. У приватному повідомленні вкажіть фактичне місце прибуття, адресу або орієнтир. Повідомте тих, хто вас зустрічатиме, і окремо сплануйте місцеву дорогу після прибуття.";
+    const departureHeading = slug === "celle" ? "Підготуйте виїзд із Целле" : slug === "hannover" ? "Підготуйте виїзд з Ганновера" : "Підготуйте виїзд";
+    const arrivalHeading = slug === "celle" ? "Сплануйте прибуття до Целле" : slug === "hannover" ? "Сплануйте прибуття до Ганновера" : "Підготуйте повернення";
     const introduction = slug === "celle"
       ? "UARoute допоможе підготувати звернення до перевізника і підготувати звернення до перевізника. Оберіть українське місто для пошуку."
       : role;
@@ -207,17 +212,19 @@ function fixture() {
       { heading: "Громади й поселення Флотведеля (Samtgemeinde Flotwedel)", source: "https://www.flotwedel.de/downloads/datei/YmY3ZTdhMjczMDUzMDFmNkE0VUI3OU1vS2pXeHJlQVNqQXhESEZLTzdSSFp1NDIzZTJwZjBZNGwrbmZ0NW1XUXRqdHJqYlgxcEN4TFJjcVFnUGhXVHFQY2swTjlCTVd5K1BHc2Zvc1MyOWYwUDhma1c3dmIrV1RFSzk2M0pINE1LVmJpVVdyd2oraWl1RDlxYVJianpGOENrMkVjUHU5TFVZOUFTbWRCSldreGhtS2NUNmwrK3d1bU53cz0", guidance: "Для Wienhausen, Eicklingen, Langlingen, Bröckel, Offensen, Oppershausen, Bockelskamp або Nienhof зазначте конкретне поселення й повну адресу. Перевірте місцевий доїзд до чи від цієї точки окремо." },
     ] : [];
     const nearbyCards = nearbyGroups.map((group) => `<li><h3>${group.heading.replace(/ \((.*)\)$/, "<span> (<!-- -->$1<!-- -->)</span>")}</h3><p>${group.guidance}</p><p>Географічна довідка: <a href="${group.source}">джерело</a>, перевірено 2026-10-10.</p></li>`).join("");
-    const reviewDate = slug === "lviv" || slug === "ivano-frankivsk" ? "2026-10-25" : "2026-10-23";
-    const checkedAtDate = slug === "stryi" ? "2026-10-17" : "2026-10-09";
-    const body = `<h1>${h1}</h1><p>${introduction}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">${nearbyHeading}</h2><p>${nearbyCopy}</p>${nearbyCards ? `<ul>${nearbyCards}</ul>` : ""}<a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>${departureHeading}</h2><p>${outbound}</p><h2>${arrivalHeading}</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="${checkedAtDate}">${checkedAtDate}</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="${reviewDate}">${reviewDate}</time></p></section><section><h2>${choicesHeading}</h2><p>${destinations.map(([destination, localName]) => `${destination} ${localName}`).join(" ")}</p></section><section><h2>Поради для вашого напрямку</h2><ul>${linkedRoutes.map((routeSlug) => `<li><h3>${routeSlug}</h3><a href="/routes/${routeSlug}/">Поради</a></li>`).join("")}</ul></section>${cityHubJsonLd(slug, slug === "celle" ? "Целле" : slug === "lviv" ? "Львів" : slug === "ivano-frankivsk" ? "Івано-Франківськ" : "Стрий", linkedRoutes)}<p>${cityForms}</p>`;
-    const exactTitle = slug === "celle" ? "Поїздки з Целле до України та назад | UARoute" : slug === "lviv" ? "Поїздки зі Львова до Німеччини та назад | UARoute" : slug === "ivano-frankivsk" ? "Поїздки з Івано-Франківська до Німеччини та назад | UARoute" : "Поїздки зі Стрия до Німеччини та назад | UARoute";
+    const reviewDate = slug === "lviv" || slug === "ivano-frankivsk" ? "2026-10-25" : slug === "hannover" ? "2026-11-27" : "2026-10-23";
+    const checkedAtDate = slug === "stryi" ? "2026-10-17" : slug === "hannover" ? "2026-10-25" : "2026-10-09";
+    const body = `<h1>${h1}</h1><p>${introduction}</p><script>window.fixtureOnlyFiller = "x".repeat(4096)</script><section aria-labelledby="search-heading"><h2 id="search-heading" tabindex="-1">Куди хочете їхати?</h2><p>Можливість поїздки на вашу дату, наявність місць, місця посадки й висадки та ціну підтверджує перевізник у відповідь на звернення.</p></section><section aria-labelledby="nearby-places-heading"><h2 id="nearby-places-heading">${nearbyHeading}</h2><p>${nearbyCopy}</p>${nearbyCards ? `<ul>${nearbyCards}</ul>` : ""}<a href="#search-heading">Повернутися до пошуку поїздки</a></section><section><h2>${departureHeading}</h2><p>${outbound}</p><h2>${arrivalHeading}</h2><p>${returning}</p><ul><li><a href="${resource[0]}">${resource[1]}</a><p>${purpose}</p><p>Довідник переглянуто <time datetime="${checkedAtDate}">${checkedAtDate}</time></p></li></ul><p>Редакційні поради переглянуто <time datetime="${reviewDate}">${reviewDate}</time></p></section><section><h2>${choicesHeading}</h2><p>${destinations.map(([destination, localName]) => `${destination} ${localName}`).join(" ")}</p></section><section><h2>Поради для вашого напрямку</h2><ul>${linkedRoutes.map((routeSlug) => `<li><h3>${routeSlug}</h3><a href="/routes/${routeSlug}/">Поради</a></li>`).join("")}</ul></section>${cityHubJsonLd(slug, slug === "celle" ? "Целле" : slug === "lviv" ? "Львів" : slug === "ivano-frankivsk" ? "Івано-Франківськ" : slug === "hannover" ? "Ганновер" : "Стрий", linkedRoutes)}<p>${cityForms}</p>`;
+    const exactTitle = slug === "celle" ? "Поїздки з Целле до України та назад | UARoute" : slug === "lviv" ? "Поїздки зі Львова до Німеччини та назад | UARoute" : slug === "ivano-frankivsk" ? "Поїздки з Івано-Франківська до Німеччини та назад | UARoute" : slug === "hannover" ? "Поїздки з Ганновера до України та назад | UARoute" : "Поїздки зі Стрия до Німеччини та назад | UARoute";
     const description = slug === "celle"
       ? "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник."
       : slug === "lviv"
         ? "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника."
         : slug === "ivano-frankivsk"
           ? "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником."
-          : "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник.";
+          : slug === "hannover"
+            ? "Ганновер (Hannover) ↔ Україна: вибір українського міста для запиту перевізнику (Львів, Івано-Франківськ, Калуш, Стрий, Долина та інші), поради щодо зустрічі, прибуття й багажу. Умови підтверджує перевізник."
+            : "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник.";
     write(root, `cities/${slug}/index.html`, page(path, exactTitle, body, [...crossHubs], description));
     for (const file of ["index.txt", "__next._tree.txt", "__next._full.txt", "__next.cities.$d$slug.__PAGE__.txt"]) {
       write(root, `cities/${slug}/${file}`, "RSC");
@@ -244,7 +251,7 @@ function fixture() {
   write(root, "llms.txt", llmsContent(false));
   write(root, "llms-full.txt", llmsContent(true));
   const sitemapPaths = [...mainPages, ...guidePages, ...hubs.map(([slug]) => `/cities/${slug}/`), ...routes.map(([slug]) => `/routes/${slug}/`)];
-  write(root, "sitemap.xml", `<urlset>${sitemapPaths.map((path) => `<url><loc>https://uaroute.com${path}</loc>${path === "/cities/celle/" || path === "/cities/stryi/" ? "<lastmod>2026-10-23</lastmod>" : path.startsWith("/cities/") ? "<lastmod>2026-10-25</lastmod>" : ""}</url>`).join("")}</urlset>`);
+  write(root, "sitemap.xml", `<urlset>${sitemapPaths.map((path) => `<url><loc>https://uaroute.com${path}</loc>${path === "/cities/celle/" || path === "/cities/stryi/" ? "<lastmod>2026-10-23</lastmod>" : path === "/cities/hannover/" ? "<lastmod>2026-11-27</lastmod>" : path.startsWith("/cities/") ? "<lastmod>2026-10-25</lastmod>" : ""}</url>`).join("")}</urlset>`);
   write(root, "assets/site.css", "body { color: black; }");
   for (const asset of ["arrival-560.webp", "arrival-1120.webp", "crewbravo-logo.svg", "icon.svg", "_next/static/media/font.woff2"]) {
     write(root, asset, "fixture asset");

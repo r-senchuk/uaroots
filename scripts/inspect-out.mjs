@@ -17,17 +17,20 @@ export const pilotRoutes = [
   { slug: "celle-stryi", originId: "celle", destinationId: "stryi", origin: "Целле", destination: "Стрий", candidate: true },
   { slug: "kalush-lueneburg", originId: "kalush", destinationId: "lueneburg", origin: "Калуш", destination: "Люнебург", candidate: true },
   { slug: "lueneburg-kalush", originId: "lueneburg", destinationId: "kalush", origin: "Люнебург", destination: "Калуш", candidate: true },
+  { slug: "ivano-frankivsk-hannover", originId: "ivano-frankivsk", destinationId: "hannover", origin: "Івано-Франківськ", destination: "Ганновер", candidate: true },
+  { slug: "hannover-ivano-frankivsk", originId: "hannover", destinationId: "ivano-frankivsk", origin: "Ганновер", destination: "Івано-Франківськ", candidate: true },
 ];
 
 const sitePages = ["/", "/routes/", "/about/", "/imprint/", "/privacy/"];
 const guidePages = ["/guides/perevezennya-velosypeda/"];
 const cityHubs = [
-  { slug: "lviv", name: "Львів", headingCity: "зі Львова", heading: "Поїздки зі Львова до Німеччини та назад", cityForms: ["Львів", "Львова"], crossHubs: ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки зі Львова до Німеччини та назад | UARoute", description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.", cardSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
-  { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", heading: "Поїздки з Івано-Франківська до Німеччини та назад", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHubs: ["/cities/lviv/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute", description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.", cardSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
-  { slug: "celle", name: "Целле", headingCity: "із Целле", heading: "Поїздки з Целле до України та назад", cityForms: ["Целле"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/stryi/"], title: "Поїздки з Целле до України та назад | UARoute", description: "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник.", cardSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], destinations: [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]] },
-  { slug: "stryi", name: "Стрий", headingCity: "зі Стрия", heading: "Поїздки зі Стрия до Німеччини та назад", cityForms: ["Стрий", "Стрия"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/"], title: "Поїздки зі Стрия до Німеччини та назад | UARoute", description: "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник.", cardSlugs: ["celle-stryi"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "lviv", name: "Львів", headingCity: "зі Львова", heading: "Поїздки зі Львова до Німеччини та назад", cityForms: ["Львів", "Львова"], crossHubs: ["/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/"], title: "Поїздки зі Львова до Німеччини та назад | UARoute", description: "Поїздки зі Львова до Німеччини та назад: вибір міста, поради про місце зустрічі, доїзд до посадки й подальшу дорогу. Уточніть умови у перевізника.", cardSlugs: ["lviv-hannover", "lviv-celle", "celle-lviv"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "ivano-frankivsk", name: "Івано-Франківськ", headingCity: "з Івано-Франківська", heading: "Поїздки з Івано-Франківська до Німеччини та назад", cityForms: ["Івано-Франківськ", "Івано-Франківська"], crossHubs: ["/cities/lviv/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/"], title: "Поїздки з Івано-Франківська до Німеччини та назад | UARoute", description: "Івано-Франківськ ↔ Німеччина: оберіть місто й перегляньте поради про посадку, багаж та зустріч після прибуття. Погодьте поїздку з перевізником.", cardSlugs: ["ivano-frankivsk-wolfsburg", "wolfsburg-ivano-frankivsk", "ivano-frankivsk-hannover", "hannover-ivano-frankivsk"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "celle", name: "Целле", headingCity: "із Целле", heading: "Поїздки з Целле до України та назад", cityForms: ["Целле"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/stryi/", "/cities/hannover/"], title: "Поїздки з Целле до України та назад | UARoute", description: "Оберіть українське місто для поїздки з Целле або назад. Поради про зустріч, багаж і подальшу дорогу; умови підтверджує перевізник.", cardSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"], destinations: [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]] },
+  { slug: "stryi", name: "Стрий", headingCity: "зі Стрия", heading: "Поїздки зі Стрия до Німеччини та назад", cityForms: ["Стрий", "Стрия"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/hannover/"], title: "Поїздки зі Стрия до Німеччини та назад | UARoute", description: "Стрий ↔ Німеччина: оберіть місто, перегляньте поради про місце зустрічі на автостанції чи вокзалі, багаж та доїзд з Моршина, Дрогобича чи Трускавця. Умови підтверджує перевізник.", cardSlugs: ["celle-stryi"], destinations: [["Шверін", "Schwerin"], ["Люнебург", "Lüneburg"], ["Любек", "Lübeck"], ["Целле", "Celle"], ["Вольфсбург", "Wolfsburg"], ["Брауншвейг", "Braunschweig"]] },
+  { slug: "hannover", name: "Ганновер", headingCity: "з Ганновера", heading: "Поїздки з Ганновера до України та назад", cityForms: ["Ганновер", "Ганновера"], crossHubs: ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"], title: "Поїздки з Ганновера до України та назад | UARoute", description: "Ганновер (Hannover) ↔ Україна: вибір українського міста для запиту перевізнику (Львів, Івано-Франківськ, Калуш, Стрий, Долина та інші), поради щодо зустрічі, прибуття й багажу. Умови підтверджує перевізник.", cardSlugs: ["lviv-hannover", "ivano-frankivsk-hannover", "hannover-ivano-frankivsk"], destinations: [["Львів", "Львів"], ["Івано-Франківськ", "Івано-Франківськ"], ["Долина", "Долина"], ["Калуш", "Калуш"], ["Стрий", "Стрий"], ["Галич", "Галич"], ["Бурштин", "Бурштин"], ["Пустомити", "Пустомити"], ["Брюховичі", "Брюховичі"], ["Городок (Львівська область)", "Городок (Львівська область)"], ["Миколаїв (Львівська область)", "Миколаїв (Львівська область)"], ["Новий Розділ", "Новий Розділ"], ["Надвірна", "Надвірна"], ["Жидачів", "Жидачів"]] },
 ];
-const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/"];
+const cityHubPaths = ["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/"];
 const cityHubResources = {
   lviv: {
     url: "https://lviv.travel/ua/news/gaid-lvivskim-gromadskim-transportom",
@@ -84,6 +87,17 @@ const cityHubResources = {
     reviewedAt: "2026-10-23",
     contentUpdatedAt: "2026-10-23",
   },
+  hannover: {
+    url: "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn",
+    label: "Офіційний довідник громадського транспорту Ганновера",
+    role: "UARoute допоможе підготувати звернення до перевізника",
+    outbound: "Якщо вирушаєте з Ганновера або сусідньої громади регіону",
+    returning: "Якщо вам потрібно приїхати до Ганновера чи навколишніх міст регіону",
+    purpose: "Перевірити місцевий доїзд у Ганновері та регіоні перед зустріччю або після прибуття",
+    checkedAt: "2026-10-25",
+    reviewedAt: "2026-11-27",
+    contentUpdatedAt: "2026-11-27",
+  },
 };
 const editorialRouteSlugs = ["lviv-hamburg", "lviv-berlin"];
 const legacyRedirects = [
@@ -107,6 +121,8 @@ const candidatePracticalTerms = {
   "celle-stryi": ["вокзал", "старе місто"],
   "kalush-lueneburg": ["вокзал", "старе місто"],
   "lueneburg-kalush": ["вокзал", "старе місто"],
+  "ivano-frankivsk-hannover": ["Hannover Hbf", "ZOB"],
+  "hannover-ivano-frankivsk": ["Hannover Hbf", "ZOB"],
 };
 const candidateSources = {
   "dolyna-celle": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
@@ -122,6 +138,8 @@ const candidateSources = {
   "celle-stryi": "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken",
   "kalush-lueneburg": "https://www.lueneburg.info/buchen-service/service/anreise",
   "lueneburg-kalush": "https://www.lueneburg.info/buchen-service/service/anreise",
+  "ivano-frankivsk-hannover": "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn",
+  "hannover-ivano-frankivsk": "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn",
 };
 const forbiddenCandidateClaims = [
   "Прямі рейси без пересадок",
@@ -713,8 +731,8 @@ export function inspectExport(root = join(process.cwd(), "out")) {
     const resourceCard = resourceAnchor ? visibleHtml.slice(visibleHtml.lastIndexOf("<li", resourceAnchor.index), visibleHtml.indexOf("</li>", resourceAnchor.index) + 5) : "";
     if (!plainText(resourceCard).includes(expectedResource.purpose)) errors.push(`${pagePath} is missing the passenger action for its planning resource`);
     // Review dates remain internal provenance, not mandatory passenger-facing copy.
-    const hasDepartureHeading = text.includes(slug === "celle" ? "Підготуйте виїзд із Целле" : "Підготуйте виїзд");
-    const hasArrivalHeading = text.includes(slug === "celle" ? "Сплануйте прибуття до Целле" : "Підготуйте повернення");
+    const hasDepartureHeading = text.includes(slug === "celle" ? "Підготуйте виїзд із Целле" : slug === "hannover" ? "Підготуйте виїзд з Ганновера" : "Підготуйте виїзд");
+    const hasArrivalHeading = text.includes(slug === "celle" ? "Сплануйте прибуття до Целле" : slug === "hannover" ? "Сплануйте прибуття до Ганновера" : "Підготуйте повернення");
     if (!hasDepartureHeading || !hasArrivalHeading ||
       !text.includes("Можливість поїздки на вашу дату") || !text.includes("підтверджує перевізник")) {
       errors.push(`${pagePath} is missing direction guidance or manual-confirmation context`);
@@ -771,7 +789,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       if (!text.includes(destination) || !text.includes(localName)) {
         errors.push(`${pagePath} is missing German pilot city ${destination} (${localName}) in server-rendered content`);
       }
-      if (slug === "celle") {
+      if (slug === "celle" || slug === "hannover") {
         const position = text.indexOf(destination, previousDestinationIndex + 1);
         if (position < 0 || position < previousDestinationIndex) errors.push(`${pagePath} does not preserve the ordered Ukrainian choice list`);
         previousDestinationIndex = position;
@@ -812,7 +830,7 @@ export function inspectExport(root = join(process.cwd(), "out")) {
       .sort();
     const actual = [...locations].sort();
     if (actual.length !== expected.length || actual.some((location, index) => location !== expected[index])) {
-      errors.push("sitemap.xml must contain exactly the five public pages, dedicated bicycle guide, four selected city hubs, and fourteen commercial routes");
+      errors.push("sitemap.xml must contain exactly the five public pages, dedicated bicycle guide, five selected city hubs, and sixteen commercial routes");
     }
     const expectedLastmod = new Map(Object.entries(cityHubResources).map(([slug, content]) => [canonicalUrl(`/cities/${slug}/`), content.contentUpdatedAt]));
     for (const entry of entries) {

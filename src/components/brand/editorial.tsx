@@ -150,6 +150,27 @@ export function BicycleIcon({ className }: { className?: string }) {
   );
 }
 
+/** Package stroke icon for parcel inquiry callout. */
+export function PackageIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden viewBox="0 0 20 20" fill="none" className={cn("size-4 shrink-0", className)}>
+      <path
+        d="M10 2.8 16.5 6.3v7.4L10 17.2l-6.5-3.5V6.3L10 2.8Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3.5 6.3 10 9.8l6.5-3.5M10 9.8v7.4M6.8 4.5l6.4 3.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export const ticketCard =
   "min-w-0 border border-border-strong border-t-4 border-t-primary bg-card p-3 sm:p-6 shadow-[var(--shadow-lifted)]";
 

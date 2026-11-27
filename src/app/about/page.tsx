@@ -8,6 +8,7 @@ import {
   HouseIcon,
   IconTile,
   IndexBadge,
+  PackageIcon,
   ShieldIcon,
   chipLink,
 } from "@/components/brand/editorial";
@@ -107,6 +108,29 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
+          <section className="mt-6 border border-border-strong bg-card p-5 [overflow-wrap:anywhere]" aria-labelledby="parcels-info-heading">
+            <div className="flex min-w-0 items-start gap-3">
+              <IconTile className="mt-0.5">
+                <PackageIcon />
+              </IconTile>
+              <div className="min-w-0">
+                <h2 id="parcels-info-heading" className="type-h2">Передати посилку</h2>
+                <p className="mt-3 max-w-xl type-body text-muted-foreground">
+                  Перевезення посилок між Україною та Німеччиною потрібно погоджувати окремо від пасажирської поїздки.
+                  Підготуйте міста відправлення й отримання, опис вмісту, кількість пакунків, приблизну вагу та розміри.
+                  До відправлення уточніть у перевізника, чи приймуть ваші речі, як їх передати, повну вартість і порядок отримання.
+                </p>
+                <a
+                  href="https://www.4k-koval.com/packages"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex min-h-11 items-center type-button text-primary link-underline"
+                >
+                  Посилки: інформація на сайті перевізника ↗
+                </a>
+              </div>
+            </div>
+          </section>
           <p className="mt-5 type-body text-muted-foreground">
             UARoute працює в межах польської JDG Roman Senchuk, під бізнес-брендом Crew Bravo.{" "}
             <Link href="/imprint/" className="link-underline">Відомості про оператора</Link>{" "}
@@ -154,6 +178,7 @@ export default function AboutPage() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/cities/lviv/" className={chipLink}>Львів ↔ Німеччина</Link>
           <Link href="/cities/ivano-frankivsk/" className={chipLink}>Івано-Франківськ ↔ Німеччина</Link>
+          <Link href="/cities/hannover/" className={chipLink}>Ганновер ↔ Україна</Link>
           <Link href="/guides/perevezennya-velosypeda/" className={chipLink}>Перевезення велосипеда</Link>
         </div>
         <Link href="/routes/" className="mt-6 inline-flex min-h-11 items-center type-label text-primary link-underline">

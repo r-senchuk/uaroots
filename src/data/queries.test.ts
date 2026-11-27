@@ -43,7 +43,7 @@ describe("listDiscoveryCities", () => {
     expect(JSON.stringify(pilotGermanCityIds)).toBe(sourceSnapshots.germanCandidates);
   });
 
-  it("exposes Hannover as commercial Lviv destination without expanding candidate eligibility", () => {
+  it("exposes Hannover as commercial Lviv and Ivano-Frankivsk destination without expanding other pairs", () => {
     const lviv = cities.find((city) => city.id === "lviv")!;
     const hannover = cities.find((city) => city.id === "hannover")!;
     const kalush = cities.find((city) => city.id === "kalush")!;
@@ -51,6 +51,8 @@ describe("listDiscoveryCities", () => {
     expect(findRouteByCities("lviv", "hannover", { commercialOnly: true })?.slug).toBe("lviv-hannover");
     expect(findRouteByCities("hannover", "lviv", { commercialOnly: true })).toBeUndefined();
     expect(isCandidateInquiryEligiblePair(hannover, lviv)).toBe(false);
+    expect(findRouteByCities("ivano-frankivsk", "hannover", { commercialOnly: true })?.slug).toBe("ivano-frankivsk-hannover");
+    expect(findRouteByCities("hannover", "ivano-frankivsk", { commercialOnly: true })?.slug).toBe("hannover-ivano-frankivsk");
     expect(findRouteByCities("kalush", "hannover", { commercialOnly: true })).toBeUndefined();
     expect(isCandidateInquiryEligiblePair(kalush, hannover)).toBe(false);
   });
@@ -94,11 +96,11 @@ describe("findRouteByCities", () => {
     expect(route?.destination.name).toBe("Ганновер");
   });
 
-  it("resolves only the eleven explicitly selected candidate pages", () => {
+  it("resolves only the fifteen explicitly selected candidate pages", () => {
     for (const { originCityId, destinationCityId, slug } of selectedCandidatePairs) {
       expect(findRouteByCities(originCityId, destinationCityId, { commercialOnly: true })?.slug).toBe(slug);
     }
-    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(13);
+    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(15);
     expect(findRouteByCities("kalush", "schwerin", { commercialOnly: true })).toBeUndefined();
   });
 
@@ -113,7 +115,7 @@ describe("findRouteByCities", () => {
 });
 
 describe("isCandidateInquiryEligiblePair", () => {
-  it("allows the owner-selected Ivano-Frankivsk–Hannover inquiry both ways without expanding other Hannover pairs or publishing pages", () => {
+  it("allows the owner-selected Ivano-Frankivsk–Hannover commercial route both ways without expanding other Hannover pairs", () => {
     const hannover = cities.find((city) => city.id === "hannover")!;
     for (const cityId of pilotUkrainianCityIds) {
       const city = cities.find((candidate) => candidate.id === cityId)!;
@@ -121,8 +123,8 @@ describe("isCandidateInquiryEligiblePair", () => {
       expect(isCandidateInquiryEligiblePair(city, hannover)).toBe(eligible);
       expect(isCandidateInquiryEligiblePair(hannover, city)).toBe(eligible);
     }
-    expect(findRouteByCities("ivano-frankivsk", "hannover", { commercialOnly: true })).toBeUndefined();
-    expect(findRouteByCities("hannover", "ivano-frankivsk", { commercialOnly: true })).toBeUndefined();
+    expect(findRouteByCities("ivano-frankivsk", "hannover", { commercialOnly: true })?.slug).toBe("ivano-frankivsk-hannover");
+    expect(findRouteByCities("hannover", "ivano-frankivsk", { commercialOnly: true })?.slug).toBe("hannover-ivano-frankivsk");
   });
 
   it("allows only pilot Ukrainian candidate cities paired with one of six German pilot cities", () => {
@@ -146,6 +148,6 @@ describe("isCandidateInquiryEligiblePair", () => {
         expect(isCandidateInquiryEligiblePair(destination, origin), `${destinationId} → ${originId}`).toBe(true);
       }
     }
-    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(13);
+    expect(listResolvedRoutes("commercial").filter((route) => route.serviceMode === "candidate_inquiry")).toHaveLength(15);
   });
 });

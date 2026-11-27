@@ -26,10 +26,13 @@ export const publicRoutes = [
   '/routes/celle-stryi',
   '/routes/kalush-lueneburg',
   '/routes/lueneburg-kalush',
+  '/routes/ivano-frankivsk-hannover',
+  '/routes/hannover-ivano-frankivsk',
   '/cities/lviv',
   '/cities/ivano-frankivsk',
   '/cities/celle',
   '/cities/stryi',
+  '/cities/hannover',
 ];
 
 export const sharedSources = [
@@ -71,10 +74,13 @@ export const routeSources = {
   '/routes/celle-stryi': ['src/app/routes/[slug]/page.tsx', 'src/data/routes.ts'],
   '/routes/kalush-lueneburg': ['src/app/routes/[slug]/page.tsx', 'src/data/routes.ts'],
   '/routes/lueneburg-kalush': ['src/app/routes/[slug]/page.tsx', 'src/data/routes.ts'],
+  '/routes/ivano-frankivsk-hannover': ['src/app/routes/[slug]/page.tsx', 'src/data/routes.ts'],
+  '/routes/hannover-ivano-frankivsk': ['src/app/routes/[slug]/page.tsx', 'src/data/routes.ts'],
   '/cities/lviv': ['src/app/cities/[slug]/page.tsx', 'src/data/cities.ts', 'src/data/city-hubs.ts'],
   '/cities/ivano-frankivsk': ['src/app/cities/[slug]/page.tsx', 'src/data/cities.ts', 'src/data/city-hubs.ts'],
   '/cities/celle': ['src/app/cities/[slug]/page.tsx', 'src/data/cities.ts', 'src/data/city-hubs.ts'],
   '/cities/stryi': ['src/app/cities/[slug]/page.tsx', 'src/data/cities.ts', 'src/data/city-hubs.ts'],
+  '/cities/hannover': ['src/app/cities/[slug]/page.tsx', 'src/data/cities.ts', 'src/data/city-hubs.ts'],
 };
 
 export function getSourcesForRoute(route) {

@@ -4,13 +4,15 @@ import { cities } from "@/data/cities";
 import { cityHubPaths } from "@/data/discovery";
 import { listResolvedRoutes } from "@/data/queries";
 
-const priorityHubPaths = new Set(["/cities/lviv/", "/cities/ivano-frankivsk/"]);
+const priorityHubPaths = new Set(["/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/hannover/"]);
 const priorityRouteSlugs = new Set([
   "lviv-hannover",
   "lviv-celle",
   "celle-lviv",
   "ivano-frankivsk-wolfsburg",
   "wolfsburg-ivano-frankivsk",
+  "ivano-frankivsk-hannover",
+  "hannover-ivano-frankivsk",
 ]);
 
 function link(label: string, path: string, description: string) {
@@ -26,7 +28,7 @@ export function llmsContent(full: boolean) {
   const sections = [
     `# ${siteConfig.name}`,
     `> ${siteConfig.description}`,
-    "UARoute допомагає обрати напрямок і підготувати звернення. Перевізник підтверджує можливість поїздки та оформлює бронювання.",
+    "UARoute допомагає обрати міста для запиту перевізнику між Україною (зокрема Львів, Івано-Франківськ, Калуш, Стрий, Долина) та Німеччиною (зокрема Ганновер, Целле, Вольфсбург, Брауншвейг, Люнебург). За інформацією перевізника, поїздки виконуються мікроавтобусами Mercedes Sprinter з двома водіями, діє адресна доставка пасажирів у Німеччині та бронювання без передоплати; можливість конкретної поїздки, посадку, висадку й умови підтверджує перевізник.",
   ];
 
   if (full) {
