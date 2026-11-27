@@ -658,7 +658,7 @@ async function run() {
       return { route: new URL(desktop.url()).pathname };
     });
 
-    await runCheck("owner-selected Ivano-Frankivsk ↔ Hannover opens inline inquiry", async () => {
+    await runCheck("owner-selected Ivano-Frankivsk ↔ Hannover opens published route pages", async () => {
       for (const reverse of [false, true]) {
         await mobile.goto(`${uarouteOrigin}/`, { waitUntil: "domcontentloaded" });
         await mobile.waitForLoadState("networkidle");
@@ -666,15 +666,30 @@ async function run() {
         await mobile.getByRole("combobox", { name: "Українське місто", exact: true }).selectOption("ivano-frankivsk");
         await mobile.getByRole("combobox", { name: "Місто в Німеччині", exact: true }).selectOption("hannover");
         await mobile.getByRole("button", { name: "Знайти маршрут", exact: true }).click();
-        const inquiry = mobile.locator('section[aria-labelledby$="-candidate-inquiry-title"]');
-        await inquiry.getByRole("heading", { name: reverse ? "Ганновер → Івано-Франківськ" : "Івано-Франківськ → Ганновер", exact: true }).waitFor({ state: "visible" });
-        const website = new URL(await inquiry.getByRole("link", { name: /Сайт перевізника/ }).getAttribute("href"));
-        ensure(website.searchParams.get("origin_city_id") === (reverse ? "hannover" : "ivano-frankivsk"), "Hannover inquiry lost its origin");
-        ensure(website.searchParams.get("destination_city_id") === (reverse ? "ivano-frankivsk" : "hannover"), "Hannover inquiry lost its destination");
-        ensure(new URL(mobile.url()).pathname === "/", "Inline Hannover inquiry unexpectedly published/navigated to a page");
+        const targetSlug = reverse ? "hannover-ivano-frankivsk" : "ivano-frankivsk-hannover";
+        await mobile.waitForURL(`**/routes/${targetSlug}/`);
+        const headingText = await mobile.locator("h1").innerText();
+        ensure(headingText.includes("Ганновер") && headingText.includes("Івано-Франківськ"), `Unexpected H1 on ${targetSlug}: ${headingText}`);
+        const website = new URL(await mobile.locator("[data-journey-actions]").getByRole("link", { name: /Сайт перевізника/ }).getAttribute("href"));
+        ensure(website.searchParams.get("origin_city_id") === (reverse ? "hannover" : "ivano-frankivsk"), "Hannover route lost its origin");
+        ensure(website.searchParams.get("destination_city_id") === (reverse ? "ivano-frankivsk" : "hannover"), "Hannover route lost its destination");
         await assertNoHorizontalOverflow(mobile, `Ivano-Frankivsk ↔ Hannover ${reverse ? "reverse" : "outbound"}`, result);
       }
-      return { directions: 2, newRoutePages: 0 };
+      return { directions: 2, routePages: ["ivano-frankivsk-hannover", "hannover-ivano-frankivsk"] };
+    });
+
+    await runCheck("about page shows P1 carrier-neutral parcel block without UTM tracking", async () => {
+      await mobile.goto(`${uarouteOrigin}/about/`, { waitUntil: "domcontentloaded" });
+      await mobile.waitForLoadState("networkidle");
+      const section = mobile.locator('section[aria-labelledby="parcels-info-heading"]');
+      await section.waitFor({ state: "visible" });
+      const parcelLink = section.getByRole("link", { name: "Посилки: інформація на сайті перевізника ↗", exact: true });
+      const href = await parcelLink.getAttribute("href");
+      ensure(href === "https://www.4k-koval.com/packages", `Unexpected parcel link href: ${href}`);
+      const box = await parcelLink.boundingBox();
+      ensure(box && box.height >= 44, "Parcel link touch target below 44px");
+      await assertNoHorizontalOverflow(mobile, "mobile about P1 parcel block 375px", result);
+      return { parcelHref: href, touchHeight: box.height };
     });
 
     await runCheck("bounded inline inquiry for Lviv → Lübeck", async () => {

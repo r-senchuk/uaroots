@@ -9,9 +9,10 @@ const commercialSlugs = [
   "lviv-hannover", "lviv-celle", "ivano-frankivsk-wolfsburg", "dolyna-celle", "celle-dolyna",
   "dolyna-wolfsburg", "wolfsburg-dolyna", "dolyna-braunschweig", "braunschweig-dolyna",
   "celle-lviv", "wolfsburg-ivano-frankivsk", "celle-stryi", "kalush-lueneburg", "lueneburg-kalush",
+  "ivano-frankivsk-hannover", "hannover-ivano-frankivsk",
 ];
 const editorialSlugs = ["lviv-hamburg", "lviv-berlin"];
-const citySlugs = ["lviv", "ivano-frankivsk", "celle", "stryi"];
+const citySlugs = ["lviv", "ivano-frankivsk", "celle", "stryi", "hannover"];
 const legacy = [["contact", "/about/"], ["contacts", "/about/"], ["carriers", "/routes/"], ["packages", "/about/"], ["gallery", "/"]];
 const maxBodyBytes = 512 * 1024;
 

@@ -65,7 +65,7 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
         autoComplete="off"
         placeholder={placeholder}
         value={value}
-        className="field-rule search-field mt-2 border-border-strong"
+        className="field-rule search-field mt-2 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] border-border-strong"
         onChange={(event) => {
           onChange(event.target.value);
           setOpen(true);
@@ -109,7 +109,7 @@ function CityField({ label, placeholder, value, city, country, excludedCountry, 
               role="option"
               aria-selected={index === active}
               className={cn(
-                "cursor-pointer px-4 py-3",
+                "cursor-pointer scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] px-4 py-3",
                 index === active ? "bg-secondary" : "bg-transparent",
               )}
               onMouseEnter={() => setActive(index)}
@@ -325,7 +325,7 @@ export function RouteSearch({
                       <select
                         value={selected?.id ?? ""}
                         onChange={(event) => chooseCity(index === 0 ? "origin" : "destination", event.target.value ? getCity(event.target.value) ?? null : null)}
-                        className="field-rule search-field mt-2 border-border-strong"
+                        className="field-rule search-field mt-2 scroll-mt-[calc(var(--header-height,4.5rem)+1rem)] border-border-strong"
                         aria-label={countryLabel}
                       >
                         <option value="">Оберіть місто</option>

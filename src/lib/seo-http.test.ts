@@ -29,14 +29,17 @@ const documents = [
   "/", "/routes/", "/about/", "/imprint/", "/privacy/",
   "/guides/perevezennya-velosypeda/",
   "/routes/lviv-hannover/", "/routes/lviv-celle/", "/routes/ivano-frankivsk-wolfsburg/",
+  "/routes/ivano-frankivsk-hannover/",
   "/routes/dolyna-celle/", "/routes/celle-dolyna/", "/routes/dolyna-wolfsburg/",
   "/routes/wolfsburg-dolyna/", "/routes/dolyna-braunschweig/", "/routes/braunschweig-dolyna/",
-  "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/", "/routes/celle-stryi/", "/routes/kalush-lueneburg/", "/routes/lueneburg-kalush/", "/cities/lviv/",
-  "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/routes/lviv-hamburg/", "/routes/lviv-berlin/",
+  "/routes/celle-lviv/", "/routes/wolfsburg-ivano-frankivsk/", "/routes/celle-stryi/", "/routes/kalush-lueneburg/", "/routes/lueneburg-kalush/",
+  "/routes/hannover-ivano-frankivsk/",
+  "/cities/lviv/", "/cities/ivano-frankivsk/", "/cities/celle/", "/cities/stryi/", "/cities/hannover/",
+  "/routes/lviv-hamburg/", "/routes/lviv-berlin/",
 ];
 
 describe("CloudFront SEO viewer request policy v1", () => {
-  it("contains only the 24 public sitemap documents and two known editorial documents", () => {
+  it("contains only the 27 public sitemap documents and two known editorial documents", () => {
     const block = artifact.match(/var SEO_DOCUMENTS = \{([\s\S]*?)\n\};/)?.[1] ?? "";
     const keys = [...block.matchAll(/^\s*"([^"]+)":/gm)].map(([, path]) => path);
     expect(keys).toEqual(documents);

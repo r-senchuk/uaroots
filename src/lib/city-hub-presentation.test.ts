@@ -27,7 +27,7 @@ describe("getCityHubPresentation", () => {
     expect(presentation.choiceDirections.find((item) => item.city.id === "lviv")?.returnRoute?.slug).toBe("lviv-celle");
     expect(presentation.choiceDirections.find((item) => item.city.id === "dolyna")?.departureRoute?.slug).toBe("celle-dolyna");
     expect(presentation.choiceDirections.find((item) => item.city.id === "dolyna")?.returnRoute?.slug).toBe("dolyna-celle");
-    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "stryi"]);
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "stryi", "hannover"]);
   });
 
   it("keeps Ukrainian hubs outbound by default with six candidate cities and Hannover", () => {
@@ -42,7 +42,7 @@ describe("getCityHubPresentation", () => {
     expect(presentation.choiceHeading).toBe("Міста Німеччини");
     expect(presentation.departureLabel).toBe("Як їхати зі Львова");
     expect(presentation.arrivalHeading).toBe("Підготуйте повернення");
-    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["ivano-frankivsk", "celle", "stryi"]);
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["ivano-frankivsk", "celle", "stryi", "hannover"]);
   });
 
   it("presents Stryi as an outbound Ukrainian hub with German choices and reverse candidate card", () => {
@@ -60,8 +60,27 @@ describe("getCityHubPresentation", () => {
     expect(presentation.routeCards.map((route) => route.slug)).toEqual(["celle-stryi"]);
     expect(presentation.choiceDirections.find((item) => item.city.id === "celle")?.returnRoute?.slug).toBe("celle-stryi");
     expect(presentation.choiceDirections.find((item) => item.city.id === "celle")?.departureRoute).toBeUndefined();
-    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "celle"]);
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "celle", "hannover"]);
     expect(presentation.relatedHubs.find((h) => h.city.id === "celle")?.label).toBe("Напрямки із Целле");
+    expect(presentation.relatedHubs.find((h) => h.city.id === "hannover")?.label).toBe("Напрямки з Ганновера");
+  });
+
+  it("sets Hannover to a German departure with Ukrainian choices and Lower Saxony routes", () => {
+    const details = cityHubContents.find((content) => content.cityId === "hannover")!;
+    const presentation = getCityHubPresentation(getCity("hannover")!, details.fromName, details.toName, details.routeSlugs)!;
+
+    expect(presentation.initialOriginId).toBe("hannover");
+    expect(presentation.initialDirection).toBe("to-ukraine");
+    expect(presentation.choiceCities).toHaveLength(14);
+    expect(presentation.departureLabel).toBe("Як їхати з Ганновера");
+    expect(presentation.departureHeading).toBe("Підготуйте виїзд з Ганновера");
+    expect(presentation.arrivalHeading).toBe("Сплануйте прибуття до Ганновера");
+    expect(presentation.routeCards.map((route) => route.slug)).toEqual([
+      "lviv-hannover",
+      "ivano-frankivsk-hannover",
+      "hannover-ivano-frankivsk",
+    ]);
+    expect(presentation.relatedHubs.map(({ city }) => city.id)).toEqual(["lviv", "ivano-frankivsk", "celle", "stryi"]);
   });
 
   it("does not present a city when country and country code are unsupported or inconsistent", () => {

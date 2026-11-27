@@ -30,6 +30,7 @@ var SEO_DOCUMENTS = {
   "/routes/lviv-hannover/": "/routes/lviv-hannover/index.html",
   "/routes/lviv-celle/": "/routes/lviv-celle/index.html",
   "/routes/ivano-frankivsk-wolfsburg/": "/routes/ivano-frankivsk-wolfsburg/index.html",
+  "/routes/ivano-frankivsk-hannover/": "/routes/ivano-frankivsk-hannover/index.html",
   "/routes/dolyna-celle/": "/routes/dolyna-celle/index.html",
   "/routes/celle-dolyna/": "/routes/celle-dolyna/index.html",
   "/routes/dolyna-wolfsburg/": "/routes/dolyna-wolfsburg/index.html",
@@ -41,10 +42,12 @@ var SEO_DOCUMENTS = {
   "/routes/celle-stryi/": "/routes/celle-stryi/index.html",
   "/routes/kalush-lueneburg/": "/routes/kalush-lueneburg/index.html",
   "/routes/lueneburg-kalush/": "/routes/lueneburg-kalush/index.html",
+  "/routes/hannover-ivano-frankivsk/": "/routes/hannover-ivano-frankivsk/index.html",
   "/cities/lviv/": "/cities/lviv/index.html",
   "/cities/ivano-frankivsk/": "/cities/ivano-frankivsk/index.html",
   "/cities/celle/": "/cities/celle/index.html",
   "/cities/stryi/": "/cities/stryi/index.html",
+  "/cities/hannover/": "/cities/hannover/index.html",
   "/routes/lviv-hamburg/": "/routes/lviv-hamburg/index.html",
   "/routes/lviv-berlin/": "/routes/lviv-berlin/index.html"
 };

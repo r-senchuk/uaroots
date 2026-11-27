@@ -25,6 +25,7 @@ function syntheticDateFixture(reviewedAt: string, contentUpdatedAt: string, chec
     contentReview: { reviewedAt, contentUpdatedAt, reviewScope: "editorial_guidance" },
   });
   const celle = record("celle", "Fixture City C", "celle-lviv");
+  const hannover = record("hannover", "Fixture City E", "lviv-hannover");
   return [
     record("lviv", "Fixture City A", "lviv-hannover"),
     record("ivano-frankivsk", "Fixture City B", "ivano-frankivsk-wolfsburg"),
@@ -34,6 +35,11 @@ function syntheticDateFixture(reviewedAt: string, contentUpdatedAt: string, chec
       routeSlugs: ["celle-lviv", "lviv-celle", "celle-dolyna", "dolyna-celle"],
       planningResources: [{ label: "Офіційний довідник доїзду до Целле", url: "https://www.celle-tourismus.de/info-besucherservice/tourist-information/anreise-parken", checkedAt: "2026-10-09", purpose: "Перевірити місцевий доїзд перед зустріччю або подальшою дорогою." }],
       contentReview: { reviewedAt: "2026-10-09", contentUpdatedAt: "2026-10-09", reviewScope: "editorial_guidance" },
+    },
+    {
+      ...hannover,
+      routeSlugs: ["lviv-hannover", "ivano-frankivsk-hannover", "hannover-ivano-frankivsk"],
+      planningResources: [{ label: "Офіційний довідник громадського транспорту Ганновера", url: "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn", checkedAt: "2026-10-25", purpose: "Перевірити місцевий доїзд у Ганновері та регіоні перед зустріччю або після прибуття." }],
     },
   ];
 }
@@ -52,11 +58,13 @@ function addNamedTestPlace(contents = cloneContents()) {
 
 describe("validateCityHubContent", () => {
   it("accepts the selected hub data with source-backed regional nearby places for Lviv and Ivano-Frankivsk", () => {
-    expect(validateCityHubContent(cityHubContents, "2026-10-25")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-11-27")).toEqual([]);
     const lviv = cityHubContents.find((c) => c.cityId === "lviv")!;
     const ifHub = cityHubContents.find((c) => c.cityId === "ivano-frankivsk")!;
+    const hannover = cityHubContents.find((c) => c.cityId === "hannover")!;
     expect(lviv.nearbyPlaces).toHaveLength(4);
     expect(ifHub.nearbyPlaces).toHaveLength(4);
+    expect(hannover.nearbyPlaces).toHaveLength(4);
   });
 
   it("accepts a source-backed synthetic nearby-place fixture", () => {
@@ -186,7 +194,7 @@ describe("validateCityHubContent", () => {
     expect(celle.nearbyIntro).toContain("найближче доступне для вашої поїздки місто в пошуку");
     expect(celle.nearbyIntro).toContain("точну адресу або орієнтир");
     expect(celle.nearbyIntro).toContain("чи можлива там посадка або висадка");
-    expect(validateCityHubContent(cityHubContents, "2026-10-25")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-11-27")).toEqual([]);
   });
 
   it("keeps Stryi's selected directions, source, and editorial dates in the reviewed content", () => {
@@ -222,7 +230,33 @@ describe("validateCityHubContent", () => {
     expect(stryi.nearbyIntro).toContain("фактичне місце");
     expect(stryi.nearbyIntro).toContain("приватному повідомленні WhatsApp");
     expect(stryi.nearbyIntro).toContain("Перевізник підтвердить, чи можлива там посадка або висадка");
-    expect(validateCityHubContent(cityHubContents, "2026-10-25")).toEqual([]);
+    expect(validateCityHubContent(cityHubContents, "2026-11-27")).toEqual([]);
+  });
+
+  it("keeps Hannover's selected directions, Region Hannover nearby places, source, and review dates", () => {
+    const hannover = cityHubContents.find((content) => content.cityId === "hannover")!;
+    expect(hannover).toBeDefined();
+    expect(hannover.routeSlugs).toEqual(["lviv-hannover", "ivano-frankivsk-hannover", "hannover-ivano-frankivsk"]);
+    expect(hannover.planningResources).toEqual([
+      {
+        label: "Офіційний довідник громадського транспорту Ганновера",
+        url: "https://www.hannover.de/Leben-in-der-Region-Hannover/Mobilit%C3%A4t/Bus-Bahn",
+        checkedAt: "2026-10-25",
+        purpose: "Перевірити місцевий доїзд у Ганновері та регіоні перед зустріччю або після прибуття.",
+      },
+    ]);
+    expect(hannover.contentReview).toEqual({
+      reviewedAt: "2026-11-27",
+      contentUpdatedAt: "2026-11-27",
+      reviewScope: "editorial_guidance",
+    });
+    expect(hannover.nearbyPlaces.map((place) => place.localName)).toEqual([
+      "Langenhagen",
+      "Laatzen",
+      "Garbsen",
+      "Lehrte",
+    ]);
+    expect(validateCityHubContent(cityHubContents, "2026-11-27")).toEqual([]);
   });
 
   it("requires unique nearby keys and complete source-backed context", () => {
